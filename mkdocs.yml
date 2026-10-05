@@ -6,6 +6,17 @@ repo_name: 2026-2_T02_ADA_LOVELACE
 theme:
   name: material
   language: pt-BR
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/white-balance-sunny
+        name: Mudar para o modo escuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Mudar para o modo claro
   features:
     - navigation.tabs
     - navigation.sections
