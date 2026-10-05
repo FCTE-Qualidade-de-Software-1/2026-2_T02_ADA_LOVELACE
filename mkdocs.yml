@@ -1,0 +1,28 @@
+site_name: Análise de Qualidades de Software
+site_description: Documentação da análise de qualidades de software do projeto Ada Lovelace
+site_author: Equipe Ada Lovelace
+repo_name: 2026-2_T02_ADA_LOVELACE
+
+theme:
+  name: material
+  language: pt-BR
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Início: index.md
+  - Análise:
+      - Roteiro da análise: analise/roteiro.md
+      - Resultados: analise/resultados.md
+  - Referências: referencias.md
