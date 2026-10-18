@@ -45,11 +45,26 @@ produto.
 * **Características avaliadas:** flexibilidade (portabilidade), segurança e
   capacidade de interação (usabilidade), conforme a adaptação da
   [ISO/IEC 25010:2023](https://www.iso.org/standard/78176.html).
-* **Justificativa das características:** segurança foi priorizada pelo
-  compartilhamento de informações e pela colaboração em tempo real;
-  flexibilidade, pela variedade de navegadores, sistemas operacionais e
-  dispositivos; e capacidade de interação, pela necessidade de desenhar com
-  rapidez, aprender a interface e colaborar sem perder dados.
+* **Justificativa das características:** segurança é essencial porque os
+  diagramas podem conter informações pessoais, acadêmicas ou profissionais e
+  circulam por meio de links, sessões colaborativas, armazenamento local e,
+  em alguns recursos, serviços externos de inteligência artificial. A análise
+  considera a importância de aplicar os princípios da **Lei Geral de Proteção
+  de Dados (LGPD)**, especialmente finalidade, necessidade, transparência,
+  segurança e prevenção, além de verificar controle de acesso, proteção das
+  comunicações, integridade do conteúdo, autenticidade dos participantes e
+  rastreabilidade das ações. Isso reduz o risco de exposição, alteração ou
+  uso indevido de dados e ajuda a preservar os direitos dos titulares, sem
+  presumir que a avaliação, por si só, certifique conformidade legal.
+  Flexibilidade é relevante porque a aplicação precisa funcionar em
+  diferentes navegadores, sistemas operacionais, resoluções e dispositivos,
+  inclusive celulares e interfaces sensíveis ao toque, além de permitir a
+  migração de diagramas sem perda significativa de conteúdo ou produtividade.
+  Capacidade de interação é necessária para que iniciantes aprendam a
+  ferramenta, usuários experientes trabalhem com eficiência e pessoas com
+  diferentes capacidades consigam operar o sistema, inclusive por teclado ou
+  com tecnologia assistiva, com feedback compreensível e proteção contra a
+  perda acidental de trabalho.
 * **Escopo:** criação e edição de formas, textos, setas e wireframes;
   interação por mouse, teclado e toque; compartilhamento e colaboração por
   links; exportação e importação de diagramas; recursos de inteligência
