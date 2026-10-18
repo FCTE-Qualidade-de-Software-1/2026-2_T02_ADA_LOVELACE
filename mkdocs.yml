@@ -50,6 +50,7 @@ markdown_extensions:
 
 nav:
   - Início: index.md
+  - Metodologia: metodologia.md
   - Fase 1:
       - Modelo de qualidade: fase1/modelo-qualidade.md
       - ODS: fase1/ods.md
