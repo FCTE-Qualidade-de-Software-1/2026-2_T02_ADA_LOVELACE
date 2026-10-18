@@ -45,11 +45,11 @@ aparecer entre aspas e com a referência correspondente.
 
 * **Ferramenta:** Claude Code, com o modelo Claude Opus 5.5 (Anthropic), na
   extensão do VS Code.
-* **Tarefa:** comparação entre o documento de definição da Fase 2 e a
-  GitPage para identificar divergências nas questões e métricas; transposição
+* **Tarefa:** comparação entre o documento de definição que tinha sido escrito no google docs e o
+  GitPage para identificar divergências nas questões e métricas. Transposição
   das questões, das métricas e dos níveis de pontuação para o roteiro, com
-  tabelas e diagramas; atualização da matriz de rastreabilidade; resolução de
-  um conflito de *merge*; revisão da GitPage frente aos critérios de avaliação
+  tabelas e diagramas. Atualização da matriz de rastreabilidade. Resolução de
+  um conflito de *merge*. Revisão da GitPage frente aos critérios de avaliação
   da entrega, com inclusão de legendas e das referências das ferramentas de
   medição.
 * **Onde:** [roteiro da análise](analise/roteiro.md) (seções 1, 4, 5 e 6),
