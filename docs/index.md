@@ -49,6 +49,9 @@ produto.
 
 ## Organização da documentação
 
+* Fase 1: [modelo de qualidade](fase1/modelo-qualidade.md), com a adaptação
+  da ISO/IEC 25010:2023 ao Excalidraw, e [ODS](fase1/ods.md), com as metas e
+  os indicadores relacionados à avaliação.
 * [Roteiro da análise](analise/roteiro.md): propósito, escopo, método, objetivos
   GQM, questões, métricas e critérios de julgamento.
 * [Resultados](analise/resultados.md): evidências coletadas, pontuações,
