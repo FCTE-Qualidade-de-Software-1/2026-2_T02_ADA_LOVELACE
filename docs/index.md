@@ -4,8 +4,8 @@
   <img src="assets/logo-extensa.jpeg" alt="Logotipo do Excalidraw">
   <div class="excalidraw-hero-copy">
     <strong>Estudo de caso · Equipe Ada Lovelace</strong>
-    <p>Avaliação de segurança, portabilidade e usabilidade de um quadro branco
-    colaborativo.</p>
+    <p>Avaliação de segurança, flexibilidade e capacidade de interação de um
+    quadro branco colaborativo.</p>
   </div>
 </div>
 
@@ -19,7 +19,7 @@ de Qualidade de Software.
 O Excalidraw foi escolhido por combinar edição visual, colaboração em tempo
 real, compartilhamento de diagramas e recursos de inteligência artificial. A
 avaliação concentra-se nas características mais relevantes para esse contexto:
-**segurança, portabilidade e usabilidade**, conforme a
+**segurança, flexibilidade e capacidade de interação**, conforme a
 [ISO/IEC 25010:2023](https://www.iso.org/standard/78176.html).
 
 O estudo adota uma abordagem mista, combinando medições objetivas, inspeção

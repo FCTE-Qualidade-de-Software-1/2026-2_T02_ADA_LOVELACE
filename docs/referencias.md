@@ -34,6 +34,23 @@
 11. BRASIL. **Lei nº 13.709, de 14 de agosto de 2018**. Lei Geral de Proteção
     de Dados Pessoais (LGPD). Disponível em:
     <https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm>.
+12. OPEN WORLDWIDE APPLICATION SECURITY PROJECT. **OWASP Dependency-Check**.
+    Disponível em: <https://owasp.org/www-project-dependency-check/>. Acesso
+    em: 18 out. 2026.
+13. OPEN WORLDWIDE APPLICATION SECURITY PROJECT. **OWASP Secure Headers
+    Project**. Disponível em:
+    <https://owasp.org/www-project-secure-headers/>. Acesso em: 18 out. 2026.
+14. BROOKE, John. **SUS: A “quick and dirty” usability scale**. In: JORDAN,
+    Patrick W. et al. (ed.). *Usability Evaluation in Industry*. London:
+    Taylor & Francis, 1996.
+15. BANGOR, Aaron; KORTUM, Philip T.; MILLER, James T. **An empirical
+    evaluation of the System Usability Scale**. *International Journal of
+    Human–Computer Interaction*, v. 24, n. 6, p. 574–594, 2008. DOI:
+    <https://doi.org/10.1080/10447310802205776>.
+16. EXCALIDRAW. **Excalidraw — funcionalidades da aplicação pública**.
+    Disponível em:
+    <https://github.com/excalidraw/excalidraw#excalidrawcom>. Acesso em:
+    18 out. 2026.
 
 As versões das ferramentas, comandos utilizados e páginas consultadas durante
 a coleta devem ser registradas junto às evidências em

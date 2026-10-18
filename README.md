@@ -13,8 +13,8 @@ documenta:
 - o contexto, o escopo e o propósito do estudo de caso;
 - a aplicação avaliada, o [Excalidraw](https://excalidraw.com), um quadro
   branco colaborativo para criação e compartilhamento de diagramas;
-- a avaliação das características de **segurança, portabilidade e
-  usabilidade**, com base na ISO/IEC 25010:2023;
+- a avaliação das características de **segurança, flexibilidade e capacidade
+  de interação**, com base na ISO/IEC 25010:2023;
 - o roteiro de avaliação, as partes interessadas, as questões e as métricas
   definidas pela abordagem Goal-Question-Metric (GQM);
 - os critérios de pontuação, as evidências, os achados e as recomendações;

@@ -3,7 +3,8 @@
 ## 1. Propósito e partes interessadas
 
 O propósito é identificar o nível de atendimento e as oportunidades de
-melhoria do Excalidraw em **segurança, portabilidade e usabilidade**. Os
+melhoria do Excalidraw em **segurança, flexibilidade e capacidade de
+interação**. Os
 resultados apoiarão recomendações para usuários, desenvolvedores e
 mantenedores, além de fornecerem evidências para o artigo científico da
 equipe.
@@ -39,18 +40,18 @@ de teste controladas.
 ## 3. Modelo de qualidade
 
 O modelo adotado é a ISO/IEC 25010:2023, adaptado ao contexto colaborativo do
-Excalidraw. Foram priorizadas:
+Excalidraw. Foram priorizadas, conforme a terminologia da edição de 2023:
 
 * **Segurança:** confidencialidade, integridade, responsabilização,
   autenticidade e resistência;
-* **Portabilidade:** adaptabilidade e substituibilidade;
-* **Usabilidade:** reconhecibilidade da adequação, apreensibilidade,
-  operabilidade, proteção contra erros, estética da interface e
-  acessibilidade.
+* **Flexibilidade:** adaptabilidade e substituibilidade;
+* **Capacidade de interação:** reconhecibilidade da adequação,
+  apreensibilidade, operabilidade, proteção contra erros, engajamento do
+  usuário, autodescritividade, inclusividade e assistência ao usuário.
 
 Segurança foi priorizada pelo compartilhamento de informações e pela
-colaboração em tempo real; portabilidade, pelo uso predominante em
-dispositivos móveis e pela variedade de navegadores; e usabilidade, pela
+colaboração em tempo real; flexibilidade, pelo uso predominante em dispositivos
+móveis e pela variedade de navegadores; e capacidade de interação, pela
 necessidade de desenhar com rapidez, aprender a interface e colaborar sem
 perder dados.
 
@@ -76,7 +77,7 @@ ponto de vista de usuários que criam e compartilham conteúdo.
 | S-Q2 | O compartilhamento permite controlar quem acessa o diagrama? | S-M4: mecanismos de controle de acesso; S-M5: exposição de links e permissões |
 | S-Q3 | O sistema impede alteração ou corrupção não autorizada? | S-M6: taxa de detecção de adulteração; S-M7: inconsistências após edições simultâneas |
 
-### O2 — Segurança: identificação, responsabilização e resistência
+### O2 — Segurança: identificação, responsabilização e riscos
 
 Analisar identificação de participantes, registros de ações, dependências e
 configurações técnicas para identificar limitações de autenticidade,
@@ -88,19 +89,27 @@ responsabilização e resistência a ataques.
 | S-Q5 | O sistema confirma a identidade dos participantes? | S-M10: suficiência da autenticação; S-M11: possibilidade de personificação |
 | S-Q6 | A aplicação resiste a vulnerabilidades conhecidas? | S-M12: vulnerabilidades altas ou críticas nas dependências; S-M13: advisories/CVEs e tempo de correção; S-M14: nota dos cabeçalhos HTTP |
 
-### O3 — Portabilidade: adaptação, substituição e migração
+### O3 — Flexibilidade: adaptabilidade a ambientes e dispositivos
 
-Analisar a execução em diferentes ambientes e a troca de dados com ferramentas
-equivalentes, do ponto de vista de usuários e desenvolvedores integradores.
+Analisar a execução em diferentes ambientes, do ponto de vista de usuários e
+desenvolvedores integradores.
 
 | ID | Questão | Métricas |
 | --- | --- | --- |
 | P-Q1 | O Excalidraw funciona de forma consistente em navegadores e sistemas operacionais diferentes? | P-M1: compatibilidade de navegadores; P-M2: compatibilidade de sistemas operacionais; P-M3: defeitos específicos de ambiente |
 | P-Q2 | A aplicação se adapta a dispositivos e condições de uso variadas? | P-M4: cobertura funcional em mobile; P-M5: cobertura funcional offline; P-M6: resoluções sem perda de elementos |
+
+### O4 — Flexibilidade: substituibilidade e migração
+
+Analisar a substituição de ferramentas equivalentes e a migração de dados, do
+ponto de vista de usuários e desenvolvedores integradores.
+
+| ID | Questão | Métricas |
+| --- | --- | --- |
 | P-Q3 | A ferramenta substitui uma equivalente sem perda de produtividade? | P-M7: inclusão funcional; P-M8: razão de tempo de tarefa; P-M9: taxa de conclusão |
 | P-Q4 | Os dados podem ser migrados sem perdas? | P-M10: cobertura de formatos; P-M11: fidelidade no round-trip; P-M12: formatos de importação aceitos |
 
-### O4 — Usabilidade: compreensão, aprendizagem e operação
+### O5 — Capacidade de interação: compreensão, aprendizagem e operação
 
 Analisar a interface de criação e edição para identificar dificuldades de
 compreensão, aprendizagem, operação, recuperação de erros e satisfação.
@@ -113,6 +122,13 @@ compreensão, aprendizagem, operação, recuperação de erros e satisfação.
 | U-Q4 | As tarefas comuns são eficientes e previsíveis? | U-M9: ações por tarefa; U-M10: cobertura de atalhos; U-M11: tempo de experientes versus iniciantes; U-M12: inconsistências; U-M13: feedback visual |
 | U-Q5 | O sistema evita e permite recuperar erros? | U-M14: recuperabilidade por desfazer/refazer; U-M15: ações destrutivas sem confirmação; U-M16: perda de dados após recarga; U-M17: taxa de erro; U-M18: mensagens compreensíveis |
 | U-Q6 | A experiência é satisfatória e acessível? | U-M19: SUS; U-M20: satisfação visual; U-M21: intenção de uso futuro; U-M22: violações WCAG; U-M23: funções operáveis por teclado; U-M24: elementos anunciados por leitor de tela; U-M25: contraste; U-M26: tradução para português |
+
+### O6 — Capacidade de interação: inclusividade e assistência ao usuário
+
+O objetivo O6 é respondido pela parte de acessibilidade da questão U-Q6,
+correspondente às métricas U-M22 a U-M26. A questão e as métricas originais
+foram mantidas sem alteração; a separação ocorre apenas na rastreabilidade dos
+objetivos.
 
 ## 5. Execução e fontes de evidência
 
