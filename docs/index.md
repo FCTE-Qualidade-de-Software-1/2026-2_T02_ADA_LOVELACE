@@ -1,43 +1,57 @@
-# Análise de Qualidades de Software
+# Análise de qualidade do Excalidraw
+
+<div class="excalidraw-hero">
+  <img src="assets/logo-extensa.jpeg" alt="Logotipo do Excalidraw">
+  <div class="excalidraw-hero-copy">
+    <strong>Estudo de caso · Equipe Ada Lovelace</strong>
+    <p>Avaliação de segurança, portabilidade e usabilidade de um quadro branco
+    colaborativo.</p>
+  </div>
+</div>
 
 ## Introdução
 
-Este site documenta a análise de qualidades de software realizada pela equipe
-**Ada Lovelace** na disciplina de Qualidade de Software.
+Este site documenta a avaliação da qualidade do **Excalidraw**, uma aplicação
+web de quadro branco colaborativo para criação de diagramas, esboços e
+wireframes. O trabalho é realizado pela equipe **Ada Lovelace**, na disciplina
+de Qualidade de Software.
 
-Ao longo da análise, serão abordados:
+O Excalidraw foi escolhido por combinar edição visual, colaboração em tempo
+real, compartilhamento de diagramas e recursos de inteligência artificial. A
+avaliação concentra-se nas características mais relevantes para esse contexto:
+**segurança, portabilidade e usabilidade**, conforme a
+[ISO/IEC 25010:2023](https://www.iso.org/standard/78176.html).
 
-- o contexto e os objetivos do projeto avaliado;
-- a identificação dos principais atributos de qualidade;
-- a avaliação segundo as características e subcaracterísticas da
-  **ISO/IEC 25010**, como adequação funcional, eficiência de desempenho,
-  compatibilidade, usabilidade, confiabilidade, segurança, manutenibilidade e
-  portabilidade;
-- as técnicas, critérios e evidências utilizados na avaliação;
-- os resultados encontrados, incluindo pontos fortes, riscos e oportunidades
-  de melhoria; e
-- as recomendações para elevar a qualidade do software.
+O estudo adota uma abordagem mista, combinando medições objetivas, inspeção
+técnica e observação da experiência de uso. Os resultados devem ser
+interpretados somente para a versão, os ambientes e as funcionalidades
+efetivamente avaliados; eles não constituem uma certificação integral do
+produto.
 
 ### Projeto avaliado
 
-> **Preencha esta seção com o nome e o link do projeto que será analisado.**
-
-- **Nome:** `[Nome do projeto avaliado]`
-- **Repositório:** `[URL do repositório]`
-- **Descrição:** `[Resumo do propósito e do público do projeto]`
+* **Nome:** Excalidraw
+* **Aplicação:** [excalidraw.com](https://excalidraw.com)
+* **Repositório:** [github.com/excalidraw/excalidraw](https://github.com/excalidraw/excalidraw)
+* **Descrição:** quadro branco colaborativo para criação, edição, exportação e
+  compartilhamento de diagramas, com interação por mouse, teclado e toque.
 
 ### Integrantes
 
 | Nome | GitHub |
 | --- | --- |
-| `[Nome do integrante 1]` | `[@usuário]` |
-| `[Nome do integrante 2]` | `[@usuário]` |
-| `[Nome do integrante 3]` | `[@usuário]` |
+| André Henrique | [andrehsb](https://github.com/andrehsb) |
+| Giovanna Felipe | [giovannafg](https://github.com/giovannafg) |
+| João Pedro Lopes | [ojplc](https://github.com/ojplc) |
+| Luís Cunha | [cunha-luiss](https://github.com/cunha-luiss) |
+| Renato Araújo | [renatoyx](https://github.com/renatoyx) |
+| Zayra Moraes | [Zayra-Moraes](https://github.com/Zayra-Moraes) |
 
 ## Organização da documentação
 
-- [Roteiro da análise](analise/roteiro.md): etapas, critérios e evidências que
-  devem orientar a avaliação.
-- [Resultados](analise/resultados.md): registro das evidências, achados e
-  recomendações.
-- [Referências](referencias.md): normas, artigos e demais fontes consultadas.
+* [Roteiro da análise](analise/roteiro.md): propósito, escopo, método, objetivos
+  GQM, questões, métricas e critérios de julgamento.
+* [Resultados](analise/resultados.md): evidências coletadas, pontuações,
+  achados, pontos fortes e recomendações.
+* [Referências](referencias.md): normas, métodos, ferramentas e documentação
+  consultados.
