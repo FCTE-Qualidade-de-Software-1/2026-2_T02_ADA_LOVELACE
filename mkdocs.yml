@@ -2,20 +2,28 @@ site_name: Análise de Qualidades de Software
 site_description: Documentação da análise de qualidades de software do projeto Ada Lovelace
 site_author: Equipe Ada Lovelace
 repo_name: 2026-2_T02_ADA_LOVELACE
+repo_url: https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE
 
 theme:
   name: material
   language: pt-BR
+  font: false
+  logo: assets/logo.png
+  favicon: assets/logo.png
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
+      primary: custom
+      accent: custom
       toggle:
-        icon: material/white-balance-sunny
+        icon: material/weather-sunny
         name: Mudar para o modo escuro
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
+      primary: custom
+      accent: custom
       toggle:
-        icon: material/brightness-4
+        icon: material/weather-night
         name: Mudar para o modo claro
   features:
     - navigation.tabs
@@ -23,6 +31,10 @@ theme:
     - navigation.top
     - search.highlight
     - content.code.copy
+    - content.action.edit
+
+extra_css:
+  - stylesheets/extra.css
 
 markdown_extensions:
   - admonition
