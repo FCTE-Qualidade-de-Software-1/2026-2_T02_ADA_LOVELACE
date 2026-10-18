@@ -66,7 +66,7 @@ A adaptação considera três elementos definidos na Fase 1:
 * **as [partes interessadas](proposito-partes-interessadas.md):** usuário
   final (iniciante ou experiente), usuário com necessidades de
   acessibilidade, usuário que acessa apenas pelo celular, usuário que migra
-  de outra ferramenta e desenvolvedor ou mantenedor.
+  de outra ferramenta e mantenedores do Excalidraw.
 
 ### Segurança
 
@@ -80,9 +80,9 @@ cria e compartilha diagramas potencialmente sensíveis.
 | --- | --- | --- | --- | --- |
 | Confidencialidade (*confidentiality*) | Incluída | Diagramas trafegam pela sessão colaborativa e ficam armazenados no navegador; o link de compartilhamento carrega a chave de acesso | Usuário final | O1 |
 | Integridade (*integrity*) | Incluída | Vários participantes editam o mesmo diagrama ao mesmo tempo; alterações indevidas ou conflitos corrompem o conteúdo | Usuário final | O1 |
-| Responsabilização (*accountability*) | Incluída | Em uma sessão aberta por link é preciso saber quem alterou o quê | Usuário final; mantenedor | O2 |
+| Responsabilização (*accountability*) | Incluída | Em uma sessão aberta por link é preciso saber quem alterou o quê | Usuário final; mantenedores do Excalidraw | O2 |
 | Autenticidade (*authenticity*) | Incluída | Na versão gratuita o participante só informa um nome, sem login, o que permite que alguém se passe por outra pessoa | Usuário final | O2 |
-| Resistência (*resistance*) | Incluída | Como o código é aberto, dependências vulneráveis e cabeçalhos HTTP mal configurados podem ser verificados publicamente | Mantenedor | O2 |
+| Resistência (*resistance*) | Incluída | Como o código é aberto, dependências vulneráveis e cabeçalhos HTTP mal configurados podem ser verificados publicamente | Mantenedores do Excalidraw | O2 |
 | Não repúdio (*non-repudiation*) | **Excluída** | A versão gratuita não tem contas nem assinatura das ações, então não há evidência a medir; a rastreabilidade observável já é coberta por responsabilização | — | — |
 
 ### Flexibilidade
@@ -142,8 +142,11 @@ não podem ser medidas de forma confiável no escopo da avaliação:
   tratados em substituibilidade.
 * **Confiabilidade:** disponibilidade e tolerância a falhas exigiriam
   monitoramento prolongado do serviço público, fora do prazo da disciplina.
-* **Manutenibilidade:** interessa à equipe que desenvolve o Excalidraw, que
-  não é parte interessada direta desta avaliação.
+* **Manutenibilidade:** os mantenedores do Excalidraw são parte interessada,
+  mas o que precisam da avaliação são relatos de vulnerabilidades e defeitos,
+  cobertos pelo O2 e pelas métricas com pontuação 0 dos demais objetivos.
+  Medir a manutenibilidade do código exigiria uma análise estática extensa,
+  fora do escopo e do prazo da disciplina.
 * **Proteção (*safety*):** a aplicação não controla equipamentos nem
   processos que possam causar dano físico, à saúde ou ao meio ambiente.
 

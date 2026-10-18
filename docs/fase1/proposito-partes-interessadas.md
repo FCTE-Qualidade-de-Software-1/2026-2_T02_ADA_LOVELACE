@@ -52,7 +52,7 @@ abaixo de 50%).
 | Decisão | Quem decide | Evidência | Critério de decisão |
 | --- | --- | --- | --- |
 | Usar o link de colaboração gratuito para diagramas sensíveis (arquitetura de sistemas, dados de clientes, planejamento interno) ou recorrer a uma alternativa (Excalidraw+, instância própria ou outra ferramenta) | Usuário que compartilha diagramas; equipe ou instituição que adota a ferramenta | O1 e O2 | Uso recomendado somente se O1 e O2 forem atendidos **e** nenhuma métrica de confidencialidade tiver pontuação 0, em especial o envio da chave de criptografia ao servidor |
-| Adotar o Excalidraw como recurso pedagógico em turmas com alunos que acessam pelo celular ou que têm deficiência | Docente ou instituição de ensino | O3, O5 e O6 | Adoção recomendada se O3, O5 e O6 forem ao menos parcialmente atendidos; barreiras com pontuação 0 viram restrições de uso explícitas (por exemplo, "não usar com leitor de tela") |
+| Adotar o Excalidraw como recurso pedagógico em turmas com alunos que acessam pelo celular ou que têm deficiência | Docente ou instituição de ensino | O1, O3, O5 e O6 | Adoção recomendada se O1, O3, O5 e O6 forem ao menos parcialmente atendidos; barreiras com pontuação 0 viram restrições de uso explícitas (por exemplo, "não usar com leitor de tela") |
 | Migrar de outra ferramenta de diagramação (draw.io, Miro) para o Excalidraw | Usuário ou equipe que já usa outra ferramenta | O4 | Migração recomendada se O4 for atendido e a fidelidade ao exportar e reimportar um diagrama for de 100% |
 | Quais problemas corrigir primeiro | Mantenedores do Excalidraw | Métricas com pontuação 0 em qualquer objetivo | Cada métrica com pontuação 0 vira um relato reprodutível; falhas de segurança seguem o canal de divulgação responsável do projeto, e não uma *issue* pública |
 | Se a avaliação aplica corretamente o processo SQuaRE e o GQM | Requisitante (docente da disciplina) | Relatório, artigo e esta GitPage | Critérios de correção da disciplina |
@@ -92,13 +92,13 @@ avaliação. Fonte: elaboração própria.*
 
 | Parte interessada | Papel (ISO/IEC 25040) | Necessidade | Critério de sucesso | Influência na avaliação |
 | --- | --- | --- | --- | --- |
-| Usuário que cria e compartilha diagramas potencialmente sensíveis | Usuário | Colaborar por link e gerar diagramas por IA sem expor o conteúdo a terceiros | Conteúdo cifrado no tráfego e no armazenamento; chave fora do servidor; meios de controlar quem acessa | Motivou a seleção de **Segurança**; é o ponto de vista do **O1** e, nas sessões colaborativas, também do **O2** (autenticidade e responsabilização); colocou a seção de compartilhamento e a criação por IA no escopo |
+| Usuário que cria e compartilha diagramas potencialmente sensíveis | Usuário | Colaborar por link e gerar diagramas por IA sem expor o conteúdo a terceiros | Conteúdo cifrado no tráfego e no armazenamento; chave fora do servidor; meios de controlar quem acessa | Motivou a seleção de **Segurança**; é o ponto de vista do **O1** e, nas sessões colaborativas, também do **O2** (autenticidade e responsabilização); colocou a seção de compartilhamento e a criação por IA no escopo; motiva a comparação entre a versão gratuita e o Excalidraw+ |
 | Usuário iniciante e usuário experiente | Usuário | Desenhar sem treinamento (iniciante) e trabalhar rápido com atalhos (experiente) | Conclui as tarefas básicas sem ajuda; usa atalhos nas tarefas frequentes | Ponto de vista do **O5**; levou a recrutar participantes dos dois perfis, com o mesmo roteiro de tarefas, e a medir o tempo de experientes em relação ao de iniciantes |
 | Usuário com necessidades de acessibilidade | Usuário | Operar o canvas só pelo teclado, com leitor de tela e contraste adequado | Executa as tarefas sem mouse; os elementos do desenho são anunciados pelo leitor de tela | Ponto de vista do **O6**; colocou o uso do canvas pelo teclado no escopo; levou à inclusão de inclusividade e assistência ao usuário no modelo |
 | Usuário que acessa apenas pelo celular | Usuário | Usar o Excalidraw, inclusive a geração por IA, em navegador móvel e com conexão instável | As funções testadas no desktop também funcionam por toque e em telas pequenas | Principal motivo para selecionar **Flexibilidade**; ponto de vista do **O3**; base da ligação com os ODS 9 e 10 |
 | Usuário que migra de outra ferramenta | Usuário | Levar diagramas do draw.io ou do Miro e continuar trabalhando sem perda | Realiza as mesmas tarefas em tempo igual ou menor e exporta e reimporta sem perder elementos | Ponto de vista do **O4**; levou a tratar importação e exportação em substituibilidade, e não em interoperabilidade |
-| Docente ou instituição que adota a ferramenta | Adquirente (comprador) | Escolher um quadro branco gratuito, acessível e seguro para uso em aula | Funciona nos dispositivos dos alunos, é acessível e não expõe dados dos alunos | Une as decisões dos objetivos O3, O5 e O6; base da ligação com as metas 4.4 e 4.a (ODS 4); motiva a comparação entre a versão gratuita e o Excalidraw+ |
-| Equipe principal do Excalidraw e comunidade de código aberto | Desenvolvedor, fornecedor e mantenedor | Saber quais vulnerabilidades, incompatibilidades e barreiras de uso existem | Recebe relatos reprodutíveis, ligados a uma versão identificada do código | Ponto de vista do **O2** (resistência); exige fixar a versão do repositório analisada para que a auditoria de dependências seja reprodutível |
+| Docente ou instituição que adota a ferramenta | Adquirente (comprador) | Escolher um quadro branco gratuito, acessível e seguro para uso em aula | Funciona nos dispositivos dos alunos, é acessível e não expõe dados dos alunos | Une as decisões dos objetivos O1, O3, O5 e O6; base da ligação com as metas 4.4 e 4.a (ODS 4) |
+| Equipe principal e comunidade de código aberto (mantenedores do Excalidraw) | Desenvolvedor, fornecedor e mantenedor | Saber quais vulnerabilidades, incompatibilidades e barreiras de uso existem | Recebe relatos reprodutíveis, ligados a uma versão identificada do código | Ponto de vista do **O2** (resistência); recebe os relatos das métricas com pontuação 0 de todos os objetivos; exige fixar a versão do repositório analisada para que a auditoria de dependências seja reprodutível |
 | Operador da instância pública (excalidraw.com) | Operador | Que o serviço não seja afetado por testes de terceiros | Nenhum teste de carga ou de ataque contra a infraestrutura pública | Excluiu a **escalabilidade** do modelo; os testes que adulteram dados cifrados serão feitos em uma **instância local** do Excalidraw, e não no excalidraw.com |
 
 ### Parte interessada não considerada: o integrador
@@ -109,8 +109,10 @@ outro sistema seria uma parte interessada legítima, mas a equipe **não o
 incluiu** nesta avaliação. Avaliar a integração exigiria construir uma
 aplicação hospedeira e medir a API da biblioteca, o que foge do escopo
 definido (criação de diagramas com IA, compartilhamento e uso do canvas pelo
-teclado na versão web pública). Como nenhum objetivo mediria as necessidades
-desse grupo, mantê-lo na lista criaria uma parte interessada sem métrica. Os
+teclado na versão web pública). Diferentemente do operador, que apenas impõe
+restrições à condução da avaliação, o integrador tem necessidades que
+precisariam ser medidas; como nenhum objetivo as mediria, mantê-lo na lista
+criaria uma parte interessada sem métrica. Os
 resultados desta avaliação, portanto, **não valem** para o uso do Excalidraw
 como biblioteca.
 
@@ -118,8 +120,14 @@ como biblioteca.
 
 O Diagrama 1 liga cada parte interessada aos objetivos de medição que
 respondem à sua necessidade. Os objetivos estão agrupados pela característica
-de qualidade a que pertencem. O requisitante não aparece no diagrama porque define o processo,
-e não o foco da medição.
+de qualidade a que pertencem. As setas contínuas indicam que a parte
+interessada é o ponto de vista do objetivo; as tracejadas, que os
+mantenedores apenas recebem os relatos das falhas encontradas nesses
+objetivos. O requisitante não aparece no diagrama porque
+define o processo, e não o foco da medição. O operador também não aparece: ele
+é uma parte interessada que impõe restrições à avaliação (o que pode ou não
+ser testado no excalidraw.com), e não alguém cujas necessidades são medidas,
+por isso não tem objetivo associado.
 
 ```mermaid
 flowchart LR
@@ -129,7 +137,7 @@ flowchart LR
     U4["Usuário que acessa<br/>só pelo celular"]
     U5["Usuário que migra de<br/>outra ferramenta"]
     AD["Docente ou instituição<br/>que adota"]
-    DV["Desenvolvedores e<br/>mantenedores"]
+    DV["Mantenedores do<br/>Excalidraw"]
 
     subgraph SE["Segurança"]
         O1["O1 · Proteção das informações<br/>e controle de acesso"]
@@ -151,9 +159,15 @@ flowchart LR
     U5 --> O4
     U2 --> O5
     U3 --> O6
+    AD --> O1
     AD --> O3
     AD --> O5
     AD --> O6
+    DV -.-> O1
+    DV -.-> O3
+    DV -.-> O4
+    DV -.-> O5
+    DV -.-> O6
 
     classDef sh fill:#2f9e6b33,stroke:#2f9e6b,stroke-width:1.5px
     classDef car fill:#6965db1f,stroke:#6965db,stroke-width:2px
@@ -164,7 +178,8 @@ flowchart LR
 ```
 
 *Diagrama 1. Partes interessadas, características selecionadas e objetivos de
-medição. Fonte: elaboração própria.*
+medição. As setas tracejadas indicam objetivos cujos relatos são encaminhados
+aos mantenedores. Fonte: elaboração própria.*
 
 ## Limites do propósito
 

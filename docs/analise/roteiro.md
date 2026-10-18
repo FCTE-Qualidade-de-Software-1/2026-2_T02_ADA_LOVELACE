@@ -5,8 +5,8 @@
 O propósito é identificar o nível de atendimento e as oportunidades de
 melhoria do Excalidraw em **segurança, flexibilidade e capacidade de
 interação**. Os
-resultados apoiarão recomendações para usuários, desenvolvedores e
-mantenedores, além de fornecerem evidências para o artigo científico da
+resultados apoiarão recomendações para usuários, instituições de ensino e
+mantenedores do Excalidraw, além de fornecerem evidências para o artigo científico da
 equipe.
 
 A Tabela 4 resume as principais partes interessadas e o que cada uma precisa
@@ -23,7 +23,7 @@ própria.*
 | Usuário que acessa apenas pelo celular | Usar o Excalidraw, inclusive a geração por IA, em navegador móvel e com conexão instável |
 | Usuário que migra de outra ferramenta | Levar diagramas do draw.io ou do Miro e continuar trabalhando sem perda |
 | Docente ou instituição que adota a ferramenta | Escolher um quadro branco gratuito, acessível e seguro para uso em aula |
-| Desenvolvedores e mantenedores do Excalidraw | Saber quais vulnerabilidades, incompatibilidades e barreiras de uso existem |
+| Mantenedores do Excalidraw | Saber quais vulnerabilidades, incompatibilidades e barreiras de uso existem |
 | Operador da instância pública (excalidraw.com) | Que o serviço não seja afetado por testes de terceiros |
 
 O requisitante, as decisões que a avaliação apoia e o critério de sucesso e a
