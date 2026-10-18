@@ -133,10 +133,10 @@ flowchart LR
     M9c --> ODS9["ODS 9<br/>Indústria, inovação<br/>e infraestrutura"]
     M102 --> ODS10["ODS 10<br/>Redução das<br/>desigualdades"]
 
-    classDef car fill:#6965db,stroke:#190064,color:#ffffff,stroke-width:2px
-    classDef obj fill:#fff4d6,stroke:#c9a227,color:#3d2f00
-    classDef meta fill:#e8e7ff,stroke:#6965db,color:#190064
-    classDef ods fill:#190064,stroke:#190064,color:#ffffff
+    classDef car fill:#6965db66,stroke:#6965db,stroke-width:2px
+    classDef obj fill:#e0b0302e,stroke:#d4a72c,stroke-width:1.5px
+    classDef meta fill:#6965db1f,stroke:#8884ee
+    classDef ods fill:#2f9e6b33,stroke:#2f9e6b,stroke-width:2px
     class CI,FL car
     class O3,O4,O5,O6 obj
     class M44,M4a,M9c,M102 meta

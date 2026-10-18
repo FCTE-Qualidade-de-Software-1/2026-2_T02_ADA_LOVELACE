@@ -32,7 +32,7 @@ O Diagrama 1 apresenta as nove características do modelo de referência e
 destaca as três que foram selecionadas para esta avaliação.
 
 ```mermaid
-flowchart TB
+flowchart LR
     M["ISO/IEC 25010:2023<br/>Qualidade do produto"]
     M --> AF["Adequação funcional"]
     M --> ED["Eficiência de desempenho"]
@@ -44,8 +44,8 @@ flowchart TB
     M --> FL["Flexibilidade"]
     M --> PR["Proteção"]
 
-    classDef sel fill:#6965db,stroke:#190064,color:#ffffff,stroke-width:2px
-    classDef out fill:transparent,stroke:#9a97b8,color:#7a7790,stroke-dasharray:4 3
+    classDef sel fill:#6965db66,stroke:#6965db,stroke-width:2px
+    classDef out fill:transparent,stroke:#9a97b8,stroke-dasharray:4 3
     class SE,FL,CI sel
     class AF,ED,CO,CF,MA,PR out
 ```
@@ -189,10 +189,10 @@ flowchart LR
     C1 & C2 & C3 & C4 & C5 & C6 --> O5["O5 · Compreensão, aprendizagem<br/>e operação da interface"]
     C7 & C8 --> O6["O6 · Acessibilidade e<br/>perfis de usuários"]
 
-    classDef car fill:#6965db,stroke:#190064,color:#ffffff,stroke-width:2px
-    classDef sub fill:#e8e7ff,stroke:#6965db,color:#190064
-    classDef obj fill:#fff4d6,stroke:#c9a227,color:#3d2f00
-    classDef out fill:transparent,stroke:#9a97b8,color:#7a7790,stroke-dasharray:4 3
+    classDef car fill:#6965db66,stroke:#6965db,stroke-width:2px
+    classDef sub fill:#6965db1f,stroke:#8884ee
+    classDef obj fill:#e0b0302e,stroke:#d4a72c,stroke-width:1.5px
+    classDef out fill:transparent,stroke:#9a97b8,stroke-dasharray:4 3
     class SE,FL,CI car
     class S1,S2,S3,S4,S5,F1,F2,C1,C2,C3,C4,C5,C6,C7,C8 sub
     class O1,O2,O3,O4,O5,O6 obj
