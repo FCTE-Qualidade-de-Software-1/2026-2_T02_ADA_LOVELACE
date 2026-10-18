@@ -1,6 +1,38 @@
 # 2026-2_T02_ADA_LOVELACE
 
-Documentação da análise de qualidades de software da equipe Ada Lovelace.
+Repositório da equipe **Ada Lovelace** para a análise de qualidade de software
+do Excalidraw, desenvolvida na disciplina de Qualidade de Software.
+
+## Sobre o GitHub Pages
+
+O [GitHub Pages do projeto](https://fcte-qualidade-de-software-1.github.io/2026-2_T02_ADA_LOVELACE/)
+apresenta a documentação completa da avaliação em um site gerado com
+[MkDocs Material](https://squidfunk.github.io/mkdocs-material/). A página
+documenta:
+
+- o contexto, o escopo e o propósito do estudo de caso;
+- a aplicação avaliada, o [Excalidraw](https://excalidraw.com), um quadro
+  branco colaborativo para criação e compartilhamento de diagramas;
+- a avaliação das características de **segurança, portabilidade e
+  usabilidade**, com base na ISO/IEC 25010:2023;
+- o roteiro de avaliação, as partes interessadas, as questões e as métricas
+  definidas pela abordagem Goal-Question-Metric (GQM);
+- os critérios de pontuação, as evidências, os achados e as recomendações;
+- as referências normativas, técnicas e bibliográficas utilizadas.
+
+O site utiliza a identidade visual do Excalidraw, incluindo seus assets, cores
+principais e suporte aos modos claro e escuro. Os resultados da avaliação serão
+preenchidos após a execução dos testes e devem ser interpretados apenas para a
+versão, os ambientes e as funcionalidades efetivamente analisados.
+
+### Navegação
+
+- [Página inicial](docs/index.md): visão geral do estudo e integrantes;
+- [Roteiro da análise](docs/analise/roteiro.md): método, escopo, GQM,
+  métricas e critérios de julgamento;
+- [Resultados](docs/analise/resultados.md): evidências, pontuações, achados e
+  recomendações;
+- [Referências](docs/referencias.md): normas e fontes consultadas.
 
 ## Membros do Grupo
 
@@ -39,10 +71,10 @@ Documentação da análise de qualidades de software da equipe Ada Lovelace.
   </tr>
 </table>
 
-## Documentação
+## Executar a documentação localmente
 
-O site é gerado com [MkDocs](https://www.mkdocs.org/). Para executar
-localmente:
+O site é gerado com [MkDocs](https://www.mkdocs.org/). Para visualizar as
+alterações localmente, recomenda-se criar um ambiente virtual:
 
 - É recomendado criar um ambiente virtual Python antes de instalar:
 
@@ -53,18 +85,23 @@ python -m venv venv
 - Ative o ambiente virtual:
 
 ```shell
-# Windows
+# Windows (PowerShell)
 venv\Scripts\activate
 
 # Linux/macOS
 source venv/bin/activate
 ```
 
-- Instale e roda
+- Instale as dependências e inicie o servidor:
 
 ```bash
 pip install -r requirements.txt
 mkdocs serve
 ```
 
-Depois, acesse `http://127.0.0.1:8000`.
+Depois, acesse `http://127.0.0.1:8000`. Para gerar o site sem iniciar o
+servidor, use:
+
+```bash
+mkdocs build --strict
+```
