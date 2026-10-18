@@ -52,6 +52,7 @@ nav:
   - Início: index.md
   - Metodologia: metodologia.md
   - Fase 1:
+      - Propósito e partes interessadas: fase1/proposito-partes-interessadas.md
       - Modelo de qualidade: fase1/modelo-qualidade.md
       - ODS: fase1/ods.md
       - Objetivos de qualidade: fase1/objetivos-qualidade.md

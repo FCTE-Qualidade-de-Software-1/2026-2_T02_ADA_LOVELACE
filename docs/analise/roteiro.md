@@ -13,10 +13,20 @@ As principais partes interessadas são:
 
 | Parte interessada | Necessidade na avaliação |
 | --- | --- |
-| Usuário final, iniciante ou experiente | Criar e compartilhar diagramas com segurança e baixo esforço |
-| Usuário com necessidade de acessibilidade | Operar a aplicação com teclado e tecnologia assistiva |
-| Desenvolvedor ou mantenedor | Conhecer vulnerabilidades, incompatibilidades e barreiras de uso |
-| Integrador de outra aplicação | Usar a ferramenta em diferentes navegadores, dispositivos e fluxos de migração |
+| Usuário que cria e compartilha diagramas potencialmente sensíveis | Colaborar por link e gerar diagramas por IA sem expor o conteúdo a terceiros |
+| Usuário iniciante e usuário experiente | Desenhar sem treinamento (iniciante) e trabalhar rápido com atalhos (experiente) |
+| Usuário com necessidades de acessibilidade | Operar o canvas só pelo teclado, com leitor de tela e contraste adequado |
+| Usuário que acessa apenas pelo celular | Usar o Excalidraw, inclusive a geração por IA, em navegador móvel e com conexão instável |
+| Usuário que migra de outra ferramenta | Levar diagramas do draw.io ou do Miro e continuar trabalhando sem perda |
+| Docente ou instituição que adota a ferramenta | Escolher um quadro branco gratuito, acessível e seguro para uso em aula |
+| Desenvolvedores e mantenedores do Excalidraw | Saber quais vulnerabilidades, incompatibilidades e barreiras de uso existem |
+| Operador da instância pública (excalidraw.com) | Que o serviço não seja afetado por testes de terceiros |
+
+O requisitante, as decisões que a avaliação apoia e o critério de sucesso e a
+influência de cada parte interessada estão em
+[Propósito e partes interessadas](../fase1/proposito-partes-interessadas.md),
+assim como o motivo de o integrador que usa o Excalidraw como biblioteca não
+fazer parte da avaliação.
 
 ## 2. Produto, contexto e escopo
 
@@ -137,7 +147,9 @@ objetivos.
 2. Preparar casos de teste e tarefas representativas de criação,
    compartilhamento, exportação, importação e colaboração.
 3. Inspecionar o código-fonte e as dependências; registrar comandos, versões e
-   saída, sem executar testes invasivos contra terceiros.
+   saída, sem executar testes invasivos contra terceiros. Testes que adulteram
+   dados ou sobrecarregam o serviço são feitos em uma instância local do
+   Excalidraw, e não no excalidraw.com.
 4. Executar testes funcionais, de compatibilidade, acessibilidade e
    usabilidade com participantes, quando autorizados.
 5. Armazenar evidências no repositório, vinculando cada resultado à métrica,
