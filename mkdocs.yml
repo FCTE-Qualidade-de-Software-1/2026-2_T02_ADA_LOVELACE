@@ -50,9 +50,11 @@ markdown_extensions:
 
 nav:
   - Início: index.md
+  - Metodologia: metodologia.md
   - Fase 1:
       - Modelo de qualidade: fase1/modelo-qualidade.md
       - ODS: fase1/ods.md
+      - Objetivos de qualidade: fase1/objetivos-qualidade.md
   - Análise:
       - Roteiro da análise: analise/roteiro.md
       - Resultados: analise/resultados.md

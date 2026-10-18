@@ -30,10 +30,12 @@ atendidos e principais riscos.]`
 
 | Objetivo | Média (0–2) | Percentual | Julgamento |
 | --- | ---: | ---: | --- |
-| O1 — Segurança: proteção e acesso | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
-| O2 — Segurança: identidade e resistência | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
-| O3 — Portabilidade | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
-| O4 — Usabilidade | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
+| O1 — Proteção das informações e controle de acesso | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
+| O2 — Identificação, responsabilização e riscos de segurança | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
+| O3 — Adaptabilidade a diferentes ambientes e dispositivos | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
+| O4 — Substituibilidade e migração de diagramas | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
+| O5 — Compreensão, aprendizagem e operação da interface | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
+| O6 — Acessibilidade e adequação a diferentes perfis | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
 
 ## Pontos fortes
 
