@@ -4,7 +4,7 @@
   <img src="assets/logo-extensa.jpeg" alt="Logotipo do Excalidraw">
   <div class="excalidraw-hero-copy">
     <strong>Estudo de caso · Equipe Ada Lovelace</strong>
-    <p>Avaliação de segurança, portabilidade e usabilidade de um quadro branco
+    <p>Avaliação de segurança, flexibilidade e capacidade de interação de um quadro branco
     colaborativo.</p>
   </div>
 </div>
@@ -19,8 +19,11 @@ de Qualidade de Software.
 O Excalidraw foi escolhido por combinar edição visual, colaboração em tempo
 real, compartilhamento de diagramas e recursos de inteligência artificial. A
 avaliação concentra-se nas características mais relevantes para esse contexto:
-**segurança, portabilidade e usabilidade**, conforme a
-[ISO/IEC 25010:2023](https://www.iso.org/standard/78176.html).
+**flexibilidade (portabilidade), segurança e capacidade de interação
+(usabilidade)**, conforme a
+[ISO/IEC 25010:2023](https://www.iso.org/standard/78176.html). Na edição de
+2023, a norma utiliza **Flexibilidade** e **Capacidade de interação** como os
+nomes oficiais correspondentes a Portabilidade e Usabilidade.
 
 O estudo adota uma abordagem mista, combinando medições objetivas, inspeção
 técnica e observação da experiência de uso. Os resultados devem ser
@@ -33,8 +36,28 @@ produto.
 * **Nome:** Excalidraw
 * **Aplicação:** [excalidraw.com](https://excalidraw.com)
 * **Repositório:** [github.com/excalidraw/excalidraw](https://github.com/excalidraw/excalidraw)
+* **Tipo de produto:** aplicação web de quadro branco colaborativo.
 * **Descrição:** quadro branco colaborativo para criação, edição, exportação e
   compartilhamento de diagramas, com interação por mouse, teclado e toque.
+
+### Características e escopo do projeto
+
+* **Características avaliadas:** flexibilidade (portabilidade), segurança e
+  capacidade de interação (usabilidade), conforme a adaptação da
+  [ISO/IEC 25010:2023](https://www.iso.org/standard/78176.html).
+* **Justificativa das características:** segurança foi priorizada pelo
+  compartilhamento de informações e pela colaboração em tempo real;
+  flexibilidade, pela variedade de navegadores, sistemas operacionais e
+  dispositivos; e capacidade de interação, pela necessidade de desenhar com
+  rapidez, aprender a interface e colaborar sem perder dados.
+* **Escopo:** criação e edição de formas, textos, setas e wireframes;
+  interação por mouse, teclado e toque; compartilhamento e colaboração por
+  links; exportação e importação de diagramas; recursos de inteligência
+  artificial; armazenamento local, autenticação observável e proteção das
+  comunicações; e execução em ambientes selecionados.
+* **Fora do escopo:** auditoria completa da infraestrutura de produção,
+  certificação criptográfica formal, teste de penetração invasivo e avaliação
+  exaustiva de todas as funcionalidades do produto.
 
 ### Integrantes
 
