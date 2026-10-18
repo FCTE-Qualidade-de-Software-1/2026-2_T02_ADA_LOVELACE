@@ -101,3 +101,6 @@ produto.
   achados, pontos fortes e recomendações.
 * [Referências](referencias.md): normas, métodos, ferramentas e documentação
   consultados.
+* [Uso de IA](uso-ia.md): declaração de cada integrante sobre as ferramentas
+  de inteligência artificial usadas, para quê e como o resultado foi
+  conferido.
