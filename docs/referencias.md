@@ -17,7 +17,8 @@
 6. ISO/IEC. **ISO/IEC 25040:2011: Systems and software engineering — SQuaRE —
    Evaluation process**. Geneva: ISO, 2011.
 7. WORLD WIDE WEB CONSORTIUM. **Web Content Accessibility Guidelines (WCAG)
-   2.2**. Disponível em: <https://www.w3.org/TR/WCAG22/>.
+   2.2**. Disponível em: <https://www.w3.org/TR/WCAG22/>. Acesso em:
+   18 out. 2026.
 8. NAÇÕES UNIDAS BRASIL. **Objetivos de Desenvolvimento Sustentável**.
    Disponível em: <https://brasil.un.org/pt-br/sdgs>. Acesso em: 18 out. 2026.
 9. UNITED NATIONS STATISTICS DIVISION. **Global indicator framework for the
@@ -51,6 +52,37 @@
     Disponível em:
     <https://github.com/excalidraw/excalidraw#excalidrawcom>. Acesso em:
     18 out. 2026.
+17. GOOGLE. **Chrome DevTools**. Disponível em:
+    <https://developer.chrome.com/docs/devtools>. Acesso em: 18 out. 2026.
+    Usado em S-M1, S-M2, S-M4 e F-M5.
+18. PORTSWIGGER. **Burp Suite**. Disponível em:
+    <https://portswigger.net/burp>. Acesso em: 18 out. 2026. Usado em S-M1
+    e S-M5.
+19. ZAP. **Zed Attack Proxy (ZAP)**. Disponível em:
+    <https://www.zaproxy.org/>. Acesso em: 18 out. 2026. Usado em S-M1 e
+    S-M5.
+20. NPM. **npm audit**. Disponível em:
+    <https://docs.npmjs.com/cli/commands/npm-audit>. Acesso em:
+    18 out. 2026. Usado em S-M11.
+21. GITHUB. **GitHub Advisory Database**. Disponível em:
+    <https://github.com/advisories>. Acesso em: 18 out. 2026. Usado em
+    S-M12.
+22. SNYK. **Security Headers**. Disponível em:
+    <https://securityheaders.com/>. Acesso em: 18 out. 2026. Usado em
+    S-M13.
+23. DEQUE SYSTEMS. **axe DevTools**. Disponível em:
+    <https://www.deque.com/axe/devtools/>. Acesso em: 18 out. 2026. Usado
+    em CI-M22.
+24. GOOGLE. **Lighthouse**. Disponível em:
+    <https://developer.chrome.com/docs/lighthouse/overview>. Acesso em:
+    18 out. 2026. Usado em CI-M22.
+25. WEBAIM. **WAVE Web Accessibility Evaluation Tools**. Disponível em:
+    <https://wave.webaim.org/>. Acesso em: 18 out. 2026. Usado em CI-M22.
+26. NV ACCESS. **NVDA: NonVisual Desktop Access**. Disponível em:
+    <https://www.nvaccess.org/>. Acesso em: 18 out. 2026. Usado em CI-M24.
+27. APPLE. **VoiceOver User Guide**. Disponível em:
+    <https://support.apple.com/guide/voiceover/welcome/mac>. Acesso em:
+    18 out. 2026. Usado em CI-M24.
 
 As versões das ferramentas, comandos utilizados e páginas consultadas durante
 a coleta devem ser registradas junto às evidências em

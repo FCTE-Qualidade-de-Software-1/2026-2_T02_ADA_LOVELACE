@@ -235,36 +235,22 @@ nível conceitual do GQM.
 
 ## 4. Matriz de rastreabilidade dos objetivos GQM
 
-A matriz abaixo não altera as questões ou métricas existentes; apenas explicita
-como elas contribuem para os seis objetivos conceituais. Quando uma questão
-reúne métricas de mais de um objetivo, a rastreabilidade é indicada no nível
-da métrica.
+A matriz abaixo indica quais questões e métricas do
+[roteiro da análise](../analise/roteiro.md#4-estrategia-gqm) respondem a cada
+objetivo. Cada questão pertence a um único objetivo, e cada métrica, a uma
+única questão.
 
-| Característica | Objetivo | Subcaracterísticas | Questões existentes | Métricas existentes |
+| Característica | Objetivo | Subcaracterísticas | Questões | Métricas |
 | --- | --- | --- | --- | --- |
-| Segurança | **O1** | Confidencialidade e integridade | S-Q1 a S-Q3 | S-M1 a S-M7 |
-| Segurança | **O2** | Responsabilização, autenticidade e resistência | S-Q4 a S-Q6 | S-M8 a S-M14 |
-| Flexibilidade | **O3** | Adaptabilidade | P-Q1 e P-Q2 | P-M1 a P-M6 |
-| Flexibilidade | **O4** | Substituibilidade | P-Q3 e P-Q4 | P-M7 a P-M12 |
-| Capacidade de interação | **O5** | Reconhecibilidade da adequação, apreensibilidade, operabilidade, proteção contra erros, engajamento e autodescritividade | U-Q1 a U-Q6 | U-M1 a U-M21 |
-| Capacidade de interação | **O6** | Inclusividade e assistência ao usuário | U-Q6 | U-M22 a U-M26 |
+| Segurança | **O1** | Confidencialidade e integridade | S-Q1 a S-Q3 | S-M1 a S-M6 |
+| Segurança | **O2** | Responsabilização, autenticidade e resistência | S-Q4 a S-Q6 | S-M7 a S-M13 |
+| Flexibilidade | **O3** | Adaptabilidade | F-Q1 e F-Q2 | F-M1 a F-M6 |
+| Flexibilidade | **O4** | Substituibilidade | F-Q3 e F-Q4 | F-M7 a F-M12 |
+| Capacidade de interação | **O5** | Reconhecibilidade da adequação, apreensibilidade, operabilidade, proteção contra erros, engajamento e autodescritividade | CI-Q1 a CI-Q8 | CI-M1 a CI-M21 |
+| Capacidade de interação | **O6** | Inclusividade e assistência ao usuário | CI-Q9 e CI-Q10 | CI-M22 a CI-M26 |
 
-## 9. Ajustes recomendados nas questões e métricas
 
-As recomendações abaixo registram os ajustes necessários para uma etapa
-posterior, sem modificar neste documento as questões e métricas já definidas
-no roteiro de análise.
-
-| Objetivo | Ponto de revisão |
-| --- | --- |
-| **O1** | Diferenciar alterações maliciosas de problemas comuns de sincronização; revisar a vinculação da métrica de armazenamento local à questão pertinente. |
-| **O2** | Preservar julgamentos separados sobre autenticidade, responsabilização e resistência; indicadores de dependências vulneráveis não demonstram sozinhos resistência geral a ataques. |
-| **O3** | Delimitar os ambientes efetivamente testados; tratar a operação offline sem extrapolar a conclusão para toda a adaptabilidade. |
-| **O4** | Justificar importação/exportação como evidência complementar à substituibilidade, considerando também a relação possível com interoperabilidade. |
-| **O5** | Atualizar a antiga estética para engajamento e incorporar autodescritividade; o SUS mede usabilidade percebida em sentido amplo, não apenas apresentação visual. |
-| **O6** | Organizar medidas de acessibilidade em torno de inclusividade e assistência ao usuário, distinguindo seus propósitos; esclarecer o alcance de testes por teclado, leitores de tela e contraste. |
-
-## 10. Referências
+## 5. Referências
 
 1. INTERNATIONAL ORGANIZATION FOR STANDARDIZATION. *ISO/IEC 25010:2023:
    Systems and software engineering — Systems and software Quality

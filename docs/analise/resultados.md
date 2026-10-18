@@ -24,7 +24,7 @@ atendidos e principais riscos.]`
 
 | ID | Objetivo/métrica | Evidência reproduzível | Pontuação (0–2) | Impacto | Recomendação |
 | --- | --- | --- | --- | --- | --- |
-| A-001 | `[S-Q1, P-M1 ou U-M1]` | `[Link para evidência]` | `[Preencher]` | `[Baixo/Médio/Alto]` | `[Preencher]` |
+| A-001 | `[S-Q1, F-M1 ou CI-M1]` | `[Link para evidência]` | `[Preencher]` | `[Baixo/Médio/Alto]` | `[Preencher]` |
 
 ## Síntese por objetivo
 
