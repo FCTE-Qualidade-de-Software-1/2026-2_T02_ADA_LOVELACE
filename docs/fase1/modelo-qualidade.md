@@ -28,7 +28,7 @@ afetam esta avaliação estão:
   Capacidade de interação, a **resistência** (*resistance*), em Segurança, e
   a **escalabilidade** (*scalability*), em Flexibilidade.
 
-O Diagrama 1 apresenta as nove características do modelo de referência e
+O Diagrama 2 apresenta as nove características do modelo de referência e
 destaca as três que foram selecionadas para esta avaliação.
 
 ```mermaid
@@ -50,7 +50,7 @@ flowchart LR
     class AF,ED,CO,CF,MA,PR out
 ```
 
-*Diagrama 1. Características da ISO/IEC 25010:2023. Em destaque, as
+*Diagrama 2. Características da ISO/IEC 25010:2023. Em destaque, as
 características selecionadas; tracejadas, as não selecionadas. Fonte:
 elaboração própria a partir da ISO/IEC 25010:2023.*
 
@@ -63,10 +63,10 @@ A adaptação considera três elementos definidos na Fase 1:
   criptografia de ponta a ponta;
 * **o escopo:** criação de diagramas com inteligência artificial, seção de
   compartilhamento e uso do canvas pelo teclado;
-* **as partes interessadas:** usuário final (iniciante ou experiente), usuário
-  com necessidades de acessibilidade, desenvolvedor ou mantenedor e
-  integrador que leva o Excalidraw para outro sistema ou migra de outra
-  ferramenta.
+* **as [partes interessadas](proposito-partes-interessadas.md):** usuário
+  final (iniciante ou experiente), usuário com necessidades de
+  acessibilidade, usuário que acessa apenas pelo celular, usuário que migra
+  de outra ferramenta e desenvolvedor ou mantenedor.
 
 ### Segurança
 
@@ -96,8 +96,8 @@ de outra ferramenta e precisa levar os diagramas com ele.
 
 | Subcaracterística | Decisão | Justificativa | Parte interessada | Objetivo |
 | --- | --- | --- | --- | --- |
-| Adaptabilidade (*adaptability*) | Incluída | Uso em navegadores, sistemas operacionais, resoluções e dispositivos diferentes, inclusive com toque e sem conexão | Usuário final; integrador | O3 |
-| Substituibilidade (*replaceability*) | Incluída | O usuário vindo do draw.io ou do Miro precisa realizar as mesmas tarefas e migrar os arquivos sem perdas | Usuário final; integrador | O4 |
+| Adaptabilidade (*adaptability*) | Incluída | Uso em navegadores, sistemas operacionais, resoluções e dispositivos diferentes, inclusive com toque e sem conexão | Usuário que acessa apenas pelo celular | O3 |
+| Substituibilidade (*replaceability*) | Incluída | O usuário vindo do draw.io ou do Miro precisa realizar as mesmas tarefas e migrar os arquivos sem perdas | Usuário que migra de outra ferramenta | O4 |
 | Instalabilidade (*installability*) | **Excluída** | O produto é usado direto no navegador; a instalação como aplicativo (PWA) é opcional e não faz parte do escopo | — | — |
 | Escalabilidade (*scalability*) | **Excluída** | Exigiria testes de carga na infraestrutura pública de terceiros, o que é invasivo e está fora do escopo | — | — |
 
@@ -149,7 +149,7 @@ não podem ser medidas de forma confiável no escopo da avaliação:
 
 ## Modelo adaptado
 
-O Diagrama 2 apresenta o modelo adaptado: as três características
+O Diagrama 3 apresenta o modelo adaptado: as três características
 selecionadas, suas subcaracterísticas e o objetivo de medição da Fase 2 a que
 cada uma está ligada. As subcaracterísticas excluídas aparecem tracejadas.
 
@@ -199,7 +199,7 @@ flowchart LR
     class SX,FX1,FX2 out
 ```
 
-*Diagrama 2. Modelo de qualidade adaptado ao Excalidraw, com as
+*Diagrama 3. Modelo de qualidade adaptado ao Excalidraw, com as
 subcaracterísticas ligadas aos objetivos de medição. Fonte: elaboração
 própria.*
 
