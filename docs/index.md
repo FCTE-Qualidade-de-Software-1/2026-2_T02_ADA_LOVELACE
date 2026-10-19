@@ -133,6 +133,8 @@ própria a partir do repositório do Excalidraw.*
   GQM, questões, métricas e critérios de julgamento.
 * [Resultados](analise/resultados.md): evidências coletadas, pontuações,
   achados, pontos fortes e recomendações.
+* [Métricas de desenvolvimento](gestao/metricas.md): kanban, fluxo de
+  trabalho, situação das tarefas e contribuições de cada integrante.
 * [Referências](referencias.md): normas, métodos, ferramentas e documentação
   consultados.
 * [Uso de IA](uso-ia.md): declaração de cada integrante sobre as ferramentas
