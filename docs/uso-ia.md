@@ -98,8 +98,8 @@ aparecer entre aspas e com a referência correspondente.
 
 ### Zayra Moraes
 
-* **Ferramenta:** `[Preencher]`
-* **Tarefa:** `[Preencher]`
-* **Onde:** `[Preencher]`
-* **Quando:** `[Preencher]`
-* **Como conferiu e ajustou:** `[Preencher]`
+* **Ferramenta:** ChatGPT (OpenAI).
+* **Tarefa:** Apoio complementar na estruturação e no refinamento dos objetivos de medição GQM, além da identificação de referências bibliográficas para fundamentação teórica.
+* **Onde:** Definição dos objetivos de medição.
+* **Quando:** Após a pesquisa inicial e o estudo das normas e dos conceitos relacionados à avaliação da qualidade de software.
+* **Como conferiu e ajustou:** A ferramenta foi utilizada de forma complementar ao estudo inicial, auxiliando na organização das informações, no refinamento da escrita científica e na identificação de novas fontes bibliográficas. As sugestões foram analisadas criticamente e ajustadas ao contexto do Excalidraw, considerando a ISO/IEC 25010:2023, o método GQM e o modelo de qualidade definido pela equipe. As referências sugeridas foram utilizadas como ponto de partida para aprofundamento da pesquisa, mediante conferência de sua pertinência e adequação ao trabalho.
