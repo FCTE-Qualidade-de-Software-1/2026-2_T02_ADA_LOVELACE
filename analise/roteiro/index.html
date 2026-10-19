@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -262,7 +262,7 @@
           
   
   
-  Fase 1
+  Fase de Planejamento
 
         </a>
       </li>
@@ -458,7 +458,7 @@
   <span class="md-ellipsis">
     
   
-    Fase 1
+    Fase de Planejamento
   
 
     
@@ -474,7 +474,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Fase 1
+    Fase de Planejamento
   
 
           </label>
@@ -1390,7 +1390,8 @@ perder dados.</p>
 <ol>
 <li><strong>Objetivo:</strong> define o que será analisado, para qual finalidade, sob qual
    característica, para quem e em qual contexto.</li>
-<li><strong>Questão:</strong> decompõe o objetivo em perguntas observáveis.</li>
+<li><strong>Questão:</strong> decompõe o objetivo em perguntas observáveis, cada uma com a
+   hipótese de resposta esperada pela equipe.</li>
 <li><strong>Métrica:</strong> define o dado, a fórmula, a fonte e o critério usados para
    responder à questão.</li>
 </ol>
@@ -1427,11 +1428,14 @@ validade.</p>
 <p>As métricas que dependem de participantes, como tempos, taxas de conclusão, SUS
 e escala Likert, exigem um roteiro de tarefas único para todos, para que os
 valores sejam comparáveis.</p>
-<p>Em cada objetivo, a primeira tabela liga as questões às subcaracterísticas e
-às métricas. A segunda descreve como cada métrica é medida e os limites dos
+<p>Cada questão tem uma hipótese: a resposta que a equipe espera antes da
+medição e o motivo dessa expectativa. As métricas da questão confirmam ou
+refutam a hipótese.</p>
+<p>Em cada objetivo, a primeira tabela liga as questões às subcaracterísticas,
+às métricas e às hipóteses. A segunda descreve como cada métrica é medida e os limites dos
 níveis de pontuação definidos na <a href="#6-criterios-de-julgamento">seção 6</a>.</p>
 <h3 id="seguranca">Segurança<a class="headerlink" href="#seguranca" title="Permanent link">&para;</a></h3>
-<p>O Diagrama 5 apresenta a hierarquia GQM de Segurança, dos objetivos O1 e O2
+<p>O Diagrama 6 apresenta a hierarquia GQM de Segurança, dos objetivos O1 e O2
 às subcaracterísticas, questões e métricas.</p>
 <pre class="mermaid"><code>flowchart LR
     O1["O1 · Proteção das informações&lt;br/&gt;e controle de acesso"]
@@ -1472,20 +1476,21 @@ níveis de pontuação definidos na <a href="#6-criterios-de-julgamento">seção
     class CO,IN,RE,AU,RS sub
     class Q1,Q2,Q3,Q4,Q5,Q6 que
     class M1,M2,M3,M4,M5,M6,M7,M8,M9,M10,M11,M12,M13 met</code></pre>
-<p><em>Diagrama 5. Hierarquia GQM de Segurança, dos objetivos às métricas. Fonte:
+<p><em>Diagrama 6. Hierarquia GQM de Segurança, dos objetivos às métricas. Fonte:
 elaboração própria.</em></p>
 <h4 id="o1-protecao-das-informacoes-e-controle-de-acesso">O1 — Proteção das informações e controle de acesso<a class="headerlink" href="#o1-protecao-das-informacoes-e-controle-de-acesso" title="Permanent link">&para;</a></h4>
 <p>Analisar armazenamento, compartilhamento e colaboração em tempo real para
 identificar fragilidades na confidencialidade e integridade dos diagramas, do
 ponto de vista de usuários que criam e compartilham conteúdo. As Tabelas 5 e 6
 apresentam, respectivamente, as questões e as métricas do O1.</p>
-<p><em>Tabela 5. Questões do objetivo O1. Fonte: elaboração própria.</em></p>
+<p><em>Tabela 5. Questões e hipóteses do objetivo O1. Fonte: elaboração própria.</em></p>
 <table>
 <thead>
 <tr>
 <th>Questão</th>
 <th>Subcaracterística</th>
 <th>Métricas</th>
+<th>Hipótese</th>
 </tr>
 </thead>
 <tbody>
@@ -1493,16 +1498,19 @@ apresentam, respectivamente, as questões e as métricas do O1.</p>
 <td><strong>S-Q1.</strong> Os dados do desenho trafegam e ficam armazenados de forma protegida contra acesso não autorizado?</td>
 <td>Confidencialidade</td>
 <td>S-M1 e S-M2</td>
+<td>Sim: o código cifra as mensagens da colaboração com AES-GCM no navegador, e a chave fica no fragmento <code>#</code> do link, que o navegador não envia ao servidor</td>
 </tr>
 <tr>
 <td><strong>S-Q2.</strong> É possível controlar quem acessa um desenho compartilhado?</td>
 <td>Confidencialidade</td>
 <td>S-M3 e S-M4</td>
+<td>Não: na versão gratuita, quem tem o link acessa o desenho, sem senha, expiração ou revogação, e a cena fica sem criptografia no <code>localStorage</code></td>
 </tr>
 <tr>
 <td><strong>S-Q3.</strong> O sistema impede alteração ou corrupção não autorizada dos dados?</td>
 <td>Integridade</td>
 <td>S-M5 e S-M6</td>
+<td>Sim: o AES-GCM é autenticado, então um payload adulterado falha ao ser decifrado, e a reconciliação por versão dos elementos deve evitar inconsistências na edição simultânea</td>
 </tr>
 </tbody>
 </table>
@@ -1568,13 +1576,14 @@ própria.</em></p>
 configurações técnicas para identificar limitações de autenticidade,
 responsabilização e resistência a ataques. As Tabelas 7 e 8 apresentam,
 respectivamente, as questões e as métricas do O2.</p>
-<p><em>Tabela 7. Questões do objetivo O2. Fonte: elaboração própria.</em></p>
+<p><em>Tabela 7. Questões e hipóteses do objetivo O2. Fonte: elaboração própria.</em></p>
 <table>
 <thead>
 <tr>
 <th>Questão</th>
 <th>Subcaracterística</th>
 <th>Métricas</th>
+<th>Hipótese</th>
 </tr>
 </thead>
 <tbody>
@@ -1582,16 +1591,19 @@ respectivamente, as questões e as métricas do O2.</p>
 <td><strong>S-Q4.</strong> As ações dos usuários são rastreáveis?</td>
 <td>Responsabilização</td>
 <td>S-M7 e S-M8</td>
+<td>Não: a versão gratuita não guarda histórico de versões nem registra o autor de cada alteração</td>
 </tr>
 <tr>
 <td><strong>S-Q5.</strong> O sistema confirma a identidade de quem participa da sessão?</td>
 <td>Autenticidade</td>
 <td>S-M9 e S-M10</td>
+<td>Não: o participante só informa um nome, sem login, e qualquer pessoa pode usar o nome de outra</td>
 </tr>
 <tr>
 <td><strong>S-Q6.</strong> A aplicação resiste a ataques e vulnerabilidades conhecidas?</td>
 <td>Resistência</td>
 <td>S-M11 a S-M13</td>
+<td>Parcialmente: o projeto é mantido ativamente e deve ter poucas vulnerabilidades críticas, mas a configuração de hospedagem do repositório não define CSP, o que deve baixar a nota dos cabeçalhos</td>
 </tr>
 </tbody>
 </table>
@@ -1660,7 +1672,7 @@ própria.</em></p>
 </tbody>
 </table>
 <h3 id="flexibilidade">Flexibilidade<a class="headerlink" href="#flexibilidade" title="Permanent link">&para;</a></h3>
-<p>O Diagrama 6 apresenta a hierarquia GQM de Flexibilidade, dos objetivos O3 e
+<p>O Diagrama 7 apresenta a hierarquia GQM de Flexibilidade, dos objetivos O3 e
 O4 às subcaracterísticas, questões e métricas.</p>
 <pre class="mermaid"><code>flowchart LR
     O3["O3 · Adaptabilidade a&lt;br/&gt;ambientes e dispositivos"]
@@ -1695,20 +1707,21 @@ O4 às subcaracterísticas, questões e métricas.</p>
     class AD,SU sub
     class Q1,Q2,Q3,Q4 que
     class M1,M2,M3,M4,M5,M6,M7,M8,M9,M10,M11,M12 met</code></pre>
-<p><em>Diagrama 6. Hierarquia GQM de Flexibilidade, dos objetivos às métricas.
+<p><em>Diagrama 7. Hierarquia GQM de Flexibilidade, dos objetivos às métricas.
 Fonte: elaboração própria.</em></p>
 <h4 id="o3-adaptabilidade-a-diferentes-ambientes-e-dispositivos">O3 — Adaptabilidade a diferentes ambientes e dispositivos<a class="headerlink" href="#o3-adaptabilidade-a-diferentes-ambientes-e-dispositivos" title="Permanent link">&para;</a></h4>
 <p>Analisar a execução em diferentes ambientes, do ponto de vista de usuários que
 acessam a aplicação em diferentes dispositivos e plataformas, em especial
 quem acessa apenas pelo celular. As Tabelas 9 e 10 apresentam, respectivamente,
 as questões e as métricas do O3.</p>
-<p><em>Tabela 9. Questões do objetivo O3. Fonte: elaboração própria.</em></p>
+<p><em>Tabela 9. Questões e hipóteses do objetivo O3. Fonte: elaboração própria.</em></p>
 <table>
 <thead>
 <tr>
 <th>Questão</th>
 <th>Subcaracterística</th>
 <th>Métricas</th>
+<th>Hipótese</th>
 </tr>
 </thead>
 <tbody>
@@ -1716,11 +1729,13 @@ as questões e as métricas do O3.</p>
 <td><strong>F-Q1.</strong> O Excalidraw funciona de forma consistente em diferentes navegadores e sistemas operacionais?</td>
 <td>Adaptabilidade</td>
 <td>F-M1 a F-M3</td>
+<td>Sim, com pequenas diferenças: é uma aplicação web que roda inteira no navegador, mas fontes e atalhos de teclado podem variar no macOS e no Safari</td>
 </tr>
 <tr>
 <td><strong>F-Q2.</strong> A aplicação se adapta a diferentes dispositivos e condições de uso?</td>
 <td>Adaptabilidade</td>
 <td>F-M4 a F-M6</td>
+<td>Parcialmente: há barra de ferramentas própria para celular e uso offline como PWA, mas colaboração e IA dependem de conexão, e funções ligadas a atalhos devem ser limitadas no toque</td>
 </tr>
 </tbody>
 </table>
@@ -1785,13 +1800,14 @@ própria.</em></p>
 <p>Analisar a substituição de ferramentas equivalentes e a migração de dados, do
 ponto de vista de usuários que migram de outra ferramenta de diagramação. As
 Tabelas 11 e 12 apresentam, respectivamente, as questões e as métricas do O4.</p>
-<p><em>Tabela 11. Questões do objetivo O4. Fonte: elaboração própria.</em></p>
+<p><em>Tabela 11. Questões e hipóteses do objetivo O4. Fonte: elaboração própria.</em></p>
 <table>
 <thead>
 <tr>
 <th>Questão</th>
 <th>Subcaracterística</th>
 <th>Métricas</th>
+<th>Hipótese</th>
 </tr>
 </thead>
 <tbody>
@@ -1799,11 +1815,13 @@ Tabelas 11 e 12 apresentam, respectivamente, as questões e as métricas do O4.<
 <td><strong>F-Q3.</strong> O Excalidraw pode substituir uma ferramenta equivalente (por exemplo, draw.io ou Miro) sem perda de funcionalidade e produtividade?</td>
 <td>Substituibilidade</td>
 <td>F-M7 a F-M9</td>
+<td>Parcialmente: deve cobrir as tarefas básicas de diagramação em tempo parecido, mas não todas as funções de ferramentas mais completas como o draw.io e o Miro</td>
 </tr>
 <tr>
 <td><strong>F-Q4.</strong> Os dados podem ser migrados para dentro e para fora do Excalidraw sem perdas?</td>
 <td>Substituibilidade</td>
 <td>F-M10 a F-M12</td>
+<td>Parcialmente: o formato <code>.excalidraw</code> é um JSON aberto e deve preservar tudo ao exportar e reimportar, mas não há importação direta de arquivos do draw.io nem do Miro</td>
 </tr>
 </tbody>
 </table>
@@ -1865,7 +1883,7 @@ própria.</em></p>
 </tbody>
 </table>
 <h3 id="capacidade-de-interacao">Capacidade de interação<a class="headerlink" href="#capacidade-de-interacao" title="Permanent link">&para;</a></h3>
-<p>O Diagrama 7 apresenta a hierarquia GQM de Capacidade de interação, dos
+<p>O Diagrama 8 apresenta a hierarquia GQM de Capacidade de interação, dos
 objetivos O5 e O6 às subcaracterísticas e questões. Para manter a leitura, as
 métricas aparecem agrupadas por questão.</p>
 <pre class="mermaid"><code>flowchart LR
@@ -1915,20 +1933,21 @@ métricas aparecem agrupadas por questão.</p>
     class AT ind
     class Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10 que
     class M1,M4,M7,M9,M12,M14,M17,M19,M22,M26 met</code></pre>
-<p><em>Diagrama 7. Hierarquia GQM de Capacidade de interação, dos objetivos às
+<p><em>Diagrama 8. Hierarquia GQM de Capacidade de interação, dos objetivos às
 métricas, agrupadas por questão. A linha tracejada indica a autodescritividade,
 observada pelas métricas CI-M3 e CI-M7. Fonte: elaboração própria.</em></p>
 <h4 id="o5-compreensao-aprendizagem-e-operacao-da-interface">O5 — Compreensão, aprendizagem e operação da interface<a class="headerlink" href="#o5-compreensao-aprendizagem-e-operacao-da-interface" title="Permanent link">&para;</a></h4>
 <p>Analisar a interface de criação e edição para identificar dificuldades de
 compreensão, aprendizagem, operação, recuperação de erros e engajamento. As
 Tabelas 13 e 14 apresentam, respectivamente, as questões e as métricas do O5.</p>
-<p><em>Tabela 13. Questões do objetivo O5. Fonte: elaboração própria.</em></p>
+<p><em>Tabela 13. Questões e hipóteses do objetivo O5. Fonte: elaboração própria.</em></p>
 <table>
 <thead>
 <tr>
 <th>Questão</th>
 <th>Subcaracterística</th>
 <th>Métricas</th>
+<th>Hipótese</th>
 </tr>
 </thead>
 <tbody>
@@ -1936,41 +1955,49 @@ Tabelas 13 e 14 apresentam, respectivamente, as questões e as métricas do O5.<
 <td><strong>CI-Q1.</strong> O usuário consegue reconhecer rapidamente se o Excalidraw atende à sua necessidade?</td>
 <td>Reconhecibilidade da adequação</td>
 <td>CI-M1 a CI-M3</td>
+<td>Sim: a tela de boas-vindas e a barra de ferramentas à vista deixam claro, em poucos segundos, que é um quadro branco para desenhar</td>
 </tr>
 <tr>
 <td><strong>CI-Q2.</strong> Um usuário novo consegue aprender a usar as funções básicas sem treinamento?</td>
 <td>Apreensibilidade</td>
 <td>CI-M4 a CI-M6</td>
+<td>Sim: as funções básicas seguem as convenções de editores gráficos (escolher a ferramenta, arrastar para desenhar)</td>
 </tr>
 <tr>
 <td><strong>CI-Q3.</strong> A ferramenta oferece recursos que apoiam o aprendizado contínuo?</td>
 <td>Apreensibilidade</td>
 <td>CI-M7 e CI-M8</td>
+<td>Parcialmente: há diálogo de ajuda com os atalhos e dicas na tela, mas não há tutorial guiado</td>
 </tr>
 <tr>
 <td><strong>CI-Q4.</strong> As tarefas comuns podem ser realizadas de forma eficiente?</td>
 <td>Operabilidade</td>
 <td>CI-M9 a CI-M11</td>
+<td>Sim: as ferramentas têm atalho de uma tecla (por exemplo, R ou 2 para retângulo), o que deve tornar os usuários experientes bem mais rápidos</td>
 </tr>
 <tr>
 <td><strong>CI-Q5.</strong> A interface se comporta de forma consistente e previsível?</td>
 <td>Operabilidade</td>
 <td>CI-M12 e CI-M13</td>
+<td>Parcialmente: a interface é simples e dá retorno visual imediato, mas seleção, snapping e edição de texto em formas podem mudar conforme o contexto</td>
 </tr>
 <tr>
 <td><strong>CI-Q6.</strong> O sistema evita e permite recuperar erros do usuário?</td>
 <td>Proteção contra erros do usuário</td>
 <td>CI-M14 a CI-M16</td>
+<td>Sim: há desfazer e refazer, a cena é salva automaticamente no navegador e limpar o canvas pede confirmação</td>
 </tr>
 <tr>
 <td><strong>CI-Q7.</strong> Os erros cometidos são frequentes e fáceis de entender?</td>
 <td>Proteção contra erros do usuário</td>
 <td>CI-M17 e CI-M18</td>
+<td>Parcialmente: os erros devem ser poucos nas tarefas básicas, mas seleções e movimentos acidentais devem aparecer entre iniciantes e no toque</td>
 </tr>
 <tr>
 <td><strong>CI-Q8.</strong> A interface é agradável e satisfatória para o usuário?</td>
 <td>Engajamento do usuário</td>
 <td>CI-M19 a CI-M21</td>
+<td>Sim: o estilo desenhado à mão e o modo escuro tendem a agradar, e o SUS deve ficar acima da média de 68</td>
 </tr>
 </tbody>
 </table>
@@ -2150,13 +2177,14 @@ própria.</em></p>
 <p>Analisar os mecanismos de navegação, interação e apresentação das informações
 para identificar barreiras de inclusividade e de assistência ao usuário. As
 Tabelas 15 e 16 apresentam, respectivamente, as questões e as métricas do O6.</p>
-<p><em>Tabela 15. Questões do objetivo O6. Fonte: elaboração própria.</em></p>
+<p><em>Tabela 15. Questões e hipóteses do objetivo O6. Fonte: elaboração própria.</em></p>
 <table>
 <thead>
 <tr>
 <th>Questão</th>
 <th>Subcaracterística</th>
 <th>Métricas</th>
+<th>Hipótese</th>
 </tr>
 </thead>
 <tbody>
@@ -2164,11 +2192,13 @@ Tabelas 15 e 16 apresentam, respectivamente, as questões e as métricas do O6.<
 <td><strong>CI-Q9.</strong> Pessoas com deficiência conseguem usar o Excalidraw?</td>
 <td>Assistência ao usuário</td>
 <td>CI-M22 a CI-M25</td>
+<td>Parcialmente: menus e barra de ferramentas devem ser operáveis pelo teclado, mas os elementos desenhados no canvas não devem ser anunciados por leitores de tela</td>
 </tr>
 <tr>
 <td><strong>CI-Q10.</strong> A ferramenta se adapta a diferentes perfis de usuário?</td>
 <td>Inclusividade</td>
 <td>CI-M26</td>
+<td>Sim: a interface é traduzida para dezenas de idiomas, e o arquivo de traduções do repositório indica 96% das strings em português do Brasil</td>
 </tr>
 </tbody>
 </table>
@@ -2377,7 +2407,7 @@ alterações de escopo e resultados deve permanecer no repositório.</p>
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "content.code.copy", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

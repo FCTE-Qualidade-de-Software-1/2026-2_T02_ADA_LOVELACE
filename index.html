@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
@@ -262,7 +262,7 @@
           
   
   
-  Fase 1
+  Fase de Planejamento
 
         </a>
       </li>
@@ -564,7 +564,7 @@
   <span class="md-ellipsis">
     
   
-    Fase 1
+    Fase de Planejamento
   
 
     
@@ -580,7 +580,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Fase 1
+    Fase de Planejamento
   
 
           </label>
@@ -1019,10 +1019,39 @@ produto.</p>
 <li><strong>Nome:</strong> Excalidraw</li>
 <li><strong>Aplicação:</strong> <a href="https://excalidraw.com">excalidraw.com</a></li>
 <li><strong>Repositório:</strong> <a href="https://github.com/excalidraw/excalidraw">github.com/excalidraw/excalidraw</a></li>
-<li><strong>Tipo de produto:</strong> aplicação web de quadro branco colaborativo.</li>
+<li><strong>Tipo de produto:</strong> aplicação web de quadro branco colaborativo, de código
+  aberto (licença MIT), instalável como PWA e também distribuída como
+  biblioteca React no npm.</li>
 <li><strong>Descrição:</strong> quadro branco colaborativo para criação, edição, exportação e
   compartilhamento de diagramas, com interação por mouse, teclado e toque.</li>
 </ul>
+<p>O Diagrama 1 resume a estrutura do produto. O editor roda inteiro no
+navegador e depende de serviços externos apenas para colaboração, links
+compartilháveis e IA. Por isso a avaliação consegue observar o que sai do
+navegador, mas não o que acontece nos servidores.</p>
+<pre class="mermaid"><code>flowchart LR
+    U["Usuário&lt;br/&gt;(mouse, teclado e toque)"]
+
+    subgraph NAV["Navegador · excalidraw.com"]
+        APP["excalidraw-app"]
+        LIB["@excalidraw/excalidraw&lt;br/&gt;(editor React)"]
+        PKG["element · math · common · utils"]
+        LOC["localStorage e IndexedDB"]
+        APP --&gt; LIB --&gt; PKG
+        APP --&gt; LOC
+    end
+
+    U --&gt; APP
+    APP --&gt; COL["Servidor de colaboração"]
+    APP --&gt; FB["Firebase e json.excalidraw.com&lt;br/&gt;(salas e links)"]
+    APP --&gt; AI["Serviço de IA"]
+
+    classDef mod fill:#6965db1f,stroke:#8884ee
+    classDef ext fill:transparent,stroke:#9a97b8,stroke-dasharray:4 3
+    class APP,LIB,PKG,LOC mod
+    class COL,FB,AI ext</code></pre>
+<p><em>Diagrama 1. Módulos do Excalidraw e serviços externos. Fonte: elaboração
+própria a partir do repositório do Excalidraw.</em></p>
 <h3 id="caracteristicas-e-escopo-do-projeto">Características e escopo do projeto<a class="headerlink" href="#caracteristicas-e-escopo-do-projeto" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Características avaliadas:</strong> flexibilidade (portabilidade), segurança e
@@ -1170,7 +1199,7 @@ produto.</p>
       <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "content.code.copy", "content.action.edit"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
