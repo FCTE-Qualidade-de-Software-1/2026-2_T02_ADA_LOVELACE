@@ -27,11 +27,27 @@ aparecer entre aspas e com a referência correspondente.
 
 ### André Henrique
 
-* **Ferramenta:** `[Preencher]`
-* **Tarefa:** `[Preencher]`
-* **Onde:** `[Preencher]`
-* **Quando:** `[Preencher]`
-* **Como conferiu e ajustou:** `[Preencher]`
+* **Ferramenta:** Claude Code, com o modelo Claude Opus 5.5 (Anthropic), na
+  extensão do VS Code.
+* **Tarefa:** redação da primeira versão da página de propósito e partes
+  interessadas (texto, tabelas e diagrama), a partir do documento da equipe e
+  das páginas de modelo de qualidade, ODS e objetivos de medição.
+  Alinhamento das partes interessadas no modelo de qualidade e no roteiro.
+  Revisão da página frente aos critérios 1 e 2 da entrega.
+* **Onde:** [propósito e partes interessadas](fase1/proposito-partes-interessadas.md),
+  [modelo de qualidade](fase1/modelo-qualidade.md) (lista e tabela de partes
+  interessadas, numeração dos diagramas), [ODS](fase1/ods.md) (numeração do
+  diagrama), [roteiro da análise](analise/roteiro.md) (seção 1 e item 3 da
+  seção 5) e slides 3 a 6 da apresentação.
+* **Quando:** 18 out. 2026.
+* **Como conferiu e ajustou:** Comparei o texto gerado frente aos
+  critérios 1 e 2 da entrega, o que levou a correções: legenda e chamada no
+  texto da tabela de requisitante e avaliador, uso do termo "comprador" da
+  rubrica, ligação dos usuários de sessões colaborativas também ao O2,
+  coerência entre evidência e critério na Tabela 1 e um diagrama que liga cada
+  parte interessada diretamente aos objetivos. Comparei cada parte
+  interessada com o material da equipe e com os objetivos O1 a O6, o que
+  mostrou quais tinham sido inferidas pela ferramenta (comprador e operador).
 
 ### Giovanna Felipe
 
