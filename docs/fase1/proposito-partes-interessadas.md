@@ -106,19 +106,15 @@ avaliação. Fonte: elaboração própria.*
 O Excalidraw também é distribuído como biblioteca para outras aplicações (o
 pacote npm `@excalidraw/excalidraw`). O desenvolvedor que embute o editor em
 outro sistema seria uma parte interessada legítima, mas a equipe **não o
-incluiu** nesta avaliação. Avaliar a integração exigiria construir uma
-aplicação hospedeira e medir a API da biblioteca, o que foge do escopo
-definido (criação de diagramas com IA, compartilhamento e uso do canvas pelo
-teclado na versão web pública). Diferentemente do operador, que apenas impõe
-restrições à condução da avaliação, o integrador tem necessidades que
-precisariam ser medidas; como nenhum objetivo as mediria, mantê-lo na lista
-criaria uma parte interessada sem métrica. Os
-resultados desta avaliação, portanto, **não valem** para o uso do Excalidraw
-como biblioteca.
+incluiu** nesta avaliação, porque ele está fora do escopo do usuário médio:
+a avaliação considera quem usa o Excalidraw pela versão web pública para
+criar e compartilhar diagramas, e não quem programa outra aplicação com ele.
+Os resultados desta avaliação, portanto, **não valem** para o uso do
+Excalidraw como biblioteca.
 
 ## Das partes interessadas aos objetivos
 
-O Diagrama 1 liga cada parte interessada aos objetivos de medição que
+O Diagrama 2 liga cada parte interessada aos objetivos de medição que
 respondem à sua necessidade. Os objetivos estão agrupados pela característica
 de qualidade a que pertencem. As setas contínuas indicam que a parte
 interessada é o ponto de vista do objetivo; as tracejadas, que os
@@ -177,7 +173,7 @@ flowchart LR
     class O1,O2,O3,O4,O5,O6 obj
 ```
 
-*Diagrama 1. Partes interessadas, características selecionadas e objetivos de
+*Diagrama 2. Partes interessadas, características selecionadas e objetivos de
 medição. As setas tracejadas indicam objetivos cujos relatos são encaminhados
 aos mantenedores. Fonte: elaboração própria.*
 

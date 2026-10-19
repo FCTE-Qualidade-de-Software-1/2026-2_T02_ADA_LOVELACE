@@ -36,9 +36,43 @@ produto.
 * **Nome:** Excalidraw
 * **Aplicação:** [excalidraw.com](https://excalidraw.com)
 * **Repositório:** [github.com/excalidraw/excalidraw](https://github.com/excalidraw/excalidraw)
-* **Tipo de produto:** aplicação web de quadro branco colaborativo.
+* **Tipo de produto:** aplicação web de quadro branco colaborativo, de código
+  aberto (licença MIT), instalável como PWA e também distribuída como
+  biblioteca React no npm.
 * **Descrição:** quadro branco colaborativo para criação, edição, exportação e
   compartilhamento de diagramas, com interação por mouse, teclado e toque.
+
+O Diagrama 1 resume a estrutura do produto. O editor roda inteiro no
+navegador e depende de serviços externos apenas para colaboração, links
+compartilháveis e IA. Por isso a avaliação consegue observar o que sai do
+navegador, mas não o que acontece nos servidores.
+
+```mermaid
+flowchart LR
+    U["Usuário<br/>(mouse, teclado e toque)"]
+
+    subgraph NAV["Navegador · excalidraw.com"]
+        APP["excalidraw-app"]
+        LIB["@excalidraw/excalidraw<br/>(editor React)"]
+        PKG["element · math · common · utils"]
+        LOC["localStorage e IndexedDB"]
+        APP --> LIB --> PKG
+        APP --> LOC
+    end
+
+    U --> APP
+    APP --> COL["Servidor de colaboração"]
+    APP --> FB["Firebase e json.excalidraw.com<br/>(salas e links)"]
+    APP --> AI["Serviço de IA"]
+
+    classDef mod fill:#6965db1f,stroke:#8884ee
+    classDef ext fill:transparent,stroke:#9a97b8,stroke-dasharray:4 3
+    class APP,LIB,PKG,LOC mod
+    class COL,FB,AI ext
+```
+
+*Diagrama 1. Módulos do Excalidraw e serviços externos. Fonte: elaboração
+própria a partir do repositório do Excalidraw.*
 
 ### Características e escopo do projeto
 

@@ -28,7 +28,7 @@ afetam esta avaliação estão:
   Capacidade de interação, a **resistência** (*resistance*), em Segurança, e
   a **escalabilidade** (*scalability*), em Flexibilidade.
 
-O Diagrama 2 apresenta as nove características do modelo de referência e
+O Diagrama 3 apresenta as nove características do modelo de referência e
 destaca as três que foram selecionadas para esta avaliação.
 
 ```mermaid
@@ -50,7 +50,7 @@ flowchart LR
     class AF,ED,CO,CF,MA,PR out
 ```
 
-*Diagrama 2. Características da ISO/IEC 25010:2023. Em destaque, as
+*Diagrama 3. Características da ISO/IEC 25010:2023. Em destaque, as
 características selecionadas; tracejadas, as não selecionadas. Fonte:
 elaboração própria a partir da ISO/IEC 25010:2023.*
 
@@ -152,7 +152,7 @@ não podem ser medidas de forma confiável no escopo da avaliação:
 
 ## Modelo adaptado
 
-O Diagrama 3 apresenta o modelo adaptado: as três características
+O Diagrama 4 apresenta o modelo adaptado: as três características
 selecionadas, suas subcaracterísticas e o objetivo de medição da Fase 2 a que
 cada uma está ligada. As subcaracterísticas excluídas aparecem tracejadas.
 
@@ -202,7 +202,7 @@ flowchart LR
     class SX,FX1,FX2 out
 ```
 
-*Diagrama 3. Modelo de qualidade adaptado ao Excalidraw, com as
+*Diagrama 4. Modelo de qualidade adaptado ao Excalidraw, com as
 subcaracterísticas ligadas aos objetivos de medição. Fonte: elaboração
 própria.*
 

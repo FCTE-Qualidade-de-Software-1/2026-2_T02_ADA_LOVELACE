@@ -75,7 +75,8 @@ A medição segue o método **Goal-Question-Metric (GQM)**:
 
 1. **Objetivo:** define o que será analisado, para qual finalidade, sob qual
    característica, para quem e em qual contexto.
-2. **Questão:** decompõe o objetivo em perguntas observáveis.
+2. **Questão:** decompõe o objetivo em perguntas observáveis, cada uma com a
+   hipótese de resposta esperada pela equipe.
 3. **Métrica:** define o dado, a fórmula, a fonte e o critério usados para
    responder à questão.
 
@@ -116,13 +117,17 @@ As métricas que dependem de participantes, como tempos, taxas de conclusão, SU
 e escala Likert, exigem um roteiro de tarefas único para todos, para que os
 valores sejam comparáveis.
 
-Em cada objetivo, a primeira tabela liga as questões às subcaracterísticas e
-às métricas. A segunda descreve como cada métrica é medida e os limites dos
+Cada questão tem uma hipótese: a resposta que a equipe espera antes da
+medição e o motivo dessa expectativa. As métricas da questão confirmam ou
+refutam a hipótese.
+
+Em cada objetivo, a primeira tabela liga as questões às subcaracterísticas,
+às métricas e às hipóteses. A segunda descreve como cada métrica é medida e os limites dos
 níveis de pontuação definidos na [seção 6](#6-criterios-de-julgamento).
 
 ### Segurança
 
-O Diagrama 5 apresenta a hierarquia GQM de Segurança, dos objetivos O1 e O2
+O Diagrama 6 apresenta a hierarquia GQM de Segurança, dos objetivos O1 e O2
 às subcaracterísticas, questões e métricas.
 
 ```mermaid
@@ -167,7 +172,7 @@ flowchart LR
     class M1,M2,M3,M4,M5,M6,M7,M8,M9,M10,M11,M12,M13 met
 ```
 
-*Diagrama 5. Hierarquia GQM de Segurança, dos objetivos às métricas. Fonte:
+*Diagrama 6. Hierarquia GQM de Segurança, dos objetivos às métricas. Fonte:
 elaboração própria.*
 
 #### O1 — Proteção das informações e controle de acesso
@@ -177,13 +182,13 @@ identificar fragilidades na confidencialidade e integridade dos diagramas, do
 ponto de vista de usuários que criam e compartilham conteúdo. As Tabelas 5 e 6
 apresentam, respectivamente, as questões e as métricas do O1.
 
-*Tabela 5. Questões do objetivo O1. Fonte: elaboração própria.*
+*Tabela 5. Questões e hipóteses do objetivo O1. Fonte: elaboração própria.*
 
-| Questão | Subcaracterística | Métricas |
-| --- | --- | --- |
-| **S-Q1.** Os dados do desenho trafegam e ficam armazenados de forma protegida contra acesso não autorizado? | Confidencialidade | S-M1 e S-M2 |
-| **S-Q2.** É possível controlar quem acessa um desenho compartilhado? | Confidencialidade | S-M3 e S-M4 |
-| **S-Q3.** O sistema impede alteração ou corrupção não autorizada dos dados? | Integridade | S-M5 e S-M6 |
+| Questão | Subcaracterística | Métricas | Hipótese |
+| --- | --- | --- | --- |
+| **S-Q1.** Os dados do desenho trafegam e ficam armazenados de forma protegida contra acesso não autorizado? | Confidencialidade | S-M1 e S-M2 | Sim: o código cifra as mensagens da colaboração com AES-GCM no navegador, e a chave fica no fragmento `#` do link, que o navegador não envia ao servidor |
+| **S-Q2.** É possível controlar quem acessa um desenho compartilhado? | Confidencialidade | S-M3 e S-M4 | Não: na versão gratuita, quem tem o link acessa o desenho, sem senha, expiração ou revogação, e a cena fica sem criptografia no `localStorage` |
+| **S-Q3.** O sistema impede alteração ou corrupção não autorizada dos dados? | Integridade | S-M5 e S-M6 | Sim: o AES-GCM é autenticado, então um payload adulterado falha ao ser decifrado, e a reconciliação por versão dos elementos deve evitar inconsistências na edição simultânea |
 
 *Tabela 6. Métricas e níveis de pontuação do objetivo O1. Fonte: elaboração
 própria.*
@@ -204,13 +209,13 @@ configurações técnicas para identificar limitações de autenticidade,
 responsabilização e resistência a ataques. As Tabelas 7 e 8 apresentam,
 respectivamente, as questões e as métricas do O2.
 
-*Tabela 7. Questões do objetivo O2. Fonte: elaboração própria.*
+*Tabela 7. Questões e hipóteses do objetivo O2. Fonte: elaboração própria.*
 
-| Questão | Subcaracterística | Métricas |
-| --- | --- | --- |
-| **S-Q4.** As ações dos usuários são rastreáveis? | Responsabilização | S-M7 e S-M8 |
-| **S-Q5.** O sistema confirma a identidade de quem participa da sessão? | Autenticidade | S-M9 e S-M10 |
-| **S-Q6.** A aplicação resiste a ataques e vulnerabilidades conhecidas? | Resistência | S-M11 a S-M13 |
+| Questão | Subcaracterística | Métricas | Hipótese |
+| --- | --- | --- | --- |
+| **S-Q4.** As ações dos usuários são rastreáveis? | Responsabilização | S-M7 e S-M8 | Não: a versão gratuita não guarda histórico de versões nem registra o autor de cada alteração |
+| **S-Q5.** O sistema confirma a identidade de quem participa da sessão? | Autenticidade | S-M9 e S-M10 | Não: o participante só informa um nome, sem login, e qualquer pessoa pode usar o nome de outra |
+| **S-Q6.** A aplicação resiste a ataques e vulnerabilidades conhecidas? | Resistência | S-M11 a S-M13 | Parcialmente: o projeto é mantido ativamente e deve ter poucas vulnerabilidades críticas, mas a configuração de hospedagem do repositório não define CSP, o que deve baixar a nota dos cabeçalhos |
 
 *Tabela 8. Métricas e níveis de pontuação do objetivo O2. Fonte: elaboração
 própria.*
@@ -227,7 +232,7 @@ própria.*
 
 ### Flexibilidade
 
-O Diagrama 6 apresenta a hierarquia GQM de Flexibilidade, dos objetivos O3 e
+O Diagrama 7 apresenta a hierarquia GQM de Flexibilidade, dos objetivos O3 e
 O4 às subcaracterísticas, questões e métricas.
 
 ```mermaid
@@ -266,7 +271,7 @@ flowchart LR
     class M1,M2,M3,M4,M5,M6,M7,M8,M9,M10,M11,M12 met
 ```
 
-*Diagrama 6. Hierarquia GQM de Flexibilidade, dos objetivos às métricas.
+*Diagrama 7. Hierarquia GQM de Flexibilidade, dos objetivos às métricas.
 Fonte: elaboração própria.*
 
 #### O3 — Adaptabilidade a diferentes ambientes e dispositivos
@@ -276,12 +281,12 @@ acessam a aplicação em diferentes dispositivos e plataformas, em especial
 quem acessa apenas pelo celular. As Tabelas 9 e 10 apresentam, respectivamente,
 as questões e as métricas do O3.
 
-*Tabela 9. Questões do objetivo O3. Fonte: elaboração própria.*
+*Tabela 9. Questões e hipóteses do objetivo O3. Fonte: elaboração própria.*
 
-| Questão | Subcaracterística | Métricas |
-| --- | --- | --- |
-| **F-Q1.** O Excalidraw funciona de forma consistente em diferentes navegadores e sistemas operacionais? | Adaptabilidade | F-M1 a F-M3 |
-| **F-Q2.** A aplicação se adapta a diferentes dispositivos e condições de uso? | Adaptabilidade | F-M4 a F-M6 |
+| Questão | Subcaracterística | Métricas | Hipótese |
+| --- | --- | --- | --- |
+| **F-Q1.** O Excalidraw funciona de forma consistente em diferentes navegadores e sistemas operacionais? | Adaptabilidade | F-M1 a F-M3 | Sim, com pequenas diferenças: é uma aplicação web que roda inteira no navegador, mas fontes e atalhos de teclado podem variar no macOS e no Safari |
+| **F-Q2.** A aplicação se adapta a diferentes dispositivos e condições de uso? | Adaptabilidade | F-M4 a F-M6 | Parcialmente: há barra de ferramentas própria para celular e uso offline como PWA, mas colaboração e IA dependem de conexão, e funções ligadas a atalhos devem ser limitadas no toque |
 
 *Tabela 10. Métricas e níveis de pontuação do objetivo O3. Fonte: elaboração
 própria.*
@@ -301,12 +306,12 @@ Analisar a substituição de ferramentas equivalentes e a migração de dados, d
 ponto de vista de usuários que migram de outra ferramenta de diagramação. As
 Tabelas 11 e 12 apresentam, respectivamente, as questões e as métricas do O4.
 
-*Tabela 11. Questões do objetivo O4. Fonte: elaboração própria.*
+*Tabela 11. Questões e hipóteses do objetivo O4. Fonte: elaboração própria.*
 
-| Questão | Subcaracterística | Métricas |
-| --- | --- | --- |
-| **F-Q3.** O Excalidraw pode substituir uma ferramenta equivalente (por exemplo, draw.io ou Miro) sem perda de funcionalidade e produtividade? | Substituibilidade | F-M7 a F-M9 |
-| **F-Q4.** Os dados podem ser migrados para dentro e para fora do Excalidraw sem perdas? | Substituibilidade | F-M10 a F-M12 |
+| Questão | Subcaracterística | Métricas | Hipótese |
+| --- | --- | --- | --- |
+| **F-Q3.** O Excalidraw pode substituir uma ferramenta equivalente (por exemplo, draw.io ou Miro) sem perda de funcionalidade e produtividade? | Substituibilidade | F-M7 a F-M9 | Parcialmente: deve cobrir as tarefas básicas de diagramação em tempo parecido, mas não todas as funções de ferramentas mais completas como o draw.io e o Miro |
+| **F-Q4.** Os dados podem ser migrados para dentro e para fora do Excalidraw sem perdas? | Substituibilidade | F-M10 a F-M12 | Parcialmente: o formato `.excalidraw` é um JSON aberto e deve preservar tudo ao exportar e reimportar, mas não há importação direta de arquivos do draw.io nem do Miro |
 
 *Tabela 12. Métricas e níveis de pontuação do objetivo O4. Fonte: elaboração
 própria.*
@@ -322,7 +327,7 @@ própria.*
 
 ### Capacidade de interação
 
-O Diagrama 7 apresenta a hierarquia GQM de Capacidade de interação, dos
+O Diagrama 8 apresenta a hierarquia GQM de Capacidade de interação, dos
 objetivos O5 e O6 às subcaracterísticas e questões. Para manter a leitura, as
 métricas aparecem agrupadas por questão.
 
@@ -376,7 +381,7 @@ flowchart LR
     class M1,M4,M7,M9,M12,M14,M17,M19,M22,M26 met
 ```
 
-*Diagrama 7. Hierarquia GQM de Capacidade de interação, dos objetivos às
+*Diagrama 8. Hierarquia GQM de Capacidade de interação, dos objetivos às
 métricas, agrupadas por questão. A linha tracejada indica a autodescritividade,
 observada pelas métricas CI-M3 e CI-M7. Fonte: elaboração própria.*
 
@@ -386,18 +391,18 @@ Analisar a interface de criação e edição para identificar dificuldades de
 compreensão, aprendizagem, operação, recuperação de erros e engajamento. As
 Tabelas 13 e 14 apresentam, respectivamente, as questões e as métricas do O5.
 
-*Tabela 13. Questões do objetivo O5. Fonte: elaboração própria.*
+*Tabela 13. Questões e hipóteses do objetivo O5. Fonte: elaboração própria.*
 
-| Questão | Subcaracterística | Métricas |
-| --- | --- | --- |
-| **CI-Q1.** O usuário consegue reconhecer rapidamente se o Excalidraw atende à sua necessidade? | Reconhecibilidade da adequação | CI-M1 a CI-M3 |
-| **CI-Q2.** Um usuário novo consegue aprender a usar as funções básicas sem treinamento? | Apreensibilidade | CI-M4 a CI-M6 |
-| **CI-Q3.** A ferramenta oferece recursos que apoiam o aprendizado contínuo? | Apreensibilidade | CI-M7 e CI-M8 |
-| **CI-Q4.** As tarefas comuns podem ser realizadas de forma eficiente? | Operabilidade | CI-M9 a CI-M11 |
-| **CI-Q5.** A interface se comporta de forma consistente e previsível? | Operabilidade | CI-M12 e CI-M13 |
-| **CI-Q6.** O sistema evita e permite recuperar erros do usuário? | Proteção contra erros do usuário | CI-M14 a CI-M16 |
-| **CI-Q7.** Os erros cometidos são frequentes e fáceis de entender? | Proteção contra erros do usuário | CI-M17 e CI-M18 |
-| **CI-Q8.** A interface é agradável e satisfatória para o usuário? | Engajamento do usuário | CI-M19 a CI-M21 |
+| Questão | Subcaracterística | Métricas | Hipótese |
+| --- | --- | --- | --- |
+| **CI-Q1.** O usuário consegue reconhecer rapidamente se o Excalidraw atende à sua necessidade? | Reconhecibilidade da adequação | CI-M1 a CI-M3 | Sim: a tela de boas-vindas e a barra de ferramentas à vista deixam claro, em poucos segundos, que é um quadro branco para desenhar |
+| **CI-Q2.** Um usuário novo consegue aprender a usar as funções básicas sem treinamento? | Apreensibilidade | CI-M4 a CI-M6 | Sim: as funções básicas seguem as convenções de editores gráficos (escolher a ferramenta, arrastar para desenhar) |
+| **CI-Q3.** A ferramenta oferece recursos que apoiam o aprendizado contínuo? | Apreensibilidade | CI-M7 e CI-M8 | Parcialmente: há diálogo de ajuda com os atalhos e dicas na tela, mas não há tutorial guiado |
+| **CI-Q4.** As tarefas comuns podem ser realizadas de forma eficiente? | Operabilidade | CI-M9 a CI-M11 | Sim: as ferramentas têm atalho de uma tecla (por exemplo, R ou 2 para retângulo), o que deve tornar os usuários experientes bem mais rápidos |
+| **CI-Q5.** A interface se comporta de forma consistente e previsível? | Operabilidade | CI-M12 e CI-M13 | Parcialmente: a interface é simples e dá retorno visual imediato, mas seleção, snapping e edição de texto em formas podem mudar conforme o contexto |
+| **CI-Q6.** O sistema evita e permite recuperar erros do usuário? | Proteção contra erros do usuário | CI-M14 a CI-M16 | Sim: há desfazer e refazer, a cena é salva automaticamente no navegador e limpar o canvas pede confirmação |
+| **CI-Q7.** Os erros cometidos são frequentes e fáceis de entender? | Proteção contra erros do usuário | CI-M17 e CI-M18 | Parcialmente: os erros devem ser poucos nas tarefas básicas, mas seleções e movimentos acidentais devem aparecer entre iniciantes e no toque |
+| **CI-Q8.** A interface é agradável e satisfatória para o usuário? | Engajamento do usuário | CI-M19 a CI-M21 | Sim: o estilo desenhado à mão e o modo escuro tendem a agradar, e o SUS deve ficar acima da média de 68 |
 
 !!! note "Engajamento e autodescritividade"
     A edição de 2023 da ISO/IEC 25010 substituiu a estética da interface pelo
@@ -441,12 +446,12 @@ Analisar os mecanismos de navegação, interação e apresentação das informa�
 para identificar barreiras de inclusividade e de assistência ao usuário. As
 Tabelas 15 e 16 apresentam, respectivamente, as questões e as métricas do O6.
 
-*Tabela 15. Questões do objetivo O6. Fonte: elaboração própria.*
+*Tabela 15. Questões e hipóteses do objetivo O6. Fonte: elaboração própria.*
 
-| Questão | Subcaracterística | Métricas |
-| --- | --- | --- |
-| **CI-Q9.** Pessoas com deficiência conseguem usar o Excalidraw? | Assistência ao usuário | CI-M22 a CI-M25 |
-| **CI-Q10.** A ferramenta se adapta a diferentes perfis de usuário? | Inclusividade | CI-M26 |
+| Questão | Subcaracterística | Métricas | Hipótese |
+| --- | --- | --- | --- |
+| **CI-Q9.** Pessoas com deficiência conseguem usar o Excalidraw? | Assistência ao usuário | CI-M22 a CI-M25 | Parcialmente: menus e barra de ferramentas devem ser operáveis pelo teclado, mas os elementos desenhados no canvas não devem ser anunciados por leitores de tela |
+| **CI-Q10.** A ferramenta se adapta a diferentes perfis de usuário? | Inclusividade | CI-M26 | Sim: a interface é traduzida para dezenas de idiomas, e o arquivo de traduções do repositório indica 96% das strings em português do Brasil |
 
 !!! note "Contraste"
     A métrica de contraste (CI-M25) responde à assistência ao usuário, e não à

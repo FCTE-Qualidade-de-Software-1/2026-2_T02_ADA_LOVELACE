@@ -143,7 +143,7 @@ flowchart LR
     class ODS4,ODS9,ODS10 ods
 ```
 
-*Diagrama 4. Relação entre as características avaliadas, os objetivos de
+*Diagrama 5. Relação entre as características avaliadas, os objetivos de
 medição e as metas dos ODS. Fonte: elaboração própria.*
 
 Os textos das metas seguem a tradução publicada pelas Nações Unidas no
