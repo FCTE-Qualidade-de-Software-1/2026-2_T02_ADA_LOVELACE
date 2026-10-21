@@ -50,8 +50,10 @@ markdown_extensions:
 
 nav:
   - Início: index.md
-  - Metodologia: metodologia.md
-  - Fase 1:
+  - Metodologia:
+      - Metodologia: metodologia.md
+      - Priorização de qualidades: priorizacao.md
+  - Fase de Planejamento:
       - Propósito e partes interessadas: fase1/proposito-partes-interessadas.md
       - Modelo de qualidade: fase1/modelo-qualidade.md
       - ODS: fase1/ods.md

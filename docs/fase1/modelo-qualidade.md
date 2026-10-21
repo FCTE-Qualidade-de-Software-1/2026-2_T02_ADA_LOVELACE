@@ -54,6 +54,9 @@ flowchart LR
 características selecionadas; tracejadas, as não selecionadas. Fonte:
 elaboração própria a partir da ISO/IEC 25010:2023.*
 
+A escolha das três características segue a matriz impacto × risco descrita
+em [Priorização de qualidades](../priorizacao.md).
+
 ## Adaptação ao contexto do Excalidraw
 
 A adaptação considera três elementos definidos na Fase 1:
