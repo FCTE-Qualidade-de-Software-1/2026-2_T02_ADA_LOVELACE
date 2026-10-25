@@ -117,6 +117,47 @@ contagem e eventuais exceções (como cancelamentos, reaberturas ou itens
 adicionados durante a iteração). Os resultados serão usados para discutir
 ajustes no fluxo e no planejamento, e não para ranquear integrantes.
 
+### Coleta automática de Lead Time e Cycle Time
+
+O workflow [Coletar métricas do GitHub Projects](../../.github/workflows/metricas-projeto.yml)
+executa semanalmente e grava uma nova coleta somente quando já se passaram
+14 dias desde a coleta anterior. O script consulta o histórico de alterações
+de **Status** do Project #19, incluindo as datas em que cada issue entrou em
+**Em andamento**, **Em revisão** e **Concluído**. Assim, a equipe continua
+movendo os cartões manualmente; não é necessário aplicar labels de estado.
+
+O resultado é salvo em
+[lead-cycle-time.csv](dados/lead-cycle-time.csv). Cada linha representa uma
+issue concluída no Project e contém datas de criação, início e conclusão,
+Lead Time em dias, Cycle Time em dias e número de retornos de **Em revisão**
+para **Em andamento**. Se uma issue foi reaberta e concluída novamente, os
+tempos usam a conclusão mais recente e o início mais recente que a precede.
+O CSV é uma fotografia atualizada a cada execução, não um histórico de cópias
+por iteração.
+
+Para conectar a automação ao GitHub, siga estes passos depois de enviar estes
+arquivos para a branch padrão:
+
+1. Crie um *fine-grained personal access token* com acesso ao repositório e
+   permissão de leitura de Issues e do Project da organização. O token precisa
+   conseguir consultar o Project #19 e as issues vinculadas; ele é usado só
+   para leitura.
+2. No repositório, abra **Settings → Secrets and variables → Actions → New
+   repository secret** e cadastre o token com o nome `PROJECTS_TOKEN`.
+3. Em **Settings → Actions → General → Workflow permissions**, permita
+   **Read and write permissions** para o `GITHUB_TOKEN`, para o workflow poder
+   atualizar o CSV e o arquivo de controle de data. Se a organização bloquear
+   essa permissão, um administrador precisará liberá-la.
+4. Em **Actions**, selecione **Coletar métricas do GitHub Projects** e use
+   **Run workflow** para validar a primeira execução. As seguintes são
+   agendadas; o cron semanal serve para recuperar uma falha e a trava de 14
+   dias impede coletas semanais duplicadas.
+
+O primeiro CSV e o arquivo `lead-cycle-time.last-collected` são criados pela
+primeira execução. A métrica Cycle Time depende de eventos de mudança de
+Status já registrados no histórico do Project; mudanças anteriores à
+disponibilidade desse histórico não podem ser reconstruídas pelo script.
+
 ## Registro atual do quadro
 
 Os números abaixo são uma fotografia do quadro em **19/10/2026**. Eles mostram
