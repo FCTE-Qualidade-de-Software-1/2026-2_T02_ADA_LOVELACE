@@ -97,6 +97,8 @@ produto.
   os indicadores relacionados à avaliação.
 * [Roteiro da análise](analise/roteiro.md): propósito, escopo, método, objetivos
   GQM, questões, métricas e critérios de julgamento.
+* [Gestão do grupo](analise/gestao-grupo.md): métricas automatizáveis de
+  participação, entrega, revisão, rastreabilidade e calendário.
 * [Resultados](analise/resultados.md): evidências coletadas, pontuações,
   achados, pontos fortes e recomendações.
 * [Referências](referencias.md): normas, métodos, ferramentas e documentação

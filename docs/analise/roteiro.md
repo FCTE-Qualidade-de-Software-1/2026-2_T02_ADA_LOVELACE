@@ -532,3 +532,10 @@ revisões e vínculo entre mudanças e evidências. A gestão do projeto usará
 práticas do **PSM (Practical Software and Systems Measurement)**, acompanhando
 recursos, custos, desempenho do processo e calendário. O registro de decisões,
 alterações de escopo e resultados deve permanecer no repositório.
+
+As métricas operacionais de participação, entrega, revisão, rastreabilidade e
+calendário são definidas na página de
+[Métricas de gestão do grupo](gestao-grupo.md). Elas complementam, mas não
+substituem, as métricas de qualidade do Excalidraw. A sessão automatizada de
+membros e atividades deve alimentar o contrato de dados dessa página e
+preservar o denominador, a janela e a fonte de cada valor.
