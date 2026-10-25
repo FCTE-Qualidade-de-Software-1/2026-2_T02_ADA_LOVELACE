@@ -87,3 +87,13 @@
 As versões das ferramentas, comandos utilizados e páginas consultadas durante
 a coleta devem ser registradas junto às evidências em
 [Resultados](analise/resultados.md).
+
+## Estimativa de custos
+
+28. U.S. GOVERNMENT ACCOUNTABILITY OFFICE (GAO). **Cost Estimating and
+    Assessment Guide: Best Practices for Developing and Managing Program
+    Costs**. GAO-20-195G. Washington, DC: GAO, 2020. Disponível em:
+    <https://www.gao.gov/products/gao-20-195g>. Acesso em: 25 out. 2026.
+    Apoio à decomposição do trabalho, ao registro de premissas e à atualização
+    da estimativa com dados realizados em
+    [Estimativa de custos da avaliação](gestao/estimativa-custos.md).
