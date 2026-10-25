@@ -702,6 +702,139 @@ fora do bloco gerado; `--check` não certifica a validade dessas premissas.
 [github-planos]: https://docs.github.com/en/get-started/learning-about-github/githubs-plans
 [excalidraw-licenca]: https://github.com/excalidraw/excalidraw/blob/master/LICENSE
 
+## Comparativo de valoração econômica
+
+### Escopo preservado e fontes de precificação
+
+**Versão V1, data-base e pesquisa: 25/10/2026.** Esta análise adicional
+preserva integralmente as estimativas E1 e a valoração acadêmica C1 de
+**R$ 8,08/p-h**. No cenário de esforço base, continuam previstas **222 p-h
+humanas**, das quais **213 p-h da equipe e 9 p-h de participantes externos**.
+Não se reclassificam essas horas como realizadas ou faturáveis.
+
+A pesquisa priorizou empresas juniores de computação e tecnologia, suas
+páginas de serviços e suas informações públicas sobre orçamento. Foram
+consultados o site da CJR, o FAQ institucional do CIC/UnB e o conteúdo
+indexado das páginas oficiais da EJEM e da Code Júnior. A leitura direta
+destas duas últimas páginas não ficou disponível pela ferramenta de pesquisa
+nesta sessão; seus conteúdos foram recuperados pelo índice de busca. Os
+valores publicados podem mudar e não constituem proposta comercial vigente
+para este estudo. Nenhuma empresa foi contatada ou forneceu cotação formal.
+
+**Fonte e unidade da tabela:** páginas oficiais indicadas em cada linha,
+consultadas na data-base. Preço por projeto em **R$/projeto**; tarifa por
+pessoa-hora em **R$/p-h**. “Não localizada” delimita esta pesquisa, sem afirmar
+que a instituição nunca publique preços por outros canais.
+
+| Referência | Informação pública encontrada | Informação de preço e limite de uso |
+| --- | --- | --- |
+| [CJR/UnB][cjr-servicos], com vínculo institucional corroborado pelo [CIC/UnB][cic-cjr] | Serviços de sistemas web, consultoria e soluções digitais; convite a diagnóstico gratuito e orçamento | Não localizada tarifa em R$/p-h nem preço de projeto na página consultada. Referência institucional de prestação de serviços estudantis de computação, sem valor monetário atribuído. Diagnóstico gratuito não implica projeto gratuito. |
+| [EJEM Mackenzie — software sob medida][ejem-projeto] | Divulgação de projetos a partir de **R$ 8.000**, cujo valor final depende do escopo e da proposta | **R$/projeto**, não R$/p-h e não orçamento para avaliação de qualidade. Sem esforço publicado correspondente que permita converter o preço em tarifa horária comparável. |
+| [Code Júnior/UFJF][code-junior] | Desenvolvimento de sistemas e aplicativos; levantamento de necessidades seguido de proposta técnica e comercial | Não localizada tarifa horária ou tabela numérica na página consultada. Evidencia orçamento condicionado ao escopo, sem base para imputar um valor a esta avaliação. |
+
+O dado da EJEM é um **preço inicial anunciado para projeto de desenvolvimento**.
+Não é média de mercado, remuneração de seus membros, teto de contratação ou
+custo observado deste trabalho. Não se divide R$ 8.000 pelas nossas 222 p-h:
+as horas pertencem à avaliação acadêmica, não ao projeto anunciado. Também
+não se infere que a avaliação deva custar esse mínimo ou que a diferença
+entre os subtotais represente economia obtida pela equipe.
+
+### Hipóteses alternativas por pessoa-hora
+
+Como não foi localizada tarifa pública de avaliação de qualidade diretamente
+comparável nas páginas examinadas, adotam-se três **hipóteses próprias de
+sensibilidade**, H25, H50 e H75: **R$ 25,00, R$ 50,00 e R$ 75,00/p-h**.
+São pontos de uma grade exploratória com incremento de R$ 25,00 para mostrar
+o efeito da taxa mantendo o esforço fixo. A escolha é uma premissa analítica
+desta documentação, sem calibração por amostra de preços; não indica faixa
+de mercado comprovada, tarifa recomendada ou probabilidade de ocorrência.
+Nenhum desses valores é atribuído à CJR, à EJEM ou à Code Júnior.
+
+Para cada valoração `v`, o script aplica:
+
+```text
+subtotal humano integral B(v) = (213 p-h equipe + 9 p-h externas) × taxa(v)
+subtotal humano restante B(v) = (158 p-h equipe + 9 p-h externas) × taxa(v)
+```
+
+A aplicação uniforme aos participantes é uma hipótese para comparar o mesmo
+volume de tempo humano. Não pressupõe que participação em teste seja serviço
+técnico vendido pela equipe, nem que participantes recebam essa tarifa. Os
+componentes permanecem separados nas tabelas. Para uma eventual cotação real,
+seria necessário distinguir horas da prestadora, participação dos usuários,
+recursos, condições contratuais e demais componentes de preço.
+
+As linhas de valoração são independentes dos cenários de esforço O/B/P:
+primeiro compara-se a taxa com B fixo em 222 p-h; depois mostra-se a
+combinação de cada taxa com os esforços originais, sem reestimá-los. A linha
+acadêmica continua a referência C1, sem ser substituída pelas alternativas.
+
+<!-- BEGIN COMPARATIVO VALORACAO -->
+
+**Fonte e unidade:** horas E1 preservadas; taxa C1 e hipóteses próprias H25/H50/H75 dos parâmetros V1. Taxas em **R$/p-h**, valores em **R$**. Cenário de esforço B fixo em **222 p-h** (213 equipe + 9 externas); parcela restante em **167 p-h** (158 equipe + 9 externas).
+
+| Valoração | Taxa | Equipe integral B | Externos B | Subtotal humano integral B | Subtotal humano restante B |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| ACADEMICO | 8,08 | 1.721,04 | 72,72 | 1.793,76 | 1.349,36 |
+| H25 | 25,00 | 5.325,00 | 225,00 | 5.550,00 | 4.175,00 |
+| H50 | 50,00 | 10.650,00 | 450,00 | 11.100,00 | 8.350,00 |
+| H75 | 75,00 | 15.975,00 | 675,00 | 16.650,00 | 12.525,00 |
+
+**Fonte e unidade:** mesmos parâmetros; subtotais humanos integrais em **R$**. O/B/P variam o esforço original; cada linha mantém sua taxa. Nenhuma linha representa orçamento de CJR, EJEM ou Code Júnior.
+
+| Valoração | Esforço O: 141 p-h | Esforço B: 222 p-h | Esforço P: 342,5 p-h |
+| --- | ---: | ---: | ---: |
+| ACADEMICO | 1.139,28 | 1.793,76 | 2.767,40 |
+| H25 | 3.525,00 | 5.550,00 | 8.562,50 |
+| H50 | 7.050,00 | 11.100,00 | 17.125,00 |
+| H75 | 10.575,00 | 16.650,00 | 25.687,50 |
+
+Os preços publicados por projeto são contexto documental e não entram nas multiplicações. Infraestrutura e despesas desconhecidas continuam fora dos subtotais humanos.
+
+<!-- END COMPARATIVO VALORACAO -->
+
+### Por que preço comercial e avaliação acadêmica não são equivalentes
+
+A oferta de software sob medida da EJEM descreve concepção de telas e dados,
+desenvolvimento e implementação de uma solução para o cliente. A CJR também
+divulga desenvolvimento e consultoria. Nosso objeto é avaliar um produto já
+existente: preparar protocolos, coletar evidências para métricas GQM,
+interpretar resultados e produzir documentação acadêmica, com uma ação de
+melhoria delimitada. Há competências e atividades técnicas em comum, mas os
+entregáveis, os critérios de aceitação e o risco de execução são distintos.
+
+Por análise metodológica, um preço comercial pode cobrir, conforme a
+proposta, estrutura da prestadora, gestão, infraestrutura, suporte,
+obrigações de entrega e riscos, além da execução. Esta comparação calcula
+somente equivalentes do tempo humano; não modela esses componentes nem
+atribui suas parcelas a qualquer empresa. Tampouco a referência de bolsa
+mede preço de venda. Preço anunciado, custo econômico de referência e
+desembolso efetivo respondem a perguntas diferentes.
+
+Os subtotais alternativos são, portanto, **simulações de valoração do mesmo
+esforço**, sem comprovar quanto uma empresa júnior cobraria para executar
+esta avaliação. Custo econômico completo e despesas efetivas permanecem
+não disponíveis, e as premissas de esforço e de recursos continuam sujeitas
+à revisão da equipe.
+
+### Reprodução do comparativo
+
+O script existente foi ampliado para ler `comparativo_valoracao` nos
+[parâmetros JSON](dados/parametros-custos.json). Os preços publicados por
+projeto ficam registrados como contexto, separados das taxas hipotéticas;
+não entram nas multiplicações. A memória em
+[custos-calculados.json](dados/custos-calculados.json) conserva todos os
+resultados C1 e acrescenta as valorações V1 e seus cenários de esforço.
+Os mesmos comandos `--write` e `--check` regeneram e conferem o bloco
+acadêmico e o comparativo. O script verifica que a linha acadêmica do
+comparativo coincide com C1 em O/B/P; mudanças nos parâmetros exigem revisão
+do texto explicativo, como já previsto na memória original.
+
+[cjr-servicos]: https://www.cjr.org.br/
+[cic-cjr]: https://cic.unb.br/informacoes/faq
+[ejem-projeto]: https://ejemackenzie.com.br/pagina/como-funciona-o-projeto/
+[code-junior]: https://www.codejr.com.br/
+
 ## Próxima etapa
 
 A revisão final integrará a estimativa ao artigo e à documentação, verificará

@@ -868,5 +868,183 @@
   "custos_nao_humanos_brl": null,
   "desembolso_efetivo_brl": null,
   "contingencia_adicionada_brl": "0.00",
-  "custo_economico_completo_brl": null
+  "custo_economico_completo_brl": null,
+  "comparativo_valoracao": {
+    "versao": "V1-provisoria",
+    "data_base": "2026-10-25",
+    "valoracoes": [
+      {
+        "id": "ACADEMICO",
+        "natureza": "proxy_academica_C1",
+        "taxa_brl_ph": "8.08",
+        "cenarios_esforco": {
+          "O": {
+            "equipe_integral_ph": "135",
+            "externos_ph": "6",
+            "humano_integral_ph": "141",
+            "humano_restante_ph": "106",
+            "equipe_integral_brl": "1090.80",
+            "externos_brl": "48.48",
+            "subtotal_humano_integral_brl": "1139.28",
+            "subtotal_humano_restante_brl": "856.48",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          },
+          "B": {
+            "equipe_integral_ph": "213",
+            "externos_ph": "9",
+            "humano_integral_ph": "222",
+            "humano_restante_ph": "167",
+            "equipe_integral_brl": "1721.04",
+            "externos_brl": "72.72",
+            "subtotal_humano_integral_brl": "1793.76",
+            "subtotal_humano_restante_brl": "1349.36",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          },
+          "P": {
+            "equipe_integral_ph": "329",
+            "externos_ph": "13.5",
+            "humano_integral_ph": "342.5",
+            "humano_restante_ph": "255.5",
+            "equipe_integral_brl": "2658.32",
+            "externos_brl": "109.08",
+            "subtotal_humano_integral_brl": "2767.40",
+            "subtotal_humano_restante_brl": "2064.44",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          }
+        }
+      },
+      {
+        "id": "H25",
+        "natureza": "hipotese_propria",
+        "taxa_brl_ph": "25.00",
+        "cenarios_esforco": {
+          "O": {
+            "equipe_integral_ph": "135",
+            "externos_ph": "6",
+            "humano_integral_ph": "141",
+            "humano_restante_ph": "106",
+            "equipe_integral_brl": "3375.00",
+            "externos_brl": "150.00",
+            "subtotal_humano_integral_brl": "3525.00",
+            "subtotal_humano_restante_brl": "2650.00",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          },
+          "B": {
+            "equipe_integral_ph": "213",
+            "externos_ph": "9",
+            "humano_integral_ph": "222",
+            "humano_restante_ph": "167",
+            "equipe_integral_brl": "5325.00",
+            "externos_brl": "225.00",
+            "subtotal_humano_integral_brl": "5550.00",
+            "subtotal_humano_restante_brl": "4175.00",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          },
+          "P": {
+            "equipe_integral_ph": "329",
+            "externos_ph": "13.5",
+            "humano_integral_ph": "342.5",
+            "humano_restante_ph": "255.5",
+            "equipe_integral_brl": "8225.00",
+            "externos_brl": "337.50",
+            "subtotal_humano_integral_brl": "8562.50",
+            "subtotal_humano_restante_brl": "6387.50",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          }
+        }
+      },
+      {
+        "id": "H50",
+        "natureza": "hipotese_propria",
+        "taxa_brl_ph": "50.00",
+        "cenarios_esforco": {
+          "O": {
+            "equipe_integral_ph": "135",
+            "externos_ph": "6",
+            "humano_integral_ph": "141",
+            "humano_restante_ph": "106",
+            "equipe_integral_brl": "6750.00",
+            "externos_brl": "300.00",
+            "subtotal_humano_integral_brl": "7050.00",
+            "subtotal_humano_restante_brl": "5300.00",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          },
+          "B": {
+            "equipe_integral_ph": "213",
+            "externos_ph": "9",
+            "humano_integral_ph": "222",
+            "humano_restante_ph": "167",
+            "equipe_integral_brl": "10650.00",
+            "externos_brl": "450.00",
+            "subtotal_humano_integral_brl": "11100.00",
+            "subtotal_humano_restante_brl": "8350.00",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          },
+          "P": {
+            "equipe_integral_ph": "329",
+            "externos_ph": "13.5",
+            "humano_integral_ph": "342.5",
+            "humano_restante_ph": "255.5",
+            "equipe_integral_brl": "16450.00",
+            "externos_brl": "675.00",
+            "subtotal_humano_integral_brl": "17125.00",
+            "subtotal_humano_restante_brl": "12775.00",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          }
+        }
+      },
+      {
+        "id": "H75",
+        "natureza": "hipotese_propria",
+        "taxa_brl_ph": "75.00",
+        "cenarios_esforco": {
+          "O": {
+            "equipe_integral_ph": "135",
+            "externos_ph": "6",
+            "humano_integral_ph": "141",
+            "humano_restante_ph": "106",
+            "equipe_integral_brl": "10125.00",
+            "externos_brl": "450.00",
+            "subtotal_humano_integral_brl": "10575.00",
+            "subtotal_humano_restante_brl": "7950.00",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          },
+          "B": {
+            "equipe_integral_ph": "213",
+            "externos_ph": "9",
+            "humano_integral_ph": "222",
+            "humano_restante_ph": "167",
+            "equipe_integral_brl": "15975.00",
+            "externos_brl": "675.00",
+            "subtotal_humano_integral_brl": "16650.00",
+            "subtotal_humano_restante_brl": "12525.00",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          },
+          "P": {
+            "equipe_integral_ph": "329",
+            "externos_ph": "13.5",
+            "humano_integral_ph": "342.5",
+            "humano_restante_ph": "255.5",
+            "equipe_integral_brl": "24675.00",
+            "externos_brl": "1012.50",
+            "subtotal_humano_integral_brl": "25687.50",
+            "subtotal_humano_restante_brl": "19162.50",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          }
+        }
+      }
+    ]
+  }
 }

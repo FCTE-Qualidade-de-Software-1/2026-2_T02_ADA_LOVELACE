@@ -116,3 +116,21 @@ a coleta devem ser registradas junto às evidências em
     <https://github.com/excalidraw/excalidraw/blob/master/LICENSE>.
     Acesso em: 25 out. 2026. Condições de licença do código para a instância
     local; não abrange custo de infraestrutura ou funcionalidades pagas.
+33. CJR — EMPRESA JÚNIOR DE COMPUTAÇÃO. **Serviços e orçamento**. Disponível
+    em: <https://www.cjr.org.br/>. Acesso em: 25 out. 2026. Referência
+    institucional de serviços de computação; sem tarifa numérica localizada
+    na página consultada.
+34. UNIVERSIDADE DE BRASÍLIA. Departamento de Ciência da Computação.
+    **Perguntas frequentes: organizações estudantis e empresas juniores**.
+    Disponível em: <https://cic.unb.br/informacoes/faq>. Acesso em:
+    25 out. 2026. Corrobora o vínculo institucional da CJR.
+35. EJEM MACKENZIE. **Como funciona um projeto de software sob medida na
+    EJEM**. Disponível em:
+    <https://ejemackenzie.com.br/pagina/como-funciona-o-projeto/>. Consulta ao
+    conteúdo oficial indexado em: 25 out. 2026. Preço anunciado a partir de
+    R$ 8.000 por projeto, dependente de escopo; não é tarifa horária nem
+    cotação da avaliação acadêmica.
+36. CODE JÚNIOR. **Serviços e processo de contratação**. Disponível em:
+    <https://www.codejr.com.br/>. Consulta ao conteúdo oficial indexado em:
+    25 out. 2026. Referência de proposta técnica e comercial após levantamento
+    de necessidades; sem tarifa numérica localizada na página consultada.

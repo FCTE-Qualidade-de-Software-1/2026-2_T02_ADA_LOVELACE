@@ -14,5 +14,21 @@
   "custos_nao_humanos_brl": null,
   "desembolso_efetivo_brl": null,
   "contingencia_adicionada_brl": "0.00",
+  "comparativo_valoracao": {
+    "versao": "V1-provisoria",
+    "data_base": "2026-10-25",
+    "metodo": "sensibilidade_taxa_uniforme_sem_alterar_esforco_E1",
+    "taxas_alternativas": [
+      {"id": "H25", "taxa_brl_ph": "25.00", "natureza": "hipotese_propria"},
+      {"id": "H50", "taxa_brl_ph": "50.00", "natureza": "hipotese_propria"},
+      {"id": "H75", "taxa_brl_ph": "75.00", "natureza": "hipotese_propria"}
+    ],
+    "criterio_taxas": "Grade exploratoria de 25 em 25 reais por pessoa-hora; nao e tabela de EJ, pesquisa de mercado ou conversao de preco por projeto.",
+    "referencias_publicadas": [
+      {"instituicao": "CJR/UnB", "url": "https://www.cjr.org.br/", "unidade": null, "valor_brl": null, "status": "tarifa_nao_localizada_na_pagina_consultada"},
+      {"instituicao": "EJEM Mackenzie", "url": "https://ejemackenzie.com.br/pagina/como-funciona-o-projeto/", "unidade": "projeto_software_sob_medida", "valor_inicial_brl": "8000.00", "status": "preco_a_partir_de_sem_equivalencia_horaria"},
+      {"instituicao": "Code Junior/UFJF", "url": "https://www.codejr.com.br/", "unidade": null, "valor_brl": null, "status": "proposta_tecnica_comercial_apos_levantamento_sem_tarifa_na_pagina_consultada"}
+    ]
+  },
   "observacao": "Horas da equipe lidas das tabelas E1 na pagina. Valores monetarios sao referencias economicas, nao pagamentos. null significa nao disponivel, nunca zero."
 }

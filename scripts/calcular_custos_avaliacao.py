@@ -18,6 +18,8 @@ PARAMS = ROOT / "docs/gestao/dados/parametros-custos.json"
 OUTPUT = ROOT / "docs/gestao/dados/custos-calculados.json"
 BEGIN = "<!-- BEGIN CALCULO CUSTOS -->"
 END = "<!-- END CALCULO CUSTOS -->"
+COMPARE_BEGIN = "<!-- BEGIN COMPARATIVO VALORACAO -->"
+COMPARE_END = "<!-- END COMPARATIVO VALORACAO -->"
 CASES = ("O", "B", "P")
 CENT = Decimal("0.01")
 
@@ -150,6 +152,77 @@ def calculate(text: str, params: dict) -> tuple[dict, str]:
     return result, "\n".join(lines)
 
 
+def compare_valuations(academic: dict, params: dict) -> tuple[dict, str]:
+    """Varia apenas a taxa; precos publicados por projeto nao entram na conta."""
+    config = params["comparativo_valoracao"]
+    hypotheses = config["taxas_alternativas"]
+    ids = [item["id"] for item in hypotheses]
+    if len(set(ids)) != len(ids) or "ACADEMICO" in ids:
+        raise ValueError("Identificadores de valoracao devem ser unicos.")
+    for item in hypotheses:
+        rate = Decimal(item["taxa_brl_ph"])
+        if item["natureza"] != "hipotese_propria" or rate <= 0 or money(rate) != rate:
+            raise ValueError("Taxas alternativas devem ser hipoteses positivas em centavos.")
+    valuations = [{"id": "ACADEMICO", "taxa_brl_ph": academic["taxa_brl_ph"],
+                   "natureza": "proxy_academica_C1"}, *hypotheses]
+    rows = []
+    for item in valuations:
+        rate = Decimal(item["taxa_brl_ph"])
+        cases = {}
+        for case in CASES:
+            team = academic["totais_equipe"]
+            external_ph = academic["externos_ph"][case]
+            team_cost = money(team["integral_ph"][case] * rate)
+            external_cost = money(external_ph * rate)
+            remaining_cost = money(team["restante_ph"][case] * rate) + external_cost
+            cases[case] = {
+                "equipe_integral_ph": team["integral_ph"][case],
+                "externos_ph": external_ph,
+                "humano_integral_ph": team["integral_ph"][case] + external_ph,
+                "humano_restante_ph": team["restante_ph"][case] + external_ph,
+                "equipe_integral_brl": team_cost,
+                "externos_brl": external_cost,
+                "subtotal_humano_integral_brl": team_cost + external_cost,
+                "subtotal_humano_restante_brl": remaining_cost,
+                "desembolso_efetivo_brl": None,
+                "custo_economico_completo_brl": None,
+            }
+        rows.append({"id": item["id"], "natureza": item["natureza"],
+                     "taxa_brl_ph": rate, "cenarios_esforco": cases})
+    for case in CASES:
+        current = rows[0]["cenarios_esforco"][case]
+        if (current["subtotal_humano_integral_brl"]
+                != academic["subtotal_humano_integral_brl"][case]
+                or current["subtotal_humano_restante_brl"]
+                != academic["subtotal_humano_restante_brl"][case]):
+            raise ValueError("Comparativo diverge da valoracao academica original.")
+    lines = [COMPARE_BEGIN, "",
+             "**Fonte e unidade:** horas E1 preservadas; taxa C1 e hipóteses próprias H25/H50/H75 "
+             "dos parâmetros V1. Taxas em **R$/p-h**, valores em **R$**. "
+             "Cenário de esforço B fixo em **222 p-h** (213 equipe + 9 externas); "
+             "parcela restante em **167 p-h** (158 equipe + 9 externas).", "",
+             "| Valoração | Taxa | Equipe integral B | Externos B | Subtotal humano integral B | Subtotal humano restante B |",
+             "| --- | ---: | ---: | ---: | ---: | ---: |"]
+    for row in rows:
+        base = row["cenarios_esforco"]["B"]
+        values = [row["taxa_brl_ph"], base["equipe_integral_brl"], base["externos_brl"],
+                  base["subtotal_humano_integral_brl"], base["subtotal_humano_restante_brl"]]
+        lines.append("| " + row["id"] + " | " + " | ".join(map(brl, values)) + " |")
+    lines += ["", "**Fonte e unidade:** mesmos parâmetros; subtotais humanos integrais em **R$**. "
+              "O/B/P variam o esforço original; cada linha mantém sua taxa. "
+              "Nenhuma linha representa orçamento de CJR, EJEM ou Code Júnior.", "",
+              "| Valoração | Esforço O: 141 p-h | Esforço B: 222 p-h | Esforço P: 342,5 p-h |",
+              "| --- | ---: | ---: | ---: |"]
+    for row in rows:
+        values = [row["cenarios_esforco"][c]["subtotal_humano_integral_brl"] for c in CASES]
+        lines.append("| " + row["id"] + " | " + " | ".join(map(brl, values)) + " |")
+    lines += ["", "Os preços publicados por projeto são contexto documental e não entram "
+              "nas multiplicações. Infraestrutura e despesas desconhecidas continuam fora "
+              "dos subtotais humanos.", "", COMPARE_END]
+    return {"versao": config["versao"], "data_base": config["data_base"],
+            "valoracoes": rows}, "\n".join(lines)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     group = parser.add_mutually_exclusive_group(required=True)
@@ -159,12 +232,18 @@ def main() -> None:
     text = PAGE.read_text(encoding="utf-8")
     params = json.loads(PARAMS.read_text(encoding="utf-8"))
     result, block = calculate(text, params)
+    comparison, comparison_block = compare_valuations(result, params)
+    result["comparativo_valoracao"] = comparison
     output = json.dumps(result, ensure_ascii=False, indent=2,
                         default=lambda value: format(value, "f")) + "\n"
     pattern = re.escape(BEGIN) + r".*?" + re.escape(END)
     updated, count = re.subn(pattern, lambda _: block, text, flags=re.S)
     if count != 1:
         raise ValueError("Deve existir um unico bloco de calculo na pagina.")
+    comparison_pattern = re.escape(COMPARE_BEGIN) + r".*?" + re.escape(COMPARE_END)
+    updated, count = re.subn(comparison_pattern, lambda _: comparison_block, updated, flags=re.S)
+    if count != 1:
+        raise ValueError("Deve existir um unico bloco comparativo na pagina.")
     if args.write:
         OUTPUT.write_text(output, encoding="utf-8")
         PAGE.write_text(updated, encoding="utf-8")
