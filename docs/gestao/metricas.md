@@ -1,18 +1,26 @@
 # Métricas de desenvolvimento
 
-Esta página registra como a equipe organiza e acompanha o trabalho. As
-tarefas são controladas por *issues* no repositório e acompanhadas em um
-quadro kanban no GitHub Projects, o que permite ver quem fez cada entrega,
-em que momento e em que etapa cada atividade se encontra.
+Esta página define como a equipe acompanha o trabalho no contexto de
+*Continuous Iterative Development* (CID). As métricas foram selecionadas e
+adaptadas a partir do **Measurement Framework do Practical Software
+Measurement (PSM)**, que organiza a medição em torno de necessidades de
+informação e indicadores úteis para a tomada de decisão. No projeto, os dados
+serão coletados a partir das *issues*, do quadro Kanban e dos ciclos de
+desenvolvimento de duas semanas.
+
+O PSM não determina um conjunto único de métricas obrigatório para todo
+projeto. Por isso, as medidas abaixo são uma aplicação do framework à realidade
+da equipe e ao processo iterativo utilizado. Os resultados devem ser
+interpretados em conjunto e no contexto de cada ciclo; nenhuma métrica isolada
+representa produtividade ou qualidade por completo.
 
 * **Kanban:** [Kanban – Ada Lovelace](https://github.com/orgs/FCTE-Qualidade-de-Software-1/projects/19)
 * **Issues:** [lista de issues do repositório](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues?q=is%3Aissue)
 
-## Fluxo de trabalho
+## Fluxo de trabalho e fonte dos dados
 
-Cada atividade da avaliação vira uma *issue*, classificada por fase e por
-tipo de trabalho. Quem assume a tarefa se atribui à *issue* e a move pelas
-colunas do quadro até a entrega.
+Cada atividade é registrada como uma *issue*, classificada por fase e tipo de
+trabalho, e acompanhada no GitHub Projects. O fluxo adotado é:
 
 ```mermaid
 flowchart LR
@@ -22,17 +30,17 @@ flowchart LR
     class B,A,E,R,C col
 ```
 
-*Diagrama 1. Colunas do kanban. Fonte: elaboração própria.*
+*Diagrama 1. Colunas do Kanban. Fonte: elaboração própria.*
 
 | Coluna | Significado |
 | --- | --- |
-| Backlog | Tarefa identificada, ainda não priorizada |
-| A fazer | Tarefa priorizada para o ciclo atual |
+| Backlog | Tarefa identificada, ainda não priorizada para um ciclo |
+| A fazer | Tarefa comprometida/priorizada para o ciclo atual |
 | Em andamento | Tarefa em execução por um integrante |
 | Em revisão | Entrega aguardando revisão da equipe |
 | Concluído | Entrega revisada e incorporada ao repositório |
 
-As *labels* indicam a fase e o tipo de trabalho:
+As *labels* indicam fase e tipo de trabalho:
 
 | Label | Uso |
 | --- | --- |
@@ -42,9 +50,120 @@ As *labels* indicam a fase e o tipo de trabalho:
 | `gitpages` | Estrutura e publicação do GitPages |
 | `medição` | Execução e análise das medições |
 
-## Situação das tarefas
+## Métricas selecionadas
 
-Dados de 19/10/2026.
+### Planejado versus realizado (Committed vs. Completed)
+
+Compara o conjunto de *issues* comprometidas para uma iteração com as que
+foram efetivamente concluídas nela. Para cada ciclo, registra-se a quantidade
+de itens em **A fazer** no início (Committed) e quantos desses itens chegaram
+a **Concluído** até o encerramento (Completed). Pode-se apresentar também a
+proporção `Completed / Committed`.
+
+Essa medida ajuda a avaliar a previsibilidade do planejamento e a ajustar o
+volume de trabalho assumido no ciclo seguinte. Itens adicionados depois do
+início do ciclo devem ser identificados separadamente, para não distorcer a
+comparação. A medida não deve ser usada isoladamente para avaliar indivíduos.
+
+### Fluxo cumulativo (Cumulative Flow)
+
+Registra, em datas regulares, a quantidade de *issues* em cada estado do
+Kanban: **Backlog**, **A fazer**, **Em andamento**, **Em revisão** e
+**Concluído**. A série pode ser representada em um diagrama de fluxo cumulativo,
+com o tempo no eixo horizontal e as quantidades acumuladas por estado no eixo
+vertical.
+
+As faixas mostram como o trabalho se distribui e evolui. Uma faixa que cresce
+continuamente, por exemplo em **Em revisão**, pode indicar acúmulo ou gargalo
+naquela etapa. A leitura deve considerar mudanças no escopo e no tamanho das
+issues, pois a contagem de itens não representa necessariamente o esforço.
+
+### Lead Time e Cycle Time
+
+As duas medidas acompanham o tempo de entrega, usando os registros de data e
+hora das *issues* e das mudanças de estado no GitHub Projects:
+
+| Métrica | Início | Fim | O que informa |
+| --- | --- | --- | --- |
+| **Lead Time** | Criação da issue | Entrada em **Concluído** | Tempo total de espera e execução desde que a demanda foi registrada até a entrega |
+| **Cycle Time** | Entrada em **Em andamento** | Entrada em **Concluído** | Tempo decorrido desde o início efetivo do trabalho até a entrega |
+
+As medidas ajudam a entender a rapidez de resposta e a duração da execução.
+Devem ser calculadas por issue e resumidas por ciclo (por exemplo, mediana e
+intervalo), explicitando o período analisado. Issues canceladas ou reabertas
+precisam ser identificadas para que não sejam tratadas como entregas simples.
+
+### Velocidade da equipe (Team Velocity)
+
+Por ciclo de duas semanas, contabiliza o volume de trabalho concluído. A
+equipe pode acompanhar a quantidade de *issues* concluídas; se adotar pontos de
+história de forma consistente, também pode somar os pontos concluídos. O
+critério escolhido deve permanecer estável entre ciclos, e apenas trabalho
+concluído entra na contagem.
+
+A velocidade oferece uma referência histórica para planejar a capacidade de
+ciclos futuros. Como issues podem ter tamanhos diferentes, a contagem bruta
+deve ser interpretada com cautela. A equipe já observou que o número de
+commits não representa diretamente esforço ou complexidade; por isso, commits
+não serão usados como medida de velocidade.
+
+
+## Coleta e interpretação
+
+Ao final de cada ciclo de duas semanas, a equipe consolidará as métricas a
+partir do histórico das issues e dos estados do Kanban. Para permitir
+comparações, serão mantidas as datas de início e fim do ciclo, as regras de
+contagem e eventuais exceções (como cancelamentos, reaberturas ou itens
+adicionados durante a iteração). Os resultados serão usados para discutir
+ajustes no fluxo e no planejamento, e não para ranquear integrantes.
+
+### Coleta automática de Lead Time e Cycle Time
+
+O workflow [Coletar métricas do GitHub Projects](../../.github/workflows/metricas-projeto.yml)
+executa semanalmente e grava uma nova coleta somente quando já se passaram
+14 dias desde a coleta anterior. O script consulta o histórico de alterações
+de **Status** do Project #19, incluindo as datas em que cada issue entrou em
+**Em andamento**, **Em revisão** e **Concluído**. Assim, a equipe continua
+movendo os cartões manualmente; não é necessário aplicar labels de estado.
+
+O resultado é salvo em
+[lead-cycle-time.csv](dados/lead-cycle-time.csv). Cada linha representa uma
+issue concluída no Project e contém datas de criação, início e conclusão,
+Lead Time em dias, Cycle Time em dias e número de retornos de **Em revisão**
+para **Em andamento**. Se uma issue foi reaberta e concluída novamente, os
+tempos usam a conclusão mais recente e o início mais recente que a precede.
+O CSV é uma fotografia atualizada a cada execução, não um histórico de cópias
+por iteração.
+
+Para conectar a automação ao GitHub, siga estes passos depois de enviar estes
+arquivos para a branch padrão:
+
+1. Crie um *fine-grained personal access token* com acesso ao repositório e
+   permissão de leitura de Issues e do Project da organização. O token precisa
+   conseguir consultar o Project #19 e as issues vinculadas; ele é usado só
+   para leitura.
+2. No repositório, abra **Settings → Secrets and variables → Actions → New
+   repository secret** e cadastre o token com o nome `PROJECTS_TOKEN`.
+3. Em **Settings → Actions → General → Workflow permissions**, permita
+   **Read and write permissions** para o `GITHUB_TOKEN`, para o workflow poder
+   atualizar o CSV e o arquivo de controle de data. Se a organização bloquear
+   essa permissão, um administrador precisará liberá-la.
+4. Em **Actions**, selecione **Coletar métricas do GitHub Projects** e use
+   **Run workflow** para validar a primeira execução. As seguintes são
+   agendadas; o cron semanal serve para recuperar uma falha e a trava de 14
+   dias impede coletas semanais duplicadas.
+
+O primeiro CSV e o arquivo `lead-cycle-time.last-collected` são criados pela
+primeira execução. A métrica Cycle Time depende de eventos de mudança de
+Status já registrados no histórico do Project; mudanças anteriores à
+disponibilidade desse histórico não podem ser reconstruídas pelo script.
+
+## Registro atual do quadro
+
+Os números abaixo são uma fotografia do quadro em **19/10/2026**. Eles mostram
+o estado atual das tarefas e servem como registro inicial; ainda não formam
+uma série histórica suficiente para calcular tendências de fluxo, tempos ou
+velocidade por ciclo.
 
 | Fase | Concluído | Em andamento | A fazer | Backlog | Total |
 | --- | :---: | :---: | :---: | :---: | :---: |
@@ -55,9 +174,10 @@ Dados de 19/10/2026.
 
 ## Contribuições no repositório
 
-Commits na branch `main` até 19/10/2026, sem contar os commits de *merge*.
-O número de commits mostra a frequência de entregas, mas não mede o tamanho
-nem a dificuldade de cada contribuição.
+Commits na branch `main` até **19/10/2026**, sem contar commits de *merge*.
+Esse dado é mantido como informação descritiva de atividade no repositório;
+não é uma métrica de esforço, qualidade, velocidade ou contribuição
+individual, pois commits variam em tamanho e complexidade.
 
 | Integrante | Commits |
 | --- | :---: |
