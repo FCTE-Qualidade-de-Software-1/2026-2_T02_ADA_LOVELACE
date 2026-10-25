@@ -179,10 +179,10 @@ A média das métricas do grupo é convertida em percentual por
 Qualquer métrica com 0 pontos deve gerar uma ação ou uma justificativa
 registrada. A média não deve esconder falhas de rastreabilidade ou revisão.
 
-## Contrato para a sessão automatizada
+## Procedimento de coleta automatizada
 
-Para que a sessão sobre membros e atividades traga as métricas sem
-interpretação manual, ela deve produzir pelo menos os seguintes campos:
+Esta seção é mantida para documentar como os dados são obtidos e permitir a
+reprodução da medição. A automação deve registrar, para cada coleta:
 
 ```text
 coleta: data, janela_inicio, janela_fim, referencia
@@ -192,6 +192,12 @@ integrante: login, dias_ativos, entregas_concluidas, entregas_atribuidas,
             prs_reabertos, evidencias_responsaveis
 grupo_calculado: G-G1, G-G2, G-G3, G-G4, G-G5, G-G6, G-G7, G-G8
 ```
+
+Esses campos garantem que os resultados possam ser conferidos: a data e a
+janela identificam o período, os dados do grupo e dos integrantes mostram os
+denominadores, e os indicadores calculados registram o resultado da medição.
+Esse procedimento não é uma métrica adicional nem altera a pontuação da
+gestão.
 
 Para reproduzir a métrica de commits localmente:
 
@@ -215,7 +221,7 @@ convertido silenciosamente em 0% ou 100%.
 
 Ao final de cada ciclo, a equipe deve incluir no registro de gestão:
 
-1. janela e commit analisados;
+1. janela e referência analisadas;
 2. tabela de valores das métricas e pontuações;
 3. divergências entre GitHub e trabalho relatado;
 4. ações corretivas, responsáveis e prazos;
