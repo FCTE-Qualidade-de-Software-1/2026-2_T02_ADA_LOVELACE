@@ -131,6 +131,8 @@ própria a partir do repositório do Excalidraw.*
   os indicadores relacionados à avaliação.
 * [Roteiro da análise](analise/roteiro.md): propósito, escopo, método, objetivos
   GQM, questões, métricas e critérios de julgamento.
+* [Gestão do grupo](analise/gestao-grupo.md): métricas automatizáveis de
+  participação, entrega, revisão, rastreabilidade e calendário.
 * [Resultados](analise/resultados.md): evidências coletadas, pontuações,
   achados, pontos fortes e recomendações.
 * [Métricas de desenvolvimento](gestao/metricas.md): kanban, fluxo de

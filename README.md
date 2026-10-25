@@ -17,6 +17,8 @@ documenta:
   de interação**, com base na ISO/IEC 25010:2023;
 - o roteiro de avaliação, as partes interessadas, as questões e as métricas
   definidas pela abordagem Goal-Question-Metric (GQM);
+- as métricas de gestão do grupo, calculáveis pela sessão automatizada de
+  membros e atividades;
 - os critérios de pontuação, as evidências, os achados e as recomendações;
 - as referências normativas, técnicas e bibliográficas utilizadas.
 
@@ -30,6 +32,8 @@ versão, os ambientes e as funcionalidades efetivamente analisados.
 - [Página inicial](docs/index.md): visão geral do estudo e integrantes;
 - [Roteiro da análise](docs/analise/roteiro.md): método, escopo, GQM,
   métricas e critérios de julgamento;
+- [Gestão do grupo](docs/analise/gestao-grupo.md): métricas de participação,
+  entrega, revisão, rastreabilidade e calendário;
 - [Resultados](docs/analise/resultados.md): evidências, pontuações, achados e
   recomendações;
 - [Referências](docs/referencias.md): normas e fontes consultadas.

@@ -37,6 +37,26 @@ atendidos e principais riscos.]`
 | O5 — Compreensão, aprendizagem e operação da interface | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
 | O6 — Acessibilidade e adequação a diferentes perfis | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
 
+## Gestão do grupo
+
+Os indicadores abaixo devem ser preenchidos pela sessão automatizada descrita
+em [Métricas de gestão do grupo](gestao-grupo.md). Eles avaliam o processo de
+execução e não compõem a pontuação da qualidade do Excalidraw.
+
+| Métrica | Valor | Denominador | Pontos (0–2) | Fonte/limitação |
+| --- | ---: | ---: | ---: | --- |
+| G-G1 — Cobertura de participação | `[ ]` | `[ ]` | `[ ]` | `[ ]` |
+| G-G2 — Equilíbrio de entregas | `[ ]` | `[ ]` | `[ ]` | `[ ]` |
+| G-G3 — Cumprimento do plano | `[ ]` | `[ ]` | `[ ]` | `[ ]` |
+| G-G4 — Tempo mediano de ciclo | `[ ]` | `[ ]` | `[ ]` | `[ ]` |
+| G-G5 — Revisão efetiva | `[ ]` | `[ ]` | `[ ]` | `[ ]` |
+| G-G6 — Rastreabilidade do estudo | `[ ]` | `[ ]` | `[ ]` | `[ ]` |
+| G-G7 — Saúde do backlog | `[ ]` | `[ ]` | `[ ]` | `[ ]` |
+| G-G8 — Continuidade | `[ ]` | `[ ]` | `[ ]` | `[ ]` |
+
+**Média da gestão:** `[ ] / 2` — **`[ ]%`** — **`[Atendida/Parcial/Não
+atendida]`**. Métricas com 0 pontos e respectivas ações: `[Preencher]`.
+
 ## Pontos fortes
 
 * `[Descreva o ponto forte, a métrica e a evidência que o sustentam.]`

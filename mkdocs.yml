@@ -60,6 +60,7 @@ nav:
       - Objetivos de qualidade: fase1/objetivos-qualidade.md
   - Análise:
       - Roteiro da análise: analise/roteiro.md
+      - Gestão do grupo: analise/gestao-grupo.md
       - Resultados: analise/resultados.md
   - Gestão:
       - Métricas de desenvolvimento: gestao/metricas.md

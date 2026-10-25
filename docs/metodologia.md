@@ -82,6 +82,13 @@ as contribuições dos integrantes e manter a rastreabilidade do processo de
 avaliação. As evidências e a análise serão organizadas na página de
 [resultados](analise/resultados.md).
 
+A gestão da execução será acompanhada separadamente por métricas de
+participação, entrega, revisão, rastreabilidade e calendário, definidas em
+[Métricas de gestão do grupo](analise/gestao-grupo.md). A sessão automatizada
+de membros e atividades deve fornecer os valores brutos e os denominadores
+dessas métricas; atividade não deve ser interpretada apenas pelo número de
+commits.
+
 A interpretação dos resultados será realizada por meio da comparação entre
 os valores obtidos e os critérios de julgamento estabelecidos para cada
 métrica. Essa análise permitirá identificar o nível de atendimento aos
