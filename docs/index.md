@@ -135,6 +135,8 @@ própria a partir do repositório do Excalidraw.*
   achados, pontos fortes e recomendações.
 * [Métricas de desenvolvimento](gestao/metricas.md): kanban, fluxo de
   trabalho, situação das tarefas e contribuições de cada integrante.
+* [Cronograma](gestao/cronograma.md): datas da disciplina e o que a equipe
+  entrega em cada marco.
 * [Referências](referencias.md): normas, métodos, ferramentas e documentação
   consultados.
 * [Uso de IA](uso-ia.md): declaração de cada integrante sobre as ferramentas
