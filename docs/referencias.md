@@ -97,3 +97,22 @@ a coleta devem ser registradas junto às evidências em
     Apoio à decomposição do trabalho, ao registro de premissas e à atualização
     da estimativa com dados realizados em
     [Estimativa de custos da avaliação](gestao/estimativa-custos.md).
+29. CONSELHO NACIONAL DE DESENVOLVIMENTO CIENTÍFICO E TECNOLÓGICO (CNPq).
+    **Tabela de Valores de Bolsas no País**. Atualização indicada: 17 jul.
+    2025. Disponível em:
+    <https://www.gov.br/cnpq/pt-br/acesso-a-informacao/bolsas-e-auxilios/copy_of_modalidades/tabela-de-valores-no-pais>.
+    Acesso em: 25 out. 2026. Referência mensal de iniciação científica.
+30. INSTITUTO EVANDRO CHAGAS (IEC). **IEC abre chamada para o Programa de
+    Bolsas de Iniciação Científica (PIBIC/IEC) 2026–2027**. 3 jun. 2026.
+    Disponível em:
+    <https://www.gov.br/iec/pt-br/iec-abre-chamada-para-o-programa-de-bolsas-de-iniciacao-cientifica-pibic-iec-202620132027>.
+    Acesso em: 25 out. 2026. Referência de carga semanal e bolsa para
+    aproximação econômica acadêmica; não é vínculo ou remuneração da equipe.
+31. GITHUB. **GitHub's plans**. Disponível em:
+    <https://docs.github.com/en/get-started/learning-about-github/githubs-plans>.
+    Acesso em: 25 out. 2026. Condições de uso gratuito para colaboração e
+    publicação pública, sem comprovação do plano efetivo da organização.
+32. EXCALIDRAW. **LICENSE: MIT License**. Disponível em:
+    <https://github.com/excalidraw/excalidraw/blob/master/LICENSE>.
+    Acesso em: 25 out. 2026. Condições de licença do código para a instância
+    local; não abrange custo de infraestrutura ou funcionalidades pagas.

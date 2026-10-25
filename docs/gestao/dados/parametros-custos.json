@@ -1,0 +1,18 @@
+{
+  "versao": "C1-provisoria",
+  "data_base": "2026-10-25",
+  "moeda": "BRL",
+  "referencia_mensal_brl": "700.00",
+  "horas_semanais_referencia": "20",
+  "semanas_convencionais_ano": "52",
+  "meses_ano": "12",
+  "fonte_valor": "https://www.gov.br/cnpq/pt-br/acesso-a-informacao/bolsas-e-auxilios/copy_of_modalidades/tabela-de-valores-no-pais",
+  "fonte_carga": "https://www.gov.br/iec/pt-br/iec-abre-chamada-para-o-programa-de-bolsas-de-iniciacao-cientifica-pibic-iec-202620132027",
+  "consulta_fontes": "2026-10-25",
+  "participantes_externos_ph": {"O": "6", "B": "9", "P": "13.5"},
+  "taxa_externos": "mesma_proxy_academica_por_hipotese",
+  "custos_nao_humanos_brl": null,
+  "desembolso_efetivo_brl": null,
+  "contingencia_adicionada_brl": "0.00",
+  "observacao": "Horas da equipe lidas das tabelas E1 na pagina. Valores monetarios sao referencias economicas, nao pagamentos. null significa nao disponivel, nunca zero."
+}

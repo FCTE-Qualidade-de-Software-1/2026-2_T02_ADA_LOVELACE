@@ -519,16 +519,193 @@ para acomodar horas. Registros reais substituirão comparações retrospectivas
 somente quando tiverem origem e cobertura verificáveis. Até lá, estes valores
 permanecem hipóteses revisáveis, sem validação individual da equipe.
 
-## Próximas etapas
+## Cálculo dos custos e cenários
 
-Esta versão estima esforço, sem atribuir taxas ou valores monetários.
-As próximas seções serão desenvolvidas incrementalmente para apresentar:
+### Referência acadêmica e conversão horária
 
-* **Cálculo dos custos:** conversão do esforço em custo econômico de
-  referência, identificação de despesas efetivas e recursos gratuitos, e
-  consolidação reproduzível dos cenários.
-* **Acompanhamento e integração acadêmica:** comparação entre previsto e
-  realizado, limitações e articulação com a documentação e o artigo.
+**Versão C1, data-base e consulta das fontes: 25/10/2026.** Para valorar o
+esforço estudantil, adota-se provisoriamente uma referência de iniciação
+científica, em vez de atribuir salários profissionais aos integrantes.
+A [tabela do CNPq][cnpq-valores] informa R$ 700,00 para IC; a divulgação da
+[chamada PIBIC/IEC/CNPq 2026–2027][iec-carga] associa a bolsa mensal de
+R$ 700,00 à disponibilidade de 20 horas semanais de estudantes de graduação.
+É referência nacional de fomento, apoiada por uma chamada de instituição no
+Pará, sem correspondência presumida com vínculo ou bolsa da equipe na UnB.
 
-A seleção de taxas e a apuração de despesas ainda dependem das etapas
-seguintes e da revisão das fontes e premissas pela equipe.
+A conversão usa a **convenção de 52 semanas por 12 meses**, adotada nesta
+estimativa, e não uma carga mensal declarada pelo CNPq:
+
+```text
+horas mensais de referencia = 20 × 52 / 12 = 86,6666... p-h
+taxa calculada = 700 / (20 × 52 / 12) = 8,076923... R$/p-h
+taxa aplicada = 8,08 R$/p-h
+```
+
+A taxa é arredondada uma única vez para centavos, pelo critério de metade
+para cima, e depois multiplicada pelas horas de cada pacote. Os resultados
+monetários também são arredondados para centavos e somados por fase. A taxa
+única cobre preparação, execução, análise, redação e revisão por membros da
+equipe estudantil; não há dados para justificar diferenças de remuneração
+entre seus papéis. Não são acrescentados encargos, lucro ou custos de uma
+contratação profissional a uma referência de bolsa.
+
+**A taxa aplicada é uma aproximação econômica proposta, não salário, preço
+de mercado, direito a bolsa ou pagamento realizado.** Seu uso para os
+participantes externos é uma hipótese de valoração uniforme do tempo, sem
+presumir que sejam estudantes, bolsistas ou remunerados. A ausência de
+perfis confirmados impede alegar que essa taxa mede seu custo de oportunidade
+individual. A referência mensal é a publicada nas fontes consultadas, sem
+correção monetária adicional. A taxa será mantida em O/B/P para isolar a
+variação de esforço; alteração da referência requer novo cálculo identificado.
+
+### Memória de cálculo por atividade, fase e cenário
+
+<!-- BEGIN CALCULO CUSTOS -->
+
+**Fonte e unidade:** horas E1 acima × taxa acadêmica de R$ 8,08/p-h; valores em **R$**. Tabela gerada pelo script, sem pagamentos presumidos.
+
+| Pacote | Integral O | Integral B | Integral P | Restante B |
+| --- | ---: | ---: | ---: | ---: |
+| F1.1 | 24,24 | 40,40 | 64,64 | 0,00 |
+| F1.2 | 24,24 | 40,40 | 64,64 | 0,00 |
+| F1.3 | 40,40 | 64,64 | 96,96 | 0,00 |
+| F1.4 | 16,16 | 24,24 | 40,40 | 0,00 |
+| F2.1 | 24,24 | 40,40 | 64,64 | 0,00 |
+| F2.2 | 96,96 | 145,44 | 226,24 | 32,32 |
+| F3.1 | 96,96 | 145,44 | 226,24 | 145,44 |
+| F3.2 | 48,48 | 80,80 | 129,28 | 80,80 |
+| F3.3 | 24,24 | 40,40 | 64,64 | 40,40 |
+| F3.4 | 16,16 | 32,32 | 48,48 | 32,32 |
+| F4.1 | 80,80 | 129,28 | 193,92 | 129,28 |
+| F4.2 | 80,80 | 129,28 | 193,92 | 129,28 |
+| F4.3 | 177,76 | 242,40 | 355,52 | 242,40 |
+| F4.4 | 64,64 | 96,96 | 145,44 | 96,96 |
+| F4.5 | 48,48 | 80,80 | 129,28 | 80,80 |
+| F4.6 | 48,48 | 80,80 | 129,28 | 80,80 |
+| T.1 | 48,48 | 80,80 | 129,28 | 32,32 |
+| T.2 | 64,64 | 113,12 | 177,76 | 80,80 |
+| T.3 | 64,64 | 113,12 | 177,76 | 72,72 |
+
+**Fonte e unidade:** soma dos pacotes por fase; **R$**, somente equipe. O trabalho transversal não é repetido nas fases.
+
+| Fase/grupo | Integral O | Integral B | Integral P | Restante B |
+| --- | ---: | ---: | ---: | ---: |
+| F1 | 105,04 | 169,68 | 266,64 | 0,00 |
+| F2 | 121,20 | 185,84 | 290,88 | 32,32 |
+| F3 | 185,84 | 298,96 | 468,64 | 298,96 |
+| F4 | 500,96 | 759,52 | 1.147,36 | 759,52 |
+| T | 177,76 | 307,04 | 484,80 | 185,84 |
+
+**Fonte e unidade:** agregação calculada, em **R$**, com externos de P2/P3 valorados separadamente pela mesma taxa por hipótese.
+
+| Componente | O | B | P |
+| --- | ---: | ---: | ---: |
+| Equipe — retrospectivo estimado | 282,80 | 444,40 | 702,96 |
+| Equipe — restante estimado | 808,00 | 1.276,64 | 1.955,36 |
+| Equipe — integral estimado | 1.090,80 | 1.721,04 | 2.658,32 |
+| Participantes externos — futuro | 48,48 | 72,72 | 109,08 |
+| **Subtotal humano integral valorado** | 1.139,28 | 1.793,76 | 2.767,40 |
+| **Subtotal humano restante valorado** | 856,48 | 1.349,36 | 2.064,44 |
+
+Infraestrutura e demais itens não valorados não integram esses subtotais. O total econômico completo e o desembolso efetivo permanecem **não disponíveis**.
+
+<!-- END CALCULO CUSTOS -->
+
+### Ferramentas, infraestrutura e despesas
+
+**Fonte e unidade da tabela:** catálogo R1–R6, condições oficiais consultadas
+em 25/10/2026 e hipóteses C1 descritas em cada linha. Valores monetários em
+**R$**; “não valorado” e “não disponível” não são zeros. As categorias são
+separadas para evidenciar a cobertura parcial da valoração.
+
+| Categoria | Tratamento econômico em C1 | Tratamento financeiro e fundamento |
+| --- | --- | --- |
+| Trabalho da equipe | Horas E1 × R$ 8,08/p-h, inclusive parcelas retrospectivas estimadas | Remuneração efetiva não comprovada; valores calculados não são pagamentos |
+| Tempo dos participantes | P2/P3 × mesma taxa por hipótese, separado da equipe | Não se presume incentivo ou ressarcimento; despesas dependem de confirmação |
+| Licença do código Excalidraw para instância local | R$ 0,00 de licença do código sob MIT, preservadas suas condições; preparação e operação já estão nas horas | [Licença oficial][excalidraw-licenca] permite uso sem cobrança de licença; não demonstra gratuidade de infraestrutura nem de funcionalidades pagas |
+| GitHub e publicação pública | Cenário de uso das funções gratuitas disponíveis, sem contratar plano adicional | [GitHub Free][github-planos] oferece colaboração em repositórios públicos e Pages; o plano efetivo da organização não foi comprovado; recursos excedentes ou pagos não são presumidos |
+| Demais ferramentas do catálogo R5, editor e compilador | Não valoradas: seleção de ferramenta, edição e licença efetivamente usada ainda pendentes | Não se lança compra fictícia; licenças já disponíveis não comprovam despesa nova, e alternativas gratuitas devem ser verificadas antes da execução |
+| Computadores, dispositivos, rede, energia e armazenamento | Não valorados: sem inventário, consumo incremental, período de uso ou critério de rateio verificável | Hipótese de uso de recursos disponíveis; não implica gratuidade econômica ou ausência de despesas |
+| IA de apoio à documentação | Não valorada: sem custo incremental, plano e alocação ao estudo comprovados | Assinatura pessoal não será imputada integralmente ao projeto; declaração de uso será integrada na etapa de revisão |
+| Transporte, impressão, incentivos e demais despesas | Não valorados: necessidade e valores não confirmados | Sem comprovantes de despesas nas fontes consultadas; desembolso total efetivo não disponível |
+
+O subtotal humano calculado não incorpora preços fictícios para fechar um
+total. Para chegar ao custo econômico completo, será necessário valorar os
+recursos consumidos com fonte e rateio, inclusive eventual uso de recursos
+já existentes. Para apurar o financeiro efetivo, serão necessários registros
+de desembolso e cobertura do período. A ausência de comprovantes **não
+autoriza concluir que a avaliação custou R$ 0,00**. Nenhuma contratação nova
+é pressuposta por esta versão; isso é uma hipótese de planejamento, não
+evidência sobre os gastos da equipe.
+
+### Contingência, sensibilidade e fatores de variação
+
+**Não se acrescenta reserva monetária à base nesta versão** (parcela
+adicionada: R$ 0,00). Os cenários de esforço já contemplam repetição técnica
+e retrabalho, e faltam probabilidades e impactos independentes para justificar
+um percentual adicional sem duplicação. Isso não significa risco nulo.
+Despesas ainda desconhecidas ficam pendentes, sem serem ocultadas como
+contingência. Uma reserva futura exigirá risco, base de cálculo e aprovação
+de premissa separados.
+
+No cenário B, o subtotal humano integral valorado é **R$ 1.793,76**:
+R$ 1.721,04 da equipe e R$ 72,72 dos participantes. Desses valores, o
+subtotal humano restante é **R$ 1.349,36**; os R$ 444,40 retrospectivos
+são uma valoração de estimativas, sem comprovação de gasto passado.
+Os valores mantêm as limitações de E1 quanto a amostra, ambientes, duração
+das sessões, disponibilidade e calendário.
+
+F4 concentra 94 das 213 p-h da equipe no cenário B; dentro dela, F4.3 é
+o maior pacote, com 30 p-h da equipe e 9 p-h externas. Ampliar a amostra,
+realizar sessões adicionais, separar grupos de migração e interação ou
+enfrentar problemas de ambiente aumenta a demanda de recursos. Também podem
+alterar os custos a ação de melhoria escolhida, novas reuniões, necessidade
+de equipamento indisponível e uso de planos pagos.
+
+Como sensibilidade algébrica, mantendo as 222 p-h humanas integrais do
+cenário B, **cada R$ 1,00/p-h acrescido à taxa uniforme acrescenta R$ 222,00**
+ao subtotal humano integral; para as 167 p-h restantes, acrescenta R$ 167,00.
+Não é uma previsão de reajuste ou taxa alternativa observada. A taxa baseada
+em bolsa mede um equivalente acadêmico restrito: usar preços profissionais
+responderia a outra hipótese e exigiria fontes e recálculo próprios.
+
+### Reprodução e conferência
+
+As horas continuam definidas nas tabelas E1 desta página, sem uma segunda
+transcrição manual de entradas. O script
+[`calcular_custos_avaliacao.py`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/feat/estimativa-custos/scripts/calcular_custos_avaliacao.py)
+lê essas tabelas e os
+[`parâmetros C1`](dados/parametros-custos.json), aplica aritmética decimal e
+gera a memória em [`custos-calculados.json`](dados/custos-calculados.json)
+e as tabelas monetárias acima. A execução requer somente Python 3, com
+biblioteca padrão, a partir da raiz do repositório:
+
+```shell
+python scripts/calcular_custos_avaliacao.py --write
+python scripts/calcular_custos_avaliacao.py --check
+mkdocs build --strict
+git diff --check
+```
+
+`--write` atualiza somente a memória JSON e o bloco monetário delimitado
+nesta página; `--check` verifica sua correspondência sem escrever arquivos.
+A conferência exige 19 pacotes distintos, cenários ordenados, soma das
+parcelas retrospectiva e restante igual ao integral, e reconciliação por
+fase. O JSON conserva `null` para custos não humanos, desembolso efetivo e
+custo econômico completo não disponíveis; decimais são strings para evitar
+perda de precisão. Não há contingência embutida nas tabelas de equipe.
+Mudanças nas entradas também exigem revisar as premissas e o texto de síntese
+fora do bloco gerado; `--check` não certifica a validade dessas premissas.
+
+[cnpq-valores]: https://www.gov.br/cnpq/pt-br/acesso-a-informacao/bolsas-e-auxilios/copy_of_modalidades/tabela-de-valores-no-pais
+[iec-carga]: https://www.gov.br/iec/pt-br/iec-abre-chamada-para-o-programa-de-bolsas-de-iniciacao-cientifica-pibic-iec-202620132027
+[github-planos]: https://docs.github.com/en/get-started/learning-about-github/githubs-plans
+[excalidraw-licenca]: https://github.com/excalidraw/excalidraw/blob/master/LICENSE
+
+## Próxima etapa
+
+A revisão final integrará a estimativa ao artigo e à documentação, verificará
+a coerência com a gestão e o calendário e registrará o uso de IA. As
+premissas provisórias e os recursos não valorados continuam sujeitos à
+confirmação da equipe; concluir a implementação não os transforma em dados
+observados ou em despesas comprovadas.
