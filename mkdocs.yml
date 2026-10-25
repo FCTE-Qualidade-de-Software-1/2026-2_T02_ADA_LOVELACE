@@ -63,5 +63,6 @@ nav:
       - Resultados: analise/resultados.md
   - Gestão:
       - Métricas de desenvolvimento: gestao/metricas.md
+      - Estimativa de custos: gestao/estimativa-custos.md
   - Referências: referencias.md
   - Uso de IA: uso-ia.md
