@@ -349,18 +349,186 @@ modifica issues, Kanban, responsáveis ou critérios do grupo.
 [PR #23]: https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/23
 [PR #24]: https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/24
 
+## Estimativa de esforço
+
+### Data-base e natureza dos valores
+
+**Versão E1, data-base 25/10/2026, provisória para revisão da equipe.**
+O escopo é o dos 19 pacotes mapeados acima, das 51 métricas do roteiro
+(13 de segurança, 12 de flexibilidade e 26 de capacidade de interação) e dos
+entregáveis do artigo. `origin/main` permanece em `f81800b`; os PRs #23 e #24
+continuam abertos. Não foram encontrados registros de horas reais nos
+arquivos consultados. Nenhum valor desta seção representa esforço observado
+ou declaração individual de horas.
+
+A técnica é a **estimativa analítica por decomposição**, com três pontos por
+pacote: otimista (O), base (B) e pessimista (P). Cada orçamento base é a soma
+dos blocos de trabalho explicitados nas tabelas; suas durações são hipóteses
+de planejamento produzidas nesta elaboração, não produtividade histórica.
+O e P representam menor ou maior dificuldade de execução do mesmo escopo.
+Não são limites garantidos nem intervalos estatísticos. Não se usa média
+ponderada PERT: B é o cenário central proposto, e não uma esperança calculada.
+
+Para pacotes concluídos, os valores são **estimativas retrospectivas**.
+Para pacotes futuros, são previsões do trabalho integral. Para os quatro
+pacotes em andamento (F2.2, T.1, T.2 e T.3), o esforço integral é dividido em
+parcela retrospectiva e restante, ambas estimadas. A existência do entregável
+ajuda a delimitar o conteúdo, mas não permite medir seu custo passado.
+O esforço real permanece **não disponível** para todos os pacotes; zero na
+coluna de restante significa ausência de trabalho adicional no escopo
+concluído, nunca ausência de esforço passado.
+
+### Premissas de dimensionamento
+
+* **P1 — Cobertura técnica:** preservar as métricas e denominadores do roteiro.
+  Para dimensionar F3.2 e F4.2, propõem-se cinco configurações que cubram
+  Windows, Linux, macOS, Android e iOS e os navegadores Chrome, Firefox, Edge
+  e Safari, sem exigir o produto cartesiano de todas as combinações. A
+  distribuição exata deve ser validada; as resoluções de 360, 768, 1366 e
+  2560 px e os testes offline também estão incluídos. Acesso aos equipamentos
+  é uma hipótese, sem compra presumida. Cobertura adicional exige revisão.
+* **P2 — Participantes:** hipótese de seis participantes externos à equipe,
+  com três iniciantes e três experientes e experiência de migração suficiente
+  para F-M8 e F-M9. Cada participante realizará três sessões, preservando a
+  comparação entre primeira e terceira sessão de CI-M8. Essa composição não
+  foi aprovada ou recrutada e não constitui justificativa estatística de
+  amostra nem garantia de representação dos perfis de acessibilidade.
+* **P3 — Sessões compartilhadas:** orçamento por sessão de 20, 30 ou 45
+  minutos (O/B/P), com dois integrantes da equipe em papéis de condução e
+  registro. As mesmas sessões contemplarão tarefas de interação e migração,
+  mediante protocolo viável e sem comprometer as medições. Toda condução e
+  registro dessas sessões será alocada em F4.3, sem repetição em F4.2.
+  Se o protocolo não couber nesse tempo, ou exigir grupos distintos, a
+  estimativa deverá ser revista antes de ser adotada como linha de base.
+* **P4 — Incerteza técnica:** O pressupõe acesso pronto aos recursos e pouca
+  repetição; B admite preparação e correções localizadas; P admite obstáculos
+  de ambiente, repetição de testes e retrabalho dentro do escopo. A espera
+  por equipamentos, consentimento ou revisão afeta o calendário, mas só vira
+  esforço quando houver trabalho humano. Não se pressupõem automações dos
+  PRs pendentes, nem auditoria invasiva de infraestrutura de terceiros.
+* **P5 — Limites dos pacotes:** execução inclui evidências e repetição técnica;
+  F4.4 inclui tratamento e interpretação; F4.6 inclui redação; T.3 concentra
+  revisão por pares, ajustes editoriais de integração e declaração de IA.
+  T.2 inclui reuniões de planejamento e gestão, inclusive esta estimativa.
+  A ação de F4.5 é uma melhoria delimitada, como um protótipo ou proposta de
+  processo, conforme permitido no artigo; uma implementação mais ampla
+  requer novo orçamento.
+
+P1 e os requisitos de sessões e métricas derivam do [Roteiro]; os tamanhos,
+tempos, composição dos grupos e orçamentos são **premissas propostas nesta
+estimativa**, para revisão humana. Não foram relatados pelos integrantes.
+
+### Esforço integral por pacote
+
+**Fonte e unidade das tabelas:** estimativa analítica desta elaboração a
+partir dos pacotes e fontes do mapeamento e das premissas P1–P5. Todos os
+valores O/B/P e parcelas da justificativa estão em **pessoa-hora da equipe
+(p-h)**. Os orçamentos base expressam trabalho somado entre pessoas, não
+horas de calendário. As dependências são as do mapeamento; as justificativas
+explicam os fatores que ampliam ou reduzem cada faixa.
+
+| Pacote / natureza | O | B | P | Composição de B e justificativa da faixa |
+| --- | ---: | ---: | ---: | --- |
+| F1.1 / retrospectiva | 3 | 5 | 8 | 2 de leitura e delimitação + 3 de redação do método. Faixa varia com familiaridade com SQuaRE/GQM e necessidade de alinhar o processo. |
+| F1.2 / retrospectiva | 3 | 5 | 8 | 2 de análise do contexto + 3 de propósito, interessados e escopo. Divergências de fronteira e necessidades ampliam a faixa. |
+| F1.3 / retrospectiva | 5 | 8 | 12 | 4 de adaptação do modelo + 4 de matriz e justificativas. A seleção entre características e sua coerência com o escopo elevam a complexidade. |
+| F1.4 / retrospectiva | 2 | 3 | 5 | 1 de consulta aos ODS + 2 de vinculação e documentação. A faixa considera dificuldade de distinguir contribuição do estudo de impacto social observado. |
+| F2.1 / retrospectiva | 3 | 5 | 8 | 3 de formulação dos objetivos + 2 de rastreabilidade às características e interessados. A necessidade de reformulação amplia a faixa. |
+| F2.2 / mista | 12 | 18 | 28 | 14 retrospectivas para formular e documentar questões, hipóteses, métricas e critérios + 4 restantes para conferir a coerência e reconciliar as issues. As 51 métricas e divergências documentais ampliam a faixa. |
+| F3.1 / futura | 12 | 18 | 28 | 3 blocos de 6 para protocolos de segurança, flexibilidade e interação. O compartilhamento de casos reduz trabalho; métricas com múltiplos contextos e pilotos exigem detalhamento adicional. |
+| F3.2 / futura | 6 | 10 | 16 | 5 de configuração dos ambientes de P1 + 3 de ferramentas e instância local + 2 de verificação e registro. Acesso a macOS/iOS e dependências locais são riscos da faixa. |
+| F3.3 / futura | 3 | 5 | 8 | 2 de protocolo/consentimento + 2 de recrutamento e agendamento + 1 de organização da guarda dos registros. O recrutamento de perfis e reagendamentos exigem esforço adicional; esperas ficam fora. |
+| F3.4 / futura | 2 | 4 | 6 | 2 de consolidação de recursos e disponibilidade + 2 de marcos e dependências. A indisponibilidade de responsáveis e datas demanda renegociação; reuniões gerais ficam em T.2. |
+
+| Pacote / natureza | O | B | P | Composição de B e justificativa da faixa |
+| --- | ---: | ---: | ---: | --- |
+| F4.1 / futura | 10 | 16 | 24 | 4 de tráfego/armazenamento + 4 de acesso, identidade e registros + 4 de integridade/concorrência local + 4 de dependências, cabeçalhos e evidências. As 13 métricas compartilham inspeções; falhas e reprodução ampliam a faixa. |
+| F4.2 / futura | 10 | 16 | 24 | 5 configurações × 1,5 = 7,5 + 4 resoluções × 0,5 = 2 + 1,5 de offline + 5 de comparação funcional, arquivos e migração técnica. P1 evita todas as combinações; sessões de F-M8/F-M9 ficam em F4.3. Dificuldades de reprodução e formatos ampliam a faixa. |
+| F4.3 / futura | 22 | 30 | 44 | 6 participantes × 3 sessões × 0,5 × 2 integrantes = 18 + 12 de inspeções da interface, teclado, leitor de tela, contraste, tradução e evidências. Em O/P, sessões consomem 12/27 e inspeções 10/17. As 26 métricas combinam observação humana e inspeção técnica; P2/P3 precisam de validação. |
+| F4.4 / futura | 8 | 12 | 18 | 4 de limpeza/consolidação + 4 de pontuação e respostas GQM + 4 de interpretação, relações e limitações. Dados incompletos e divergências entre fontes ampliam a faixa; recoleta fica nos pacotes de execução. |
+| F4.5 / futura | 6 | 10 | 16 | 2 de priorização a partir dos achados + 6 de ação delimitada + 2 de verificação/evidência. A escolha depende de F4.4; complexidade ou integração superior a P5 exige reestimativa. |
+| F4.6 / futura | 6 | 10 | 16 | 6 de redação/inserção de resultados + 2 de ameaças e conclusão + 2 de síntese da gestão. Articulação entre fases e restrição de extensão do artigo ampliam a faixa; revisão por pares fica em T.3. |
+| T.1 / mista | 6 | 10 | 16 | 6 retrospectivas de estrutura/apresentação + 4 restantes de manutenção, navegação e builds das entregas. Problemas de apresentação ampliam a faixa; conteúdo científico fica nos pacotes de fase. |
+| T.2 / mista | 8 | 14 | 22 | 4 retrospectivas de organização/gestão + 10 restantes: 6 para completar estimativa e registros de acompanhamento, e 4 de reuniões (2 encontros × 2 integrantes × 1 h). Frequência provisória; novas reuniões e automações complexas exigem revisão. |
+| T.3 / mista | 8 | 14 | 22 | 5 retrospectivas de revisão/integração + 9 restantes de conferência cruzada, integração e declaração de IA. Divergências e devoluções ampliam a faixa. Correções técnicas e nova coleta não são contadas novamente aqui. |
+
+O tempo dos participantes externos **não está incluído** nessas tabelas da
+equipe. Sob P2/P3, a participação externa estimada é `6 × 3 × duração da
+sessão`: **6 / 9 / 13,5 p-h** em O/B/P, respectivamente. É recurso humano
+adicional, sem remuneração presumida, e será mostrado separadamente em
+qualquer valoração posterior. Se integrantes da equipe atuarem como
+participantes, os papéis e a alocação deverão ser revistos para evitar dupla
+contagem e discutir o efeito metodológico.
+
+### Separação entre retrospectivo e restante
+
+**Fonte da tabela:** decomposição proposta nesta versão E1; unidade **p-h da
+equipe**. Cada tripla está na ordem **O / B / P**. São estimativas, inclusive
+as parcelas retrospectivas; não são percentual de execução nem horas reais.
+
+| Pacote em andamento | Parcela retrospectiva estimada | Parcela restante estimada | Integral estimado |
+| --- | ---: | ---: | ---: |
+| F2.2 | 10 / 14 / 22 | 2 / 4 / 6 | 12 / 18 / 28 |
+| T.1 | 4 / 6 / 10 | 2 / 4 / 6 | 6 / 10 / 16 |
+| T.2 | 2 / 4 / 6 | 6 / 10 / 16 | 8 / 14 / 22 |
+| T.3 | 3 / 5 / 8 | 5 / 9 / 14 | 8 / 14 / 22 |
+
+**Fonte da síntese:** soma dos pacotes anteriores por fase, sem nova parcela
+de contingência. Unidade **p-h da equipe**, triplas **O / B / P**. Concluídos
+têm restante zero; futuros têm retrospectivo zero por convenção deste
+planejamento, sem afirmar que ninguém iniciou trabalho fora do repositório.
+
+| Fase/grupo | Retrospectivo estimado | Restante estimado | Integral estimado |
+| --- | ---: | ---: | ---: |
+| F1 | 13 / 21 / 33 | 0 / 0 / 0 | 13 / 21 / 33 |
+| F2 | 13 / 19 / 30 | 2 / 4 / 6 | 15 / 23 / 36 |
+| F3 | 0 / 0 / 0 | 23 / 37 / 58 | 23 / 37 / 58 |
+| F4 | 0 / 0 / 0 | 62 / 94 / 142 | 62 / 94 / 142 |
+| Transversal | 9 / 15 / 24 | 13 / 23 / 36 | 22 / 38 / 60 |
+| **Total equipe** | **35 / 55 / 87** | **100 / 158 / 242** | **135 / 213 / 329** |
+
+Somente o **restante estimado** deve orientar a capacidade futura; somar o
+retrospectivo novamente superestimaria a demanda a partir da data-base.
+Os totais O e P combinam todas as hipóteses favoráveis ou desfavoráveis;
+não há fundamento para lhes atribuir probabilidade de ocorrência.
+
+### Calendário, capacidade e revisão das premissas
+
+O artigo registra **26/10/2026 para a primeira entrega**, referente às fases
+iniciais, e propõe marcos semanais para F3. Não foi localizado prazo final
+confirmado para F3/F4 nem disponibilidade individual registrada. Portanto,
+não é possível afirmar que as horas restantes cabem no calendário acadêmico.
+As 158 p-h restantes do cenário base não devem ser concentradas na véspera
+da primeira entrega ou convertidas automaticamente em dias corridos.
+
+Como análise de capacidade **hipotética**, se os seis integrantes pudessem
+dedicar 4 p-h por semana cada um, a capacidade seria `6 × 4 = 24 p-h/semana`.
+O esforço restante exigiria, pelo quociente `esforco / capacidade`, cerca de
+**4,2 / 6,6 / 10,1 semanas** em O/B/P, arredondadas para uma casa decimal.
+As 4 p-h semanais são uma hipótese para explicitar a disponibilidade limitada,
+não um compromisso ou relato dos membros. O quociente é apenas uma referência
+agregada: dependências, sessões repetidas, acesso a dispositivos e esperas
+podem alongar o calendário, mesmo com capacidade total suficiente.
+
+Antes de aprovar a linha de base, a equipe deverá confirmar prazo final,
+disponibilidade por período, ambientes acessíveis, participantes e duração
+do protocolo, alcance da melhoria e rotina de reuniões/revisões. Caso a
+capacidade não comporte a previsão, será necessário renegociar a execução
+e registrar as decisões; esta estimativa não reduz métricas ou critérios
+para acomodar horas. Registros reais substituirão comparações retrospectivas
+somente quando tiverem origem e cobertura verificáveis. Até lá, estes valores
+permanecem hipóteses revisáveis, sem validação individual da equipe.
+
 ## Próximas etapas
 
-Esta versão define o método e mapeia o trabalho, sem atribuir horas ou valores monetários.
+Esta versão estima esforço, sem atribuir taxas ou valores monetários.
 As próximas seções serão desenvolvidas incrementalmente para apresentar:
 
-* **Estimativa de esforço:** premissas, justificativas e cenários por
-  atividade, distinguindo estimativas de horas efetivamente registradas.
 * **Cálculo dos custos:** conversão do esforço em custo econômico de
   referência, identificação de despesas efetivas e recursos gratuitos, e
   consolidação reproduzível dos cenários.
 * **Acompanhamento e integração acadêmica:** comparação entre previsto e
   realizado, limitações e articulação com a documentação e o artigo.
 
-A atribuição de esforço, a seleção de taxas e a apuração de despesas ainda
-dependem das etapas seguintes e da revisão das fontes e premissas pela equipe.
+A seleção de taxas e a apuração de despesas ainda dependem das etapas
+seguintes e da revisão das fontes e premissas pela equipe.
