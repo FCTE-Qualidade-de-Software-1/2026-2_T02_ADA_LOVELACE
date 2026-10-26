@@ -71,15 +71,15 @@ disponível para conferência e processamento.
 <!-- BEGIN AUTO: membros-commits -->
 | Integrante identificado | Commits não-merge |
 | --- | ---: |
-| Luis Felipe | 12 |
-| João Pedro Lopes da Cruz | 3 |
-| andrehsb | 2 |
-| giovannafg | 2 |
+| Luis Felipe | 14 |
+| João Pedro Lopes da Cruz | 5 |
+| Zayra-Moraes | 5 |
+| andrehsb | 4 |
+| giovannafg | 3 |
 | Renato Gameiro | 1 |
-| Zayra-Moraes | 1 |
-| **Total** | **21** |
+| **Total** | **32** |
 
-*Última coleta: 2026-10-25T02:58:16+00:00, referência `main`.*
+*Última coleta: 2026-10-26T15:18:42+00:00, referência `main`.*
 <!-- END AUTO: membros-commits -->
 
 A atualização é executada semanalmente pelo
