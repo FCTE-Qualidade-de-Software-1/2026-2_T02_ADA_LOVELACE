@@ -1,0 +1,1753 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação da análise de qualidades de software do projeto Ada Lovelace">
+      
+      
+        <meta name="author" content="Equipe Ada Lovelace">
+      
+      
+      
+        <link rel="prev" href="../../analise/resultados/">
+      
+      
+        <link rel="next" href="../cronograma/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Métricas de desenvolvimento - Análise de Qualidades de Software</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#metricas-de-desenvolvimento" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Análise de Qualidades de Software" class="md-header__button md-logo" aria-label="Análise de Qualidades de Software" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Análise de Qualidades de Software
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Métricas de desenvolvimento
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Mudar para o modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Mudar para o modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2026-2_T02_ADA_LOVELACE
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../metodologia/" class="md-tabs__link">
+          
+  
+  
+  Metodologia
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fase1/proposito-partes-interessadas/" class="md-tabs__link">
+          
+  
+  
+  Fase de Planejamento
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../analise/roteiro/" class="md-tabs__link">
+          
+  
+  
+  Análise
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Gestão
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../referencias/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Referências
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../uso-ia/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Uso de IA
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Análise de Qualidades de Software" class="md-nav__button md-logo" aria-label="Análise de Qualidades de Software" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Análise de Qualidades de Software
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2026-2_T02_ADA_LOVELACE
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metodologia
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Metodologia
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metodologia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metodologia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../priorizacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Priorização de qualidades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fase de Planejamento
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fase de Planejamento
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/proposito-partes-interessadas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propósito e partes interessadas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/modelo-qualidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelo de qualidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/ods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ODS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/objetivos-qualidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objetivos de qualidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Análise
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Análise
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analise/roteiro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roteiro da análise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analise/gestao-grupo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestão do grupo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analise/resultados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resultados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestão
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestão
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Métricas de desenvolvimento
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Métricas de desenvolvimento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fluxo-de-trabalho-e-fonte-dos-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fluxo de trabalho e fonte dos dados
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metricas-selecionadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Métricas selecionadas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Métricas selecionadas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#planejado-versus-realizado-committed-vs-completed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planejado versus realizado (Committed vs. Completed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-cumulativo-cumulative-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fluxo cumulativo (Cumulative Flow)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lead-time-e-cycle-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lead Time e Cycle Time
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#velocidade-da-equipe-team-velocity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Velocidade da equipe (Team Velocity)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coleta-e-interpretacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coleta e interpretação
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Coleta e interpretação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coleta-automatica-de-lead-time-e-cycle-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coleta automática de Lead Time e Cycle Time
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registro-atual-do-quadro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registro atual do quadro
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contribuicoes-no-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contribuições no repositório
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cronograma/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cronograma
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../estimativa-custos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estimativa de custos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../referencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referências
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../uso-ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uso de IA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fluxo-de-trabalho-e-fonte-dos-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fluxo de trabalho e fonte dos dados
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metricas-selecionadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Métricas selecionadas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Métricas selecionadas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#planejado-versus-realizado-committed-vs-completed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planejado versus realizado (Committed vs. Completed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-cumulativo-cumulative-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fluxo cumulativo (Cumulative Flow)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lead-time-e-cycle-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lead Time e Cycle Time
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#velocidade-da-equipe-team-velocity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Velocidade da equipe (Team Velocity)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coleta-e-interpretacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coleta e interpretação
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Coleta e interpretação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coleta-automatica-de-lead-time-e-cycle-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coleta automática de Lead Time e Cycle Time
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registro-atual-do-quadro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registro atual do quadro
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contribuicoes-no-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contribuições no repositório
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/edit/master/docs/gestao/metricas.md" title="Editar esta página" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="metricas-de-desenvolvimento">Métricas de desenvolvimento<a class="headerlink" href="#metricas-de-desenvolvimento" title="Permanent link">&para;</a></h1>
+<p>Esta página define como a equipe acompanha o trabalho no contexto de
+<em>Continuous Iterative Development</em> (CID). As métricas foram selecionadas e
+adaptadas a partir do <strong>Measurement Framework do Practical Software
+Measurement (PSM)</strong>, que organiza a medição em torno de necessidades de
+informação e indicadores úteis para a tomada de decisão. No projeto, os dados
+serão coletados a partir das <em>issues</em>, do quadro Kanban e dos ciclos de
+desenvolvimento de duas semanas.</p>
+<p>O PSM não determina um conjunto único de métricas obrigatório para todo
+projeto. Por isso, as medidas abaixo são uma aplicação do framework à realidade
+da equipe e ao processo iterativo utilizado. Os resultados devem ser
+interpretados em conjunto e no contexto de cada ciclo; nenhuma métrica isolada
+representa produtividade ou qualidade por completo.</p>
+<ul>
+<li><strong>Kanban:</strong> <a href="https://github.com/orgs/FCTE-Qualidade-de-Software-1/projects/19">Kanban – Ada Lovelace</a></li>
+<li><strong>Issues:</strong> <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues?q=is%3Aissue">lista de issues do repositório</a></li>
+</ul>
+<h2 id="fluxo-de-trabalho-e-fonte-dos-dados">Fluxo de trabalho e fonte dos dados<a class="headerlink" href="#fluxo-de-trabalho-e-fonte-dos-dados" title="Permanent link">&para;</a></h2>
+<p>Cada atividade é registrada como uma <em>issue</em>, classificada por fase e tipo de
+trabalho, e acompanhada no GitHub Projects. O fluxo adotado é:</p>
+<pre class="mermaid"><code>flowchart LR
+    B["Backlog"] --&gt; A["A fazer"] --&gt; E["Em andamento"] --&gt; R["Em revisão"] --&gt; C["Concluído"]
+
+    classDef col fill:#6965db1f,stroke:#8884ee
+    class B,A,E,R,C col</code></pre>
+<p><em>Diagrama 1. Colunas do Kanban. Fonte: elaboração própria.</em></p>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backlog</td>
+<td>Tarefa identificada, ainda não priorizada para um ciclo</td>
+</tr>
+<tr>
+<td>A fazer</td>
+<td>Tarefa comprometida/priorizada para o ciclo atual</td>
+</tr>
+<tr>
+<td>Em andamento</td>
+<td>Tarefa em execução por um integrante</td>
+</tr>
+<tr>
+<td>Em revisão</td>
+<td>Entrega aguardando revisão da equipe</td>
+</tr>
+<tr>
+<td>Concluído</td>
+<td>Entrega revisada e incorporada ao repositório</td>
+</tr>
+</tbody>
+</table>
+<p>As <em>labels</em> indicam fase e tipo de trabalho:</p>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fase-1</code></td>
+<td>Atividades da Fase 1</td>
+</tr>
+<tr>
+<td><code>fase-2</code></td>
+<td>Atividades da Fase 2</td>
+</tr>
+<tr>
+<td><code>documentation</code></td>
+<td>Redação e revisão da documentação</td>
+</tr>
+<tr>
+<td><code>gitpages</code></td>
+<td>Estrutura e publicação do GitPages</td>
+</tr>
+<tr>
+<td><code>medição</code></td>
+<td>Execução e análise das medições</td>
+</tr>
+</tbody>
+</table>
+<h2 id="metricas-selecionadas">Métricas selecionadas<a class="headerlink" href="#metricas-selecionadas" title="Permanent link">&para;</a></h2>
+<h3 id="planejado-versus-realizado-committed-vs-completed">Planejado versus realizado (Committed vs. Completed)<a class="headerlink" href="#planejado-versus-realizado-committed-vs-completed" title="Permanent link">&para;</a></h3>
+<p>Compara o conjunto de <em>issues</em> comprometidas para uma iteração com as que
+foram efetivamente concluídas nela. Para cada ciclo, registra-se a quantidade
+de itens em <strong>A fazer</strong> no início (Committed) e quantos desses itens chegaram
+a <strong>Concluído</strong> até o encerramento (Completed). Pode-se apresentar também a
+proporção <code>Completed / Committed</code>.</p>
+<p>Essa medida ajuda a avaliar a previsibilidade do planejamento e a ajustar o
+volume de trabalho assumido no ciclo seguinte. Itens adicionados depois do
+início do ciclo devem ser identificados separadamente, para não distorcer a
+comparação. A medida não deve ser usada isoladamente para avaliar indivíduos.</p>
+<h3 id="fluxo-cumulativo-cumulative-flow">Fluxo cumulativo (Cumulative Flow)<a class="headerlink" href="#fluxo-cumulativo-cumulative-flow" title="Permanent link">&para;</a></h3>
+<p>Registra, em datas regulares, a quantidade de <em>issues</em> em cada estado do
+Kanban: <strong>Backlog</strong>, <strong>A fazer</strong>, <strong>Em andamento</strong>, <strong>Em revisão</strong> e
+<strong>Concluído</strong>. A série pode ser representada em um diagrama de fluxo cumulativo,
+com o tempo no eixo horizontal e as quantidades acumuladas por estado no eixo
+vertical.</p>
+<p>As faixas mostram como o trabalho se distribui e evolui. Uma faixa que cresce
+continuamente, por exemplo em <strong>Em revisão</strong>, pode indicar acúmulo ou gargalo
+naquela etapa. A leitura deve considerar mudanças no escopo e no tamanho das
+issues, pois a contagem de itens não representa necessariamente o esforço.</p>
+<h3 id="lead-time-e-cycle-time">Lead Time e Cycle Time<a class="headerlink" href="#lead-time-e-cycle-time" title="Permanent link">&para;</a></h3>
+<p>As duas medidas acompanham o tempo de entrega, usando os registros de data e
+hora das <em>issues</em> e das mudanças de estado no GitHub Projects:</p>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Início</th>
+<th>Fim</th>
+<th>O que informa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Lead Time</strong></td>
+<td>Criação da issue</td>
+<td>Entrada em <strong>Concluído</strong></td>
+<td>Tempo total de espera e execução desde que a demanda foi registrada até a entrega</td>
+</tr>
+<tr>
+<td><strong>Cycle Time</strong></td>
+<td>Entrada em <strong>Em andamento</strong></td>
+<td>Entrada em <strong>Concluído</strong></td>
+<td>Tempo decorrido desde o início efetivo do trabalho até a entrega</td>
+</tr>
+</tbody>
+</table>
+<p>As medidas ajudam a entender a rapidez de resposta e a duração da execução.
+Devem ser calculadas por issue e resumidas por ciclo (por exemplo, mediana e
+intervalo), explicitando o período analisado. Issues canceladas ou reabertas
+precisam ser identificadas para que não sejam tratadas como entregas simples.</p>
+<h3 id="velocidade-da-equipe-team-velocity">Velocidade da equipe (Team Velocity)<a class="headerlink" href="#velocidade-da-equipe-team-velocity" title="Permanent link">&para;</a></h3>
+<p>Por ciclo de duas semanas, contabiliza o volume de trabalho concluído. A
+equipe pode acompanhar a quantidade de <em>issues</em> concluídas; se adotar pontos de
+história de forma consistente, também pode somar os pontos concluídos. O
+critério escolhido deve permanecer estável entre ciclos, e apenas trabalho
+concluído entra na contagem.</p>
+<p>A velocidade oferece uma referência histórica para planejar a capacidade de
+ciclos futuros. Como issues podem ter tamanhos diferentes, a contagem bruta
+deve ser interpretada com cautela. A equipe já observou que o número de
+commits não representa diretamente esforço ou complexidade; por isso, commits
+não serão usados como medida de velocidade.</p>
+<h2 id="coleta-e-interpretacao">Coleta e interpretação<a class="headerlink" href="#coleta-e-interpretacao" title="Permanent link">&para;</a></h2>
+<p>Ao final de cada ciclo de duas semanas, a equipe consolidará as métricas a
+partir do histórico das issues e dos estados do Kanban. Para permitir
+comparações, serão mantidas as datas de início e fim do ciclo, as regras de
+contagem e eventuais exceções (como cancelamentos, reaberturas ou itens
+adicionados durante a iteração). Os resultados serão usados para discutir
+ajustes no fluxo e no planejamento, e não para ranquear integrantes.</p>
+<h3 id="coleta-automatica-de-lead-time-e-cycle-time">Coleta automática de Lead Time e Cycle Time<a class="headerlink" href="#coleta-automatica-de-lead-time-e-cycle-time" title="Permanent link">&para;</a></h3>
+<p>O workflow <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/.github/workflows/metricas-projeto.yml">Coletar métricas do GitHub Projects</a>
+executa semanalmente e grava uma nova coleta somente quando já se passaram
+14 dias desde a coleta anterior. O script consulta o histórico de alterações
+de <strong>Status</strong> do Project #19, incluindo as datas em que cada issue entrou em
+<strong>Em andamento</strong>, <strong>Em revisão</strong> e <strong>Concluído</strong>. Assim, a equipe continua
+movendo os cartões manualmente; não é necessário aplicar labels de estado.</p>
+<p>O resultado é salvo em
+<a href="../dados/lead-cycle-time.csv">lead-cycle-time.csv</a>. Cada linha representa uma
+issue concluída no Project e contém datas de criação, início e conclusão,
+Lead Time em dias, Cycle Time em dias e número de retornos de <strong>Em revisão</strong>
+para <strong>Em andamento</strong>. Se uma issue foi reaberta e concluída novamente, os
+tempos usam a conclusão mais recente e o início mais recente que a precede.
+O CSV é uma fotografia atualizada a cada execução, não um histórico de cópias
+por iteração.</p>
+<p>Para conectar a automação ao GitHub, siga estes passos depois de enviar estes
+arquivos para a branch padrão:</p>
+<ol>
+<li>Crie um <em>fine-grained personal access token</em> com acesso ao repositório e
+   permissão de leitura de Issues e do Project da organização. O token precisa
+   conseguir consultar o Project #19 e as issues vinculadas; ele é usado só
+   para leitura.</li>
+<li>No repositório, abra <strong>Settings → Secrets and variables → Actions → New
+   repository secret</strong> e cadastre o token com o nome <code>PROJECTS_TOKEN</code>.</li>
+<li>Em <strong>Settings → Actions → General → Workflow permissions</strong>, permita
+   <strong>Read and write permissions</strong> para o <code>GITHUB_TOKEN</code>, para o workflow poder
+   atualizar o CSV e o arquivo de controle de data. Se a organização bloquear
+   essa permissão, um administrador precisará liberá-la.</li>
+<li>Em <strong>Actions</strong>, selecione <strong>Coletar métricas do GitHub Projects</strong> e use
+   <strong>Run workflow</strong> para validar a primeira execução. As seguintes são
+   agendadas; o cron semanal serve para recuperar uma falha e a trava de 14
+   dias impede coletas semanais duplicadas.</li>
+</ol>
+<p>O primeiro CSV e o arquivo <code>lead-cycle-time.last-collected</code> são criados pela
+primeira execução. A métrica Cycle Time depende de eventos de mudança de
+Status já registrados no histórico do Project; mudanças anteriores à
+disponibilidade desse histórico não podem ser reconstruídas pelo script.</p>
+<h2 id="registro-atual-do-quadro">Registro atual do quadro<a class="headerlink" href="#registro-atual-do-quadro" title="Permanent link">&para;</a></h2>
+<p>Os números abaixo são uma fotografia do quadro em <strong>19/10/2026</strong>. Eles mostram
+o estado atual das tarefas e servem como registro inicial; ainda não formam
+uma série histórica suficiente para calcular tendências de fluxo, tempos ou
+velocidade por ciclo.</p>
+<table>
+<thead>
+<tr>
+<th>Fase</th>
+<th style="text-align: center;">Concluído</th>
+<th style="text-align: center;">Em andamento</th>
+<th style="text-align: center;">A fazer</th>
+<th style="text-align: center;">Backlog</th>
+<th style="text-align: center;">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fase 1</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr>
+<td>Fase 2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr>
+<td>GitPages</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: center;"><strong>7</strong></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><strong>4</strong></td>
+<td style="text-align: center;"><strong>13</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="contribuicoes-no-repositorio">Contribuições no repositório<a class="headerlink" href="#contribuicoes-no-repositorio" title="Permanent link">&para;</a></h2>
+<p>Commits na branch <code>main</code> até <strong>19/10/2026</strong>, sem contar commits de <em>merge</em>.
+Esse dado é mantido como informação descritiva de atividade no repositório;
+não é uma métrica de esforço, qualidade, velocidade ou contribuição
+individual, pois commits variam em tamanho e complexidade.</p>
+<table>
+<thead>
+<tr>
+<th>Integrante</th>
+<th style="text-align: center;">Commits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Luís Cunha</td>
+<td style="text-align: center;">12</td>
+</tr>
+<tr>
+<td>João Pedro Lopes</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr>
+<td>André Henrique</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td>Zayra Moraes</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td>Giovanna Felipe</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>Renato Araújo</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: center;"><strong>25</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Além desses, foram integrados 9 <em>pull requests</em> por meio de commits de
+<em>merge</em>.</p>
+<p>Para atualizar a tabela, execute na raiz do repositório:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>shortlog<span class="w"> </span>-sn<span class="w"> </span>--no-merges<span class="w"> </span>main
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "content.code.copy", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

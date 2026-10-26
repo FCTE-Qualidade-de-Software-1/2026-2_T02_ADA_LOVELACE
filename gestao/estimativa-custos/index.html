@@ -1,0 +1,3447 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação da análise de qualidades de software do projeto Ada Lovelace">
+      
+      
+        <meta name="author" content="Equipe Ada Lovelace">
+      
+      
+      
+        <link rel="prev" href="../cronograma/">
+      
+      
+        <link rel="next" href="../../referencias/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Estimativa de custos - Análise de Qualidades de Software</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#estimativa-de-custos-da-avaliacao" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Análise de Qualidades de Software" class="md-header__button md-logo" aria-label="Análise de Qualidades de Software" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Análise de Qualidades de Software
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Estimativa de custos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Mudar para o modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Mudar para o modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2026-2_T02_ADA_LOVELACE
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../metodologia/" class="md-tabs__link">
+          
+  
+  
+  Metodologia
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fase1/proposito-partes-interessadas/" class="md-tabs__link">
+          
+  
+  
+  Fase de Planejamento
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../analise/roteiro/" class="md-tabs__link">
+          
+  
+  
+  Análise
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../metricas/" class="md-tabs__link">
+          
+  
+  
+  Gestão
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../referencias/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Referências
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../uso-ia/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Uso de IA
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Análise de Qualidades de Software" class="md-nav__button md-logo" aria-label="Análise de Qualidades de Software" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Análise de Qualidades de Software
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2026-2_T02_ADA_LOVELACE
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metodologia
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Metodologia
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metodologia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metodologia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../priorizacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Priorização de qualidades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fase de Planejamento
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fase de Planejamento
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/proposito-partes-interessadas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propósito e partes interessadas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/modelo-qualidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelo de qualidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/ods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ODS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/objetivos-qualidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objetivos de qualidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Análise
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Análise
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analise/roteiro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roteiro da análise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analise/gestao-grupo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestão do grupo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analise/resultados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resultados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestão
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestão
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metricas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Métricas de desenvolvimento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cronograma/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cronograma
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estimativa de custos
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estimativa de custos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo-e-escopo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo e escopo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relacao-com-o-planejamento-do-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relação com o planejamento do projeto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentacao-e-metodo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fundamentação e método
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fundamentação e método">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#finalidade-na-gestao-com-psmcid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finalidade na gestão com PSM/CID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conceitos-e-unidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conceitos e unidades
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procedimento-por-atividades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Procedimento por atividades
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formulas-de-valoracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fórmulas de valoração
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selecao-das-taxas-horarias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seleção das taxas horárias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursos-gratuitos-e-despesas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recursos gratuitos e despesas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparacao-entre-previsto-e-realizado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparação entre previsto e realizado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapeamento-das-atividades-e-recursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mapeamento das atividades e recursos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mapeamento das atividades e recursos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-base-fontes-e-interpretacao-dos-estados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data-base, fontes e interpretação dos estados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estrutura-de-decomposicao-do-trabalho" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estrutura de decomposição do trabalho
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursos-humanos-e-atribuicoes-documentadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recursos humanos e atribuições documentadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#catalogo-de-recursos-e-pendencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Catálogo de recursos e pendências
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estimativa-de-esforco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estimativa de esforço
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Estimativa de esforço">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-base-e-natureza-dos-valores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data-base e natureza dos valores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#premissas-de-dimensionamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Premissas de dimensionamento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esforco-integral-por-pacote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Esforço integral por pacote
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#separacao-entre-retrospectivo-e-restante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Separação entre retrospectivo e restante
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calendario-capacidade-e-revisao-das-premissas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calendário, capacidade e revisão das premissas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculo-dos-custos-e-cenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cálculo dos custos e cenários
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cálculo dos custos e cenários">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#referencia-academica-e-conversao-horaria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referência acadêmica e conversão horária
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memoria-de-calculo-por-atividade-fase-e-cenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memória de cálculo por atividade, fase e cenário
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ferramentas-infraestrutura-e-despesas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ferramentas, infraestrutura e despesas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contingencia-sensibilidade-e-fatores-de-variacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contingência, sensibilidade e fatores de variação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reproducao-e-conferencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reprodução e conferência
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparativo-de-valoracao-economica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparativo de valoração econômica
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparativo de valoração econômica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#escopo-preservado-e-fontes-de-precificacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Escopo preservado e fontes de precificação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hipoteses-alternativas-por-pessoa-hora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hipóteses alternativas por pessoa-hora
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#por-que-preco-comercial-e-avaliacao-academica-nao-sao-equivalentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Por que preço comercial e avaliação acadêmica não são equivalentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reproducao-do-comparativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reprodução do comparativo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proxima-etapa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Próxima etapa
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../referencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referências
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../uso-ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uso de IA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo-e-escopo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo e escopo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relacao-com-o-planejamento-do-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relação com o planejamento do projeto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentacao-e-metodo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fundamentação e método
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fundamentação e método">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#finalidade-na-gestao-com-psmcid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finalidade na gestão com PSM/CID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conceitos-e-unidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conceitos e unidades
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procedimento-por-atividades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Procedimento por atividades
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formulas-de-valoracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fórmulas de valoração
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selecao-das-taxas-horarias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seleção das taxas horárias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursos-gratuitos-e-despesas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recursos gratuitos e despesas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparacao-entre-previsto-e-realizado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparação entre previsto e realizado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapeamento-das-atividades-e-recursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mapeamento das atividades e recursos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mapeamento das atividades e recursos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-base-fontes-e-interpretacao-dos-estados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data-base, fontes e interpretação dos estados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estrutura-de-decomposicao-do-trabalho" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estrutura de decomposição do trabalho
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursos-humanos-e-atribuicoes-documentadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recursos humanos e atribuições documentadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#catalogo-de-recursos-e-pendencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Catálogo de recursos e pendências
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estimativa-de-esforco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estimativa de esforço
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Estimativa de esforço">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-base-e-natureza-dos-valores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data-base e natureza dos valores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#premissas-de-dimensionamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Premissas de dimensionamento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esforco-integral-por-pacote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Esforço integral por pacote
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#separacao-entre-retrospectivo-e-restante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Separação entre retrospectivo e restante
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calendario-capacidade-e-revisao-das-premissas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calendário, capacidade e revisão das premissas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculo-dos-custos-e-cenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cálculo dos custos e cenários
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cálculo dos custos e cenários">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#referencia-academica-e-conversao-horaria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referência acadêmica e conversão horária
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memoria-de-calculo-por-atividade-fase-e-cenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memória de cálculo por atividade, fase e cenário
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ferramentas-infraestrutura-e-despesas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ferramentas, infraestrutura e despesas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contingencia-sensibilidade-e-fatores-de-variacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contingência, sensibilidade e fatores de variação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reproducao-e-conferencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reprodução e conferência
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparativo-de-valoracao-economica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparativo de valoração econômica
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparativo de valoração econômica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#escopo-preservado-e-fontes-de-precificacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Escopo preservado e fontes de precificação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hipoteses-alternativas-por-pessoa-hora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hipóteses alternativas por pessoa-hora
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#por-que-preco-comercial-e-avaliacao-academica-nao-sao-equivalentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Por que preço comercial e avaliação acadêmica não são equivalentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reproducao-do-comparativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reprodução do comparativo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proxima-etapa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Próxima etapa
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/edit/master/docs/gestao/estimativa-custos.md" title="Editar esta página" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="estimativa-de-custos-da-avaliacao">Estimativa de custos da avaliação<a class="headerlink" href="#estimativa-de-custos-da-avaliacao" title="Permanent link">&para;</a></h1>
+<h2 id="objetivo-e-escopo">Objetivo e escopo<a class="headerlink" href="#objetivo-e-escopo" title="Permanent link">&para;</a></h2>
+<p>Esta página documentará a estimativa de esforço e recursos necessários para
+a equipe Ada Lovelace realizar a avaliação acadêmica da qualidade do
+Excalidraw, na disciplina Qualidade de Software 1 da Universidade de Brasília,
+no semestre 2026.2. O objetivo é apoiar o planejamento e o acompanhamento da
+execução do estudo, mantendo as premissas e as fontes rastreáveis.</p>
+<p>O objeto da estimativa é o <strong>trabalho da equipe para realizar a avaliação</strong>:
+definir e planejar o estudo, preparar e executar as medições, organizar as
+evidências, analisar os resultados e produzir e revisar os entregáveis
+acadêmicos. Também serão considerados os recursos necessários à realização
+dessas atividades, conforme forem identificados e fundamentados.</p>
+<p>Os <strong>custos da avaliação</strong> correspondem ao esforço e aos recursos empregados
+nesse estudo. Os <strong>custos de desenvolvimento do Excalidraw</strong> correspondem à
+criação, à evolução e à manutenção do produto pelos seus desenvolvedores e
+ficam fora desta estimativa, assim como os custos de operação da instância
+pública pelos seus mantenedores. Eventuais atividades locais necessárias à
+avaliação deverão ser delimitadas como parte do estudo.</p>
+<h2 id="relacao-com-o-planejamento-do-projeto">Relação com o planejamento do projeto<a class="headerlink" href="#relacao-com-o-planejamento-do-projeto" title="Permanent link">&para;</a></h2>
+<p>A estimativa seguirá o escopo e as decisões registrados na
+<a href="../../metodologia/">metodologia</a>, na
+<a href="../../priorizacao/">priorização de qualidades</a> e no
+<a href="../../analise/roteiro/">roteiro da análise</a>. A avaliação adota a família
+SQuaRE, o modelo ISO/IEC 25010:2023 e a abordagem GQM, com foco em
+<strong>segurança, flexibilidade e capacidade de interação</strong>.</p>
+<p>No contexto da gestão com PSM/CID, esta página complementará o acompanhamento
+de recursos e custos previsto no roteiro. A organização do trabalho permanece
+descrita em <a href="../metricas/">Métricas de desenvolvimento</a>, e as evidências da
+avaliação serão registradas em <a href="../../analise/resultados/">Resultados</a>.
+A estimativa deverá respeitar os critérios de medição e julgamento já
+definidos pela equipe.</p>
+<h2 id="fundamentacao-e-metodo">Fundamentação e método<a class="headerlink" href="#fundamentacao-e-metodo" title="Permanent link">&para;</a></h2>
+<h3 id="finalidade-na-gestao-com-psmcid">Finalidade na gestão com PSM/CID<a class="headerlink" href="#finalidade-na-gestao-com-psmcid" title="Permanent link">&para;</a></h3>
+<p>No planejamento PSM/CID adotado no artigo <code>main.tex</code>, a categoria de recursos
+e custos prevê registrar horas por integrante e por fase. Esta estimativa
+operacionaliza essa necessidade: permitirá discutir se o trabalho previsto é
+compatível com a disponibilidade da equipe e com o calendário, identificar
+atividades que concentram esforço e fundamentar ajustes no planejamento.
+As métricas de qualidade do produto e seus critérios de julgamento permanecem
+os definidos no roteiro.</p>
+<p>O método será <strong>bottom-up, por atividades</strong>: estimar cada pacote de trabalho
+e agregar os resultados por fase e para o estudo. Como apoio metodológico,
+o <a href="../../referencias/#estimativa-de-custos">guia de estimativa de custos do GAO</a>
+trata da decomposição do trabalho, das premissas, dos métodos de estimativa,
+da documentação e da atualização com dados realizados. O procedimento abaixo
+é uma adaptação para esta avaliação acadêmica; não implica adoção integral do
+guia nem exigência adicional da disciplina.</p>
+<h3 id="conceitos-e-unidades">Conceitos e unidades<a class="headerlink" href="#conceitos-e-unidades" title="Permanent link">&para;</a></h3>
+<p>Para esta estimativa, serão utilizadas as seguintes definições operacionais:</p>
+<ul>
+<li><strong>Esforço humano:</strong> soma do tempo de trabalho de cada participante nas
+  atividades do estudo, em <strong>pessoa-hora (p-h)</strong>. Em atividades compartilhadas,
+  soma-se o tempo de cada pessoa; duração de calendário não equivale a esforço.
+  Espera por revisão ou processamento sem trabalho humano não será contada
+  automaticamente como pessoa-hora.</li>
+<li><strong>Custo financeiro efetivo:</strong> desembolso comprovadamente realizado para a
+  avaliação, em <strong>reais (R$)</strong>, acompanhado de data, finalidade e comprovante
+  ou registro verificável. Uma despesa prevista ainda não paga será
+  identificada como previsão de desembolso, sem integrar o total efetivo.</li>
+<li><strong>Custo econômico estimado:</strong> valor de referência atribuído ao trabalho e
+  aos recursos consumidos no estudo, em <strong>reais (R$)</strong>. A valoração do trabalho
+  acadêmico não comprova remuneração, contratação ou pagamento aos integrantes.</li>
+</ul>
+<p>Ausência de registro será indicada como <strong>não disponível</strong>, e não como zero.
+Os dados observados no repositório, as declarações da equipe, as estimativas
+e as hipóteses terão sua natureza e sua fonte identificadas.</p>
+<h3 id="procedimento-por-atividades">Procedimento por atividades<a class="headerlink" href="#procedimento-por-atividades" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Delimitar a data-base, a versão do planejamento e os entregáveis, usando
+   as fases do artigo, o roteiro, as issues e o Kanban como fontes.</li>
+<li>Decompor os entregáveis em atividades com identificador, fase, escopo,
+   critério de conclusão e fonte documental. Explicitar dependências e
+   recursos, sem atribuir responsáveis que não estejam documentados.</li>
+<li>Estimar o esforço de cada atividade, registrando técnica, justificativa,
+   premissas, restrições e incertezas. Quando houver cenários, manter o mesmo
+   escopo entre eles e explicar o que varia.</li>
+<li>Associar taxas horárias de referência aos tipos de trabalho e identificar
+   recursos não humanos, com fonte e critério de alocação para o estudo.</li>
+<li>Agregar somente as atividades do nível mais detalhado da decomposição,
+   evitando somar novamente seus totais de fase. Revisão, reuniões e retrabalho
+   deverão ter alocação explícita, sem duplicação em outras atividades.</li>
+<li>Submeter as premissas à revisão da equipe e preservar a versão aprovada
+   como linha de base para acompanhamento.</li>
+</ol>
+<p>Atividades concluídas poderão receber estimativas retrospectivas, claramente
+identificadas, quando não houver registros confiáveis de horas reais.
+Commits, PRs e tempos de permanência no Kanban servirão para rastrear o
+trabalho, sem conversão direta em pessoa-hora.</p>
+<h3 id="formulas-de-valoracao">Fórmulas de valoração<a class="headerlink" href="#formulas-de-valoracao" title="Permanent link">&para;</a></h3>
+<p>Para cada atividade <code>i</code>, o custo humano econômico de referência será:</p>
+<div class="highlight"><pre><span></span><code>C_humano_i = soma, para cada tipo de trabalho r, de (H_i,r × T_r)
+C_economico_base = soma_i(C_humano_i) + soma_j(R_j)
+C_financeiro_efetivo = soma_k(D_k)
+</code></pre></div>
+<p><code>H_i,r</code> é o esforço estimado do tipo de trabalho <code>r</code> na atividade <code>i</code>, em
+pessoa-hora; <code>T_r</code> é sua taxa de referência, em R$/pessoa-hora; <code>R_j</code> é o
+valor alocado de cada recurso não humano <code>j</code>, em R$; e <code>D_k</code> é cada desembolso
+efetivo comprovado <code>k</code>, em R$. Assim, o produto de esforço e taxa resulta em
+reais. Os totais por fase usarão a mesma regra de agregação.</p>
+<p>Os totais econômico e financeiro serão apresentados separadamente, sem
+somá-los: uma despesa pode já estar representada na valoração econômica de
+um recurso. Caso haja pagamento por trabalho humano, seu registro financeiro
+também não será adicionado novamente ao custo humano de referência.
+Uma eventual contingência será justificada e mostrada à parte da base,
+evitando repetir incertezas já contempladas nos cenários.</p>
+<h3 id="selecao-das-taxas-horarias">Seleção das taxas horárias<a class="headerlink" href="#selecao-das-taxas-horarias" title="Permanent link">&para;</a></h3>
+<p>As taxas serão escolhidas somente após identificar os tipos de trabalho.
+Serão priorizadas fontes públicas rastreáveis, como estatísticas oficiais,
+tabelas institucionais ou pesquisas com método e período declarados. Cada
+taxa deverá registrar fonte, data de consulta, período de referência, perfil,
+abrangência geográfica e justificativa de adequação às atividades acadêmicas.
+Uma referência profissional será identificada como aproximação, sem atribuir
+salário ou vínculo profissional aos integrantes.</p>
+<p>Se uma fonte apresentar remuneração mensal, a conversão será documentada
+como <code>taxa horaria = remuneracao de referencia / horas mensais de referencia</code>.
+O denominador deverá ter fundamento na mesma fonte ou em premissa explícita
+para revisão; não será adotado silenciosamente. Também será informado se o
+valor inclui encargos ou outros componentes, para evitar duplicação.
+Fontes de períodos ou moedas diferentes exigirão explicação de qualquer
+conversão ou atualização. Sem fonte adequada, a taxa ficará pendente ou será
+tratada como hipótese de cenário, sem aparência de valor observado.</p>
+<h3 id="recursos-gratuitos-e-despesas">Recursos gratuitos e despesas<a class="headerlink" href="#recursos-gratuitos-e-despesas" title="Permanent link">&para;</a></h3>
+<p>Ferramentas com uso gratuito confirmado para as condições da avaliação não
+serão registradas como licenças pagas. A gratuidade deverá ter fonte e data
+de verificação, incluindo limites relevantes do plano utilizado. Isso não
+elimina o esforço de instalação, preparação ou operação pela equipe.</p>
+<p>Equipamentos e conexão já disponíveis não serão tratados como novas compras
+do projeto. Uma eventual valoração econômica de uso deverá ter critério de
+rateio, período e fonte explícitos; sem esses elementos, será registrada como
+não valorada. Serviços pagos e demais despesas só integrarão o total efetivo
+mediante comprovação e vínculo com a avaliação. Itens compartilhados terão
+critério de alocação que impeça cobrar o mesmo recurso mais de uma vez.</p>
+<h3 id="comparacao-entre-previsto-e-realizado">Comparação entre previsto e realizado<a class="headerlink" href="#comparacao-entre-previsto-e-realizado" title="Permanent link">&para;</a></h3>
+<p>O acompanhamento usará os mesmos identificadores de atividade e fases da
+linha de base. Cada registro de esforço realizado deverá informar data,
+atividade, integrante, tempo em pessoa-hora e origem do registro. Horas
+declaradas por integrantes serão identificadas como tais e terão o modo de
+registro e conferência documentado. Estimativas retrospectivas ficarão
+separadas dos registros de esforço realizado.</p>
+<p>Para atividades concluídas e com registros comparáveis, serão calculados:</p>
+<div class="highlight"><pre><span></span><code>desvio_esforco = H_realizado - H_previsto
+desvio_percentual = (H_realizado - H_previsto) / H_previsto × 100
+</code></pre></div>
+<p>O desvio absoluto será expresso em pessoa-hora, e o relativo, em percentual;
+valor positivo indicará esforço acima do previsto. Se o previsto for zero
+ou inexistente, o percentual será <strong>não aplicável</strong>, com justificativa.
+Registros incompletos não serão apresentados como totais realizados: a
+cobertura de atividades e do período deverá acompanhar a comparação.
+Atividades em andamento terão esforço acumulado e estimativa restante
+identificados separadamente, sem comparação de execução parcial com uma
+atividade concluída.</p>
+<p>Para comparar a valoração do esforço previsto e realizado, serão mantidas as
+mesmas taxas de referência da linha de base, isolando a variação de esforço.
+Essa valoração do realizado continuará sendo econômica, e não comprovação
+de pagamento. Desembolsos serão comparados apenas às respectivas previsões
+financeiras. Mudanças de escopo, taxas ou premissas gerarão nova versão
+identificada, preservando a linha de base e a justificativa da revisão.</p>
+<h2 id="mapeamento-das-atividades-e-recursos">Mapeamento das atividades e recursos<a class="headerlink" href="#mapeamento-das-atividades-e-recursos" title="Permanent link">&para;</a></h2>
+<h3 id="data-base-fontes-e-interpretacao-dos-estados">Data-base, fontes e interpretação dos estados<a class="headerlink" href="#data-base-fontes-e-interpretacao-dos-estados" title="Permanent link">&para;</a></h3>
+<p>Levantamento realizado em <strong>25/10/2026</strong>, com a documentação de <code>origin/main</code>
+no commit <code>f81800b0348398bc1cce85fe941476f22f4f52ab</code> e as etapas anteriores
+desta estimativa na branch <code>feat/estimativa-custos</code>. Foram consultadas as
+issues #9 a #22, os PRs #23 e #24, o roteiro, os resultados, a metodologia,
+as métricas de desenvolvimento e as fases e entregáveis do <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/f81800b0348398bc1cce85fe941476f22f4f52ab/main.tex">artigo</a>.</p>
+<p>O <a href="https://github.com/orgs/FCTE-Qualidade-de-Software-1/projects/19">Kanban</a> foi consultado, mas retornou “Page not found” no navegador desta
+sessão; não foi possível verificar as colunas atuais dos cartões. O fluxo e
+a fotografia de <strong>19/10/2026</strong> disponíveis em <a href="../metricas/">Métricas de desenvolvimento</a>
+foram usados apenas como registro histórico. Issue aberta não permite
+distinguir, sozinha, Backlog, A fazer, Em andamento ou Em revisão.</p>
+<p>Os estados abaixo são classificações documentais para a estimativa:</p>
+<ul>
+<li><strong>Concluída:</strong> issue encerrada como concluída e entregável presente na base.</li>
+<li><strong>Em andamento:</strong> há trabalho documental disponível, mas a issue permanece
+  aberta, o PR aguarda integração ou o pacote ainda está sendo elaborado.
+  Essa classificação não comprova trabalho humano contínuo nem uma coluna
+  específica do Kanban.</li>
+<li><strong>Futura:</strong> atividade requerida pelo roteiro ou pelo artigo, sem evidência
+  de conclusão nas fontes consultadas; início efetivo não confirmado.</li>
+</ul>
+<p>As fases seguem o processo descrito no artigo: definição (F1), especificação
+das medições (F2), plano (F3) e execução e conclusão (F4). As issues #17 a #20
+possuem label <code>fase-2</code>, embora tratem de execução e resultados; o mapeamento
+usa F4 pelo conteúdo do artigo e preserva as labels existentes. A issue #22
+está concluída, enquanto #16 permanece aberta e o roteiro já contém GQM;
+essa divergência é mantida explícita, sem declarar a especificação inteira
+encerrada.</p>
+<h3 id="estrutura-de-decomposicao-do-trabalho">Estrutura de decomposição do trabalho<a class="headerlink" href="#estrutura-de-decomposicao-do-trabalho" title="Permanent link">&para;</a></h3>
+<p>Os IDs identificam pacotes para estimar posteriormente. F1 a F4 agrupam as
+fases; T identifica trabalho transversal. As dependências representam uma
+sequência lógica proposta a partir dos entregáveis, não um cronograma
+aprovado. Cada linha define seu limite e o entregável esperado; não contém
+horas nem valores. Os códigos de recursos são definidos na seção seguinte.</p>
+<p><strong>Fonte das tabelas:</strong> elaboração desta decomposição a partir das fontes
+indicadas em cada linha, consultadas na data-base. Os pacotes sem issue
+específica derivam do artigo ou do roteiro e precisam de validação pela
+equipe. As tabelas são qualitativas; IDs, fases e recursos são códigos,
+sem unidade de esforço ou custo.</p>
+<table>
+<thead>
+<tr>
+<th>ID / fase</th>
+<th>Atividade e entregável de conclusão</th>
+<th>Estado e evidência</th>
+<th>Dependências</th>
+<th>Recursos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F1.1 / F1</td>
+<td>Documentar método, normas e processo: metodologia disponível</td>
+<td>Concluída: <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/10">#10</a>, <a href="../../metodologia/">Metodologia</a></td>
+<td>—</td>
+<td>R1, R2, R6</td>
+</tr>
+<tr>
+<td>F1.2 / F1</td>
+<td>Definir propósito, partes interessadas e escopo: delimitação documentada</td>
+<td>Concluída: <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/11">#11</a>, <a href="../../fase1/proposito-partes-interessadas/">Propósito</a>, <a href="../../">página inicial</a></td>
+<td>—</td>
+<td>R1, R2, R6</td>
+</tr>
+<tr>
+<td>F1.3 / F1</td>
+<td>Adaptar modelo e priorizar características: modelo e matriz disponíveis</td>
+<td>Concluída: <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/12">#12</a>, <a href="../../fase1/modelo-qualidade/">Modelo</a>, <a href="../../priorizacao/">Priorização</a></td>
+<td>F1.2</td>
+<td>R1, R2, R6</td>
+</tr>
+<tr>
+<td>F1.4 / F1</td>
+<td>Relacionar o estudo aos ODS: relações e indicadores documentados</td>
+<td>Concluída: <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/13">#13</a>, <a href="../../fase1/ods/">ODS</a></td>
+<td>F1.2, F1.3</td>
+<td>R1, R2, R6</td>
+</tr>
+<tr>
+<td>F2.1 / F2</td>
+<td>Definir objetivos de medição: objetivos GQM documentados</td>
+<td>Concluída: <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/14">#14</a>, <a href="../../fase1/objetivos-qualidade/">Objetivos</a></td>
+<td>F1.1, F1.2, F1.3</td>
+<td>R1, R2, R6</td>
+</tr>
+<tr>
+<td>F2.2 / F2</td>
+<td>Consolidar questões, métricas, hipóteses e critérios: roteiro revisado e fechamento reconciliado</td>
+<td>Em andamento: <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/16">#16</a> aberta; <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/22">#22</a> concluída; <a href="../../analise/roteiro/">Roteiro</a> existente</td>
+<td>F2.1</td>
+<td>R1, R2, R6</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>ID / fase</th>
+<th>Atividade e entregável de conclusão</th>
+<th>Estado e evidência</th>
+<th>Dependências</th>
+<th>Recursos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F3.1 / F3</td>
+<td>Detalhar instruções, casos de teste e dados de entrada: protocolo reproduzível coerente com as métricas</td>
+<td>Futura: <a href="../../analise/roteiro/">Roteiro</a>, seção 5; <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/f81800b0348398bc1cce85fe941476f22f4f52ab/main.tex">artigo</a>, Fase 3 ainda em comentários</td>
+<td>F2.2</td>
+<td>R1, R2, R3, R6</td>
+</tr>
+<tr>
+<td>F3.2 / F3</td>
+<td>Fixar versão e preparar ambientes e ferramentas: configuração registrada, incluindo instância local quando necessária</td>
+<td>Futura: <a href="../../analise/roteiro/">Roteiro</a>, seção 5; <a href="../../analise/resultados/">Resultados</a>, configuração por preencher</td>
+<td>F3.1</td>
+<td>R1, R3, R5, R6</td>
+</tr>
+<tr>
+<td>F3.3 / F3</td>
+<td>Planejar participantes, autorização, consentimento e tratamento dos registros: protocolo e condições de acesso definidos</td>
+<td>Futura: <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/f81800b0348398bc1cce85fe941476f22f4f52ab/main.tex">artigo</a>, aspectos éticos; <a href="../../analise/roteiro/">Roteiro</a>, seção 5</td>
+<td>F3.1</td>
+<td>R1, R4, R6</td>
+</tr>
+<tr>
+<td>F3.4 / F3</td>
+<td>Consolidar recursos, disponibilidade, marcos e dependências: plano e cronograma revisados</td>
+<td>Futura: <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/f81800b0348398bc1cce85fe941476f22f4f52ab/main.tex">artigo</a>, Fase 3; disponibilidade e marcos finais não confirmados</td>
+<td>F3.1, F3.2, F3.3; insumos de T.2</td>
+<td>R1, R2, R6</td>
+</tr>
+<tr>
+<td>F4.1 / F4</td>
+<td>Executar medições de segurança e registrar evidências por métrica</td>
+<td>Futura: <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/17">#17</a> aberta, sem responsável; <a href="../../analise/resultados/">Resultados</a> por preencher</td>
+<td>F3.1, F3.2, F3.4</td>
+<td>R1, R2, R3, R5, R6</td>
+</tr>
+<tr>
+<td>F4.2 / F4</td>
+<td>Executar medições de flexibilidade e registrar evidências por ambiente</td>
+<td>Futura: <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/18">#18</a> aberta, sem responsável; <a href="../../analise/resultados/">Resultados</a> por preencher</td>
+<td>F3.1, F3.2, F3.4</td>
+<td>R1, R2, R3, R6</td>
+</tr>
+<tr>
+<td>F4.3 / F4</td>
+<td>Executar medições de capacidade de interação e acessibilidade: observações e respostas vinculadas às métricas</td>
+<td>Futura: <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/19">#19</a> aberta, sem responsável; <a href="../../analise/resultados/">Resultados</a> por preencher</td>
+<td>F3.1, F3.2, F3.4; F3.3 para sessões com participantes</td>
+<td>R1, R2, R3, R4, R5, R6</td>
+</tr>
+<tr>
+<td>F4.4 / F4</td>
+<td>Consolidar dados, pontuar, responder ao GQM e discutir relações entre características: resultados e julgamento rastreáveis</td>
+<td>Futura: <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/20">#20</a> aberta; <a href="../../analise/resultados/">Resultados</a> por preencher; <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/f81800b0348398bc1cce85fe941476f22f4f52ab/main.tex">artigo</a>, Fase 4</td>
+<td>F4.1, F4.2, F4.3</td>
+<td>R1, R2, R6</td>
+</tr>
+<tr>
+<td>F4.5 / F4</td>
+<td>Priorizar melhorias e executar uma ação fundamentada: proposta e evidência da ação</td>
+<td>Futura: <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/f81800b0348398bc1cce85fe941476f22f4f52ab/main.tex">artigo</a>, oportunidades de melhoria e ação executada</td>
+<td>F4.4</td>
+<td>R1, R2, R6; R3/R5 conforme ação escolhida</td>
+</tr>
+<tr>
+<td>F4.6 / F4</td>
+<td>Concluir relato acadêmico: ameaças à validade, conclusão e integração dos resultados e da gestão no artigo</td>
+<td>Futura: <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/f81800b0348398bc1cce85fe941476f22f4f52ab/main.tex">artigo</a>, seções finais ainda em comentários</td>
+<td>F4.4, F4.5; registros de T.2</td>
+<td>R1, R2, R6</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>ID / fase</th>
+<th>Atividade e entregável de conclusão</th>
+<th>Estado e evidência</th>
+<th>Dependências</th>
+<th>Recursos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T.1 / transversal</td>
+<td>Manter site, navegação e apresentação: estrutura publicada e atualizações verificadas</td>
+<td>Em andamento para manutenção; estrutura inicial e ajuste de diagramas concluídos em <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/9">#9</a> e <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/15">#15</a></td>
+<td>Estrutura inicial sem dependência; atualizações conforme entregas</td>
+<td>R1, R2, R6</td>
+</tr>
+<tr>
+<td>T.2 / transversal</td>
+<td>Acompanhar fluxo, horas, custos e decisões: registros de gestão e estimativa revisados</td>
+<td>Em andamento: <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/21">#21</a> aberta, <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/23">PR #23</a> e <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/24">PR #24</a> abertos; esta página em elaboração</td>
+<td>Planejamento inicial; atualização ao longo de F1–F4</td>
+<td>R1, R2, R6</td>
+</tr>
+<tr>
+<td>T.3 / transversal</td>
+<td>Revisar e integrar entregas e declarar uso de IA: revisões, links, fontes e declarações conferidos</td>
+<td>Em andamento: processo no <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/f81800b0348398bc1cce85fe941476f22f4f52ab/main.tex">artigo</a> e no <a href="../../analise/roteiro/">Roteiro</a>; <a href="../../uso-ia/">Uso de IA</a> existente; revisão final pendente</td>
+<td>Cada entregável disponível; encerramento após F4.6</td>
+<td>R1, R2, R6</td>
+</tr>
+</tbody>
+</table>
+<p>A decomposição separa a coleta e o registro imediato das evidências (F4.1 a
+F4.3) da análise consolidada (F4.4). O relato científico fica em F4.6; a
+manutenção técnica do site, em T.1; a revisão e a integração, em T.3. Ao
+estimar esforço, cada operação deverá ser atribuída a um único pacote,
+inclusive reuniões e retrabalho. O trabalho transversal será agregado uma
+única vez, com distribuição por fase somente quando houver critério explícito.</p>
+<h3 id="recursos-humanos-e-atribuicoes-documentadas">Recursos humanos e atribuições documentadas<a class="headerlink" href="#recursos-humanos-e-atribuicoes-documentadas" title="Permanent link">&para;</a></h3>
+<p>A equipe cadastrada na <a href="../../">página inicial</a> reúne André Henrique,
+Giovanna Felipe, João Pedro Lopes, Luís Cunha, Renato Araújo e Zayra Moraes.
+Os papéis de preparação, execução, análise, redação e revisão são necessidades
+dos pacotes, não novas atribuições individuais.</p>
+<p><strong>Fonte da tabela:</strong> campos de responsáveis das issues na data-base e
+solicitação de Renato para esta estimativa. Os nomes indicam atribuições
+documentadas, sem unidade de esforço e sem pressupor execução exclusiva.</p>
+<table>
+<thead>
+<tr>
+<th>Pacote / referência</th>
+<th>Atribuição documentada</th>
+<th>Limite da informação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F1.1 / <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/10">#10</a></td>
+<td>Renato (<code>renatoyx</code>)</td>
+<td>Metodologia</td>
+</tr>
+<tr>
+<td>F1.2 / <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/11">#11</a></td>
+<td>André (<code>andrehsb</code>)</td>
+<td>Propósito e partes interessadas; não atribui todo o escopo do pacote</td>
+</tr>
+<tr>
+<td>F1.3 / <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/12">#12</a> e F1.4 / <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/13">#13</a></td>
+<td>Giovanna (<code>giovannafg</code>)</td>
+<td>Modelo e ODS; priorização sem nova atribuição nesta tabela</td>
+</tr>
+<tr>
+<td>F2.1 / <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/14">#14</a></td>
+<td>Zayra (<code>Zayra-Moraes</code>)</td>
+<td>Objetivos de qualidade</td>
+</tr>
+<tr>
+<td>F2.2 / <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/22">#22</a></td>
+<td>João Pedro (<code>ojplc</code>)</td>
+<td>Definição de métricas da issue #22; #16 sem responsável atribuído</td>
+</tr>
+<tr>
+<td>T.1 / <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/9">#9</a></td>
+<td>Luís (<code>cunha-luiss</code>)</td>
+<td>Estrutura inicial; #15 sem responsável atribuído</td>
+</tr>
+<tr>
+<td>T.2 / <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/21">#21</a></td>
+<td>Luís (<code>cunha-luiss</code>) e Zayra (<code>Zayra-Moraes</code>)</td>
+<td>Página de métricas; não atribui toda a gestão</td>
+</tr>
+<tr>
+<td>T.2 / esta estimativa</td>
+<td>Renato (<code>renatoyx</code>)</td>
+<td>Responsabilidade declarada na solicitação desta tarefa</td>
+</tr>
+</tbody>
+</table>
+<p>As issues #17, #18, #19 e #20 não têm responsáveis atribuídos na consulta.
+Não se estendem as responsabilidades da definição das características à
+execução das medições. A distribuição dos demais pacotes e a disponibilidade
+de cada integrante permanecem pendentes de confirmação pela equipe.</p>
+<h3 id="catalogo-de-recursos-e-pendencias">Catálogo de recursos e pendências<a class="headerlink" href="#catalogo-de-recursos-e-pendencias" title="Permanent link">&para;</a></h3>
+<p><strong>Fonte da tabela:</strong> roteiro (métricas e seção 5), artigo (recursos, aspectos
+éticos e rastreabilidade), README e documentação de gestão. Os recursos são
+necessidades ou opções citadas nessas fontes, não comprovação de aquisição,
+disponibilidade ou uso. Os códigos são qualitativos e não representam
+quantidades, licenças ou custos.</p>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Recurso e finalidade</th>
+<th>Condição a confirmar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>Equipe: preparar protocolos, executar testes, analisar, redigir e revisar</td>
+<td>Distribuição das tarefas futuras, disponibilidade e registro de horas</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>Git, GitHub, issues, PRs e Project #19: versionamento, planejamento e revisão</td>
+<td>Acesso ao quadro, responsáveis e marcos atualizados; automações dos PRs ainda não integradas</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>Computadores, dispositivos móveis, navegadores, sistemas e conexão: executar os ambientes selecionados e colaboração</td>
+<td>Inventário, versões, resoluções e condições de rede; não se presume compra</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>Participantes e instrumentos de sessão: tarefas, questionários SUS/Likert, consentimento e eventual gravação</td>
+<td>Autorização, amostra e perfis, recrutamento, acesso e guarda dos registros; aplicação somente às métricas pertinentes</td>
+</tr>
+<tr>
+<td>R5</td>
+<td>Ferramentas técnicas citadas no roteiro: DevTools, Burp Suite ou ZAP, npm audit, Advisory Database, Security Headers, axe DevTools/Lighthouse/WAVE e NVDA/VoiceOver; código e instância local do Excalidraw</td>
+<td>Seleção conforme métrica, instalação, versões e condições de uso/licença; alternativas não significam uso cumulativo de todas as ferramentas</td>
+</tr>
+<tr>
+<td>R6</td>
+<td>Artefatos e publicação: casos, dados de entrada, evidências, registros de horas, Markdown/MkDocs, Mermaid e LaTeX</td>
+<td>Formato e local dos registros, dependências de compilação e revisão; fontes e comandos junto às evidências</td>
+</tr>
+</tbody>
+</table>
+<p>Testes que adulterem dados ou possam afetar o serviço dependem da preparação
+da instância local (F3.2), conforme o roteiro. Sessões com participantes
+dependem das condições éticas de F3.3. O detalhamento das ferramentas e dos
+ambientes não está encerrado, e as seções de F3 e F4 do artigo ainda são
+esboços; a existência desses títulos não comprova execução.</p>
+<p>Os PRs #23 e #24 permaneciam abertos na consulta de 25/10/2026, com destino
+a <code>main</code> e <code>dev</code>, respectivamente. Suas propostas de coleta e gestão foram
+consideradas como trabalho em revisão, sem incorporar suas métricas ou
+automações como capacidade já disponível na base. Este levantamento não
+modifica issues, Kanban, responsáveis ou critérios do grupo.</p>
+<h2 id="estimativa-de-esforco">Estimativa de esforço<a class="headerlink" href="#estimativa-de-esforco" title="Permanent link">&para;</a></h2>
+<h3 id="data-base-e-natureza-dos-valores">Data-base e natureza dos valores<a class="headerlink" href="#data-base-e-natureza-dos-valores" title="Permanent link">&para;</a></h3>
+<p><strong>Versão E1, data-base 25/10/2026, provisória para revisão da equipe.</strong>
+O escopo é o dos 19 pacotes mapeados acima, das 51 métricas do roteiro
+(13 de segurança, 12 de flexibilidade e 26 de capacidade de interação) e dos
+entregáveis do artigo. <code>origin/main</code> permanece em <code>f81800b</code>; os PRs #23 e #24
+continuam abertos. Não foram encontrados registros de horas reais nos
+arquivos consultados. Nenhum valor desta seção representa esforço observado
+ou declaração individual de horas.</p>
+<p>A técnica é a <strong>estimativa analítica por decomposição</strong>, com três pontos por
+pacote: otimista (O), base (B) e pessimista (P). Cada orçamento base é a soma
+dos blocos de trabalho explicitados nas tabelas; suas durações são hipóteses
+de planejamento produzidas nesta elaboração, não produtividade histórica.
+O e P representam menor ou maior dificuldade de execução do mesmo escopo.
+Não são limites garantidos nem intervalos estatísticos. Não se usa média
+ponderada PERT: B é o cenário central proposto, e não uma esperança calculada.</p>
+<p>Para pacotes concluídos, os valores são <strong>estimativas retrospectivas</strong>.
+Para pacotes futuros, são previsões do trabalho integral. Para os quatro
+pacotes em andamento (F2.2, T.1, T.2 e T.3), o esforço integral é dividido em
+parcela retrospectiva e restante, ambas estimadas. A existência do entregável
+ajuda a delimitar o conteúdo, mas não permite medir seu custo passado.
+O esforço real permanece <strong>não disponível</strong> para todos os pacotes; zero na
+coluna de restante significa ausência de trabalho adicional no escopo
+concluído, nunca ausência de esforço passado.</p>
+<h3 id="premissas-de-dimensionamento">Premissas de dimensionamento<a class="headerlink" href="#premissas-de-dimensionamento" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>P1 — Cobertura técnica:</strong> preservar as métricas e denominadores do roteiro.
+  Para dimensionar F3.2 e F4.2, propõem-se cinco configurações que cubram
+  Windows, Linux, macOS, Android e iOS e os navegadores Chrome, Firefox, Edge
+  e Safari, sem exigir o produto cartesiano de todas as combinações. A
+  distribuição exata deve ser validada; as resoluções de 360, 768, 1366 e
+  2560 px e os testes offline também estão incluídos. Acesso aos equipamentos
+  é uma hipótese, sem compra presumida. Cobertura adicional exige revisão.</li>
+<li><strong>P2 — Participantes:</strong> hipótese de seis participantes externos à equipe,
+  com três iniciantes e três experientes e experiência de migração suficiente
+  para F-M8 e F-M9. Cada participante realizará três sessões, preservando a
+  comparação entre primeira e terceira sessão de CI-M8. Essa composição não
+  foi aprovada ou recrutada e não constitui justificativa estatística de
+  amostra nem garantia de representação dos perfis de acessibilidade.</li>
+<li><strong>P3 — Sessões compartilhadas:</strong> orçamento por sessão de 20, 30 ou 45
+  minutos (O/B/P), com dois integrantes da equipe em papéis de condução e
+  registro. As mesmas sessões contemplarão tarefas de interação e migração,
+  mediante protocolo viável e sem comprometer as medições. Toda condução e
+  registro dessas sessões será alocada em F4.3, sem repetição em F4.2.
+  Se o protocolo não couber nesse tempo, ou exigir grupos distintos, a
+  estimativa deverá ser revista antes de ser adotada como linha de base.</li>
+<li><strong>P4 — Incerteza técnica:</strong> O pressupõe acesso pronto aos recursos e pouca
+  repetição; B admite preparação e correções localizadas; P admite obstáculos
+  de ambiente, repetição de testes e retrabalho dentro do escopo. A espera
+  por equipamentos, consentimento ou revisão afeta o calendário, mas só vira
+  esforço quando houver trabalho humano. Não se pressupõem automações dos
+  PRs pendentes, nem auditoria invasiva de infraestrutura de terceiros.</li>
+<li><strong>P5 — Limites dos pacotes:</strong> execução inclui evidências e repetição técnica;
+  F4.4 inclui tratamento e interpretação; F4.6 inclui redação; T.3 concentra
+  revisão por pares, ajustes editoriais de integração e declaração de IA.
+  T.2 inclui reuniões de planejamento e gestão, inclusive esta estimativa.
+  A ação de F4.5 é uma melhoria delimitada, como um protótipo ou proposta de
+  processo, conforme permitido no artigo; uma implementação mais ampla
+  requer novo orçamento.</li>
+</ul>
+<p>P1 e os requisitos de sessões e métricas derivam do <a href="../../analise/roteiro/">Roteiro</a>; os tamanhos,
+tempos, composição dos grupos e orçamentos são <strong>premissas propostas nesta
+estimativa</strong>, para revisão humana. Não foram relatados pelos integrantes.</p>
+<h3 id="esforco-integral-por-pacote">Esforço integral por pacote<a class="headerlink" href="#esforco-integral-por-pacote" title="Permanent link">&para;</a></h3>
+<p><strong>Fonte e unidade das tabelas:</strong> estimativa analítica desta elaboração a
+partir dos pacotes e fontes do mapeamento e das premissas P1–P5. Todos os
+valores O/B/P e parcelas da justificativa estão em <strong>pessoa-hora da equipe
+(p-h)</strong>. Os orçamentos base expressam trabalho somado entre pessoas, não
+horas de calendário. As dependências são as do mapeamento; as justificativas
+explicam os fatores que ampliam ou reduzem cada faixa.</p>
+<table>
+<thead>
+<tr>
+<th>Pacote / natureza</th>
+<th style="text-align: right;">O</th>
+<th style="text-align: right;">B</th>
+<th style="text-align: right;">P</th>
+<th>Composição de B e justificativa da faixa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F1.1 / retrospectiva</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">8</td>
+<td>2 de leitura e delimitação + 3 de redação do método. Faixa varia com familiaridade com SQuaRE/GQM e necessidade de alinhar o processo.</td>
+</tr>
+<tr>
+<td>F1.2 / retrospectiva</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">8</td>
+<td>2 de análise do contexto + 3 de propósito, interessados e escopo. Divergências de fronteira e necessidades ampliam a faixa.</td>
+</tr>
+<tr>
+<td>F1.3 / retrospectiva</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">12</td>
+<td>4 de adaptação do modelo + 4 de matriz e justificativas. A seleção entre características e sua coerência com o escopo elevam a complexidade.</td>
+</tr>
+<tr>
+<td>F1.4 / retrospectiva</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td>1 de consulta aos ODS + 2 de vinculação e documentação. A faixa considera dificuldade de distinguir contribuição do estudo de impacto social observado.</td>
+</tr>
+<tr>
+<td>F2.1 / retrospectiva</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">8</td>
+<td>3 de formulação dos objetivos + 2 de rastreabilidade às características e interessados. A necessidade de reformulação amplia a faixa.</td>
+</tr>
+<tr>
+<td>F2.2 / mista</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">28</td>
+<td>14 retrospectivas para formular e documentar questões, hipóteses, métricas e critérios + 4 restantes para conferir a coerência e reconciliar as issues. As 51 métricas e divergências documentais ampliam a faixa.</td>
+</tr>
+<tr>
+<td>F3.1 / futura</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">28</td>
+<td>3 blocos de 6 para protocolos de segurança, flexibilidade e interação. O compartilhamento de casos reduz trabalho; métricas com múltiplos contextos e pilotos exigem detalhamento adicional.</td>
+</tr>
+<tr>
+<td>F3.2 / futura</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">16</td>
+<td>5 de configuração dos ambientes de P1 + 3 de ferramentas e instância local + 2 de verificação e registro. Acesso a macOS/iOS e dependências locais são riscos da faixa.</td>
+</tr>
+<tr>
+<td>F3.3 / futura</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">8</td>
+<td>2 de protocolo/consentimento + 2 de recrutamento e agendamento + 1 de organização da guarda dos registros. O recrutamento de perfis e reagendamentos exigem esforço adicional; esperas ficam fora.</td>
+</tr>
+<tr>
+<td>F3.4 / futura</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">6</td>
+<td>2 de consolidação de recursos e disponibilidade + 2 de marcos e dependências. A indisponibilidade de responsáveis e datas demanda renegociação; reuniões gerais ficam em T.2.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Pacote / natureza</th>
+<th style="text-align: right;">O</th>
+<th style="text-align: right;">B</th>
+<th style="text-align: right;">P</th>
+<th>Composição de B e justificativa da faixa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F4.1 / futura</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">24</td>
+<td>4 de tráfego/armazenamento + 4 de acesso, identidade e registros + 4 de integridade/concorrência local + 4 de dependências, cabeçalhos e evidências. As 13 métricas compartilham inspeções; falhas e reprodução ampliam a faixa.</td>
+</tr>
+<tr>
+<td>F4.2 / futura</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">24</td>
+<td>5 configurações × 1,5 = 7,5 + 4 resoluções × 0,5 = 2 + 1,5 de offline + 5 de comparação funcional, arquivos e migração técnica. P1 evita todas as combinações; sessões de F-M8/F-M9 ficam em F4.3. Dificuldades de reprodução e formatos ampliam a faixa.</td>
+</tr>
+<tr>
+<td>F4.3 / futura</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">44</td>
+<td>6 participantes × 3 sessões × 0,5 × 2 integrantes = 18 + 12 de inspeções da interface, teclado, leitor de tela, contraste, tradução e evidências. Em O/P, sessões consomem 12/27 e inspeções 10/17. As 26 métricas combinam observação humana e inspeção técnica; P2/P3 precisam de validação.</td>
+</tr>
+<tr>
+<td>F4.4 / futura</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">18</td>
+<td>4 de limpeza/consolidação + 4 de pontuação e respostas GQM + 4 de interpretação, relações e limitações. Dados incompletos e divergências entre fontes ampliam a faixa; recoleta fica nos pacotes de execução.</td>
+</tr>
+<tr>
+<td>F4.5 / futura</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">16</td>
+<td>2 de priorização a partir dos achados + 6 de ação delimitada + 2 de verificação/evidência. A escolha depende de F4.4; complexidade ou integração superior a P5 exige reestimativa.</td>
+</tr>
+<tr>
+<td>F4.6 / futura</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">16</td>
+<td>6 de redação/inserção de resultados + 2 de ameaças e conclusão + 2 de síntese da gestão. Articulação entre fases e restrição de extensão do artigo ampliam a faixa; revisão por pares fica em T.3.</td>
+</tr>
+<tr>
+<td>T.1 / mista</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">16</td>
+<td>6 retrospectivas de estrutura/apresentação + 4 restantes de manutenção, navegação e builds das entregas. Problemas de apresentação ampliam a faixa; conteúdo científico fica nos pacotes de fase.</td>
+</tr>
+<tr>
+<td>T.2 / mista</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">22</td>
+<td>4 retrospectivas de organização/gestão + 10 restantes: 6 para completar estimativa e registros de acompanhamento, e 4 de reuniões (2 encontros × 2 integrantes × 1 h). Frequência provisória; novas reuniões e automações complexas exigem revisão.</td>
+</tr>
+<tr>
+<td>T.3 / mista</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">22</td>
+<td>5 retrospectivas de revisão/integração + 9 restantes de conferência cruzada, integração e declaração de IA. Divergências e devoluções ampliam a faixa. Correções técnicas e nova coleta não são contadas novamente aqui.</td>
+</tr>
+</tbody>
+</table>
+<p>O tempo dos participantes externos <strong>não está incluído</strong> nessas tabelas da
+equipe. Sob P2/P3, a participação externa estimada é <code>6 × 3 × duração da
+sessão</code>: <strong>6 / 9 / 13,5 p-h</strong> em O/B/P, respectivamente. É recurso humano
+adicional, sem remuneração presumida, e será mostrado separadamente em
+qualquer valoração posterior. Se integrantes da equipe atuarem como
+participantes, os papéis e a alocação deverão ser revistos para evitar dupla
+contagem e discutir o efeito metodológico.</p>
+<h3 id="separacao-entre-retrospectivo-e-restante">Separação entre retrospectivo e restante<a class="headerlink" href="#separacao-entre-retrospectivo-e-restante" title="Permanent link">&para;</a></h3>
+<p><strong>Fonte da tabela:</strong> decomposição proposta nesta versão E1; unidade <strong>p-h da
+equipe</strong>. Cada tripla está na ordem <strong>O / B / P</strong>. São estimativas, inclusive
+as parcelas retrospectivas; não são percentual de execução nem horas reais.</p>
+<table>
+<thead>
+<tr>
+<th>Pacote em andamento</th>
+<th style="text-align: right;">Parcela retrospectiva estimada</th>
+<th style="text-align: right;">Parcela restante estimada</th>
+<th style="text-align: right;">Integral estimado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F2.2</td>
+<td style="text-align: right;">10 / 14 / 22</td>
+<td style="text-align: right;">2 / 4 / 6</td>
+<td style="text-align: right;">12 / 18 / 28</td>
+</tr>
+<tr>
+<td>T.1</td>
+<td style="text-align: right;">4 / 6 / 10</td>
+<td style="text-align: right;">2 / 4 / 6</td>
+<td style="text-align: right;">6 / 10 / 16</td>
+</tr>
+<tr>
+<td>T.2</td>
+<td style="text-align: right;">2 / 4 / 6</td>
+<td style="text-align: right;">6 / 10 / 16</td>
+<td style="text-align: right;">8 / 14 / 22</td>
+</tr>
+<tr>
+<td>T.3</td>
+<td style="text-align: right;">3 / 5 / 8</td>
+<td style="text-align: right;">5 / 9 / 14</td>
+<td style="text-align: right;">8 / 14 / 22</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Fonte da síntese:</strong> soma dos pacotes anteriores por fase, sem nova parcela
+de contingência. Unidade <strong>p-h da equipe</strong>, triplas <strong>O / B / P</strong>. Concluídos
+têm restante zero; futuros têm retrospectivo zero por convenção deste
+planejamento, sem afirmar que ninguém iniciou trabalho fora do repositório.</p>
+<table>
+<thead>
+<tr>
+<th>Fase/grupo</th>
+<th style="text-align: right;">Retrospectivo estimado</th>
+<th style="text-align: right;">Restante estimado</th>
+<th style="text-align: right;">Integral estimado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F1</td>
+<td style="text-align: right;">13 / 21 / 33</td>
+<td style="text-align: right;">0 / 0 / 0</td>
+<td style="text-align: right;">13 / 21 / 33</td>
+</tr>
+<tr>
+<td>F2</td>
+<td style="text-align: right;">13 / 19 / 30</td>
+<td style="text-align: right;">2 / 4 / 6</td>
+<td style="text-align: right;">15 / 23 / 36</td>
+</tr>
+<tr>
+<td>F3</td>
+<td style="text-align: right;">0 / 0 / 0</td>
+<td style="text-align: right;">23 / 37 / 58</td>
+<td style="text-align: right;">23 / 37 / 58</td>
+</tr>
+<tr>
+<td>F4</td>
+<td style="text-align: right;">0 / 0 / 0</td>
+<td style="text-align: right;">62 / 94 / 142</td>
+<td style="text-align: right;">62 / 94 / 142</td>
+</tr>
+<tr>
+<td>Transversal</td>
+<td style="text-align: right;">9 / 15 / 24</td>
+<td style="text-align: right;">13 / 23 / 36</td>
+<td style="text-align: right;">22 / 38 / 60</td>
+</tr>
+<tr>
+<td><strong>Total equipe</strong></td>
+<td style="text-align: right;"><strong>35 / 55 / 87</strong></td>
+<td style="text-align: right;"><strong>100 / 158 / 242</strong></td>
+<td style="text-align: right;"><strong>135 / 213 / 329</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Somente o <strong>restante estimado</strong> deve orientar a capacidade futura; somar o
+retrospectivo novamente superestimaria a demanda a partir da data-base.
+Os totais O e P combinam todas as hipóteses favoráveis ou desfavoráveis;
+não há fundamento para lhes atribuir probabilidade de ocorrência.</p>
+<h3 id="calendario-capacidade-e-revisao-das-premissas">Calendário, capacidade e revisão das premissas<a class="headerlink" href="#calendario-capacidade-e-revisao-das-premissas" title="Permanent link">&para;</a></h3>
+<p>O artigo registra <strong>26/10/2026 para a primeira entrega</strong>, referente às fases
+iniciais, e propõe marcos semanais para F3. Não foi localizado prazo final
+confirmado para F3/F4 nem disponibilidade individual registrada. Portanto,
+não é possível afirmar que as horas restantes cabem no calendário acadêmico.
+As 158 p-h restantes do cenário base não devem ser concentradas na véspera
+da primeira entrega ou convertidas automaticamente em dias corridos.</p>
+<p>Como análise de capacidade <strong>hipotética</strong>, se os seis integrantes pudessem
+dedicar 4 p-h por semana cada um, a capacidade seria <code>6 × 4 = 24 p-h/semana</code>.
+O esforço restante exigiria, pelo quociente <code>esforco / capacidade</code>, cerca de
+<strong>4,2 / 6,6 / 10,1 semanas</strong> em O/B/P, arredondadas para uma casa decimal.
+As 4 p-h semanais são uma hipótese para explicitar a disponibilidade limitada,
+não um compromisso ou relato dos membros. O quociente é apenas uma referência
+agregada: dependências, sessões repetidas, acesso a dispositivos e esperas
+podem alongar o calendário, mesmo com capacidade total suficiente.</p>
+<p>Antes de aprovar a linha de base, a equipe deverá confirmar prazo final,
+disponibilidade por período, ambientes acessíveis, participantes e duração
+do protocolo, alcance da melhoria e rotina de reuniões/revisões. Caso a
+capacidade não comporte a previsão, será necessário renegociar a execução
+e registrar as decisões; esta estimativa não reduz métricas ou critérios
+para acomodar horas. Registros reais substituirão comparações retrospectivas
+somente quando tiverem origem e cobertura verificáveis. Até lá, estes valores
+permanecem hipóteses revisáveis, sem validação individual da equipe.</p>
+<h2 id="calculo-dos-custos-e-cenarios">Cálculo dos custos e cenários<a class="headerlink" href="#calculo-dos-custos-e-cenarios" title="Permanent link">&para;</a></h2>
+<h3 id="referencia-academica-e-conversao-horaria">Referência acadêmica e conversão horária<a class="headerlink" href="#referencia-academica-e-conversao-horaria" title="Permanent link">&para;</a></h3>
+<p><strong>Versão C1, data-base e consulta das fontes: 25/10/2026.</strong> Para valorar o
+esforço estudantil, adota-se provisoriamente uma referência de iniciação
+científica, em vez de atribuir salários profissionais aos integrantes.
+A <a href="https://www.gov.br/cnpq/pt-br/acesso-a-informacao/bolsas-e-auxilios/copy_of_modalidades/tabela-de-valores-no-pais">tabela do CNPq</a> informa R$ 700,00 para IC; a divulgação da
+<a href="https://www.gov.br/iec/pt-br/iec-abre-chamada-para-o-programa-de-bolsas-de-iniciacao-cientifica-pibic-iec-202620132027">chamada PIBIC/IEC/CNPq 2026–2027</a> associa a bolsa mensal de
+R$ 700,00 à disponibilidade de 20 horas semanais de estudantes de graduação.
+É referência nacional de fomento, apoiada por uma chamada de instituição no
+Pará, sem correspondência presumida com vínculo ou bolsa da equipe na UnB.</p>
+<p>A conversão usa a <strong>convenção de 52 semanas por 12 meses</strong>, adotada nesta
+estimativa, e não uma carga mensal declarada pelo CNPq:</p>
+<div class="highlight"><pre><span></span><code>horas mensais de referencia = 20 × 52 / 12 = 86,6666... p-h
+taxa calculada = 700 / (20 × 52 / 12) = 8,076923... R$/p-h
+taxa aplicada = 8,08 R$/p-h
+</code></pre></div>
+<p>A taxa é arredondada uma única vez para centavos, pelo critério de metade
+para cima, e depois multiplicada pelas horas de cada pacote. Os resultados
+monetários também são arredondados para centavos e somados por fase. A taxa
+única cobre preparação, execução, análise, redação e revisão por membros da
+equipe estudantil; não há dados para justificar diferenças de remuneração
+entre seus papéis. Não são acrescentados encargos, lucro ou custos de uma
+contratação profissional a uma referência de bolsa.</p>
+<p><strong>A taxa aplicada é uma aproximação econômica proposta, não salário, preço
+de mercado, direito a bolsa ou pagamento realizado.</strong> Seu uso para os
+participantes externos é uma hipótese de valoração uniforme do tempo, sem
+presumir que sejam estudantes, bolsistas ou remunerados. A ausência de
+perfis confirmados impede alegar que essa taxa mede seu custo de oportunidade
+individual. A referência mensal é a publicada nas fontes consultadas, sem
+correção monetária adicional. A taxa será mantida em O/B/P para isolar a
+variação de esforço; alteração da referência requer novo cálculo identificado.</p>
+<h3 id="memoria-de-calculo-por-atividade-fase-e-cenario">Memória de cálculo por atividade, fase e cenário<a class="headerlink" href="#memoria-de-calculo-por-atividade-fase-e-cenario" title="Permanent link">&para;</a></h3>
+<!-- BEGIN CALCULO CUSTOS -->
+
+<p><strong>Fonte e unidade:</strong> horas E1 acima × taxa acadêmica de R$ 8,08/p-h; valores em <strong>R$</strong>. Tabela gerada pelo script, sem pagamentos presumidos.</p>
+<table>
+<thead>
+<tr>
+<th>Pacote</th>
+<th style="text-align: right;">Integral O</th>
+<th style="text-align: right;">Integral B</th>
+<th style="text-align: right;">Integral P</th>
+<th style="text-align: right;">Restante B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F1.1</td>
+<td style="text-align: right;">24,24</td>
+<td style="text-align: right;">40,40</td>
+<td style="text-align: right;">64,64</td>
+<td style="text-align: right;">0,00</td>
+</tr>
+<tr>
+<td>F1.2</td>
+<td style="text-align: right;">24,24</td>
+<td style="text-align: right;">40,40</td>
+<td style="text-align: right;">64,64</td>
+<td style="text-align: right;">0,00</td>
+</tr>
+<tr>
+<td>F1.3</td>
+<td style="text-align: right;">40,40</td>
+<td style="text-align: right;">64,64</td>
+<td style="text-align: right;">96,96</td>
+<td style="text-align: right;">0,00</td>
+</tr>
+<tr>
+<td>F1.4</td>
+<td style="text-align: right;">16,16</td>
+<td style="text-align: right;">24,24</td>
+<td style="text-align: right;">40,40</td>
+<td style="text-align: right;">0,00</td>
+</tr>
+<tr>
+<td>F2.1</td>
+<td style="text-align: right;">24,24</td>
+<td style="text-align: right;">40,40</td>
+<td style="text-align: right;">64,64</td>
+<td style="text-align: right;">0,00</td>
+</tr>
+<tr>
+<td>F2.2</td>
+<td style="text-align: right;">96,96</td>
+<td style="text-align: right;">145,44</td>
+<td style="text-align: right;">226,24</td>
+<td style="text-align: right;">32,32</td>
+</tr>
+<tr>
+<td>F3.1</td>
+<td style="text-align: right;">96,96</td>
+<td style="text-align: right;">145,44</td>
+<td style="text-align: right;">226,24</td>
+<td style="text-align: right;">145,44</td>
+</tr>
+<tr>
+<td>F3.2</td>
+<td style="text-align: right;">48,48</td>
+<td style="text-align: right;">80,80</td>
+<td style="text-align: right;">129,28</td>
+<td style="text-align: right;">80,80</td>
+</tr>
+<tr>
+<td>F3.3</td>
+<td style="text-align: right;">24,24</td>
+<td style="text-align: right;">40,40</td>
+<td style="text-align: right;">64,64</td>
+<td style="text-align: right;">40,40</td>
+</tr>
+<tr>
+<td>F3.4</td>
+<td style="text-align: right;">16,16</td>
+<td style="text-align: right;">32,32</td>
+<td style="text-align: right;">48,48</td>
+<td style="text-align: right;">32,32</td>
+</tr>
+<tr>
+<td>F4.1</td>
+<td style="text-align: right;">80,80</td>
+<td style="text-align: right;">129,28</td>
+<td style="text-align: right;">193,92</td>
+<td style="text-align: right;">129,28</td>
+</tr>
+<tr>
+<td>F4.2</td>
+<td style="text-align: right;">80,80</td>
+<td style="text-align: right;">129,28</td>
+<td style="text-align: right;">193,92</td>
+<td style="text-align: right;">129,28</td>
+</tr>
+<tr>
+<td>F4.3</td>
+<td style="text-align: right;">177,76</td>
+<td style="text-align: right;">242,40</td>
+<td style="text-align: right;">355,52</td>
+<td style="text-align: right;">242,40</td>
+</tr>
+<tr>
+<td>F4.4</td>
+<td style="text-align: right;">64,64</td>
+<td style="text-align: right;">96,96</td>
+<td style="text-align: right;">145,44</td>
+<td style="text-align: right;">96,96</td>
+</tr>
+<tr>
+<td>F4.5</td>
+<td style="text-align: right;">48,48</td>
+<td style="text-align: right;">80,80</td>
+<td style="text-align: right;">129,28</td>
+<td style="text-align: right;">80,80</td>
+</tr>
+<tr>
+<td>F4.6</td>
+<td style="text-align: right;">48,48</td>
+<td style="text-align: right;">80,80</td>
+<td style="text-align: right;">129,28</td>
+<td style="text-align: right;">80,80</td>
+</tr>
+<tr>
+<td>T.1</td>
+<td style="text-align: right;">48,48</td>
+<td style="text-align: right;">80,80</td>
+<td style="text-align: right;">129,28</td>
+<td style="text-align: right;">32,32</td>
+</tr>
+<tr>
+<td>T.2</td>
+<td style="text-align: right;">64,64</td>
+<td style="text-align: right;">113,12</td>
+<td style="text-align: right;">177,76</td>
+<td style="text-align: right;">80,80</td>
+</tr>
+<tr>
+<td>T.3</td>
+<td style="text-align: right;">64,64</td>
+<td style="text-align: right;">113,12</td>
+<td style="text-align: right;">177,76</td>
+<td style="text-align: right;">72,72</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Fonte e unidade:</strong> soma dos pacotes por fase; <strong>R$</strong>, somente equipe. O trabalho transversal não é repetido nas fases.</p>
+<table>
+<thead>
+<tr>
+<th>Fase/grupo</th>
+<th style="text-align: right;">Integral O</th>
+<th style="text-align: right;">Integral B</th>
+<th style="text-align: right;">Integral P</th>
+<th style="text-align: right;">Restante B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F1</td>
+<td style="text-align: right;">105,04</td>
+<td style="text-align: right;">169,68</td>
+<td style="text-align: right;">266,64</td>
+<td style="text-align: right;">0,00</td>
+</tr>
+<tr>
+<td>F2</td>
+<td style="text-align: right;">121,20</td>
+<td style="text-align: right;">185,84</td>
+<td style="text-align: right;">290,88</td>
+<td style="text-align: right;">32,32</td>
+</tr>
+<tr>
+<td>F3</td>
+<td style="text-align: right;">185,84</td>
+<td style="text-align: right;">298,96</td>
+<td style="text-align: right;">468,64</td>
+<td style="text-align: right;">298,96</td>
+</tr>
+<tr>
+<td>F4</td>
+<td style="text-align: right;">500,96</td>
+<td style="text-align: right;">759,52</td>
+<td style="text-align: right;">1.147,36</td>
+<td style="text-align: right;">759,52</td>
+</tr>
+<tr>
+<td>T</td>
+<td style="text-align: right;">177,76</td>
+<td style="text-align: right;">307,04</td>
+<td style="text-align: right;">484,80</td>
+<td style="text-align: right;">185,84</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Fonte e unidade:</strong> agregação calculada, em <strong>R$</strong>, com externos de P2/P3 valorados separadamente pela mesma taxa por hipótese.</p>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th style="text-align: right;">O</th>
+<th style="text-align: right;">B</th>
+<th style="text-align: right;">P</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Equipe — retrospectivo estimado</td>
+<td style="text-align: right;">282,80</td>
+<td style="text-align: right;">444,40</td>
+<td style="text-align: right;">702,96</td>
+</tr>
+<tr>
+<td>Equipe — restante estimado</td>
+<td style="text-align: right;">808,00</td>
+<td style="text-align: right;">1.276,64</td>
+<td style="text-align: right;">1.955,36</td>
+</tr>
+<tr>
+<td>Equipe — integral estimado</td>
+<td style="text-align: right;">1.090,80</td>
+<td style="text-align: right;">1.721,04</td>
+<td style="text-align: right;">2.658,32</td>
+</tr>
+<tr>
+<td>Participantes externos — futuro</td>
+<td style="text-align: right;">48,48</td>
+<td style="text-align: right;">72,72</td>
+<td style="text-align: right;">109,08</td>
+</tr>
+<tr>
+<td><strong>Subtotal humano integral valorado</strong></td>
+<td style="text-align: right;">1.139,28</td>
+<td style="text-align: right;">1.793,76</td>
+<td style="text-align: right;">2.767,40</td>
+</tr>
+<tr>
+<td><strong>Subtotal humano restante valorado</strong></td>
+<td style="text-align: right;">856,48</td>
+<td style="text-align: right;">1.349,36</td>
+<td style="text-align: right;">2.064,44</td>
+</tr>
+</tbody>
+</table>
+<p>Infraestrutura e demais itens não valorados não integram esses subtotais. O total econômico completo e o desembolso efetivo permanecem <strong>não disponíveis</strong>.</p>
+<!-- END CALCULO CUSTOS -->
+
+<h3 id="ferramentas-infraestrutura-e-despesas">Ferramentas, infraestrutura e despesas<a class="headerlink" href="#ferramentas-infraestrutura-e-despesas" title="Permanent link">&para;</a></h3>
+<p><strong>Fonte e unidade da tabela:</strong> catálogo R1–R6, condições oficiais consultadas
+em 25/10/2026 e hipóteses C1 descritas em cada linha. Valores monetários em
+<strong>R$</strong>; “não valorado” e “não disponível” não são zeros. As categorias são
+separadas para evidenciar a cobertura parcial da valoração.</p>
+<table>
+<thead>
+<tr>
+<th>Categoria</th>
+<th>Tratamento econômico em C1</th>
+<th>Tratamento financeiro e fundamento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trabalho da equipe</td>
+<td>Horas E1 × R$ 8,08/p-h, inclusive parcelas retrospectivas estimadas</td>
+<td>Remuneração efetiva não comprovada; valores calculados não são pagamentos</td>
+</tr>
+<tr>
+<td>Tempo dos participantes</td>
+<td>P2/P3 × mesma taxa por hipótese, separado da equipe</td>
+<td>Não se presume incentivo ou ressarcimento; despesas dependem de confirmação</td>
+</tr>
+<tr>
+<td>Licença do código Excalidraw para instância local</td>
+<td>R$ 0,00 de licença do código sob MIT, preservadas suas condições; preparação e operação já estão nas horas</td>
+<td><a href="https://github.com/excalidraw/excalidraw/blob/master/LICENSE">Licença oficial</a> permite uso sem cobrança de licença; não demonstra gratuidade de infraestrutura nem de funcionalidades pagas</td>
+</tr>
+<tr>
+<td>GitHub e publicação pública</td>
+<td>Cenário de uso das funções gratuitas disponíveis, sem contratar plano adicional</td>
+<td><a href="https://docs.github.com/en/get-started/learning-about-github/githubs-plans">GitHub Free</a> oferece colaboração em repositórios públicos e Pages; o plano efetivo da organização não foi comprovado; recursos excedentes ou pagos não são presumidos</td>
+</tr>
+<tr>
+<td>Demais ferramentas do catálogo R5, editor e compilador</td>
+<td>Não valoradas: seleção de ferramenta, edição e licença efetivamente usada ainda pendentes</td>
+<td>Não se lança compra fictícia; licenças já disponíveis não comprovam despesa nova, e alternativas gratuitas devem ser verificadas antes da execução</td>
+</tr>
+<tr>
+<td>Computadores, dispositivos, rede, energia e armazenamento</td>
+<td>Não valorados: sem inventário, consumo incremental, período de uso ou critério de rateio verificável</td>
+<td>Hipótese de uso de recursos disponíveis; não implica gratuidade econômica ou ausência de despesas</td>
+</tr>
+<tr>
+<td>IA de apoio à documentação</td>
+<td>Não valorada: sem custo incremental, plano e alocação ao estudo comprovados</td>
+<td>Assinatura pessoal não será imputada integralmente ao projeto; declaração de uso será integrada na etapa de revisão</td>
+</tr>
+<tr>
+<td>Transporte, impressão, incentivos e demais despesas</td>
+<td>Não valorados: necessidade e valores não confirmados</td>
+<td>Sem comprovantes de despesas nas fontes consultadas; desembolso total efetivo não disponível</td>
+</tr>
+</tbody>
+</table>
+<p>O subtotal humano calculado não incorpora preços fictícios para fechar um
+total. Para chegar ao custo econômico completo, será necessário valorar os
+recursos consumidos com fonte e rateio, inclusive eventual uso de recursos
+já existentes. Para apurar o financeiro efetivo, serão necessários registros
+de desembolso e cobertura do período. A ausência de comprovantes <strong>não
+autoriza concluir que a avaliação custou R$ 0,00</strong>. Nenhuma contratação nova
+é pressuposta por esta versão; isso é uma hipótese de planejamento, não
+evidência sobre os gastos da equipe.</p>
+<h3 id="contingencia-sensibilidade-e-fatores-de-variacao">Contingência, sensibilidade e fatores de variação<a class="headerlink" href="#contingencia-sensibilidade-e-fatores-de-variacao" title="Permanent link">&para;</a></h3>
+<p><strong>Não se acrescenta reserva monetária à base nesta versão</strong> (parcela
+adicionada: R$ 0,00). Os cenários de esforço já contemplam repetição técnica
+e retrabalho, e faltam probabilidades e impactos independentes para justificar
+um percentual adicional sem duplicação. Isso não significa risco nulo.
+Despesas ainda desconhecidas ficam pendentes, sem serem ocultadas como
+contingência. Uma reserva futura exigirá risco, base de cálculo e aprovação
+de premissa separados.</p>
+<p>No cenário B, o subtotal humano integral valorado é <strong>R$ 1.793,76</strong>:
+R$ 1.721,04 da equipe e R$ 72,72 dos participantes. Desses valores, o
+subtotal humano restante é <strong>R$ 1.349,36</strong>; os R$ 444,40 retrospectivos
+são uma valoração de estimativas, sem comprovação de gasto passado.
+Os valores mantêm as limitações de E1 quanto a amostra, ambientes, duração
+das sessões, disponibilidade e calendário.</p>
+<p>F4 concentra 94 das 213 p-h da equipe no cenário B; dentro dela, F4.3 é
+o maior pacote, com 30 p-h da equipe e 9 p-h externas. Ampliar a amostra,
+realizar sessões adicionais, separar grupos de migração e interação ou
+enfrentar problemas de ambiente aumenta a demanda de recursos. Também podem
+alterar os custos a ação de melhoria escolhida, novas reuniões, necessidade
+de equipamento indisponível e uso de planos pagos.</p>
+<p>Como sensibilidade algébrica, mantendo as 222 p-h humanas integrais do
+cenário B, <strong>cada R$ 1,00/p-h acrescido à taxa uniforme acrescenta R$ 222,00</strong>
+ao subtotal humano integral; para as 167 p-h restantes, acrescenta R$ 167,00.
+Não é uma previsão de reajuste ou taxa alternativa observada. A taxa baseada
+em bolsa mede um equivalente acadêmico restrito: usar preços profissionais
+responderia a outra hipótese e exigiria fontes e recálculo próprios.</p>
+<h3 id="reproducao-e-conferencia">Reprodução e conferência<a class="headerlink" href="#reproducao-e-conferencia" title="Permanent link">&para;</a></h3>
+<p>As horas continuam definidas nas tabelas E1 desta página, sem uma segunda
+transcrição manual de entradas. O script
+<a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/feat/estimativa-custos/scripts/calcular_custos_avaliacao.py"><code>calcular_custos_avaliacao.py</code></a>
+lê essas tabelas e os
+<a href="../dados/parametros-custos.json"><code>parâmetros C1</code></a>, aplica aritmética decimal e
+gera a memória em <a href="../dados/custos-calculados.json"><code>custos-calculados.json</code></a>
+e as tabelas monetárias acima. A execução requer somente Python 3, com
+biblioteca padrão, a partir da raiz do repositório:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>scripts/calcular_custos_avaliacao.py<span class="w"> </span>--write
+python<span class="w"> </span>scripts/calcular_custos_avaliacao.py<span class="w"> </span>--check
+mkdocs<span class="w"> </span>build<span class="w"> </span>--strict
+git<span class="w"> </span>diff<span class="w"> </span>--check
+</code></pre></div>
+<p><code>--write</code> atualiza somente a memória JSON e o bloco monetário delimitado
+nesta página; <code>--check</code> verifica sua correspondência sem escrever arquivos.
+A conferência exige 19 pacotes distintos, cenários ordenados, soma das
+parcelas retrospectiva e restante igual ao integral, e reconciliação por
+fase. O JSON conserva <code>null</code> para custos não humanos, desembolso efetivo e
+custo econômico completo não disponíveis; decimais são strings para evitar
+perda de precisão. Não há contingência embutida nas tabelas de equipe.
+Mudanças nas entradas também exigem revisar as premissas e o texto de síntese
+fora do bloco gerado; <code>--check</code> não certifica a validade dessas premissas.</p>
+<h2 id="comparativo-de-valoracao-economica">Comparativo de valoração econômica<a class="headerlink" href="#comparativo-de-valoracao-economica" title="Permanent link">&para;</a></h2>
+<h3 id="escopo-preservado-e-fontes-de-precificacao">Escopo preservado e fontes de precificação<a class="headerlink" href="#escopo-preservado-e-fontes-de-precificacao" title="Permanent link">&para;</a></h3>
+<p><strong>Versão V1, data-base e pesquisa: 25/10/2026.</strong> Esta análise adicional
+preserva integralmente as estimativas E1 e a valoração acadêmica C1 de
+<strong>R$ 8,08/p-h</strong>. No cenário de esforço base, continuam previstas <strong>222 p-h
+humanas</strong>, das quais <strong>213 p-h da equipe e 9 p-h de participantes externos</strong>.
+Não se reclassificam essas horas como realizadas ou faturáveis.</p>
+<p>A pesquisa priorizou empresas juniores de computação e tecnologia, suas
+páginas de serviços e suas informações públicas sobre orçamento. Foram
+consultados o site da CJR, o FAQ institucional do CIC/UnB e o conteúdo
+indexado das páginas oficiais da EJEM e da Code Júnior. A leitura direta
+destas duas últimas páginas não ficou disponível pela ferramenta de pesquisa
+nesta sessão; seus conteúdos foram recuperados pelo índice de busca. Os
+valores publicados podem mudar e não constituem proposta comercial vigente
+para este estudo. Nenhuma empresa foi contatada ou forneceu cotação formal.</p>
+<p><strong>Fonte e unidade da tabela:</strong> páginas oficiais indicadas em cada linha,
+consultadas na data-base. Preço por projeto em <strong>R$/projeto</strong>; tarifa por
+pessoa-hora em <strong>R$/p-h</strong>. “Não localizada” delimita esta pesquisa, sem afirmar
+que a instituição nunca publique preços por outros canais.</p>
+<table>
+<thead>
+<tr>
+<th>Referência</th>
+<th>Informação pública encontrada</th>
+<th>Informação de preço e limite de uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.cjr.org.br/">CJR/UnB</a>, com vínculo institucional corroborado pelo <a href="https://cic.unb.br/informacoes/faq">CIC/UnB</a></td>
+<td>Serviços de sistemas web, consultoria e soluções digitais; convite a diagnóstico gratuito e orçamento</td>
+<td>Não localizada tarifa em R$/p-h nem preço de projeto na página consultada. Referência institucional de prestação de serviços estudantis de computação, sem valor monetário atribuído. Diagnóstico gratuito não implica projeto gratuito.</td>
+</tr>
+<tr>
+<td><a href="https://ejemackenzie.com.br/pagina/como-funciona-o-projeto/">EJEM Mackenzie — software sob medida</a></td>
+<td>Divulgação de projetos a partir de <strong>R$ 8.000</strong>, cujo valor final depende do escopo e da proposta</td>
+<td><strong>R$/projeto</strong>, não R$/p-h e não orçamento para avaliação de qualidade. Sem esforço publicado correspondente que permita converter o preço em tarifa horária comparável.</td>
+</tr>
+<tr>
+<td><a href="https://www.codejr.com.br/">Code Júnior/UFJF</a></td>
+<td>Desenvolvimento de sistemas e aplicativos; levantamento de necessidades seguido de proposta técnica e comercial</td>
+<td>Não localizada tarifa horária ou tabela numérica na página consultada. Evidencia orçamento condicionado ao escopo, sem base para imputar um valor a esta avaliação.</td>
+</tr>
+</tbody>
+</table>
+<p>O dado da EJEM é um <strong>preço inicial anunciado para projeto de desenvolvimento</strong>.
+Não é média de mercado, remuneração de seus membros, teto de contratação ou
+custo observado deste trabalho. Não se divide R$ 8.000 pelas nossas 222 p-h:
+as horas pertencem à avaliação acadêmica, não ao projeto anunciado. Também
+não se infere que a avaliação deva custar esse mínimo ou que a diferença
+entre os subtotais represente economia obtida pela equipe.</p>
+<h3 id="hipoteses-alternativas-por-pessoa-hora">Hipóteses alternativas por pessoa-hora<a class="headerlink" href="#hipoteses-alternativas-por-pessoa-hora" title="Permanent link">&para;</a></h3>
+<p>Como não foi localizada tarifa pública de avaliação de qualidade diretamente
+comparável nas páginas examinadas, adotam-se três <strong>hipóteses próprias de
+sensibilidade</strong>, H25, H50 e H75: <strong>R$ 25,00, R$ 50,00 e R$ 75,00/p-h</strong>.
+São pontos de uma grade exploratória com incremento de R$ 25,00 para mostrar
+o efeito da taxa mantendo o esforço fixo. A escolha é uma premissa analítica
+desta documentação, sem calibração por amostra de preços; não indica faixa
+de mercado comprovada, tarifa recomendada ou probabilidade de ocorrência.
+Nenhum desses valores é atribuído à CJR, à EJEM ou à Code Júnior.</p>
+<p>Para cada valoração <code>v</code>, o script aplica:</p>
+<div class="highlight"><pre><span></span><code>subtotal humano integral B(v) = (213 p-h equipe + 9 p-h externas) × taxa(v)
+subtotal humano restante B(v) = (158 p-h equipe + 9 p-h externas) × taxa(v)
+</code></pre></div>
+<p>A aplicação uniforme aos participantes é uma hipótese para comparar o mesmo
+volume de tempo humano. Não pressupõe que participação em teste seja serviço
+técnico vendido pela equipe, nem que participantes recebam essa tarifa. Os
+componentes permanecem separados nas tabelas. Para uma eventual cotação real,
+seria necessário distinguir horas da prestadora, participação dos usuários,
+recursos, condições contratuais e demais componentes de preço.</p>
+<p>As linhas de valoração são independentes dos cenários de esforço O/B/P:
+primeiro compara-se a taxa com B fixo em 222 p-h; depois mostra-se a
+combinação de cada taxa com os esforços originais, sem reestimá-los. A linha
+acadêmica continua a referência C1, sem ser substituída pelas alternativas.</p>
+<!-- BEGIN COMPARATIVO VALORACAO -->
+
+<p><strong>Fonte e unidade:</strong> horas E1 preservadas; taxa C1 e hipóteses próprias H25/H50/H75 dos parâmetros V1. Taxas em <strong>R$/p-h</strong>, valores em <strong>R$</strong>. Cenário de esforço B fixo em <strong>222 p-h</strong> (213 equipe + 9 externas); parcela restante em <strong>167 p-h</strong> (158 equipe + 9 externas).</p>
+<table>
+<thead>
+<tr>
+<th>Valoração</th>
+<th style="text-align: right;">Taxa</th>
+<th style="text-align: right;">Equipe integral B</th>
+<th style="text-align: right;">Externos B</th>
+<th style="text-align: right;">Subtotal humano integral B</th>
+<th style="text-align: right;">Subtotal humano restante B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACADEMICO</td>
+<td style="text-align: right;">8,08</td>
+<td style="text-align: right;">1.721,04</td>
+<td style="text-align: right;">72,72</td>
+<td style="text-align: right;">1.793,76</td>
+<td style="text-align: right;">1.349,36</td>
+</tr>
+<tr>
+<td>H25</td>
+<td style="text-align: right;">25,00</td>
+<td style="text-align: right;">5.325,00</td>
+<td style="text-align: right;">225,00</td>
+<td style="text-align: right;">5.550,00</td>
+<td style="text-align: right;">4.175,00</td>
+</tr>
+<tr>
+<td>H50</td>
+<td style="text-align: right;">50,00</td>
+<td style="text-align: right;">10.650,00</td>
+<td style="text-align: right;">450,00</td>
+<td style="text-align: right;">11.100,00</td>
+<td style="text-align: right;">8.350,00</td>
+</tr>
+<tr>
+<td>H75</td>
+<td style="text-align: right;">75,00</td>
+<td style="text-align: right;">15.975,00</td>
+<td style="text-align: right;">675,00</td>
+<td style="text-align: right;">16.650,00</td>
+<td style="text-align: right;">12.525,00</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Fonte e unidade:</strong> mesmos parâmetros; subtotais humanos integrais em <strong>R$</strong>. O/B/P variam o esforço original; cada linha mantém sua taxa. Nenhuma linha representa orçamento de CJR, EJEM ou Code Júnior.</p>
+<table>
+<thead>
+<tr>
+<th>Valoração</th>
+<th style="text-align: right;">Esforço O: 141 p-h</th>
+<th style="text-align: right;">Esforço B: 222 p-h</th>
+<th style="text-align: right;">Esforço P: 342,5 p-h</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACADEMICO</td>
+<td style="text-align: right;">1.139,28</td>
+<td style="text-align: right;">1.793,76</td>
+<td style="text-align: right;">2.767,40</td>
+</tr>
+<tr>
+<td>H25</td>
+<td style="text-align: right;">3.525,00</td>
+<td style="text-align: right;">5.550,00</td>
+<td style="text-align: right;">8.562,50</td>
+</tr>
+<tr>
+<td>H50</td>
+<td style="text-align: right;">7.050,00</td>
+<td style="text-align: right;">11.100,00</td>
+<td style="text-align: right;">17.125,00</td>
+</tr>
+<tr>
+<td>H75</td>
+<td style="text-align: right;">10.575,00</td>
+<td style="text-align: right;">16.650,00</td>
+<td style="text-align: right;">25.687,50</td>
+</tr>
+</tbody>
+</table>
+<p>Os preços publicados por projeto são contexto documental e não entram nas multiplicações. Infraestrutura e despesas desconhecidas continuam fora dos subtotais humanos.</p>
+<!-- END COMPARATIVO VALORACAO -->
+
+<h3 id="por-que-preco-comercial-e-avaliacao-academica-nao-sao-equivalentes">Por que preço comercial e avaliação acadêmica não são equivalentes<a class="headerlink" href="#por-que-preco-comercial-e-avaliacao-academica-nao-sao-equivalentes" title="Permanent link">&para;</a></h3>
+<p>A oferta de software sob medida da EJEM descreve concepção de telas e dados,
+desenvolvimento e implementação de uma solução para o cliente. A CJR também
+divulga desenvolvimento e consultoria. Nosso objeto é avaliar um produto já
+existente: preparar protocolos, coletar evidências para métricas GQM,
+interpretar resultados e produzir documentação acadêmica, com uma ação de
+melhoria delimitada. Há competências e atividades técnicas em comum, mas os
+entregáveis, os critérios de aceitação e o risco de execução são distintos.</p>
+<p>Por análise metodológica, um preço comercial pode cobrir, conforme a
+proposta, estrutura da prestadora, gestão, infraestrutura, suporte,
+obrigações de entrega e riscos, além da execução. Esta comparação calcula
+somente equivalentes do tempo humano; não modela esses componentes nem
+atribui suas parcelas a qualquer empresa. Tampouco a referência de bolsa
+mede preço de venda. Preço anunciado, custo econômico de referência e
+desembolso efetivo respondem a perguntas diferentes.</p>
+<p>Os subtotais alternativos são, portanto, <strong>simulações de valoração do mesmo
+esforço</strong>, sem comprovar quanto uma empresa júnior cobraria para executar
+esta avaliação. Custo econômico completo e despesas efetivas permanecem
+não disponíveis, e as premissas de esforço e de recursos continuam sujeitas
+à revisão da equipe.</p>
+<h3 id="reproducao-do-comparativo">Reprodução do comparativo<a class="headerlink" href="#reproducao-do-comparativo" title="Permanent link">&para;</a></h3>
+<p>O script existente foi ampliado para ler <code>comparativo_valoracao</code> nos
+<a href="../dados/parametros-custos.json">parâmetros JSON</a>. Os preços publicados por
+projeto ficam registrados como contexto, separados das taxas hipotéticas;
+não entram nas multiplicações. A memória em
+<a href="../dados/custos-calculados.json">custos-calculados.json</a> conserva todos os
+resultados C1 e acrescenta as valorações V1 e seus cenários de esforço.
+Os mesmos comandos <code>--write</code> e <code>--check</code> regeneram e conferem o bloco
+acadêmico e o comparativo. O script verifica que a linha acadêmica do
+comparativo coincide com C1 em O/B/P; mudanças nos parâmetros exigem revisão
+do texto explicativo, como já previsto na memória original.</p>
+<h2 id="proxima-etapa">Próxima etapa<a class="headerlink" href="#proxima-etapa" title="Permanent link">&para;</a></h2>
+<p>A revisão final integrará a estimativa ao artigo e à documentação, verificará
+a coerência com a gestão e o calendário e registrará o uso de IA. As
+premissas provisórias e os recursos não valorados continuam sujeitos à
+confirmação da equipe; concluir a implementação não os transforma em dados
+observados ou em despesas comprovadas.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "content.code.copy", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

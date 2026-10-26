@@ -1,0 +1,1050 @@
+{
+  "versao": "C1-provisoria",
+  "data_base": "2026-10-25",
+  "taxa_brl_ph": "8.08",
+  "moeda": "BRL",
+  "pacotes": [
+    {
+      "id": "F1.1",
+      "natureza": "retrospectiva",
+      "integral_ph": {
+        "O": "3",
+        "B": "5",
+        "P": "8"
+      },
+      "retrospectivo_ph": {
+        "O": "3",
+        "B": "5",
+        "P": "8"
+      },
+      "restante_ph": {
+        "O": "0",
+        "B": "0",
+        "P": "0"
+      },
+      "integral_brl": {
+        "O": "24.24",
+        "B": "40.40",
+        "P": "64.64"
+      },
+      "retrospectivo_brl": {
+        "O": "24.24",
+        "B": "40.40",
+        "P": "64.64"
+      },
+      "restante_brl": {
+        "O": "0.00",
+        "B": "0.00",
+        "P": "0.00"
+      }
+    },
+    {
+      "id": "F1.2",
+      "natureza": "retrospectiva",
+      "integral_ph": {
+        "O": "3",
+        "B": "5",
+        "P": "8"
+      },
+      "retrospectivo_ph": {
+        "O": "3",
+        "B": "5",
+        "P": "8"
+      },
+      "restante_ph": {
+        "O": "0",
+        "B": "0",
+        "P": "0"
+      },
+      "integral_brl": {
+        "O": "24.24",
+        "B": "40.40",
+        "P": "64.64"
+      },
+      "retrospectivo_brl": {
+        "O": "24.24",
+        "B": "40.40",
+        "P": "64.64"
+      },
+      "restante_brl": {
+        "O": "0.00",
+        "B": "0.00",
+        "P": "0.00"
+      }
+    },
+    {
+      "id": "F1.3",
+      "natureza": "retrospectiva",
+      "integral_ph": {
+        "O": "5",
+        "B": "8",
+        "P": "12"
+      },
+      "retrospectivo_ph": {
+        "O": "5",
+        "B": "8",
+        "P": "12"
+      },
+      "restante_ph": {
+        "O": "0",
+        "B": "0",
+        "P": "0"
+      },
+      "integral_brl": {
+        "O": "40.40",
+        "B": "64.64",
+        "P": "96.96"
+      },
+      "retrospectivo_brl": {
+        "O": "40.40",
+        "B": "64.64",
+        "P": "96.96"
+      },
+      "restante_brl": {
+        "O": "0.00",
+        "B": "0.00",
+        "P": "0.00"
+      }
+    },
+    {
+      "id": "F1.4",
+      "natureza": "retrospectiva",
+      "integral_ph": {
+        "O": "2",
+        "B": "3",
+        "P": "5"
+      },
+      "retrospectivo_ph": {
+        "O": "2",
+        "B": "3",
+        "P": "5"
+      },
+      "restante_ph": {
+        "O": "0",
+        "B": "0",
+        "P": "0"
+      },
+      "integral_brl": {
+        "O": "16.16",
+        "B": "24.24",
+        "P": "40.40"
+      },
+      "retrospectivo_brl": {
+        "O": "16.16",
+        "B": "24.24",
+        "P": "40.40"
+      },
+      "restante_brl": {
+        "O": "0.00",
+        "B": "0.00",
+        "P": "0.00"
+      }
+    },
+    {
+      "id": "F2.1",
+      "natureza": "retrospectiva",
+      "integral_ph": {
+        "O": "3",
+        "B": "5",
+        "P": "8"
+      },
+      "retrospectivo_ph": {
+        "O": "3",
+        "B": "5",
+        "P": "8"
+      },
+      "restante_ph": {
+        "O": "0",
+        "B": "0",
+        "P": "0"
+      },
+      "integral_brl": {
+        "O": "24.24",
+        "B": "40.40",
+        "P": "64.64"
+      },
+      "retrospectivo_brl": {
+        "O": "24.24",
+        "B": "40.40",
+        "P": "64.64"
+      },
+      "restante_brl": {
+        "O": "0.00",
+        "B": "0.00",
+        "P": "0.00"
+      }
+    },
+    {
+      "id": "F2.2",
+      "natureza": "mista",
+      "integral_ph": {
+        "O": "12",
+        "B": "18",
+        "P": "28"
+      },
+      "retrospectivo_ph": {
+        "O": "10",
+        "B": "14",
+        "P": "22"
+      },
+      "restante_ph": {
+        "O": "2",
+        "B": "4",
+        "P": "6"
+      },
+      "integral_brl": {
+        "O": "96.96",
+        "B": "145.44",
+        "P": "226.24"
+      },
+      "retrospectivo_brl": {
+        "O": "80.80",
+        "B": "113.12",
+        "P": "177.76"
+      },
+      "restante_brl": {
+        "O": "16.16",
+        "B": "32.32",
+        "P": "48.48"
+      }
+    },
+    {
+      "id": "F3.1",
+      "natureza": "futura",
+      "integral_ph": {
+        "O": "12",
+        "B": "18",
+        "P": "28"
+      },
+      "retrospectivo_ph": {
+        "O": "0",
+        "B": "0",
+        "P": "0"
+      },
+      "restante_ph": {
+        "O": "12",
+        "B": "18",
+        "P": "28"
+      },
+      "integral_brl": {
+        "O": "96.96",
+        "B": "145.44",
+        "P": "226.24"
+      },
+      "retrospectivo_brl": {
+        "O": "0.00",
+        "B": "0.00",
+        "P": "0.00"
+      },
+      "restante_brl": {
+        "O": "96.96",
+        "B": "145.44",
+        "P": "226.24"
+      }
+    },
+    {
+      "id": "F3.2",
+      "natureza": "futura",
+      "integral_ph": {
+        "O": "6",
+        "B": "10",
+        "P": "16"
+      },
+      "retrospectivo_ph": {
+        "O": "0",
+        "B": "0",
+        "P": "0"
+      },
+      "restante_ph": {
+        "O": "6",
+        "B": "10",
+        "P": "16"
+      },
+      "integral_brl": {
+        "O": "48.48",
+        "B": "80.80",
+        "P": "129.28"
+      },
+      "retrospectivo_brl": {
+        "O": "0.00",
+        "B": "0.00",
+        "P": "0.00"
+      },
+      "restante_brl": {
+        "O": "48.48",
+        "B": "80.80",
+        "P": "129.28"
+      }
+    },
+    {
+      "id": "F3.3",
+      "natureza": "futura",
+      "integral_ph": {
+        "O": "3",
+        "B": "5",
+        "P": "8"
+      },
+      "retrospectivo_ph": {
+        "O": "0",
+        "B": "0",
+        "P": "0"
+      },
+      "restante_ph": {
+        "O": "3",
+        "B": "5",
+        "P": "8"
+      },
+      "integral_brl": {
+        "O": "24.24",
+        "B": "40.40",
+        "P": "64.64"
+      },
+      "retrospectivo_brl": {
+        "O": "0.00",
+        "B": "0.00",
+        "P": "0.00"
+      },
+      "restante_brl": {
+        "O": "24.24",
+        "B": "40.40",
+        "P": "64.64"
+      }
+    },
+    {
+      "id": "F3.4",
+      "natureza": "futura",
+      "integral_ph": {
+        "O": "2",
+        "B": "4",
+        "P": "6"
+      },
+      "retrospectivo_ph": {
+        "O": "0",
+        "B": "0",
+        "P": "0"
+      },
+      "restante_ph": {
+        "O": "2",
+        "B": "4",
+        "P": "6"
+      },
+      "integral_brl": {
+        "O": "16.16",
+        "B": "32.32",
+        "P": "48.48"
+      },
+      "retrospectivo_brl": {
+        "O": "0.00",
+        "B": "0.00",
+        "P": "0.00"
+      },
+      "restante_brl": {
+        "O": "16.16",
+        "B": "32.32",
+        "P": "48.48"
+      }
+    },
+    {
+      "id": "F4.1",
+      "natureza": "futura",
+      "integral_ph": {
+        "O": "10",
+        "B": "16",
+        "P": "24"
+      },
+      "retrospectivo_ph": {
+        "O": "0",
+        "B": "0",
+        "P": "0"
+      },
+      "restante_ph": {
+        "O": "10",
+        "B": "16",
+        "P": "24"
+      },
+      "integral_brl": {
+        "O": "80.80",
+        "B": "129.28",
+        "P": "193.92"
+      },
+      "retrospectivo_brl": {
+        "O": "0.00",
+        "B": "0.00",
+        "P": "0.00"
+      },
+      "restante_brl": {
+        "O": "80.80",
+        "B": "129.28",
+        "P": "193.92"
+      }
+    },
+    {
+      "id": "F4.2",
+      "natureza": "futura",
+      "integral_ph": {
+        "O": "10",
+        "B": "16",
+        "P": "24"
+      },
+      "retrospectivo_ph": {
+        "O": "0",
+        "B": "0",
+        "P": "0"
+      },
+      "restante_ph": {
+        "O": "10",
+        "B": "16",
+        "P": "24"
+      },
+      "integral_brl": {
+        "O": "80.80",
+        "B": "129.28",
+        "P": "193.92"
+      },
+      "retrospectivo_brl": {
+        "O": "0.00",
+        "B": "0.00",
+        "P": "0.00"
+      },
+      "restante_brl": {
+        "O": "80.80",
+        "B": "129.28",
+        "P": "193.92"
+      }
+    },
+    {
+      "id": "F4.3",
+      "natureza": "futura",
+      "integral_ph": {
+        "O": "22",
+        "B": "30",
+        "P": "44"
+      },
+      "retrospectivo_ph": {
+        "O": "0",
+        "B": "0",
+        "P": "0"
+      },
+      "restante_ph": {
+        "O": "22",
+        "B": "30",
+        "P": "44"
+      },
+      "integral_brl": {
+        "O": "177.76",
+        "B": "242.40",
+        "P": "355.52"
+      },
+      "retrospectivo_brl": {
+        "O": "0.00",
+        "B": "0.00",
+        "P": "0.00"
+      },
+      "restante_brl": {
+        "O": "177.76",
+        "B": "242.40",
+        "P": "355.52"
+      }
+    },
+    {
+      "id": "F4.4",
+      "natureza": "futura",
+      "integral_ph": {
+        "O": "8",
+        "B": "12",
+        "P": "18"
+      },
+      "retrospectivo_ph": {
+        "O": "0",
+        "B": "0",
+        "P": "0"
+      },
+      "restante_ph": {
+        "O": "8",
+        "B": "12",
+        "P": "18"
+      },
+      "integral_brl": {
+        "O": "64.64",
+        "B": "96.96",
+        "P": "145.44"
+      },
+      "retrospectivo_brl": {
+        "O": "0.00",
+        "B": "0.00",
+        "P": "0.00"
+      },
+      "restante_brl": {
+        "O": "64.64",
+        "B": "96.96",
+        "P": "145.44"
+      }
+    },
+    {
+      "id": "F4.5",
+      "natureza": "futura",
+      "integral_ph": {
+        "O": "6",
+        "B": "10",
+        "P": "16"
+      },
+      "retrospectivo_ph": {
+        "O": "0",
+        "B": "0",
+        "P": "0"
+      },
+      "restante_ph": {
+        "O": "6",
+        "B": "10",
+        "P": "16"
+      },
+      "integral_brl": {
+        "O": "48.48",
+        "B": "80.80",
+        "P": "129.28"
+      },
+      "retrospectivo_brl": {
+        "O": "0.00",
+        "B": "0.00",
+        "P": "0.00"
+      },
+      "restante_brl": {
+        "O": "48.48",
+        "B": "80.80",
+        "P": "129.28"
+      }
+    },
+    {
+      "id": "F4.6",
+      "natureza": "futura",
+      "integral_ph": {
+        "O": "6",
+        "B": "10",
+        "P": "16"
+      },
+      "retrospectivo_ph": {
+        "O": "0",
+        "B": "0",
+        "P": "0"
+      },
+      "restante_ph": {
+        "O": "6",
+        "B": "10",
+        "P": "16"
+      },
+      "integral_brl": {
+        "O": "48.48",
+        "B": "80.80",
+        "P": "129.28"
+      },
+      "retrospectivo_brl": {
+        "O": "0.00",
+        "B": "0.00",
+        "P": "0.00"
+      },
+      "restante_brl": {
+        "O": "48.48",
+        "B": "80.80",
+        "P": "129.28"
+      }
+    },
+    {
+      "id": "T.1",
+      "natureza": "mista",
+      "integral_ph": {
+        "O": "6",
+        "B": "10",
+        "P": "16"
+      },
+      "retrospectivo_ph": {
+        "O": "4",
+        "B": "6",
+        "P": "10"
+      },
+      "restante_ph": {
+        "O": "2",
+        "B": "4",
+        "P": "6"
+      },
+      "integral_brl": {
+        "O": "48.48",
+        "B": "80.80",
+        "P": "129.28"
+      },
+      "retrospectivo_brl": {
+        "O": "32.32",
+        "B": "48.48",
+        "P": "80.80"
+      },
+      "restante_brl": {
+        "O": "16.16",
+        "B": "32.32",
+        "P": "48.48"
+      }
+    },
+    {
+      "id": "T.2",
+      "natureza": "mista",
+      "integral_ph": {
+        "O": "8",
+        "B": "14",
+        "P": "22"
+      },
+      "retrospectivo_ph": {
+        "O": "2",
+        "B": "4",
+        "P": "6"
+      },
+      "restante_ph": {
+        "O": "6",
+        "B": "10",
+        "P": "16"
+      },
+      "integral_brl": {
+        "O": "64.64",
+        "B": "113.12",
+        "P": "177.76"
+      },
+      "retrospectivo_brl": {
+        "O": "16.16",
+        "B": "32.32",
+        "P": "48.48"
+      },
+      "restante_brl": {
+        "O": "48.48",
+        "B": "80.80",
+        "P": "129.28"
+      }
+    },
+    {
+      "id": "T.3",
+      "natureza": "mista",
+      "integral_ph": {
+        "O": "8",
+        "B": "14",
+        "P": "22"
+      },
+      "retrospectivo_ph": {
+        "O": "3",
+        "B": "5",
+        "P": "8"
+      },
+      "restante_ph": {
+        "O": "5",
+        "B": "9",
+        "P": "14"
+      },
+      "integral_brl": {
+        "O": "64.64",
+        "B": "113.12",
+        "P": "177.76"
+      },
+      "retrospectivo_brl": {
+        "O": "24.24",
+        "B": "40.40",
+        "P": "64.64"
+      },
+      "restante_brl": {
+        "O": "40.40",
+        "B": "72.72",
+        "P": "113.12"
+      }
+    }
+  ],
+  "fases_equipe": {
+    "F1": {
+      "integral_ph": {
+        "O": "13",
+        "B": "21",
+        "P": "33"
+      },
+      "retrospectivo_ph": {
+        "O": "13",
+        "B": "21",
+        "P": "33"
+      },
+      "restante_ph": {
+        "O": "0",
+        "B": "0",
+        "P": "0"
+      },
+      "integral_brl": {
+        "O": "105.04",
+        "B": "169.68",
+        "P": "266.64"
+      },
+      "retrospectivo_brl": {
+        "O": "105.04",
+        "B": "169.68",
+        "P": "266.64"
+      },
+      "restante_brl": {
+        "O": "0.00",
+        "B": "0.00",
+        "P": "0.00"
+      }
+    },
+    "F2": {
+      "integral_ph": {
+        "O": "15",
+        "B": "23",
+        "P": "36"
+      },
+      "retrospectivo_ph": {
+        "O": "13",
+        "B": "19",
+        "P": "30"
+      },
+      "restante_ph": {
+        "O": "2",
+        "B": "4",
+        "P": "6"
+      },
+      "integral_brl": {
+        "O": "121.20",
+        "B": "185.84",
+        "P": "290.88"
+      },
+      "retrospectivo_brl": {
+        "O": "105.04",
+        "B": "153.52",
+        "P": "242.40"
+      },
+      "restante_brl": {
+        "O": "16.16",
+        "B": "32.32",
+        "P": "48.48"
+      }
+    },
+    "F3": {
+      "integral_ph": {
+        "O": "23",
+        "B": "37",
+        "P": "58"
+      },
+      "retrospectivo_ph": {
+        "O": "0",
+        "B": "0",
+        "P": "0"
+      },
+      "restante_ph": {
+        "O": "23",
+        "B": "37",
+        "P": "58"
+      },
+      "integral_brl": {
+        "O": "185.84",
+        "B": "298.96",
+        "P": "468.64"
+      },
+      "retrospectivo_brl": {
+        "O": "0.00",
+        "B": "0.00",
+        "P": "0.00"
+      },
+      "restante_brl": {
+        "O": "185.84",
+        "B": "298.96",
+        "P": "468.64"
+      }
+    },
+    "F4": {
+      "integral_ph": {
+        "O": "62",
+        "B": "94",
+        "P": "142"
+      },
+      "retrospectivo_ph": {
+        "O": "0",
+        "B": "0",
+        "P": "0"
+      },
+      "restante_ph": {
+        "O": "62",
+        "B": "94",
+        "P": "142"
+      },
+      "integral_brl": {
+        "O": "500.96",
+        "B": "759.52",
+        "P": "1147.36"
+      },
+      "retrospectivo_brl": {
+        "O": "0.00",
+        "B": "0.00",
+        "P": "0.00"
+      },
+      "restante_brl": {
+        "O": "500.96",
+        "B": "759.52",
+        "P": "1147.36"
+      }
+    },
+    "T": {
+      "integral_ph": {
+        "O": "22",
+        "B": "38",
+        "P": "60"
+      },
+      "retrospectivo_ph": {
+        "O": "9",
+        "B": "15",
+        "P": "24"
+      },
+      "restante_ph": {
+        "O": "13",
+        "B": "23",
+        "P": "36"
+      },
+      "integral_brl": {
+        "O": "177.76",
+        "B": "307.04",
+        "P": "484.80"
+      },
+      "retrospectivo_brl": {
+        "O": "72.72",
+        "B": "121.20",
+        "P": "193.92"
+      },
+      "restante_brl": {
+        "O": "105.04",
+        "B": "185.84",
+        "P": "290.88"
+      }
+    }
+  },
+  "totais_equipe": {
+    "integral_ph": {
+      "O": "135",
+      "B": "213",
+      "P": "329"
+    },
+    "retrospectivo_ph": {
+      "O": "35",
+      "B": "55",
+      "P": "87"
+    },
+    "restante_ph": {
+      "O": "100",
+      "B": "158",
+      "P": "242"
+    },
+    "integral_brl": {
+      "O": "1090.80",
+      "B": "1721.04",
+      "P": "2658.32"
+    },
+    "retrospectivo_brl": {
+      "O": "282.80",
+      "B": "444.40",
+      "P": "702.96"
+    },
+    "restante_brl": {
+      "O": "808.00",
+      "B": "1276.64",
+      "P": "1955.36"
+    }
+  },
+  "externos_ph": {
+    "O": "6",
+    "B": "9",
+    "P": "13.5"
+  },
+  "externos_brl": {
+    "O": "48.48",
+    "B": "72.72",
+    "P": "109.08"
+  },
+  "subtotal_humano_integral_brl": {
+    "O": "1139.28",
+    "B": "1793.76",
+    "P": "2767.40"
+  },
+  "subtotal_humano_restante_brl": {
+    "O": "856.48",
+    "B": "1349.36",
+    "P": "2064.44"
+  },
+  "custos_nao_humanos_brl": null,
+  "desembolso_efetivo_brl": null,
+  "contingencia_adicionada_brl": "0.00",
+  "custo_economico_completo_brl": null,
+  "comparativo_valoracao": {
+    "versao": "V1-provisoria",
+    "data_base": "2026-10-25",
+    "valoracoes": [
+      {
+        "id": "ACADEMICO",
+        "natureza": "proxy_academica_C1",
+        "taxa_brl_ph": "8.08",
+        "cenarios_esforco": {
+          "O": {
+            "equipe_integral_ph": "135",
+            "externos_ph": "6",
+            "humano_integral_ph": "141",
+            "humano_restante_ph": "106",
+            "equipe_integral_brl": "1090.80",
+            "externos_brl": "48.48",
+            "subtotal_humano_integral_brl": "1139.28",
+            "subtotal_humano_restante_brl": "856.48",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          },
+          "B": {
+            "equipe_integral_ph": "213",
+            "externos_ph": "9",
+            "humano_integral_ph": "222",
+            "humano_restante_ph": "167",
+            "equipe_integral_brl": "1721.04",
+            "externos_brl": "72.72",
+            "subtotal_humano_integral_brl": "1793.76",
+            "subtotal_humano_restante_brl": "1349.36",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          },
+          "P": {
+            "equipe_integral_ph": "329",
+            "externos_ph": "13.5",
+            "humano_integral_ph": "342.5",
+            "humano_restante_ph": "255.5",
+            "equipe_integral_brl": "2658.32",
+            "externos_brl": "109.08",
+            "subtotal_humano_integral_brl": "2767.40",
+            "subtotal_humano_restante_brl": "2064.44",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          }
+        }
+      },
+      {
+        "id": "H25",
+        "natureza": "hipotese_propria",
+        "taxa_brl_ph": "25.00",
+        "cenarios_esforco": {
+          "O": {
+            "equipe_integral_ph": "135",
+            "externos_ph": "6",
+            "humano_integral_ph": "141",
+            "humano_restante_ph": "106",
+            "equipe_integral_brl": "3375.00",
+            "externos_brl": "150.00",
+            "subtotal_humano_integral_brl": "3525.00",
+            "subtotal_humano_restante_brl": "2650.00",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          },
+          "B": {
+            "equipe_integral_ph": "213",
+            "externos_ph": "9",
+            "humano_integral_ph": "222",
+            "humano_restante_ph": "167",
+            "equipe_integral_brl": "5325.00",
+            "externos_brl": "225.00",
+            "subtotal_humano_integral_brl": "5550.00",
+            "subtotal_humano_restante_brl": "4175.00",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          },
+          "P": {
+            "equipe_integral_ph": "329",
+            "externos_ph": "13.5",
+            "humano_integral_ph": "342.5",
+            "humano_restante_ph": "255.5",
+            "equipe_integral_brl": "8225.00",
+            "externos_brl": "337.50",
+            "subtotal_humano_integral_brl": "8562.50",
+            "subtotal_humano_restante_brl": "6387.50",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          }
+        }
+      },
+      {
+        "id": "H50",
+        "natureza": "hipotese_propria",
+        "taxa_brl_ph": "50.00",
+        "cenarios_esforco": {
+          "O": {
+            "equipe_integral_ph": "135",
+            "externos_ph": "6",
+            "humano_integral_ph": "141",
+            "humano_restante_ph": "106",
+            "equipe_integral_brl": "6750.00",
+            "externos_brl": "300.00",
+            "subtotal_humano_integral_brl": "7050.00",
+            "subtotal_humano_restante_brl": "5300.00",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          },
+          "B": {
+            "equipe_integral_ph": "213",
+            "externos_ph": "9",
+            "humano_integral_ph": "222",
+            "humano_restante_ph": "167",
+            "equipe_integral_brl": "10650.00",
+            "externos_brl": "450.00",
+            "subtotal_humano_integral_brl": "11100.00",
+            "subtotal_humano_restante_brl": "8350.00",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          },
+          "P": {
+            "equipe_integral_ph": "329",
+            "externos_ph": "13.5",
+            "humano_integral_ph": "342.5",
+            "humano_restante_ph": "255.5",
+            "equipe_integral_brl": "16450.00",
+            "externos_brl": "675.00",
+            "subtotal_humano_integral_brl": "17125.00",
+            "subtotal_humano_restante_brl": "12775.00",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          }
+        }
+      },
+      {
+        "id": "H75",
+        "natureza": "hipotese_propria",
+        "taxa_brl_ph": "75.00",
+        "cenarios_esforco": {
+          "O": {
+            "equipe_integral_ph": "135",
+            "externos_ph": "6",
+            "humano_integral_ph": "141",
+            "humano_restante_ph": "106",
+            "equipe_integral_brl": "10125.00",
+            "externos_brl": "450.00",
+            "subtotal_humano_integral_brl": "10575.00",
+            "subtotal_humano_restante_brl": "7950.00",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          },
+          "B": {
+            "equipe_integral_ph": "213",
+            "externos_ph": "9",
+            "humano_integral_ph": "222",
+            "humano_restante_ph": "167",
+            "equipe_integral_brl": "15975.00",
+            "externos_brl": "675.00",
+            "subtotal_humano_integral_brl": "16650.00",
+            "subtotal_humano_restante_brl": "12525.00",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          },
+          "P": {
+            "equipe_integral_ph": "329",
+            "externos_ph": "13.5",
+            "humano_integral_ph": "342.5",
+            "humano_restante_ph": "255.5",
+            "equipe_integral_brl": "24675.00",
+            "externos_brl": "1012.50",
+            "subtotal_humano_integral_brl": "25687.50",
+            "subtotal_humano_restante_brl": "19162.50",
+            "desembolso_efetivo_brl": null,
+            "custo_economico_completo_brl": null
+          }
+        }
+      }
+    ]
+  }
+}
