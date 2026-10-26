@@ -3,6 +3,10 @@
 %%  Template IEEE (IEEEtran) para o Overleaf
 %%  v2: alinhado ao enunciado FGA0315 (v1.0, 05/10/2026) e à rubrica da Fase 2
 %%  v3: conteúdo transposto da GitPage (seis objetivos, terminologia de 2023)
+%%  v4 (26/10/2026): atualizado com a branch main do repositório (após o
+%%      merge do PR #25): metodologia, PSM/CID (métricas de desenvolvimento,
+%%      gestão do grupo, cronograma e estimativa de custos), uso de IA e
+%%      contribuições
 %% =====================================================================
 %%  COMO USAR
 %%   1. Overleaf > New Project > Blank Project > cole este arquivo em main.tex
@@ -13,7 +17,7 @@
 %%      troque \entregafinalfalse por \entregafinaltrue.
 %%
 %%  REGRAS QUE AFETAM ESTE ARQUIVO
-%%   - Máximo de 10 páginas no PDF, INCLUINDO referências e apêndices.
+%%   - Máximo de 15 páginas no PDF, INCLUINDO referências e apêndices.
 %%     Só a Tabela de contribuição (Apêndice A) fica fora da contagem.
 %%     Artigo acima do limite é rejeitado: confira o total a cada commit.
 %%   - Preservar a formatação do modelo (não alterar margens, fontes nem
@@ -86,7 +90,7 @@
 \newcommand{\gqmO}[1]{\midrule
   \multicolumn{5}{@{}l@{}}{\textbf{#1}}\\}
 \newcommand{\gqmQ}[4]{\midrule
-  \multicolumn{5}{@{}L{17.1cm}@{}}{\textbf{#1} [#2] #3\ \textit{Hipótese:} #4}\\[1pt]}
+  \multicolumn{5}{@{}L{17.5cm}@{}}{\textbf{#1} [#2] #3\ \textit{Hipótese:} #4}\\[1pt]}
 \newcommand{\gqmM}[5]{#1 & #2 & #3 & #4 & #5\\}
 \newcommand{\gqmhead}{\toprule
   \textbf{ID} & \textbf{Métrica (definição, cálculo, fonte e coleta)} &
@@ -193,7 +197,7 @@ Universidade de Brasília (UnB)\\
 }
 
 \maketitle
-\TODO{conferir os e-mails dos autores}
+% TODO: conferir os e-mails dos autores (André e Renato estão com e-mail pessoal)
 
 % ---------- Resumo ----------
 \begin{abstract}
@@ -210,7 +214,9 @@ decisões que a avaliação apoia, o modelo de qualidade adaptado, o escopo e a
 relação com os ODS 4, 9 e 10. A Fase~2 especifica a medição com a abordagem
 \textit{Goal-Question-Metric} (GQM): seis objetivos, 20 questões com
 hipóteses e 51 métricas com níveis de pontuação e critérios de julgamento. A
-gestão do projeto é acompanhada com medidas do PSM. O planejamento mostra como
+gestão do projeto é acompanhada com medidas do PSM adaptadas ao
+desenvolvimento iterativo contínuo (CID), com quadro Kanban, métricas de
+gestão do grupo e estimativa de custos da avaliação. O planejamento mostra como
 a necessidade de cada parte interessada se converte em métricas rastreáveis. A
 execução das medições e a análise
 dos resultados serão apresentadas na segunda entrega.
@@ -237,12 +243,12 @@ funções de desenho: importa se o conteúdo está protegido, se a ferramenta
 funciona nos dispositivos que as pessoas de fato usam e se qualquer pessoa
 consegue operá-la.
 
-O Excalidraw foi escolhido como objeto de estudo por três razões. A equipe já o
-conhece, o que facilita definir tarefas e cenários realistas de uso. Ele combina
-criptografia de ponta a ponta com colaboração em tempo real, o que o torna
-adequado para avaliar segurança em um contexto de compartilhamento de diagramas.
-E é um projeto de código aberto~\cite{excalidraw}, o que permite inspecionar suas
-dependências e os avisos de segurança publicados.
+O Excalidraw foi escolhido por combinar edição visual, colaboração em tempo
+real, compartilhamento de diagramas e recursos de IA. A colaboração usa
+criptografia de ponta a ponta, o que o torna adequado para avaliar segurança
+em um contexto de compartilhamento de diagramas. Além disso, é um projeto de
+código aberto~\cite{excalidraw}, o que permite inspecionar suas dependências e
+os avisos de segurança publicados.
 
 Este trabalho avalia o Excalidraw quanto a três características da
 ISO/IEC 25010:2023~\cite{iso25010}: Segurança, Flexibilidade e Capacidade de
@@ -262,7 +268,8 @@ Seção~\ref{sec:fase2}, o planejamento da medição com GQM (Fase~2).
 O repositório da equipe, com a documentação publicada como GitPage, está
 disponível em
 \url{https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE}.
-Esta versão do artigo corresponde à \textit{release} E1 do repositório.
+Esta versão do artigo corresponde à \textit{release} E1 do repositório
+(\url{https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/releases/tag/E1}).
 
 %% =====================================================================
 %%  II. REFERENCIAL TEÓRICO
@@ -271,7 +278,7 @@ Esta versão do artigo corresponde à \textit{release} E1 do repositório.
 \label{sec:ref}
 
 \subsection{Qualidade de produto e a família SQuaRE}
-A família ISO/IEC 25000, denominada \textit{Software Product Quality
+A família ISO/IEC 25000, denominada \textit{Systems and software Quality
 Requirements and Evaluation} (SQuaRE), reúne normas para especificação de
 requisitos, medição e avaliação da qualidade de produtos de
 software~\cite{iso25000}. O modelo de qualidade de produto é definido na
@@ -316,12 +323,39 @@ objetivo derivam questões que caracterizam o objeto em relação ao foco de
 qualidade e, de cada questão, métricas que fornecem os dados para respondê-la,
 de modo que toda métrica tenha uma finalidade declarada.
 
+\subsection{Estudo de caso de referência}
+\label{sec:caso}
+Calabrese et al.~\cite{calabrese17} aplicaram o GQM à característica Segurança
+da ISO/IEC 25010 e seguiram o processo da ISO/IEC 25040 para avaliar três
+aplicações web. Para cada subcaracterística, definiram perguntas de verdadeiro
+ou falso (33 no total, como uso de HTTPS, dados cifrados, histórico de ações e
+verificação em dois passos), combinaram as respostas em critérios pontuados e
+calcularam a métrica como a razão entre os pontos obtidos e o máximo possível,
+julgada em quatro faixas, de inaceitável (abaixo de 40\%) a excede os
+requisitos (a partir de 90\%). Os resultados variaram muito entre as
+subcaracterísticas de um mesmo sistema: um deles obteve 88\% em
+confidencialidade e 0\% em autenticidade.
+
+O estudo foi escolhido porque avalia aplicações web com o mesmo par de
+métodos adotado aqui, GQM e ISO/IEC 25010, na característica que recebeu a
+maior prioridade nesta avaliação (Tabela~\ref{tab:prior}). Este trabalho segue
+três decisões do estudo: métricas de resposta Sim/Não e proporções simples,
+julgamento por faixas percentuais e análise separada de cada
+subcaracterística, em vez de uma nota única. E se afasta dele em dois pontos:
+as respostas não vêm de questionários respondidos pelos desenvolvedores, mas
+de inspeção e testes feitos pela própria equipe (DevTools, \texttt{npm audit}
+e cabeçalhos HTTP); e a avaliação usa a edição de 2023 da norma, que inclui a
+resistência, e estende o GQM a Flexibilidade e Capacidade de interação.
+
 \subsection{PSM/CID}
-O PSM orienta a medição para a gestão de projetos~\cite{mcgarry02}: as
-necessidades de informação dos gestores são agrupadas em categorias e
-associadas a medidas que apoiam decisões. Este trabalho usa três categorias:
-desempenho dos processos, calendário e progresso, e recursos e custos
-(Seção~\ref{sec:psm}).
+O \textit{Practical Software and Systems Measurement} (PSM) orienta a medição
+para a gestão de projetos~\cite{mcgarry02}: o \textit{Measurement Framework}
+organiza a medição em torno de necessidades de informação e de indicadores
+úteis para a tomada de decisão. O PSM não impõe um conjunto único de métricas;
+cada projeto seleciona e adapta as suas. Neste trabalho, as medidas foram
+adaptadas ao contexto de \textit{Continuous Iterative Development} (CID), com
+ciclos de duas semanas, e cobrem três categorias: desempenho dos processos,
+calendário e progresso, e recursos e custos (Seção~\ref{sec:psm}).
 
 %% =====================================================================
 %%  III. METODOLOGIA
@@ -334,14 +368,9 @@ quantitativa e qualitativa, conduzida por meio de um estudo de caso da aplicaç�
 web Excalidraw. A avaliação tem como objetivo analisar a qualidade do software a
 partir das características de Segurança, Flexibilidade e Capacidade de
 interação, considerando o contexto de utilização da ferramenta e as
-necessidades de seus usuários.
-
-A metodologia fundamenta-se na família de normas ISO/IEC 25000 (SQuaRE)
-\cite{iso25000}, que estabelece referências para a especificação de requisitos,
-medição e avaliação da qualidade de produtos de software. Como modelo de
-qualidade, utiliza-se a ISO/IEC 25010:2023 \cite{iso25010}, que organiza a
-qualidade em características e subcaracterísticas, permitindo uma análise
-estruturada dos atributos selecionados.
+necessidades de seus usuários. A metodologia fundamenta-se na família
+SQuaRE~\cite{iso25000}, com o modelo de qualidade da
+ISO/IEC 25010:2023~\cite{iso25010}.
 
 \subsection{Abordagem de avaliação}
 A avaliação concentra-se na versão pública do Excalidraw, disponível em
@@ -359,77 +388,120 @@ interpretação das evidências coletadas.
 
 \subsection{Estratégia de medição}
 Para estruturar o processo de medição, será utilizada a abordagem GQM
-\cite{basili94}, que assegura que as medições estejam alinhadas aos objetivos
-da avaliação, evitando a coleta de dados sem finalidade claramente definida.
+\cite{basili94}: objetivos associados às características selecionadas são
+desdobrados em questões e métricas, o que evita a coleta de dados sem
+finalidade claramente definida.
 
 \subsection{Processo de avaliação}
-O processo segue as quatro fases da disciplina, alinhadas ao processo de
-avaliação da família SQuaRE~\cite{iso25040}:
+O processo, alinhado ao processo de avaliação da família
+SQuaRE~\cite{iso25040}, é organizado em quatro etapas:
 \begin{enumerate}
-\item \textbf{Fase 1, definição da avaliação:} identificação do propósito, das
+\item \textbf{Definição da avaliação:} identificação do propósito, das
 partes interessadas, das características de qualidade e do escopo do produto
-avaliado.
-\item \textbf{Fase 2, especificação das medições:} definição dos objetivos,
-questões, hipóteses, métricas, níveis de pontuação e critérios de julgamento,
-com base no modelo de qualidade e na abordagem GQM.
-\item \textbf{Fase 3, plano da avaliação:} definição do método e das instruções
-de coleta, dos recursos e do ambiente, e do cronograma.
-\item \textbf{Fase 4, execução e conclusão:} obtenção das medidas por meio de
-testes, observações e inspeções técnicas; análise dos dados frente aos critérios
-de julgamento, às limitações das medições e aos objetivos definidos; e
-proposição de melhorias.
+avaliado (Seção~\ref{sec:fase1}).
+\item \textbf{Especificação das medições:} definição dos objetivos,
+questões, métricas, hipóteses e critérios de julgamento, com base no modelo
+de qualidade adotado e na abordagem GQM (Seção~\ref{sec:fase2}).
+\item \textbf{Execução das medições:} aplicação das métricas selecionadas por
+meio de testes, observações e inspeções técnicas, de acordo com as
+particularidades de cada característica de qualidade.
+\item \textbf{Análise dos resultados:} organização e interpretação dos dados
+coletados, considerando os critérios de julgamento estabelecidos, as
+limitações das medições e os objetivos definidos.
 \end{enumerate}
+A organização dessas etapas busca garantir consistência entre o planejamento,
+a execução e a interpretação dos resultados, além de favorecer a
+rastreabilidade das atividades realizadas. As duas primeiras etapas compõem
+esta entrega; a execução e a análise serão apresentadas na Entrega~2.
 
 \subsection{Gestão do projeto com PSM/CID}
 \label{sec:psm}
-A gestão do projeto usa medidas do PSM/CID~\cite{mcgarry02} nas três categorias
-exigidas. Na Entrega~1, as medidas foram extraídas do histórico Git do
-repositório (\textit{commits}, ramos e \textit{pull requests}) até
-18/10/2026, e cada uma levou a uma decisão de gestão (Tabela~\ref{tab:psm}).
+A gestão da execução é acompanhada separadamente da avaliação do produto: as
+medidas desta seção avaliam o trabalho da equipe e não alteram a pontuação das
+51 métricas do Excalidraw. Cada atividade é registrada como \textit{issue},
+classificada por fase e tipo de trabalho por meio de \textit{labels}
+(\texttt{fase-1}, \texttt{fase-2}, \texttt{documentation}, \texttt{gitpages}
+e \texttt{medição}) e acompanhada em um quadro Kanban no GitHub Projects, com
+os estados Backlog, A fazer, Em andamento, Em revisão e Concluído. Esse fluxo
+torna visível o trabalho em andamento e permite identificar acúmulo em
+revisão e diferenças entre o planejado e o concluído.
 
-\begin{table}[!t]
-\caption{Medidas de gestão do projeto (PSM/CID) na Entrega 1. Fonte: histórico Git do repositório até 18/10/2026.}
+As medidas foram selecionadas e adaptadas a partir do PSM~\cite{mcgarry02}.
+Em \textit{desempenho dos processos}, a equipe acompanha o \textit{Lead Time}
+(da criação da \textit{issue} à conclusão), o \textit{Cycle Time} (da entrada
+em Em andamento à conclusão) e o fluxo cumulativo por estado, além de
+métricas de gestão do grupo, como a revisão efetiva (\textit{pull requests}
+revisados por outro integrante antes do \textit{merge}). Em
+\textit{calendário e progresso}, acompanha o planejado versus realizado
+(\textit{issues} concluídas sobre comprometidas em cada ciclo), a velocidade
+(\textit{issues} concluídas por ciclo) e os marcos do calendário da
+disciplina. Em \textit{recursos e custos}, acompanha a participação dos
+integrantes e uma estimativa de esforço e custo da avaliação. As métricas de
+gestão do grupo usam a mesma escala de 0 a 2 pontos e os mesmos limites de
+julgamento da avaliação do produto (Seção~\ref{sec:fase2}), e toda métrica
+com 0 ponto deve gerar uma ação registrada. A quantidade de \textit{commits} é
+tratada como sinal de atividade, e não como medida de produtividade
+individual.
+
+A coleta é parcialmente automatizada: um \textit{workflow} semanal conta os
+\textit{commits} não-\textit{merge} por integrante, e outro extrai do
+histórico do quadro as datas de mudança de estado para calcular o
+\textit{Lead Time} e o \textit{Cycle Time} a cada 14 dias. A estimativa de
+custos decompõe o trabalho por atividades~\cite{gao20}, com três cenários de
+esforço (otimista, base e pessimista) e uma taxa de referência acadêmica de
+R\$~8,08 por pessoa-hora, obtida da bolsa de iniciação científica de
+R\$~700,00 para 20 horas semanais~\cite{cnpq25}; os valores calculados não são
+pagamentos. A Tabela~\ref{tab:psm} apresenta os valores medidos até a
+Entrega~1.
+
+\begin{table*}[!t]
+\caption{Medidas de gestão do projeto (PSM/CID) na Entrega 1. Fonte: histórico do repositório, \textit{issues}, \textit{pull requests} e estimativa de custos, coletados em 26/10/2026.}
 \label{tab:psm}
 \centering
 \scriptsize
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}L{1.3cm} L{2.6cm} L{2.0cm} L{2.0cm}@{}}
+\begin{tabular}{@{}L{1.8cm} L{6.0cm} L{4.6cm} L{4.6cm}@{}}
 \toprule
 \textbf{Categoria} & \textbf{Medida e valor} & \textbf{Interpretação} & \textbf{Decisão de gestão}\\
 \midrule
-Desempenho dos processos & 8 \textit{pull requests} integrados (\#1 a \#8), 6 deles por um integrante diferente do autor; 7 integrados entre 1 e 35~min após o primeiro \textit{commit} do ramo, e o \#1 (ramo \texttt{dev}) em cerca de 18~h; 1 conflito de \textit{merge}; 4 \textit{commits} feitos direto na \texttt{main} & Revisão rápida, mas parte das alterações finais não passou por revisão & Toda alteração na \texttt{main} passa por \textit{pull request} revisado por outro integrante\\
-Calendário e progresso & 24 \textit{commits}: 6 em 05/10 (estrutura da GitPage), 4 em 17/10 e 14 em 18/10, data em que os 8 \textit{pull requests}, com o conteúdo das Fases~1 e~2, foram integrados & Conteúdo concentrado em um dia, 8 dias antes do prazo de 26/10 & Dividir a Fase~3 em marcos semanais registrados em \textit{issues} e \textit{milestones}\\
-Recursos e custos & \textit{Commits} por integrante: 12, 4, 3, 2, 2 e 1; uma seção do trabalho por integrante; esforço declarado de 16\% a 20\% (Apêndice~\ref{app:contrib}) & A contagem de \textit{commits} não reflete o esforço: parte do trabalho foi feita fora do repositório & Registrar as horas por integrante e por fase em planilha no repositório\\
+Desempenho dos processos & Revisão efetiva: 2 de 12 \textit{pull requests} integrados (17\%) tiveram revisão registrada de outro integrante antes do \textit{merge}; 5 dos 12 foram integrados pelo próprio autor; 7 \textit{commits} foram feitos direto na \texttt{main} depois do primeiro \textit{pull request} (18 a 21/10). \textit{Lead Time} e \textit{Cycle Time}: sem dados, pois a primeira coleta automática ainda não registrou \textit{issues} concluídas & Revisão efetiva abaixo de 70\%, portanto 0 ponto, o que exige ação; parte das alterações chegou à \texttt{main} sem revisão & Toda alteração na \texttt{main} passa por \textit{pull request} aprovado por outro integrante antes do \textit{merge}\\
+Calendário e progresso & 14 \textit{issues}: 9 concluídas (Fase~1, GitPage e métricas) e 5 abertas da Fase~2 (roteiro GQM, três medições e resultados), sem responsável e sem prazo; 8 das 9 concluídas foram abertas e fechadas no mesmo dia (19/10); nenhum \textit{milestone}. Marcos: Ponto de Controle~1 em 19/10, Entrega~1 em 26/10 e Entrega~2 em 18/11 & As \textit{issues} foram registradas depois do trabalho feito, o que impede medir o planejado versus realizado e a saúde do \textit{backlog} (N/A); a \textit{issue} do roteiro GQM continua aberta, embora o roteiro esteja publicado & Atribuir responsável e prazo às \textit{issues} das medições e criar o \textit{milestone} da Entrega~2 antes de iniciar a execução\\
+Recursos e custos & 32 \textit{commits} não-\textit{merge} na \texttt{main} (14, 5, 5, 4, 3 e 1 por integrante), com os seis integrantes ativos (100\%). Esforço estimado da equipe: 135, 213 e 329 pessoas-hora nos cenários otimista, base e pessimista, mais 9 pessoas-hora de participantes; subtotal humano do cenário base de R\$~1.793,76, dos quais R\$~1.349,36 correspondem ao trabalho restante & Participação completa, mas desigual em \textit{commits}, o que não mede esforço; sem registro de horas reais, os valores são estimativas, e não custos efetivos & Registrar as horas por integrante e por fase a partir da execução das medições, para comparar previsto e realizado\\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
 
-As mesmas medidas serão repetidas na Entrega~2, com as horas registradas, para
-verificar o efeito dessas decisões.
+As mesmas medidas serão repetidas na Entrega~2, com as horas registradas e a
+série do quadro Kanban, para verificar o efeito dessas decisões.
 
-\subsection{Rastreabilidade e repositório}
-Todos os integrantes contribuem com código e documentação. O repositório Git da
-disciplina (\url{https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE})
-concentra os documentos, os dados da avaliação, as gravações de entrevistas e
-as atas de reunião. As contribuições são feitas por \textit{commits}
-identificáveis e revisados, e cada resultado é registrado com a métrica, a
-data, o ambiente e o responsável, assim como as decisões e as alterações de
-escopo. Os dados de coleta e de consolidação, com os procedimentos de
-tratamento e cálculo, ficam no repositório, permitindo verificar a origem dos
-resultados apresentados. Cada parte do trabalho é desenvolvida em um ramo
-próprio (por exemplo, \texttt{feat/metodologia} e \texttt{feat/metricas-gqm}),
-com mensagens de \textit{commit} prefixadas por \texttt{feat}, \texttt{fix} ou
+\subsection{Registro, rastreabilidade e repositório}
+O repositório Git da disciplina
+(\url{https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE})
+concentra a documentação, os dados de gestão e os \textit{scripts} de coleta
+e cálculo. As contribuições são feitas por \textit{commits} identificáveis,
+com revisões e vínculo entre mudanças e evidências, e o registro de decisões,
+alterações de escopo e resultados permanece no repositório. Cada resultado de
+medição será armazenado com a métrica, a data, o ambiente e o responsável,
+permitindo verificar a origem dos resultados apresentados. Cada parte do
+trabalho é desenvolvida em um ramo próprio (por exemplo,
+\texttt{feat/metodologia} e \texttt{feat/estimativa-custos}), com mensagens
+de \textit{commit} prefixadas por \texttt{feat}, \texttt{fix} ou
 \texttt{docs}, e integrada à \texttt{main} por \textit{pull request}. A
-GitPage é gerada com MkDocs, organizada em pastas por fase (\texttt{docs/fase1}
-e \texttt{docs/analise}) e publicada pelo ramo \texttt{gh-pages}.
+GitPage é gerada com MkDocs, organizada em pastas por assunto
+(\texttt{docs/fase1}, \texttt{docs/analise} e \texttt{docs/gestao}) e
+publicada pelo ramo \texttt{gh-pages}. A interpretação dos resultados
+consiste em comparar os valores obtidos com os critérios de julgamento de cada
+métrica.
 
 \subsection{Aspectos éticos e proteção de dados}
-Entrevistas e testes com usuários só ocorrem com autorização prévia. As sessões
-serão gravadas mediante consentimento dos participantes, que serão
-identificados apenas por códigos (P01, P02, \ldots), sem nome real, e os
-registros não conterão dados pessoais desnecessários. O número e o perfil dos
-participantes, a forma de registro do consentimento e as condições de acesso
-às gravações serão definidos no plano de avaliação (Fase~3).
+Entrevistas e testes com participantes exigem autorização prévia e só serão
+gravados com o consentimento dos participantes, identificados apenas por
+códigos (P01, P02, \ldots), sem nome real. Os registros não devem conter
+nomes reais nem dados pessoais desnecessários, e os relatórios de gestão não
+publicam horários detalhados, informações de autenticação ou avaliações
+subjetivas sem evidência. O número e o perfil dos participantes, a forma de
+registro do consentimento e as condições de acesso às gravações serão
+definidos antes da execução das medições.
 
 \subsection{Limitações}
 \label{sec:limit}
@@ -477,11 +549,17 @@ e o formato de entrega; seu critério de sucesso é uma avaliação que siga o
 processo SQuaRE e em que todo objetivo tenha questões, toda questão tenha
 hipótese e métricas e toda métrica tenha critério de julgamento. O avaliador
 é a equipe, cujo critério é ter cada resultado ligado a uma métrica, com data,
-ambiente e evidência no repositório. As necessidades que orientam \textit{o
-que} medir vêm das demais partes interessadas
-(Tabela~\ref{tab:stakeholders}); as do requisitante definem \textit{como}
-medir. O desenvolvedor que incorpora o pacote \textit{npm} em outro sistema
-não foi incluído, e os resultados não valem para o uso como biblioteca.
+ambiente e evidência no repositório, com a contribuição de cada integrante
+rastreável pelo Git e o andamento acompanhado pelo PSM. O requisitante não é
+dono do produto avaliado: as necessidades que orientam \textit{o que} medir
+vêm das demais partes interessadas (Tabela~\ref{tab:stakeholders}), e as
+exigências do requisitante definem \textit{como} a avaliação é conduzida (usar
+a edição de 2023 da norma, escolher de duas a quatro características, ligar o
+trabalho a ODS, registrar tudo pelo Git, gravar entrevistas com autorização e
+não publicar nomes reais de participantes). O desenvolvedor que incorpora o
+pacote \textit{npm} em outro sistema não foi incluído, porque está fora do
+escopo do usuário médio, e os resultados não valem para o uso como
+biblioteca.
 
 \begin{table*}[!t]
 \caption{Partes interessadas, critérios de sucesso, decisões apoiadas e influência na avaliação. Fonte: elaboração própria.}
@@ -686,13 +764,11 @@ por teclado ou tecnologia assistiva.
 A priorização usou uma matriz impacto $\times$ risco aplicada às nove
 características da norma (Tabela~\ref{tab:prior}). O \textbf{impacto} (I, de
 1 a 5) mede a consequência de uma falha para as partes interessadas da
-Tabela~\ref{tab:stakeholders}: 1, nenhuma parte é afetada; 2, incômodo
-contornável; 3, limita parte das funções; 4, impede o uso por um grupo de
-partes interessadas; 5, dano irreversível ou que inviabiliza uma decisão da
+Tabela~\ref{tab:stakeholders}: 1, nenhuma parte é afetada; 3, limita parte das
+funções; 5, dano irreversível ou que inviabiliza uma decisão da
 Tabela~\ref{tab:stakeholders}. O \textbf{risco} (R, de 1 a 5) mede a
-probabilidade de falha antes da medição, a partir de sinais do produto: 1,
-nenhum sinal; 2, característica madura; 3, a função existe, mas há condições
-não cobertas; 4, sinal claro em um mecanismo documentado; 5, falha conhecida.
+probabilidade de falha antes da medição: 1, nenhum sinal; 3, a função existe,
+mas há condições não cobertas; 5, falha conhecida.
 A prioridade é o produto I $\times$ R. Uma característica foi selecionada
 quando a prioridade é de pelo menos 10 e quando pode ser medida no escopo e no
 prazo da disciplina, critério que representa o esforço.
@@ -855,16 +931,16 @@ uma determinação da norma.
 \centering
 \scriptsize
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}L{1.6cm} L{2.9cm} L{3.4cm} L{2.6cm} L{2.6cm} L{3.2cm}@{}}
+\begin{tabular}{@{}L{2.2cm} L{2.8cm} L{3.0cm} L{3.0cm} L{2.6cm} L{2.6cm}@{}}
 \toprule
 \textbf{Objetivo} & \textbf{Analisar} & \textbf{Com o propósito de} & \textbf{Com respeito à} & \textbf{Do ponto de vista} & \textbf{No contexto de}\\
 \midrule
-O1: Proteção das informações e controle de acesso & os mecanismos de armazenamento, compartilhamento e colaboração em tempo real & identificar fragilidades na proteção dos diagramas e na restrição de acessos não autorizados & confidencialidade e integridade & dos usuários que criam e compartilham diagramas potencialmente sensíveis & armazenamento local, compartilhamento por links e sessões colaborativas na versão web pública\\
-O2: Identificação, responsabilização e riscos de segurança & os mecanismos de identificação dos participantes, os registros de ações e os componentes técnicos de segurança & identificar limitações na identificação e responsabilização dos participantes e a exposição a vulnerabilidades conhecidas & responsabilização, autenticidade e resistência & dos usuários de sessões colaborativas e dos mantenedores da aplicação & sessões colaborativas por links e análise técnica da versão selecionada do código-fonte e da aplicação pública\\
-O3: Adaptabilidade a ambientes e dispositivos & as funcionalidades de criação e edição de diagramas & identificar limitações de compatibilidade e adaptação que comprometam as funcionalidades essenciais & adaptabilidade & dos usuários finais que acessam a aplicação em diferentes dispositivos e plataformas & navegadores, sistemas operacionais, dispositivos, resoluções e condições de conectividade selecionados\\
-O4: Substituibilidade e migração de diagramas & as funcionalidades de criação, importação e exportação de diagramas & determinar a viabilidade de substituir ferramentas equivalentes e identificar perdas de informação na migração & substituibilidade & dos usuários que precisam migrar atividades ou arquivos de outra ferramenta de diagramação & comparação com ferramentas equivalentes e importação e exportação nos formatos selecionados\\
-O5: Compreensão, aprendizagem e operação da interface & a interface de criação e edição de diagramas e seus mecanismos de interação & identificar dificuldades de compreensão, aprendizagem e operação, falhas na prevenção e recuperação de erros e fatores que comprometam o engajamento & reconhecibilidade da adequação, apreensibilidade, operabilidade, proteção contra erros do usuário, engajamento e autodescritividade & dos usuários finais, iniciantes e experientes & reconhecimento inicial da aplicação e tarefas de criação e edição de diagramas com mouse e teclado\\
-O6: Acessibilidade e adequação a diferentes perfis & os mecanismos de navegação, interação e apresentação das informações & identificar barreiras que restrinjam o uso por pessoas com diferentes capacidades e necessidades de interação & inclusividade e assistência ao usuário & dos usuários com diferentes necessidades de acessibilidade e interação & criação e edição de diagramas só pelo teclado, com leitor de tela, e avaliação de contraste e idioma\\
+O1: Proteção das informações e controle de acesso & armazenamento, compartilhamento e colaboração & identificar fragilidades na proteção dos diagramas & confidencialidade e integridade & de quem compartilha diagramas sensíveis & sessões colaborativas por link\\
+O2: Identificação, responsabilização e riscos de segurança & identificação dos participantes, registro de ações e dependências & identificar falhas de identificação, rastreabilidade e vulnerabilidades & responsabilização, autenticidade e resistência & dos participantes e dos mantenedores & sessões por link e código-fonte da versão avaliada\\
+O3: Adaptabilidade a ambientes e dispositivos & criação e edição de diagramas & identificar limitações de compatibilidade & adaptabilidade & de quem acessa por diferentes dispositivos & navegadores, sistemas, dispositivos e resoluções selecionados\\
+O4: Substituibilidade e migração de diagramas & importação e exportação de diagramas & verificar se substitui ferramentas equivalentes sem perdas & substituibilidade & de quem migra de outra ferramenta & comparação com draw.io e Miro\\
+O5: Compreensão, aprendizagem e operação da interface & a interface de criação e edição & identificar dificuldades de uso e de recuperação de erros & reconhecibilidade da adequação, apreensibilidade, operabilidade, proteção contra erros, engajamento e autodescritividade & de usuários iniciantes e experientes & primeiro contato e tarefas de edição\\
+O6: Acessibilidade e adequação a diferentes perfis & navegação, interação e apresentação das informações & identificar barreiras de acessibilidade & inclusividade e assistência ao usuário & de quem tem necessidades de acessibilidade & uso só pelo teclado e com leitor de tela\\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -937,17 +1013,18 @@ de participantes, como tempos, taxas de conclusão, SUS e escala Likert, exigem
 um roteiro de tarefas único para todos, para que os valores sejam comparáveis.
 
 \subsection{Níveis de pontuação e critérios de julgamento}
-Cada métrica recebe uma pontuação de 0 a 2. O nível 2 (satisfatório) corresponde ao valor que atinge a meta ou ao comportamento esperado. O nível 1 (parcial) corresponde a um valor abaixo da meta que ainda indica atendimento limitado. O nível 0 (insatisfatório) indica que o atributo não é atendido. As tabelas GQM estabelecem o limite de cada nível para as 51 métricas. Quando o enunciado da métrica já trazia uma meta, como 100\% de mensagens cifradas, taxa de recuperabilidade de 100\%, razão de tempo de tarefa menor ou igual a 1 ou escore SUS maior ou igual a 68~\cite{bangor08}, essa meta é o limite do nível 2. As métricas de resposta Sim/Não têm apenas os níveis 2 e 0. As demais faixas são valores de referência definidos para esta avaliação.
+Cada métrica recebe uma pontuação de 0 a 2. O nível 2 (satisfatório) corresponde ao valor que atinge a meta ou ao comportamento esperado. O nível 1 (parcial) corresponde a um valor abaixo da meta que ainda indica atendimento limitado. O nível 0 (insatisfatório) indica que o atributo não é atendido. As tabelas GQM estabelecem o limite de cada nível para as 51 métricas. Quando o enunciado da métrica já trazia uma meta, como 100\% de mensagens cifradas, taxa de recuperabilidade de 100\%, razão de tempo de tarefa menor ou igual a 1 ou escore SUS maior ou igual a 68~\cite{bangor08}, essa meta é o limite do nível 2. As métricas de resposta Sim/Não têm apenas os níveis 2 e 0. As demais faixas são valores de referência definidos para esta avaliação, a exemplo das faixas percentuais de Calabrese et al.~\cite{calabrese17}.
 
 A pontuação de uma questão é a média simples das pontuações de suas métricas, e a de um objetivo é a média simples das pontuações de suas questões, de modo que todas as métricas de uma questão e todas as questões de um objetivo têm o mesmo peso. A média é convertida em percentual do máximo de 2 pontos e interpretada da seguinte forma: 75\% ou mais, atendido; de 50\% a 74\%, parcialmente atendido; abaixo de 50\%, não atendido. Independentemente da média, toda métrica com pontuação 0 é registrada como ponto de melhoria, para que um resultado ruim não fique escondido pelas demais métricas da mesma questão. O julgamento vale apenas para as funcionalidades, os ambientes e as condições efetivamente examinados, conforme a Seção~\ref{sec:limit}.
 
 \begin{table*}[!tp]
-\caption{GQM de Segurança (objetivos O1 e O2): questões, hipóteses, métricas e níveis de pontuação. Fonte: elaboração própria.}
+\caption{GQM de Segurança (O1 e O2). Fonte: elaboração própria.}
 \label{tab:gqmseg}
 \centering
 \scriptsize
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}L{0.9cm} L{8.3cm} L{2.4cm} L{2.4cm} L{2.4cm}@{}}
+\renewcommand{\arraystretch}{0.92}
+\begin{tabular}{@{}L{1.0cm} L{9.8cm} L{2.0cm} L{2.0cm} L{2.0cm}@{}}
 \gqmhead
 \gqmO{O1: Proteção das informações e controle de acesso}
 \gqmQ{S-Q1}{Confidencialidade}{Os dados do desenho trafegam e ficam armazenados de forma protegida contra acesso não autorizado?}{Sim: o código cifra as mensagens da colaboração com AES-GCM no navegador, e a chave fica no fragmento \texttt{\#} do link, que o navegador não envia ao servidor.}
@@ -975,12 +1052,13 @@ A pontuação de uma questão é a média simples das pontuações de suas métr
 \end{table*}
 
 \begin{table*}[!tp]
-\caption{GQM de Flexibilidade (objetivos O3 e O4): questões, hipóteses, métricas e níveis de pontuação. Fonte: elaboração própria.}
+\caption{GQM de Flexibilidade (O3 e O4). Fonte: elaboração própria.}
 \label{tab:gqmflex}
 \centering
 \scriptsize
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}L{0.9cm} L{8.3cm} L{2.4cm} L{2.4cm} L{2.4cm}@{}}
+\renewcommand{\arraystretch}{0.92}
+\begin{tabular}{@{}L{1.0cm} L{9.8cm} L{2.0cm} L{2.0cm} L{2.0cm}@{}}
 \gqmhead
 \gqmO{O3: Adaptabilidade a diferentes ambientes e dispositivos}
 \gqmQ{F-Q1}{Adaptabilidade}{O Excalidraw funciona de forma consistente em diferentes navegadores e sistemas operacionais?}{Sim, com pequenas diferenças: roda inteiro no navegador, mas fontes e atalhos de teclado podem variar no macOS e no Safari.}
@@ -1005,12 +1083,13 @@ A pontuação de uma questão é a média simples das pontuações de suas métr
 \end{table*}
 
 \begin{table*}[!tp]
-\caption{GQM de Capacidade de interação, parte 1 de 2 (objetivo O5, CI-Q1 a CI-Q5): questões, hipóteses, métricas e níveis de pontuação. Fonte: elaboração própria.}
+\caption{GQM de Capacidade de interação, parte 1 (O5). Fonte: elaboração própria.}
 \label{tab:gqmci1}
 \centering
 \scriptsize
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}L{0.9cm} L{8.3cm} L{2.4cm} L{2.4cm} L{2.4cm}@{}}
+\renewcommand{\arraystretch}{0.92}
+\begin{tabular}{@{}L{1.0cm} L{9.8cm} L{2.0cm} L{2.0cm} L{2.0cm}@{}}
 \gqmhead
 \gqmO{O5: Compreensão, aprendizagem e operação da interface}
 \gqmQ{CI-Q1}{Reconhecibilidade da adequação}{O usuário consegue reconhecer rapidamente se o Excalidraw atende à sua necessidade?}{Sim: a tela de boas-vindas e a barra de ferramentas à vista deixam claro, em poucos segundos, que é um quadro branco para desenhar.}
@@ -1036,12 +1115,13 @@ A pontuação de uma questão é a média simples das pontuações de suas métr
 \end{table*}
 
 \begin{table*}[!tp]
-\caption{GQM de Capacidade de interação, parte 2 de 2 (objetivos O5, CI-Q6 a CI-Q8, e O6): questões, hipóteses, métricas e níveis de pontuação. Fonte: elaboração própria.}
+\caption{GQM de Capacidade de interação, parte 2 (O5 e O6). Fonte: elaboração própria.}
 \label{tab:gqmci2}
 \centering
 \scriptsize
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}L{0.9cm} L{8.3cm} L{2.4cm} L{2.4cm} L{2.4cm}@{}}
+\renewcommand{\arraystretch}{0.92}
+\begin{tabular}{@{}L{1.0cm} L{9.8cm} L{2.0cm} L{2.0cm} L{2.0cm}@{}}
 \gqmhead
 \gqmO{O5: Compreensão, aprendizagem e operação da interface (continuação)}
 \gqmQ{CI-Q6}{Proteção contra erros do usuário}{O sistema evita e permite recuperar erros do usuário?}{Sim: há desfazer e refazer, a cena é salva automaticamente no navegador e limpar o canvas pede confirmação.}
@@ -1122,21 +1202,21 @@ das tabelas GQM.
 % Síntese, limitações, contribuições e trabalhos futuros.
 \fi
 
-% Força a saída de todas as tabelas/figuras largas antes da declaração de IA e das
-% referências (sem isso o LaTeX as empurra para depois das referências).
-\clearpage
+% O \clearpage antes das referências garante que todas as tabelas e figuras
+% saiam antes delas.
 
 %% =====================================================================
 %%  DECLARAÇÃO DE USO DE IA
 %% =====================================================================
 \section*{Declaração de Uso de Inteligência Artificial}
 A Tabela~\ref{tab:ia} declara as ferramentas de IA utilizadas, a tarefa, o momento de uso e a conferência feita pela equipe.
-\begin{table}[H]
+\begin{table*}[!t]
 \centering
-\footnotesize
+\scriptsize
 \caption{Uso de ferramentas de IA. Fonte: elaboração própria.}
 \label{tab:ia}
-\begin{tabular}{@{}L{1.6cm} L{1.8cm} L{1.1cm} L{2.4cm}@{}}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}L{2.9cm} L{6.0cm} L{1.7cm} L{6.6cm}@{}}
 \toprule
 \textbf{Ferramenta} & \textbf{Tarefa} & \textbf{Quando} & \textbf{Conferência}\\
 \midrule
@@ -1145,13 +1225,16 @@ Claude Code, Claude Opus 5.5 (André) & Primeira versão da página de propósit
 Claude Code, Claude Opus 5.5 (João Pedro) & Comparação entre o documento de definição e a GitPage; transposição de questões, métricas e níveis & 18/10/2026 & Decidiu cada divergência antes da alteração e conferiu as métricas com o documento de definição\\
 Claude Code, Claude Opus 5.5 (João Pedro) & Transposição da GitPage para este artigo e levantamento das medidas PSM no histórico Git & 18 e 19/10/2026 & Comparou o artigo com a GitPage seção por seção e conferiu as medidas PSM no \texttt{git log}\\
 ChatGPT, OpenAI (Zayra) & Refinamento dos objetivos GQM e busca de referências & Out/2026 & Ajustou as sugestões à ISO/IEC 25010:2023 e ao GQM e conferiu a pertinência das referências\\
+Claude Code, Claude Opus 5.5 (Giovanna) & Atualização do artigo a partir da GitPage: redação da gestão com PSM/CID, revisão da metodologia, encurtamento dos objetivos e busca do estudo de caso de referência & 26/10/2026 & Comparou cada trecho com a página correspondente da GitPage e leu o estudo de caso antes de citá-lo\\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
 
 %% =====================================================================
-%%  REFERÊNCIAS
+%%  REFERÊNCIAS (em página própria)
 %% =====================================================================
+\clearpage
+\raggedbottom % evita espaços esticados entre as referências
 \begin{thebibliography}{00}
 \bibitem{iso25000} ISO/IEC, ``ISO/IEC 25000:2014 --- Systems and software
 engineering --- Systems and software Quality Requirements and Evaluation
@@ -1165,8 +1248,9 @@ Available: \url{https://www.iso.org/standard/78176.html}
 engineering --- SQuaRE --- Measurement of system and software product
 quality,'' Geneva, 2016.
 
-\bibitem{iso25040} ISO/IEC, ``ISO/IEC 25040:2011 --- Systems and software
-engineering --- SQuaRE --- Evaluation process,'' Geneva, 2011.
+\bibitem{iso25040} ISO/IEC, ``ISO/IEC 25040:2024 --- Systems and software
+engineering --- SQuaRE --- Quality evaluation framework,'' Geneva, 2024.
+[Online]. Available: \url{https://www.iso.org/standard/83467.html}
 
 \bibitem{basili94} V. R. Basili, G. Caldiera, and H. D. Rombach, ``The Goal
 Question Metric approach,'' in \textit{Encyclopedia of Software Engineering},
@@ -1180,7 +1264,8 @@ Addison-Wesley, 2002.
 [Online]. Available: \url{https://github.com/excalidraw/excalidraw}.
 Acesso em: 17 out. 2026.
 
-\bibitem{excalidrawe2ee} Excalidraw, ``End-to-end encryption in the browser,'' 2020.
+\bibitem{excalidrawe2ee} vjeux, ``End-to-end encryption in the browser,''
+Excalidraw Blog, 21 mar. 2020.
 [Online]. Available: \url{https://plus.excalidraw.com/blog/end-to-end-encryption}.
 Acesso em: 19 out. 2026.
 
@@ -1251,17 +1336,36 @@ Available: \url{https://www.nvaccess.org/}. Acesso em: 18 out. 2026.
 \bibitem{voiceover} Apple, ``VoiceOver User Guide.'' [Online]. Available:
 \url{https://support.apple.com/guide/voiceover/welcome/mac}. Acesso em:
 18 out. 2026.
+
+\bibitem{calabrese17} J. Calabrese, R. Muñoz, A. Pasini, S. Esponda,
+M. Boracchia, and P. Pesado, ``Asistente para la evaluación de
+características de calidad de producto de software propuestas por ISO/IEC
+25010 basado en métricas definidas usando el enfoque GQM,'' in \textit{Proc.
+XXIII Congreso Argentino de Ciencias de la Computación (CACIC)}, La Plata,
+Argentina, 2017, pp. 660--671. [Online]. Available:
+\url{http://sedici.unlp.edu.ar/handle/10915/63778}. Acesso em: 26 out. 2026.
+
+\bibitem{gao20} U.S. Government Accountability Office, ``Cost Estimating and
+Assessment Guide: Best Practices for Developing and Managing Program Costs,''
+GAO-20-195G, Washington, DC, USA, 2020. [Online]. Available:
+\url{https://www.gao.gov/products/gao-20-195g}. Acesso em: 25 out. 2026.
+
+\bibitem{cnpq25} CNPq, ``Tabela de Valores de Bolsas no País,'' 2025.
+[Online]. Available:
+\url{https://www.gov.br/cnpq/pt-br/acesso-a-informacao/bolsas-e-auxilios/copy_of_modalidades/tabela-de-valores-no-pais}.
+Acesso em: 25 out. 2026.
 \end{thebibliography}
 
 %% =====================================================================
-%%  APÊNDICES (não contam nas 10 páginas)
+%%  APÊNDICES (o Apêndice A não conta no limite de páginas)
 %% =====================================================================
+\clearpage
 \appendices
 
 \section{Tabela de Contribuição dos Integrantes}
 \label{app:contrib}
 A Tabela~\ref{tab:contrib} apresenta a contribuição de cada integrante.
-% Este apêndice não conta no limite de 10 páginas. Os links de rastreabilidade
+% Este apêndice não conta no limite de páginas. Os links de rastreabilidade
 % ficam no corpo do texto (o enunciado exige o link do repositório no artigo).
 \begin{table}[H]
 \caption{Contribuição por integrante. Fonte: histórico do repositório.}
@@ -1272,12 +1376,12 @@ A Tabela~\ref{tab:contrib} apresenta a contribuição de cada integrante.
 \toprule
 \textbf{Matrícula} & \textbf{Nome} & \textbf{Responsabilidade} & \textbf{\%}\\
 \midrule
-241025149 & André Henrique de Souza Belarmino & Propósito e partes interessadas & 16\\
-241038998 & Giovanna Felipe Guimarães & Modelo de qualidade e ODS & 16\\
-241011170 & João Pedro Lopes da Cruz & Definição de questões e métricas & 16\\
-241011401 & Luís Felipe Parreira Cunha & Sobre a ferramenta e escopo & 20\\
-242042215 & Renato Araújo Gameiro & Metodologia de avaliação & 16\\
-242015989 & Zayra Batista Moraes & Elaborou os objetivos de medição & 16\\
+241025149 & André Henrique de Souza Belarmino & Propósito e partes interessadas; cronograma & $16{,}\overline{6}$\\
+241038998 & Giovanna Felipe Guimarães & Modelo de qualidade e ODS; métricas de desenvolvimento; atualização do artigo & $16{,}\overline{6}$\\
+241011170 & João Pedro Lopes da Cruz & Questões e métricas GQM; priorização; primeira versão do artigo & $16{,}\overline{6}$\\
+241011401 & Luís Felipe Parreira Cunha & GitPage, ferramenta e escopo; métricas de gestão do grupo & $16{,}\overline{6}$\\
+242042215 & Renato Araújo Gameiro & Metodologia; estimativa de custos & $16{,}\overline{6}$\\
+242015989 & Zayra Batista Moraes & Objetivos de medição; métricas PSM/CID & $16{,}\overline{6}$\\
 \midrule
 \textbf{Total} & & & 100\\
 \bottomrule
