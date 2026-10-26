@@ -77,7 +77,8 @@ aparecer entre aspas e com a referência correspondente.
   tabelas e diagramas. Atualização da matriz de rastreabilidade. Resolução de
   um conflito de *merge*. Revisão da GitPage frente aos critérios de avaliação
   da entrega, com inclusão de legendas e das referências das ferramentas de
-  medição.
+  medição. Além disso, a IA foi usada para pegar as principais informações do pages e 
+  passar estruturadamente para o artigo no overleaf
 * **Onde:** [roteiro da análise](analise/roteiro.md) (seções 1, 4, 5 e 6),
   [objetivos de medição](fase1/objetivos-qualidade.md) (seções 4 e 9),
   [resultados](analise/resultados.md), [referências](referencias.md) e esta
