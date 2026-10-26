@@ -51,11 +51,21 @@ aparecer entre aspas e com a referência correspondente.
 
 ### Giovanna Felipe
 
-* **Ferramenta:** `[Preencher]`
-* **Tarefa:** `[Preencher]`
-* **Onde:** `[Preencher]`
-* **Quando:** `[Preencher]`
-* **Como conferiu e ajustou:** `[Preencher]`
+* **Ferramenta:** Claude Code, com o modelo Claude Opus 5.5 (Anthropic), na
+  extensão do VS Code.
+* **Tarefa:** atualização do artigo da Entrega 1 a partir desta GitPage:
+  redação da seção de gestão com PSM/CID, revisão da metodologia,
+  encurtamento dos objetivos de medição, ajuste da diagramação e do limite
+  de páginas, levantamento das medidas de gestão no GitHub (pull requests,
+  issues e commits) e busca e leitura do estudo de caso de referência.
+  Revisão das referências do artigo e desta GitPage.
+* **Onde:** artigo (`main.tex`), [referências](referencias.md),
+  [objetivos de medição](fase1/objetivos-qualidade.md) (referência da
+  ISO/IEC 25040) e esta página.
+* **Quando:** 26 out. 2026.
+* **Como conferiu e ajustou:** comparei cada trecho do artigo com a página
+  correspondente da GitPage, li o estudo de caso antes de citá-lo e decidi
+  com a equipe as ações de gestão registradas no artigo.
 
 ### João Pedro Lopes
 

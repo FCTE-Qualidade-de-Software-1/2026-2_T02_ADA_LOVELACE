@@ -151,8 +151,8 @@ objetivo. Cada questão pertence a um único objetivo, e cada métrica, a uma
    York: Wiley, 1994.
 3. ISO/IEC. *ISO/IEC 25023:2016: Systems and software engineering — SQuaRE —
    Measurement of system and software product quality*. Geneva: ISO, 2016.
-4. ISO/IEC. *ISO/IEC 25040:2011: Systems and software engineering — SQuaRE —
-   Evaluation process*. Geneva: ISO, 2011.
+4. ISO/IEC. *ISO/IEC 25040:2024: Systems and software engineering — SQuaRE —
+   Quality evaluation framework*. Geneva: ISO, 2024.
 
 A lista bibliográfica consolidada do projeto está em
 [Referências](../referencias.md).

@@ -14,8 +14,10 @@
    New York: Wiley, 1994.
 5. ISO/IEC. **ISO/IEC 25023:2016: Systems and software engineering — SQuaRE —
    Measurement of system and software product quality**. Geneva: ISO, 2016.
-6. ISO/IEC. **ISO/IEC 25040:2011: Systems and software engineering — SQuaRE —
-   Evaluation process**. Geneva: ISO, 2011.
+6. ISO/IEC. **ISO/IEC 25040:2024: Systems and software engineering — SQuaRE —
+   Quality evaluation framework**. Geneva: ISO, 2024. Disponível em:
+   <https://www.iso.org/standard/83467.html>. Substitui a edição de 2011
+   (*Evaluation process*).
 7. WORLD WIDE WEB CONSORTIUM. **Web Content Accessibility Guidelines (WCAG)
    2.2**. Disponível em: <https://www.w3.org/TR/WCAG22/>. Acesso em:
    18 out. 2026.
@@ -134,3 +136,28 @@ a coleta devem ser registradas junto às evidências em
     <https://www.codejr.com.br/>. Consulta ao conteúdo oficial indexado em:
     25 out. 2026. Referência de proposta técnica e comercial após levantamento
     de necessidades; sem tarifa numérica localizada na página consultada.
+
+## Artigo científico
+
+Referências citadas no artigo da equipe que não aparecem nas seções acima.
+
+37. ISO/IEC. **ISO/IEC 25000:2014: Systems and software engineering — Systems
+    and software Quality Requirements and Evaluation (SQuaRE) — Guide to
+    SQuaRE**. Geneva: ISO, 2014.
+38. McGARRY, John et al. **Practical Software Measurement: Objective
+    Information for Decision Makers**. Boston: Addison-Wesley, 2002. Base das
+    [métricas de desenvolvimento](gestao/metricas.md) (PSM).
+39. VJEUX. **End-to-end encryption in the browser**. Excalidraw Blog, 21 mar.
+    2020. Disponível em:
+    <https://plus.excalidraw.com/blog/end-to-end-encryption>. Acesso em:
+    19 out. 2026. Descreve a chave no fragmento `#` do link e a cifra
+    AES-GCM, usadas nas hipóteses de S-Q1 e S-Q3.
+40. CALABRESE, Julieta; MUÑOZ, Rocío; PASINI, Ariel; ESPONDA, Silvia;
+    BORACCHIA, Marcos; PESADO, Patricia. Asistente para la evaluación de
+    características de calidad de producto de software propuestas por
+    ISO/IEC 25010 basado en métricas definidas usando el enfoque GQM. In:
+    **XXIII Congreso Argentino de Ciencias de la Computación (CACIC)**. La
+    Plata, 2017. p. 660–671. Disponível em:
+    <http://sedici.unlp.edu.ar/handle/10915/63778>. Acesso em: 26 out. 2026.
+    Estudo de caso de referência: GQM aplicado à Segurança da ISO/IEC 25010
+    em três aplicações web.

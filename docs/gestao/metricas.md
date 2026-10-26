@@ -119,7 +119,7 @@ ajustes no fluxo e no planejamento, e não para ranquear integrantes.
 
 ### Coleta automática de Lead Time e Cycle Time
 
-O workflow [Coletar métricas do GitHub Projects](../../.github/workflows/metricas-projeto.yml)
+O workflow [Coletar métricas do GitHub Projects](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/.github/workflows/metricas-projeto.yml)
 executa semanalmente e grava uma nova coleta somente quando já se passaram
 14 dias desde a coleta anterior. O script consulta o histórico de alterações
 de **Status** do Project #19, incluindo as datas em que cada issue entrou em
