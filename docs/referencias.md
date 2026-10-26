@@ -87,3 +87,50 @@
 As versões das ferramentas, comandos utilizados e páginas consultadas durante
 a coleta devem ser registradas junto às evidências em
 [Resultados](analise/resultados.md).
+
+## Estimativa de custos
+
+28. U.S. GOVERNMENT ACCOUNTABILITY OFFICE (GAO). **Cost Estimating and
+    Assessment Guide: Best Practices for Developing and Managing Program
+    Costs**. GAO-20-195G. Washington, DC: GAO, 2020. Disponível em:
+    <https://www.gao.gov/products/gao-20-195g>. Acesso em: 25 out. 2026.
+    Apoio à decomposição do trabalho, ao registro de premissas e à atualização
+    da estimativa com dados realizados em
+    [Estimativa de custos da avaliação](gestao/estimativa-custos.md).
+29. CONSELHO NACIONAL DE DESENVOLVIMENTO CIENTÍFICO E TECNOLÓGICO (CNPq).
+    **Tabela de Valores de Bolsas no País**. Atualização indicada: 17 jul.
+    2025. Disponível em:
+    <https://www.gov.br/cnpq/pt-br/acesso-a-informacao/bolsas-e-auxilios/copy_of_modalidades/tabela-de-valores-no-pais>.
+    Acesso em: 25 out. 2026. Referência mensal de iniciação científica.
+30. INSTITUTO EVANDRO CHAGAS (IEC). **IEC abre chamada para o Programa de
+    Bolsas de Iniciação Científica (PIBIC/IEC) 2026–2027**. 3 jun. 2026.
+    Disponível em:
+    <https://www.gov.br/iec/pt-br/iec-abre-chamada-para-o-programa-de-bolsas-de-iniciacao-cientifica-pibic-iec-202620132027>.
+    Acesso em: 25 out. 2026. Referência de carga semanal e bolsa para
+    aproximação econômica acadêmica; não é vínculo ou remuneração da equipe.
+31. GITHUB. **GitHub's plans**. Disponível em:
+    <https://docs.github.com/en/get-started/learning-about-github/githubs-plans>.
+    Acesso em: 25 out. 2026. Condições de uso gratuito para colaboração e
+    publicação pública, sem comprovação do plano efetivo da organização.
+32. EXCALIDRAW. **LICENSE: MIT License**. Disponível em:
+    <https://github.com/excalidraw/excalidraw/blob/master/LICENSE>.
+    Acesso em: 25 out. 2026. Condições de licença do código para a instância
+    local; não abrange custo de infraestrutura ou funcionalidades pagas.
+33. CJR — EMPRESA JÚNIOR DE COMPUTAÇÃO. **Serviços e orçamento**. Disponível
+    em: <https://www.cjr.org.br/>. Acesso em: 25 out. 2026. Referência
+    institucional de serviços de computação; sem tarifa numérica localizada
+    na página consultada.
+34. UNIVERSIDADE DE BRASÍLIA. Departamento de Ciência da Computação.
+    **Perguntas frequentes: organizações estudantis e empresas juniores**.
+    Disponível em: <https://cic.unb.br/informacoes/faq>. Acesso em:
+    25 out. 2026. Corrobora o vínculo institucional da CJR.
+35. EJEM MACKENZIE. **Como funciona um projeto de software sob medida na
+    EJEM**. Disponível em:
+    <https://ejemackenzie.com.br/pagina/como-funciona-o-projeto/>. Consulta ao
+    conteúdo oficial indexado em: 25 out. 2026. Preço anunciado a partir de
+    R$ 8.000 por projeto, dependente de escopo; não é tarifa horária nem
+    cotação da avaliação acadêmica.
+36. CODE JÚNIOR. **Serviços e processo de contratação**. Disponível em:
+    <https://www.codejr.com.br/>. Consulta ao conteúdo oficial indexado em:
+    25 out. 2026. Referência de proposta técnica e comercial após levantamento
+    de necessidades; sem tarifa numérica localizada na página consultada.
