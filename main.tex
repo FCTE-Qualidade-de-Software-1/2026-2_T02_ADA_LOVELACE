@@ -67,6 +67,7 @@
 \usepackage{tikz}
 \usetikzlibrary{positioning,fit}
 \usepackage{url}
+\usepackage{balance}
 \usepackage[hidelinks]{hyperref}
 
 % ---------- Chaves de controle ----------
@@ -1243,6 +1244,7 @@ Claude Code, Claude Opus 5.5 (Giovanna) & Atualização do artigo a partir da Gi
 \clearpage
 \raggedbottom % evita espaços esticados entre as referências
 \begin{thebibliography}{00}
+\balance % equilibra as duas colunas da página de referências
 \bibitem{iso25000} ISO/IEC, ``ISO/IEC 25000:2014 --- Systems and software
 engineering --- Systems and software Quality Requirements and Evaluation
 (SQuaRE) --- Guide to SQuaRE,'' Geneva, 2014.
@@ -1367,6 +1369,7 @@ Acesso em: 25 out. 2026.
 %%  APÊNDICES (o Apêndice A não conta no limite de páginas)
 %% =====================================================================
 \clearpage
+\nobalance % o equilíbrio vale só para a página de referências
 \appendices
 
 \section{Tabela de Contribuição dos Integrantes}
