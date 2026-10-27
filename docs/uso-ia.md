@@ -101,12 +101,17 @@ aparecer entre aspas e com a referência correspondente.
 
 ### Renato Araújo
 
-* **Ferramenta:** `[Preencher]`
-* **Tarefa:** `[Preencher]`
-* **Onde:** `[Preencher]`
-* **Quando:** `[Preencher]`
-* **Como conferiu e ajustou:** `[Preencher]`
-
+* **Ferramenta:** Codex/ChatGPT (OpenAI).
+* **Tarefa:** apoio na escrita, na organização e na revisão dos textos do
+  trabalho, além de auxílio nas pesquisas de conceitos e referências para
+  fundamentar a metodologia e a estimativa de custos.
+* **Onde:** [metodologia](metodologia.md),
+  [estimativa de custos](gestao/estimativa-custos.md) e esta página.
+* **Quando:** out. 2026, durante a elaboração e a revisão da entrega.
+* **Como conferiu e ajustou:** revisei os textos sugeridos e os ajustei ao
+  contexto do projeto e às decisões da equipe. Conferi as informações das
+  pesquisas com as fontes utilizadas no trabalho e revisei as premissas e os
+  cálculos da estimativa de custos antes de incorporá-los à documentação.
 ### Zayra Moraes
 
 * **Ferramenta:** ChatGPT (OpenAI).
