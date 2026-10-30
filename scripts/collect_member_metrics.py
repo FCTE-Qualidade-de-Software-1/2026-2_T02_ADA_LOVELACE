@@ -20,19 +20,34 @@ def collect_counts(ref: str) -> list[tuple[str, str, int]]:
         check=True,
         capture_output=True,
         text=True,
+        encoding="utf-8",
     )
     rows: list[tuple[str, str, int]] = []
     for line in result.stdout.splitlines():
         count, author = line.strip().split("\t", 1)
         name, email = author.rsplit(" <", 1)
+        # Commits do workflow (github-actions[bot]) não são entregas da equipe.
+        if name.endswith("[bot]"):
+            continue
         rows.append((name, email.rstrip(">"), int(count)))
     return sorted(rows, key=lambda row: (-row[2], row[0].casefold()))
+
+
+def previous_rows() -> list[tuple[str, str, int]]:
+    if not OUTPUT.exists():
+        return []
+    with OUTPUT.open(newline="", encoding="utf-8") as file:
+        return [(row["autor"], row["email"], int(row["commits"])) for row in csv.DictReader(file)]
 
 
 def main() -> None:
     ref = os.environ.get("METRICS_REF", "main")
     collected_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
     rows = collect_counts(ref)
+    # Sem mudança nas contagens, mantém a data anterior para não gerar commit.
+    if rows == previous_rows():
+        print(f"Contagens inalteradas em {OUTPUT}; nada a gravar.")
+        return
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     with OUTPUT.open("w", newline="", encoding="utf-8") as output:
         writer = csv.writer(output)

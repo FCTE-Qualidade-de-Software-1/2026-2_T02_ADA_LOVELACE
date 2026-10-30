@@ -9,7 +9,7 @@ import os
 import sys
 import urllib.error
 import urllib.request
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 
 API_URL = "https://api.github.com/graphql"
@@ -20,7 +20,6 @@ IN_PROGRESS = os.environ.get("IN_PROGRESS_STATUS", "Em andamento").casefold()
 REVIEW = os.environ.get("REVIEW_STATUS", "Em revisão").casefold()
 DONE = os.environ.get("DONE_STATUS", "Concluído").casefold()
 OUTPUT = Path(os.environ.get("METRICS_OUTPUT", "docs/gestao/dados/lead-cycle-time.csv"))
-STAMP = OUTPUT.with_suffix(".last-collected")
 
 
 def graphql(token: str, query: str, variables: dict) -> dict:
@@ -104,17 +103,6 @@ def main() -> int:
     if not REPOSITORY:
         raise RuntimeError("GITHUB_REPOSITORY não está definido; execute pelo GitHub Actions.")
 
-    # O cron do Actions é baseado em calendário. Esta trava garante intervalo
-    # mínimo de 14 dias sem perder a coleta se uma execução semanal falhar.
-    if STAMP.exists() and os.environ.get("FORCE_COLLECTION") != "true":
-        last_run_text = STAMP.read_text(encoding="utf-8").strip()
-        if last_run_text:
-            last_run = parse_date(last_run_text)
-            now = datetime.now(timezone.utc)
-            if now - last_run < timedelta(days=14):
-                print(f"Última coleta em {last_run.isoformat()}; aguardando completar 14 dias.")
-                return 0
-
     issues: list[dict] = []
     cursor = None
     while True:
@@ -151,52 +139,63 @@ def main() -> int:
         "inicio_cycle_time", "concluida_em", "lead_time_dias", "cycle_time_dias",
         "retornos_revisao_para_andamento",
     ]
+    rows = []
+    for issue in sorted(issues, key=lambda row: row["number"]):
+        events = issue["events"]
+        completion_events = [event for event in events if event["status"].casefold() == DONE]
+        if not completion_events:
+            continue
+        completed = completion_events[-1]
+        completed_at = parse_date(completed["createdAt"])
+        previous_completions = [
+            event for event in completion_events
+            if parse_date(event["createdAt"]) < completed_at
+        ]
+        cycle_boundary = parse_date(previous_completions[-1]["createdAt"]) if previous_completions else None
+        starts_before_completion = [
+            event for event in events
+            if event["status"].casefold() == IN_PROGRESS
+            and parse_date(event["createdAt"]) <= completed_at
+            and (cycle_boundary is None or parse_date(event["createdAt"]) > cycle_boundary)
+        ]
+        # Start at the first move to in-progress in the latest delivery
+        # cycle; review rework remains part of that cycle's elapsed time.
+        started = starts_before_completion[0] if starts_before_completion else None
+        created_at = parse_date(issue["createdAt"])
+        cycle_start = parse_date(started["createdAt"]) if started else None
+        rework = sum(
+            event["previousStatus"].casefold() == REVIEW
+            and event["status"].casefold() == IN_PROGRESS
+            for event in events
+        )
+        rows.append({
+            "coletado_em": collected_at,
+            "repositorio": issue["repository"]["nameWithOwner"],
+            "issue": issue["number"],
+            "titulo": issue["title"],
+            "url": issue["url"],
+            "criada_em": issue["createdAt"],
+            "inicio_cycle_time": started["createdAt"] if started else "",
+            "concluida_em": completed["createdAt"],
+            "lead_time_dias": round((completed_at - created_at).total_seconds() / 86400, 3),
+            "cycle_time_dias": round((completed_at - cycle_start).total_seconds() / 86400, 3) if cycle_start else "",
+            "retornos_revisao_para_andamento": rework,
+        })
+
+    # Sem mudança nos dados, mantém o CSV (e sua data de coleta) para não gerar commit.
+    def without_date(row: dict) -> dict:
+        return {key: str(value) for key, value in row.items() if key != "coletado_em"}
+
+    if OUTPUT.exists():
+        with OUTPUT.open(encoding="utf-8-sig", newline="") as file:
+            previous = [without_date(row) for row in csv.DictReader(file)]
+        if previous == [without_date(row) for row in rows]:
+            print(f"Métricas inalteradas em {OUTPUT}; nada a gravar.")
+            return 0
     with OUTPUT.open("w", encoding="utf-8-sig", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=columns)
         writer.writeheader()
-        for issue in sorted(issues, key=lambda row: row["number"]):
-            events = issue["events"]
-            completion_events = [event for event in events if event["status"].casefold() == DONE]
-            if not completion_events:
-                continue
-            completed = completion_events[-1]
-            completed_at = parse_date(completed["createdAt"])
-            previous_completions = [
-                event for event in completion_events
-                if parse_date(event["createdAt"]) < completed_at
-            ]
-            cycle_boundary = parse_date(previous_completions[-1]["createdAt"]) if previous_completions else None
-            starts_before_completion = [
-                event for event in events
-                if event["status"].casefold() == IN_PROGRESS
-                and parse_date(event["createdAt"]) <= completed_at
-                and (cycle_boundary is None or parse_date(event["createdAt"]) > cycle_boundary)
-            ]
-            # Start at the first move to in-progress in the latest delivery
-            # cycle; review rework remains part of that cycle's elapsed time.
-            started = starts_before_completion[0] if starts_before_completion else None
-            created_at = parse_date(issue["createdAt"])
-            cycle_start = parse_date(started["createdAt"]) if started else None
-            rework = sum(
-                event["previousStatus"].casefold() == REVIEW
-                and event["status"].casefold() == IN_PROGRESS
-                for event in events
-            )
-            writer.writerow({
-                "coletado_em": collected_at,
-                "repositorio": issue["repository"]["nameWithOwner"],
-                "issue": issue["number"],
-                "titulo": issue["title"],
-                "url": issue["url"],
-                "criada_em": issue["createdAt"],
-                "inicio_cycle_time": started["createdAt"] if started else "",
-                "concluida_em": completed["createdAt"],
-                "lead_time_dias": round((completed_at - created_at).total_seconds() / 86400, 3),
-                "cycle_time_dias": round((completed_at - cycle_start).total_seconds() / 86400, 3) if cycle_start else "",
-                "retornos_revisao_para_andamento": rework,
-            })
-    STAMP.parent.mkdir(parents=True, exist_ok=True)
-    STAMP.write_text(collected_at + "\n", encoding="utf-8")
+        writer.writerows(rows)
     print(f"CSV atualizado: {OUTPUT} ({len(issues)} issues do Project; somente issues concluídas exportadas).")
     return 0
 

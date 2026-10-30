@@ -119,11 +119,12 @@ ajustes no fluxo e no planejamento, e não para ranquear integrantes.
 
 ### Coleta automática de Lead Time e Cycle Time
 
-O workflow [Coletar métricas do GitHub Projects](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/.github/workflows/metricas-projeto.yml)
-executa semanalmente e grava uma nova coleta somente quando já se passaram
-14 dias desde a coleta anterior. O script consulta o histórico de alterações
-de **Status** do Project #19, incluindo as datas em que cada issue entrou em
-**Em andamento**, **Em revisão** e **Concluído**. Assim, a equipe continua
+O workflow [Atualizar métricas de gestão](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/.github/workflows/metricas-gestao.yml)
+executa a cada push na `main` e semanalmente. Cada execução recoleta os dados,
+sem intervalo mínimo entre coletas, e só cria commit quando eles mudam. O
+script consulta o histórico de alterações de **Status** do Project #19,
+incluindo as datas em que cada issue entrou em **Em andamento**, **Em
+revisão** e **Concluído**. Assim, a equipe continua
 movendo os cartões manualmente; não é necessário aplicar labels de estado.
 
 O resultado é salvo em
@@ -146,16 +147,15 @@ arquivos para a branch padrão:
    repository secret** e cadastre o token com o nome `PROJECTS_TOKEN`.
 3. Em **Settings → Actions → General → Workflow permissions**, permita
    **Read and write permissions** para o `GITHUB_TOKEN`, para o workflow poder
-   atualizar o CSV e o arquivo de controle de data. Se a organização bloquear
+   atualizar o CSV na `main`. Se a organização bloquear
    essa permissão, um administrador precisará liberá-la.
-4. Em **Actions**, selecione **Coletar métricas do GitHub Projects** e use
-   **Run workflow** para validar a primeira execução. As seguintes são
-   agendadas; o cron semanal serve para recuperar uma falha e a trava de 14
-   dias impede coletas semanais duplicadas.
+4. Em **Actions**, selecione **Atualizar métricas de gestão** e use
+   **Run workflow** para validar a primeira execução. As seguintes ocorrem a
+   cada push na `main` e no cron semanal.
 
-O primeiro CSV e o arquivo `lead-cycle-time.last-collected` são criados pela
-primeira execução. A métrica Cycle Time depende de eventos de mudança de
-Status já registrados no histórico do Project; mudanças anteriores à
+O CSV é preenchido pela primeira execução com o token cadastrado; sem ele, o
+workflow emite um aviso e segue com as demais métricas. A métrica Cycle Time
+depende de eventos de mudança de Status já registrados no histórico do Project; mudanças anteriores à
 disponibilidade desse histórico não podem ser reconstruídas pelo script.
 
 ## Registro atual do quadro
