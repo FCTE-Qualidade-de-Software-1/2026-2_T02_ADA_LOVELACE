@@ -1,0 +1,86 @@
+name: Atualizar métricas de gestão
+
+on:
+  push:
+    branches: [main]
+    # Um push que só altere estas saídas geradas não roda o workflow de novo.
+    # O commit do bot também leva [skip ci] e usa o GITHUB_TOKEN, que não
+    # dispara workflows.
+    paths-ignore:
+      - docs/gestao/dados/membros-commits.csv
+      - docs/gestao/dados/lead-cycle-time.csv
+      - docs/gestao/dados/custos-calculados.json
+  # O cron semanal recoleta o Project mesmo sem pushes na semana.
+  schedule:
+    - cron: "17 8 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: metricas-gestao
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    env:
+      TEM_PROJECTS_TOKEN: ${{ secrets.PROJECTS_TOKEN != '' }}
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Configurar autor dos commits
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Coletar commits por autor
+        env:
+          METRICS_REF: main
+        run: python scripts/collect_member_metrics.py
+
+      - name: Coletar Lead Time e Cycle Time do Project
+        if: env.TEM_PROJECTS_TOKEN == 'true'
+        env:
+          PROJECTS_TOKEN: ${{ secrets.PROJECTS_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python scripts/collect_project_metrics.py
+
+      - name: Avisar ausência do PROJECTS_TOKEN
+        if: env.TEM_PROJECTS_TOKEN != 'true'
+        run: echo "::warning::Secret PROJECTS_TOKEN não cadastrado; Lead Time e Cycle Time não foram coletados."
+
+      - name: Recalcular custos da avaliação
+        run: |
+          python scripts/calcular_custos_avaliacao.py --write
+          python scripts/calcular_custos_avaliacao.py --check
+
+      - name: Salvar métricas na main
+        run: |
+          git add docs/gestao/dados/membros-commits.csv docs/analise/gestao-grupo.md \
+            docs/gestao/dados/lead-cycle-time.csv \
+            docs/gestao/dados/custos-calculados.json docs/gestao/estimativa-custos.md
+          if git diff --cached --quiet; then
+            echo "Nenhuma alteração nas métricas."
+          else
+            git commit -m "docs: atualizar métricas de gestão [skip ci]"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Instalar MkDocs
+        run: pip install -r requirements.txt
+
+      - name: Publicar site
+        run: mkdocs gh-deploy --force --strict

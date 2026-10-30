@@ -673,7 +673,7 @@ responderia a outra hipótese e exigiria fontes e recálculo próprios.
 
 As horas continuam definidas nas tabelas E1 desta página, sem uma segunda
 transcrição manual de entradas. O script
-[`calcular_custos_avaliacao.py`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/feat/estimativa-custos/scripts/calcular_custos_avaliacao.py)
+[`calcular_custos_avaliacao.py`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/scripts/calcular_custos_avaliacao.py)
 lê essas tabelas e os
 [`parâmetros C1`](dados/parametros-custos.json), aplica aritmética decimal e
 gera a memória em [`custos-calculados.json`](dados/custos-calculados.json)

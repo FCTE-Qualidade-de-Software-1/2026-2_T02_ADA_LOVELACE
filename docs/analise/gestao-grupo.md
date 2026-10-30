@@ -82,8 +82,8 @@ disponível para conferência e processamento.
 *Última coleta: 2026-10-26T15:18:42+00:00, referência `main`.*
 <!-- END AUTO: membros-commits -->
 
-A atualização é executada semanalmente pelo
-[workflow automatizado de métricas de membros](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/.github/workflows/metricas-membros.yml).
+A atualização é executada a cada push na `main` e semanalmente pelo
+[workflow automatizado de métricas de gestão](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/.github/workflows/metricas-gestao.yml).
 Também é possível executar a coleta manualmente quando necessário. Autores
 com diferentes identificações no Git devem ser associados ao mesmo integrante
 antes da consolidação, e autores não reconhecidos devem ser informados como
@@ -205,11 +205,10 @@ Para reproduzir a métrica de commits localmente:
 python scripts/collect_member_metrics.py
 ```
 
-O workflow semanal
-[de métricas de membros](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/.github/workflows/metricas-membros.yml) repete
+O [workflow de métricas de gestão](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/.github/workflows/metricas-gestao.yml) repete
 essa coleta e versiona o CSV somente quando houver alteração. Commits de merge
-são excluídos da contagem para evitar que a integração de alterações seja
-confundida com uma nova entrega. A quantidade de commits deve ser combinada com
+e do `github-actions[bot]` são excluídos da contagem para evitar que a
+integração de alterações seja confundida com uma nova entrega. A quantidade de commits deve ser combinada com
 revisões, entregas, evidências e contexto antes de qualquer decisão de gestão.
 
 O relatório deve mostrar, para cada métrica, **valor**, **fórmula aplicada**,
