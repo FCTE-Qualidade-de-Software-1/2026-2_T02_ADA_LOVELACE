@@ -34,9 +34,9 @@ aparecer entre aspas e com a referência correspondente.
   das páginas de modelo de qualidade, ODS e objetivos de medição.
   Alinhamento das partes interessadas no modelo de qualidade e no roteiro.
   Revisão da página frente aos critérios 1 e 2 da entrega.
-* **Onde:** [propósito e partes interessadas](fase1/proposito-partes-interessadas.md),
-  [modelo de qualidade](fase1/modelo-qualidade.md) (lista e tabela de partes
-  interessadas, numeração dos diagramas), [ODS](fase1/ods.md) (numeração do
+* **Onde:** [propósito e partes interessadas](fase_planejamento/proposito-partes-interessadas.md),
+  [modelo de qualidade](fase_planejamento/modelo-qualidade.md) (lista e tabela de partes
+  interessadas, numeração dos diagramas), [ODS](fase_planejamento/ods.md) (numeração do
   diagrama), [roteiro da análise](analise/roteiro.md) (seção 1 e item 3 da
   seção 5) e slides 3 a 6 da apresentação.
 * **Quando:** 18 out. 2026.
@@ -60,7 +60,7 @@ aparecer entre aspas e com a referência correspondente.
   issues e commits) e busca e leitura do estudo de caso de referência.
   Revisão das referências do artigo e desta GitPage.
 * **Onde:** artigo (`main.tex`), [referências](referencias.md),
-  [objetivos de medição](fase1/objetivos-qualidade.md) (referência da
+  [objetivos de medição](fase_planejamento/objetivos-qualidade.md) (referência da
   ISO/IEC 25040) e esta página.
 * **Quando:** 26 out. 2026.
 * **Como conferiu e ajustou:** comparei cada trecho do artigo com a página
@@ -80,7 +80,7 @@ aparecer entre aspas e com a referência correspondente.
   medição. Além disso, a IA foi usada para pegar as principais informações do pages e 
   passar estruturadamente para o artigo no overleaf
 * **Onde:** [roteiro da análise](analise/roteiro.md) (seções 1, 4, 5 e 6),
-  [objetivos de medição](fase1/objetivos-qualidade.md) (seções 4 e 9),
+  [objetivos de medição](fase_planejamento/objetivos-qualidade.md) (seções 4 e 9),
   [resultados](analise/resultados.md), [referências](referencias.md) e esta
   página.
 * **Quando:** 18 out. 2026.

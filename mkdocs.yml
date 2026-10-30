@@ -54,14 +54,19 @@ nav:
       - Metodologia: metodologia.md
       - Priorização de qualidades: priorizacao.md
   - Fase de Planejamento:
-      - Propósito e partes interessadas: fase1/proposito-partes-interessadas.md
-      - Modelo de qualidade: fase1/modelo-qualidade.md
-      - ODS: fase1/ods.md
-      - Objetivos de qualidade: fase1/objetivos-qualidade.md
+      - Propósito e partes interessadas: fase_planejamento/proposito-partes-interessadas.md
+      - Modelo de qualidade: fase_planejamento/modelo-qualidade.md
+      - ODS: fase_planejamento/ods.md
+      - Objetivos de qualidade: fase_planejamento/objetivos-qualidade.md
   - Análise:
       - Roteiro da análise: analise/roteiro.md
       - Gestão do grupo: analise/gestao-grupo.md
       - Resultados: analise/resultados.md
+  - Fase de Aplicação:
+      - Visão geral: fase_aplicacao/index.md
+      - Segurança: fase_aplicacao/seguranca.md
+      - Flexibilidade: fase_aplicacao/flexibilidade.md
+      - Capacidade de interação: fase_aplicacao/capacidade-interacao.md
   - Gestão:
       - Métricas de desenvolvimento: gestao/metricas.md
       - Cronograma: gestao/cronograma.md

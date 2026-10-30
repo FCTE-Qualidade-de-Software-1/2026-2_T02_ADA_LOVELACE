@@ -28,7 +28,7 @@ própria.*
 
 O requisitante, as decisões que a avaliação apoia e o critério de sucesso e a
 influência de cada parte interessada estão em
-[Propósito e partes interessadas](../fase1/proposito-partes-interessadas.md),
+[Propósito e partes interessadas](../fase_planejamento/proposito-partes-interessadas.md),
 assim como o motivo de o integrador que usa o Excalidraw como biblioteca não
 fazer parte da avaliação.
 
@@ -81,7 +81,7 @@ A medição segue o método **Goal-Question-Metric (GQM)**:
    responder à questão.
 
 Os seis objetivos estão descritos, com os cinco elementos do GQM, na página de
-[objetivos de medição](../fase1/objetivos-qualidade.md). Esta seção apresenta
+[objetivos de medição](../fase_planejamento/objetivos-qualidade.md). Esta seção apresenta
 o desdobramento de cada objetivo em questões e métricas: **6 objetivos, 20
 questões e 51 métricas**.
 
@@ -411,7 +411,7 @@ Tabelas 13 e 14 apresentam, respectivamente, as questões e as métricas do O5.
     tem questão própria: ela é observada pelas métricas CI-M3 (ícones
     identificados sem tooltip) e CI-M7 (cobertura da ajuda interna), que
     verificam se as funções são compreensíveis sem consulta externa, conforme
-    o [modelo de qualidade](../fase1/modelo-qualidade.md#capacidade-de-interacao).
+    o [modelo de qualidade](../fase_planejamento/modelo-qualidade.md#capacidade-de-interacao).
 
 *Tabela 14. Métricas e níveis de pontuação do objetivo O5. Fonte: elaboração
 própria.*
@@ -456,7 +456,7 @@ Tabelas 15 e 16 apresentam, respectivamente, as questões e as métricas do O6.
 !!! note "Contraste"
     A métrica de contraste (CI-M25) responde à assistência ao usuário, e não à
     inclusividade, para manter a coerência com o
-    [modelo de qualidade](../fase1/modelo-qualidade.md#capacidade-de-interacao),
+    [modelo de qualidade](../fase_planejamento/modelo-qualidade.md#capacidade-de-interacao),
     que associa o contraste adequado à assistência ao usuário.
 
 *Tabela 16. Métricas e níveis de pontuação do objetivo O6. Fonte: elaboração
