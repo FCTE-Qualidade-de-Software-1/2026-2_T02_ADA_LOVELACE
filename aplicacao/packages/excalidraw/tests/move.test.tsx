@@ -1,0 +1,217 @@
+import React from "react";
+import { vi } from "vitest";
+import { KEYS, reseed, DEFAULT_ZOOM } from "@excalidraw/common";
+import { bindBindingElement } from "@excalidraw/element";
+import "@excalidraw/utils/test-utils";
+
+import type {
+  ExcalidrawArrowElement,
+  ExcalidrawBindableElement,
+  NonDeleted,
+} from "@excalidraw/element/types";
+
+import { Excalidraw } from "../index";
+import * as InteractiveCanvas from "../renderer/interactiveScene";
+import * as StaticScene from "../renderer/staticScene";
+
+import { API } from "./helpers/api";
+import { UI, Pointer, Keyboard } from "./helpers/ui";
+import { render, fireEvent, act, unmountComponent } from "./test-utils";
+
+unmountComponent();
+
+const renderInteractiveScene = vi.spyOn(
+  InteractiveCanvas,
+  "renderInteractiveScene",
+);
+const renderStaticScene = vi.spyOn(StaticScene, "renderStaticScene");
+
+beforeEach(() => {
+  localStorage.clear();
+  renderInteractiveScene.mockClear();
+  renderStaticScene.mockClear();
+  reseed(7);
+});
+
+const { h } = window;
+
+describe("move element", () => {
+  it("rectangle", async () => {
+    const { getByToolName, container } = await render(<Excalidraw />);
+    const canvas = container.querySelector("canvas.interactive")!;
+
+    {
+      // create element
+      const tool = getByToolName("rectangle");
+      fireEvent.click(tool);
+      fireEvent.pointerDown(canvas, { clientX: 30, clientY: 20 });
+      fireEvent.pointerMove(canvas, { clientX: 60, clientY: 70 });
+      fireEvent.pointerUp(canvas);
+
+      expect(renderInteractiveScene.mock.calls.length).toMatchInlineSnapshot(
+        `5`,
+      );
+      expect(renderStaticScene.mock.calls.length).toMatchInlineSnapshot(`5`);
+      expect(h.state.selectionElement).toBeNull();
+      expect(h.elements.length).toEqual(1);
+      expect(h.state.selectedElementIds[h.elements[0].id]).toBeTruthy();
+      expect([h.elements[0].x, h.elements[0].y]).toEqual([30, 20]);
+
+      renderInteractiveScene.mockClear();
+      renderStaticScene.mockClear();
+    }
+
+    fireEvent.pointerDown(canvas, { clientX: 50, clientY: 20 });
+    fireEvent.pointerMove(canvas, { clientX: 20, clientY: 40 });
+    fireEvent.pointerUp(canvas);
+
+    expect(renderInteractiveScene.mock.calls.length).toMatchInlineSnapshot(`3`);
+    expect(renderStaticScene.mock.calls.length).toMatchInlineSnapshot(`2`);
+    expect(h.state.selectionElement).toBeNull();
+    expect(h.elements.length).toEqual(1);
+    expect([h.elements[0].x, h.elements[0].y]).toEqual([0, 40]);
+
+    h.elements.forEach((element) => expect(element).toMatchSnapshot());
+  });
+
+  it("shift-drag moves along one axis only", async () => {
+    await render(<Excalidraw />);
+    const rectangle = API.createElement({
+      type: "rectangle",
+      width: 100,
+      height: 100,
+      backgroundColor: "red",
+      fillStyle: "solid",
+    });
+    API.setElements([rectangle]);
+    API.setSelectedElements([rectangle]);
+
+    const mouse = new Pointer("mouse");
+    Keyboard.withModifierKeys({ shift: true }, () => {
+      mouse.downAt(50, 50);
+      mouse.moveTo(90, 60);
+      mouse.upAt();
+    });
+
+    expect(API.getElement(rectangle)).toMatchObject({ x: 40, y: 0 });
+  });
+
+  it("rectangles with binding arrow", async () => {
+    await render(<Excalidraw handleKeyboardGlobally={true} />);
+
+    // create elements
+    const rectA = UI.createElement("rectangle", { size: 100 });
+    const rectB = UI.createElement("rectangle", { x: 200, y: 0, size: 300 });
+    const arrow = UI.createElement("arrow", { x: 105, y: 50, size: 88 });
+
+    act(() => {
+      // bind line to two rectangles
+      bindBindingElement(
+        arrow.get() as NonDeleted<ExcalidrawArrowElement>,
+        rectA.get() as NonDeleted<ExcalidrawBindableElement>,
+        "orbit",
+        "start",
+        h.app.scene,
+        DEFAULT_ZOOM,
+      );
+      bindBindingElement(
+        arrow.get() as NonDeleted<ExcalidrawArrowElement>,
+        rectB.get() as NonDeleted<ExcalidrawBindableElement>,
+        "orbit",
+        "end",
+        h.app.scene,
+        DEFAULT_ZOOM,
+      );
+    });
+
+    // select the second rectangle
+    new Pointer("mouse").clickOn(rectB);
+
+    expect(renderInteractiveScene.mock.calls.length).toMatchInlineSnapshot(
+      `16`,
+    );
+    expect(renderStaticScene.mock.calls.length).toMatchInlineSnapshot(`15`);
+    expect(h.state.selectionElement).toBeNull();
+    expect(h.elements.length).toEqual(3);
+    expect(h.state.selectedElementIds[rectB.id]).toBeTruthy();
+    expect([rectA.x, rectA.y]).toEqual([0, 0]);
+    expect([rectB.x, rectB.y]).toEqual([200, 0]);
+    expect([[arrow.x, arrow.y]]).toCloselyEqualPoints(
+      [[106.00000000000001, 55.6867741935484]],
+      0,
+    );
+    expect([[arrow.width, arrow.height]]).toCloselyEqualPoints([[88, 88]], 0);
+
+    renderInteractiveScene.mockClear();
+    renderStaticScene.mockClear();
+
+    // Move selected rectangle
+    Keyboard.keyDown(KEYS.ARROW_RIGHT);
+    Keyboard.keyDown(KEYS.ARROW_DOWN);
+    Keyboard.keyDown(KEYS.ARROW_DOWN);
+
+    // Check that the arrow size has been changed according to moving the rectangle
+    expect(renderInteractiveScene.mock.calls.length).toMatchInlineSnapshot(`3`);
+    expect(renderStaticScene.mock.calls.length).toMatchInlineSnapshot(`3`);
+    expect(h.state.selectionElement).toBeNull();
+    expect(h.elements.length).toEqual(3);
+    expect(h.state.selectedElementIds[rectB.id]).toBeTruthy();
+    expect([rectA.x, rectA.y]).toEqual([0, 0]);
+    expect([rectB.x, rectB.y]).toEqual([201, 2]);
+    expect([[arrow.x, arrow.y]]).toCloselyEqualPoints(
+      [[106, 55.6867741935484]],
+      0,
+    );
+    expect([[arrow.width, arrow.height]]).toCloselyEqualPoints([[89, 90]], 0);
+
+    h.elements.forEach((element) => expect(element).toMatchSnapshot());
+  });
+});
+
+describe("duplicate element on move when ALT is clicked", () => {
+  it("rectangle", async () => {
+    const { getByToolName, container } = await render(<Excalidraw />);
+    const canvas = container.querySelector("canvas.interactive")!;
+
+    {
+      // create element
+      const tool = getByToolName("rectangle");
+      fireEvent.click(tool);
+      fireEvent.pointerDown(canvas, { clientX: 30, clientY: 20 });
+      fireEvent.pointerMove(canvas, { clientX: 60, clientY: 70 });
+      fireEvent.pointerUp(canvas);
+
+      expect(renderInteractiveScene.mock.calls.length).toMatchInlineSnapshot(
+        `5`,
+      );
+      expect(renderStaticScene.mock.calls.length).toMatchInlineSnapshot(`5`);
+      expect(h.state.selectionElement).toBeNull();
+      expect(h.elements.length).toEqual(1);
+      expect(h.state.selectedElementIds[h.elements[0].id]).toBeTruthy();
+      expect([h.elements[0].x, h.elements[0].y]).toEqual([30, 20]);
+
+      renderInteractiveScene.mockClear();
+      renderStaticScene.mockClear();
+    }
+
+    fireEvent.pointerDown(canvas, { clientX: 50, clientY: 20 });
+    fireEvent.pointerMove(canvas, { clientX: 20, clientY: 40, altKey: true });
+
+    // firing another pointerMove event with alt key pressed should NOT trigger
+    // another duplication
+    fireEvent.pointerMove(canvas, { clientX: 20, clientY: 40, altKey: true });
+    fireEvent.pointerMove(canvas, { clientX: 10, clientY: 60 });
+    fireEvent.pointerUp(canvas);
+
+    expect(renderInteractiveScene.mock.calls.length).toMatchInlineSnapshot(`4`);
+    expect(renderStaticScene.mock.calls.length).toMatchInlineSnapshot(`3`);
+    expect(h.state.selectionElement).toBeNull();
+    expect(h.elements.length).toEqual(2);
+
+    // previous element should stay intact
+    expect([h.elements[0].x, h.elements[0].y]).toEqual([30, 20]);
+    expect([h.elements[1].x, h.elements[1].y]).toEqual([-10, 60]);
+
+    h.elements.forEach((element) => expect(element).toMatchSnapshot());
+  });
+});
