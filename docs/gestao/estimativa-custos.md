@@ -240,10 +240,10 @@ sem unidade de esforço ou custo.
 | ID / fase | Atividade e entregável de conclusão | Estado e evidência | Dependências | Recursos |
 | --- | --- | --- | --- | --- |
 | F1.1 / F1 | Documentar método, normas e processo: metodologia disponível | Concluída: [#10], [Metodologia](../metodologia.md) | — | R1, R2, R6 |
-| F1.2 / F1 | Definir propósito, partes interessadas e escopo: delimitação documentada | Concluída: [#11], [Propósito](../fase1/proposito-partes-interessadas.md), [página inicial](../index.md) | — | R1, R2, R6 |
-| F1.3 / F1 | Adaptar modelo e priorizar características: modelo e matriz disponíveis | Concluída: [#12], [Modelo](../fase1/modelo-qualidade.md), [Priorização](../priorizacao.md) | F1.2 | R1, R2, R6 |
-| F1.4 / F1 | Relacionar o estudo aos ODS: relações e indicadores documentados | Concluída: [#13], [ODS](../fase1/ods.md) | F1.2, F1.3 | R1, R2, R6 |
-| F2.1 / F2 | Definir objetivos de medição: objetivos GQM documentados | Concluída: [#14], [Objetivos](../fase1/objetivos-qualidade.md) | F1.1, F1.2, F1.3 | R1, R2, R6 |
+| F1.2 / F1 | Definir propósito, partes interessadas e escopo: delimitação documentada | Concluída: [#11], [Propósito](../fase_planejamento/proposito-partes-interessadas.md), [página inicial](../index.md) | — | R1, R2, R6 |
+| F1.3 / F1 | Adaptar modelo e priorizar características: modelo e matriz disponíveis | Concluída: [#12], [Modelo](../fase_planejamento/modelo-qualidade.md), [Priorização](../priorizacao.md) | F1.2 | R1, R2, R6 |
+| F1.4 / F1 | Relacionar o estudo aos ODS: relações e indicadores documentados | Concluída: [#13], [ODS](../fase_planejamento/ods.md) | F1.2, F1.3 | R1, R2, R6 |
+| F2.1 / F2 | Definir objetivos de medição: objetivos GQM documentados | Concluída: [#14], [Objetivos](../fase_planejamento/objetivos-qualidade.md) | F1.1, F1.2, F1.3 | R1, R2, R6 |
 | F2.2 / F2 | Consolidar questões, métricas, hipóteses e critérios: roteiro revisado e fechamento reconciliado | Em andamento: [#16] aberta; [#22] concluída; [Roteiro] existente | F2.1 | R1, R2, R6 |
 
 | ID / fase | Atividade e entregável de conclusão | Estado e evidência | Dependências | Recursos |

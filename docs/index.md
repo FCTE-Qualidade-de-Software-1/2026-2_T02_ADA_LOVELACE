@@ -124,10 +124,10 @@ própria a partir do repositório do Excalidraw.*
 * **[Metodologia](metodologia.md):** apresenta a caracterização da avaliação,
   a fundamentação normativa, a abordagem GQM e as etapas adotadas para
   conduzir as medições e interpretar os resultados.
-* Fase 1: [propósito e partes interessadas](fase1/proposito-partes-interessadas.md),
+* Fase 1: [propósito e partes interessadas](fase_planejamento/proposito-partes-interessadas.md),
   com as decisões que a avaliação apoia e quem as toma;
-  [modelo de qualidade](fase1/modelo-qualidade.md), com a adaptação
-  da ISO/IEC 25010:2023 ao Excalidraw, e [ODS](fase1/ods.md), com as metas e
+  [modelo de qualidade](fase_planejamento/modelo-qualidade.md), com a adaptação
+  da ISO/IEC 25010:2023 ao Excalidraw, e [ODS](fase_planejamento/ods.md), com as metas e
   os indicadores relacionados à avaliação.
 * [Roteiro da análise](analise/roteiro.md): propósito, escopo, método, objetivos
   GQM, questões, métricas e critérios de julgamento.

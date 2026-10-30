@@ -14,7 +14,7 @@ denominada *Systems and software Quality Requirements and Evaluation*
 medição e avaliação da qualidade de produtos de software. Como modelo de
 qualidade, utiliza-se a ISO/IEC 25010:2023, que organiza a qualidade em
 características e subcaracterísticas, permitindo uma análise estruturada dos
-atributos selecionados, conforme o [modelo de qualidade](fase1/modelo-qualidade.md)
+atributos selecionados, conforme o [modelo de qualidade](fase_planejamento/modelo-qualidade.md)
 adotado pela equipe. A fundamentação normativa e a abordagem GQM estão
 documentadas nas [referências](referencias.md) do projeto.
 

@@ -1,10 +1,10 @@
 # Priorização de qualidades
 
 A seleção das características do
-[modelo de qualidade](fase1/modelo-qualidade.md) usou uma matriz
+[modelo de qualidade](fase_planejamento/modelo-qualidade.md) usou uma matriz
 **impacto × risco** aplicada às nove características da ISO/IEC 25010:2023.
 O impacto (I, de 1 a 5) mede a consequência de uma falha para as
-[partes interessadas](fase1/proposito-partes-interessadas.md): 1, nenhuma é
+[partes interessadas](fase_planejamento/proposito-partes-interessadas.md): 1, nenhuma é
 afetada; 3, limita parte das funções; 5, dano irreversível ou que inviabiliza
 uma decisão da Tabela 1. O risco (R, de 1 a 5) mede a probabilidade de falha
 antes da medição: 1, nenhum sinal; 3, a função existe, mas há condições não
@@ -26,4 +26,4 @@ cobertas; 5, falha conhecida. Foram selecionadas as características com
 A ordem define a sequência das medições e dos relatos de métricas com
 pontuação 0 aos mantenedores; ela não altera o julgamento, e cada objetivo
 continua julgado separadamente. Os detalhes das exclusões estão em
-[características não selecionadas](fase1/modelo-qualidade.md#caracteristicas-nao-selecionadas).
+[características não selecionadas](fase_planejamento/modelo-qualidade.md#caracteristicas-nao-selecionadas).
