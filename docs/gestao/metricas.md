@@ -174,26 +174,31 @@ velocidade por ciclo.
 
 ## Contribuições no repositório
 
-Commits na branch `main` até **19/10/2026**, sem contar commits de *merge*.
+Commits na branch `main` até **04/11/2026**, sem contar commits de *merge*
+ou de bots. Identidades com o mesmo e-mail foram agrupadas por integrante.
 Esse dado é mantido como informação descritiva de atividade no repositório;
 não é uma métrica de esforço, qualidade, velocidade ou contribuição
 individual, pois commits variam em tamanho e complexidade.
 
 | Integrante | Commits |
 | --- | :---: |
-| Luís Cunha | 12 |
-| João Pedro Lopes | 4 |
-| André Henrique | 3 |
-| Zayra Moraes | 3 |
-| Giovanna Felipe | 2 |
-| Renato Araújo | 1 |
-| **Total** | **25** |
+| Luís Cunha | 14 |
+| João Pedro Lopes | 11 |
+| Giovanna Felipe | 8 |
+| Renato Araújo | 8 |
+| Zayra Moraes | 6 |
+| André Henrique | 4 |
+| **Total** | **51** |
 
-Além desses, foram integrados 9 *pull requests* por meio de commits de
+Além desses, foram integrados 20 *pull requests* por meio de commits de
 *merge*.
 
 Para atualizar a tabela, execute na raiz do repositório:
 
 ```bash
-git shortlog -sn --no-merges main
+git fetch origin main
+git log --no-merges --format="%ae" origin/main | sort | uniq -c | sort -nr
 ```
+
+Agrupe os e-mails por integrante e desconsidere contas de bots ao consolidar
+a tabela acima.
