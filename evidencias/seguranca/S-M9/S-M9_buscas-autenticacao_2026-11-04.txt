@@ -1,0 +1,73 @@
+# 2026-11-04 10:19 | pasta: aplicacao | commit do repo externo: 219e8d0
+
+## git grep -n -i -F 'firebase/auth' -- excalidraw-app packages/excalidraw ':!*test*'
+(nenhuma ocorrência)
+
+## git grep -n -i -F 'getAuth(' -- excalidraw-app packages/excalidraw ':!*test*'
+(nenhuma ocorrência)
+
+## git grep -n -i -F 'signInWith' -- excalidraw-app packages/excalidraw ':!*test*'
+(nenhuma ocorrência)
+
+## git grep -n -i -F 'onAuthStateChanged' -- excalidraw-app packages/excalidraw ':!*test*'
+(nenhuma ocorrência)
+
+## git grep -n -i -F 'webauthn' -- excalidraw-app packages/excalidraw ':!*test*'
+(nenhuma ocorrência)
+
+## git grep -n -i -F 'totp' -- excalidraw-app packages/excalidraw ':!*test*'
+(nenhuma ocorrência)
+
+## git grep -n -I -i -w 'mfa\|2fa\|otp' -- excalidraw-app packages/excalidraw ':!*test*'
+(nenhuma ocorrência em texto; sem -I só casam arquivos binários de fonte .woff2)
+
+## git grep -n -i -F 'password' -- excalidraw-app packages/excalidraw ':!*test*'
+packages/excalidraw/css/styles.scss:817:    // we don't use type=password because browsers (chrome?) prompt
+
+## git grep -n -i -F 'Authorization' -- excalidraw-app packages/excalidraw ':!*test*'
+(nenhuma ocorrência)
+
+## git grep -n -i -F 'auth:' -- excalidraw-app packages/excalidraw ':!*test*'
+(nenhuma ocorrência)
+
+## git grep -n 'isExcalidrawPlusSignedUser\|excplus-auth' -- excalidraw-app
+excalidraw-app/App.tsx:92:  isExcalidrawPlusSignedUser,
+excalidraw-app/App.tsx:1012:                  isSignedIn={isExcalidrawPlusSignedUser}
+excalidraw-app/App.tsx:1258:            ...(isExcalidrawPlusSignedUser
+excalidraw-app/app_constants.ts:56:  AUTH_STATE_COOKIE: "excplus-auth",
+excalidraw-app/app_constants.ts:59:export const isExcalidrawPlusSignedUser = document.cookie.includes(
+excalidraw-app/components/AppFooter.tsx:4:import { isExcalidrawPlusSignedUser } from "../app_constants";
+excalidraw-app/components/AppFooter.tsx:21:          {!isExcalidrawPlusSignedUser && <EncryptedIcon />}
+excalidraw-app/components/AppMainMenu.tsx:15:import { isExcalidrawPlusSignedUser } from "../app_constants";
+excalidraw-app/components/AppMainMenu.tsx:57:          isExcalidrawPlusSignedUser ? "" : "/sign-up"
+excalidraw-app/components/AppMainMenu.tsx:61:        {isExcalidrawPlusSignedUser ? t("labels.signIn") : t("labels.signUp")}
+excalidraw-app/components/AppWelcomeScreen.tsx:7:import { isExcalidrawPlusSignedUser } from "../app_constants";
+excalidraw-app/components/AppWelcomeScreen.tsx:16:  if (isExcalidrawPlusSignedUser) {
+excalidraw-app/components/AppWelcomeScreen.tsx:67:          {!isExcalidrawPlusSignedUser && (
+
+## git grep -n 'username' -- excalidraw-app/collab excalidraw-app/data/localStorage.ts excalidraw-app/share
+excalidraw-app/collab/Collab.tsx:112:  username: string;
+excalidraw-app/collab/Collab.tsx:158:      username: importUsernameFromLocalStorage() || "",
+excalidraw-app/collab/Collab.tsx:495:    if (!this.state.username) {
+excalidraw-app/collab/Collab.tsx:496:      import("@excalidraw/random-username").then(({ getRandomUsername }) => {
+excalidraw-app/collab/Collab.tsx:497:        const username = getRandomUsername();
+excalidraw-app/collab/Collab.tsx:498:        this.setUsername(username);
+excalidraw-app/collab/Collab.tsx:632:            const { pointer, button, username, selectedElementIds } =
+excalidraw-app/collab/Collab.tsx:644:              username,
+excalidraw-app/collab/Collab.tsx:683:            const { userState, socketId, username } = decryptedData.payload;
+excalidraw-app/collab/Collab.tsx:686:              username,
+excalidraw-app/collab/Collab.tsx:895:          // our own collaborator entry with the local username
+excalidraw-app/collab/Collab.tsx:896:          isCurrentUser ? { username: this.state.username } : {},
+excalidraw-app/collab/Collab.tsx:917:      // our own collaborator entry with the local username
+excalidraw-app/collab/Collab.tsx:918:      isCurrentUser ? { username: this.state.username } : {},
+excalidraw-app/collab/Collab.tsx:1037:  setUsername = (username: string) => {
+excalidraw-app/collab/Collab.tsx:1038:    this.setState({ username });
+excalidraw-app/collab/Collab.tsx:1039:    saveUsernameToLocalStorage(username);
+excalidraw-app/collab/Collab.tsx:1044:      this.updateCollaborator(socketId, { username });
+excalidraw-app/collab/Collab.tsx:1048:  getUsername = () => this.state.username;
+excalidraw-app/collab/Portal.tsx:192:          username: this.collab.state.username,
+excalidraw-app/collab/Portal.tsx:215:          username: this.collab.state.username,
+excalidraw-app/collab/Portal.tsx:237:          username: this.collab.state.username,
+excalidraw-app/data/localStorage.ts:11:export const saveUsernameToLocalStorage = (username: string) => {
+excalidraw-app/data/localStorage.ts:15:      JSON.stringify({ username }),
+excalidraw-app/data/localStorage.ts:27:      return JSON.parse(data).username;
