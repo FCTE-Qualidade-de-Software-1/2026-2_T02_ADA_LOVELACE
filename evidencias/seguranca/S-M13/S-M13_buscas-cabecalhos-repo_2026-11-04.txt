@@ -1,0 +1,29 @@
+# 2026-11-04 10:20 | pasta: aplicacao
+
+## git grep -n -I -i 'Content-Security-Policy' -- ':!*.snap' ':!*test*' ':!*.md'
+(nenhuma ocorrência)
+
+## git grep -n -I -i 'Strict-Transport-Security' -- ':!*.snap' ':!*test*' ':!*.md'
+(nenhuma ocorrência)
+
+## git grep -n -I -i 'X-Frame-Options' -- ':!*.snap' ':!*test*' ':!*.md'
+(nenhuma ocorrência)
+
+## git grep -n -I -i 'Permissions-Policy' -- ':!*.snap' ':!*test*' ':!*.md'
+(nenhuma ocorrência)
+
+## git grep -n -I -i 'frame-ancestors' -- ':!*.snap' ':!*test*' ':!*.md'
+(nenhuma ocorrência)
+
+## git grep -n -I -i 'http-equiv' -- ':!*.snap' ':!*test*' ':!*.md'
+(nenhuma ocorrência)
+
+## git grep -n -I -i 'add_header' -- ':!*.snap' ':!*test*' ':!*.md'
+(nenhuma ocorrência)
+
+## arquivos de configuração de hospedagem
+Dockerfile
+docker-compose.yml
+public/_headers
+vercel.json
+public/_headers
