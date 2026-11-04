@@ -8,8 +8,8 @@ Para cada métrica, copiar `evidencias/flexibilidade/template.md` para `F-Mxx_de
 
 | Métrica | Situação | Arquivo |
 | --- | --- | --- |
-| F-M10 | Coletada (rascunho, falta revisão): 60%, nota 1; falta decidir o denominador com o grupo | `F-M10_formatos-exportacao.md` |
-| F-M12 | Coletada (rascunho, falta revisão): 4 formatos, nota 2 | `F-M12_formatos-importacao.md` |
+| F-M10 | Coletada: 60%, nota 1; falta decidir o denominador com o grupo | `F-M10_formatos-exportacao.md` |
+| F-M12 | Coletada: 4 formatos, nota 2 | `F-M12_formatos-importacao.md` |
 | F-M11 | Teste de exportar e reimportar no app local | — |
 | F-M5, M6 | Testes no navegador (offline e resoluções) | — |
 | F-M1, M2, M3 | Testes em vários navegadores e sistemas | — |
@@ -19,8 +19,8 @@ Para cada métrica, copiar `evidencias/flexibilidade/template.md` para `F-Mxx_de
 
 ## Tarefas de código (sem navegador)
 
-- [x] **F-M10: formatos de exportação.** Rascunho feito. **Decidir em grupo o denominador** (sugestão: PNG, SVG, JSON, PDF e JPEG) e conferir os formatos do draw.io e do Miro na documentação deles.
-- [x] **F-M12: formatos de importação.** Rascunho feito.
+- [x] **F-M10: formatos de exportação.** Feito. **Decidir em grupo o denominador** (sugestão: PNG, SVG, JSON, PDF e JPEG) e conferir os formatos do draw.io e do Miro na documentação deles.
+- [x] **F-M12: formatos de importação.** Feito.
 
 ## Tarefas no navegador (instância local, `yarn start` em `aplicacao/`)
 

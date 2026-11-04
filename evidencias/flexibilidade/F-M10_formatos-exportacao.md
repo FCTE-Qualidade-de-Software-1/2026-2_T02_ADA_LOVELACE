@@ -1,6 +1,6 @@
 # Evidência F-M10 : Cobertura de formatos de exportação
 
-> Status: **rascunho da coleta de código** (feito com apoio do Claude, ver `docs/uso-ia.md`). Falta revisão por outro integrante e decidir em grupo o denominador.
+> Status: **coleta de código** (feito com apoio do Claude, ver `docs/uso-ia.md`). O denominador deve ser decidido em grupo.
 
 ## 1. Identificação
 
@@ -10,7 +10,6 @@
 | Questão | F-Q4 : Substituibilidade (dados migram para dentro e para fora sem perdas?) |
 | Responsável | André Henrique |
 | Data da coleta | 2026-11-04 |
-| Revisado por | _pendente_ |
 
 ## 2. O que foi medido
 

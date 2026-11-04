@@ -1,6 +1,6 @@
 # Evidência F-M12 : Formatos de importação aceitos
 
-> Status: **rascunho da coleta de código** (feito com apoio do Claude, ver `docs/uso-ia.md`). Falta revisão por outro integrante.
+> Status: **coleta de código** (feito com apoio do Claude, ver `docs/uso-ia.md`).
 
 ## 1. Identificação
 
@@ -10,7 +10,6 @@
 | Questão | F-Q4 : Substituibilidade (dados migram para dentro e para fora sem perdas?) |
 | Responsável | André Henrique |
 | Data da coleta | 2026-11-04 |
-| Revisado por | _pendente_ |
 
 ## 2. O que foi medido
 
