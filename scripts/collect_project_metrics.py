@@ -17,14 +17,17 @@ API_URL = "https://api.github.com/graphql"
 # Project de usuário, porque os integrantes não têm acesso à organização. O #19
 # guarda o histórico da Entrega 1 e o novo concentra a Entrega 2; os dois são
 # lidos. Os eventos de Status gerados no novo durante a migração (cartões
-# recriados com o Status e o Prazo copiados) são descartados por "since".
+# recriados com o Status e o Prazo copiados) são descartados por "since", e
+# o que acontecer no #19 depois da migração é descartado por "until".
+MIGRATED_AT = os.environ.get("PROJECT_SINCE", "2026-11-06T05:47:00Z")
 PROJECTS = [
-    {"kind": "organization", "owner": "FCTE-Qualidade-de-Software-1", "number": 19, "since": None},
+    {"kind": "organization", "owner": "FCTE-Qualidade-de-Software-1", "number": 19, "since": None, "until": MIGRATED_AT},
     {
         "kind": os.environ.get("PROJECT_OWNER_KIND", "user"),
         "owner": os.environ.get("PROJECT_OWNER", "giovannafg"),
         "number": int(os.environ.get("PROJECT_NUMBER", "1")),
-        "since": os.environ.get("PROJECT_SINCE", "2026-11-06T05:47:00Z"),
+        "since": MIGRATED_AT,
+        "until": None,
     },
 ]
 REPOSITORY = os.environ.get("GITHUB_REPOSITORY", "")
@@ -116,7 +119,7 @@ def main() -> int:
         raise RuntimeError("GITHUB_REPOSITORY não está definido; execute pelo GitHub Actions.")
 
     issues: dict[str, dict] = {}
-    since_by_project: dict[str, datetime | None] = {}
+    window_by_project: dict[str, tuple[datetime | None, datetime | None]] = {}
     for source in PROJECTS:
         query = PROJECT_QUERY % source["kind"]
         label = f"Project #{source['number']} de {source['owner']}"
@@ -127,7 +130,9 @@ def main() -> int:
             project = owner and owner.get("projectV2")
             if not project:
                 raise RuntimeError(f"Não encontrei o {label}.")
-            since_by_project[project["id"]] = parse_date(source["since"]) if source["since"] else None
+            window_by_project[project["id"]] = tuple(
+                parse_date(source[key]) if source[key] else None for key in ("since", "until")
+            )
             connection = project["items"]
             for item in connection["nodes"]:
                 issue = item.get("content")
@@ -151,10 +156,11 @@ def main() -> int:
 
     def counts(event: dict) -> bool:
         project_id = (event.get("project") or {}).get("id")
-        if project_id not in since_by_project:
+        if project_id not in window_by_project:
             return False
-        since = since_by_project[project_id]
-        return since is None or parse_date(event["createdAt"]) >= since
+        since, until = window_by_project[project_id]
+        moment = parse_date(event["createdAt"])
+        return (since is None or moment >= since) and (until is None or moment < until)
 
     for issue in issues.values():
         issue["events"] = sorted(filter(counts, issue["events"]), key=lambda event: event["createdAt"])
