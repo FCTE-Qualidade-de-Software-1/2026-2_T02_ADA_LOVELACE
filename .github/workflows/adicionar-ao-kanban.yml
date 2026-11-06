@@ -1,0 +1,27 @@
+name: Adicionar issue ao Kanban
+
+# O Kanban da Entrega 2 é um Project de usuário. O auto-add nativo de um
+# Project de usuário só aceita repositórios do mesmo dono, por isso este
+# workflow substitui o auto-add para as issues deste repositório da organização.
+on:
+  issues:
+    types: [opened, reopened, transferred]
+
+permissions: {}
+
+jobs:
+  adicionar:
+    runs-on: ubuntu-latest
+    env:
+      TEM_KANBAN_TOKEN: ${{ secrets.KANBAN_TOKEN != '' }}
+    steps:
+      - name: Adicionar ao Project
+        if: env.TEM_KANBAN_TOKEN == 'true'
+        uses: actions/add-to-project@v1.0.2
+        with:
+          project-url: https://github.com/users/giovannafg/projects/1
+          github-token: ${{ secrets.KANBAN_TOKEN }}
+
+      - name: Avisar ausência do KANBAN_TOKEN
+        if: env.TEM_KANBAN_TOKEN != 'true'
+        run: echo "::warning::Secret KANBAN_TOKEN não cadastrado; a issue não foi adicionada ao Kanban."
