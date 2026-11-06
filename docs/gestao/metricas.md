@@ -14,7 +14,9 @@ da equipe e ao processo iterativo utilizado. Os resultados devem ser
 interpretados em conjunto e no contexto de cada ciclo; nenhuma métrica isolada
 representa produtividade ou qualidade por completo.
 
-* **Kanban:** [Kanban – Ada Lovelace](https://github.com/orgs/FCTE-Qualidade-de-Software-1/projects/19)
+* **Kanban:** [Kanban – Ada Lovelace](https://github.com/users/giovannafg/projects/1) (Entrega 2 em diante; o
+  [Project #19](https://github.com/orgs/FCTE-Qualidade-de-Software-1/projects/19) guarda a Entrega 1, veja a
+  [decisão de mudança do quadro](../analise/gestao-grupo.md#processo-de-trabalho-e-fonte-dos-dados))
 * **Issues:** [lista de issues do repositório](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues?q=is%3Aissue)
 
 ## Fluxo de trabalho e fonte dos dados
@@ -122,8 +124,9 @@ ajustes no fluxo e no planejamento, e não para ranquear integrantes.
 O workflow [Atualizar métricas de gestão](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/.github/workflows/metricas-gestao.yml)
 executa a cada push na `main` e semanalmente. Cada execução recoleta os dados,
 sem intervalo mínimo entre coletas, e só cria commit quando eles mudam. O
-script consulta o histórico de alterações de **Status** do Project #19,
-incluindo as datas em que cada issue entrou em **Em andamento**, **Em
+script consulta o histórico de alterações de **Status** dos dois quadros do
+grupo, o Project #19 da organização (Entrega 1) e o Project de usuário
+(Entrega 2 em diante), incluindo as datas em que cada issue entrou em **Em andamento**, **Em
 revisão** e **Concluído**. Assim, a equipe continua
 movendo os cartões manualmente; não é necessário aplicar labels de estado.
 
@@ -134,15 +137,19 @@ Lead Time em dias, Cycle Time em dias e número de retornos de **Em revisão**
 para **Em andamento**. Se uma issue foi reaberta e concluída novamente, os
 tempos usam a conclusão mais recente e o início mais recente que a precede.
 O CSV é uma fotografia atualizada a cada execução, não um histórico de cópias
-por iteração.
+por iteração. Na migração entre os quadros, os cartões foram recriados com o
+Status que já tinham, o que gerou eventos de Status com a data da cópia; o
+script descarta os eventos do quadro novo anteriores a 06/11/2026 05:47 UTC
+para que essas mudanças não sejam contadas como início ou conclusão.
 
 Para conectar a automação ao GitHub, siga estes passos depois de enviar estes
 arquivos para a branch padrão:
 
 1. Crie um *fine-grained personal access token* com acesso ao repositório e
-   permissão de leitura de Issues e do Project da organização. O token precisa
-   conseguir consultar o Project #19 e as issues vinculadas; ele é usado só
-   para leitura.
+   permissão de leitura de Issues e de Projects. O token precisa conseguir
+   consultar o Project #19 da organização, o Project de usuário e as issues
+   vinculadas; ele é usado só para leitura. Se o token não for da dona do
+   Project de usuário, a pessoa precisa ser colaboradora nele.
 2. No repositório, abra **Settings → Secrets and variables → Actions → New
    repository secret** e cadastre o token com o nome `PROJECTS_TOKEN`.
 3. Em **Settings → Actions → General → Workflow permissions**, permita
