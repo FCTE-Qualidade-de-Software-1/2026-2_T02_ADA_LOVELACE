@@ -144,32 +144,19 @@ para que essas mudanças não sejam contadas como início ou conclusão. Pelo
 mesmo motivo, os eventos do Project #19 posteriores a esse horário também são
 descartados.
 
-Para conectar a automação ao GitHub, siga estes passos depois de enviar estes
-arquivos para a branch padrão:
+A leitura dos quadros usa o secret `PROJECTS_TOKEN` do repositório, um token
+clássico da dona do Project de usuário com os escopos `repo` e `project`. O
+mesmo secret é usado pelo workflow
+[Adicionar issue ao Kanban](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/.github/workflows/adicionar-ao-kanban.yml),
+que adiciona ao quadro as issues abertas no repositório, porque o auto-add de
+um Project de usuário não aceita repositórios da organização. Quando o token
+expirar, basta gerar outro com os mesmos escopos e atualizar o secret. Sem ele,
+os dois workflows emitem um aviso e as demais métricas continuam sendo
+coletadas.
 
-1. Crie um *fine-grained personal access token* com acesso ao repositório e
-   permissão de leitura de Issues e de Projects. O token precisa conseguir
-   consultar o Project #19 da organização, o Project de usuário e as issues
-   vinculadas. Se o token não for da dona do Project de usuário, a pessoa
-   precisa ser colaboradora nele. O mesmo secret é usado pelo workflow
-   [Adicionar issue ao Kanban](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/.github/workflows/adicionar-ao-kanban.yml),
-   que substitui o auto-add do Project; por isso o token precisa também de
-   escrita em Projects (token clássico com os escopos `project` e
-   `public_repo`).
-2. No repositório, abra **Settings → Secrets and variables → Actions → New
-   repository secret** e cadastre o token com o nome `PROJECTS_TOKEN`.
-3. Em **Settings → Actions → General → Workflow permissions**, permita
-   **Read and write permissions** para o `GITHUB_TOKEN`, para o workflow poder
-   atualizar o CSV na `main`. Se a organização bloquear
-   essa permissão, um administrador precisará liberá-la.
-4. Em **Actions**, selecione **Atualizar métricas de gestão** e use
-   **Run workflow** para validar a primeira execução. As seguintes ocorrem a
-   cada push na `main` e no cron semanal.
-
-O CSV é preenchido pela primeira execução com o token cadastrado; sem ele, o
-workflow emite um aviso e segue com as demais métricas. A métrica Cycle Time
-depende de eventos de mudança de Status já registrados no histórico do Project; mudanças anteriores à
-disponibilidade desse histórico não podem ser reconstruídas pelo script.
+A métrica Cycle Time depende de eventos de mudança de Status já registrados
+no histórico do Project; mudanças anteriores à disponibilidade desse histórico
+não podem ser reconstruídas pelo script.
 
 ## Registro atual do quadro
 
