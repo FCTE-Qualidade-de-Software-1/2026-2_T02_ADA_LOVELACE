@@ -13,15 +13,15 @@ jobs:
   adicionar:
     runs-on: ubuntu-latest
     env:
-      TEM_KANBAN_TOKEN: ${{ secrets.KANBAN_TOKEN != '' }}
+      TEM_PROJECTS_TOKEN: ${{ secrets.PROJECTS_TOKEN != '' }}
     steps:
       - name: Adicionar ao Project
-        if: env.TEM_KANBAN_TOKEN == 'true'
+        if: env.TEM_PROJECTS_TOKEN == 'true'
         uses: actions/add-to-project@v1.0.2
         with:
           project-url: https://github.com/users/giovannafg/projects/1
-          github-token: ${{ secrets.KANBAN_TOKEN }}
+          github-token: ${{ secrets.PROJECTS_TOKEN }}
 
-      - name: Avisar ausência do KANBAN_TOKEN
-        if: env.TEM_KANBAN_TOKEN != 'true'
-        run: echo "::warning::Secret KANBAN_TOKEN não cadastrado; a issue não foi adicionada ao Kanban."
+      - name: Avisar ausência do PROJECTS_TOKEN
+        if: env.TEM_PROJECTS_TOKEN != 'true'
+        run: echo "::warning::Secret PROJECTS_TOKEN não cadastrado; a issue não foi adicionada ao Kanban."

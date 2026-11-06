@@ -150,8 +150,12 @@ arquivos para a branch padrão:
 1. Crie um *fine-grained personal access token* com acesso ao repositório e
    permissão de leitura de Issues e de Projects. O token precisa conseguir
    consultar o Project #19 da organização, o Project de usuário e as issues
-   vinculadas; ele é usado só para leitura. Se o token não for da dona do
-   Project de usuário, a pessoa precisa ser colaboradora nele.
+   vinculadas. Se o token não for da dona do Project de usuário, a pessoa
+   precisa ser colaboradora nele. O mesmo secret é usado pelo workflow
+   [Adicionar issue ao Kanban](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/.github/workflows/adicionar-ao-kanban.yml),
+   que substitui o auto-add do Project; por isso o token precisa também de
+   escrita em Projects (token clássico com os escopos `project` e
+   `public_repo`).
 2. No repositório, abra **Settings → Secrets and variables → Actions → New
    repository secret** e cadastre o token com o nome `PROJECTS_TOKEN`.
 3. Em **Settings → Actions → General → Workflow permissions**, permita
