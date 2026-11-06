@@ -140,7 +140,9 @@ O CSV é uma fotografia atualizada a cada execução, não um histórico de cóp
 por iteração. Na migração entre os quadros, os cartões foram recriados com o
 Status que já tinham, o que gerou eventos de Status com a data da cópia; o
 script descarta os eventos do quadro novo anteriores a 06/11/2026 05:47 UTC
-para que essas mudanças não sejam contadas como início ou conclusão.
+para que essas mudanças não sejam contadas como início ou conclusão. Pelo
+mesmo motivo, os eventos do Project #19 posteriores a esse horário também são
+descartados.
 
 Para conectar a automação ao GitHub, siga estes passos depois de enviar estes
 arquivos para a branch padrão:
