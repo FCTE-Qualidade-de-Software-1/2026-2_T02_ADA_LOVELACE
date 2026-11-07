@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Collect issue lead/cycle time from GitHub Projects v2 status history."""
+"""Collect issue lead/cycle time from the status history of the team's GitHub Projects v2 boards."""
 
 from __future__ import annotations
 
@@ -13,8 +13,23 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 API_URL = "https://api.github.com/graphql"
-OWNER = os.environ.get("PROJECT_OWNER", "FCTE-Qualidade-de-Software-1")
-PROJECT_NUMBER = int(os.environ.get("PROJECT_NUMBER", "19"))
+# O quadro foi copiado em 06/11/2026 do Project #19 da organização para um
+# Project de usuário, porque os integrantes não têm acesso à organização. O #19
+# guarda o histórico da Entrega 1 e o novo concentra a Entrega 2; os dois são
+# lidos. Os eventos de Status gerados no novo durante a migração (cartões
+# recriados com o Status e o Prazo copiados) são descartados por "since", e
+# o que acontecer no #19 depois da migração é descartado por "until".
+MIGRATED_AT = os.environ.get("PROJECT_SINCE", "2026-11-06T05:47:00Z")
+PROJECTS = [
+    {"kind": "organization", "owner": "FCTE-Qualidade-de-Software-1", "number": 19, "since": None, "until": MIGRATED_AT},
+    {
+        "kind": os.environ.get("PROJECT_OWNER_KIND", "user"),
+        "owner": os.environ.get("PROJECT_OWNER", "giovannafg"),
+        "number": int(os.environ.get("PROJECT_NUMBER", "1")),
+        "since": MIGRATED_AT,
+        "until": None,
+    },
+]
 REPOSITORY = os.environ.get("GITHUB_REPOSITORY", "")
 IN_PROGRESS = os.environ.get("IN_PROGRESS_STATUS", "Em andamento").casefold()
 REVIEW = os.environ.get("REVIEW_STATUS", "Em revisão").casefold()
@@ -47,19 +62,19 @@ def graphql(token: str, query: str, variables: dict) -> dict:
 
 PROJECT_QUERY = """
 query($owner: String!, $number: Int!, $after: String) {
-  organization(login: $owner) {
+  %s(login: $owner) {
     projectV2(number: $number) {
+      id
       items(first: 100, after: $after) {
         nodes {
-          id
           content {
             ... on Issue {
-              number title createdAt url
+              id number title createdAt url
               repository { nameWithOwner }
               timelineItems(first: 100, itemTypes: [PROJECT_V2_ITEM_STATUS_CHANGED_EVENT]) {
                 nodes {
                   ... on ProjectV2ItemStatusChangedEvent {
-                    createdAt previousStatus status project { number }
+                    createdAt previousStatus status project { id }
                   }
                 }
                 pageInfo { hasNextPage endCursor }
@@ -81,7 +96,7 @@ query($id: ID!, $after: String) {
       timelineItems(first: 100, after: $after, itemTypes: [PROJECT_V2_ITEM_STATUS_CHANGED_EVENT]) {
         nodes {
           ... on ProjectV2ItemStatusChangedEvent {
-            createdAt previousStatus status project { number }
+            createdAt previousStatus status project { id }
           }
         }
         pageInfo { hasNextPage endCursor }
@@ -103,34 +118,52 @@ def main() -> int:
     if not REPOSITORY:
         raise RuntimeError("GITHUB_REPOSITORY não está definido; execute pelo GitHub Actions.")
 
-    issues: list[dict] = []
-    cursor = None
-    while True:
-        data = graphql(token, PROJECT_QUERY, {"owner": OWNER, "number": PROJECT_NUMBER, "after": cursor})
-        organization = data.get("organization")
-        project = organization and organization.get("projectV2")
-        if not project:
-            raise RuntimeError(f"Não encontrei o Project #{PROJECT_NUMBER} da organização {OWNER}.")
-        connection = project["items"]
-        for item in connection["nodes"]:
-            issue = item.get("content")
-            if not issue or not issue.get("number"):
-                continue
-            if issue["repository"]["nameWithOwner"].casefold() != REPOSITORY.casefold():
-                continue
-            events = issue["timelineItems"]["nodes"]
-            page = issue["timelineItems"]["pageInfo"]
-            while page["hasNextPage"]:
-                timeline = graphql(token, TIMELINE_QUERY, {"id": issue["id"], "after": page["endCursor"]})["node"]["timelineItems"]
-                events.extend(timeline["nodes"])
-                page = timeline["pageInfo"]
-            relevant = [event for event in events if event.get("project", {}).get("number") == PROJECT_NUMBER]
-            relevant.sort(key=lambda event: event["createdAt"])
-            issues.append({**issue, "events": relevant})
-        page = connection["pageInfo"]
-        if not page["hasNextPage"]:
-            break
-        cursor = page["endCursor"]
+    issues: dict[str, dict] = {}
+    window_by_project: dict[str, tuple[datetime | None, datetime | None]] = {}
+    for source in PROJECTS:
+        query = PROJECT_QUERY % source["kind"]
+        label = f"Project #{source['number']} de {source['owner']}"
+        cursor = None
+        while True:
+            variables = {"owner": source["owner"], "number": source["number"], "after": cursor}
+            owner = graphql(token, query, variables).get(source["kind"])
+            project = owner and owner.get("projectV2")
+            if not project:
+                raise RuntimeError(f"Não encontrei o {label}.")
+            window_by_project[project["id"]] = tuple(
+                parse_date(source[key]) if source[key] else None for key in ("since", "until")
+            )
+            connection = project["items"]
+            for item in connection["nodes"]:
+                issue = item.get("content")
+                if not issue or not issue.get("number") or issue["id"] in issues:
+                    continue
+                if issue["repository"]["nameWithOwner"].casefold() != REPOSITORY.casefold():
+                    continue
+                # A timeline da issue traz eventos de todos os Projects;
+                # o filtro por Project é aplicado depois de ler os dois.
+                events = issue["timelineItems"]["nodes"]
+                page = issue["timelineItems"]["pageInfo"]
+                while page["hasNextPage"]:
+                    timeline = graphql(token, TIMELINE_QUERY, {"id": issue["id"], "after": page["endCursor"]})["node"]["timelineItems"]
+                    events.extend(timeline["nodes"])
+                    page = timeline["pageInfo"]
+                issues[issue["id"]] = {**issue, "events": events}
+            page = connection["pageInfo"]
+            if not page["hasNextPage"]:
+                break
+            cursor = page["endCursor"]
+
+    def counts(event: dict) -> bool:
+        project_id = (event.get("project") or {}).get("id")
+        if project_id not in window_by_project:
+            return False
+        since, until = window_by_project[project_id]
+        moment = parse_date(event["createdAt"])
+        return (since is None or moment >= since) and (until is None or moment < until)
+
+    for issue in issues.values():
+        issue["events"] = sorted(filter(counts, issue["events"]), key=lambda event: event["createdAt"])
 
     collected_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
@@ -140,7 +173,7 @@ def main() -> int:
         "retornos_revisao_para_andamento",
     ]
     rows = []
-    for issue in sorted(issues, key=lambda row: row["number"]):
+    for issue in sorted(issues.values(), key=lambda row: row["number"]):
         events = issue["events"]
         completion_events = [event for event in events if event["status"].casefold() == DONE]
         if not completion_events:
@@ -196,7 +229,7 @@ def main() -> int:
         writer = csv.DictWriter(file, fieldnames=columns)
         writer.writeheader()
         writer.writerows(rows)
-    print(f"CSV atualizado: {OUTPUT} ({len(issues)} issues do Project; somente issues concluídas exportadas).")
+    print(f"CSV atualizado: {OUTPUT} ({len(issues)} issues nos Projects; somente issues concluídas exportadas).")
     return 0
 
 

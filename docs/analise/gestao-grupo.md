@@ -22,7 +22,7 @@ configuração da coleta.
 ## Processo de trabalho e fonte dos dados
 
 O grupo organiza as atividades em um fluxo Kanban no
-[GitHub Projects](https://github.com/orgs/FCTE-Qualidade-de-Software-1/projects/19).
+[GitHub Projects](https://github.com/users/giovannafg/projects/1).
 As tarefas são registradas como issues e percorrem os estados **Backlog**,
 **A fazer**, **Em andamento**, **Em revisão** e **Concluído**. A
 [lista de issues do repositório](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues)
@@ -40,6 +40,19 @@ e evidências.
 Esse fluxo torna visível o trabalho em andamento e permite identificar
 acúmulo em revisão, tarefas que permanecem muito tempo em execução e
 diferenças entre o que foi planejado e o que foi concluído.
+
+!!! note "Decisão de gestão: mudança do quadro (06/11/2026)"
+    Até a Entrega 1, o quadro era o [Project #19 da organização](https://github.com/orgs/FCTE-Qualidade-de-Software-1/projects/19).
+    Como os integrantes não fazem parte da organização e o grupo não tem
+    permissão para adicioná-los, eles não conseguiam mover os cartões, e o
+    registro de Status dependia de uma única pessoa. Para a Entrega 2, o
+    quadro foi copiado para um [Project de usuário](https://github.com/users/giovannafg/projects/1), com os
+    mesmos campos (Status, Prazo e Horas), visualizações e automações, e os
+    integrantes foram convidados como colaboradores. As issues abertas e as
+    concluídas na Entrega 2 foram levadas com o Status e o Prazo que tinham.
+    O #19 deixou de ser atualizado e permanece como registro da Entrega 1. A
+    coleta de Lead Time e Cycle Time lê os dois quadros e ignora os eventos
+    gerados pela própria migração.
 
 !!! warning "Interpretação responsável"
     Quantidade de commits, linhas alteradas e tempo online são sinais de
