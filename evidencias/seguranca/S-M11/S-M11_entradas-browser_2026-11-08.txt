@@ -1,0 +1,37 @@
+firebase@11.3.1 | tarball SHA-512 matches yarn.lock
+  firestore exports {"types": "./firestore/dist/firestore/index.d.ts", "node": {"require": "./firestore/dist/index.cjs.js", "import": "./firestore/dist/index.mjs"}, "browser": {"require": "./firestore/dist/index.cjs.js", "import": "./firestore/dist/esm/index.esm.js"}, "default": "./firestore/dist/esm/index.esm.js"}
+   firestore/dist/esm/index.esm.js
+     export * from '@firebase/firestore';
+"@firebase/firestore@4.7.8" | tarball SHA-512 matches yarn.lock
+  main exports {"types": "./dist/index.d.ts", "node": {"require": "./dist/index.node.cjs.js", "import": "./dist/index.node.mjs"}, "react-native": "./dist/index.rn.js", "browser": {"require": "./dist/index.cjs.js", "import": "./dist/index.esm2017.js"}, "default": "./dist/index.esm2017.js"}
+   dist/index.esm2017.js
+     import { _registerComponent, registerVersion, _isFirebaseServerApp, _getProvider, getApp, _removeServiceInstance, SDK_VERSION } from '@firebase/app';
+     import { Component } from '@firebase/component';
+     import { Logger, LogLevel } from '@firebase/logger';
+     import { FirebaseError, createMockUserToken, getModularInstance, deepEqual, getDefaultEmulatorHostnameAndPort, isIndexedDBAvailable, getUA, isSafari } from '@firebase/util';
+     import { Integer, Md5 } from '@firebase/webchannel-wrapper/bloom-blob';
+     import { XhrIo, EventType, ErrorCode, createWebChannelTransport, getStatEventTarget, WebChannel, Event, Stat } from '@firebase/webchannel-wrapper/webchannel-blob';
+   dist/index.node.mjs
+     import { _getProvider, getApp, _removeServiceInstance, _registerComponent, registerVersion, _isFirebaseServerApp, SDK_VERSION as SDK_VERSION$1 } from '@firebase/app';
+     import { Component } from '@firebase/component';
+     import { Logger, LogLevel } from '@firebase/logger';
+     import { inspect, TextEncoder, TextDecoder } from 'util';
+     import { FirebaseError, createMockUserToken, getModularInstance, deepEqual, getDefaultEmulatorHostnameAndPort, isIndexedDBAvailable, getUA, isSafari } from '@firebase/util';
+     import { randomBytes as randomBytes$1 } from 'crypto';
+     import { Integer, Md5 } from '@firebase/webchannel-wrapper/bloom-blob';
+     import * as grpc from '@grpc/grpc-js';
+     import * as protoLoader from '@grpc/proto-loader';
+engine.io-client@~6.5.2 | tarball SHA-512 matches yarn.lock
+  browser replacement ./build/esm/transports/websocket-constructor.browser.js
+   build/esm/transports/websocket-constructor.js
+     import ws from "ws";
+   build/esm/transports/websocket-constructor.browser.js
+     import { globalThisShim as globalThis } from "../globalThis.js";
+socket.io-client@4.7.2 | tarball SHA-512 matches yarn.lock
+   build/esm/manager.js
+     import { Socket as Engine, installTimerFunctions, nextTick, } from "engine.io-client";
+     import { Socket } from "./socket.js";
+     import * as parser from "socket.io-parser";
+     import { on } from "./on.js";
+     import { Backoff } from "./contrib/backo2.js";
+     import { Emitter, } from "@socket.io/component-emitter";
