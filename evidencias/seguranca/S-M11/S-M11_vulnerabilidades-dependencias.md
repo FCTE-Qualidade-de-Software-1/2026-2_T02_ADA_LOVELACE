@@ -17,6 +17,8 @@
 
 Contagem de avisos de vulnerabilidades conhecidas em dependências da aplicação web gratuita. A auditoria usou o grafo do monorepo resolvido a partir do `yarn.lock` v1 original. Para pontuar a S-M11, o recorte é o das dependências ligadas ao cliente web por meio dos manifestos e do código do app e do editor. A análise também registra o grafo declarado e a consulta completa do monorepo.
 
+A seção 2 do [roteiro GQM](../../../docs/analise/roteiro.md#2-produto-contexto-e-escopo) define o objeto como a aplicação web colaborativa e inclui seu uso no navegador. Como O2/S-Q6 pergunta pela resistência dessa aplicação, a pontuação usa as dependências ligadas ao cliente web no commit fixado. A consulta completa é a base para verificar a cobertura do levantamento, e a contagem do grafo declarado mostra o efeito das exclusões. Os dois recortes complementares estão na seção 5.1.
+
 ## 3. Procedimento
 
 1. Na raiz do checkout oficial, conferir o SHA e o `yarn.lock`. Usar o Yarn 1.22.22 declarado no manifesto raiz via Corepack. A auditoria resolve o grafo com o lockfile existente e os manifestos, sem etapa de instalação nem geração de lockfile.
@@ -102,7 +104,7 @@ A listagem de arquivos versionados no checkout fixado não contém `package-lock
 
 Os recortes não são aditivos. Um aviso pode atingir versões em mais de um caminho. A linha do monorepo completo usa o grafo que o Yarn montou com o lockfile raiz. A unidade de análise é o grafo resolvido, e os lockfiles próprios de `dev-docs` e `examples/with-nextjs` ficaram fora da consulta. O aviso sobre `@excalidraw/excalidraw` como pacote publicado foi registrado na saída bruta e excluído da pontuação de dependências.
 
-O recorte do cliente web reteve os caminhos para `@babel/runtime@7.26.9`, `nanoid@3.3.3`, `nanoid@4.0.2` e `socket.io-parser@4.2.4`. O Firestore do navegador usa WebChannel, o app não importa Realtime Database ou os módulos de compatibilidade, e o Engine.IO substitui o construtor baseado em `ws` pelo WebSocket do navegador. Essas cadeias ficaram fora da pontuação do cliente web. Os dois críticos excluídos vieram de `protobufjs` na cadeia Node.js do Firestore e de `websocket-driver` na cadeia de Realtime Database.
+O recorte do cliente web reteve os caminhos para `@babel/runtime@7.26.9`, `nanoid@3.3.3`, `nanoid@4.0.2` e `socket.io-parser@4.2.4`. A análise estática manteve no recorte as entradas do Firebase importadas pelo app. O Firestore para navegador usa WebChannel. O caminho Node.js do Firestore, que traz gRPC, `proto-loader` e `protobufjs`, ficou fora da pontuação do cliente web. A busca no código também deixou fora os caminhos do Realtime Database e dos módulos de compatibilidade, incluindo `faye-websocket` e `websocket-driver`. O Engine.IO mapeia o construtor baseado em `ws` para o WebSocket do navegador. Os dois críticos excluídos vieram de `protobufjs` e `websocket-driver`. Essas exclusões descrevem as entradas e os caminhos resolvidos no código, conforme C6 e E5. A composição do bundle implantado exigiria evidência do artefato de produção.
 
 | Severidade Yarn | Pacote e versões no recorte | Aviso |
 | --- | --- | --- |
