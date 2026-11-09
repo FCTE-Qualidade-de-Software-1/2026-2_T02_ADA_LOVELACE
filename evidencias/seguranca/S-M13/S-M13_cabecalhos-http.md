@@ -107,7 +107,7 @@ HEALTHCHECK CMD wget -q -O /dev/null http://localhost || exit 1
 | E1 | `S-M13_curl-headers-excalidraw_2026-11-04.txt` | saída de comando | Resposta completa de `https://excalidraw.com` |
 | E2 | `S-M13_buscas-cabecalhos-repo_2026-11-04.txt` | saída de comando | Buscas no repositório sem nenhuma ocorrência |
 | E3 | `S-M13_securityheaders-grade_2026-11-04.txt` | saída de comando | Tentativa por `curl`, bloqueada pelo Cloudflare (403) |
-| E4 | `S-M13_securityheaders_2026-11-04.png` | print | **Pendente:** abrir `https://securityheaders.com/?q=excalidraw.com&followRedirects=on` no navegador e printar a nota |
+| E4 | `S-M13_securityheaders_2026-11-09.png` e `S-M13_securityheaders-raw_2026-11-09.png` | print | Nota **C** em `https://securityheaders.com/?q=excalidraw.com&followRedirects=on` (2026-11-09 20:19:05 UTC), com CSP, X-Frame-Options e Permissions-Policy em falta, e os cabeçalhos brutos |
 
 ### 4.3 Buscas sem resultado
 
@@ -140,13 +140,13 @@ HEALTHCHECK CMD wget -q -O /dev/null http://localhost || exit 1
 
 | Valor medido | Regra da métrica | Pontuação (0–2) |
 | --- | --- | --- |
-| 3 de 6 cabeçalhos. Nota esperada **D**, que precisa ser confirmada pelo print E4 | 2 = A ou A+; 1 = B ou C; 0 = D, E ou F | **0** (provisória) |
+| 3 de 6 cabeçalhos. Nota **C** no securityheaders.com (print E4) | 2 = A ou A+; 1 = B ou C; 0 = D, E ou F | **1** |
 
-**Justificativa:** faltam três dos seis cabeçalhos, incluindo CSP e proteção contra framing. Com esse conjunto o securityheaders.com costuma dar D, o que corresponde a 0. Se o print mostrar B ou C, a nota sobe para 1.
+**Justificativa:** faltam três dos seis cabeçalhos, incluindo CSP e proteção contra framing, e o securityheaders.com dá nota C, que corresponde a 1.
 
 ## 6. Observações e limitações
 
-- A nota do securityheaders.com não pôde ser coletada por linha de comando por causa do desafio do Cloudflare. Só o print E4 fecha a métrica.
+- A nota do securityheaders.com não pôde ser coletada por linha de comando por causa do desafio do Cloudflare. Ela foi tirada no navegador em 2026-11-09 (print E4).
 - O HSTS só aparece porque a Vercel o adiciona. Quem hospedar pelo `Dockerfile` (nginx) não recebe nenhum dos cabeçalhos do `vercel.json`, nem HSTS. Não subi a imagem Docker para medir, porque o build completo é demorado. Fica como possível verificação extra.
 - `Feature-Policy: *` está obsoleto e é permissivo. O securityheaders.com não o aceita no lugar de Permissions-Policy.
 - `public/_headers` libera `Access-Control-Allow-Origin: *`, mas na resposta da Vercel vale o valor restrito do `vercel.json`.
@@ -154,9 +154,7 @@ HEALTHCHECK CMD wget -q -O /dev/null http://localhost || exit 1
 
 ## 7. Achado (preencher só se a pontuação for 0)
 
-| ID | Métrica | Evidência reproduzível | Pontuação | Impacto (Baixo/Médio/Alto) | Recomendação |
-| --- | --- | --- | --- | --- | --- |
-| A-__ | S-M13 | E1 (`curl -sI https://excalidraw.com`), C1 a C4 e tabela 5.1: faltam CSP, X-Frame-Options e Permissions-Policy | 0 (provisória) | Médio | Adicionar ao `vercel.json` uma CSP (pelo menos `default-src 'self'`, `frame-ancestors 'self'` e `object-src 'none'`, liberando os domínios de Firebase, socket e IA), `X-Frame-Options: SAMEORIGIN`, `Permissions-Policy` restritiva no lugar de `Feature-Policy: *`, e replicar os cabeçalhos numa configuração de nginx para a imagem Docker |
+Não se aplica (pontuação 1). Fica como oportunidade: adicionar ao `vercel.json` uma CSP (pelo menos `default-src 'self'`, `frame-ancestors 'self'` e `object-src 'none'`, liberando os domínios de Firebase, socket e IA), `X-Frame-Options: SAMEORIGIN`, `Permissions-Policy` restritiva no lugar de `Feature-Policy: *`, e replicar os cabeçalhos numa configuração de nginx para a imagem Docker.
 
 ## 8. Contribuição para a questão
 
