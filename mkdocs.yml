@@ -74,6 +74,14 @@ nav:
       - Segurança:
           - S-M1 · Mensagens cifradas: resultados/seguranca/s-m1.md
           - S-M2 · Chave enviada ao servidor: resultados/seguranca/s-m2.md
+          - S-M9 · Suficiência da autenticação: resultados/seguranca/s-m9.md
+          - S-M13 · Cabeçalhos HTTP: resultados/seguranca/s-m13.md
+      - Flexibilidade:
+          - F-M10 · Formatos de exportação: resultados/flexibilidade/f-m10.md
+          - F-M12 · Formatos de importação: resultados/flexibilidade/f-m12.md
+      - Capacidade de interação:
+          - CI-M18 · Mensagens de erro: resultados/capacidade-interacao/ci-m18.md
+          - CI-M26 · Tradução para o português: resultados/capacidade-interacao/ci-m26.md
   - Gestão:
       - Métricas de desenvolvimento: gestao/metricas.md
       - Cronograma: gestao/cronograma.md

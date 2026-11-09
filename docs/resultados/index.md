@@ -5,13 +5,6 @@ Notas das métricas no commit
 do Excalidraw. Só as métricas já coletadas têm nota. Os critérios estão no
 [roteiro da análise](../analise/roteiro.md).
 
-[sm9]: https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/tree/main/evidencias/seguranca/S-M9
-[sm13]: https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/tree/main/evidencias/seguranca/S-M13
-[fm10]: https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/flexibilidade/F-M10_formatos-exportacao.md
-[fm12]: https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/flexibilidade/F-M12_formatos-importacao.md
-[cim18]: https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M18_mensagens-de-erro.md
-[cim26]: https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M26_idiomas-traducao-pt-BR.md
-
 ## Segurança
 
 | Métrica | Valor medido | Nota (0–2) |
@@ -24,11 +17,11 @@ do Excalidraw. Só as métricas já coletadas têm nota. Os critérios estão no
 | S-M6 · Inconsistências após edições simultâneas | — | — |
 | S-M7 · Completude da trilha de auditoria | — | — |
 | S-M8 · Histórico de versões com autoria | — | — |
-| [S-M9 · Suficiência da autenticação][sm9] | Nome autodeclarado | **1** |
+| [S-M9 · Suficiência da autenticação](seguranca/s-m9.md) | Nome autodeclarado | **1** |
 | S-M10 · Passar-se por outro participante | — | — |
 | S-M11 · Vulnerabilidades altas ou críticas nas dependências | — | — |
 | S-M12 · Advisories, CVEs e tempo de correção | — | — |
-| [S-M13 · Cabeçalhos de segurança HTTP][sm13] | 3 de 6 cabeçalhos (D esperado) | **0** (provisória) |
+| [S-M13 · Cabeçalhos de segurança HTTP](seguranca/s-m13.md) | 3 de 6 cabeçalhos (nota C) | **1** |
 
 ## Flexibilidade
 
@@ -43,9 +36,9 @@ do Excalidraw. Só as métricas já coletadas têm nota. Os critérios estão no
 | F-M7 · Inclusão funcional | — | — |
 | F-M8 · Razão de tempo de tarefa | — | — |
 | F-M9 · Conclusão de tarefas por quem vem de outra ferramenta | — | — |
-| [F-M10 · Cobertura de formatos de exportação][fm10] | 60% | **1** |
+| [F-M10 · Cobertura de formatos de exportação](flexibilidade/f-m10.md) | 60% | **1** |
 | F-M11 · Fidelidade de migração | — | — |
-| [F-M12 · Formatos de importação aceitos][fm12] | 4 formatos | **2** |
+| [F-M12 · Formatos de importação aceitos](flexibilidade/f-m12.md) | 4 formatos | **2** |
 
 ## Capacidade de interação
 
@@ -68,7 +61,7 @@ do Excalidraw. Só as métricas já coletadas têm nota. Os critérios estão no
 | CI-M15 · Ações destrutivas sem confirmação | — | — |
 | CI-M16 · Perda de dados ao fechar ou recarregar | — | — |
 | CI-M17 · Taxa de erro do usuário | — | — |
-| [CI-M18 · Mensagens de erro compreensíveis][cim18] | 44% | **0** |
+| [CI-M18 · Mensagens de erro compreensíveis](capacidade-interacao/ci-m18.md) | 44% | **0** |
 | CI-M19 · Escore SUS | — | — |
 | CI-M20 · Satisfação visual | — | — |
 | CI-M21 · Intenção de uso futuro | — | — |
@@ -76,4 +69,4 @@ do Excalidraw. Só as métricas já coletadas têm nota. Os critérios estão no
 | CI-M23 · Funções operáveis só pelo teclado | — | — |
 | CI-M24 · Elementos anunciados por leitor de tela | — | — |
 | CI-M25 · Contraste mínimo de 4,5:1 | — | — |
-| [CI-M26 · Idiomas e tradução para o português][cim26] | 92,5% | **1** |
+| [CI-M26 · Idiomas e tradução para o português](capacidade-interacao/ci-m26.md) | 92,5% | **1** |
