@@ -1,0 +1,72 @@
+Inspeção do SHA fixado e do master consultado
+
+e7b534668a60add7f725531f3c9abf32508c7b4e 2026-10-28T16:29:35+01:00 ci(repo): measure each master commit against the one before it (#12484)
+701b901a0f1ba3d0b390d9cdf63d112e25abac4b 2026-11-05T18:10:20+01:00 docs(repo): redirect the bare docs.excalidraw.com root too (#12559)
+14bb42edee3d6fee6be264e3ee78670b3b9cee79 2026-10-27T17:35:28+01:00 feat(editor): lay Mermaid diagrams out with Pele (mermaid-to-excalidraw v3) (#12480)
+mermaid_v3_ancestor_exit=0
+dd2f8fc32b92cbf56f4abee6a0cf3b14681b4b55 2026-11-03T09:20:50+01:00 fix(editor): don't clip arrows to their frames (#12516)
+history_pattern_exit=0
+HEAD:packages/excalidraw/components/App.tsx:1809:          isIframeElement(el),
+HEAD:packages/excalidraw/components/App.tsx:1842:          if (isIframeElement(el)) {
+HEAD:packages/excalidraw/components/App.tsx:1845:            const data: MagicGenerationData = (el.customData?.generationData ??
+HEAD:packages/excalidraw/components/App.tsx:2050:                        srcDoc={
+HEAD:packages/excalidraw/components/App.tsx:2068:                        } allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-downloads`}
+HEAD:packages/excalidraw/data/blob.ts:163:      const elements = restoreElements(data.elements, localElements, {
+HEAD:packages/excalidraw/data/restore.ts:518:    base.customData =
+HEAD:packages/excalidraw/data/restore.ts:743:    case "iframe":
+origin/master:packages/excalidraw/components/App.tsx:1814:          isIframeElement(el),
+origin/master:packages/excalidraw/components/App.tsx:1847:          if (isIframeElement(el)) {
+origin/master:packages/excalidraw/components/App.tsx:1850:            const data: MagicGenerationData = (el.customData?.generationData ??
+origin/master:packages/excalidraw/components/App.tsx:2055:                        srcDoc={
+origin/master:packages/excalidraw/components/App.tsx:2073:                        } allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-downloads`}
+origin/master:packages/excalidraw/data/blob.ts:163:      const elements = restoreElements(data.elements, localElements, {
+origin/master:packages/excalidraw/data/restore.ts:518:    base.customData =
+origin/master:packages/excalidraw/data/restore.ts:743:    case "iframe":
+grep_code_paths_exit=0
+HEAD:yarn.lock:1484:"@excalidraw/mermaid-to-excalidraw@3.0.0":
+HEAD:yarn.lock:7628:pele@1.8.0:
+d71914ff6d4044c580cc4a51cf8148b2ddc5e06d	refs/tags/v0.16.4
+1863da44053dcf95aa4be0891065e8a580002de6	refs/tags/v0.16.4^{}
+f1640710aae577cafb3c52ab2bf255a460c3ebf1	refs/tags/v0.17.6
+0dbd2a39319d41fda37b2945dea0dcbd58d6a564	refs/tags/v0.17.6^{}
+a2ec2889babf7d2295469c6d90ebe77fae57df84	refs/tags/v0.18.1
+
+Tags e commits das correções publicadas
+
+1863da44053dcf95aa4be0891065e8a580002de6 2024-04-17T22:31:06+02:00 v0.16.4
+0dbd2a39319d41fda37b2945dea0dcbd58d6a564 2024-04-17T21:57:24+02:00 v0.17.6
+a2ec2889babf7d2295469c6d90ebe77fae57df84 2026-04-20T22:30:38+02:00 fix: backport mermaid xss fix to 0.18.1
+b33fa6d6f64d27adc3a47b25c0aa55711740d0af 2023-06-29T12:14:42+02:00 fix: stronger enforcement of normalizeLink (#6728)
+links_fix_ancestor_exit=0
+0dbd2a39319d41fda37b2945dea0dcbd58d6a564 2024-04-17T21:57:24+02:00 v0.17.6
+988f81911ca58e3ca2583e0dd44a954dd00e09d0 2024-04-17T21:56:52+02:00 fix: allow same origin for all necessary domains (#7889)
+db4770ed8354ab9155f983b244c4a590a36f749c 2024-04-12T20:11:07+02:00 v0.17.5
+58338e54c928ba3ba45ebf98202ed88ec6cfb7b1 2024-04-12T20:08:04+02:00 fix: parse embeddable srcdoc urls strictly & escape attribute url html
+640caba73902c94bf2ad08ff1439b6925c5c74e4 2024-04-12T14:57:03+02:00 v0.17.4
+2879c9d85269539043eb23b15afa49fccce95c6a 2024-04-12T13:58:38+02:00 fix: Gist embed allowing unsafe html (#7883)
+81046ccd6b5d7e81786df6e7c253be4b143fa3fd 2024-02-09T19:01:52+05:30 fix: keep customData when converting to ExcalidrawElement (#7656)
+1863da44053dcf95aa4be0891065e8a580002de6 2024-04-17T22:31:06+02:00 v0.16.4
+6be752e1b6d776ccfbd3bb9eea17463cb264121d 2024-04-17T22:30:16+02:00 fix: allow same origin for all necessary domains (#7889)
+7ba029807a166571542c434d89e31e5de8708046 2024-04-12T20:18:51+02:00 v0.16.3
+b4d9ad4f3c9c7e1203b4d15e86a0987d7e171a0f 2024-04-12T20:18:02+02:00 fix: parse embeddable srcdoc urls strictly & escape attribute url html
+3ae8af5a132e3229999389fbbf043b666a912d9f 2024-04-12T20:15:53+02:00 v0.16.2
+053ca9058a0c19d8469cf365f1a45b193fb2bc3c 2024-04-12T15:14:18+02:00 fix: Gist embed allowing unsafe html (#7883)
+f8b3692262e81a33cf16b727ea770b1a5ae0dd38 2023-09-21T09:54:03+05:30 fix: more eye-droper fixes (#7019)
+a2ec2889babf7d2295469c6d90ebe77fae57df84 2026-04-20T22:30:38+02:00 fix: backport mermaid xss fix to 0.18.1
+817d8c553c3389650f8b4503984a6d4a5d2f0c11 2025-03-11T13:44:10+01:00 docs: update CHANGELOG (#9243)
+69bc5bdaab1fe0064a7db085535748f7eab5f181 2025-03-11T13:02:59+01:00 chore: post publish docs & examples changes (#9217)
+d587b8a3de6ce8b4ae1bd7578210977ab99fddb7 2025-03-10T16:25:33+01:00 fix: Do not rebind undragged elbow arrow endpoint (#9191)
+ packages/excalidraw/components/App.tsx | 59 ++++++++++++++++++----------------
+ 1 file changed, 32 insertions(+), 27 deletions(-)
+
+Testes de ancestralidade no commit fixado
+
+da2e5072981817033423c74cfffb4e30ec5c08ba 2024-04-13T18:51:30+02:00 fix: allow same origin for all necessary domains (#7889)
+afcde542f9e991b4b671df191aa155e1ebee6006 2024-04-12T20:51:17+02:00 fix: parse embeddable srcdoc urls strictly (#7884)
+0ae9b383d61d8489fa6903284fb45cc0b0b72c25 2024-04-12T12:57:43+02:00 fix: Gist embed allowing unsafe html (#7883)
+b33fa6d6f64d27adc3a47b25c0aa55711740d0af ancestor_of_pinned_exit=0
+0ae9b383d61d8489fa6903284fb45cc0b0b72c25 ancestor_of_pinned_exit=0
+afcde542f9e991b4b671df191aa155e1ebee6006 ancestor_of_pinned_exit=0
+da2e5072981817033423c74cfffb4e30ec5c08ba ancestor_of_pinned_exit=0
+14bb42edee3d6fee6be264e3ee78670b3b9cee79 ancestor_of_pinned_exit=0
+a2ec2889babf7d2295469c6d90ebe77fae57df84 ancestor_of_pinned_exit=1

@@ -1,0 +1,947 @@
+[
+  {
+    "source": "repo",
+    "url": "https://api.github.com/repos/excalidraw/excalidraw/security-advisories?state=published&per_page=100",
+    "start": "2026-11-08T19:28:40.7081233-03:00",
+    "status": 200,
+    "link": "",
+    "length": 10079,
+    "recorte_da_resposta": [
+      {
+        "ghsa_id": "GHSA-39h7-pwv7-rc3x",
+        "cve_id": "CVE-2025-54881",
+        "severity": "medium",
+        "html_url": "https://github.com/excalidraw/excalidraw/security/advisories/GHSA-39h7-pwv7-rc3x",
+        "published_at": "2026-04-21T12:35:56Z",
+        "updated_at": "2026-04-21T12:35:56Z",
+        "withdrawn_at": null,
+        "vulnerabilities": [
+          {
+            "package": {
+              "ecosystem": "npm",
+              "name": "@excalidraw/excalidraw"
+            },
+            "vulnerable_version_range": "= 0.18.0",
+            "patched_versions": "0.18.1",
+            "vulnerable_functions": []
+          },
+          {
+            "package": {
+              "ecosystem": "npm",
+              "name": "@excalidraw/mermaid-to-excalidraw"
+            },
+            "vulnerable_version_range": ">= 0.3.0, < 1.1.3",
+            "patched_versions": "1.1.3",
+            "vulnerable_functions": []
+          }
+        ]
+      },
+      {
+        "ghsa_id": "GHSA-m64q-4jqh-f72f",
+        "cve_id": "CVE-2024-32472",
+        "severity": "medium",
+        "html_url": "https://github.com/excalidraw/excalidraw/security/advisories/GHSA-m64q-4jqh-f72f",
+        "published_at": "2024-04-17T21:15:16Z",
+        "updated_at": "2024-04-17T21:18:46Z",
+        "withdrawn_at": null,
+        "vulnerabilities": [
+          {
+            "package": {
+              "ecosystem": "npm",
+              "name": "@excalidraw/excalidraw"
+            },
+            "vulnerable_version_range": ">=0.16.0 <0.17.6",
+            "patched_versions": "0.17.6, 0.16.4",
+            "vulnerable_functions": []
+          }
+        ]
+      },
+      {
+        "ghsa_id": "GHSA-v7v8-gjv7-ffmr",
+        "cve_id": "CVE-2023-26140",
+        "severity": "medium",
+        "html_url": "https://github.com/excalidraw/excalidraw/security/advisories/GHSA-v7v8-gjv7-ffmr",
+        "published_at": "2023-08-16T15:03:39Z",
+        "updated_at": "2023-08-16T15:03:39Z",
+        "withdrawn_at": null,
+        "vulnerabilities": [
+          {
+            "package": {
+              "ecosystem": "npm",
+              "name": "@excalidraw/excalidraw"
+            },
+            "vulnerable_version_range": "< 0.15.3",
+            "patched_versions": "0.15.3",
+            "vulnerable_functions": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "global",
+    "url": "https://api.github.com/advisories?ecosystem=npm&affects=%40excalidraw%2Fexcalidraw,%40excalidraw%2Fmermaid-to-excalidraw&type=reviewed&per_page=100",
+    "start": "2026-11-08T19:28:41.3193126-03:00",
+    "status": 200,
+    "link": "",
+    "length": 10575,
+    "recorte_da_resposta": [
+      {
+        "ghsa_id": "GHSA-39h7-pwv7-rc3x",
+        "cve_id": null,
+        "severity": "medium",
+        "type": "reviewed",
+        "html_url": "https://github.com/advisories/GHSA-39h7-pwv7-rc3x",
+        "published_at": "2026-04-24T20:41:51Z",
+        "updated_at": "2026-04-24T20:41:54Z",
+        "withdrawn_at": null,
+        "vulnerabilities": [
+          {
+            "package": {
+              "ecosystem": "npm",
+              "name": "@excalidraw/excalidraw"
+            },
+            "vulnerable_version_range": "= 0.18.0",
+            "first_patched_version": "0.18.1",
+            "vulnerable_functions": []
+          },
+          {
+            "package": {
+              "ecosystem": "npm",
+              "name": "@excalidraw/mermaid-to-excalidraw"
+            },
+            "vulnerable_version_range": ">= 0.3.0, < 1.1.3",
+            "first_patched_version": "1.1.3",
+            "vulnerable_functions": []
+          }
+        ]
+      },
+      {
+        "ghsa_id": "GHSA-m64q-4jqh-f72f",
+        "cve_id": "CVE-2024-32472",
+        "severity": "medium",
+        "type": "reviewed",
+        "html_url": "https://github.com/advisories/GHSA-m64q-4jqh-f72f",
+        "published_at": "2024-04-17T21:32:57Z",
+        "updated_at": "2024-04-18T00:31:05Z",
+        "withdrawn_at": null,
+        "vulnerabilities": [
+          {
+            "package": {
+              "ecosystem": "npm",
+              "name": "@excalidraw/excalidraw"
+            },
+            "vulnerable_version_range": ">= 0.16.0, < 0.16.4",
+            "first_patched_version": "0.16.4",
+            "vulnerable_functions": []
+          },
+          {
+            "package": {
+              "ecosystem": "npm",
+              "name": "@excalidraw/excalidraw"
+            },
+            "vulnerable_version_range": ">= 0.17.0, < 0.17.6",
+            "first_patched_version": "0.17.6",
+            "vulnerable_functions": []
+          }
+        ]
+      },
+      {
+        "ghsa_id": "GHSA-v7v8-gjv7-ffmr",
+        "cve_id": "CVE-2023-26140",
+        "severity": "medium",
+        "type": "reviewed",
+        "html_url": "https://github.com/advisories/GHSA-v7v8-gjv7-ffmr",
+        "published_at": "2023-08-16T21:00:33Z",
+        "updated_at": "2023-08-16T21:00:33Z",
+        "withdrawn_at": null,
+        "vulnerabilities": [
+          {
+            "package": {
+              "ecosystem": "npm",
+              "name": "@excalidraw/excalidraw"
+            },
+            "vulnerable_version_range": "< 0.15.3",
+            "first_patched_version": "0.15.3",
+            "vulnerable_functions": []
+          }
+        ]
+      },
+      {
+        "ghsa_id": "GHSA-fr9g-2m2h-c27j",
+        "cve_id": null,
+        "severity": "medium",
+        "type": "reviewed",
+        "html_url": "https://github.com/advisories/GHSA-fr9g-2m2h-c27j",
+        "published_at": "2023-08-16T06:30:24Z",
+        "updated_at": "2023-11-09T05:06:20Z",
+        "withdrawn_at": "2023-08-16T21:00:20Z",
+        "vulnerabilities": [
+          {
+            "package": {
+              "ecosystem": "npm",
+              "name": "@excalidraw/excalidraw"
+            },
+            "vulnerable_version_range": "< 0.15.3",
+            "first_patched_version": "0.15.3",
+            "vulnerable_functions": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "cveGlobal",
+    "url": "https://api.github.com/advisories?cve_id=CVE-2026-97224&type=unreviewed&per_page=100",
+    "start": "2026-11-08T19:28:41.7860658-03:00",
+    "status": 200,
+    "link": "",
+    "length": 2003,
+    "recorte_da_resposta": [
+      {
+        "ghsa_id": "GHSA-v2vq-3h6w-9r3c",
+        "cve_id": "CVE-2026-97224",
+        "severity": "low",
+        "type": "unreviewed",
+        "html_url": "https://github.com/advisories/GHSA-v2vq-3h6w-9r3c",
+        "published_at": "2026-09-24T15:31:36Z",
+        "updated_at": "2026-09-24T15:31:41Z",
+        "withdrawn_at": null,
+        "vulnerabilities": []
+      }
+    ]
+  },
+  {
+    "source": "release0181",
+    "url": "https://api.github.com/repos/excalidraw/excalidraw/releases/tags/v0.18.1",
+    "start": "2026-11-08T19:28:42.1636181-03:00",
+    "status": 200,
+    "link": "",
+    "length": 2266,
+    "recorte_da_resposta": {
+      "tag_name": "v0.18.1",
+      "html_url": "https://github.com/excalidraw/excalidraw/releases/tag/v0.18.1",
+      "target_commitish": "0.18.1",
+      "draft": false,
+      "prerelease": false,
+      "created_at": "2026-04-20T20:30:38Z",
+      "published_at": "2026-04-21T08:43:20Z"
+    }
+  },
+  {
+    "source": "issue11930",
+    "url": "https://api.github.com/repos/excalidraw/excalidraw/issues/11930",
+    "start": "2026-11-08T19:28:42.5006925-03:00",
+    "status": 200,
+    "link": "",
+    "length": 7252,
+    "recorte_da_resposta": {
+      "number": 11930,
+      "title": "Security: iframe element type rendered without validation, enabling open redirect via collaboration",
+      "state": "open",
+      "html_url": "https://github.com/excalidraw/excalidraw/issues/11930",
+      "created_at": "2026-08-21T15:05:28Z",
+      "updated_at": "2026-08-31T15:20:21Z",
+      "closed_at": null
+    }
+  },
+  {
+    "source": "pr12019",
+    "url": "https://api.github.com/repos/excalidraw/excalidraw/pulls/12019",
+    "start": "2026-11-08T19:28:42.8792148-03:00",
+    "status": 200,
+    "link": "",
+    "length": 18588,
+    "recorte_da_resposta": {
+      "number": 12019,
+      "title": "fix(packages/excalidraw): gate iframe rendering behind validation to prevent phishing via collaboration (#11930)",
+      "state": "open",
+      "html_url": "https://github.com/excalidraw/excalidraw/pull/12019",
+      "created_at": "2026-08-31T11:45:14Z",
+      "updated_at": "2026-09-08T13:51:20Z",
+      "closed_at": null,
+      "merged_at": null,
+      "merge_commit_sha": null,
+      "head_sha": "c8a0de9d3d5f48f9d52324524ddd9954d7e94495"
+    }
+  },
+  {
+    "source": "nvd",
+    "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?keywordSearch=excalidraw&resultsPerPage=100",
+    "start": "2026-11-08T19:28:43.3483580-03:00",
+    "status": 200,
+    "link": "",
+    "length": 12483,
+    "recorte_da_resposta": {
+      "resultsPerPage": 3,
+      "startIndex": 0,
+      "totalResults": 3,
+      "timestamp": "2026-11-08T22:28:42.889",
+      "cves": [
+        {
+          "id": "CVE-2024-32472",
+          "sourceIdentifier": "security-advisories@github.com",
+          "published": "2024-04-17T22:15:08.557",
+          "lastModified": "2026-06-17T07:29:41.680",
+          "vulnStatus": "Deferred",
+          "references": [
+            {
+              "url": "https://github.com/excalidraw/excalidraw/commit/6be752e1b6d776ccfbd3bb9eea17463cb264121d",
+              "source": "security-advisories@github.com"
+            },
+            {
+              "url": "https://github.com/excalidraw/excalidraw/commit/988f81911ca58e3ca2583e0dd44a954dd00e09d0",
+              "source": "security-advisories@github.com"
+            },
+            {
+              "url": "https://github.com/excalidraw/excalidraw/security/advisories/GHSA-m64q-4jqh-f72f",
+              "source": "security-advisories@github.com"
+            },
+            {
+              "url": "https://github.com/excalidraw/excalidraw/commit/6be752e1b6d776ccfbd3bb9eea17463cb264121d",
+              "source": "af854a3a-2127-422b-91ae-364da2661108"
+            },
+            {
+              "url": "https://github.com/excalidraw/excalidraw/commit/988f81911ca58e3ca2583e0dd44a954dd00e09d0",
+              "source": "af854a3a-2127-422b-91ae-364da2661108"
+            },
+            {
+              "url": "https://github.com/excalidraw/excalidraw/security/advisories/GHSA-m64q-4jqh-f72f",
+              "source": "af854a3a-2127-422b-91ae-364da2661108"
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-30587",
+          "sourceIdentifier": "cve@mitre.org",
+          "published": "2026-03-25T18:16:31.793",
+          "lastModified": "2026-06-17T10:32:49.470",
+          "vulnStatus": "Modified",
+          "references": [
+            {
+              "url": "https://gist.github.com/gabdevele/1b7e30ab367b26042fa32f45aa12ce2f",
+              "source": "cve@mitre.org",
+              "tags": [
+                "Exploit",
+                "Third Party Advisory"
+              ]
+            },
+            {
+              "url": "https://github.com/haiwen/seadoc-editor/commit/8fa988aaede072b2ae073d1b2edcb2fc691423b2",
+              "source": "cve@mitre.org",
+              "tags": [
+                "Patch"
+              ]
+            },
+            {
+              "url": "https://github.com/haiwen/seahub/commit/4c5301747bdb84c64b2f2b3230417df2d1cc8987",
+              "source": "cve@mitre.org",
+              "tags": [
+                "Patch"
+              ]
+            },
+            {
+              "url": "https://manual.seafile.com/12.0/changelog/changelog-for-seafile-professional-server/",
+              "source": "cve@mitre.org",
+              "tags": [
+                "Release Notes"
+              ]
+            },
+            {
+              "url": "https://manual.seafile.com/13.0/changelog/changelog-for-seafile-professional-server/",
+              "source": "cve@mitre.org",
+              "tags": [
+                "Release Notes"
+              ]
+            },
+            {
+              "url": "https://manual.seafile.com/13.0/changelog/server-changelog/",
+              "source": "cve@mitre.org",
+              "tags": [
+                "Release Notes"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "CVE-2026-97224",
+          "sourceIdentifier": "cna@vuldb.com",
+          "published": "2026-09-24T15:18:01.227",
+          "lastModified": "2026-09-24T21:04:40.340",
+          "vulnStatus": "Awaiting Analysis",
+          "references": [
+            {
+              "url": "https://vuldb.com/cve/CVE-2026-97224",
+              "source": "cna@vuldb.com"
+            },
+            {
+              "url": "https://vuldb.com/submit/907811",
+              "source": "cna@vuldb.com"
+            },
+            {
+              "url": "https://vuldb.com/vuln/409318",
+              "source": "cna@vuldb.com"
+            },
+            {
+              "url": "https://vuldb.com/vuln/409318/cti",
+              "source": "cna@vuldb.com"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "source": "nvdExact",
+    "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-97224",
+    "start": "2026-11-08T19:28:44.1241635-03:00",
+    "status": 200,
+    "link": "",
+    "length": 4281,
+    "recorte_da_resposta": {
+      "resultsPerPage": 1,
+      "startIndex": 0,
+      "totalResults": 1,
+      "timestamp": "2026-11-08T22:28:43.638",
+      "cves": [
+        {
+          "id": "CVE-2026-97224",
+          "sourceIdentifier": "cna@vuldb.com",
+          "published": "2026-09-24T15:18:01.227",
+          "lastModified": "2026-09-24T21:04:40.340",
+          "vulnStatus": "Awaiting Analysis",
+          "references": [
+            {
+              "url": "https://vuldb.com/cve/CVE-2026-97224",
+              "source": "cna@vuldb.com"
+            },
+            {
+              "url": "https://vuldb.com/submit/907811",
+              "source": "cna@vuldb.com"
+            },
+            {
+              "url": "https://vuldb.com/vuln/409318",
+              "source": "cna@vuldb.com"
+            },
+            {
+              "url": "https://vuldb.com/vuln/409318/cti",
+              "source": "cna@vuldb.com"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "source": "cve",
+    "url": "https://cveawg.mitre.org/api/cve/CVE-2026-97224",
+    "start": "2026-11-08T19:28:44.6545155-03:00",
+    "status": 200,
+    "link": "",
+    "length": 3509,
+    "recorte_da_resposta": {
+      "cveMetadata": {
+        "cveId": "CVE-2026-97224",
+        "assignerOrgId": "1af790b2-7ee1-4545-860a-a788eba489b5",
+        "state": "PUBLISHED",
+        "assignerShortName": "VulDB",
+        "dateReserved": "2026-09-24T09:43:39.888Z",
+        "datePublished": "2026-09-24T14:45:10.771Z",
+        "dateUpdated": "2026-09-24T15:47:43.087Z"
+      },
+      "cna": {
+        "affected": [
+          {
+            "vendor": "n/a",
+            "product": "Excalidraw",
+            "versions": [
+              {
+                "version": "0.18.0",
+                "status": "affected"
+              },
+              {
+                "version": "0.18.1",
+                "status": "affected"
+              }
+            ],
+            "cpes": [
+              "cpe:2.3:a:excalidraw:excalidraw:*:*:*:*:*:*:*:*"
+            ],
+            "modules": [
+              "Imported File Handler"
+            ]
+          }
+        ],
+        "timeline": [
+          {
+            "time": "2026-09-24T00:00:00.000Z",
+            "lang": "en",
+            "value": "Advisory disclosed"
+          },
+          {
+            "time": "2026-09-24T02:00:00.000Z",
+            "lang": "en",
+            "value": "VulDB entry created"
+          },
+          {
+            "time": "2026-09-24T11:48:45.000Z",
+            "lang": "en",
+            "value": "VulDB entry last update"
+          }
+        ],
+        "references": [
+          {
+            "url": "https://vuldb.com/vuln/409318",
+            "name": "VDB-409318 | Excalidraw Imported File restore.ts cross site scripting",
+            "tags": [
+              "vdb-entry",
+              "technical-description"
+            ]
+          },
+          {
+            "url": "https://vuldb.com/vuln/409318/cti",
+            "name": "VDB-409318 | CTI Indicators (IOB, IOC, TTP, IOA)",
+            "tags": [
+              "signature",
+              "permissions-required"
+            ]
+          },
+          {
+            "url": "https://vuldb.com/cve/CVE-2026-97224",
+            "name": "CVE-2026-97224 | CVE Analysis and Report",
+            "tags": [
+              "third-party-advisory"
+            ]
+          },
+          {
+            "url": "https://vuldb.com/submit/907811",
+            "name": "Submit #907811 | excalidraw Excalidraw 0.18.1 Stored XSS",
+            "tags": [
+              "third-party-advisory"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "source": "npm",
+    "url": "https://registry.npmjs.org/@excalidraw%2fexcalidraw",
+    "start": "2026-11-08T19:28:45.4277787-03:00",
+    "status": 200,
+    "link": "",
+    "length": 2000163,
+    "recorte_da_resposta": {
+      "dist-tags": {
+        "patch-v-0.10": "0.10.1",
+        "patch": "0.17.1",
+        "patch-0.16": "0.16.4",
+        "rc": "0.18.0-rc.7",
+        "preview": "0.18.0-a9e2d2348-preview-2",
+        "test": "0.5.0-a78d45417",
+        "latest": "0.18.1",
+        "next": "0.18.0-3c916c5"
+      },
+      "time": {
+        "0.15.3": "2023-08-16T13:59:10.979Z",
+        "0.16.4": "2024-04-17T20:39:36.364Z",
+        "0.17.6": "2024-04-17T20:19:42.007Z",
+        "0.18.0": "2025-03-10T20:50:46.431Z",
+        "0.18.1": "2026-04-20T20:24:36.743Z",
+        "0.18.0-3c916c5": "2026-11-04T20:26:46.460Z"
+      }
+    }
+  },
+  {
+    "source": "nvd202326140",
+    "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-26140",
+    "start": "2026-11-08T19:31:10.3162928-03:00",
+    "status": 200,
+    "link": "",
+    "length": 3187,
+    "recorte_da_resposta": {
+      "resultsPerPage": 1,
+      "startIndex": 0,
+      "totalResults": 1,
+      "timestamp": "2026-11-08T22:31:09.847",
+      "cves": [
+        {
+          "id": "CVE-2023-26140",
+          "sourceIdentifier": "report@snyk.io",
+          "published": "2023-08-16T05:15:09.810",
+          "lastModified": "2026-06-17T05:42:46.040",
+          "vulnStatus": "Modified",
+          "references": [
+            {
+              "url": "https://github.com/excalidraw/excalidraw/commit/b33fa6d6f64d27adc3a47b25c0aa55711740d0af",
+              "source": "report@snyk.io",
+              "tags": [
+                "Patch"
+              ]
+            },
+            {
+              "url": "https://github.com/excalidraw/excalidraw/pull/6728",
+              "source": "report@snyk.io",
+              "tags": [
+                "Issue Tracking"
+              ]
+            },
+            {
+              "url": "https://security.snyk.io/vuln/SNYK-JS-EXCALIDRAWEXCALIDRAW-5841658",
+              "source": "report@snyk.io",
+              "tags": [
+                "Third Party Advisory"
+              ]
+            },
+            {
+              "url": "https://github.com/excalidraw/excalidraw/commit/b33fa6d6f64d27adc3a47b25c0aa55711740d0af",
+              "source": "af854a3a-2127-422b-91ae-364da2661108",
+              "tags": [
+                "Patch"
+              ]
+            },
+            {
+              "url": "https://github.com/excalidraw/excalidraw/pull/6728",
+              "source": "af854a3a-2127-422b-91ae-364da2661108",
+              "tags": [
+                "Issue Tracking"
+              ]
+            },
+            {
+              "url": "https://security.snyk.io/vuln/SNYK-JS-EXCALIDRAWEXCALIDRAW-5841658",
+              "source": "af854a3a-2127-422b-91ae-364da2661108",
+              "tags": [
+                "Third Party Advisory"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "source": "nvd202554881",
+    "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2025-54881",
+    "start": "2026-11-08T19:31:11.0734339-03:00",
+    "status": 200,
+    "link": "",
+    "length": 3705,
+    "recorte_da_resposta": {
+      "resultsPerPage": 1,
+      "startIndex": 0,
+      "totalResults": 1,
+      "timestamp": "2026-11-08T22:31:10.943",
+      "cves": [
+        {
+          "id": "CVE-2025-54881",
+          "sourceIdentifier": "security-advisories@github.com",
+          "published": "2025-08-19T17:15:41.247",
+          "lastModified": "2026-06-17T09:40:51.563",
+          "vulnStatus": "Deferred",
+          "references": [
+            {
+              "url": "https://github.com/mermaid-js/mermaid/commit/5c69e5fdb004a6d0a2abe97e23d26e223a059832",
+              "source": "security-advisories@github.com"
+            },
+            {
+              "url": "https://github.com/mermaid-js/mermaid/commit/685516a85ec1df64cefd4fd15f26533be87d458e",
+              "source": "security-advisories@github.com"
+            },
+            {
+              "url": "https://github.com/mermaid-js/mermaid/security/advisories/GHSA-7rqq-prvp-x9jh",
+              "source": "security-advisories@github.com"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "source": "mermaidGHSA",
+    "url": "https://api.github.com/advisories/GHSA-7rqq-prvp-x9jh",
+    "start": "2026-11-08T19:31:11.7338146-03:00",
+    "status": 200,
+    "link": "",
+    "length": 9209,
+    "recorte_da_resposta": {
+      "ghsa_id": "GHSA-7rqq-prvp-x9jh",
+      "cve_id": "CVE-2025-54881",
+      "html_url": "https://github.com/advisories/GHSA-7rqq-prvp-x9jh",
+      "published_at": "2025-08-19T20:16:58Z",
+      "vulnerabilities": [
+        {
+          "package": {
+            "ecosystem": "npm",
+            "name": "mermaid"
+          },
+          "vulnerable_version_range": ">= 11.0.0-alpha.1, < 11.10.0",
+          "first_patched_version": "11.10.0",
+          "vulnerable_functions": []
+        },
+        {
+          "package": {
+            "ecosystem": "npm",
+            "name": "mermaid"
+          },
+          "vulnerable_version_range": ">= 10.9.0-rc.1, < 10.9.4",
+          "first_patched_version": "10.9.4",
+          "vulnerable_functions": []
+        }
+      ]
+    }
+  },
+  {
+    "source": "searchCve",
+    "url": "https://api.github.com/search/issues?q=repo%3Aexcalidraw%2Fexcalidraw+%22CVE-2026-97224%22&per_page=100",
+    "start": "2026-11-08T19:31:12.2330889-03:00",
+    "status": 200,
+    "link": "",
+    "length": 79,
+    "recorte_da_resposta": {
+      "total_count": 0,
+      "incomplete_results": false,
+      "items": []
+    }
+  },
+  {
+    "source": "searchGeneration",
+    "url": "https://api.github.com/search/issues?q=repo%3Aexcalidraw%2Fexcalidraw+%22generationData%22+iframe&per_page=100",
+    "start": "2026-11-08T19:31:12.5622135-03:00",
+    "status": 200,
+    "link": "",
+    "length": 14238,
+    "recorte_da_resposta": {
+      "total_count": 2,
+      "incomplete_results": false,
+      "items": [
+        {
+          "number": 11930,
+          "title": "Security: iframe element type rendered without validation, enabling open redirect via collaboration",
+          "state": "open",
+          "html_url": "https://github.com/excalidraw/excalidraw/issues/11930"
+        },
+        {
+          "number": 12191,
+          "title": "fix(editor): harden rendering of generated iframe elements",
+          "state": "open",
+          "html_url": "https://github.com/excalidraw/excalidraw/pull/12191"
+        }
+      ]
+    }
+  },
+  {
+    "source": "pr6728",
+    "url": "https://api.github.com/repos/excalidraw/excalidraw/pulls/6728",
+    "start": "2026-11-08T19:31:12.9838098-03:00",
+    "status": 200,
+    "link": "",
+    "length": 17445,
+    "recorte_da_resposta": {
+      "number": 6728,
+      "title": "fix: stronger enforcement of normalizeLink",
+      "state": "closed",
+      "html_url": "https://github.com/excalidraw/excalidraw/pull/6728",
+      "created_at": "2023-06-29T05:10:10Z",
+      "updated_at": "2023-06-29T10:14:44Z",
+      "closed_at": "2023-06-29T10:14:42Z",
+      "merged_at": "2023-06-29T10:14:42Z",
+      "merge_commit_sha": "b33fa6d6f64d27adc3a47b25c0aa55711740d0af",
+      "head_sha": "ad6642ab6b644c74e43b191b1addc5ff92cc498a"
+    }
+  },
+  {
+    "source": "releases",
+    "url": "https://api.github.com/repos/excalidraw/excalidraw/releases?per_page=10",
+    "start": "2026-11-08T19:31:13.4274655-03:00",
+    "status": 200,
+    "link": "<https://api.github.com/repositories/231283452/releases?per_page=10&page=2>; rel=\"next\", <https://api.github.com/repositories/231283452/releases?per_page=10&page=2>; rel=\"last\"",
+    "length": 121120,
+    "recorte_da_resposta": [
+      {
+        "tag_name": "v0.18.1",
+        "html_url": "https://github.com/excalidraw/excalidraw/releases/tag/v0.18.1",
+        "target_commitish": "0.18.1",
+        "draft": false,
+        "prerelease": false,
+        "created_at": "2026-04-20T20:30:38Z",
+        "published_at": "2026-04-21T08:43:20Z"
+      },
+      {
+        "tag_name": "v0.18.0",
+        "html_url": "https://github.com/excalidraw/excalidraw/releases/tag/v0.18.0",
+        "target_commitish": "master",
+        "draft": false,
+        "prerelease": false,
+        "created_at": "2025-03-11T12:44:10Z",
+        "published_at": "2025-03-11T12:47:22Z"
+      },
+      {
+        "tag_name": "v0.17.3",
+        "html_url": "https://github.com/excalidraw/excalidraw/releases/tag/v0.17.3",
+        "target_commitish": "aakansha/v0.17.3",
+        "draft": false,
+        "prerelease": false,
+        "created_at": "2024-02-09T13:31:52Z",
+        "published_at": "2024-02-09T14:08:24Z"
+      },
+      {
+        "tag_name": "v0.17.0",
+        "html_url": "https://github.com/excalidraw/excalidraw/releases/tag/v0.17.0",
+        "target_commitish": "master",
+        "draft": false,
+        "prerelease": false,
+        "created_at": "2023-11-14T14:24:34Z",
+        "published_at": "2023-11-14T14:26:08Z"
+      },
+      {
+        "tag_name": "v0.16.1",
+        "html_url": "https://github.com/excalidraw/excalidraw/releases/tag/v0.16.1",
+        "target_commitish": "master",
+        "draft": false,
+        "prerelease": false,
+        "created_at": "2023-09-21T04:24:03Z",
+        "published_at": "2023-09-21T04:49:41Z"
+      },
+      {
+        "tag_name": "v0.16.0",
+        "html_url": "https://github.com/excalidraw/excalidraw/releases/tag/v0.16.0",
+        "target_commitish": "master",
+        "draft": false,
+        "prerelease": false,
+        "created_at": "2023-09-19T14:29:53Z",
+        "published_at": "2023-09-19T14:38:27Z"
+      },
+      {
+        "tag_name": "v0.15.0",
+        "html_url": "https://github.com/excalidraw/excalidraw/releases/tag/v0.15.0",
+        "target_commitish": "master",
+        "draft": false,
+        "prerelease": false,
+        "created_at": "2023-04-18T15:18:30Z",
+        "published_at": "2023-04-18T15:21:00Z"
+      },
+      {
+        "tag_name": "v0.14.2",
+        "html_url": "https://github.com/excalidraw/excalidraw/releases/tag/v0.14.2",
+        "target_commitish": "master",
+        "draft": false,
+        "prerelease": false,
+        "created_at": "2023-02-01T13:38:56Z",
+        "published_at": "2023-02-01T13:40:26Z"
+      },
+      {
+        "tag_name": "v0.14.1",
+        "html_url": "https://github.com/excalidraw/excalidraw/releases/tag/v0.14.1",
+        "target_commitish": "master",
+        "draft": false,
+        "prerelease": false,
+        "created_at": "2023-01-16T10:38:03Z",
+        "published_at": "2023-01-16T10:40:33Z"
+      },
+      {
+        "tag_name": "v0.14.0",
+        "html_url": "https://github.com/excalidraw/excalidraw/releases/tag/v0.14.0",
+        "target_commitish": "master",
+        "draft": false,
+        "prerelease": false,
+        "created_at": "2023-01-13T10:38:29Z",
+        "published_at": "2023-01-13T10:46:03Z"
+      }
+    ]
+  },
+  {
+    "source": "pr12191",
+    "url": "https://api.github.com/repos/excalidraw/excalidraw/pulls/12191",
+    "start": "2026-11-08T19:32:02.8191627-03:00",
+    "status": 200,
+    "link": "",
+    "length": 21712,
+    "recorte_da_resposta": {
+      "number": 12191,
+      "title": "fix(editor): harden rendering of generated iframe elements",
+      "state": "open",
+      "html_url": "https://github.com/excalidraw/excalidraw/pull/12191",
+      "created_at": "2026-09-28T17:17:59Z",
+      "updated_at": "2026-09-28T17:45:59Z",
+      "closed_at": null,
+      "merged_at": null,
+      "merge_commit_sha": null,
+      "head_sha": "405b85b82b2aadf984f0aabd88025d1f29c0b985"
+    }
+  },
+  {
+    "source": "pr12480",
+    "url": "https://api.github.com/repos/excalidraw/excalidraw/pulls/12480",
+    "start": "2026-11-08T19:32:03.3289909-03:00",
+    "status": 200,
+    "link": "",
+    "length": 18713,
+    "recorte_da_resposta": {
+      "number": 12480,
+      "title": "feat(editor): lay Mermaid diagrams out with Pele (mermaid-to-excalidraw v3)",
+      "state": "closed",
+      "html_url": "https://github.com/excalidraw/excalidraw/pull/12480",
+      "created_at": "2026-10-27T15:58:23Z",
+      "updated_at": "2026-10-27T16:35:32Z",
+      "closed_at": "2026-10-27T16:35:29Z",
+      "merged_at": "2026-10-27T16:35:29Z",
+      "merge_commit_sha": "14bb42edee3d6fee6be264e3ee78670b3b9cee79",
+      "head_sha": "cc96ba274b1c59f1b5e69da866f06bcce79a0fa1"
+    }
+  },
+  {
+    "source": "releasePage2",
+    "url": "https://api.github.com/repositories/231283452/releases?per_page=10&page=2",
+    "start": "2026-11-08T19:32:03.7257468-03:00",
+    "status": 200,
+    "link": "<https://api.github.com/repositories/231283452/releases?per_page=10&page=1>; rel=\"prev\", <https://api.github.com/repositories/231283452/releases?per_page=10&page=1>; rel=\"first\"",
+    "length": 80628,
+    "recorte_da_resposta": [
+      {
+        "tag_name": "v0.13.0",
+        "html_url": "https://github.com/excalidraw/excalidraw/releases/tag/v0.13.0",
+        "target_commitish": "master",
+        "draft": false,
+        "prerelease": false,
+        "created_at": "2022-10-27T12:58:44Z",
+        "published_at": "2022-10-27T13:03:34Z"
+      },
+      {
+        "tag_name": "v0.12.0",
+        "html_url": "https://github.com/excalidraw/excalidraw/releases/tag/v0.12.0",
+        "target_commitish": "master",
+        "draft": false,
+        "prerelease": false,
+        "created_at": "2022-07-07T12:56:19Z",
+        "published_at": "2022-07-07T13:00:40Z"
+      },
+      {
+        "tag_name": "v0.11.0",
+        "html_url": "https://github.com/excalidraw/excalidraw/releases/tag/v0.11.0",
+        "target_commitish": "master",
+        "draft": false,
+        "prerelease": false,
+        "created_at": "2022-02-17T13:22:44Z",
+        "published_at": "2022-02-17T13:23:06Z"
+      },
+      {
+        "tag_name": "v0.10.0",
+        "html_url": "https://github.com/excalidraw/excalidraw/releases/tag/v0.10.0",
+        "target_commitish": "master",
+        "draft": false,
+        "prerelease": false,
+        "created_at": "2021-10-13T11:33:50Z",
+        "published_at": "2021-10-13T11:36:02Z"
+      },
+      {
+        "tag_name": "v0.9.0",
+        "html_url": "https://github.com/excalidraw/excalidraw/releases/tag/v0.9.0",
+        "target_commitish": "master",
+        "draft": false,
+        "prerelease": false,
+        "created_at": "2021-07-10T13:22:19Z",
+        "published_at": "2021-07-10T13:24:32Z"
+      }
+    ]
+  }
+]
