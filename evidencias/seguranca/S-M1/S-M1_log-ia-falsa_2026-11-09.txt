@@ -1,0 +1,6 @@
+# 2026-11-09 16:09 | LOG_BODY=1 node servidor-ia-falso.mjs (evidencias/ambiente/, PR #80)
+Servidor de IA falso em http://localhost:3016
+2026-11-09T19:01:22.539Z POST /v1/ai/text-to-diagram/chat-streaming (48 bytes, 1 mensagem(ns))
+{"messages":[{"role":"user","content":"to ia"}]}
+2026-11-09T19:02:36.589Z POST /v1/ai/text-to-diagram/chat-streaming (336 bytes, 3 mensagem(ns))
+{"messages":[{"role":"user","content":"to ia"},{"role":"assistant","content":"flowchart TD\n  A[Pedido recebido pelo servidor de IA falso] --> B{Resposta fixa}\n  B --> C[Nenhum conteúdo foi enviado a terceiros]\n  B --> D[Ambiente local da avaliação]"},{"role":"user","content":"mensagem enviada para a IA usando o texto to diagram"}]}

@@ -1,0 +1,46 @@
+# 2026-11-09 15:40 | pasta: aplicacao | código do Excalidraw no commit e7b5346
+
+## git grep -n "\.emit(" -- excalidraw-app/collab   (todos os envios pelo socket)
+excalidraw-app/collab/Portal.tsx:45:        this.socket.emit("join-room", this.roomId);
+excalidraw-app/collab/Portal.tsx:95:      this.socket?.emit(
+excalidraw-app/collab/Portal.tsx:252:      this.socket.emit(WS_EVENTS.USER_FOLLOW_CHANGE, payload);
+
+## git grep -n "socket.on(\|socket.once(" -- excalidraw-app/collab   (eventos recebidos)
+excalidraw-app/collab/Collab.tsx:552:      this.portal.socket.once("connect_error", fallbackInitializationHandler);
+excalidraw-app/collab/Collab.tsx:589:    this.portal.socket.on(
+excalidraw-app/collab/Collab.tsx:698:    this.portal.socket.on("first-in-room", async () => {
+excalidraw-app/collab/Collab.tsx:709:    this.portal.socket.on(
+excalidraw-app/collab/Portal.tsx:43:    this.socket.on("init-room", () => {
+excalidraw-app/collab/Portal.tsx:49:    this.socket.on("new-user", async (_socketId: string) => {
+excalidraw-app/collab/Portal.tsx:56:    this.socket.on("room-user-change", (clients: SocketId[]) => {
+
+## git grep -n "type: WS_SUBTYPES" -- excalidraw-app/collab   (subtipos que passam por _broadcastSocketData, cifrado em Portal.tsx:93)
+excalidraw-app/collab/Collab.tsx:485:        type: WS_SUBTYPES.INVALID_RESPONSE,
+excalidraw-app/collab/Portal.tsx:51:        WS_SUBTYPES.INIT,
+excalidraw-app/collab/Portal.tsx:143:    updateType: WS_SUBTYPES.INIT | WS_SUBTYPES.UPDATE,
+excalidraw-app/collab/Portal.tsx:188:        type: WS_SUBTYPES.IDLE_STATUS,
+excalidraw-app/collab/Portal.tsx:208:        type: WS_SUBTYPES.MOUSE_LOCATION,
+excalidraw-app/collab/Portal.tsx:234:        type: WS_SUBTYPES.USER_VISIBLE_SCENE_BOUNDS,
+
+## git grep -n "broadcastScene(" -- excalidraw-app/collab   (envios de SCENE_INIT/SCENE_UPDATE)
+excalidraw-app/collab/Collab.tsx:976:      this.portal.broadcastScene(WS_SUBTYPES.UPDATE, elements, false);
+excalidraw-app/collab/Collab.tsx:988:    this.portal.broadcastScene(
+excalidraw-app/collab/Portal.tsx:50:      this.broadcastScene(
+
+## git grep -n "encryptData\|compressData(\|encryptionKey" -- excalidraw-app/data   (persistência remota)
+excalidraw-app/data/FileManager.ts:231:  encryptionKey,
+excalidraw-app/data/FileManager.ts:235:  encryptionKey: string;
+excalidraw-app/data/FileManager.ts:246:      encryptionKey,
+excalidraw-app/data/firebase.ts:5:  encryptData,
+excalidraw-app/data/firebase.ts:98:  const { encryptedBuffer, iv } = await encryptData(key, encoded);
+excalidraw-app/data/index.ts:216:      const { data: decodedBuffer } = await decompressData(
+excalidraw-app/data/index.ts:253:  const encryptionKey = await generateEncryptionKey("string");
+excalidraw-app/data/index.ts:255:  const payload = await compressData(
+excalidraw-app/data/index.ts:259:    { encryptionKey },
+excalidraw-app/data/index.ts:272:      encryptionKey,
+excalidraw-app/data/index.ts:285:      url.hash = `json=${json.id},${encryptionKey}`;
+
+## git grep -n "VITE_APP_AI_BACKEND\|body: JSON.stringify" -- excalidraw-app/components/AI.tsx   (IA)
+excalidraw-app/components/AI.tsx:56:              import.meta.env.VITE_APP_AI_BACKEND
+excalidraw-app/components/AI.tsx:64:              body: JSON.stringify({
+excalidraw-app/components/AI.tsx:160:              import.meta.env.VITE_APP_AI_BACKEND
