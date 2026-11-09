@@ -1,0 +1,148 @@
+# 2026-11-09 15:40 | pasta: aplicacao | código do Excalidraw no commit e7b5346
+
+## git grep -n "location\.hash\|location\.href" -- .
+excalidraw-app/App.tsx:195:    const currentUrl = new URL(window.location.href);
+excalidraw-app/App.tsx:228:  const jsonBackendMatch = window.location.hash.match(
+excalidraw-app/App.tsx:231:  const externalUrlMatch = window.location.hash.match(/^#url=(.*)$/);
+excalidraw-app/App.tsx:250:  let roomLinkData = getCollaborationLinkData(window.location.href);
+excalidraw-app/App.tsx:411:    return isCollaborationLink(window.location.href);
+excalidraw-app/App.tsx:576:          !isCollaborationLink(window.location.href)
+excalidraw-app/collab/Collab.tsx:720:    this.setActiveRoomLink(window.location.href);
+excalidraw-app/data/index.ts:282:      const url = new URL(window.location.href);
+excalidraw-app/index.html:108:      // due to location.hash checks).
+excalidraw-app/index.html:111:        !window.location.hash &&
+excalidraw-app/index.html:116:        window.location.href = "https://app.excalidraw.com";
+packages/element/src/elementLink.ts:17:  const url = window.location.href;
+packages/excalidraw/CHANGELOG.md:2296:  Use `location.hash` when importing libraries to fix installation issues. This will require host apps to add a `hashchange` listener and call the newly exposed `excalidrawAPI.importLibrary(url)` API when applicable [#3320](https://github.com/excalidraw/excalidraw/pull/3320). Check the [readme](https://github.com/excalidraw/excalidraw/blob/master/src/packages/excalidraw/README.md#importlibrary) for more details.
+packages/excalidraw/components/App.tsx:3717:    if (isElementLink(this.ownerWindow.location.href)) {
+packages/excalidraw/components/App.tsx:3719:        target: this.ownerWindow.location.href,
+packages/excalidraw/data/library.ts:533:    new URLSearchParams(window.location.hash.slice(1)).get(
+packages/excalidraw/data/library.ts:539:    ? new URLSearchParams(window.location.hash.slice(1)).get("token")
+packages/excalidraw/data/library.ts:769:        if (window.location.hash.includes(URL_HASH_KEYS.addLibrary)) {
+packages/excalidraw/data/library.ts:770:          const hash = new URLSearchParams(window.location.hash.slice(1));
+packages/excalidraw/subset/woff2/woff2-bindings.ts:162:        scriptDirectory = self.location.href;
+Binary file scripts/wasm/woff2.wasm matches
+
+## git grep -n "roomKey" -- excalidraw-app ":!*test*"   (para onde vai a chave da sala)
+excalidraw-app/App.tsx:360:      key: roomLinkData.roomKey,
+excalidraw-app/collab/Collab.tsx:165:        const { roomId, roomKey } = this.portal;
+excalidraw-app/collab/Collab.tsx:166:        if (!roomId || !roomKey) {
+excalidraw-app/collab/Collab.tsx:170:        return loadFilesFromFirebase(`files/rooms/${roomId}`, roomKey, fileIds);
+excalidraw-app/collab/Collab.tsx:173:        const { roomId, roomKey } = this.portal;
+excalidraw-app/collab/Collab.tsx:174:        if (!roomId || !roomKey) {
+excalidraw-app/collab/Collab.tsx:182:            encryptionKey: roomKey,
+excalidraw-app/collab/Collab.tsx:493:    existingRoomLinkData: null | { roomId: string; roomKey: string },
+excalidraw-app/collab/Collab.tsx:507:    let roomKey;
+excalidraw-app/collab/Collab.tsx:510:      ({ roomId, roomKey } = existingRoomLinkData);
+excalidraw-app/collab/Collab.tsx:512:      ({ roomId, roomKey } = await generateCollaborationLinkData());
+excalidraw-app/collab/Collab.tsx:516:        getCollaborationLink({ roomId, roomKey }),
+excalidraw-app/collab/Collab.tsx:549:        roomKey,
+excalidraw-app/collab/Collab.tsx:592:        if (!this.portal.roomKey) {
+excalidraw-app/collab/Collab.tsx:599:          this.portal.roomKey,
+excalidraw-app/collab/Collab.tsx:731:        roomLinkData: { roomId: string; roomKey: string } | null;
+excalidraw-app/collab/Collab.tsx:747:          roomLinkData.roomKey,
+excalidraw-app/collab/Portal.tsx:30:  roomKey: string | null = null;
+excalidraw-app/collab/Portal.tsx:40:    this.roomKey = key;
+excalidraw-app/collab/Portal.tsx:71:    this.roomKey = null;
+excalidraw-app/collab/Portal.tsx:81:      this.roomKey
+excalidraw-app/collab/Portal.tsx:93:      const { encryptedBuffer, iv } = await encryptData(this.roomKey!, encoded);
+excalidraw-app/data/firebase.ts:105:  roomKey: string,
+excalidraw-app/data/firebase.ts:110:  const decrypted = await decryptData(iv, ciphertext, roomKey);
+excalidraw-app/data/firebase.ts:134:  if (portal.socket && portal.roomId && portal.roomKey) {
+excalidraw-app/data/firebase.ts:178:  roomKey: string,
+excalidraw-app/data/firebase.ts:181:  const { ciphertext, iv } = await encryptElements(roomKey, elements);
+excalidraw-app/data/firebase.ts:195:  const { roomId, roomKey, socket } = portal;
+excalidraw-app/data/firebase.ts:199:    !roomKey ||
+excalidraw-app/data/firebase.ts:213:      const storedScene = await createFirebaseSceneDocument(elements, roomKey);
+excalidraw-app/data/firebase.ts:222:      restoreElements(await decryptElements(prevStoredScene, roomKey), null),
+excalidraw-app/data/firebase.ts:234:      roomKey,
+excalidraw-app/data/firebase.ts:244:    restoreElements(await decryptElements(storedScene, roomKey), null),
+excalidraw-app/data/firebase.ts:254:  roomKey: string,
+excalidraw-app/data/firebase.ts:265:    restoreElements(await decryptElements(storedScene, roomKey), null, {
+excalidraw-app/data/index.ts:145:  return match ? { roomId: match[1], roomKey: match[2] } : null;
+excalidraw-app/data/index.ts:150:  const roomKey = await generateEncryptionKey();
+excalidraw-app/data/index.ts:152:  if (!roomKey) {
+excalidraw-app/data/index.ts:156:  return { roomId, roomKey };
+excalidraw-app/data/index.ts:161:  roomKey: string;
+excalidraw-app/data/index.ts:163:  return `${window.location.origin}${window.location.pathname}#room=${data.roomId},${data.roomKey}`;
+
+## git grep -n "document\.URL\|location\.toString\|String(window\.location" -- excalidraw-app packages
+(nenhuma ocorrência)
+
+## git grep -n "beforeSend\|beforeBreadcrumb\|request.url" -- excalidraw-app/sentry.ts
+excalidraw-app/sentry.ts:39:  beforeSend(event) {
+excalidraw-app/sentry.ts:41:      event.request.url = event.request.url.replace(/#.*$/, "");
+excalidraw-app/sentry.ts:73:                handler: "Sentry.beforeSend",
+
+## versão instalada: node_modules/@sentry/browser/package.json
+3:  "version": "9.0.1",
+
+## node_modules/@sentry/browser/build/npm/esm/sdk.js:20-30 (integrações padrão; o array de sentry.ts é somado a elas, core/build/esm/integration.js:47-48)
+  return [
+    inboundFiltersIntegration(),
+    functionToStringIntegration(),
+    browserApiErrorsIntegration(),
+    breadcrumbsIntegration(),
+    globalHandlersIntegration(),
+    linkedErrorsIntegration(),
+    dedupeIntegration(),
+    httpContextIntegration(),
+    browserSessionIntegration(),
+  ];
+
+## node_modules/@sentry/browser/build/npm/esm/integrations/breadcrumbs.js:14-22 e :295-328 (breadcrumb de navegação)
+const _breadcrumbsIntegration = ((options = {}) => {
+  const _options = {
+    console: true,
+    dom: true,
+    fetch: true,
+    history: true,
+    sentry: true,
+    xhr: true,
+    ...options,
+function _getHistoryBreadcrumbHandler(client) {
+  return function _historyBreadcrumb(handlerData) {
+    if (getClient() !== client) {
+      return;
+    }
+
+    let from = handlerData.from;
+    let to = handlerData.to;
+    const parsedLoc = parseUrl(WINDOW.location.href);
+    let parsedFrom = from ? parseUrl(from) : undefined;
+    const parsedTo = parseUrl(to);
+
+    // Initial pushState doesn't provide `from` information
+    if (!parsedFrom?.path) {
+      parsedFrom = parsedLoc;
+    }
+
+    // Use only the path component of the URL if the URL matches the current
+    // document (almost all the time when using pushState)
+    if (parsedLoc.protocol === parsedTo.protocol && parsedLoc.host === parsedTo.host) {
+      to = parsedTo.relative;
+    }
+    if (parsedLoc.protocol === parsedFrom.protocol && parsedLoc.host === parsedFrom.host) {
+      from = parsedFrom.relative;
+    }
+
+    addBreadcrumb({
+      category: 'navigation',
+      data: {
+        from,
+        to,
+      },
+    });
+  };
+
+## node_modules/@sentry/core/build/esm/utils-hoist/url.js:20-29 (relative inclui o fragmento #)
+  const query = match[6] || '';
+  const fragment = match[8] || '';
+  return {
+    host: match[4],
+    path: match[5],
+    protocol: match[2],
+    search: query,
+    hash: fragment,
+    relative: match[5] + query + fragment, // everything minus origin
+  };

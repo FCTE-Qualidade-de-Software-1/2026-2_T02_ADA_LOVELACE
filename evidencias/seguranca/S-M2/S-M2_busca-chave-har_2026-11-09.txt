@@ -1,0 +1,32 @@
+# 2026-11-09 16:09 | busca da chave da sala no HAR completo (26 MB, 864 entradas, não versionado por conter a API key do Firebase)
+# link da sala: http://localhost:3001/#room=1c620bd005c86aa4145f,4PEvIf6AAXyLIDijom8zMw  (sala de teste local, descartável)
+
+## grep -c '4PEvIf6AAXyLIDijom8zMw' localhost.har
+0
+
+## busca estruturada (frames binários decodificados, corpos, cabeçalhos, Referer)
+frames binários decodificados: 4720 | chave em binário/postData/cabeçalhos: 0
+chave em base64 no arquivo: false
+Referer distintos: [ 'http://localhost:3001/' ]
+
+## mesma busca na captura reduzida versionada (S-M1/S-M1_S-M2_captura-reduzida_2026-11-09.har)
+grep -c '4PEvIf6AAXyLIDijom8zMw' -> 0
+
+# ---- script ----
+import fs from "node:fs";
+const har = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
+const KEY="4PEvIf6AAXyLIDijom8zMw"; const E=har.log.entries;
+const keyB64=Buffer.from(KEY).toString("base64").replace(/=+$/,"");
+let hits=0, bins=0;
+for (const e of E) {
+  for (const m of e._webSocketMessages||[]) if (m.opcode===2){bins++; if (Buffer.from(m.data,"base64").toString("latin1").includes(KEY)) hits++;}
+  const pd=e.request.postData; if (pd?.text){ if (pd.text.includes(KEY)) hits++; }
+  for (const h of [...e.request.headers, ...e.response.headers]) if (String(h.value).includes(KEY)) hits++;
+}
+console.log("frames binários decodificados:", bins, "| chave em binário/postData/cabeçalhos:", hits);
+console.log("chave em base64 no arquivo:", fs.readFileSync(process.argv[2],"utf8").includes(keyB64));
+const refs=new Set(); E.forEach(e=>e.request.headers.filter(h=>/^referer$/i.test(h.name)).forEach(h=>refs.add(h.value))); console.log("Referer distintos:", [...refs]);
+for (const e of E.filter(e=>/firestore/.test(e.request.url) && /commit/.test(e.request.url))) { const t=e.request.postData.text; console.log("commit: campos", [...new Set([...t.matchAll(/"(ciphertext|iv|sceneVersion|[a-zA-Z]+)":\s*\{/g)].map(m=>m[1]))].join(","), "| SEGREDO?", t.includes("SEGREDO"), "| nome?", /SM1/.test(t)); }
+for (const e of E.filter(e=>/3016/.test(e.request.url) && e.request.method==="POST")) console.log("IA body:", e.request.postData.text.slice(0,400));
+const raw=fs.readFileSync(process.argv[2],"utf8");
+console.log("AIza:", (raw.match(/AIza[0-9A-Za-z_-]{35}/g)||[]).length, "| Cookie hdr:", E.filter(e=>e.request.headers.some(h=>/^cookie$/i.test(h.name))).length, "| Authorization:", E.filter(e=>e.request.headers.some(h=>/^authorization$/i.test(h.name))).length, "| VITE_APP_FIREBASE_CONFIG:", (raw.match(/VITE_APP_FIREBASE_CONFIG/g)||[]).length);

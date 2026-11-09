@@ -1,0 +1,96 @@
+# 2026-11-09 16:09 | HAR completo exportado do Helium 157 (janela A), sala 1c620bd005c86aa4145f
+# script: node analise-har.mjs <arquivo.har>  (código abaixo, depois da saída)
+
+entradas: 864 | página: http://localhost:3001/
+ocorrências da chave no arquivo inteiro: 0
+ocorrências do ID da sala: 1852
+hosts: {
+  'localhost:3001': 850,
+  'localhost:3002': 1,
+  'firestore.googleapis.com': 8,
+  'localhost:3016': 4,
+  'localhost:9999': 1
+}
+
+WS ws://localhost:3001/ frames: 51
+
+WS ws://localhost:3002/socket.io/?EIO=4&transport=websocket frames: 7196
+enviados 5628 {
+  '(controle 40)': 1,
+  '42join-room': 1,
+  '452-server-volatile-broadcast': 1853,
+  '(binário)': 3716,
+  '(controle 3)': 50,
+  '452-server-broadcast': 5,
+  '42user-follow': 2
+}
+recebidos 1568 {
+  '(controle 0{")': 1,
+  '(controle 40{)': 1,
+  '42init-room': 1,
+  '42first-in-room': 1,
+  '42room-user-change': 3,
+  '(controle 2)': 50,
+  '42new-user': 1,
+  '452-client-broadcast': 502,
+  '(binário)': 1004,
+  '42user-follow-room-change': 4
+}
+binário com 'SEGREDO'? false
+texto com 'SEGREDO'? false
+texto com nomes: [
+  'send 42["user-follow",{"userToFollow":{"socketId":"dg2Qi06AmvheqSH_AAAm","username":"Maria-SM1"},"action":"FOLLOW"}]',
+  'send 42["user-follow",{"userToFollow":{"socketId":"dg2Qi06AmvheqSH_AAAm","username":"Maria-SM1"},"action":"UNFOLLOW"}]'
+]
+GET http://localhost:3001/node_modules/.vite/deps/firebase_firestore.js?v=764c8c82 status 200 post 0
+POST https://firestore.googleapis.com/v1/projects/excalidraw-ada-lovelace/databases/(default)/documents:batchGet status 200 post 108
+POST https://firestore.googleapis.com/v1/projects/excalidraw-ada-lovelace/databases/(default)/documents:commit status 200 post 1874
+POST https://firestore.googleapis.com/v1/projects/excalidraw-ada-lovelace/databases/(default)/documents:batchGet status 200 post 108
+POST https://firestore.googleapis.com/v1/projects/excalidraw-ada-lovelace/databases/(default)/documents:commit status 200 post 1972
+POST http://localhost:3016/v1/ai/text-to-diagram/chat-streaming status 200 post 48
+OPTIONS http://localhost:3016/v1/ai/text-to-diagram/chat-streaming status 204 post 0
+POST https://firestore.googleapis.com/v1/projects/excalidraw-ada-lovelace/databases/(default)/documents:batchGet status 200 post 108
+POST https://firestore.googleapis.com/v1/projects/excalidraw-ada-lovelace/databases/(default)/documents:commit status 200 post 12925
+POST https://firestore.googleapis.com/v1/projects/excalidraw-ada-lovelace/databases/(default)/documents:batchGet status 200 post 108
+POST https://firestore.googleapis.com/v1/projects/excalidraw-ada-lovelace/databases/(default)/documents:commit status 200 post 23873
+POST http://localhost:3016/v1/ai/text-to-diagram/chat-streaming status 200 post 336
+OPTIONS http://localhost:3016/v1/ai/text-to-diagram/chat-streaming status 204 post 0
+POST http://localhost:9999/post/ status 0 post 3161
+
+# ---- script ----
+import fs from "node:fs";
+const har = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
+const KEY = "4PEvIf6AAXyLIDijom8zMw", ROOM = "1c620bd005c86aa4145f";
+const E = har.log.entries;
+const raw = fs.readFileSync(process.argv[2], "utf8");
+const count = (s, t) => s.split(t).length - 1;
+console.log("entradas:", E.length, "| página:", har.log.pages.map(p=>p.title).join(", "));
+console.log("ocorrências da chave no arquivo inteiro:", count(raw, KEY));
+console.log("ocorrências do ID da sala:", count(raw, ROOM));
+// onde aparece a chave
+E.forEach((e,i)=>{ const s=JSON.stringify(e); if (s.includes(KEY)) {
+  const where=[]; const r=e.request;
+  if (r.url.includes(KEY)) where.push("request.url");
+  if (JSON.stringify(r.headers).includes(KEY)) where.push("request.headers");
+  if (JSON.stringify(r.postData||"").includes(KEY)) where.push("request.postData");
+  if (JSON.stringify(e._webSocketMessages||[]).includes(KEY)) where.push("ws");
+  if (JSON.stringify(e.response).includes(KEY)) where.push("response");
+  console.log("  chave em entrada", i, r.method, r.url.slice(0,100), "->", where.join(","));
+}});
+// hosts
+const hosts={}; E.forEach(e=>{const h=new URL(e.request.url).host||e.request.url.slice(0,20); hosts[h]=(hosts[h]||0)+1}); console.log("hosts:", hosts);
+// WS
+for (const e of E.filter(e=>e._webSocketMessages)) {
+  const m=e._webSocketMessages; console.log("\nWS", e.request.url.slice(0,80), "frames:", m.length);
+  if (!e.request.url.includes("socket.io")) continue;
+  const sent=m.filter(x=>x.type==="send"), recv=m.filter(x=>x.type==="receive");
+  const tally=(arr)=>{const t={}; for(const x of arr){ let k;
+     if (x.opcode===2) k="(binário)"; else { const mm=x.data.match(/^\d+(?:-)?\[\"([^\"]+)\"/); k= mm? x.data.match(/^(\d+-?)/)[1]+mm[1] : "(controle "+x.data.slice(0,3)+")"; }
+     t[k]=(t[k]||0)+1;} return t;};
+  console.log("enviados", sent.length, tally(sent)); console.log("recebidos", recv.length, tally(recv));
+  console.log("binário com 'SEGREDO'?", m.some(x=>x.opcode===2 && Buffer.from(x.data,"base64").toString("latin1").includes("SEGREDO")));
+  console.log("texto com 'SEGREDO'?", m.some(x=>x.opcode===1 && x.data.includes("SEGREDO")));
+  console.log("texto com nomes:", m.filter(x=>x.opcode===1 && /Joao-SM1|Maria-SM1/.test(x.data)).map(x=>x.type+" "+x.data.slice(0,140)));
+}
+// requests to 9999 / 3016 / firestore
+for (const e of E) { const u=e.request.url; if (/localhost:9999|localhost:3016|firestore|firebasestorage/.test(u)) console.log(e.request.method, u.slice(0,120), "status", e.response.status, "post", (e.request.postData?.text||"").length); }
