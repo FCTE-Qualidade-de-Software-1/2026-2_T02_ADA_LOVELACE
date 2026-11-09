@@ -89,7 +89,8 @@ erro, o servidor é iniciado com `yarn vite`.
 * Ao iniciar uma sessão colaborativa, a cena é salva em `scenes/<id da sala>`
   com os campos `ciphertext`, `iv` e `sceneVersion`.
 * Servidor de IA falso: as duas rotas respondem em SSE, com os cabeçalhos
-  `X-Ratelimit-*` e a liberação de CORS exigidos pela aplicação.
+  `X-Ratelimit-*` e a liberação de CORS exigidos pela aplicação. No Helium,
+  "Texto para diagrama" exibe o fluxograma fixo e o limite de pedidos.
 * Sessão colaborativa em duas janelas do Helium (uma anônima): o desenho de
   uma janela aparece na outra, com o WebSocket para `localhost:3002`.
 
