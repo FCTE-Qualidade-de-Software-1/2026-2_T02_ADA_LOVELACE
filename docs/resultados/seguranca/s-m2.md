@@ -13,6 +13,11 @@ flowchart LR
 
 ## Evidências
 
+O **HAR** (*HTTP Archive*) é o arquivo que o DevTools do navegador exporta com
+tudo o que passou pela aba Network durante a sessão: URLs, cabeçalhos, corpos
+das requisições e frames do WebSocket. Se a chave saísse do navegador, ela
+estaria nesse arquivo.
+
 Busca pela chave `4PEvIf6AAXyLIDijom8zMw` no HAR completo da sessão da
 [S-M1](s-m1.md):
 
