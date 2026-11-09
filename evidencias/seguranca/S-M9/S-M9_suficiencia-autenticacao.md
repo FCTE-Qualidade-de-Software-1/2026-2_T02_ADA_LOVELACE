@@ -134,7 +134,7 @@ export const isExcalidrawPlusSignedUser = document.cookie.includes(
 | # | Arquivo | Tipo | O que mostra |
 | --- | --- | --- | --- |
 | E1 | `S-M9_buscas-autenticacao_2026-11-04.txt` | saída de comando | Buscas por login, senha, token e MFA, e todos os usos de `username` |
-| E2 | `S-M9_dialogo-nome_2026-11-04.png` | print | **Pendente:** diálogo "Live collaboration" com o campo "Your name" (tirar quando a instância local de T0.1 estiver no ar) |
+| E2 | `S-M9_dialogo-nome_2026-11-09.png` | print | Diálogo "Live collaboration" com o campo "Your name", em duas janelas na mesma sala de excalidraw.com. O link da sala e o QR code foram cobertos |
 
 ### 4.3 Buscas sem resultado
 
@@ -176,7 +176,7 @@ O nível mais alto encontrado na escala (0 nenhum, 1 nome autodeclarado, 2 login
 - O servidor de sala (`excalidraw/excalidraw-room`) não está neste repositório. A afirmação de que ele não autentica vem do cliente: o cliente não envia credencial (C5). Confirmar no código do servidor junto com a T2.6.
 - A chave da sala no `#` da URL controla o acesso ao conteúdo (S-Q2), mas não diz quem é a pessoa: todos com o link compartilham a mesma chave.
 - Achado fora da métrica, para a S-M10: como `socketId` e `username` vêm do payload (C7), um participante com a chave pode, em tese, enviar mensagens em nome de outro. Isso é testado na T2.6.
-- O print E2 ainda não foi tirado. A nota não depende dele, que só ilustra C2.
+- O print E2 foi tirado em 2026-11-09 no excalidraw.com, não na instância local. A nota não depende dele, que só ilustra C2.
 
 ## 7. Achado (preencher só se a pontuação for 0)
 
