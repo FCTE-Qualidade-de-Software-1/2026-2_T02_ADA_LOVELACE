@@ -29,7 +29,18 @@ A seção 2 do [roteiro GQM](../../../docs/analise/roteiro.md#2-produto-contexto
 
 ### 3.1 Comandos executados
 
-Na raiz do checkout oficial, com o cache do Corepack em pasta separada. No trecho, `$dir` aponta para a pasta onde são gravadas as saídas.
+Antes de repetir a auditoria, ajuste `$work` para o diretório que contém o checkout oficial fixado. Crie um diretório novo para as saídas e configure o cache do Corepack fora do checkout. A opção `COREPACK_DEFAULT_TO_LATEST=0` evita a busca automática da versão mais recente. O Corepack usa `yarn@1.22.22` declarado no manifesto raiz.
+
+```powershell
+$work = 'C:/caminho/para/work'
+$dir = Join-Path $work ('sm11-' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
+New-Item -ItemType Directory -Path $dir | Out-Null
+$env:COREPACK_HOME = Join-Path $work 'corepack-cache'
+$env:COREPACK_DEFAULT_TO_LATEST = '0'
+Set-Location -LiteralPath (Join-Path $work 'excalidraw-e7b5346')
+```
+
+Na coleta original, `$dir` apontava para a pasta `sm11` ao lado do checkout. Os comandos abaixo foram executados na raiz do checkout oficial.
 
 ```powershell
 git rev-parse HEAD
@@ -48,8 +59,16 @@ $LASTEXITCODE
 
 | Consulta | Horário local | Código de saída | Resumo do Yarn |
 | --- | --- | ---: | --- |
-| Grupos de dependências | 19:18:36–19:18:45 | 30 | 368 dependências, 150 ocorrências de avisos |
-| Monorepo completo | 19:19:25–19:19:29 | 30 | 1.209 dependências, 444 ocorrências de avisos |
+| Grupos de dependências | 19:18:36.2076310–19:18:45.2075025 | 30 | 368 dependências, 150 ocorrências de avisos |
+| Monorepo completo | 19:19:25.0886378–19:19:29.6361775 | 30 | 1.209 dependências, 444 ocorrências de avisos |
+
+Os horários são de 08/11/2026 (UTC−03:00). Os hashes SHA-256 correspondem aos bytes das saídas originais. Para conferir E1 e E2, calcule o hash do conteúdo descompactado.
+
+| Saída original | Evidência | SHA-256 |
+| --- | --- | --- |
+| `yarn.stdout.jsonl` | E1 | `e288971305c3f596c2e61c8fc50977ac257034084fe072587e2af759f9a8f1c9` |
+| `yarn-full.stdout.jsonl` | E2 | `31e07d99ef69f40feb743208c2193aa3f4693391c4b72d4895be76096c3ee1b4` |
+| `yarn.stderr.txt` e `yarn-full.stderr.txt` | E3 | `9c4d2da2637555fdfcf1fbf7f38450b0464f6fc5e2d2815cfcf34b409048bcaf` |
 
 As duas consultas retornaram `auditSummary` válido. O código 30 corresponde à presença de severidades baixa, moderada, alta e crítica (2 + 4 + 8 + 16). O stderr foi idêntico nas duas consultas, com três avisos sobre a resolução forçada de `strip-ansi@6.0.1` diante do intervalo `^7.0.1`. A rota legada respondeu nesta execução, então a condição para usar o OSV-Scanner não ocorreu. [Documentação do Yarn](https://classic.yarnpkg.com/lang/en/docs/cli/audit/) · [Implementação da consulta](https://github.com/yarnpkg/yarn/blob/v1.22.22/src/cli/commands/audit.js#L224-L249)
 
@@ -116,6 +135,14 @@ O recorte do cliente web reteve os caminhos para `@babel/runtime@7.26.9`, `nanoi
 | Moderada | `@babel/runtime` 7.26.9 | [GHSA-968p-4wvh-cqc8](https://github.com/advisories/GHSA-968p-4wvh-cqc8) |
 | Moderada | `nanoid` 3.3.3 e 4.0.2 | [GHSA-mwcw-c2x4-8c55](https://github.com/advisories/GHSA-mwcw-c2x4-8c55) |
 
+Para os três avisos altos de `nanoid`, `findings` associa as versões resolvidas `3.3.3` e `4.0.2` aos respectivos caminhos. O campo `vulnerable_versions` da resposta do Yarn contém uma única faixa para cada aviso. A ficha canônica do GitHub publica duas faixas para cada um. As duas versões no recorte estão cobertas pelas faixas canônicas e cada GHSA conta uma vez.
+
+| Aviso | Faixas afetadas na ficha canônica | Faixa em `vulnerable_versions` do Yarn |
+| --- | --- | --- |
+| [GHSA-28wg-ghj8-5hjv](https://github.com/advisories/GHSA-28wg-ghj8-5hjv) | `<3.3.16` ou `>=4.0.0 <5.1.16` | `>=4.0.0 <5.1.16` |
+| [GHSA-2v37-7h3g-55p8](https://github.com/advisories/GHSA-2v37-7h3g-55p8) | `<3.3.18` ou `>=4.0.0 <5.1.6` | `<3.3.18` |
+| [GHSA-xwg4-73v4-xw9w](https://github.com/advisories/GHSA-xwg4-73v4-xw9w) | `<3.3.12` ou `>=4.0.0 <5.1.11` | `>=4.0.0 <5.1.11` |
+
 ### 5.2 Cálculo
 
 S-M11 = avisos altos + avisos críticos no recorte do cliente web = 5 + 0 = **5 avisos**.
@@ -132,13 +159,13 @@ S-M11 = avisos altos + avisos críticos no recorte do cliente web = 5 + 0 = **5 
 
 - O registro de auditoria é uma fotografia de 08/11/2026. Os resultados podem mudar com inclusão, atualização, reclassificação ou remoção de avisos. O teste do endpoint não estabelece disponibilidade futura.
 - As duas respostas retornaram `dev=false` em todos os registros de ocorrência, inclusive em caminhos de ferramentas de teste na consulta completa. A classificação depende dos caminhos, dos manifestos e das entradas do código. A consulta com grupos preservou o caminho explícito do Socket.IO do app, enquanto a completa relatou os avisos dessa cadeia sob `@types/socket.io-client` na árvore agregada. Por isso, os caminhos para o recorte web foram extraídos da consulta com grupos.
-- O escopo identifica vínculos a pacotes no código e dependências resolvidas. O conteúdo efetivo do bundle, as funções afetadas que chegam a ele e as condições de exploração no serviço público ficaram fora da medição. Os avisos sobre variantes ou usos específicos de `nanoid`, por exemplo, indicam uma versão afetada no grafo e não confirmam que o app chama a variante vulnerável.
+- A nota mede avisos conhecidos associados a versões de dependências no grafo do cliente web. As chamadas diretas a `nanoid` inspecionadas usam o tamanho padrão ou constantes. As entradas `index.browser.js` das duas versões conferidas não contêm `fillPool`, mecanismo descrito no aviso de corrupção do pool. Verificar a presença das funções afetadas no bundle publicado, os parâmetros que chegam a elas e as condições de exploração no serviço público exigiria evidências adicionais.
 
 ## 7. Achado
 
 | ID | Métrica | Evidência reproduzível | Pontuação | Impacto | Recomendação |
 | --- | --- | --- | ---: | --- | --- |
-| A-S-M11 | S-M11 | E1, E4 e tabela da seção 5.1 | 0 | Alto pelo critério de dependências do GQM | Atualizar as versões afetadas de `nanoid` e `socket.io-parser` nas respectivas cadeias, validar o build e repetir a auditoria no lockfile atualizado |
+| A-S-M11 | S-M11 | Executar `python S-M11_recontagem.py` (E4) sobre E1 e E2 e conferir os cinco GHSAs altos da seção 5.1 | 0 | Alto no critério de dependências do GQM. O grafo do cliente web resolve versões cobertas por cinco avisos altos. | Atualizar as versões afetadas de `nanoid` e `socket.io-parser` nas respectivas cadeias, validar o build e repetir a auditoria no lockfile atualizado |
 
 ## 8. Contribuição para a questão
 

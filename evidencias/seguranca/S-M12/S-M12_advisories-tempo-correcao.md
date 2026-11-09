@@ -65,7 +65,7 @@ git grep -n -E '^"?mermaid@|"@excalidraw/mermaid-to-excalidraw@3.0.0"|^pele@1.8.
 
 | # | Arquivo | Conteúdo |
 | --- | --- | --- |
-| E1 | [S-M12_consultas_2026-11-08.json](S-M12_consultas_2026-11-08.json) | Registro das consultas e campos de identificação, versão, divulgação, publicação, estado de PR e paginação |
+| E1 | [S-M12_consultas_2026-11-08.json](S-M12_consultas_2026-11-08.json) | Registro das consultas e seleção de campos das respostas, incluindo identificação, versão, divulgação, publicação, estado de PR e paginação |
 | E2 | [S-M12_historico_2026-11-08.txt](S-M12_historico_2026-11-08.txt) | Saídas selecionadas das verificações no histórico oficial, com SHAs, datas, caminhos e resultados de ancestralidade |
 
 ### 4.3 Buscas sem resultado
@@ -101,13 +101,13 @@ O [GHSA-fr9g-2m2h-c27j](https://github.com/advisories/GHSA-fr9g-2m2h-c27j) foi r
 
 | Resultado | Critério do [roteiro GQM](../../../docs/analise/roteiro.md) | Pontuação |
 | --- | --- | ---: |
-| Um aviso aplicável sem correção pública identificada na data da coleta | 2 para média de até 30 dias ou ausência de advisories. 1 para 31 a 90 dias. 0 para média acima de 90 dias ou caso sem correção. | **0** |
+| Um aviso aplicável sem correção pública identificada até 08/11/2026 nas fontes consultadas. Tempo médio indisponível. | 2 para média de até 30 dias ou ausência de advisories. 1 para 31 a 90 dias. 0 para média acima de 90 dias ou caso sem correção. | **0** |
 
-O critério aplicado foi o de **caso sem correção pública identificada**. O CVE aplicável tem data de divulgação, mas as fontes e o histórico consultados não indicaram uma correção publicada. O zero é a pontuação do critério e a média permanece indisponível.
+A pontuação **0/2** aplica o critério de caso sem correção ao `CVE-2026-97224` pela **ausência de correção pública identificada até 08/11/2026 nas fontes consultadas**. A conclusão vale para o corte da coleta e para as fontes registradas em E1 e E2. O caso tem data de divulgação, e a média permanece indisponível porque nenhum intervalo de correção pôde ser verificado.
 
 ## 6. Observações e limitações
 
-- A GitHub Advisory Database marca o CVE-2026-97224 como não revisado e a NVD registrava `Awaiting Analysis` na coleta. O registro CNA e a leitura do código sustentam a correspondência com o fluxo descrito. O iframe é isolado por sandbox, e a análise estática não demonstra execução de código na origem da página principal nem exploração no serviço público.
+- Na coleta, a GitHub Advisory Database marcava o CVE-2026-97224 como não revisado e a NVD registrava `Awaiting Analysis`. O registro CNA e a leitura do código sustentam a correspondência com o fluxo descrito. O iframe é isolado por sandbox, e a análise estática não demonstra execução de código na origem da página principal nem exploração no serviço público. [Registro direto na NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-97224)
 - A issue #11930 descreve um caminho relacionado pela colaboração. Os PRs #12019 e #12191 tratam permissões ou validação de iframes. Foram usados como pistas de correção, sem contar a issue como outro advisory ou usar sua data como divulgação do CVE de importação.
 - A classificação de correção cobre as fontes públicas registradas em E1 e o histórico consultado em E2. Ela não cobre correções privadas nem confirma a data de implantação do serviço.
 
@@ -115,7 +115,7 @@ O critério aplicado foi o de **caso sem correção pública identificada**. O C
 
 | ID | Métrica | Evidência reproduzível | Pontuação | Impacto | Recomendação |
 | --- | --- | --- | ---: | --- | --- |
-| A-S-M12 | S-M12 | CVE-2026-97224, C1–C4 e E1–E2 | 0 | Médio. A importação pode encaminhar HTML ao iframe com permissões de scripts e pop-ups. | Acompanhar a correção oficial e verificar, em instância local, se a importação de cenas passa a aplicar as restrições esperadas ao iframe. |
+| A-S-M12 | S-M12 | Conferir o CVE-2026-97224 em E1, seguir o fluxo de importação em C1 e C2 e comparar com o histórico público em C4 e E2 | 0 | Médio. A importação pode encaminhar HTML ao iframe com permissões de scripts e pop-ups. | Acompanhar a correção oficial e verificar, em instância local, se a importação de cenas passa a aplicar as restrições esperadas ao iframe. |
 
 ## 8. Contribuição para a questão
 
