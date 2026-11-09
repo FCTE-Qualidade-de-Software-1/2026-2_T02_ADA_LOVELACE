@@ -56,7 +56,24 @@ sincronizadas na sala. Os backends do link `#json` e da IA apontam para
 portas sem serviço, então as requisições falham, mas o corpo fica visível no
 DevTools.
 
-A aplicação abre em `http://localhost:3001`. O `yarn install` termina com o
+A aplicação abre em `http://localhost:3001`.
+
+### IA (opcional)
+
+O backend de IA do Excalidraw (`oss-ai.excalidraw.com`) é fechado. Para que
+"Texto para diagrama" e "Diagrama para código" funcionem localmente, há um
+servidor falso, sem dependências, que devolve sempre o mesmo diagrama Mermaid
+e o mesmo HTML na porta 3016 (`VITE_APP_AI_BACKEND`):
+
+```shell
+node evidencias/ambiente/servidor-ia-falso.mjs
+LOG_BODY=1 node evidencias/ambiente/servidor-ia-falso.mjs  # mostra o corpo recebido
+```
+
+O terminal registra cada pedido recebido (rota, tamanho, número de mensagens
+e de imagens). Para avaliar a qualidade das respostas da IA real, use o
+excalidraw.com, que envia o conteúdo ao serviço do Excalidraw e tem limite
+diário de pedidos. O `yarn install` termina com o
 erro `.git can't be found` do `husky install`, que só instala ganchos de git
 e não afeta a aplicação. Como `yarn start` repete a instalação e para nesse
 erro, o servidor é iniciado com `yarn vite`.
@@ -71,6 +88,8 @@ erro, o servidor é iniciado com `yarn vite`.
   permitido, e listar a coleção é negado (`PERMISSION_DENIED`).
 * Ao iniciar uma sessão colaborativa, a cena é salva em `scenes/<id da sala>`
   com os campos `ciphertext`, `iv` e `sceneVersion`.
+* Servidor de IA falso: as duas rotas respondem em SSE, com os cabeçalhos
+  `X-Ratelimit-*` e a liberação de CORS exigidos pela aplicação.
 * Sessão colaborativa em duas janelas do Helium (uma anônima): o desenho de
   uma janela aparece na outra, com o WebSocket para `localhost:3002`.
 
