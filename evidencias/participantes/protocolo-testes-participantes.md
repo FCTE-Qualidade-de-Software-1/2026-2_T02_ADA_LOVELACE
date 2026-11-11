@@ -57,7 +57,6 @@ Regras:
 - Para o perfil C: ferramenta anterior (draw.io ou Miro) aberta e com a conta do participante, se necessário.
 - Para o perfil D: o participante usa seu próprio computador e tecnologia assistiva, quando possível.
 - Material pronto antes: imagem do **diagrama-modelo** (seção 5), imagem da barra de ferramentas sem rótulos (T3), cronômetro, ficha de observação.
-- Sessão rápidas de 10
 
 ## 4. Condução
 

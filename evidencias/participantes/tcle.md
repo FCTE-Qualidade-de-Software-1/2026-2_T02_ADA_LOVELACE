@@ -2,7 +2,7 @@
 
 **Estudo:** Avaliação da qualidade do Excalidraw (capacidade de interação e substituibilidade)
 **Responsáveis:** equipe Ada Lovelace, disciplina de Qualidade de Software 1 (FCTE/UnB), 2026.2
-**Contato da equipe:** _[preencher: e-mail institucional de uma pessoa da equipe]_
+**Contato da equipe:** zayramoraes1212@gmail.com
 
 ## 1. Do que se trata
 
@@ -41,7 +41,7 @@ Declaro que sou maior de 18 anos, li (ou me leram) este termo, tive a oportunida
 | Autorizo a gravação da tela e da voz | ☐ | ☐ |
 | Autorizo o uso dos dados resumidos e anônimos no relatório do trabalho | ☐ | ☐ |
 
-Nome: ______________________________________  Data: ____/____/2026
+Nome: ______________________________________  Data: __ /__ /2026
 
 Assinatura: ______________________________________
 
