@@ -21,7 +21,7 @@ A sessão dura cerca de _[30 a 40]_ minutos.
 - Você será identificado(a) apenas por um **código** (por exemplo, P03). Seu nome não aparecerá no relatório, no repositório nem no site do trabalho.
 - As gravações e este termo assinado ficam em **pasta privada**, acessível só aos integrantes da equipe e, se necessário, à docente da disciplina. Não serão publicados.
 - Os resultados serão apresentados de forma **resumida**, sem identificar ninguém.
-- As gravações e este termo serão **apagados** até _[data definida pelo grupo]_. Ficam apenas os dados resumidos e anônimos.
+- As gravações e este termo serão **apagados** depois do encerramento da disciplina.
 
 ## 4. Seus direitos
 
