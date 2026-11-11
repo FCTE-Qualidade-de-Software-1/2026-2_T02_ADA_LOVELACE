@@ -46,3 +46,6 @@ htmlcov/
 .DS_Store
 *.swp
 *.swo
+
+# Dados de participantes (gravações, TCLE assinado, tabela código-nome)
+evidencias/participantes/privado/
