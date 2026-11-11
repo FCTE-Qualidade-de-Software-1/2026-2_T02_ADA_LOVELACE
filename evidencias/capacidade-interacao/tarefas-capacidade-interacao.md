@@ -10,17 +10,13 @@ Para cada métrica, copiar `evidencias/capacidade-interacao/template.md` para `C
 | --- | --- | --- |
 | CI-M26 | Coletada (rascunho, falta revisão): 92,5%, nota 1 | `CI-M26_idiomas-traducao-pt-BR.md` |
 | CI-M18 | Coletada parcialmente (rascunho): 44%, nota 0 | `CI-M18_mensagens-de-erro.md` |
-| CI-M7, M10 | Dados de partida abaixo; falta definir o denominador com o grupo | — |
+| CI-M7 | Coletada (rascunho, falta revisão): 82,4%, nota 2 | `CI-M7_cobertura-ajuda-interna.md` |
+| CI-M10 | Coletada (rascunho, falta revisão): 100%, nota 2 | `CI-M10_cobertura-atalhos.md` |
 | CI-M12, M13, M14, M15, M16 | Testes funcionais no app local | — |
 | CI-M9 | Contagem de cliques nas 4 tarefas | — |
 | CI-M22, M23, M24, M25 | Ferramentas de acessibilidade | — |
 | CI-M1-M6, M8, M11, M17, M19-M21 | Exigem participantes: adiar | — |
 
-## Tarefas de código (sem navegador)
-
-- [ ] **CI-M7: cobertura da ajuda interna.** Contar funções documentadas em `HelpDialog.tsx` ÷ funções disponíveis. Partida: o diálogo tem 85 entradas `<Shortcut>` (`packages/excalidraw/components/HelpDialog.tsx:144-520`); `ActionName` em `actions/types.ts` tem 101 ações, mas muitas são ajustes de propriedade. **Decidir em grupo o denominador** (sugestão: ferramentas da barra + ações com botão ou menu visível) e registrar a lista.
-- [ ] **CI-M10: cobertura de atalhos.** Definir a lista de funções frequentes (sugestão: as 4 da CI-M9, desfazer, refazer, copiar, colar, excluir, duplicar, agrupar, selecionar tudo, zoom, salvar, abrir) e marcar quais têm `keyTest`/atalho. Já confirmados em código: salvar (`actionExport.tsx:324`), abrir (`:428`), agrupar (`actionGroup.tsx:203`), duplicar (`actionDuplicateSelection.tsx:118`), excluir (`actionDeleteSelected.tsx:319`), desfazer/refazer (`actionHistory.tsx:83,126`). Falta verificar cor, exportar PNG e as teclas das ferramentas.
-- [ ] **CI-M18:** completar com toasts (`grep -rn "toast" aplicacao/packages/excalidraw`) e fazer revisão cruzada da classificação.
 
 ## Tarefas no navegador (instância local, `yarn start` em `aplicacao/`)
 
