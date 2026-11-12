@@ -1,0 +1,20 @@
+{
+  "workbox-precache-v2-http://localhost:5000/": [
+    "/assets/bug-issue-template-BID_ABWq.js",
+    "/assets/bundler-helpers-DA6W-a70.js",
+    "/assets/image-blob-reduce.esm-B6b2_-a4.js",
+    "/assets/index-ChGp7972.js",
+    "/assets/index-D0I-IbtP.css",
+    "/assets/index-MU1J8y-2.js",
+    "/assets/pica-SjKYHIqK.js",
+    "/assets/random-username.esm-__vdrxyo.js",
+    "/assets/roundRect-0PYZxl1G.js",
+    "/assets/workbox-window.prod.es5-B9K5rw8f.js",
+    "/index.html",
+    "/android-chrome-192x192.png",
+    "/apple-touch-icon.png",
+    "/favicon-16x16.png",
+    "/favicon-32x32.png",
+    "/manifest.webmanifest"
+  ]
+}
