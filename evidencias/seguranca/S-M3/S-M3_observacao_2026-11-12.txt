@@ -1,8 +1,15 @@
+Nota editorial posterior à coleta (ajuste documental autorizado, sem repetição do teste):
+Os horários abaixo foram registrados ao gravar os blocos de texto; não são horários exatos de cada ação ou captura.
+A sequência A/B/C é um relato textual apoiado nas observações/snapshots do histórico da execução, não um log de rede.
+O snapshot DOM de C preservado abaixo registra contador 2 e o modal de erro, mas não descreve os elementos do canvas.
+A captura E4 mostra o modal do Firebase e não deve ser usada como comprovação visual do retângulo recebido por C.
+Os dois snapshots DOM originais foram preservados sem alterações. O vínculo das capturas ao SHA e às abas é detalhado no manifesto.
+
 Coleta automatizada em 2026-11-12T14:55:37.084Z
 Sala descartável própria: http://127.0.0.1:3013/#room=c5adaeee85d98d892a90,-VFIyEEy2ZGkft-0curOlA
 A criou a sala; B entrou e desenhou um retângulo.
 A: Parar sessão > confirmar; endereço após saída: http://127.0.0.1:3013/
-B permaneceu; C abriu exatamente o endereço original e recebeu o retângulo (captura E4).
+B permaneceu; o relato da execução registra que C abriu exatamente o endereço original e recebeu o retângulo. A observação do retângulo consta do histórico da execução; a captura E4 salva mostra o modal de erro do Firebase sobre o canvas e não comprova visualmente esse recebimento.
 Sem Firebase configurado: erro de persistência observado.
 Snapshot de C:
 - banner:

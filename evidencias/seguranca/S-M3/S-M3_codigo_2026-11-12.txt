@@ -1,3 +1,7 @@
+Nota editorial posterior à coleta:
+As linhas originais com o rótulo "Comando:" foram preservadas abaixo. Nas buscas rg, elas serializam a lista de argumentos passada pelo coletor Python a subprocess.run, sem quoting de shell; não são comandos copiáveis diretamente para PowerShell. O padrão com | foi um único argumento, sem pipeline. O caminho <checkout-room> é uma abreviação editorial do caminho local, não um argumento literal utilizado.
+Ao final há exemplos corrigidos para reprodução em PowerShell, separados do registro original. Esses exemplos não constituem nova execução ou novos resultados de medição.
+
 S-M3 - coleta de codigo em 2026-11-12T11:57:16.007440-03:00
 Origem: checkout oficial reutilizado da S-M11, copiado para pasta temporaria.
 Comando: git rev-parse HEAD
@@ -1000,3 +1004,25 @@ Comando: rg -n -i FILE_CACHE_MAX_AGE_SEC excalidraw-app/share excalidraw-app/col
 Codigo de saida: 0
 excalidraw-app/data\firebase.ts:24:import { FILE_CACHE_MAX_AGE_SEC } from "../app_constants";
 excalidraw-app/data\firebase.ts:164:          cacheControl: `public, max-age=${FILE_CACHE_MAX_AGE_SEC}`,
+
+EXEMPLOS CORRIGIDOS PARA REPRODUÇÃO EM POWERSHELL (não executados nesta revisão)
+Executar as buscas a partir da raiz do checkout fixado. Os resultados anteriores acima não foram substituídos nem apresentados como novas saídas.
+
+```powershell
+$sm3Run = Join-Path $env:TEMP 'sm3-e7b5346-20261112'
+$sm3Room = Join-Path $env:TEMP 'sm3-room-20261112'
+git -C $sm3Run rev-parse HEAD
+git -C $sm3Run status --short
+Get-FileHash -LiteralPath (Join-Path $sm3Run 'yarn.lock') -Algorithm SHA256
+git -c "safe.directory=$sm3Room" -C $sm3Room rev-parse HEAD
+Push-Location -LiteralPath $sm3Run
+try {
+    rg -n -i 'password|passphrase|expir|revok|revoke|invalidate|deleteDoc|deleteObject' excalidraw-app/share excalidraw-app/collab excalidraw-app/data packages/excalidraw/components/JSONExportDialog.tsx packages/excalidraw/components/ShareableLinkDialog.tsx
+    # Para rg: exit 1 = nenhuma ocorrência; exit 0 = ocorrência; exit 2 = erro.
+    rg -n -i 'FILE_CACHE_MAX_AGE_SEC' excalidraw-app/share excalidraw-app/collab excalidraw-app/data packages/excalidraw/components/JSONExportDialog.tsx packages/excalidraw/components/ShareableLinkDialog.tsx
+} finally {
+    Pop-Location
+}
+```
+
+O SHA256 do lockfile foi calculado pelo coletor Python com hashlib.sha256 sobre os bytes do arquivo; Get-FileHash é a alternativa PowerShell de reprodução. Não há novo resultado registrado para essa alternativa.

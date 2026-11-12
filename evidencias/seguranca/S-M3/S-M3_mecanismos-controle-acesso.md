@@ -30,7 +30,7 @@ A medição conta mecanismos disponíveis no cliente, não propriedades presumid
 5. Preparar o servidor oficial de colaboração na revisão já documentada pelo grupo. Na cópia temporária do cliente, sobrescrever apenas configuração local ignorada pelo Git: socket local, backends de cena e IA locais, Firebase vazio, tracking e Sentry desabilitados. Nenhum arquivo de código rastreado do cliente foi modificado.
 6. No navegador, abrir `http://127.0.0.1:3013/` (aba A), clicar em **Colaboração ao vivo...** e examinar o diálogo de criação (E1). Clicar em **Iniciar sessão**. Examinar nome, link, copiar, compartilhamento nativo, QR code e **Parar sessão** (E2). Não há campo de senha, prazo ou comando para invalidar o link nesses diálogos.
 7. Identificar A como `SM3-A`. Fechar o erro de salvamento do Firebase, que não está configurado. Abrir a mesma URL de sala em outra aba (B), dispensar o aviso de persistência com Escape e desenhar um retângulo com a ferramenta **Retângulo** (E3). A interface mostra dois participantes.
-8. Em A, clicar em **Parar sessão** e aceitar a confirmação de substituição da cena local de teste. A URL de A volta a `http://127.0.0.1:3013/`. Manter B conectado. Abrir uma terceira aba (C) com **exatamente o link original**, sem criar outra sala: C entra, recebe o retângulo e a interface volta a mostrar dois participantes (B e C), conforme E4/E8. Não foi solicitada senha. Logo, essa ação não revogou o link para novos acessos nesse caso.
+8. Em A, clicar em **Parar sessão** e aceitar a confirmação de substituição da cena local de teste. A URL de A volta a `http://127.0.0.1:3013/`. Manter B conectado. Abrir uma terceira aba (C) com **exatamente o link original**, sem criar outra sala: C entra, recebe o retângulo e a interface volta a mostrar dois participantes (B e C), conforme o relato textual de E8 e as observações/snapshots no histórico da execução. O snapshot DOM de E8 registra o contador 2 e o erro de persistência, mas não descreve o conteúdo desenhado no canvas. E4 mostra o modal desse erro; não comprova visualmente o retângulo recebido por C. Não foi solicitada senha. O comportamento registrado indica que a saída de A não invalidou imediatamente o link enquanto B permanecia conectado; a documentação visual salva desse passo é limitada.
 9. Em uma quarta aba local (D), abrir **menu > Salvar como...**. Examinar **Link compartilhável**, descrito como “Exportar como link de somente leitura” (E5). Não são oferecidos controles de senha, expiração ou revogação. Clicar em **Exportar link**: a interface informa “Não foi possível criar um link de compartilhamento” (E7), pois o backend configurado em `localhost:9999` não está disponível. Não foi gerado nem reaberto um link de cena nesta coleta.
 10. Ler os componentes completos de compartilhamento e seguir os callbacks até a geração dos links, envio, importação, encerramento, persistência e desconexão (C1–C15). Usar buscas apenas como apoio. Registrar os trechos numerados e as buscas em E9.
 
@@ -171,23 +171,23 @@ if (json.id) {
 
 ### 4.2 Arquivos de apoio
 
-Todas as capturas abaixo foram feitas nesta execução do SHA fixado. A primeira aba apresentou layout compacto; as demais, layout de desktop. Nenhuma captura foi reaproveitada de outros integrantes ou de `excalidraw.com`.
+As capturas abaixo pertencem à execução local descrita neste registro. A associação ao SHA fixado vem dos comandos e do histórico da execução, não de uma versão visível nos JPEGs. A primeira aba apresentou layout compacto; as demais, layout de desktop. Nenhuma captura foi reaproveitada de outros integrantes ou de `excalidraw.com`. O [manifesto das sete capturas](S-M3_manifesto-capturas_2026-11-12.md) distingue metadados registrados de associações reconstruídas; horários individuais de captura não foram informados.
 
 | # | Arquivo | Tipo | O que mostra |
 | --- | --- | --- | --- |
 | E1 | [S-M3_criar-sala_2026-11-12.jpg](S-M3_criar-sala_2026-11-12.jpg) | Captura | Diálogo antes de criar sala, com Iniciar sessão e aviso de criptografia. |
 | E2 | [S-M3_sala-ativa_2026-11-12.jpg](S-M3_sala-ativa_2026-11-12.jpg) | Captura | Todos os controles da sala e texto que explica que parar a sessão não afeta os outros participantes. |
 | E3 | [S-M3_dois-clientes_2026-11-12.jpg](S-M3_dois-clientes_2026-11-12.jpg) | Captura | Retângulo desenhado em B e contador de dois participantes antes da saída de A. |
-| E4 | [S-M3_link-anterior-apos-saida_2026-11-12.jpg](S-M3_link-anterior-apos-saida_2026-11-12.jpg) | Captura | C recebeu o retângulo ao entrar pelo link antigo depois da saída de A; contador B+C = 2. Correlacionar com E8, pois a captura não inclui a barra de endereço. |
+| E4 | [S-M3_link-anterior-apos-saida_2026-11-12.jpg](S-M3_link-anterior-apos-saida_2026-11-12.jpg) | Captura | Modal de erro de salvamento do Firebase sobre o canvas, com contador 2 ao fundo. A associação ao cliente C após a saída de A é reconstruída do histórico. Não comprova visualmente o retângulo recebido, a URL nem a identidade dos participantes. |
 | E5 | [S-M3_compartilhar-cena_2026-11-12.jpg](S-M3_compartilhar-cena_2026-11-12.jpg) | Captura | Salvar como: arquivo, link de cena e Excalidraw+, sem os três controles. |
 | E6 | [S-M3_limite-firebase_2026-11-12.jpg](S-M3_limite-firebase_2026-11-12.jpg) | Captura | Erro ao salvar a sala sem Firebase configurado. |
 | E7 | [S-M3_limite-link-cena_2026-11-12.jpg](S-M3_limite-link-cena_2026-11-12.jpg) | Captura | Exportar link falha porque o backend local está indisponível. |
-| E8 | [S-M3_observacao_2026-11-12.txt](S-M3_observacao_2026-11-12.txt) | Registro e DOM | Horários UTC, URL descartável original, URL de A após saída e estado de C e da exportação. |
-| E9 | [S-M3_codigo_2026-11-12.txt](S-M3_codigo_2026-11-12.txt) | Saída de comandos e código | SHA, estado limpo do cliente, hash do lockfile, trechos numerados C1–C15 e buscas auxiliares. |
+| E8 | [S-M3_observacao_2026-11-12.txt](S-M3_observacao_2026-11-12.txt) | Registro e DOM | Registro textual da sequência A/B/C e snapshots DOM de C e D. Horários UTC são de gravação dos blocos; o DOM registra contador/erro, sem comprovar o conteúdo do canvas. Não é log de rede. |
+| E9 | [S-M3_codigo_2026-11-12.txt](S-M3_codigo_2026-11-12.txt) | Saída de comandos e código | SHA, estado limpo do cliente, hash do lockfile, trechos numerados C1–C15 e buscas auxiliares; distingue a serialização original dos argumentos dos exemplos PowerShell corrigidos para reprodução. |
 
 ![Sala ativa: controles disponíveis e descrição do encerramento](S-M3_sala-ativa_2026-11-12.jpg)
 
-![Novo cliente acessa pelo link anterior após a saída do criador](S-M3_link-anterior-apos-saida_2026-11-12.jpg)
+![Modal de erro do Firebase no cliente associado a C; sem comprovação visual do retângulo](S-M3_link-anterior-apos-saida_2026-11-12.jpg)
 
 ### 4.3 Buscas sem resultado
 
@@ -202,9 +202,9 @@ Todas as capturas abaixo foram feitas nesta execução do SHA fixado. A primeira
 
 | Mecanismo | Colaboração em tempo real (`#room`) | Cena exportada (`#json`) | Resultado para S-M3 |
 | --- | --- | --- | --- |
-| Proteção por senha | Nenhuma opção no início ou sala ativa; entrada B/C sem senha; chave gerada automaticamente (E1–E4, C1, C4, C5). | Nenhuma opção no cartão de exportação; código gera chave e link automaticamente (E5, C2, C3, C12). Exportação efetiva não concluída. | **Ausente como mecanismo oferecido no cliente: 0** |
+| Proteção por senha | Nenhuma opção no início ou sala ativa; entrada B/C sem senha; chave gerada automaticamente (E1/E2, relato de E8 e histórico da execução; C1, C4, C5). | Nenhuma opção no cartão de exportação; código gera chave e link automaticamente (E5, C2, C3, C12). Exportação efetiva não concluída. | **Ausente como mecanismo oferecido no cliente: 0** |
 | Expiração de link | Nenhum prazo configurável na interface ou no fluxo de criação/entrada (E1/E2, C1, C4, C8, C15). | Nenhum prazo configurável no cartão, callback, payload ou diálogo final descrito no código (E5, C2, C3, C12). | **Ausente como mecanismo oferecido no cliente: 0** |
-| Revogação de link | Parar sessão desconecta A; C entra pelo mesmo link e recebe a cena de B (E4/E8). Código fecha apenas o cliente (C6–C9, C15). | Nenhuma operação de invalidação é oferecida pelos componentes e fluxo de exportação/importação (C2, C3, C12). Validade remota de um link exportado não foi testada. | **Ausente como mecanismo oferecido no cliente: 0** |
+| Revogação de link | O relato de E8 e o histórico da execução registram a entrada de C pelo mesmo link após A sair, com B presente. O recebimento do retângulo foi observado na execução, mas não está demonstrado visualmente em E4 nem no DOM de E8. Código fecha apenas o cliente (C6–C9, C15). | Nenhuma operação de invalidação é oferecida pelos componentes e fluxo de exportação/importação (C2, C3, C12). Validade remota de um link exportado não foi testada. | **Ausente como mecanismo oferecido no cliente: 0** |
 
 Controles relacionados, sem pontos adicionais: posse do link com chave permite decifrar; nome é autodeclarado; compartilhamento nativo e QR code apenas distribuem o mesmo link. A descrição “somente leitura” se refere à exportação de uma cena, distinta da sala de edição sincronizada; não configura senha, prazo ou revogação nem comprova uma política de permissões por identidade. O Excalidraw+ é uma integração externa, sem sessão autenticada avaliada nesta coleta.
 
@@ -218,7 +218,7 @@ Valor medido = indicador de senha + indicador de expiração + indicador de revo
 | --- | --- | --- |
 | **0 mecanismos oferecidos pelo cliente avaliado** | 2 = presença de 2 ou 3 mecanismos; 1 = presença de 1 mecanismo; 0 = ausência dos três mecanismos | **0 — Insatisfatório** |
 
-**Justificativa:** interface e implementação do cliente não oferecem os três mecanismos definidos no GQM. O teste de colaboração confirma que o comando disponível de encerramento não invalida o link para novos acessos quando outro participante continua conectado. Não se atribui um ponto à chave criptográfica, à criação de um link novo, ao prazo de cache ou ao encerramento local.
+**Justificativa:** interface e implementação do cliente não oferecem os três mecanismos definidos no GQM. O comportamento registrado no relato e no histórico da execução indica que o comando disponível de encerramento não invalidou imediatamente o link enquanto outro participante continuava conectado; E4 documenta apenas o erro de persistência. A análise de C6–C9 e C15 sustenta a distinção entre desconexão local e revogação. Não se atribui um ponto à chave criptográfica, à criação de um link novo, ao prazo de cache ou ao encerramento local.
 
 ## 6. Observações e limitações
 
@@ -226,6 +226,7 @@ Valor medido = indicador de senha + indicador de expiração + indicador de revo
 - O Firebase foi configurado como `{}` para não usar serviços e credenciais de terceiros. Houve erro de salvamento. A sincronização observada foi pelo servidor local e pelo participante B; **não foi confirmado o acesso à cena depois que todos os participantes saem**, nem a retenção do documento remoto.
 - O backend de cenas aponta para `localhost:9999` sem serviço. A criação, o diálogo final e a reabertura de `#json` não foram observados com sucesso. Seus fluxos foram lidos no código, incluindo os parâmetros de envio e o diálogo final. **A retenção, expiração automática e eventual exclusão administrativa no backend externo permanecem inconclusivas**; nenhuma delas foi inventada ou contada como opção configurável pelo usuário.
 - A ausência dos três mecanismos no cliente não foi inferida da falha dos serviços: foi determinada pela interface, componentes completos, contratos e caminhos de execução. Os serviços ausentes limitam os ensaios de persistência e do link de cena, não escondem controles já existentes nos componentes examinados.
+- A confirmação do comportamento com três clientes depende do registro textual e das observações/snapshots do histórico da execução. Os arquivos E4/E8 não fornecem uma sequência visual completa ou um log de rede: o modal em E4 encobre o canvas e o DOM em E8 não descreve os elementos desenhados. O manifesto foi elaborado posteriormente, sem nova coleta; horários ausentes não foram inferidos de datas dos arquivos.
 - As abas compartilham o perfil do IAB; não representam perfis autenticados independentes. Houve três conexões de cliente distintas ao longo do teste da sala. Não foi realizado ensaio de isolamento de identidade, atribuído a outras métricas. Não se reivindica garantia de autorização apenas pelo uso de abas distintas.
 - A versão do motor do IAB não foi exposta pela ferramenta e não foi presumida a partir de navegadores instalados. As capturas têm 596 × 726 (A, layout compacto) e 1280 × 720 (demais abas, desktop), conforme os arquivos; não se trata de ensaio de compatibilidade ou cobertura de resoluções.
 - Só foram usados uma sala própria descartável e formas de teste. E8 contém o ID/chave dessa sala local sem dados reais. Não foram incluídos HARs, credenciais, configurações Firebase do grupo, dependências ou cópias temporárias do software.
@@ -238,7 +239,7 @@ Validações documentais: os 15 trechos numerados de E9 foram comparados com os 
 
 | ID | Métrica | Evidência reproduzível | Pontuação | Impacto (Baixo/Médio/Alto) | Recomendação |
 | --- | --- | --- | --- | --- | --- |
-| A-S-M3 | S-M3 | Repetir passos 6–9, conferir E1–E5/E8 e seguir C1–C15: nenhum dos três mecanismos é oferecido; C entra pelo link anterior após A parar a sessão, com B presente. | 0 | Médio | Oferecer proteção por senha separada do link, expiração configurável e revogação efetiva validada pelo serviço; explicar ao usuário a diferença entre sair da sala e invalidar acesso futuro. Verificar novamente os links antigos após implementar os controles. |
+| A-S-M3 | S-M3 | Para reprodução futura, seguir passos 6–9. Conferir E1/E2/E5 e C1–C15 para os controles oferecidos; E8 e histórico registram nova entrada após A sair, com B presente. E4 documenta somente o erro de persistência, sem comprovação visual do retângulo. | 0 | Médio | Oferecer proteção por senha separada do link, expiração configurável e revogação efetiva validada pelo serviço; explicar ao usuário a diferença entre sair da sala e invalidar acesso futuro. Verificar novamente os links antigos após implementar os controles. |
 
 O impacto é qualitativo: quem recebeu o link pode repassá-lo e o criador não dispõe desses controles no cliente. Não foi demonstrada exposição de conteúdo sem a chave nem invasão de dados de terceiros.
 
@@ -246,4 +247,4 @@ O impacto é qualitativo: quem recebeu o link pode repassá-lo e o criador não 
 
 | Questão | Esta métrica indica que a hipótese foi | Por quê |
 | --- | --- | --- |
-| S-Q2 — Confidencialidade | Confirmada no recorte de S-M3 | O cliente gratuito não oferece senha, expiração ou revogação; sair da sala não impediu novo acesso pelo link no cenário observado. O fechamento de S-Q2 também depende de S-M4 e de suas evidências de armazenamento local. |
+| S-Q2 — Confidencialidade | Confirmada no recorte de S-M3 | O cliente gratuito não oferece senha, expiração ou revogação; o registro textual e o histórico da execução indicam novo acesso pelo link após a saída do criador, com outro cliente presente, ressalvada a limitação visual de E4/E8. O fechamento de S-Q2 também depende de S-M4 e de suas evidências de armazenamento local. |
