@@ -35,7 +35,7 @@ grep -n "EVENT.COPY\|EVENT.PASTE" aplicacao/packages/excalidraw/components/App.t
 
 | # | Arquivo:linha | O que mostra |
 | --- | --- | --- |
-| C1 | `packages/excalidraw/components/Tools.tsx:60-85` | Cada ferramenta tem `letterKey` (R, A, T...) e `numericKey` |
+| C1 | `packages/excalidraw/components/Tools.tsx:83,101,118` | Cada ferramenta tem `letterKey` e `numericKey`: retângulo `R` (83), seta `A` (101), texto `T` (118) |
 | C2 | `packages/excalidraw/components/App.tsx:5541-5563` | `S` abre o seletor de cor do traço e `G`, o de fundo |
 | C3 | `packages/excalidraw/components/App.tsx:5271-5279` | `Ctrl/Cmd+Shift+E` abre o diálogo de exportar imagem (PNG) |
 | C4 | `actions/actionGroup.tsx:203` | Agrupar: `Ctrl/Cmd+G` |

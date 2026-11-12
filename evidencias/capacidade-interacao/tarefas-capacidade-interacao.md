@@ -10,13 +10,17 @@ Para cada métrica, copiar `evidencias/capacidade-interacao/template.md` para `C
 | --- | --- | --- |
 | CI-M26 | Coletada (rascunho, falta revisão): 92,5%, nota 1 | `CI-M26_idiomas-traducao-pt-BR.md` |
 | CI-M18 | Coletada parcialmente (rascunho): 44%, nota 0 | `CI-M18_mensagens-de-erro.md` |
-| CI-M7 | Coletada (rascunho, falta revisão): 82,4%, nota 2 | `CI-M7_cobertura-ajuda-interna.md` |
+| CI-M7 | Coletada (rascunho, denominador: ferramentas da barra + ações visíveis): 62,2%, nota 1 | `CI-M7_cobertura-ajuda-interna.md` |
 | CI-M10 | Coletada (rascunho, falta revisão): 100%, nota 2 | `CI-M10_cobertura-atalhos.md` |
 | CI-M12, M13, M14, M15, M16 | Testes funcionais no app local | — |
 | CI-M9 | Contagem de cliques nas 4 tarefas | — |
 | CI-M22, M23, M24, M25 | Ferramentas de acessibilidade | — |
 | CI-M1-M6, M8, M11, M17, M19-M21 | Exigem participantes: adiar | — |
 
+
+## Tarefas de código (sem navegador)
+
+- [ ] **CI-M18:** completar com toasts (`grep -rn "toast" aplicacao/packages/excalidraw`) e fazer revisão cruzada da classificação.
 
 ## Tarefas no navegador (instância local, `yarn start` em `aplicacao/`)
 
