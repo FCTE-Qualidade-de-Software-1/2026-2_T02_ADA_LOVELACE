@@ -87,15 +87,15 @@ disponível para conferência e processamento.
 | João Pedro Lopes da Cruz | 25 |
 | Luis Felipe | 14 |
 | Renato Araújo Gameiro | 12 |
-| giovannafg | 7 |
-| andrehsb | 6 |
+| giovannafg | 8 |
+| andrehsb | 7 |
 | Zayra-Moraes | 6 |
 | Giovanna Felipe | 2 |
 | Renato Gameiro | 1 |
 | renatvg | 1 |
-| **Total** | **74** |
+| **Total** | **76** |
 
-*Última coleta: 2026-11-09T23:06:00+00:00, referência `main`.*
+*Última coleta: 2026-11-12T11:48:39+00:00, referência `main`.*
 <!-- END AUTO: membros-commits -->
 
 A atualização é executada a cada push na `main` e semanalmente pelo
