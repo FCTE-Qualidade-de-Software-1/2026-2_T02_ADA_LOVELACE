@@ -11,7 +11,7 @@
 | Tarefa do plano | [Issue #65](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/65) (ver `tarefas-flexibilidade.md`) |
 | Responsável | Giovanna Felipe |
 | Data da coleta | 2026-11-09 |
-| Revisado por | Pendente de revisão por outro integrante |
+| Revisado por | André Henrique em 2026-11-12 |
 | Versão | [`e7b534668a60add7f725531f3c9abf32508c7b4e`](https://github.com/excalidraw/excalidraw/commit/e7b534668a60add7f725531f3c9abf32508c7b4e) |
 
 ## 2. O que foi medido
