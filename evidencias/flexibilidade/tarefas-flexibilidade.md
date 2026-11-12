@@ -35,7 +35,7 @@ Para cada métrica, copiar `evidencias/flexibilidade/template.md` para `F-Mxx_de
 
 ## Comparação com outra ferramenta (O4)
 
-- [ ] **F-M7:** definir a lista de funções do draw.io ou do Miro e marcar quais existem no Excalidraw.
+- [x] **F-M7:** feito com o draw.io (24 de 42 funções, 57,1%).
 
 ## Adiadas (precisam de participantes e autorização)
 
