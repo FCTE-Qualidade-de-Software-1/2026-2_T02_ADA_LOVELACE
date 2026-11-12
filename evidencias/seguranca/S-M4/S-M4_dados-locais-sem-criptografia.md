@@ -1,5 +1,11 @@
 # Evidência S-M4 — Dados persistidos localmente sem criptografia
 
+> **Nota editorial posterior à coleta — 2026-11-12:** a medição original do commit `85f4225ccb2c76cceeffb8d25fb27a53caaef89f` permanece validada: **Sim, 0/2**. Os JSONs, as capturas e a saída original de verificação foram preservados. Os scripts E1 e E7 foram reforçados depois da auditoria; seus mecanismos novos **não foram utilizados na coleta original**. As versões históricas dos scripts estão naquele commit (por exemplo, `git show 85f4225ccb2c76cceeffb8d25fb27a53caaef89f:evidencias/seguranca/S-M4/S-M4_coleta_2026-11-12.cjs`).
+>
+> Na instrumentação original, `errors: []` significa ausência de erros capturados: o listener de `pageerror` não foi reinstalado na aba reaberta, e falhas complementares podiam ser registradas sem saída de erro do processo. O SHA do JSON era uma declaração fixa, não detecção dinâmica. Essas limitações não foram corrigidas retroativamente no JSON. A auditoria independente confirmou os dados e o checkout, sem comprovar associação entre esse checkout e o processo Vite que serviu a página.
+>
+> Para execuções futuras, o coletor verifica o Git real antes de iniciar, exige o SHA oficial e arquivos rastreados limpos, registra `checkoutVersion` com `servedAssociation: not-verified`, acompanha `pageerror`/`crash` em todas as páginas e separa erros capturados, falhas obrigatórias e falhas opcionais de capturas/texto DOM. Todos os oito snapshots e seu conteúdo são obrigatórios para uma execução completa; erro de página capturado também impede sucesso. As saídas vão a uma pasta temporária nova por padrão; um diretório informado já existente é recusado. O verificador atual aceita o registro legado sem reinterpretar seus metadados e pode receber outro JSON como argumento. A validação posterior está em [S-M4_validacao-instrumentacao_2026-11-12.md](S-M4_validacao-instrumentacao_2026-11-12.md); não houve nova coleta.
+
 ## 1. Identificação
 
 | Campo | Valor |
