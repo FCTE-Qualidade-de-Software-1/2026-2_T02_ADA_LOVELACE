@@ -1,0 +1,716 @@
+### excalidraw-app/app_constants.ts
+   1: // time constants (ms)
+   2: export const SAVE_TO_LOCAL_STORAGE_TIMEOUT = 300;
+   3: export const INITIAL_SCENE_UPDATE_TIMEOUT = 5000;
+   4: export const FILE_UPLOAD_TIMEOUT = 300;
+   5: export const LOAD_IMAGES_TIMEOUT = 500;
+   6: export const SYNC_FULL_SCENE_INTERVAL_MS = 20000;
+   7: export const SYNC_BROWSER_TABS_TIMEOUT = 50;
+   8: export const CURSOR_SYNC_TIMEOUT = 33; // ~30fps
+   9: export const DELETED_ELEMENT_TIMEOUT = 24 * 60 * 60 * 1000; // 1 day
+  10:
+  11: // should be aligned with MAX_ALLOWED_FILE_BYTES
+  12: export const FILE_UPLOAD_MAX_BYTES = 4 * 1024 * 1024; // 4 MiB
+  13: // 1 year (https://stackoverflow.com/a/25201898/927631)
+  14: export const FILE_CACHE_MAX_AGE_SEC = 31536000;
+  15:
+  16: export const WS_EVENTS = {
+  17:   SERVER_VOLATILE: "server-volatile-broadcast",
+  18:   SERVER: "server-broadcast",
+  19:   USER_FOLLOW_CHANGE: "user-follow",
+  20:   USER_FOLLOW_ROOM_CHANGE: "user-follow-room-change",
+  21: } as const;
+  22:
+  23: export enum WS_SUBTYPES {
+  24:   INVALID_RESPONSE = "INVALID_RESPONSE",
+  25:   INIT = "SCENE_INIT",
+  26:   UPDATE = "SCENE_UPDATE",
+  27:   MOUSE_LOCATION = "MOUSE_LOCATION",
+  28:   IDLE_STATUS = "IDLE_STATUS",
+  29:   USER_VISIBLE_SCENE_BOUNDS = "USER_VISIBLE_SCENE_BOUNDS",
+  30: }
+  31:
+  32: export const FIREBASE_STORAGE_PREFIXES = {
+  33:   shareLinkFiles: `/files/shareLinks`,
+  34:   collabFiles: `/files/rooms`,
+  35: };
+  36:
+  37: export const ROOM_ID_BYTES = 10;
+  38:
+  39: export const STORAGE_KEYS = {
+  40:   LOCAL_STORAGE_ELEMENTS: "excalidraw",
+  41:   LOCAL_STORAGE_APP_STATE: "excalidraw-state",
+  42:   LOCAL_STORAGE_COLLAB: "excalidraw-collab",
+  43:   LOCAL_STORAGE_THEME: "excalidraw-theme",
+  44:   LOCAL_STORAGE_DEBUG: "excalidraw-debug",
+  45:   VERSION_DATA_STATE: "version-dataState",
+  46:   VERSION_FILES: "version-files",
+  47:
+  48:   IDB_LIBRARY: "excalidraw-library",
+  49:   IDB_TTD_CHATS: "excalidraw-ttd-chats",
+  50:
+  51:   // do not use apart from migrations
+  52:   __LEGACY_LOCAL_STORAGE_LIBRARY: "excalidraw-library",
+  53: } as const;
+  54:
+  55: export const COOKIES = {
+  56:   AUTH_STATE_COOKIE: "excplus-auth",
+  57: } as const;
+  58:
+  59: export const isExcalidrawPlusSignedUser = document.cookie.includes(
+  60:   COOKIES.AUTH_STATE_COOKIE,
+  61: );
+### excalidraw-app/data/LocalData.ts
+   1: /**
+   2:  * This file deals with saving data state (appState, elements, images, ...)
+   3:  * locally to the browser.
+   4:  *
+   5:  * Notes:
+   6:  *
+   7:  * - DataState refers to full state of the app: appState, elements, images,
+   8:  *   though some state is saved separately (collab username, library) for one
+   9:  *   reason or another. We also save different data to different storage
+  10:  *   (localStorage, indexedDB).
+  11:  */
+  12:
+  13: import { clearAppStateForLocalStorage } from "@excalidraw/excalidraw/appState";
+  14: import {
+  15:   CANVAS_SEARCH_TAB,
+  16:   DEFAULT_SIDEBAR,
+  17:   debounce,
+  18: } from "@excalidraw/common";
+  19: import {
+  20:   createStore,
+  21:   entries,
+  22:   del,
+  23:   getMany,
+  24:   set,
+  25:   setMany,
+  26:   get,
+  27: } from "idb-keyval";
+  28:
+  29: import { getNonDeletedElements } from "@excalidraw/element";
+  30:
+  31: import type { LibraryPersistedData } from "@excalidraw/excalidraw/data/library";
+  32: import type { ImportedDataState } from "@excalidraw/excalidraw/data/types";
+  33: import type { ExcalidrawElement, FileId } from "@excalidraw/element/types";
+  34: import type {
+  35:   AppState,
+  36:   BinaryFileData,
+  37:   BinaryFiles,
+  38: } from "@excalidraw/excalidraw/types";
+  39: import type { MaybePromise } from "@excalidraw/common/utility-types";
+  40:
+  41: import { appJotaiStore, atom } from "../app-jotai";
+  42: import { SAVE_TO_LOCAL_STORAGE_TIMEOUT, STORAGE_KEYS } from "../app_constants";
+  43:
+  44: import { FileManager } from "./FileManager";
+  45: import { FileStatusStore } from "./fileStatusStore";
+  46: import { Locker } from "./Locker";
+  47: import { updateBrowserStateVersion } from "./tabSync";
+  48:
+  49: const filesStore = createStore("files-db", "files-store");
+  50:
+  51: export const localStorageQuotaExceededAtom = atom(false);
+  52:
+  53: class LocalFileManager extends FileManager {
+  54:   clearObsoleteFiles = async (opts: { currentFileIds: FileId[] }) => {
+  55:     await entries(filesStore).then((entries) => {
+  56:       for (const [id, imageData] of entries as [FileId, BinaryFileData][]) {
+  57:         // if image is unused (not on canvas) & is older than 1 day, delete it
+  58:         // from storage. We check `lastRetrieved` we care about the last time
+  59:         // the image was used (loaded on canvas), not when it was initially
+  60:         // created.
+  61:         if (
+  62:           (!imageData.lastRetrieved ||
+  63:             Date.now() - imageData.lastRetrieved > 24 * 3600 * 1000) &&
+  64:           !opts.currentFileIds.includes(id as FileId)
+  65:         ) {
+  66:           del(id, filesStore);
+  67:         }
+  68:       }
+  69:     });
+  70:   };
+  71: }
+  72:
+  73: const saveDataStateToLocalStorage = (
+  74:   elements: readonly ExcalidrawElement[],
+  75:   appState: AppState,
+  76: ) => {
+  77:   const localStorageQuotaExceeded = appJotaiStore.get(
+  78:     localStorageQuotaExceededAtom,
+  79:   );
+  80:   try {
+  81:     const _appState = clearAppStateForLocalStorage(appState);
+  82:
+  83:     if (
+  84:       _appState.openSidebar?.name === DEFAULT_SIDEBAR.name &&
+  85:       _appState.openSidebar.tab === CANVAS_SEARCH_TAB
+  86:     ) {
+  87:       _appState.openSidebar = null;
+  88:     }
+  89:
+  90:     localStorage.setItem(
+  91:       STORAGE_KEYS.LOCAL_STORAGE_ELEMENTS,
+  92:       JSON.stringify(getNonDeletedElements(elements)),
+  93:     );
+  94:     localStorage.setItem(
+  95:       STORAGE_KEYS.LOCAL_STORAGE_APP_STATE,
+  96:       JSON.stringify(_appState),
+  97:     );
+  98:     updateBrowserStateVersion(STORAGE_KEYS.VERSION_DATA_STATE);
+  99:     if (localStorageQuotaExceeded) {
+ 100:       appJotaiStore.set(localStorageQuotaExceededAtom, false);
+ 101:     }
+ 102:   } catch (error: any) {
+ 103:     // Unable to access window.localStorage
+ 104:     console.error(error);
+ 105:     if (isQuotaExceededError(error) && !localStorageQuotaExceeded) {
+ 106:       appJotaiStore.set(localStorageQuotaExceededAtom, true);
+ 107:     }
+ 108:   }
+ 109: };
+ 110:
+ 111: const isQuotaExceededError = (error: any) => {
+ 112:   return (
+ 113:     error instanceof DOMException &&
+ 114:     (error.name === "QuotaExceededError" ||
+ 115:       error.name === "NS_ERROR_DOM_QUOTA_REACHED" ||
+ 116:       error.name === "QUOTA_EXCEEDED_ERR" ||
+ 117:       error.code === 22 ||
+ 118:       error.code === 1014)
+ 119:   );
+ 120: };
+ 121:
+ 122: type SavingLockTypes = "collaboration";
+ 123:
+ 124: export class LocalData {
+ 125:   private static _save = debounce(
+ 126:     async (
+ 127:       elements: readonly ExcalidrawElement[],
+ 128:       appState: AppState,
+ 129:       files: BinaryFiles,
+ 130:       onFilesSaved: () => void,
+ 131:     ) => {
+ 132:       saveDataStateToLocalStorage(elements, appState);
+ 133:
+ 134:       await this.fileStorage.saveFiles({
+ 135:         elements,
+ 136:         files,
+ 137:       });
+ 138:       onFilesSaved();
+ 139:     },
+ 140:     SAVE_TO_LOCAL_STORAGE_TIMEOUT,
+ 141:   );
+ 142:
+ 143:   /** Saves DataState, including files. Bails if saving is paused */
+ 144:   static save = (
+ 145:     elements: readonly ExcalidrawElement[],
+ 146:     appState: AppState,
+ 147:     files: BinaryFiles,
+ 148:     onFilesSaved: () => void,
+ 149:   ) => {
+ 150:     // we need to make the `isSavePaused` check synchronously (undebounced)
+ 151:     if (!this.isSavePaused()) {
+ 152:       this._save(elements, appState, files, onFilesSaved);
+ 153:     }
+ 154:   };
+ 155:
+ 156:   static flushSave = () => {
+ 157:     this._save.flush();
+ 158:   };
+ 159:
+ 160:   private static locker = new Locker<SavingLockTypes>();
+ 161:
+ 162:   static pauseSave = (lockType: SavingLockTypes) => {
+ 163:     this.locker.lock(lockType);
+ 164:   };
+ 165:
+ 166:   static resumeSave = (lockType: SavingLockTypes) => {
+ 167:     this.locker.unlock(lockType);
+ 168:   };
+ 169:
+ 170:   static isSavePaused = () => {
+ 171:     return document.hidden || this.locker.isLocked();
+ 172:   };
+ 173:
+ 174:   // ---------------------------------------------------------------------------
+ 175:
+ 176:   static fileStorage = new LocalFileManager({
+ 177:     onFileStatusChange: FileStatusStore.updateStatuses.bind(FileStatusStore),
+ 178:     getFiles(ids) {
+ 179:       return getMany(ids, filesStore).then(
+ 180:         async (filesData: (BinaryFileData | undefined)[]) => {
+ 181:           const loadedFiles: BinaryFileData[] = [];
+ 182:           const erroredFiles = new Map<FileId, true>();
+ 183:
+ 184:           const filesToSave: [FileId, BinaryFileData][] = [];
+ 185:
+ 186:           filesData.forEach((data, index) => {
+ 187:             const id = ids[index];
+ 188:             if (data) {
+ 189:               const _data: BinaryFileData = {
+ 190:                 ...data,
+ 191:                 lastRetrieved: Date.now(),
+ 192:               };
+ 193:               filesToSave.push([id, _data]);
+ 194:               loadedFiles.push(_data);
+ 195:             } else {
+ 196:               erroredFiles.set(id, true);
+ 197:             }
+ 198:           });
+ 199:
+ 200:           try {
+ 201:             // save loaded files back to storage with updated `lastRetrieved`
+ 202:             setMany(filesToSave, filesStore);
+ 203:           } catch (error) {
+ 204:             console.warn(error);
+ 205:           }
+ 206:
+ 207:           return { loadedFiles, erroredFiles };
+ 208:         },
+ 209:       );
+ 210:     },
+ 211:     async saveFiles({ addedFiles }) {
+ 212:       const savedFiles = new Map<FileId, BinaryFileData>();
+ 213:       const erroredFiles = new Map<FileId, BinaryFileData>();
+ 214:
+ 215:       // before we use `storage` event synchronization, let's update the flag
+ 216:       // optimistically. Hopefully nothing fails, and an IDB read executed
+ 217:       // before an IDB write finishes will read the latest value.
+ 218:       updateBrowserStateVersion(STORAGE_KEYS.VERSION_FILES);
+ 219:
+ 220:       await Promise.all(
+ 221:         [...addedFiles].map(async ([id, fileData]) => {
+ 222:           try {
+ 223:             await set(id, fileData, filesStore);
+ 224:             savedFiles.set(id, fileData);
+ 225:           } catch (error: any) {
+ 226:             console.error(error);
+ 227:             erroredFiles.set(id, fileData);
+ 228:           }
+ 229:         }),
+ 230:       );
+ 231:
+ 232:       return { savedFiles, erroredFiles };
+ 233:     },
+ 234:   });
+ 235: }
+ 236: export class LibraryIndexedDBAdapter {
+ 237:   /** IndexedDB database and store name */
+ 238:   private static idb_name = STORAGE_KEYS.IDB_LIBRARY;
+ 239:   /** library data store key */
+ 240:   private static key = "libraryData";
+ 241:
+ 242:   private static store = createStore(
+ 243:     `${LibraryIndexedDBAdapter.idb_name}-db`,
+ 244:     `${LibraryIndexedDBAdapter.idb_name}-store`,
+ 245:   );
+ 246:
+ 247:   static async load() {
+ 248:     const IDBData = await get<LibraryPersistedData>(
+ 249:       LibraryIndexedDBAdapter.key,
+ 250:       LibraryIndexedDBAdapter.store,
+ 251:     );
+ 252:
+ 253:     return IDBData || null;
+ 254:   }
+ 255:
+ 256:   static save(data: LibraryPersistedData): MaybePromise<void> {
+ 257:     return set(
+ 258:       LibraryIndexedDBAdapter.key,
+ 259:       data,
+ 260:       LibraryIndexedDBAdapter.store,
+ 261:     );
+ 262:   }
+ 263: }
+ 264:
+ 265: /** LS Adapter used only for migrating LS library data
+ 266:  * to indexedDB */
+ 267: export class LibraryLocalStorageMigrationAdapter {
+ 268:   static load() {
+ 269:     const LSData = localStorage.getItem(
+ 270:       STORAGE_KEYS.__LEGACY_LOCAL_STORAGE_LIBRARY,
+ 271:     );
+ 272:     if (LSData != null) {
+ 273:       const libraryItems: ImportedDataState["libraryItems"] =
+ 274:         JSON.parse(LSData);
+ 275:       if (libraryItems) {
+ 276:         return { libraryItems };
+ 277:       }
+ 278:     }
+ 279:     return null;
+ 280:   }
+ 281:   static clear() {
+ 282:     localStorage.removeItem(STORAGE_KEYS.__LEGACY_LOCAL_STORAGE_LIBRARY);
+ 283:   }
+ 284: }
+### excalidraw-app/data/localStorage.ts
+   1: import {
+   2:   clearAppStateForLocalStorage,
+   3:   getDefaultAppState,
+   4: } from "@excalidraw/excalidraw/appState";
+   5:
+   6: import type { ExcalidrawElement } from "@excalidraw/element/types";
+   7: import type { AppState } from "@excalidraw/excalidraw/types";
+   8:
+   9: import { STORAGE_KEYS } from "../app_constants";
+  10:
+  11: export const saveUsernameToLocalStorage = (username: string) => {
+  12:   try {
+  13:     localStorage.setItem(
+  14:       STORAGE_KEYS.LOCAL_STORAGE_COLLAB,
+  15:       JSON.stringify({ username }),
+  16:     );
+  17:   } catch (error: any) {
+  18:     // Unable to access window.localStorage
+  19:     console.error(error);
+  20:   }
+  21: };
+  22:
+  23: export const importUsernameFromLocalStorage = (): string | null => {
+  24:   try {
+  25:     const data = localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_COLLAB);
+  26:     if (data) {
+  27:       return JSON.parse(data).username;
+  28:     }
+  29:   } catch (error: any) {
+  30:     // Unable to access localStorage
+  31:     console.error(error);
+  32:   }
+  33:
+  34:   return null;
+  35: };
+  36:
+  37: export const importFromLocalStorage = () => {
+  38:   let savedElements = null;
+  39:   let savedState = null;
+  40:
+  41:   try {
+  42:     savedElements = localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_ELEMENTS);
+  43:     savedState = localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_APP_STATE);
+  44:   } catch (error: any) {
+  45:     // Unable to access localStorage
+  46:     console.error(error);
+  47:   }
+  48:
+  49:   let elements: ExcalidrawElement[] = [];
+  50:   if (savedElements) {
+  51:     try {
+  52:       elements = JSON.parse(savedElements);
+  53:     } catch (error: any) {
+  54:       console.error(error);
+  55:       // Do nothing because elements array is already empty
+  56:     }
+  57:   }
+  58:
+  59:   let appState = null;
+  60:   if (savedState) {
+  61:     try {
+  62:       appState = {
+  63:         ...getDefaultAppState(),
+  64:         ...clearAppStateForLocalStorage(
+  65:           JSON.parse(savedState) as Partial<AppState>,
+  66:         ),
+  67:       };
+  68:     } catch (error: any) {
+  69:       console.error(error);
+  70:       // Do nothing because appState is already null
+  71:     }
+  72:   }
+  73:   return { elements, appState };
+  74: };
+  75:
+  76: export const getElementsStorageSize = () => {
+  77:   try {
+  78:     const elements = localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_ELEMENTS);
+  79:     const elementsSize = elements?.length || 0;
+  80:     return elementsSize;
+  81:   } catch (error: any) {
+  82:     console.error(error);
+  83:     return 0;
+  84:   }
+  85: };
+  86:
+  87: export const getTotalStorageSize = () => {
+  88:   try {
+  89:     const appState = localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_APP_STATE);
+  90:     const collab = localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_COLLAB);
+  91:
+  92:     const appStateSize = appState?.length || 0;
+  93:     const collabSize = collab?.length || 0;
+  94:
+  95:     return appStateSize + collabSize + getElementsStorageSize();
+  96:   } catch (error: any) {
+  97:     console.error(error);
+  98:     return 0;
+  99:   }
+ 100: };
+### excalidraw-app/data/TTDStorage.ts
+   1: import { createStore, get, set } from "idb-keyval";
+   2:
+   3: import type { SavedChats } from "@excalidraw/excalidraw/components/TTDDialog/types";
+   4:
+   5: import { STORAGE_KEYS } from "../app_constants";
+   6:
+   7: /**
+   8:  * IndexedDB adapter for TTD chat storage.
+   9:  * Implements TTDPersistenceAdapter interface.
+  10:  */
+  11: export class TTDIndexedDBAdapter {
+  12:   /** IndexedDB database name */
+  13:   private static idb_name = STORAGE_KEYS.IDB_TTD_CHATS;
+  14:   /** Store key for chat data */
+  15:   private static key = "ttdChats";
+  16:
+  17:   private static store = createStore(
+  18:     `${TTDIndexedDBAdapter.idb_name}-db`,
+  19:     `${TTDIndexedDBAdapter.idb_name}-store`,
+  20:   );
+  21:
+  22:   /**
+  23:    * Load saved chats from IndexedDB.
+  24:    * @returns Promise resolving to saved chats array (empty if none found)
+  25:    */
+  26:   static async loadChats(): Promise<SavedChats> {
+  27:     try {
+  28:       const data = await get<SavedChats>(
+  29:         TTDIndexedDBAdapter.key,
+  30:         TTDIndexedDBAdapter.store,
+  31:       );
+  32:       return data || [];
+  33:     } catch (error) {
+  34:       console.warn("Failed to load TTD chats from IndexedDB:", error);
+  35:       return [];
+  36:     }
+  37:   }
+  38:
+  39:   /**
+  40:    * Save chats to IndexedDB.
+  41:    * @param chats - The chats array to persist
+  42:    */
+  43:   static async saveChats(chats: SavedChats): Promise<void> {
+  44:     try {
+  45:       await set(TTDIndexedDBAdapter.key, chats, TTDIndexedDBAdapter.store);
+  46:     } catch (error) {
+  47:       console.warn("Failed to save TTD chats to IndexedDB:", error);
+  48:       throw error;
+  49:     }
+  50:   }
+  51: }
+### excalidraw-app/data/tabSync.ts
+   1: import { STORAGE_KEYS } from "../app_constants";
+   2:
+   3: // in-memory state (this tab's current state) versions. Currently just
+   4: // timestamps of the last time the state was saved to browser storage.
+   5: const LOCAL_STATE_VERSIONS = {
+   6:   [STORAGE_KEYS.VERSION_DATA_STATE]: -1,
+   7:   [STORAGE_KEYS.VERSION_FILES]: -1,
+   8: };
+   9:
+  10: type BrowserStateTypes = keyof typeof LOCAL_STATE_VERSIONS;
+  11:
+  12: export const isBrowserStorageStateNewer = (type: BrowserStateTypes) => {
+  13:   const storageTimestamp = JSON.parse(localStorage.getItem(type) || "-1");
+  14:   return storageTimestamp > LOCAL_STATE_VERSIONS[type];
+  15: };
+  16:
+  17: export const updateBrowserStateVersion = (type: BrowserStateTypes) => {
+  18:   const timestamp = Date.now();
+  19:   try {
+  20:     localStorage.setItem(type, JSON.stringify(timestamp));
+  21:     LOCAL_STATE_VERSIONS[type] = timestamp;
+  22:   } catch (error) {
+  23:     console.error("error while updating browser state verison", error);
+  24:   }
+  25: };
+  26:
+  27: export const resetBrowserStateVersions = () => {
+  28:   try {
+  29:     for (const key of Object.keys(
+  30:       LOCAL_STATE_VERSIONS,
+  31:     ) as BrowserStateTypes[]) {
+  32:       const timestamp = -1;
+  33:       localStorage.setItem(key, JSON.stringify(timestamp));
+  34:       LOCAL_STATE_VERSIONS[key] = timestamp;
+  35:     }
+  36:   } catch (error) {
+  37:     console.error("error while resetting browser state verison", error);
+  38:   }
+  39: };
+### excalidraw-app/components/AI.tsx
+   1: import {
+   2:   DiagramToCodePlugin,
+   3:   exportScene,
+   4:   getNonDeletedElements,
+   5:   getTextFromElements,
+   6:   parseSSEStream,
+   7:   TTDDialog,
+   8:   TTDStreamFetch,
+   9:   THEME,
+  10: } from "@excalidraw/excalidraw";
+  11: import { getDataURL } from "@excalidraw/excalidraw/data/blob";
+  12: import { safelyParseJSON } from "@excalidraw/common";
+  13:
+  14: import type { StreamChunk } from "@excalidraw/excalidraw";
+  15: import type { ExcalidrawImperativeAPI } from "@excalidraw/excalidraw/types";
+  16:
+  17: import { TTDIndexedDBAdapter } from "../data/TTDStorage";
+  18:
+  19: export const AIComponents = ({
+  20:   excalidrawAPI,
+  21: }: {
+  22:   excalidrawAPI: ExcalidrawImperativeAPI;
+  23: }) => {
+  24:   return (
+  25:     <>
+  26:       <DiagramToCodePlugin
+  27:         generate={async ({ frame, children, onPartial }) => {
+  28:           const appState = excalidrawAPI.getAppState();
+  29:
+  30:           // SAFETY: This should never happen, but log it just in case
+  31:           if (children.some((el) => el.isDeleted)) {
+  32:             console.error(
+  33:               "[NONDELETED][INVARIANT] Generated children elements should not be `isDeleted: true`",
+  34:             );
+  35:           }
+  36:
+  37:           const blob = await exportScene({
+  38:             type: "jpeg",
+  39:             data: {
+  40:               elements: getNonDeletedElements(children),
+  41:               appState,
+  42:               files: excalidrawAPI.getFiles(),
+  43:             },
+  44:             config: {
+  45:               exportingFrame: frame,
+  46:               theme: appState.exportWithDarkMode ? THEME.DARK : THEME.LIGHT,
+  47:             },
+  48:           });
+  49:
+  50:           const dataURL = await getDataURL(blob);
+  51:
+  52:           const textFromFrameChildren = getTextFromElements(children);
+  53:
+  54:           const response = await fetch(
+  55:             `${
+  56:               import.meta.env.VITE_APP_AI_BACKEND
+  57:             }/v1/ai/diagram-to-code/generate-streaming`,
+  58:             {
+  59:               method: "POST",
+  60:               headers: {
+  61:                 Accept: "text/event-stream",
+  62:                 "Content-Type": "application/json",
+  63:               },
+  64:               body: JSON.stringify({
+  65:                 texts: textFromFrameChildren,
+  66:                 image: dataURL,
+  67:                 theme: appState.theme,
+  68:               }),
+  69:             },
+  70:           );
+  71:
+  72:           if (!response.ok) {
+  73:             const text = await response.text();
+  74:             const errorJSON = safelyParseJSON(text);
+  75:
+  76:             if (!errorJSON) {
+  77:               throw new Error(text);
+  78:             }
+  79:
+  80:             if (errorJSON.statusCode === 429) {
+  81:               return {
+  82:                 html: `<html>
+  83:                 <body style="margin: 0; text-align: center">
+  84:                 <div style="display: flex; align-items: center; justify-content: center; flex-direction: column; height: 100vh; padding: 0 60px">
+  85:                   <div style="color:red">Too many requests today,</br>please try again tomorrow!</div>
+  86:                   </br>
+  87:                   </br>
+  88:                   <div>You can also try <a href="${
+  89:                     import.meta.env.VITE_APP_PLUS_LP
+  90:                   }/plus?utm_source=excalidraw&utm_medium=app&utm_content=d2c" target="_blank" rel="noopener">Excalidraw+</a> to get more requests.</div>
+  91:                 </div>
+  92:                 </body>
+  93:                 </html>`,
+  94:               };
+  95:             }
+  96:
+  97:             throw new Error(errorJSON.message || text);
+  98:           }
+  99:
+ 100:           const reader = response.body?.getReader();
+ 101:
+ 102:           if (!reader) {
+ 103:             throw new Error("Generation failed (invalid response)");
+ 104:           }
+ 105:
+ 106:           let html = "";
+ 107:           let streamError: Error | null = null;
+ 108:
+ 109:           for await (const data of parseSSEStream(reader)) {
+ 110:             if (data === "[DONE]") {
+ 111:               break;
+ 112:             }
+ 113:
+ 114:             const chunk = safelyParseJSON(data) as StreamChunk | null;
+ 115:
+ 116:             if (!chunk) {
+ 117:               continue;
+ 118:             }
+ 119:
+ 120:             switch (chunk.type) {
+ 121:               case "content": {
+ 122:                 if (chunk.delta) {
+ 123:                   html += chunk.delta;
+ 124:                   onPartial?.(html);
+ 125:                 }
+ 126:                 break;
+ 127:               }
+ 128:               case "error": {
+ 129:                 streamError = new Error(
+ 130:                   chunk.error.message || "Generation failed",
+ 131:                 );
+ 132:                 break;
+ 133:               }
+ 134:               case "done": {
+ 135:                 break;
+ 136:               }
+ 137:             }
+ 138:           }
+ 139:
+ 140:           if (streamError) {
+ 141:             throw streamError;
+ 142:           }
+ 143:
+ 144:           if (!html.trim()) {
+ 145:             throw new Error("Generation failed (invalid response)");
+ 146:           }
+ 147:
+ 148:           return {
+ 149:             html,
+ 150:           };
+ 151:         }}
+ 152:       />
+ 153:
+ 154:       <TTDDialog
+ 155:         onTextSubmit={async (props) => {
+ 156:           const { onChunk, onStreamCreated, signal, messages } = props;
+ 157:
+ 158:           const result = await TTDStreamFetch({
+ 159:             url: `${
+ 160:               import.meta.env.VITE_APP_AI_BACKEND
+ 161:             }/v1/ai/text-to-diagram/chat-streaming`,
+ 162:             messages,
+ 163:             onChunk,
+ 164:             onStreamCreated,
+ 165:             extractRateLimits: true,
+ 166:             signal,
+ 167:           });
+ 168:
+ 169:           return result;
+ 170:         }}
+ 171:         persistenceAdapter={TTDIndexedDBAdapter}
+ 172:       />
+ 173:     </>
+ 174:   );
+ 175: };

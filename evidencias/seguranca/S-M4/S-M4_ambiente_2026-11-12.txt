@@ -1,0 +1,31 @@
+Coleta S-M4, preparacao em 2026-11-12, America/Sao_Paulo
+Base do repositorio: da62b70ff0237079ab774dd1ab3e0e16edd77fe0
+git fetch origin: primeira tentativa RPC curl 56/early EOF; segunda com http.version=HTTP/1.1 exit 0
+main local: 3dbefcefa52f08bab4b9379a1f4ce69c48c87f3f, 43 commits atras de origin/main; arvore inicialmente limpa
+branch: feat/seguranca-sm4-armazenamento-local, criada de origin/main; main preservada
+Identidade Git existente: renatoyx; email coincide com commits de Renato da S-M3; nenhuma configuracao alterada
+PRs abertos conferidos via conector GitHub: #87, #88, #89, #90, #91; nenhum altera evidencias/seguranca/S-M4/
+Windows 11 Home Single Language 10.0.26200; Node 22.22.3; Corepack 0.34.6; Yarn 1.22.22; Vite 5.0.12
+git clone --filter=blob:none --no-checkout https://github.com/excalidraw/excalidraw.git <TEMP>/sm4-e7b5346-20261112
+git checkout --detach e7b534668a60add7f725531f3c9abf32508c7b4e
+corepack.cmd yarn install --frozen-lockfile --ignore-scripts --non-interactive: EHOSTUNREACH
+Repeticao: NODE_OPTIONS=--dns-result-order=ipv4first --no-network-family-autoselection
+corepack.cmd yarn install --frozen-lockfile --ignore-scripts --non-interactive --network-concurrency 4 --network-timeout 30000
+Done in 215.48s. Ignored scripts due to flag. Avisos de peer dependencies e strip-ansi.
+yarn.lock SHA256 3a40118db6c7a8d9038957d2437a7c0c52e7d882586b79739ce49660d6352196
+git status --short do checkout oficial: vazio (configuracao local ignorada)
+node ../node_modules/vite/bin/vite.js --host 127.0.0.1 --port 3013 --strictPort
+VITE v5.0.12 ready; http://127.0.0.1:3013/; aviso Browserslist antigo; TypeScript 0 errors
+Uma tentativa prematura de iniciar Vite antes do fim da instalacao: MODULE_NOT_FOUND; repetida apos vinculacao das dependencias.
+node evidencias/ambiente/servidor-ia-falso.mjs: Servidor de IA falso em http://localhost:3016
+python -m venv <TEMP>/sm4-mkdocs-20261112
+pip install -r requirements.txt: falha DNS em python-dateutil 3.0.0; repetido com python-dateutil==2.9.0.post0 --retries 1 --timeout 15; exit 0
+python -m mkdocs build --strict --site-dir <TEMP>/sm4-site-20261112: exit 0; Documentation built in 13.07 seconds
+Validacao final: node --check nos dois scripts, exit 0.
+Verificador dos dados coletados: exit 0; cena, biblioteca, imagem e chat confirmados.
+Template: oito secoes; 20 links locais existentes; oito snapshots; SHA correto.
+Trechos C4/C6 conferidos e corrigidos para as linhas exatas da fonte oficial.
+Busca por padroes de credenciais comuns nos artefatos: nenhuma ocorrencia.
+MkDocs estrito repetido: exit 0, Documentation built in 5.72 seconds.
+Checkout oficial permanece sem alteracoes rastreadas; hash do lockfile inalterado.
+git diff --cached --check: espacos finais introduzidos na numeracao das linhas vazias do extrato corrigidos; fonte oficial inalterada.

@@ -1,0 +1,50 @@
+// Verifica os dados coletados, sem abrir navegador nem repetir a medição.
+const fs = require('node:fs');
+const path = require('node:path');
+const assert = require('node:assert/strict');
+const report = JSON.parse(fs.readFileSync(path.join(__dirname, 'S-M4_inspecao_2026-11-12.json')));
+const snapshot = stage => {
+  const found = report.snapshots.find(item => item.stage === stage);
+  assert.ok(found, stage);
+  return found;
+};
+const records = (stage, db, store) => snapshot(stage).databases.find(item => item.name === db).stores[store];
+const scene = stage => JSON.parse(snapshot(stage).localStorage.excalidraw);
+assert.deepEqual(report.errors, []);
+assert.deepEqual(scene('initial'), []);
+assert.equal(snapshot('initial').databases.length, 3);
+for (const db of snapshot('initial').databases) for (const values of Object.values(db.stores)) assert.equal(values.length, 0);
+const ids = scene('scene').map(item => item.id);
+for (const stage of ['scene', 'scene-reload', 'scene-reopen-tab', 'all-reload']) {
+  const elements = scene(stage);
+  assert.ok(elements.some(item => item.text === 'CENA-FICTICIA-SM4-20261112'));
+  assert.ok(ids.every(id => elements.some(item => item.id === id)));
+  console.log(`${stage}: ${elements.length} elementos; texto e IDs originais presentes`);
+}
+const library = records('all-reload', 'excalidraw-library-db', 'excalidraw-library-store');
+assert.equal(library.length, 1);
+assert.equal(library[0].key, 'libraryData');
+assert.equal(library[0].value.libraryItems.length, 1);
+assert.ok(library[0].value.libraryItems[0].elements.some(item => item.text === 'CENA-FICTICIA-SM4-20261112'));
+assert.deepEqual(library, records('library', 'excalidraw-library-db', 'excalidraw-library-store'));
+console.log('Biblioteca: 1 registro, 1 item, 2 elementos legíveis; igual após reload');
+const image = records('all-reload', 'files-db', 'files-store');
+assert.equal(image.length, 1);
+const svg = Buffer.from(image[0].value.dataURL.split(',')[1], 'base64').toString('utf8');
+assert.ok(svg.includes('IMAGEM-FICTICIA-SM4'));
+assert.equal(image[0].value.dataURL, records('image', 'files-db', 'files-store')[0].value.dataURL);
+console.log('Imagem: 1 registro image/svg+xml, mesmo dataURL após reload; base64 decodificada sem chave:');
+console.log(svg);
+const chats = records('all-reload', 'excalidraw-ttd-chats-db', 'excalidraw-ttd-chats-store');
+assert.equal(chats.length, 1);
+assert.equal(chats[0].key, 'ttdChats');
+assert.equal(chats[0].value.length, 1);
+const messages = chats[0].value[0].messages;
+assert.equal(messages.length, 2);
+assert.ok(messages[0].content.startsWith('PROMPT-FICTICIO-SM4:'));
+assert.ok(messages[1].content.includes('servidor de IA falso'));
+assert.deepEqual(chats, records('ttd', 'excalidraw-ttd-chats-db', 'excalidraw-ttd-chats-store'));
+assert.deepEqual(report.blockedRequests, []);
+console.log('TTD: 1 chat, 2 mensagens legíveis; iguais após reload; resposta de servidor falso');
+console.log('Requisições externas interceptadas: 0. Contexto configurado para bloquear destinos externos.');
+console.log('Resultado S-M4: Sim. Tabela 6: 0/2; nível 1 não se aplica.');

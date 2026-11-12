@@ -1,0 +1,755 @@
+{
+  "commit": "e7b534668a60add7f725531f3c9abf32508c7b4e",
+  "started": "2026-11-12T17:30:37.888Z",
+  "steps": [
+    "Clean nonpersistent browser context; initial application storage inspected.",
+    "Rectangle and marker text created through keyboard and mouse.",
+    "Reloaded and reopened tab within the same test context.",
+    "Selected scene and used context menu Add to library.",
+    "Inserted synthetic SVG using image tool and file chooser.",
+    "Submitted synthetic prompt to local fake AI backend."
+  ],
+  "snapshots": [
+    {
+      "stage": "initial",
+      "at": "2026-11-12T17:30:43.134Z",
+      "url": "http://127.0.0.1:3013/",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "localStorage": {
+        "i18nextLng": "en",
+        "version-files": "1794504642567",
+        "version-dataState": "1794504642566",
+        "excalidraw-state": "{\"showWelcomeScreen\":true,\"theme\":\"light\",\"currentItemBackgroundColor\":\"transparent\",\"currentItemEndArrowhead\":\"arrow\",\"currentItemFillStyle\":\"solid\",\"currentItemFontFamily\":5,\"currentItemFontSize\":20,\"currentItemOpacity\":100,\"currentItemRoughness\":1,\"currentItemStrokeVariability\":\"constant\",\"currentItemStartArrowhead\":null,\"currentItemStrokeColor\":\"#1e1e1e\",\"currentItemStickynoteStrokeColor\":\"#1e1e1e\",\"currentItemStickynoteBackgroundColor\":\"#ffdf6b\",\"currentItemRoundness\":\"round\",\"currentItemArrowType\":\"round\",\"currentItemStrokeStyle\":\"solid\",\"currentItemStrokeWidthKey\":\"medium\",\"currentItemTextAlign\":\"left\",\"cursorButton\":\"up\",\"editingGroupId\":null,\"activeTool\":{\"type\":\"selection\",\"customType\":null,\"locked\":false,\"fromSelection\":false,\"lastActiveTool\":null},\"preferredSelectionTool\":{\"type\":\"selection\",\"initialized\":true},\"penMode\":false,\"penDetected\":false,\"exportBackground\":true,\"exportScale\":1,\"exportEmbedScene\":false,\"exportWithDarkMode\":false,\"gridSize\":20,\"gridStep\":5,\"gridModeEnabled\":false,\"isBindingEnabled\":true,\"bindingPreference\":\"enabled\",\"isMidpointSnappingEnabled\":true,\"showHints\":true,\"inputDevice\":\"auto\",\"defaultSidebarDockedPreference\":false,\"lastPointerDownWith\":\"mouse\",\"name\":\"Untitled-2026-11-12-1430\",\"openMenu\":null,\"openSidebar\":null,\"previousSelectedElementIds\":{},\"scrolledOutside\":false,\"scrollX\":0,\"scrollY\":0,\"selectedElementIds\":{},\"selectedGroupIds\":{},\"shouldCacheIgnoreZoom\":false,\"stats\":{\"open\":false,\"panels\":3},\"viewBackgroundColor\":\"#ffffff\",\"zenModeEnabled\":false,\"zoom\":{\"value\":1},\"selectedLinearElement\":null,\"objectsSnapModeEnabled\":false,\"lockedMultiSelections\":{},\"bindMode\":\"orbit\",\"boxSelectionMode\":\"contain\",\"colorTopPicks\":{\"elementStroke\":null,\"elementBackground\":null,\"bucketFill\":null,\"stickyNoteStroke\":null,\"stickyNoteBackground\":null},\"fontTopPicks\":null}",
+        "excalidraw": "[]",
+        "excalidraw-theme": "light"
+      },
+      "sessionStorage": {},
+      "databases": [
+        {
+          "name": "excalidraw-library-db",
+          "version": 1,
+          "stores": {
+            "excalidraw-library-store": []
+          }
+        },
+        {
+          "name": "excalidraw-ttd-chats-db",
+          "version": 1,
+          "stores": {
+            "excalidraw-ttd-chats-store": []
+          }
+        },
+        {
+          "name": "files-db",
+          "version": 1,
+          "stores": {
+            "files-store": []
+          }
+        }
+      ]
+    },
+    {
+      "stage": "scene",
+      "at": "2026-11-12T17:30:46.226Z",
+      "url": "http://127.0.0.1:3013/",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "localStorage": {
+        "i18nextLng": "en",
+        "version-files": "1794504644010",
+        "version-dataState": "1794504644010",
+        "excalidraw-state": "{\"showWelcomeScreen\":true,\"theme\":\"light\",\"currentItemBackgroundColor\":\"transparent\",\"currentItemEndArrowhead\":\"arrow\",\"currentItemFillStyle\":\"solid\",\"currentItemFontFamily\":5,\"currentItemFontSize\":20,\"currentItemOpacity\":100,\"currentItemRoughness\":1,\"currentItemStrokeVariability\":\"constant\",\"currentItemStartArrowhead\":null,\"currentItemStrokeColor\":\"#1e1e1e\",\"currentItemStickynoteStrokeColor\":\"#1e1e1e\",\"currentItemStickynoteBackgroundColor\":\"#ffdf6b\",\"currentItemRoundness\":\"round\",\"currentItemArrowType\":\"round\",\"currentItemStrokeStyle\":\"solid\",\"currentItemStrokeWidthKey\":\"medium\",\"currentItemTextAlign\":\"left\",\"cursorButton\":\"up\",\"editingGroupId\":null,\"activeTool\":{\"type\":\"selection\",\"customType\":null,\"locked\":false,\"fromSelection\":false,\"lastActiveTool\":null},\"preferredSelectionTool\":{\"type\":\"selection\",\"initialized\":true},\"penMode\":false,\"penDetected\":false,\"exportBackground\":true,\"exportScale\":1,\"exportEmbedScene\":false,\"exportWithDarkMode\":false,\"gridSize\":20,\"gridStep\":5,\"gridModeEnabled\":false,\"isBindingEnabled\":true,\"bindingPreference\":\"enabled\",\"isMidpointSnappingEnabled\":true,\"showHints\":true,\"inputDevice\":\"auto\",\"defaultSidebarDockedPreference\":false,\"lastPointerDownWith\":\"mouse\",\"name\":\"Untitled-2026-11-12-1430\",\"openMenu\":null,\"openSidebar\":null,\"previousSelectedElementIds\":{},\"scrolledOutside\":false,\"scrollX\":0,\"scrollY\":0,\"selectedElementIds\":{\"Anprhp20oMuPbs9V87MDT\":true},\"selectedGroupIds\":{},\"shouldCacheIgnoreZoom\":false,\"stats\":{\"open\":false,\"panels\":3},\"viewBackgroundColor\":\"#ffffff\",\"zenModeEnabled\":false,\"zoom\":{\"value\":1},\"selectedLinearElement\":null,\"objectsSnapModeEnabled\":false,\"lockedMultiSelections\":{},\"bindMode\":\"orbit\",\"boxSelectionMode\":\"contain\",\"colorTopPicks\":{\"elementStroke\":null,\"elementBackground\":null,\"bucketFill\":null,\"stickyNoteStroke\":null,\"stickyNoteBackground\":null},\"fontTopPicks\":null}",
+        "excalidraw": "[{\"id\":\"-6ekqMnSv1FxNsgaVevzS\",\"type\":\"rectangle\",\"x\":420,\"y\":280,\"width\":300,\"height\":150,\"angle\":0,\"strokeColor\":\"#1e1e1e\",\"backgroundColor\":\"transparent\",\"fillStyle\":\"solid\",\"strokeWidth\":2,\"strokeStyle\":\"solid\",\"roughness\":1,\"opacity\":100,\"groupIds\":[],\"frameId\":null,\"index\":\"a0\",\"roundness\":{\"type\":3},\"seed\":1301156143,\"version\":3,\"versionNonce\":522636577,\"isDeleted\":false,\"boundElements\":null,\"updated\":1794504643355,\"created\":1794504643268,\"link\":null,\"locked\":false},{\"id\":\"Anprhp20oMuPbs9V87MDT\",\"type\":\"text\",\"x\":450,\"y\":317.5,\"width\":310.83978271484375,\"height\":25,\"angle\":0,\"strokeColor\":\"#1e1e1e\",\"backgroundColor\":\"transparent\",\"fillStyle\":\"solid\",\"strokeWidth\":2,\"strokeStyle\":\"solid\",\"roughness\":1,\"opacity\":100,\"groupIds\":[],\"frameId\":null,\"index\":\"a1\",\"roundness\":null,\"seed\":1026739087,\"version\":3,\"versionNonce\":1666888865,\"isDeleted\":false,\"boundElements\":null,\"updated\":1794504643623,\"created\":1794504643548,\"link\":null,\"locked\":false,\"text\":\"CENA-FICTICIA-SM4-20261112\",\"fontSize\":20,\"baseFontSize\":null,\"fontFamily\":5,\"textAlign\":\"left\",\"verticalAlign\":\"top\",\"containerId\":null,\"originalText\":\"CENA-FICTICIA-SM4-20261112\",\"autoResize\":true,\"lineHeight\":1.25,\"labelPosition\":null}]",
+        "excalidraw-theme": "light"
+      },
+      "sessionStorage": {},
+      "databases": [
+        {
+          "name": "excalidraw-library-db",
+          "version": 1,
+          "stores": {
+            "excalidraw-library-store": []
+          }
+        },
+        {
+          "name": "excalidraw-ttd-chats-db",
+          "version": 1,
+          "stores": {
+            "excalidraw-ttd-chats-store": []
+          }
+        },
+        {
+          "name": "files-db",
+          "version": 1,
+          "stores": {
+            "files-store": []
+          }
+        }
+      ]
+    },
+    {
+      "stage": "scene-reload",
+      "at": "2026-11-12T17:30:52.701Z",
+      "url": "http://127.0.0.1:3013/",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "localStorage": {
+        "i18nextLng": "en",
+        "version-files": "1794504651163",
+        "version-dataState": "1794504651163",
+        "excalidraw-state": "{\"showWelcomeScreen\":true,\"theme\":\"light\",\"currentItemBackgroundColor\":\"transparent\",\"currentItemEndArrowhead\":\"arrow\",\"currentItemFillStyle\":\"solid\",\"currentItemFontFamily\":5,\"currentItemFontSize\":20,\"currentItemOpacity\":100,\"currentItemRoughness\":1,\"currentItemStrokeVariability\":\"constant\",\"currentItemStartArrowhead\":null,\"currentItemStrokeColor\":\"#1e1e1e\",\"currentItemStickynoteStrokeColor\":\"#1e1e1e\",\"currentItemStickynoteBackgroundColor\":\"#ffdf6b\",\"currentItemRoundness\":\"round\",\"currentItemArrowType\":\"round\",\"currentItemStrokeStyle\":\"solid\",\"currentItemStrokeWidthKey\":\"medium\",\"currentItemTextAlign\":\"left\",\"cursorButton\":\"up\",\"editingGroupId\":null,\"activeTool\":{\"type\":\"selection\",\"customType\":null,\"locked\":false,\"fromSelection\":false,\"lastActiveTool\":null},\"preferredSelectionTool\":{\"type\":\"selection\",\"initialized\":true},\"penMode\":false,\"penDetected\":false,\"exportBackground\":true,\"exportScale\":1,\"exportEmbedScene\":false,\"exportWithDarkMode\":false,\"gridSize\":20,\"gridStep\":5,\"gridModeEnabled\":false,\"isBindingEnabled\":true,\"bindingPreference\":\"enabled\",\"isMidpointSnappingEnabled\":true,\"showHints\":true,\"inputDevice\":\"auto\",\"defaultSidebarDockedPreference\":false,\"lastPointerDownWith\":\"mouse\",\"name\":\"Untitled-2026-11-12-1430\",\"openMenu\":null,\"openSidebar\":null,\"previousSelectedElementIds\":{},\"scrolledOutside\":false,\"scrollX\":0,\"scrollY\":0,\"selectedElementIds\":{\"Anprhp20oMuPbs9V87MDT\":true},\"selectedGroupIds\":{},\"shouldCacheIgnoreZoom\":false,\"stats\":{\"open\":false,\"panels\":3},\"viewBackgroundColor\":\"#ffffff\",\"zenModeEnabled\":false,\"zoom\":{\"value\":1},\"selectedLinearElement\":null,\"objectsSnapModeEnabled\":false,\"lockedMultiSelections\":{},\"bindMode\":\"orbit\",\"boxSelectionMode\":\"contain\",\"colorTopPicks\":{\"elementStroke\":null,\"elementBackground\":null,\"bucketFill\":null,\"stickyNoteStroke\":null,\"stickyNoteBackground\":null},\"fontTopPicks\":null}",
+        "excalidraw": "[{\"id\":\"-6ekqMnSv1FxNsgaVevzS\",\"type\":\"rectangle\",\"x\":420,\"y\":280,\"width\":300,\"height\":150,\"angle\":0,\"strokeColor\":\"#1e1e1e\",\"backgroundColor\":\"transparent\",\"fillStyle\":\"solid\",\"strokeWidth\":2,\"strokeStyle\":\"solid\",\"roughness\":1,\"opacity\":100,\"groupIds\":[],\"frameId\":null,\"index\":\"a0\",\"roundness\":{\"type\":3},\"seed\":1301156143,\"version\":3,\"versionNonce\":522636577,\"isDeleted\":false,\"boundElements\":[],\"updated\":1794504643355,\"created\":1794504643268,\"link\":null,\"locked\":false},{\"id\":\"Anprhp20oMuPbs9V87MDT\",\"type\":\"text\",\"x\":450,\"y\":317.5,\"width\":310.83978271484375,\"height\":25,\"angle\":0,\"strokeColor\":\"#1e1e1e\",\"backgroundColor\":\"transparent\",\"fillStyle\":\"solid\",\"strokeWidth\":2,\"strokeStyle\":\"solid\",\"roughness\":1,\"opacity\":100,\"groupIds\":[],\"frameId\":null,\"index\":\"a1\",\"roundness\":null,\"seed\":1026739087,\"version\":3,\"versionNonce\":1666888865,\"isDeleted\":false,\"boundElements\":[],\"updated\":1794504643623,\"created\":1794504643548,\"link\":null,\"locked\":false,\"text\":\"CENA-FICTICIA-SM4-20261112\",\"fontSize\":20,\"baseFontSize\":null,\"fontFamily\":5,\"textAlign\":\"left\",\"verticalAlign\":\"top\",\"containerId\":null,\"originalText\":\"CENA-FICTICIA-SM4-20261112\",\"autoResize\":true,\"lineHeight\":1.25,\"labelPosition\":null}]",
+        "excalidraw-theme": "light"
+      },
+      "sessionStorage": {},
+      "databases": [
+        {
+          "name": "excalidraw-library-db",
+          "version": 1,
+          "stores": {
+            "excalidraw-library-store": []
+          }
+        },
+        {
+          "name": "excalidraw-ttd-chats-db",
+          "version": 1,
+          "stores": {
+            "excalidraw-ttd-chats-store": []
+          }
+        },
+        {
+          "name": "files-db",
+          "version": 1,
+          "stores": {
+            "files-store": []
+          }
+        }
+      ]
+    },
+    {
+      "stage": "scene-reopen-tab",
+      "at": "2026-11-12T17:30:58.790Z",
+      "url": "http://127.0.0.1:3013/",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "localStorage": {
+        "i18nextLng": "en",
+        "version-files": "1794504658403",
+        "version-dataState": "1794504658403",
+        "excalidraw-state": "{\"showWelcomeScreen\":true,\"theme\":\"light\",\"currentItemBackgroundColor\":\"transparent\",\"currentItemEndArrowhead\":\"arrow\",\"currentItemFillStyle\":\"solid\",\"currentItemFontFamily\":5,\"currentItemFontSize\":20,\"currentItemOpacity\":100,\"currentItemRoughness\":1,\"currentItemStrokeVariability\":\"constant\",\"currentItemStartArrowhead\":null,\"currentItemStrokeColor\":\"#1e1e1e\",\"currentItemStickynoteStrokeColor\":\"#1e1e1e\",\"currentItemStickynoteBackgroundColor\":\"#ffdf6b\",\"currentItemRoundness\":\"round\",\"currentItemArrowType\":\"round\",\"currentItemStrokeStyle\":\"solid\",\"currentItemStrokeWidthKey\":\"medium\",\"currentItemTextAlign\":\"left\",\"cursorButton\":\"up\",\"editingGroupId\":null,\"activeTool\":{\"type\":\"selection\",\"customType\":null,\"locked\":false,\"fromSelection\":false,\"lastActiveTool\":null},\"preferredSelectionTool\":{\"type\":\"selection\",\"initialized\":true},\"penMode\":false,\"penDetected\":false,\"exportBackground\":true,\"exportScale\":1,\"exportEmbedScene\":false,\"exportWithDarkMode\":false,\"gridSize\":20,\"gridStep\":5,\"gridModeEnabled\":false,\"isBindingEnabled\":true,\"bindingPreference\":\"enabled\",\"isMidpointSnappingEnabled\":true,\"showHints\":true,\"inputDevice\":\"auto\",\"defaultSidebarDockedPreference\":false,\"lastPointerDownWith\":\"mouse\",\"name\":\"Untitled-2026-11-12-1430\",\"openMenu\":null,\"openSidebar\":null,\"previousSelectedElementIds\":{},\"scrolledOutside\":false,\"scrollX\":0,\"scrollY\":0,\"selectedElementIds\":{\"Anprhp20oMuPbs9V87MDT\":true},\"selectedGroupIds\":{},\"shouldCacheIgnoreZoom\":false,\"stats\":{\"open\":false,\"panels\":3},\"viewBackgroundColor\":\"#ffffff\",\"zenModeEnabled\":false,\"zoom\":{\"value\":1},\"selectedLinearElement\":null,\"objectsSnapModeEnabled\":false,\"lockedMultiSelections\":{},\"bindMode\":\"orbit\",\"boxSelectionMode\":\"contain\",\"colorTopPicks\":{\"elementStroke\":null,\"elementBackground\":null,\"bucketFill\":null,\"stickyNoteStroke\":null,\"stickyNoteBackground\":null},\"fontTopPicks\":null}",
+        "excalidraw": "[{\"id\":\"-6ekqMnSv1FxNsgaVevzS\",\"type\":\"rectangle\",\"x\":420,\"y\":280,\"width\":300,\"height\":150,\"angle\":0,\"strokeColor\":\"#1e1e1e\",\"backgroundColor\":\"transparent\",\"fillStyle\":\"solid\",\"strokeWidth\":2,\"strokeStyle\":\"solid\",\"roughness\":1,\"opacity\":100,\"groupIds\":[],\"frameId\":null,\"index\":\"a0\",\"roundness\":{\"type\":3},\"seed\":1301156143,\"version\":3,\"versionNonce\":522636577,\"isDeleted\":false,\"boundElements\":[],\"updated\":1794504643355,\"created\":1794504643268,\"link\":null,\"locked\":false},{\"id\":\"Anprhp20oMuPbs9V87MDT\",\"type\":\"text\",\"x\":450,\"y\":317.5,\"width\":310.83978271484375,\"height\":25,\"angle\":0,\"strokeColor\":\"#1e1e1e\",\"backgroundColor\":\"transparent\",\"fillStyle\":\"solid\",\"strokeWidth\":2,\"strokeStyle\":\"solid\",\"roughness\":1,\"opacity\":100,\"groupIds\":[],\"frameId\":null,\"index\":\"a1\",\"roundness\":null,\"seed\":1026739087,\"version\":3,\"versionNonce\":1666888865,\"isDeleted\":false,\"boundElements\":[],\"updated\":1794504643623,\"created\":1794504643548,\"link\":null,\"locked\":false,\"text\":\"CENA-FICTICIA-SM4-20261112\",\"fontSize\":20,\"baseFontSize\":null,\"fontFamily\":5,\"textAlign\":\"left\",\"verticalAlign\":\"top\",\"containerId\":null,\"originalText\":\"CENA-FICTICIA-SM4-20261112\",\"autoResize\":true,\"lineHeight\":1.25,\"labelPosition\":null}]",
+        "excalidraw-theme": "light"
+      },
+      "sessionStorage": {},
+      "databases": [
+        {
+          "name": "excalidraw-library-db",
+          "version": 1,
+          "stores": {
+            "excalidraw-library-store": []
+          }
+        },
+        {
+          "name": "excalidraw-ttd-chats-db",
+          "version": 1,
+          "stores": {
+            "excalidraw-ttd-chats-store": []
+          }
+        },
+        {
+          "name": "files-db",
+          "version": 1,
+          "stores": {
+            "files-store": []
+          }
+        }
+      ]
+    },
+    {
+      "stage": "library",
+      "at": "2026-11-12T17:31:01.673Z",
+      "url": "http://127.0.0.1:3013/",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "localStorage": {
+        "i18nextLng": "en",
+        "version-files": "1794504659445",
+        "version-dataState": "1794504659445",
+        "excalidraw-state": "{\"showWelcomeScreen\":true,\"theme\":\"light\",\"currentItemBackgroundColor\":\"transparent\",\"currentItemEndArrowhead\":\"arrow\",\"currentItemFillStyle\":\"solid\",\"currentItemFontFamily\":5,\"currentItemFontSize\":20,\"currentItemOpacity\":100,\"currentItemRoughness\":1,\"currentItemStrokeVariability\":\"constant\",\"currentItemStartArrowhead\":null,\"currentItemStrokeColor\":\"#1e1e1e\",\"currentItemStickynoteStrokeColor\":\"#1e1e1e\",\"currentItemStickynoteBackgroundColor\":\"#ffdf6b\",\"currentItemRoundness\":\"round\",\"currentItemArrowType\":\"round\",\"currentItemStrokeStyle\":\"solid\",\"currentItemStrokeWidthKey\":\"medium\",\"currentItemTextAlign\":\"left\",\"cursorButton\":\"up\",\"editingGroupId\":null,\"activeTool\":{\"type\":\"selection\",\"customType\":null,\"locked\":false,\"fromSelection\":false,\"lastActiveTool\":null},\"preferredSelectionTool\":{\"type\":\"selection\",\"initialized\":true},\"penMode\":false,\"penDetected\":false,\"exportBackground\":true,\"exportScale\":1,\"exportEmbedScene\":false,\"exportWithDarkMode\":false,\"gridSize\":20,\"gridStep\":5,\"gridModeEnabled\":false,\"isBindingEnabled\":true,\"bindingPreference\":\"enabled\",\"isMidpointSnappingEnabled\":true,\"showHints\":true,\"inputDevice\":\"auto\",\"defaultSidebarDockedPreference\":false,\"lastPointerDownWith\":\"mouse\",\"name\":\"Untitled-2026-11-12-1430\",\"openMenu\":null,\"openSidebar\":null,\"previousSelectedElementIds\":{},\"scrolledOutside\":false,\"scrollX\":0,\"scrollY\":0,\"selectedElementIds\":{\"-6ekqMnSv1FxNsgaVevzS\":true,\"Anprhp20oMuPbs9V87MDT\":true},\"selectedGroupIds\":{},\"shouldCacheIgnoreZoom\":false,\"stats\":{\"open\":false,\"panels\":3},\"viewBackgroundColor\":\"#ffffff\",\"zenModeEnabled\":false,\"zoom\":{\"value\":1},\"selectedLinearElement\":null,\"objectsSnapModeEnabled\":false,\"lockedMultiSelections\":{},\"bindMode\":\"orbit\",\"boxSelectionMode\":\"contain\",\"colorTopPicks\":{\"elementStroke\":null,\"elementBackground\":null,\"bucketFill\":null,\"stickyNoteStroke\":null,\"stickyNoteBackground\":null},\"fontTopPicks\":null}",
+        "excalidraw": "[{\"id\":\"-6ekqMnSv1FxNsgaVevzS\",\"type\":\"rectangle\",\"x\":420,\"y\":280,\"width\":300,\"height\":150,\"angle\":0,\"strokeColor\":\"#1e1e1e\",\"backgroundColor\":\"transparent\",\"fillStyle\":\"solid\",\"strokeWidth\":2,\"strokeStyle\":\"solid\",\"roughness\":1,\"opacity\":100,\"groupIds\":[],\"frameId\":null,\"index\":\"a0\",\"roundness\":{\"type\":3},\"seed\":1301156143,\"version\":3,\"versionNonce\":522636577,\"isDeleted\":false,\"boundElements\":[],\"updated\":1794504643355,\"created\":1794504643268,\"link\":null,\"locked\":false},{\"id\":\"Anprhp20oMuPbs9V87MDT\",\"type\":\"text\",\"x\":450,\"y\":317.5,\"width\":310.83978271484375,\"height\":25,\"angle\":0,\"strokeColor\":\"#1e1e1e\",\"backgroundColor\":\"transparent\",\"fillStyle\":\"solid\",\"strokeWidth\":2,\"strokeStyle\":\"solid\",\"roughness\":1,\"opacity\":100,\"groupIds\":[],\"frameId\":null,\"index\":\"a1\",\"roundness\":null,\"seed\":1026739087,\"version\":3,\"versionNonce\":1666888865,\"isDeleted\":false,\"boundElements\":[],\"updated\":1794504643623,\"created\":1794504643548,\"link\":null,\"locked\":false,\"text\":\"CENA-FICTICIA-SM4-20261112\",\"fontSize\":20,\"baseFontSize\":null,\"fontFamily\":5,\"textAlign\":\"left\",\"verticalAlign\":\"top\",\"containerId\":null,\"originalText\":\"CENA-FICTICIA-SM4-20261112\",\"autoResize\":true,\"lineHeight\":1.25,\"labelPosition\":null}]",
+        "excalidraw-theme": "light"
+      },
+      "sessionStorage": {},
+      "databases": [
+        {
+          "name": "excalidraw-library-db",
+          "version": 1,
+          "stores": {
+            "excalidraw-library-store": [
+              {
+                "key": "libraryData",
+                "value": {
+                  "libraryItems": [
+                    {
+                      "id": "xW8hMlhqpJdfz8RLl7pJt",
+                      "status": "unpublished",
+                      "elements": [
+                        {
+                          "id": "-6ekqMnSv1FxNsgaVevzS",
+                          "type": "rectangle",
+                          "x": 420,
+                          "y": 280,
+                          "width": 300,
+                          "height": 150,
+                          "angle": 0,
+                          "strokeColor": "#1e1e1e",
+                          "backgroundColor": "transparent",
+                          "fillStyle": "solid",
+                          "strokeWidth": 2,
+                          "strokeStyle": "solid",
+                          "roughness": 1,
+                          "opacity": 100,
+                          "groupIds": [],
+                          "frameId": null,
+                          "index": "a0",
+                          "roundness": {
+                            "type": 3
+                          },
+                          "seed": 1301156143,
+                          "version": 3,
+                          "versionNonce": 522636577,
+                          "isDeleted": false,
+                          "boundElements": [],
+                          "updated": 1794504643355,
+                          "created": 1794504643268,
+                          "link": null,
+                          "locked": false
+                        },
+                        {
+                          "id": "Anprhp20oMuPbs9V87MDT",
+                          "type": "text",
+                          "x": 450,
+                          "y": 317.5,
+                          "width": 310.83978271484375,
+                          "height": 25,
+                          "angle": 0,
+                          "strokeColor": "#1e1e1e",
+                          "backgroundColor": "transparent",
+                          "fillStyle": "solid",
+                          "strokeWidth": 2,
+                          "strokeStyle": "solid",
+                          "roughness": 1,
+                          "opacity": 100,
+                          "groupIds": [],
+                          "frameId": null,
+                          "index": "a1",
+                          "roundness": null,
+                          "seed": 1026739087,
+                          "version": 3,
+                          "versionNonce": 1666888865,
+                          "isDeleted": false,
+                          "boundElements": [],
+                          "updated": 1794504643623,
+                          "created": 1794504643548,
+                          "link": null,
+                          "locked": false,
+                          "text": "CENA-FICTICIA-SM4-20261112",
+                          "fontSize": 20,
+                          "baseFontSize": null,
+                          "fontFamily": 5,
+                          "textAlign": "left",
+                          "verticalAlign": "top",
+                          "containerId": null,
+                          "originalText": "CENA-FICTICIA-SM4-20261112",
+                          "autoResize": true,
+                          "lineHeight": 1.25,
+                          "labelPosition": null
+                        }
+                      ],
+                      "created": 1794504659130
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "excalidraw-ttd-chats-db",
+          "version": 1,
+          "stores": {
+            "excalidraw-ttd-chats-store": []
+          }
+        },
+        {
+          "name": "files-db",
+          "version": 1,
+          "stores": {
+            "files-store": []
+          }
+        }
+      ]
+    },
+    {
+      "stage": "image",
+      "at": "2026-11-12T17:31:04.376Z",
+      "url": "http://127.0.0.1:3013/",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "localStorage": {
+        "i18nextLng": "en",
+        "version-files": "1794504662523",
+        "version-dataState": "1794504662523",
+        "excalidraw-state": "{\"showWelcomeScreen\":true,\"theme\":\"light\",\"currentItemBackgroundColor\":\"transparent\",\"currentItemEndArrowhead\":\"arrow\",\"currentItemFillStyle\":\"solid\",\"currentItemFontFamily\":5,\"currentItemFontSize\":20,\"currentItemOpacity\":100,\"currentItemRoughness\":1,\"currentItemStrokeVariability\":\"constant\",\"currentItemStartArrowhead\":null,\"currentItemStrokeColor\":\"#1e1e1e\",\"currentItemStickynoteStrokeColor\":\"#1e1e1e\",\"currentItemStickynoteBackgroundColor\":\"#ffdf6b\",\"currentItemRoundness\":\"round\",\"currentItemArrowType\":\"round\",\"currentItemStrokeStyle\":\"solid\",\"currentItemStrokeWidthKey\":\"medium\",\"currentItemTextAlign\":\"left\",\"cursorButton\":\"up\",\"editingGroupId\":null,\"activeTool\":{\"type\":\"selection\",\"customType\":null,\"locked\":false,\"fromSelection\":false,\"lastActiveTool\":null},\"preferredSelectionTool\":{\"type\":\"selection\",\"initialized\":true},\"penMode\":false,\"penDetected\":false,\"exportBackground\":true,\"exportScale\":1,\"exportEmbedScene\":false,\"exportWithDarkMode\":false,\"gridSize\":20,\"gridStep\":5,\"gridModeEnabled\":false,\"isBindingEnabled\":true,\"bindingPreference\":\"enabled\",\"isMidpointSnappingEnabled\":true,\"showHints\":true,\"inputDevice\":\"auto\",\"defaultSidebarDockedPreference\":false,\"lastPointerDownWith\":\"mouse\",\"name\":\"Untitled-2026-11-12-1430\",\"openMenu\":null,\"openSidebar\":null,\"previousSelectedElementIds\":{},\"scrolledOutside\":false,\"scrollX\":0,\"scrollY\":0,\"selectedElementIds\":{\"RHaRFbSVtF4tT-ass6Ai7\":true},\"selectedGroupIds\":{},\"shouldCacheIgnoreZoom\":false,\"stats\":{\"open\":false,\"panels\":3},\"viewBackgroundColor\":\"#ffffff\",\"zenModeEnabled\":false,\"zoom\":{\"value\":1},\"selectedLinearElement\":null,\"objectsSnapModeEnabled\":false,\"lockedMultiSelections\":{},\"bindMode\":\"orbit\",\"boxSelectionMode\":\"contain\",\"colorTopPicks\":{\"elementStroke\":null,\"elementBackground\":null,\"bucketFill\":null,\"stickyNoteStroke\":null,\"stickyNoteBackground\":null},\"fontTopPicks\":null}",
+        "excalidraw": "[{\"id\":\"-6ekqMnSv1FxNsgaVevzS\",\"type\":\"rectangle\",\"x\":420,\"y\":280,\"width\":300,\"height\":150,\"angle\":0,\"strokeColor\":\"#1e1e1e\",\"backgroundColor\":\"transparent\",\"fillStyle\":\"solid\",\"strokeWidth\":2,\"strokeStyle\":\"solid\",\"roughness\":1,\"opacity\":100,\"groupIds\":[],\"frameId\":null,\"index\":\"a0\",\"roundness\":{\"type\":3},\"seed\":1301156143,\"version\":3,\"versionNonce\":522636577,\"isDeleted\":false,\"boundElements\":[],\"updated\":1794504643355,\"created\":1794504643268,\"link\":null,\"locked\":false},{\"id\":\"Anprhp20oMuPbs9V87MDT\",\"type\":\"text\",\"x\":450,\"y\":317.5,\"width\":310.83978271484375,\"height\":25,\"angle\":0,\"strokeColor\":\"#1e1e1e\",\"backgroundColor\":\"transparent\",\"fillStyle\":\"solid\",\"strokeWidth\":2,\"strokeStyle\":\"solid\",\"roughness\":1,\"opacity\":100,\"groupIds\":[],\"frameId\":null,\"index\":\"a1\",\"roundness\":null,\"seed\":1026739087,\"version\":3,\"versionNonce\":1666888865,\"isDeleted\":false,\"boundElements\":[],\"updated\":1794504643623,\"created\":1794504643548,\"link\":null,\"locked\":false,\"text\":\"CENA-FICTICIA-SM4-20261112\",\"fontSize\":20,\"baseFontSize\":null,\"fontFamily\":5,\"textAlign\":\"left\",\"verticalAlign\":\"top\",\"containerId\":null,\"originalText\":\"CENA-FICTICIA-SM4-20261112\",\"autoResize\":true,\"lineHeight\":1.25,\"labelPosition\":null},{\"id\":\"RHaRFbSVtF4tT-ass6Ai7\",\"type\":\"image\",\"x\":563,\"y\":410,\"width\":240,\"height\":80,\"angle\":0,\"strokeColor\":\"transparent\",\"backgroundColor\":\"transparent\",\"fillStyle\":\"solid\",\"strokeWidth\":2,\"strokeStyle\":\"solid\",\"roughness\":1,\"opacity\":100,\"groupIds\":[],\"frameId\":null,\"index\":\"a2\",\"roundness\":null,\"seed\":1309163552,\"version\":4,\"versionNonce\":710357024,\"isDeleted\":false,\"boundElements\":null,\"updated\":1794504662213,\"created\":1794504661789,\"link\":null,\"locked\":false,\"status\":\"saved\",\"fileId\":\"6c6b5408f59187a7c6db92cb60101053f0a62483\",\"scale\":[1,1],\"crop\":null}]",
+        "excalidraw-theme": "light"
+      },
+      "sessionStorage": {},
+      "databases": [
+        {
+          "name": "excalidraw-library-db",
+          "version": 1,
+          "stores": {
+            "excalidraw-library-store": [
+              {
+                "key": "libraryData",
+                "value": {
+                  "libraryItems": [
+                    {
+                      "id": "xW8hMlhqpJdfz8RLl7pJt",
+                      "status": "unpublished",
+                      "elements": [
+                        {
+                          "id": "-6ekqMnSv1FxNsgaVevzS",
+                          "type": "rectangle",
+                          "x": 420,
+                          "y": 280,
+                          "width": 300,
+                          "height": 150,
+                          "angle": 0,
+                          "strokeColor": "#1e1e1e",
+                          "backgroundColor": "transparent",
+                          "fillStyle": "solid",
+                          "strokeWidth": 2,
+                          "strokeStyle": "solid",
+                          "roughness": 1,
+                          "opacity": 100,
+                          "groupIds": [],
+                          "frameId": null,
+                          "index": "a0",
+                          "roundness": {
+                            "type": 3
+                          },
+                          "seed": 1301156143,
+                          "version": 3,
+                          "versionNonce": 522636577,
+                          "isDeleted": false,
+                          "boundElements": [],
+                          "updated": 1794504643355,
+                          "created": 1794504643268,
+                          "link": null,
+                          "locked": false
+                        },
+                        {
+                          "id": "Anprhp20oMuPbs9V87MDT",
+                          "type": "text",
+                          "x": 450,
+                          "y": 317.5,
+                          "width": 310.83978271484375,
+                          "height": 25,
+                          "angle": 0,
+                          "strokeColor": "#1e1e1e",
+                          "backgroundColor": "transparent",
+                          "fillStyle": "solid",
+                          "strokeWidth": 2,
+                          "strokeStyle": "solid",
+                          "roughness": 1,
+                          "opacity": 100,
+                          "groupIds": [],
+                          "frameId": null,
+                          "index": "a1",
+                          "roundness": null,
+                          "seed": 1026739087,
+                          "version": 3,
+                          "versionNonce": 1666888865,
+                          "isDeleted": false,
+                          "boundElements": [],
+                          "updated": 1794504643623,
+                          "created": 1794504643548,
+                          "link": null,
+                          "locked": false,
+                          "text": "CENA-FICTICIA-SM4-20261112",
+                          "fontSize": 20,
+                          "baseFontSize": null,
+                          "fontFamily": 5,
+                          "textAlign": "left",
+                          "verticalAlign": "top",
+                          "containerId": null,
+                          "originalText": "CENA-FICTICIA-SM4-20261112",
+                          "autoResize": true,
+                          "lineHeight": 1.25,
+                          "labelPosition": null
+                        }
+                      ],
+                      "created": 1794504659130
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "excalidraw-ttd-chats-db",
+          "version": 1,
+          "stores": {
+            "excalidraw-ttd-chats-store": []
+          }
+        },
+        {
+          "name": "files-db",
+          "version": 1,
+          "stores": {
+            "files-store": [
+              {
+                "key": "6c6b5408f59187a7c6db92cb60101053f0a62483",
+                "value": {
+                  "mimeType": "image/svg+xml",
+                  "id": "6c6b5408f59187a7c6db92cb60101053f0a62483",
+                  "dataURL": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNDAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCAyNDAgODAiPjxyZWN0IHdpZHRoPSIyNDAiIGhlaWdodD0iODAiIGZpbGw9IiNmZmVlYWEiLz48dGV4dCB4PSIxMCIgeT0iNDUiIGZvbnQtc2l6ZT0iMTgiPklNQUdFTS1GSUNUSUNJQS1TTTQ8L3RleHQ+PC9zdmc+",
+                  "created": 1794504661850,
+                  "lastRetrieved": 1794504661850
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "stage": "ttd",
+      "at": "2026-11-12T17:31:11.344Z",
+      "url": "http://127.0.0.1:3013/",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "localStorage": {
+        "i18nextLng": "en",
+        "version-files": "1794504670353",
+        "version-dataState": "1794504670352",
+        "excalidraw-state": "{\"showWelcomeScreen\":true,\"theme\":\"light\",\"currentItemBackgroundColor\":\"transparent\",\"currentItemEndArrowhead\":\"arrow\",\"currentItemFillStyle\":\"solid\",\"currentItemFontFamily\":5,\"currentItemFontSize\":20,\"currentItemOpacity\":100,\"currentItemRoughness\":1,\"currentItemStrokeVariability\":\"constant\",\"currentItemStartArrowhead\":null,\"currentItemStrokeColor\":\"#1e1e1e\",\"currentItemStickynoteStrokeColor\":\"#1e1e1e\",\"currentItemStickynoteBackgroundColor\":\"#ffdf6b\",\"currentItemRoundness\":\"round\",\"currentItemArrowType\":\"round\",\"currentItemStrokeStyle\":\"solid\",\"currentItemStrokeWidthKey\":\"medium\",\"currentItemTextAlign\":\"left\",\"cursorButton\":\"up\",\"editingGroupId\":null,\"activeTool\":{\"type\":\"selection\",\"customType\":null,\"locked\":false,\"fromSelection\":false,\"lastActiveTool\":null},\"preferredSelectionTool\":{\"type\":\"selection\",\"initialized\":true},\"penMode\":false,\"penDetected\":false,\"exportBackground\":true,\"exportScale\":1,\"exportEmbedScene\":false,\"exportWithDarkMode\":false,\"gridSize\":20,\"gridStep\":5,\"gridModeEnabled\":false,\"isBindingEnabled\":true,\"bindingPreference\":\"enabled\",\"isMidpointSnappingEnabled\":true,\"showHints\":true,\"inputDevice\":\"auto\",\"defaultSidebarDockedPreference\":false,\"lastPointerDownWith\":\"mouse\",\"name\":\"Untitled-2026-11-12-1430\",\"openMenu\":null,\"openSidebar\":null,\"previousSelectedElementIds\":{},\"scrolledOutside\":false,\"scrollX\":0,\"scrollY\":0,\"selectedElementIds\":{\"RHaRFbSVtF4tT-ass6Ai7\":true},\"selectedGroupIds\":{},\"shouldCacheIgnoreZoom\":false,\"stats\":{\"open\":false,\"panels\":3},\"viewBackgroundColor\":\"#ffffff\",\"zenModeEnabled\":false,\"zoom\":{\"value\":1},\"selectedLinearElement\":null,\"objectsSnapModeEnabled\":false,\"lockedMultiSelections\":{},\"bindMode\":\"orbit\",\"boxSelectionMode\":\"contain\",\"colorTopPicks\":{\"elementStroke\":null,\"elementBackground\":null,\"bucketFill\":null,\"stickyNoteStroke\":null,\"stickyNoteBackground\":null},\"fontTopPicks\":null}",
+        "excalidraw": "[{\"id\":\"-6ekqMnSv1FxNsgaVevzS\",\"type\":\"rectangle\",\"x\":420,\"y\":280,\"width\":300,\"height\":150,\"angle\":0,\"strokeColor\":\"#1e1e1e\",\"backgroundColor\":\"transparent\",\"fillStyle\":\"solid\",\"strokeWidth\":2,\"strokeStyle\":\"solid\",\"roughness\":1,\"opacity\":100,\"groupIds\":[],\"frameId\":null,\"index\":\"a0\",\"roundness\":{\"type\":3},\"seed\":1301156143,\"version\":3,\"versionNonce\":522636577,\"isDeleted\":false,\"boundElements\":[],\"updated\":1794504643355,\"created\":1794504643268,\"link\":null,\"locked\":false},{\"id\":\"Anprhp20oMuPbs9V87MDT\",\"type\":\"text\",\"x\":450,\"y\":317.5,\"width\":310.83978271484375,\"height\":25,\"angle\":0,\"strokeColor\":\"#1e1e1e\",\"backgroundColor\":\"transparent\",\"fillStyle\":\"solid\",\"strokeWidth\":2,\"strokeStyle\":\"solid\",\"roughness\":1,\"opacity\":100,\"groupIds\":[],\"frameId\":null,\"index\":\"a1\",\"roundness\":null,\"seed\":1026739087,\"version\":3,\"versionNonce\":1666888865,\"isDeleted\":false,\"boundElements\":[],\"updated\":1794504643623,\"created\":1794504643548,\"link\":null,\"locked\":false,\"text\":\"CENA-FICTICIA-SM4-20261112\",\"fontSize\":20,\"baseFontSize\":null,\"fontFamily\":5,\"textAlign\":\"left\",\"verticalAlign\":\"top\",\"containerId\":null,\"originalText\":\"CENA-FICTICIA-SM4-20261112\",\"autoResize\":true,\"lineHeight\":1.25,\"labelPosition\":null},{\"id\":\"RHaRFbSVtF4tT-ass6Ai7\",\"type\":\"image\",\"x\":563,\"y\":410,\"width\":240,\"height\":80,\"angle\":0,\"strokeColor\":\"transparent\",\"backgroundColor\":\"transparent\",\"fillStyle\":\"solid\",\"strokeWidth\":2,\"strokeStyle\":\"solid\",\"roughness\":1,\"opacity\":100,\"groupIds\":[],\"frameId\":null,\"index\":\"a2\",\"roundness\":null,\"seed\":1309163552,\"version\":4,\"versionNonce\":710357024,\"isDeleted\":false,\"boundElements\":null,\"updated\":1794504662213,\"created\":1794504661789,\"link\":null,\"locked\":false,\"status\":\"saved\",\"fileId\":\"6c6b5408f59187a7c6db92cb60101053f0a62483\",\"scale\":[1,1],\"crop\":null}]",
+        "excalidraw-theme": "light"
+      },
+      "sessionStorage": {},
+      "databases": [
+        {
+          "name": "excalidraw-library-db",
+          "version": 1,
+          "stores": {
+            "excalidraw-library-store": [
+              {
+                "key": "libraryData",
+                "value": {
+                  "libraryItems": [
+                    {
+                      "id": "xW8hMlhqpJdfz8RLl7pJt",
+                      "status": "unpublished",
+                      "elements": [
+                        {
+                          "id": "-6ekqMnSv1FxNsgaVevzS",
+                          "type": "rectangle",
+                          "x": 420,
+                          "y": 280,
+                          "width": 300,
+                          "height": 150,
+                          "angle": 0,
+                          "strokeColor": "#1e1e1e",
+                          "backgroundColor": "transparent",
+                          "fillStyle": "solid",
+                          "strokeWidth": 2,
+                          "strokeStyle": "solid",
+                          "roughness": 1,
+                          "opacity": 100,
+                          "groupIds": [],
+                          "frameId": null,
+                          "index": "a0",
+                          "roundness": {
+                            "type": 3
+                          },
+                          "seed": 1301156143,
+                          "version": 3,
+                          "versionNonce": 522636577,
+                          "isDeleted": false,
+                          "boundElements": [],
+                          "updated": 1794504643355,
+                          "created": 1794504643268,
+                          "link": null,
+                          "locked": false
+                        },
+                        {
+                          "id": "Anprhp20oMuPbs9V87MDT",
+                          "type": "text",
+                          "x": 450,
+                          "y": 317.5,
+                          "width": 310.83978271484375,
+                          "height": 25,
+                          "angle": 0,
+                          "strokeColor": "#1e1e1e",
+                          "backgroundColor": "transparent",
+                          "fillStyle": "solid",
+                          "strokeWidth": 2,
+                          "strokeStyle": "solid",
+                          "roughness": 1,
+                          "opacity": 100,
+                          "groupIds": [],
+                          "frameId": null,
+                          "index": "a1",
+                          "roundness": null,
+                          "seed": 1026739087,
+                          "version": 3,
+                          "versionNonce": 1666888865,
+                          "isDeleted": false,
+                          "boundElements": [],
+                          "updated": 1794504643623,
+                          "created": 1794504643548,
+                          "link": null,
+                          "locked": false,
+                          "text": "CENA-FICTICIA-SM4-20261112",
+                          "fontSize": 20,
+                          "baseFontSize": null,
+                          "fontFamily": 5,
+                          "textAlign": "left",
+                          "verticalAlign": "top",
+                          "containerId": null,
+                          "originalText": "CENA-FICTICIA-SM4-20261112",
+                          "autoResize": true,
+                          "lineHeight": 1.25,
+                          "labelPosition": null
+                        }
+                      ],
+                      "created": 1794504659130
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "excalidraw-ttd-chats-db",
+          "version": 1,
+          "stores": {
+            "excalidraw-ttd-chats-store": [
+              {
+                "key": "ttdChats",
+                "value": [
+                  {
+                    "id": "bkMSr1PNCVDrqpVZEfczv",
+                    "title": "PROMPT-FICTICIO-SM4: pedido de teste sem dados ...",
+                    "messages": [
+                      {
+                        "type": "user",
+                        "content": "PROMPT-FICTICIO-SM4: pedido de teste sem dados pessoais",
+                        "id": "7JyuRtJVR9mX0sMUxDGna",
+                        "timestamp": "2026-11-12T17:31:05.203Z"
+                      },
+                      {
+                        "type": "assistant",
+                        "content": "flowchart TD\n  A[Pedido recebido pelo servidor de IA falso] --> B{Resposta fixa}\n  B --> C[Nenhum conteúdo foi enviado a terceiros]\n  B --> D[Ambiente local da avaliação]",
+                        "isGenerating": false,
+                        "renderer": "pele",
+                        "id": "ivvwhLf9-F5PVdeeFW4AE",
+                        "timestamp": "2026-11-12T17:31:05.203Z"
+                      }
+                    ],
+                    "currentPrompt": "",
+                    "timestamp": 1794504665768
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "files-db",
+          "version": 1,
+          "stores": {
+            "files-store": [
+              {
+                "key": "6c6b5408f59187a7c6db92cb60101053f0a62483",
+                "value": {
+                  "mimeType": "image/svg+xml",
+                  "id": "6c6b5408f59187a7c6db92cb60101053f0a62483",
+                  "dataURL": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNDAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCAyNDAgODAiPjxyZWN0IHdpZHRoPSIyNDAiIGhlaWdodD0iODAiIGZpbGw9IiNmZmVlYWEiLz48dGV4dCB4PSIxMCIgeT0iNDUiIGZvbnQtc2l6ZT0iMTgiPklNQUdFTS1GSUNUSUNJQS1TTTQ8L3RleHQ+PC9zdmc+",
+                  "created": 1794504661850,
+                  "lastRetrieved": 1794504661850
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "stage": "all-reload",
+      "at": "2026-11-12T17:31:21.825Z",
+      "url": "http://127.0.0.1:3013/",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "localStorage": {
+        "i18nextLng": "en",
+        "version-files": "1794504680435",
+        "version-dataState": "1794504680435",
+        "excalidraw-state": "{\"showWelcomeScreen\":true,\"theme\":\"light\",\"currentItemBackgroundColor\":\"transparent\",\"currentItemEndArrowhead\":\"arrow\",\"currentItemFillStyle\":\"solid\",\"currentItemFontFamily\":5,\"currentItemFontSize\":20,\"currentItemOpacity\":100,\"currentItemRoughness\":1,\"currentItemStrokeVariability\":\"constant\",\"currentItemStartArrowhead\":null,\"currentItemStrokeColor\":\"#1e1e1e\",\"currentItemStickynoteStrokeColor\":\"#1e1e1e\",\"currentItemStickynoteBackgroundColor\":\"#ffdf6b\",\"currentItemRoundness\":\"round\",\"currentItemArrowType\":\"round\",\"currentItemStrokeStyle\":\"solid\",\"currentItemStrokeWidthKey\":\"medium\",\"currentItemTextAlign\":\"left\",\"cursorButton\":\"up\",\"editingGroupId\":null,\"activeTool\":{\"type\":\"selection\",\"customType\":null,\"locked\":false,\"fromSelection\":false,\"lastActiveTool\":null},\"preferredSelectionTool\":{\"type\":\"selection\",\"initialized\":true},\"penMode\":false,\"penDetected\":false,\"exportBackground\":true,\"exportScale\":1,\"exportEmbedScene\":false,\"exportWithDarkMode\":false,\"gridSize\":20,\"gridStep\":5,\"gridModeEnabled\":false,\"isBindingEnabled\":true,\"bindingPreference\":\"enabled\",\"isMidpointSnappingEnabled\":true,\"showHints\":true,\"inputDevice\":\"auto\",\"defaultSidebarDockedPreference\":false,\"lastPointerDownWith\":\"mouse\",\"name\":\"Untitled-2026-11-12-1430\",\"openMenu\":null,\"openSidebar\":null,\"previousSelectedElementIds\":{},\"scrolledOutside\":false,\"scrollX\":0,\"scrollY\":0,\"selectedElementIds\":{\"RHaRFbSVtF4tT-ass6Ai7\":true},\"selectedGroupIds\":{},\"shouldCacheIgnoreZoom\":false,\"stats\":{\"open\":false,\"panels\":3},\"viewBackgroundColor\":\"#ffffff\",\"zenModeEnabled\":false,\"zoom\":{\"value\":1},\"selectedLinearElement\":null,\"objectsSnapModeEnabled\":false,\"lockedMultiSelections\":{},\"bindMode\":\"orbit\",\"boxSelectionMode\":\"contain\",\"colorTopPicks\":{\"elementStroke\":null,\"elementBackground\":null,\"bucketFill\":null,\"stickyNoteStroke\":null,\"stickyNoteBackground\":null},\"fontTopPicks\":null}",
+        "excalidraw": "[{\"id\":\"-6ekqMnSv1FxNsgaVevzS\",\"type\":\"rectangle\",\"x\":420,\"y\":280,\"width\":300,\"height\":150,\"angle\":0,\"strokeColor\":\"#1e1e1e\",\"backgroundColor\":\"transparent\",\"fillStyle\":\"solid\",\"strokeWidth\":2,\"strokeStyle\":\"solid\",\"roughness\":1,\"opacity\":100,\"groupIds\":[],\"frameId\":null,\"index\":\"a0\",\"roundness\":{\"type\":3},\"seed\":1301156143,\"version\":3,\"versionNonce\":522636577,\"isDeleted\":false,\"boundElements\":[],\"updated\":1794504643355,\"created\":1794504643268,\"link\":null,\"locked\":false},{\"id\":\"Anprhp20oMuPbs9V87MDT\",\"type\":\"text\",\"x\":450,\"y\":317.5,\"width\":310.83978271484375,\"height\":25,\"angle\":0,\"strokeColor\":\"#1e1e1e\",\"backgroundColor\":\"transparent\",\"fillStyle\":\"solid\",\"strokeWidth\":2,\"strokeStyle\":\"solid\",\"roughness\":1,\"opacity\":100,\"groupIds\":[],\"frameId\":null,\"index\":\"a1\",\"roundness\":null,\"seed\":1026739087,\"version\":3,\"versionNonce\":1666888865,\"isDeleted\":false,\"boundElements\":[],\"updated\":1794504643623,\"created\":1794504643548,\"link\":null,\"locked\":false,\"text\":\"CENA-FICTICIA-SM4-20261112\",\"fontSize\":20,\"baseFontSize\":null,\"fontFamily\":5,\"textAlign\":\"left\",\"verticalAlign\":\"top\",\"containerId\":null,\"originalText\":\"CENA-FICTICIA-SM4-20261112\",\"autoResize\":true,\"lineHeight\":1.25,\"labelPosition\":null},{\"id\":\"RHaRFbSVtF4tT-ass6Ai7\",\"type\":\"image\",\"x\":563,\"y\":410,\"width\":240,\"height\":80,\"angle\":0,\"strokeColor\":\"transparent\",\"backgroundColor\":\"transparent\",\"fillStyle\":\"solid\",\"strokeWidth\":2,\"strokeStyle\":\"solid\",\"roughness\":1,\"opacity\":100,\"groupIds\":[],\"frameId\":null,\"index\":\"a2\",\"roundness\":null,\"seed\":1309163552,\"version\":4,\"versionNonce\":710357024,\"isDeleted\":false,\"boundElements\":[],\"updated\":1794504662213,\"created\":1794504661789,\"link\":null,\"locked\":false,\"status\":\"saved\",\"fileId\":\"6c6b5408f59187a7c6db92cb60101053f0a62483\",\"scale\":[1,1],\"crop\":null}]",
+        "excalidraw-theme": "light"
+      },
+      "sessionStorage": {},
+      "databases": [
+        {
+          "name": "excalidraw-library-db",
+          "version": 1,
+          "stores": {
+            "excalidraw-library-store": [
+              {
+                "key": "libraryData",
+                "value": {
+                  "libraryItems": [
+                    {
+                      "id": "xW8hMlhqpJdfz8RLl7pJt",
+                      "status": "unpublished",
+                      "elements": [
+                        {
+                          "id": "-6ekqMnSv1FxNsgaVevzS",
+                          "type": "rectangle",
+                          "x": 420,
+                          "y": 280,
+                          "width": 300,
+                          "height": 150,
+                          "angle": 0,
+                          "strokeColor": "#1e1e1e",
+                          "backgroundColor": "transparent",
+                          "fillStyle": "solid",
+                          "strokeWidth": 2,
+                          "strokeStyle": "solid",
+                          "roughness": 1,
+                          "opacity": 100,
+                          "groupIds": [],
+                          "frameId": null,
+                          "index": "a0",
+                          "roundness": {
+                            "type": 3
+                          },
+                          "seed": 1301156143,
+                          "version": 3,
+                          "versionNonce": 522636577,
+                          "isDeleted": false,
+                          "boundElements": [],
+                          "updated": 1794504643355,
+                          "created": 1794504643268,
+                          "link": null,
+                          "locked": false
+                        },
+                        {
+                          "id": "Anprhp20oMuPbs9V87MDT",
+                          "type": "text",
+                          "x": 450,
+                          "y": 317.5,
+                          "width": 310.83978271484375,
+                          "height": 25,
+                          "angle": 0,
+                          "strokeColor": "#1e1e1e",
+                          "backgroundColor": "transparent",
+                          "fillStyle": "solid",
+                          "strokeWidth": 2,
+                          "strokeStyle": "solid",
+                          "roughness": 1,
+                          "opacity": 100,
+                          "groupIds": [],
+                          "frameId": null,
+                          "index": "a1",
+                          "roundness": null,
+                          "seed": 1026739087,
+                          "version": 3,
+                          "versionNonce": 1666888865,
+                          "isDeleted": false,
+                          "boundElements": [],
+                          "updated": 1794504643623,
+                          "created": 1794504643548,
+                          "link": null,
+                          "locked": false,
+                          "text": "CENA-FICTICIA-SM4-20261112",
+                          "fontSize": 20,
+                          "baseFontSize": null,
+                          "fontFamily": 5,
+                          "textAlign": "left",
+                          "verticalAlign": "top",
+                          "containerId": null,
+                          "originalText": "CENA-FICTICIA-SM4-20261112",
+                          "autoResize": true,
+                          "lineHeight": 1.25,
+                          "labelPosition": null
+                        }
+                      ],
+                      "created": 1794504659130
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "excalidraw-ttd-chats-db",
+          "version": 1,
+          "stores": {
+            "excalidraw-ttd-chats-store": [
+              {
+                "key": "ttdChats",
+                "value": [
+                  {
+                    "id": "bkMSr1PNCVDrqpVZEfczv",
+                    "title": "PROMPT-FICTICIO-SM4: pedido de teste sem dados ...",
+                    "messages": [
+                      {
+                        "type": "user",
+                        "content": "PROMPT-FICTICIO-SM4: pedido de teste sem dados pessoais",
+                        "id": "7JyuRtJVR9mX0sMUxDGna",
+                        "timestamp": "2026-11-12T17:31:05.203Z"
+                      },
+                      {
+                        "type": "assistant",
+                        "content": "flowchart TD\n  A[Pedido recebido pelo servidor de IA falso] --> B{Resposta fixa}\n  B --> C[Nenhum conteúdo foi enviado a terceiros]\n  B --> D[Ambiente local da avaliação]",
+                        "isGenerating": false,
+                        "renderer": "pele",
+                        "id": "ivvwhLf9-F5PVdeeFW4AE",
+                        "timestamp": "2026-11-12T17:31:05.203Z"
+                      }
+                    ],
+                    "currentPrompt": "",
+                    "timestamp": 1794504665768
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "files-db",
+          "version": 1,
+          "stores": {
+            "files-store": [
+              {
+                "key": "6c6b5408f59187a7c6db92cb60101053f0a62483",
+                "value": {
+                  "mimeType": "image/svg+xml",
+                  "id": "6c6b5408f59187a7c6db92cb60101053f0a62483",
+                  "dataURL": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNDAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCAyNDAgODAiPjxyZWN0IHdpZHRoPSIyNDAiIGhlaWdodD0iODAiIGZpbGw9IiNmZmVlYWEiLz48dGV4dCB4PSIxMCIgeT0iNDUiIGZvbnQtc2l6ZT0iMTgiPklNQUdFTS1GSUNUSUNJQS1TTTQ8L3RleHQ+PC9zdmc+",
+                  "created": 1794504661850,
+                  "lastRetrieved": 1794504679084
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "blockedRequests": [],
+  "errors": [],
+  "browser": "157.0.8103.51",
+  "finished": "2026-11-12T17:31:21.967Z"
+}
