@@ -34,7 +34,7 @@ Também geram observações qualitativas para CI-M18 (mensagens de erro vistas),
 
 ## 2. Perfis e recrutamento
 
-**1 participantes por perfil (4 no total)** (2 por perfil, se o prazo permitir). 
+**1 participante por perfil (4 no total)** (2 por perfil, se o prazo permitir). 
 
 | Perfil | Critério de inclusão | Entra em |
 | --- | --- | --- |

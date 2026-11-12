@@ -18,7 +18,7 @@ Aplicar por formulário (por exemplo, Google Forms **sem coletar e-mail nem nome
 
 Escala de 1 (**discordo totalmente**) a 5 (**concordo totalmente**). Aplicar logo após as tarefas, antes de qualquer conversa sobre a ferramenta. Pedir que responda sem pensar muito.
 
-Versão em português do *System Usability Scale* (BROOKE, 1996). **Conferir** o texto contra a tradução citada nas referências do trabalho antes de aplicar.
+Versão em português do *System Usability Scale* (BROOKE, 1996).
 
 | # | Afirmação | 1 | 2 | 3 | 4 | 5 |
 | --- | --- | :-: | :-: | :-: | :-: | :-: |
