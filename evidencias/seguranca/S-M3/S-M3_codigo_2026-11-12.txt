@@ -1,0 +1,1028 @@
+Nota editorial posterior à coleta:
+As linhas originais com o rótulo "Comando:" foram preservadas abaixo. Nas buscas rg, elas serializam a lista de argumentos passada pelo coletor Python a subprocess.run, sem quoting de shell; não são comandos copiáveis diretamente para PowerShell. O padrão com | foi um único argumento, sem pipeline. O caminho <checkout-room> é uma abreviação editorial do caminho local, não um argumento literal utilizado.
+Ao final há exemplos corrigidos para reprodução em PowerShell, separados do registro original. Esses exemplos não constituem nova execução ou novos resultados de medição.
+
+S-M3 - coleta de codigo em 2026-11-12T11:57:16.007440-03:00
+Origem: checkout oficial reutilizado da S-M11, copiado para pasta temporaria.
+Comando: git rev-parse HEAD
+e7b534668a60add7f725531f3c9abf32508c7b4e
+Comando: git status --short (arquivos rastreados e nao ignorados)
+(sem alteracoes)
+yarn.lock SHA256: 3a40118db6c7a8d9038957d2437a7c0c52e7d882586b79739ce49660d6352196
+Comando: git -c safe.directory=<checkout-room> -C <checkout-room> rev-parse HEAD
+03ff435860b508d7cd9e005cfc90f7977ae2a593
+
+C1: excalidraw-app/share/ShareDialog.tsx:57-293
+SHA256 do arquivo integral: 9c2ed14f2bc3974005df034f27512a87451dfe94dcdf82fb3713f657885c7517
+57: const ActiveRoomDialog = ({
+58:   collabAPI,
+59:   activeRoomLink,
+60:   handleClose,
+61: }: {
+62:   collabAPI: CollabAPI;
+63:   activeRoomLink: string;
+64:   handleClose: () => void;
+65: }) => {
+66:   const { t } = useI18n();
+67:   const [, setJustCopied] = useState(false);
+68:   const timerRef = useRef<number>(0);
+69:   const ref = useRef<HTMLInputElement>(null);
+70:   const isShareSupported = "share" in navigator;
+71:   const { onCopy, copyStatus } = useCopyStatus();
+72:
+73:   const copyRoomLink = async () => {
+74:     try {
+75:       await copyTextToSystemClipboard(activeRoomLink);
+76:     } catch (e) {
+77:       collabAPI.setCollabError(t("errors.copyToSystemClipboardFailed"));
+78:     }
+79:
+80:     setJustCopied(true);
+81:
+82:     if (timerRef.current) {
+83:       window.clearTimeout(timerRef.current);
+84:     }
+85:
+86:     timerRef.current = window.setTimeout(() => {
+87:       setJustCopied(false);
+88:     }, 3000);
+89:
+90:     ref.current?.select();
+91:   };
+92:
+93:   const shareRoomLink = async () => {
+94:     try {
+95:       await navigator.share({
+96:         title: t("roomDialog.shareTitle"),
+97:         text: t("roomDialog.shareTitle"),
+98:         url: activeRoomLink,
+99:       });
+100:     } catch (error: any) {
+101:       // Just ignore.
+102:     }
+103:   };
+104:
+105:   return (
+106:     <>
+107:       <h3 className="ShareDialog__active__header">
+108:         {t("labels.liveCollaboration").replace(/\./g, "")}
+109:       </h3>
+110:       <TextField
+111:         defaultValue={collabAPI.getUsername()}
+112:         placeholder="Your name"
+113:         label="Your name"
+114:         onChange={collabAPI.setUsername}
+115:         onKeyDown={(event) => event.key === KEYS.ENTER && handleClose()}
+116:       />
+117:       <div className="ShareDialog__active__linkRow">
+118:         <TextField
+119:           ref={ref}
+120:           label="Link"
+121:           readonly
+122:           fullWidth
+123:           value={activeRoomLink}
+124:         />
+125:         {isShareSupported && (
+126:           <FilledButton
+127:             size="large"
+128:             variant="icon"
+129:             label="Share"
+130:             icon={getShareIcon()}
+131:             className="ShareDialog__active__share"
+132:             onClick={shareRoomLink}
+133:           />
+134:         )}
+135:         <FilledButton
+136:           size="large"
+137:           label={t("buttons.copyLink")}
+138:           icon={copyIcon}
+139:           status={copyStatus}
+140:           onClick={() => {
+141:             copyRoomLink();
+142:             onCopy();
+143:           }}
+144:         />
+145:       </div>
+146:       <QRCode value={activeRoomLink} />
+147:       <div className="ShareDialog__active__description">
+148:         <p>
+149:           <span
+150:             role="img"
+151:             aria-hidden="true"
+152:             className="ShareDialog__active__description__emoji"
+153:           >
+154:             🔒{" "}
+155:           </span>
+156:           {t("roomDialog.desc_privacy")}
+157:         </p>
+158:         <p>{t("roomDialog.desc_exitSession")}</p>
+159:       </div>
+160:
+161:       <div className="ShareDialog__active__actions">
+162:         <FilledButton
+163:           size="large"
+164:           variant="outlined"
+165:           color="danger"
+166:           label={t("roomDialog.button_stopSession")}
+167:           icon={playerStopFilledIcon}
+168:           onClick={() => {
+169:             trackEvent("share", "room closed");
+170:             collabAPI.stopCollaboration();
+171:             if (!collabAPI.isCollaborating()) {
+172:               handleClose();
+173:             }
+174:           }}
+175:         />
+176:       </div>
+177:     </>
+178:   );
+179: };
+180:
+181: const ShareDialogPicker = (props: ShareDialogProps) => {
+182:   const { t } = useI18n();
+183:
+184:   const { collabAPI } = props;
+185:
+186:   const startCollabJSX = collabAPI ? (
+187:     <>
+188:       <div className="ShareDialog__picker__header">
+189:         {t("labels.liveCollaboration").replace(/\./g, "")}
+190:       </div>
+191:
+192:       <div className="ShareDialog__picker__description">
+193:         <div style={{ marginBottom: "1em" }}>{t("roomDialog.desc_intro")}</div>
+194:         {t("roomDialog.desc_privacy")}
+195:       </div>
+196:
+197:       <div className="ShareDialog__picker__button">
+198:         <FilledButton
+199:           size="large"
+200:           label={t("roomDialog.button_startSession")}
+201:           icon={playerPlayIcon}
+202:           onClick={() => {
+203:             trackEvent("share", "room creation", `ui (${getFrame()})`);
+204:             collabAPI.startCollaboration(null);
+205:           }}
+206:         />
+207:       </div>
+208:
+209:       {props.type === "share" && (
+210:         <div className="ShareDialog__separator">
+211:           <span>{t("shareDialog.or")}</span>
+212:         </div>
+213:       )}
+214:     </>
+215:   ) : null;
+216:
+217:   return (
+218:     <>
+219:       {startCollabJSX}
+220:
+221:       {props.type === "share" && (
+222:         <>
+223:           <div className="ShareDialog__picker__header">
+224:             {t("exportDialog.link_title")}
+225:           </div>
+226:           <div className="ShareDialog__picker__description">
+227:             {t("exportDialog.link_details")}
+228:           </div>
+229:
+230:           <div className="ShareDialog__picker__button">
+231:             <FilledButton
+232:               size="large"
+233:               label={t("exportDialog.link_button")}
+234:               icon={LinkIcon}
+235:               onClick={async () => {
+236:                 await props.onExportToBackend();
+237:                 props.handleClose();
+238:               }}
+239:             />
+240:           </div>
+241:         </>
+242:       )}
+243:     </>
+244:   );
+245: };
+246:
+247: const ShareDialogInner = (props: ShareDialogProps) => {
+248:   const activeRoomLink = useAtomValue(activeRoomLinkAtom);
+249:
+250:   return (
+251:     <Dialog size="small" onCloseRequest={props.handleClose} title={false}>
+252:       <div className="ShareDialog">
+253:         {props.collabAPI && activeRoomLink ? (
+254:           <ActiveRoomDialog
+255:             collabAPI={props.collabAPI}
+256:             activeRoomLink={activeRoomLink}
+257:             handleClose={props.handleClose}
+258:           />
+259:         ) : (
+260:           <ShareDialogPicker {...props} />
+261:         )}
+262:       </div>
+263:     </Dialog>
+264:   );
+265: };
+266:
+267: export const ShareDialog = (props: {
+268:   collabAPI: CollabAPI | null;
+269:   onExportToBackend: OnExportToBackend;
+270: }) => {
+271:   const [shareDialogState, setShareDialogState] = useAtom(shareDialogStateAtom);
+272:
+273:   const { openDialog } = useUIAppState();
+274:
+275:   useEffect(() => {
+276:     if (openDialog) {
+277:       setShareDialogState({ isOpen: false });
+278:     }
+279:   }, [openDialog, setShareDialogState]);
+280:
+281:   if (!shareDialogState.isOpen) {
+282:     return null;
+283:   }
+284:
+285:   return (
+286:     <ShareDialogInner
+287:       handleClose={() => setShareDialogState({ isOpen: false })}
+288:       collabAPI={props.collabAPI}
+289:       onExportToBackend={props.onExportToBackend}
+290:       type={shareDialogState.type}
+291:     />
+292:   );
+293: };
+
+C2: packages/excalidraw/components/JSONExportDialog.tsx:82-108
+SHA256 do arquivo integral: 3b377ae4ab2588180dd4e090cb8a49e4eb750fd9ed5e8d18700d8384758bfb62
+82:               aria-label={t("exportDialog.link_button")}
+83:               showAriaLabel={true}
+84:               onClick={async () => {
+85:                 try {
+86:                   trackEvent("export", "link", `ui (${getFrame()})`);
+87:                   await onExportToBackend(elements, appState, files);
+88:                   onCloseRequest();
+89:                 } catch (error: any) {
+90:                   setAppState({ errorMessage: error.message });
+91:                 }
+92:               }}
+93:             />
+94:           </Card>
+95:         )}
+96:         {exportOpts.renderCustomUI &&
+97:           exportOpts.renderCustomUI(elements, appState, files, canvas)}
+98:       </div>
+99:     </div>
+100:   );
+101: };
+102:
+103: export const JSONExportDialog = ({
+104:   elements,
+105:   appState,
+106:   files,
+107:   actionManager,
+108:   exportOpts,
+
+C3: packages/excalidraw/components/ShareableLinkDialog.tsx:14-80
+SHA256 do arquivo integral: b2122146b6933a3ed2360493806b68cac862b7349aa829d6abdf5eb2c0848c23
+14: export type ShareableLinkDialogProps = {
+15:   link: string;
+16:
+17:   onCloseRequest: () => void;
+18:   setErrorMessage: (error: string) => void;
+19: };
+20:
+21: export const ShareableLinkDialog = ({
+22:   link,
+23:   onCloseRequest,
+24:   setErrorMessage,
+25: }: ShareableLinkDialogProps) => {
+26:   const { t } = useI18n();
+27:   const [, setJustCopied] = useState(false);
+28:   const timerRef = useRef<number>(0);
+29:   const ref = useRef<HTMLInputElement>(null);
+30:
+31:   const copyRoomLink = async () => {
+32:     try {
+33:       await copyTextToSystemClipboard(link);
+34:     } catch (e) {
+35:       setErrorMessage(t("errors.copyToSystemClipboardFailed"));
+36:     }
+37:     setJustCopied(true);
+38:
+39:     if (timerRef.current) {
+40:       window.clearTimeout(timerRef.current);
+41:     }
+42:
+43:     timerRef.current = window.setTimeout(() => {
+44:       setJustCopied(false);
+45:     }, 3000);
+46:
+47:     ref.current?.select();
+48:   };
+49:   const { onCopy, copyStatus } = useCopyStatus();
+50:   return (
+51:     <Dialog onCloseRequest={onCloseRequest} title={false} size="small">
+52:       <div className="ShareableLinkDialog">
+53:         <h3>Shareable link</h3>
+54:         <div className="ShareableLinkDialog__linkRow">
+55:           <TextField
+56:             ref={ref}
+57:             label="Link"
+58:             readonly
+59:             fullWidth
+60:             value={link}
+61:             selectOnRender
+62:           />
+63:           <FilledButton
+64:             size="large"
+65:             label={t("buttons.copyLink")}
+66:             icon={copyIcon}
+67:             status={copyStatus}
+68:             onClick={() => {
+69:               onCopy();
+70:               copyRoomLink();
+71:             }}
+72:           />
+73:         </div>
+74:         <div className="ShareableLinkDialog__description">
+75:           🔒 {t("alerts.uploadedSecurly")}
+76:         </div>
+77:       </div>
+78:     </Dialog>
+79:   );
+80: };
+
+C4: excalidraw-app/data/index.ts:131-164
+SHA256 do arquivo integral: ee46f505eeef11b3e0014afc59dec6441f6fad711f266a4e124e19592fc88181
+131: const RE_COLLAB_LINK = /^#room=([a-zA-Z0-9_-]+),([a-zA-Z0-9_-]+)$/;
+132:
+133: export const isCollaborationLink = (link: string) => {
+134:   const hash = new URL(link).hash;
+135:   return RE_COLLAB_LINK.test(hash);
+136: };
+137:
+138: export const getCollaborationLinkData = (link: string) => {
+139:   const hash = new URL(link).hash;
+140:   const match = hash.match(RE_COLLAB_LINK);
+141:   if (match && match[2].length !== 22) {
+142:     window.alert(t("alerts.invalidEncryptionKey"));
+143:     return null;
+144:   }
+145:   return match ? { roomId: match[1], roomKey: match[2] } : null;
+146: };
+147:
+148: export const generateCollaborationLinkData = async () => {
+149:   const roomId = await generateRoomId();
+150:   const roomKey = await generateEncryptionKey();
+151:
+152:   if (!roomKey) {
+153:     throw new Error("Couldn't generate room key");
+154:   }
+155:
+156:   return { roomId, roomKey };
+157: };
+158:
+159: export const getCollaborationLink = (data: {
+160:   roomId: string;
+161:   roomKey: string;
+162: }) => {
+163:   return `${window.location.origin}${window.location.pathname}#room=${data.roomId},${data.roomKey}`;
+164: };
+
+C5: packages/excalidraw/data/encryption.ts:12-31
+SHA256 do arquivo integral: cf0459f24fadf50018db8d78f69c0d44333bc53fb88ec34435fa7fad37e602ed
+12: export const generateEncryptionKey = async <
+13:   T extends "string" | "cryptoKey" = "string",
+14: >(
+15:   returnAs?: T,
+16: ): Promise<T extends "cryptoKey" ? CryptoKey : string> => {
+17:   const key = await window.crypto.subtle.generateKey(
+18:     {
+19:       name: "AES-GCM",
+20:       length: ENCRYPTION_KEY_BITS,
+21:     },
+22:     true, // extractable
+23:     ["encrypt", "decrypt"],
+24:   );
+25:   return (
+26:     returnAs === "cryptoKey"
+27:       ? key
+28:       : (await window.crypto.subtle.exportKey("jwk", key)).k
+29:   ) as T extends "cryptoKey" ? CryptoKey : string;
+30: };
+31:
+
+C6: excalidraw-app/collab/Collab.tsx:376-440
+SHA256 do arquivo integral: 4c309a23c2490e9c0ce16d67cf5e605c8a49637fbb645d0f40d026883b68f99f
+376:   stopCollaboration = (keepRemoteState = true) => {
+377:     this.queueBroadcastAllElements.cancel();
+378:     this.queueSaveToFirebase.cancel();
+379:     this.loadImageFiles.cancel();
+380:     this.resetErrorIndicator(true);
+381:
+382:     this.saveCollabRoomToFirebase(
+383:       getSyncableElements(
+384:         this.excalidrawAPI.getSceneElementsIncludingDeleted(),
+385:       ),
+386:     );
+387:
+388:     if (this.portal.socket && this.fallbackInitializationHandler) {
+389:       this.portal.socket.off(
+390:         "connect_error",
+391:         this.fallbackInitializationHandler,
+392:       );
+393:     }
+394:
+395:     if (!keepRemoteState) {
+396:       LocalData.fileStorage.reset();
+397:       this.destroySocketClient();
+398:     } else if (window.confirm(t("alerts.collabStopOverridePrompt"))) {
+399:       // hack to ensure that we prefer we disregard any new browser state
+400:       // that could have been saved in other tabs while we were collaborating
+401:       resetBrowserStateVersions();
+402:
+403:       window.history.pushState({}, APP_NAME, window.location.origin);
+404:       this.destroySocketClient();
+405:
+406:       LocalData.fileStorage.reset();
+407:
+408:       const elements = this.excalidrawAPI
+409:         .getSceneElementsIncludingDeleted()
+410:         .map((element) => {
+411:           if (isImageElement(element) && element.status === "saved") {
+412:             return newElementWith(element, { status: "pending" });
+413:           }
+414:           return element;
+415:         });
+416:
+417:       this.excalidrawAPI.updateScene({
+418:         elements,
+419:         captureUpdate: CaptureUpdateAction.NEVER,
+420:       });
+421:     }
+422:   };
+423:
+424:   private destroySocketClient = (opts?: { isUnload: boolean }) => {
+425:     this.lastBroadcastedOrReceivedSceneVersion = -1;
+426:     this.portal.close();
+427:     this.fileManager.reset();
+428:     this.followedBy = new Set();
+429:     if (!opts?.isUnload) {
+430:       this.setIsCollaborating(false);
+431:       this.setActiveRoomLink(null);
+432:       appJotaiStore.set(userToFollowAtom, null);
+433:       this.collaborators = new Map();
+434:       this.excalidrawAPI.updateScene({
+435:         collaborators: this.collaborators,
+436:       });
+437:       LocalData.resumeSave("collaboration");
+438:     }
+439:   };
+440:
+
+C7: excalidraw-app/collab/Portal.tsx:37-76
+SHA256 do arquivo integral: 8e954a48319fdedd9d82604a4c642a424b33e49713e30721feaa5e95b4f57fc2
+37:   open(socket: Socket, id: string, key: string) {
+38:     this.socket = socket;
+39:     this.roomId = id;
+40:     this.roomKey = key;
+41:
+42:     // Initialize socket listeners
+43:     this.socket.on("init-room", () => {
+44:       if (this.socket) {
+45:         this.socket.emit("join-room", this.roomId);
+46:         trackEvent("share", "room joined");
+47:       }
+48:     });
+49:     this.socket.on("new-user", async (_socketId: string) => {
+50:       this.broadcastScene(
+51:         WS_SUBTYPES.INIT,
+52:         this.collab.getSceneElementsIncludingDeleted(),
+53:         /* syncAll */ true,
+54:       );
+55:     });
+56:     this.socket.on("room-user-change", (clients: SocketId[]) => {
+57:       this.collab.setCollaborators(clients);
+58:     });
+59:
+60:     return socket;
+61:   }
+62:
+63:   close() {
+64:     if (!this.socket) {
+65:       return;
+66:     }
+67:     this.queueFileUpload.flush();
+68:     this.socket.close();
+69:     this.socket = null;
+70:     this.roomId = null;
+71:     this.roomKey = null;
+72:     this.socketInitialized = false;
+73:     this.broadcastedElementVersions = new Map();
+74:   }
+75:
+76:   isOpen() {
+
+C8: excalidraw-app/collab/Collab.tsx:492-575
+SHA256 do arquivo integral: 4c309a23c2490e9c0ce16d67cf5e605c8a49637fbb645d0f40d026883b68f99f
+492:   startCollaboration = async (
+493:     existingRoomLinkData: null | { roomId: string; roomKey: string },
+494:   ) => {
+495:     if (!this.state.username) {
+496:       import("@excalidraw/random-username").then(({ getRandomUsername }) => {
+497:         const username = getRandomUsername();
+498:         this.setUsername(username);
+499:       });
+500:     }
+501:
+502:     if (this.portal.socket) {
+503:       return null;
+504:     }
+505:
+506:     let roomId;
+507:     let roomKey;
+508:
+509:     if (existingRoomLinkData) {
+510:       ({ roomId, roomKey } = existingRoomLinkData);
+511:     } else {
+512:       ({ roomId, roomKey } = await generateCollaborationLinkData());
+513:       window.history.pushState(
+514:         {},
+515:         APP_NAME,
+516:         getCollaborationLink({ roomId, roomKey }),
+517:       );
+518:     }
+519:
+520:     // TODO: `ImportedDataState` type here seems abused
+521:     const scenePromise = resolvablePromise<
+522:       | (ImportedDataState & { elements: readonly OrderedExcalidrawElement[] })
+523:       | null
+524:     >();
+525:
+526:     this.setIsCollaborating(true);
+527:     LocalData.pauseSave("collaboration");
+528:
+529:     const { default: socketIOClient } = await import(
+530:       /* webpackChunkName: "socketIoClient" */ "socket.io-client"
+531:     );
+532:
+533:     const fallbackInitializationHandler = () => {
+534:       this.initializeRoom({
+535:         roomLinkData: existingRoomLinkData,
+536:         fetchScene: true,
+537:       }).then((scene) => {
+538:         scenePromise.resolve(scene);
+539:       });
+540:     };
+541:     this.fallbackInitializationHandler = fallbackInitializationHandler;
+542:
+543:     try {
+544:       this.portal.socket = this.portal.open(
+545:         socketIOClient(import.meta.env.VITE_APP_WS_SERVER_URL, {
+546:           transports: ["websocket", "polling"],
+547:         }),
+548:         roomId,
+549:         roomKey,
+550:       );
+551:
+552:       this.portal.socket.once("connect_error", fallbackInitializationHandler);
+553:     } catch (error: any) {
+554:       console.error(error);
+555:       this.setErrorDialog(error.message);
+556:       return null;
+557:     }
+558:
+559:     if (existingRoomLinkData) {
+560:       // when joining existing room, don't merge it with current scene data
+561:       this.excalidrawAPI.resetScene();
+562:     } else {
+563:       const elements = this.excalidrawAPI.getSceneElements().map((element) => {
+564:         if (isImageElement(element) && element.status === "saved") {
+565:           return newElementWith(element, { status: "pending" });
+566:         }
+567:         return element;
+568:       });
+569:       // remove deleted elements from elements array to ensure we don't
+570:       // expose potentially sensitive user data in case user manually deletes
+571:       // existing elements (or clears scene), which would otherwise be persisted
+572:       // to database even if deleted before creating the room.
+573:       this.excalidrawAPI.updateScene({
+574:         elements,
+575:         captureUpdate: CaptureUpdateAction.NEVER,
+
+C9: excalidraw-app/collab/Collab.tsx:725-770
+SHA256 do arquivo integral: 4c309a23c2490e9c0ce16d67cf5e605c8a49637fbb645d0f40d026883b68f99f
+725:   private initializeRoom = async ({
+726:     fetchScene,
+727:     roomLinkData,
+728:   }:
+729:     | {
+730:         fetchScene: true;
+731:         roomLinkData: { roomId: string; roomKey: string } | null;
+732:       }
+733:     | { fetchScene: false; roomLinkData?: null }) => {
+734:     clearTimeout(this.socketInitializationTimer!);
+735:     if (this.portal.socket && this.fallbackInitializationHandler) {
+736:       this.portal.socket.off(
+737:         "connect_error",
+738:         this.fallbackInitializationHandler,
+739:       );
+740:     }
+741:     if (fetchScene && roomLinkData && this.portal.socket) {
+742:       this.excalidrawAPI.resetScene();
+743:
+744:       try {
+745:         const elements = await loadFromFirebase(
+746:           roomLinkData.roomId,
+747:           roomLinkData.roomKey,
+748:           this.portal.socket,
+749:         );
+750:         if (elements) {
+751:           this.setLastBroadcastedOrReceivedSceneVersion(
+752:             getSceneVersion(elements),
+753:           );
+754:
+755:           return {
+756:             elements,
+757:             scrollToContent: true,
+758:           };
+759:         }
+760:       } catch (error: any) {
+761:         // log the error and move on. other peers will sync us the scene.
+762:         console.error(error);
+763:       } finally {
+764:         this.portal.socketInitialized = true;
+765:       }
+766:     } else {
+767:       this.portal.socketInitialized = true;
+768:     }
+769:     return null;
+770:   };
+
+C10: excalidraw-app/data/firebase.ts:176-244
+SHA256 do arquivo integral: 6684854be82a613c99dfb213c196e47cfa78753b353f55d62910055c37ec8483
+176: const createFirebaseSceneDocument = async (
+177:   elements: readonly SyncableExcalidrawElement[],
+178:   roomKey: string,
+179: ) => {
+180:   const sceneVersion = getSceneVersion(elements);
+181:   const { ciphertext, iv } = await encryptElements(roomKey, elements);
+182:   const { Bytes } = await _loadFirestore();
+183:   return {
+184:     sceneVersion,
+185:     ciphertext: Bytes.fromUint8Array(new Uint8Array(ciphertext)),
+186:     iv: Bytes.fromUint8Array(iv),
+187:   } as FirebaseStoredScene;
+188: };
+189:
+190: export const saveToFirebase = async (
+191:   portal: Portal,
+192:   elements: readonly SyncableExcalidrawElement[],
+193:   appState: AppState,
+194: ) => {
+195:   const { roomId, roomKey, socket } = portal;
+196:   if (
+197:     // bail if no room exists as there's nothing we can do at this point
+198:     !roomId ||
+199:     !roomKey ||
+200:     !socket ||
+201:     isSavedToFirebase(portal, elements)
+202:   ) {
+203:     return null;
+204:   }
+205:
+206:   const { firestore, doc, runTransaction } = await _loadFirestore();
+207:   const docRef = doc(firestore, "scenes", roomId);
+208:
+209:   const storedScene = await runTransaction(firestore, async (transaction) => {
+210:     const snapshot = await transaction.get(docRef);
+211:
+212:     if (!snapshot.exists()) {
+213:       const storedScene = await createFirebaseSceneDocument(elements, roomKey);
+214:
+215:       transaction.set(docRef, storedScene);
+216:
+217:       return storedScene;
+218:     }
+219:
+220:     const prevStoredScene = snapshot.data() as FirebaseStoredScene;
+221:     const prevStoredElements = getSyncableElements(
+222:       restoreElements(await decryptElements(prevStoredScene, roomKey), null),
+223:     );
+224:     const reconciledElements = getSyncableElements(
+225:       reconcileElements(
+226:         elements,
+227:         prevStoredElements as OrderedExcalidrawElement[] as RemoteExcalidrawElement[],
+228:         appState,
+229:       ),
+230:     );
+231:
+232:     const storedScene = await createFirebaseSceneDocument(
+233:       reconciledElements,
+234:       roomKey,
+235:     );
+236:
+237:     transaction.update(docRef, storedScene);
+238:
+239:     // Return the stored elements as the in memory `reconciledElements` could have mutated in the meantime
+240:     return storedScene;
+241:   });
+242:
+243:   const storedElements = getSyncableElements(
+244:     restoreElements(await decryptElements(storedScene, roomKey), null),
+
+C11: excalidraw-app/data/firebase.ts:252-279
+SHA256 do arquivo integral: 6684854be82a613c99dfb213c196e47cfa78753b353f55d62910055c37ec8483
+252: export const loadFromFirebase = async (
+253:   roomId: string,
+254:   roomKey: string,
+255:   socket: Socket | null,
+256: ): Promise<readonly SyncableExcalidrawElement[] | null> => {
+257:   const { firestore, doc, getDoc } = await _loadFirestore();
+258:   const docRef = doc(firestore, "scenes", roomId);
+259:   const docSnap = await getDoc(docRef);
+260:   if (!docSnap.exists()) {
+261:     return null;
+262:   }
+263:   const storedScene = docSnap.data() as FirebaseStoredScene;
+264:   const elements = getSyncableElements(
+265:     restoreElements(await decryptElements(storedScene, roomKey), null, {
+266:       deleteInvisibleElements: true,
+267:     }),
+268:   );
+269:
+270:   if (socket) {
+271:     FirebaseSceneVersionCache.set(socket, elements);
+272:   }
+273:
+274:   return elements;
+275: };
+276:
+277: export const loadFilesFromFirebase = async (
+278:   prefix: string,
+279:   decryptionKey: string,
+
+C12: excalidraw-app/data/index.ts:202-307
+SHA256 do arquivo integral: ee46f505eeef11b3e0014afc59dec6441f6fad711f266a4e124e19592fc88181
+202: export const importFromBackend = async (
+203:   id: string,
+204:   decryptionKey: string,
+205: ): Promise<ImportedDataState> => {
+206:   try {
+207:     const response = await fetch(`${BACKEND_V2_GET}${id}`);
+208:
+209:     if (!response.ok) {
+210:       window.alert(t("alerts.importBackendFailed"));
+211:       return {};
+212:     }
+213:     const buffer = await response.arrayBuffer();
+214:
+215:     try {
+216:       const { data: decodedBuffer } = await decompressData(
+217:         new Uint8Array(buffer),
+218:         {
+219:           decryptionKey,
+220:         },
+221:       );
+222:       const data: ImportedDataState = JSON.parse(
+223:         new TextDecoder().decode(decodedBuffer),
+224:       );
+225:
+226:       return {
+227:         elements: data.elements || null,
+228:         appState: data.appState || null,
+229:       };
+230:     } catch (error: any) {
+231:       console.warn(
+232:         "error when decoding shareLink data using the new format:",
+233:         error,
+234:       );
+235:       return legacy_decodeFromBackend({ buffer, decryptionKey });
+236:     }
+237:   } catch (error: any) {
+238:     window.alert(t("alerts.importBackendFailed"));
+239:     console.error(error);
+240:     return {};
+241:   }
+242: };
+243:
+244: type ExportToBackendResult =
+245:   | { url: null; errorMessage: string }
+246:   | { url: string; errorMessage: null };
+247:
+248: export const exportToBackend = async (
+249:   elements: readonly ExcalidrawElement[],
+250:   appState: Partial<AppState>,
+251:   files: BinaryFiles,
+252: ): Promise<ExportToBackendResult> => {
+253:   const encryptionKey = await generateEncryptionKey("string");
+254:
+255:   const payload = await compressData(
+256:     new TextEncoder().encode(
+257:       serializeAsJSON(elements, appState, files, "database"),
+258:     ),
+259:     { encryptionKey },
+260:   );
+261:
+262:   try {
+263:     const filesMap = new Map<FileId, BinaryFileData>();
+264:     for (const element of elements) {
+265:       if (isInitializedImageElement(element) && files[element.fileId]) {
+266:         filesMap.set(element.fileId, files[element.fileId]);
+267:       }
+268:     }
+269:
+270:     const filesToUpload = await encodeFilesForUpload({
+271:       files: filesMap,
+272:       encryptionKey,
+273:       maxBytes: FILE_UPLOAD_MAX_BYTES,
+274:     });
+275:
+276:     const response = await fetch(BACKEND_V2_POST, {
+277:       method: "POST",
+278:       body: payload.buffer,
+279:     });
+280:     const json = await response.json();
+281:     if (json.id) {
+282:       const url = new URL(window.location.href);
+283:       // We need to store the key (and less importantly the id) as hash instead
+284:       // of queryParam in order to never send it to the server
+285:       url.hash = `json=${json.id},${encryptionKey}`;
+286:       const urlString = url.toString();
+287:
+288:       await saveFilesToFirebase({
+289:         prefix: `/files/shareLinks/${json.id}`,
+290:         files: filesToUpload,
+291:       });
+292:
+293:       return { url: urlString, errorMessage: null };
+294:     } else if (json.error_class === "RequestTooLargeError") {
+295:       return {
+296:         url: null,
+297:         errorMessage: t("alerts.couldNotCreateShareableLinkTooBig"),
+298:       };
+299:     }
+300:
+301:     return { url: null, errorMessage: t("alerts.couldNotCreateShareableLink") };
+302:   } catch (error: any) {
+303:     console.error(error);
+304:
+305:     return { url: null, errorMessage: t("alerts.couldNotCreateShareableLink") };
+306:   }
+307: };
+
+C13: excalidraw-app/App.tsx:225-289
+SHA256 do arquivo integral: 994b9c4386738b31bf9ba4f157e1b87dda8e49523bd95c471bab9a493b441039
+225: > => {
+226:   const searchParams = new URLSearchParams(window.location.search);
+227:   const id = searchParams.get("id");
+228:   const jsonBackendMatch = window.location.hash.match(
+229:     /^#json=([a-zA-Z0-9_-]+),([a-zA-Z0-9_-]+)$/,
+230:   );
+231:   const externalUrlMatch = window.location.hash.match(/^#url=(.*)$/);
+232:
+233:   const localDataState = importFromLocalStorage();
+234:
+235:   let scene: Omit<
+236:     RestoredDataState,
+237:     // we're not storing files in the scene database/localStorage, and instead
+238:     // fetch them async from a different store
+239:     "files"
+240:   > & {
+241:     scrollToContent?: boolean;
+242:   } = {
+243:     elements: restoreElements(localDataState?.elements, null, {
+244:       repairBindings: true,
+245:       deleteInvisibleElements: true,
+246:     }),
+247:     appState: restoreAppState(localDataState?.appState, null),
+248:   };
+249:
+250:   let roomLinkData = getCollaborationLinkData(window.location.href);
+251:   const isExternalScene = !!(id || jsonBackendMatch || roomLinkData);
+252:   if (isExternalScene) {
+253:     if (
+254:       // don't prompt if scene is empty
+255:       !scene.elements.length ||
+256:       // don't prompt for collab scenes because we don't override local storage
+257:       roomLinkData ||
+258:       // otherwise, prompt whether user wants to override current scene
+259:       (await openConfirmModal(shareableLinkConfirmDialog))
+260:     ) {
+261:       if (jsonBackendMatch) {
+262:         const imported = await importFromBackend(
+263:           jsonBackendMatch[1],
+264:           jsonBackendMatch[2],
+265:         );
+266:
+267:         scene = {
+268:           elements: bumpElementVersions(
+269:             restoreElements(imported.elements, null, {
+270:               repairBindings: true,
+271:               deleteInvisibleElements: true,
+272:             }),
+273:             localDataState?.elements,
+274:           ),
+275:           appState: restoreAppState(
+276:             imported.appState,
+277:             // local appState when importing from backend to ensure we restore
+278:             // localStorage user settings which we do not persist on server.
+279:             localDataState?.appState,
+280:           ),
+281:         };
+282:       }
+283:       scene.scrollToContent = true;
+284:       if (!roomLinkData) {
+285:         window.history.replaceState({}, APP_NAME, window.location.origin);
+286:       }
+287:     } else {
+288:       // https://github.com/excalidraw/excalidraw/issues/1919
+289:       if (document.hidden) {
+
+C14: firebase-project/firestore.rules:1-10
+SHA256 do arquivo integral: 8837ba3d1900906f24fc48e793232850b2cbe73bc5d4ed546c8206dc93b723ea
+1: rules_version = '2';
+2: service cloud.firestore {
+3:   match /databases/{database}/documents {
+4:     match /{document=**} {
+5:       allow get, write: if true;
+6:       // never set this to true, otherwise anyone can delete anyone else's drawing.
+7:       allow list: if false;
+8:     }
+9:   }
+10: }
+
+C15: excalidraw-room/src/index.ts:53-93 (repositorio separado)
+53:     ioDebug("connection established!");
+54:     io.to(`${socket.id}`).emit("init-room");
+55:     socket.on("join-room", async (roomID) => {
+56:       socketDebug(`${socket.id} has joined ${roomID}`);
+57:       await socket.join(roomID);
+58:       const sockets = await io.in(roomID).fetchSockets();
+59:       if (sockets.length <= 1) {
+60:         io.to(`${socket.id}`).emit("first-in-room");
+61:       } else {
+62:         socketDebug(`${socket.id} new-user emitted to room ${roomID}`);
+63:         socket.broadcast.to(roomID).emit("new-user", socket.id);
+64:       }
+65:
+66:       io.in(roomID).emit(
+67:         "room-user-change",
+68:         sockets.map((socket) => socket.id),
+69:       );
+70:     });
+71:
+72:     socket.on(
+73:       "server-broadcast",
+74:       (roomID: string, encryptedData: ArrayBuffer, iv: Uint8Array) => {
+75:         socketDebug(`${socket.id} sends update to ${roomID}`);
+76:         socket.broadcast.to(roomID).emit("client-broadcast", encryptedData, iv);
+77:       },
+78:     );
+79:
+80:     socket.on(
+81:       "server-volatile-broadcast",
+82:       (roomID: string, encryptedData: ArrayBuffer, iv: Uint8Array) => {
+83:         socketDebug(`${socket.id} sends volatile update to ${roomID}`);
+84:         socket.volatile.broadcast
+85:           .to(roomID)
+86:           .emit("client-broadcast", encryptedData, iv);
+87:       },
+88:     );
+89:
+90:     socket.on("user-follow", async (payload: OnUserFollowedPayload) => {
+91:       const roomID = `follow@${payload.userToFollow.socketId}`;
+92:
+93:       switch (payload.action) {
+
+Comando: rg -n -i password|passphrase|expir|revok|revoke|invalidate|deleteDoc|deleteObject excalidraw-app/share excalidraw-app/collab excalidraw-app/data packages/excalidraw/components/JSONExportDialog.tsx packages/excalidraw/components/ShareableLinkDialog.tsx
+Codigo de saida: 1
+(nenhuma ocorrencia)
+
+
+Comando: rg -n -i FILE_CACHE_MAX_AGE_SEC excalidraw-app/share excalidraw-app/collab excalidraw-app/data packages/excalidraw/components/JSONExportDialog.tsx packages/excalidraw/components/ShareableLinkDialog.tsx
+Codigo de saida: 0
+excalidraw-app/data\firebase.ts:24:import { FILE_CACHE_MAX_AGE_SEC } from "../app_constants";
+excalidraw-app/data\firebase.ts:164:          cacheControl: `public, max-age=${FILE_CACHE_MAX_AGE_SEC}`,
+
+EXEMPLOS CORRIGIDOS PARA REPRODUÇÃO EM POWERSHELL (não executados nesta revisão)
+Executar as buscas a partir da raiz do checkout fixado. Os resultados anteriores acima não foram substituídos nem apresentados como novas saídas.
+
+```powershell
+$sm3Run = Join-Path $env:TEMP 'sm3-e7b5346-20261112'
+$sm3Room = Join-Path $env:TEMP 'sm3-room-20261112'
+git -C $sm3Run rev-parse HEAD
+git -C $sm3Run status --short
+Get-FileHash -LiteralPath (Join-Path $sm3Run 'yarn.lock') -Algorithm SHA256
+git -c "safe.directory=$sm3Room" -C $sm3Room rev-parse HEAD
+Push-Location -LiteralPath $sm3Run
+try {
+    rg -n -i 'password|passphrase|expir|revok|revoke|invalidate|deleteDoc|deleteObject' excalidraw-app/share excalidraw-app/collab excalidraw-app/data packages/excalidraw/components/JSONExportDialog.tsx packages/excalidraw/components/ShareableLinkDialog.tsx
+    # Para rg: exit 1 = nenhuma ocorrência; exit 0 = ocorrência; exit 2 = erro.
+    rg -n -i 'FILE_CACHE_MAX_AGE_SEC' excalidraw-app/share excalidraw-app/collab excalidraw-app/data packages/excalidraw/components/JSONExportDialog.tsx packages/excalidraw/components/ShareableLinkDialog.tsx
+} finally {
+    Pop-Location
+}
+```
+
+O SHA256 do lockfile foi calculado pelo coletor Python com hashlib.sha256 sobre os bytes do arquivo; Get-FileHash é a alternativa PowerShell de reprodução. Não há novo resultado registrado para essa alternativa.

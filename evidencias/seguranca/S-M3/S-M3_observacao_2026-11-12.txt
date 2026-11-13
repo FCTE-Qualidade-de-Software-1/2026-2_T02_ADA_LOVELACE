@@ -1,0 +1,143 @@
+Nota editorial posterior à coleta (ajuste documental autorizado, sem repetição do teste):
+Os horários abaixo foram registrados ao gravar os blocos de texto; não são horários exatos de cada ação ou captura.
+A sequência A/B/C é um relato textual apoiado nas observações/snapshots do histórico da execução, não um log de rede.
+O snapshot DOM de C preservado abaixo registra contador 2 e o modal de erro, mas não descreve os elementos do canvas.
+A captura E4 mostra o modal do Firebase e não deve ser usada como comprovação visual do retângulo recebido por C.
+Os dois snapshots DOM originais foram preservados sem alterações. O vínculo das capturas ao SHA e às abas é detalhado no manifesto.
+
+Coleta automatizada em 2026-11-12T14:55:37.084Z
+Sala descartável própria: http://127.0.0.1:3013/#room=c5adaeee85d98d892a90,-VFIyEEy2ZGkft-0curOlA
+A criou a sala; B entrou e desenhou um retângulo.
+A: Parar sessão > confirmar; endereço após saída: http://127.0.0.1:3013/
+B permaneceu; o relato da execução registra que C abriu exatamente o endereço original e recebeu o retângulo. A observação do retângulo consta do histórico da execução; a captura E4 salva mostra o modal de erro do Firebase sobre o canvas e não comprova visualmente esse recebimento.
+Sem Firebase configurado: erro de persistência observado.
+Snapshot de C:
+- banner:
+  - heading "Excalidraw" [level=1]
+- button:
+- region "Formas":
+  - text: Para mover a tela, segure
+  - generic: Roda do mouse
+  - text: ou
+  - generic: Barra de espaço
+  - text: enquanto arrasta ou use a ferramenta de mão
+  - heading "Formas" [level=2]
+  - button "Manter ativa a ferramenta selecionada após desenhar":
+  - button "Mão (ferramenta de rolagem)":
+  - button "Seleção" [pressed]:
+    - generic: V
+  - button "Retângulo":
+    - generic: R
+  - button "Losango":
+    - generic: D
+  - button "Elipse":
+    - generic: O
+  - button "Flecha":
+    - generic: A
+  - button "Linha":
+    - generic: L
+  - button "Desenhar":
+    - generic: P
+  - button "Texto":
+    - generic: T
+  - button "Sticky note":
+    - generic: "N"
+  - button "Borracha":
+    - generic: E
+  - button "Mais ferramentas":
+  - button "Ponteiro de laser":
+- generic: S
+- link "Try Excalidraw+ 14-day free trial":
+  - /url: https://plus.excalidraw.com/plus?utm_source=excalidraw&utm_medium=app&utm_content=guestBanner#excalidraw-redirect
+  - generic: Try Excalidraw+
+  - generic: 14-day free trial
+- button "2":
+  - generic: "2"
+- button "Biblioteca":
+- contentinfo:
+  - region "Ações da tela":
+    - heading "Ações da tela" [level=2]
+    - button "Diminuir zoom":
+    - button "Redefinir zoom": 100%
+    - button "Aumentar zoom":
+    - button "Desfazer" [disabled]:
+    - button "Refazer" [disabled]:
+  - link "Publicação de blog com criptografia de ponta a ponta no Excalidraw":
+    - /url: https://plus.excalidraw.com/blog/end-to-end-encryption
+  - button "Ajuda":
+- generic: Tela de desenho
+- dialog:
+  - heading "Erro" [level=2]
+  - generic: Não foi possível salvar no banco de dados do servidor. Se os problemas persistirem, salve o arquivo localmente para garantir que não perca o seu trabalho.
+2026-11-12T14:56:04.376Z
+D: menu > Salvar como...; disponíveis Salvar em um arquivo, Link compartilhável (Exportar como link de somente leitura), Exportar link, Excalidraw+.
+Clique em Exportar link: Não foi possível criar um link de compartilhamento. Backend configurado em localhost:9999 sem serviço.
+Snapshot:
+- banner:
+  - heading "Excalidraw" [level=1]
+- button:
+- region "Formas":
+  - text: Para mover a tela, segure
+  - generic: Roda do mouse
+  - text: ou
+  - generic: Barra de espaço
+  - text: enquanto arrasta ou use a ferramenta de mão
+  - heading "Formas" [level=2]
+  - button "Manter ativa a ferramenta selecionada após desenhar":
+  - button "Mão (ferramenta de rolagem)":
+  - button "Seleção" [pressed]:
+    - generic: V
+  - button "Retângulo":
+    - generic: R
+  - button "Losango":
+    - generic: D
+  - button "Elipse":
+    - generic: O
+  - button "Flecha":
+    - generic: A
+  - button "Linha":
+    - generic: L
+  - button "Desenhar":
+    - generic: P
+  - button "Texto":
+    - generic: T
+  - button "Sticky note":
+    - generic: "N"
+  - button "Borracha":
+    - generic: E
+  - button "Mais ferramentas":
+- link "Try Excalidraw+ 14-day free trial":
+  - /url: https://plus.excalidraw.com/plus?utm_source=excalidraw&utm_medium=app&utm_content=guestBanner#excalidraw-redirect
+  - generic: Try Excalidraw+
+  - generic: 14-day free trial
+- button "Colaboração ao vivo...":
+- button "Biblioteca":
+- contentinfo:
+  - region "Ações da tela":
+    - heading "Ações da tela" [level=2]
+    - button "Diminuir zoom":
+    - button "Redefinir zoom": 100%
+    - button "Aumentar zoom":
+    - button "Desfazer" [disabled]:
+    - button "Refazer" [disabled]:
+  - link "Publicação de blog com criptografia de ponta a ponta no Excalidraw":
+    - /url: https://plus.excalidraw.com/blog/end-to-end-encryption
+  - button "Ajuda":
+- generic: Tela de desenho
+- dialog:
+  - heading "Salvar como..." [level=2]
+  - heading "Salvar no computador" [level=2]
+  - generic: Exportar os dados da cena para um arquivo que você poderá importar mais tarde.
+  - button "Salvar em um arquivo":
+    - generic: Salvar em um arquivo
+  - heading "Link compartilhável" [level=2]
+  - generic: Exportar como link de somente leitura.
+  - button "Exportar link":
+    - generic: Exportar link
+  - heading "Excalidraw+" [level=2]
+  - generic: Salvar a cena na sua área de trabalho Excalidraw+.
+  - button "Exportar":
+    - generic: Exportar
+- dialog:
+  - heading "Erro" [level=2]
+  - generic: Não foi possível criar um link de compartilhamento.
