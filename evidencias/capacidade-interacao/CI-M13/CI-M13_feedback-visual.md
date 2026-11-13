@@ -18,11 +18,13 @@
 
 ## 2. O que foi medido
 
-Proporção das 13 ações que produziram o efeito visual esperado e a mudança correspondente no estado real do aplicativo.
+Proporção das 13 ações que produziram o efeito visual esperado e a mudança correspondente no estado real do aplicativo. Considerou-se feedback visual uma mudança observável relacionada à ação: aparecimento ou remoção de elementos, alças de seleção, mudança de posição, dimensões, cor ou texto, indicação de agrupamento, tema ou escala. A inspeção das capturas antes/depois foi combinada com a leitura dos atributos específicos do estado; um clique aceito, uma alteração apenas interna ou uma diferença de hash isolada não comprovam esse feedback.
+
+**Resultado observado preservado: 13/13 (100%). Nota registrada: 2/2, provisória quanto ao requisito temporal de feedback imediato.** Não houve medição formal de latência nem comprovação de um limite temporal de imediaticidade.
 
 O denominador foi fixado antes da execução no [planejamento](../CI-M13-M14/CI-M13-M14_planejamento_2026-11-12.md), a partir do [plano da equipe](../tarefas-capacidade-interacao.md). Inclui criar retângulo, selecionar, mover, redimensionar, cor, criar texto, editar texto, duplicar, excluir, agrupar, desagrupar, tema e zoom. Exportação não integra o recorte, definido previamente. Nenhuma ação malsucedida foi retirada.
 
-Seleção, tema e zoom foram testados sem presumir seu comportamento no histórico. Seleção apresentou entrada própria e foi recuperada. Tema e zoom não apresentaram entrada própria; a execução de Ctrl+Z/ Ctrl+Shift+Z demonstrou que o alvo era a criação anterior do retângulo. São **não recuperáveis pelo par de comandos no recorte**, e não erros de restauração do desenho. Mantê-los no total segue o plano, que pede repetir as mesmas ações e registrar as não revertíveis.
+Seleção, tema e zoom foram testados sem presumir seu comportamento no histórico. Seleção apresentou entrada própria e foi recuperada. Tema e zoom não apresentaram entrada própria; a execução de Ctrl+Z/Ctrl+Shift+Z demonstrou que o alvo era a criação anterior do retângulo. Permanecem no denominador original porque integravam o conjunto previamente definido para esta medição. O plano pede repetir as mesmas ações e registrar as não revertíveis, mas não determina inequivocamente se tema e zoom devem reduzir a nota de recuperabilidade. Essa elegibilidade e a representatividade das 13 ações ainda dependem de decisão explícita da equipe; nenhuma aprovação coletiva é presumida.
 
 ## 3. Procedimento
 
@@ -30,7 +32,7 @@ Seleção, tema e zoom foram testados sem presumir seu comportamento no históri
 2. Usar checkout oficial separado, SHA exato e sem alterações rastreadas. O checkout anterior não foi localizado. Não usar `aplicacao/` como prova do SHA oficial nem depender de outra branch ainda não integrada.
 3. Instalar o lockfile sem modificá-lo. O próprio coletor inicia o Vite na raiz `excalidraw-app` desse checkout, porta 3020 exclusiva (`strictPort`); registra raiz/configuração e fecha o servidor ao concluir. Não reutiliza processo preexistente.
 4. Para cada caso, abrir contexto novo, aguardar app e fontes, preparar pela UI o estado listado no planejamento. Não escrever no hook `window.h`, API, cena, histórico ou stores.
-5. Capturar tela e ler estado antes; executar a ação por mouse/teclado; aguardar 300 ms e capturar/ler depois. Exigir o efeito específico listado na seção 5.1, além da diferença da captura; um clique ou diferença de hash isolados não bastam.
+5. Capturar tela e ler estado antes; executar a ação por mouse/teclado; realizar as esperas explícitas do coletor, inclusive as acumuladas descritas na seção 3.2, e capturar/ler depois. Exigir o efeito específico listado na seção 5.1, além da diferença da captura; um clique ou diferença de hash isolados não bastam.
 6. Pressionar Ctrl+Z; aguardar 300 ms e capturar/ler. Pressionar Ctrl+Shift+Z; aguardar 300 ms e capturar/ler novamente. Comparar projeções conforme abaixo. Repetir para os 13 casos. Na coleta final não houve exceção de automação nem erro de página capturado.
 7. Rodar o verificador, conferir capturas e matemática, executar as verificações técnicas e encaminhar o [roteiro manual de seis verificações](../CI-M13-M14/CI-M13-M14_validacao-manual_2026-11-12.md) para Renato. A confirmação continua pendente.
 
@@ -73,7 +75,22 @@ CI-M13: 13/13 = 100.00%; nota 2
 CI-M14: 11/13 = 84.62%; nota 0
 ```
 
+A saída acima é o registro histórico da coleta, preservado. As qualificações provisórias das notas estão nas seções 5.3 e 6.1; a revisão documental não altera essa saída nem os arquivos de apoio.
+
 O primeiro fetch exigiu execução fora do sandbox para escrever `FETCH_HEAD`; repetição concluída. Tentativas preservadas: 01 falhou antes do navegador por importação CJS/ESM do Vite; 02 por Chrome ausente; 03 concluiu A01–A04 e parou em A05 por seletor de cor inexistente (`color-red`). A captura de erro mostra a paleta disponível. O seletor final usa a segunda amostra de cor visível. Ajuste de ambiente: Edge instalado substituiu Chrome previsto. A tentativa 04 repetiu o conjunto completo, sem alterar as ações ou denominadores. As falhas anteriores não são defeitos do Excalidraw. Scripts entregues correspondem à tentativa 04, não são cópias das versões intermediárias.
+
+### 3.2 Observação do feedback e esperas do coletor
+
+O [coletor original](../CI-M13-M14/CI-M13-M14_coleta_2026-11-12.cjs) foi apenas inspecionado nesta revisão documental; não foi modificado nem reexecutado. `shot` chama `settle` antes de ler o estado e capturar a tela; `settle` move o ponteiro para uma posição fixa e solicita uma espera de 300 ms. As funções `drag`, `text` e `select` também chamam `settle`, acumulando esperas com a chamada posterior de `shot`.
+
+| Ponto de observação | Esperas explícitas solicitadas pelo coletor |
+| --- | --- |
+| Depois de A01, A02, A03, A04 e A06 | 300 ms em `drag`, `select` ou `text` + 300 ms em `shot`: total de 600 ms |
+| Depois de A05 e A07–A13 | 300 ms em `shot` |
+| Após cada desfazer e cada refazer | 300 ms em `shot`, separadamente |
+| Inicialização de cada caso | Aguarda aplicativo e fontes, depois solicita 1000 ms; a preparação também contém suas próprias esperas antes da captura inicial |
+
+Esses valores descrevem pausas programadas da automação, acrescidas do custo dos gestos, chamadas, leituras e capturas. **300 ms e 600 ms não são tempos de resposta medidos do Excalidraw**, nem limites máximos comprovados para o aparecimento do feedback. Não há timestamp instrumentado do primeiro retorno visual ou amostragem durante as pausas. A coleta comprova que o feedback estava presente na observação posterior; não estabelece quando surgiu. A aceitação temporal de “imediato” permanece pendente de alinhamento metodológico.
 
 ## 4. Evidências
 
@@ -125,7 +142,7 @@ Observado pelo Codex por automação e inspeção visual das capturas. **Nenhuma
 
 | Ação | Dado observado | Feedback | Entrada no histórico | Desfazer restaura antes? | Refazer coincide com depois? | Capturas |
 | --- | --- | --- | --- | --- | --- | --- |
-| A01 — Criar retÃ¢ngulo | 0 → 1 retângulo; 160 × 100; posição (450, 300) | Sim | Sim | Sim | Sim | [antes](../CI-M13-M14/tentativa-04/A01_antes.png) / [depois](../CI-M13-M14/tentativa-04/A01_depois.png) / [desfazer](../CI-M13-M14/tentativa-04/A01_desfazer.png) / [refazer](../CI-M13-M14/tentativa-04/A01_refazer.png) |
+| A01 — Criar retângulo | 0 → 1 retângulo; 160 × 100; posição (450, 300) | Sim | Sim | Sim | Sim | [antes](../CI-M13-M14/tentativa-04/A01_antes.png) / [depois](../CI-M13-M14/tentativa-04/A01_depois.png) / [desfazer](../CI-M13-M14/tentativa-04/A01_desfazer.png) / [refazer](../CI-M13-M14/tentativa-04/A01_refazer.png) |
 | A02 — Selecionar | 0 → 1 ID selecionado; alças visíveis; conteúdo preservado | Sim | Sim | Sim | Sim | [antes](../CI-M13-M14/tentativa-04/A02_antes.png) / [depois](../CI-M13-M14/tentativa-04/A02_depois.png) / [desfazer](../CI-M13-M14/tentativa-04/A02_desfazer.png) / [refazer](../CI-M13-M14/tentativa-04/A02_refazer.png) |
 | A03 — Mover | (450, 300) → (530, 360), mesmo ID | Sim | Sim | Sim | Sim | [antes](../CI-M13-M14/tentativa-04/A03_antes.png) / [depois](../CI-M13-M14/tentativa-04/A03_depois.png) / [desfazer](../CI-M13-M14/tentativa-04/A03_desfazer.png) / [refazer](../CI-M13-M14/tentativa-04/A03_refazer.png) |
 | A04 — Redimensionar | 160 × 100 → 220 × 140 | Sim | Sim | Sim | Sim | [antes](../CI-M13-M14/tentativa-04/A04_antes.png) / [depois](../CI-M13-M14/tentativa-04/A04_depois.png) / [desfazer](../CI-M13-M14/tentativa-04/A04_desfazer.png) / [refazer](../CI-M13-M14/tentativa-04/A04_refazer.png) |
@@ -153,14 +170,14 @@ As 13 ações cumpriram seu critério específico e apresentaram mudança visual
 
 | Valor medido | Regra do roteiro (inalterada) | Pontuação |
 | --- | --- | --- |
-| 100% | 2 = 100%; 1 = 90% a 99%; 0 = abaixo de 90% | **2/2** |
+| 100% de ações com feedback observado | 2 = 100%; 1 = 90% a 99%; 0 = abaixo de 90% | **2/2 — provisória quanto ao requisito temporal** |
 
-**Justificativa:** Todas as ações deram o retorno visual esperado no ponto de observação operacionalizado.
+**Justificativa:** Todas as ações deram o retorno visual esperado no ponto de observação. Preserva-se a nota original, mas a presença de feedback não comprova, por si só, sua imediaticidade. A nota 2/2 é provisória até definir o critério operacional temporal e verificar se a evidência disponível é suficiente para atendê-lo, sem alterar os critérios percentuais GQM.
 
 ## 6. Observações e limitações
 
 - Um navegador desktop headless e uma execução completa por ação; não avalia toque, outros navegadores, participantes, fadiga ou percepção humana.
-- Espera mínima fixa de 300 ms após gesto concluído, acrescida do custo das leituras/capturas. Feedback “imediato” significa observado na primeira amostra após a espera. **Não é medição de latência em milissegundos nem prova de retorno perceptualmente imediato**; eventos transitórios podem passar entre amostras.
+- As esperas explícitas variam entre os casos e podem acumular 600 ms antes da observação posterior (seção 3.2). Não houve medição formal de latência nem comprovação de limite temporal de imediaticidade. A nota 2/2 permanece provisória nesse requisito; eventos transitórios podem passar entre amostras.
 - Diferença de hash da captura, isoladamente, pode refletir controles e seleção. Por isso exige-se o efeito no estado real e inspeção visual. Capturas não substituem a conferência manual solicitada.
 - Ambiente de desenvolvimento com hook oficial apenas para leitura. Não se alterou código oficial para obter resultado. Não é build de produção.
 - Tema e zoom recuperáveis por seus próprios controles não equivalem a recuperáveis por Ctrl+Z/Ctrl+Shift+Z. Nota de M14 depende do conjunto completo previsto no planejamento; o achado não deve ser anunciado como corrupção ou perda de dados.
@@ -169,12 +186,22 @@ As 13 ações cumpriram seu critério específico e apresentaram mudança visual
 - `mkdocs build --strict` verifica o site existente. Estas evidências ficam fora de `docs/`; navegação e consolidações não foram alteradas.
 - Validação humana e revisão cruzada pendentes. Roteiro manual entregue, sem atribuir confirmação ao responsável.
 
+### 6.1 Pendências metodológicas
+
+Decisões ainda não alinhadas pela equipe:
+
+1. Tema e zoom contam como ações não recuperáveis para CI-M14?
+2. Qual é o critério operacional de feedback visual imediato para CI-M13?
+3. O conjunto das 13 ações representa adequadamente o plano da disciplina?
+
+A aprovação de Renato para estes esclarecimentos documentais não equivale à aprovação coletiva desses critérios. As definições e faixas percentuais do [roteiro GQM](../../../docs/analise/roteiro.md#capacidade-de-interacao) permanecem inalteradas. Os resultados originais, scripts, dados, capturas e tentativas foram preservados; esta revisão não executou uma nova coleta. Validação manual e revisão por outro integrante continuam pendentes.
+
 ## 7. Achado (preencher só se a pontuação for 0)
 
-Não se aplica: pontuação 2.
+Não se aplica à pontuação registrada: 2/2, provisória quanto ao requisito temporal. A insuficiência de evidência temporal está registrada nas limitações e pendências; não foi convertida automaticamente em outra nota.
 
 ## 8. Contribuição para a questão
 
 | Questão | Esta métrica indica que a hipótese foi | Por quê |
 | --- | --- | --- |
-| CI-Q5 | Parcialmente sustentada no aspecto de feedback | 13/13 ações deram retorno visual. Isso sustenta o componente de feedback da hipótese parcialmente positiva de CI-Q5, mas não mede inconsistências CI-M12 nem permite concluir a questão inteira. |
+| CI-Q5 | Parcialmente sustentada no aspecto de feedback | 13/13 ações deram retorno visual no ponto observado, com nota 2/2 provisória quanto à imediaticidade. Isso sustenta a presença de feedback, mas não seu limite temporal, não mede inconsistências CI-M12 nem permite concluir a questão inteira. |

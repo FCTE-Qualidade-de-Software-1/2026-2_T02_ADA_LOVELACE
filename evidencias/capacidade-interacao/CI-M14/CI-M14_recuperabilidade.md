@@ -20,9 +20,11 @@
 
 Proporção das mesmas 13 ações cujo estado anterior foi restaurado por desfazer e cujo estado posterior foi restaurado por refazer. As duas verificações foram executadas separadamente.
 
+**Resultado original preservado: 11 ações recuperáveis em 13 testadas, 84,62%, pontuação GQM 0/2 provisória até alinhamento metodológico.** A análise de sensibilidade da seção 5.2 não substitui esse resultado nem autoriza mudar o denominador.
+
 O denominador foi fixado antes da execução no [planejamento](../CI-M13-M14/CI-M13-M14_planejamento_2026-11-12.md), a partir do [plano da equipe](../tarefas-capacidade-interacao.md). Inclui criar retângulo, selecionar, mover, redimensionar, cor, criar texto, editar texto, duplicar, excluir, agrupar, desagrupar, tema e zoom. Exportação não integra o recorte, definido previamente. Nenhuma ação malsucedida foi retirada.
 
-Seleção, tema e zoom foram testados sem presumir seu comportamento no histórico. Seleção apresentou entrada própria e foi recuperada. Tema e zoom não apresentaram entrada própria; a execução de Ctrl+Z/ Ctrl+Shift+Z demonstrou que o alvo era a criação anterior do retângulo. São **não recuperáveis pelo par de comandos no recorte**, e não erros de restauração do desenho. Mantê-los no total segue o plano, que pede repetir as mesmas ações e registrar as não revertíveis.
+Seleção, tema e zoom foram testados sem presumir seu comportamento no histórico. Seleção apresentou entrada própria e foi recuperada. Tema e zoom não apresentaram entrada própria; a execução de Ctrl+Z/Ctrl+Shift+Z demonstrou que o alvo era a criação anterior do retângulo. Permanecem no denominador original porque integravam o conjunto previamente definido para esta medição. O plano pede repetir as mesmas ações e registrar as não revertíveis, mas não determina inequivocamente se tema e zoom devem reduzir a nota de recuperabilidade. Essa elegibilidade e a representatividade das 13 ações ainda dependem de decisão explícita da equipe; nenhuma aprovação coletiva é presumida.
 
 ## 3. Procedimento
 
@@ -30,7 +32,7 @@ Seleção, tema e zoom foram testados sem presumir seu comportamento no históri
 2. Usar checkout oficial separado, SHA exato e sem alterações rastreadas. O checkout anterior não foi localizado. Não usar `aplicacao/` como prova do SHA oficial nem depender de outra branch ainda não integrada.
 3. Instalar o lockfile sem modificá-lo. O próprio coletor inicia o Vite na raiz `excalidraw-app` desse checkout, porta 3020 exclusiva (`strictPort`); registra raiz/configuração e fecha o servidor ao concluir. Não reutiliza processo preexistente.
 4. Para cada caso, abrir contexto novo, aguardar app e fontes, preparar pela UI o estado listado no planejamento. Não escrever no hook `window.h`, API, cena, histórico ou stores.
-5. Capturar tela e ler estado antes; executar a ação por mouse/teclado; aguardar 300 ms e capturar/ler depois. Exigir o efeito específico listado na seção 5.1, além da diferença da captura; um clique ou diferença de hash isolados não bastam.
+5. Capturar tela e ler estado antes; executar a ação por mouse/teclado; realizar as esperas explícitas do coletor, inclusive as acumuladas descritas na [seção 3.2 da CI-M13](../CI-M13/CI-M13_feedback-visual.md#32-observacao-do-feedback-e-esperas-do-coletor), e capturar/ler depois. Exigir o efeito específico listado na seção 5.1, além da diferença da captura; um clique ou diferença de hash isolados não bastam.
 6. Pressionar Ctrl+Z; aguardar 300 ms e capturar/ler. Pressionar Ctrl+Shift+Z; aguardar 300 ms e capturar/ler novamente. Comparar projeções conforme abaixo. Repetir para os 13 casos. Na coleta final não houve exceção de automação nem erro de página capturado.
 7. Rodar o verificador, conferir capturas e matemática, executar as verificações técnicas e encaminhar o [roteiro manual de seis verificações](../CI-M13-M14/CI-M13-M14_validacao-manual_2026-11-12.md) para Renato. A confirmação continua pendente.
 
@@ -72,6 +74,8 @@ Lockfile SHA256: 3a40118db6c7a8d9038957d2437a7c0c52e7d882586b79739ce49660d635219
 CI-M13: 13/13 = 100.00%; nota 2
 CI-M14: 11/13 = 84.62%; nota 0
 ```
+
+A saída acima é o registro histórico da coleta, preservado. As qualificações provisórias das notas estão nas seções 5.3 e 6.1; a revisão documental não altera essa saída nem os arquivos de apoio.
 
 O primeiro fetch exigiu execução fora do sandbox para escrever `FETCH_HEAD`; repetição concluída. Tentativas preservadas: 01 falhou antes do navegador por importação CJS/ESM do Vite; 02 por Chrome ausente; 03 concluiu A01–A04 e parou em A05 por seletor de cor inexistente (`color-red`). A captura de erro mostra a paleta disponível. O seletor final usa a segunda amostra de cor visível. Ajuste de ambiente: Edge instalado substituiu Chrome previsto. A tentativa 04 repetiu o conjunto completo, sem alterar as ações ou denominadores. As falhas anteriores não são defeitos do Excalidraw. Scripts entregues correspondem à tentativa 04, não são cópias das versões intermediárias.
 
@@ -125,7 +129,7 @@ Observado pelo Codex por automação e inspeção visual das capturas. **Nenhuma
 
 | Ação | Dado observado | Feedback | Entrada no histórico | Desfazer restaura antes? | Refazer coincide com depois? | Capturas |
 | --- | --- | --- | --- | --- | --- | --- |
-| A01 — Criar retÃ¢ngulo | 0 → 1 retângulo; 160 × 100; posição (450, 300) | Sim | Sim | Sim | Sim | [antes](../CI-M13-M14/tentativa-04/A01_antes.png) / [depois](../CI-M13-M14/tentativa-04/A01_depois.png) / [desfazer](../CI-M13-M14/tentativa-04/A01_desfazer.png) / [refazer](../CI-M13-M14/tentativa-04/A01_refazer.png) |
+| A01 — Criar retângulo | 0 → 1 retângulo; 160 × 100; posição (450, 300) | Sim | Sim | Sim | Sim | [antes](../CI-M13-M14/tentativa-04/A01_antes.png) / [depois](../CI-M13-M14/tentativa-04/A01_depois.png) / [desfazer](../CI-M13-M14/tentativa-04/A01_desfazer.png) / [refazer](../CI-M13-M14/tentativa-04/A01_refazer.png) |
 | A02 — Selecionar | 0 → 1 ID selecionado; alças visíveis; conteúdo preservado | Sim | Sim | Sim | Sim | [antes](../CI-M13-M14/tentativa-04/A02_antes.png) / [depois](../CI-M13-M14/tentativa-04/A02_depois.png) / [desfazer](../CI-M13-M14/tentativa-04/A02_desfazer.png) / [refazer](../CI-M13-M14/tentativa-04/A02_refazer.png) |
 | A03 — Mover | (450, 300) → (530, 360), mesmo ID | Sim | Sim | Sim | Sim | [antes](../CI-M13-M14/tentativa-04/A03_antes.png) / [depois](../CI-M13-M14/tentativa-04/A03_depois.png) / [desfazer](../CI-M13-M14/tentativa-04/A03_desfazer.png) / [refazer](../CI-M13-M14/tentativa-04/A03_refazer.png) |
 | A04 — Redimensionar | 160 × 100 → 220 × 140 | Sim | Sim | Sim | Sim | [antes](../CI-M13-M14/tentativa-04/A04_antes.png) / [depois](../CI-M13-M14/tentativa-04/A04_depois.png) / [desfazer](../CI-M13-M14/tentativa-04/A04_desfazer.png) / [refazer](../CI-M13-M14/tentativa-04/A04_refazer.png) |
@@ -141,26 +145,48 @@ Observado pelo Codex por automação e inspeção visual das capturas. **Nenhuma
 
 Em A12/A13, “refazer coincide com depois” é verdadeiro, mas não prova recuperabilidade: desfazer não voltou ao estado anterior, e refazer apenas repôs o retângulo. O par completo falhou para a ação-alvo. As dez edições e a seleção passaram nos dois sentidos.
 
+### 5.1.1 Por que seleção foi considerada recuperável
+
+No caso A02, o [JSON original](../CI-M13-M14/tentativa-04/dados.json) registra o mesmo retângulo `DDdCIA9D4Q16BbLwwCUEh` nos quatro estados, com conteúdo e geometria preservados. A projeção específica de A02 no coletor inclui os IDs selecionados, além dos elementos vivos.
+
+| Estado observado | IDs selecionados | Pilha desfazer | Pilha refazer |
+| --- | --- | --- | --- |
+| Antes da seleção | Vazio | 2 | 0 |
+| Depois da seleção | `DDdCIA9D4Q16BbLwwCUEh` | 3 | 0 |
+| Após Ctrl+Z | Vazio | 2 | 1 |
+| Após Ctrl+Shift+Z | `DDdCIA9D4Q16BbLwwCUEh` | 3 | 0 |
+
+As capturas de A02 na tabela 5.1 mostram as alças desaparecendo ao desfazer e reaparecendo ao refazer. Portanto, houve restauração efetiva da seleção anterior e posterior, além da preservação do canvas. A classificação não se baseou somente na ausência de alterações indevidas no desenho ou no crescimento da pilha.
+
 ### 5.2 Cálculo
 
 CI-M14 = ações recuperadas por desfazer e refazer / total de ações testadas × 100.
 
 11 / 13 × 100 = **84,615384…% (84,62%)**.
 
-Numerador: A01–A11, incluindo seleção. A12 e A13 continuam no denominador de 13, com não recuperabilidade observada. Sensibilidade, sem substituir o valor principal: apenas dez edições de conteúdo = 10/10 = 100%, nota 2; edições + seleção = 11/11 = 100%, nota 2. A diferença decorre do escopo e da política de histórico, não de perda de desenho nas dez edições.
+Numerador original: A01–A11, incluindo seleção. A12 e A13 continuam no denominador original de 13, com não recuperabilidade pelo histórico observada.
+
+#### Análise de sensibilidade separada — não substitui o resultado original
+
+| Recorte | Ações recuperáveis / ações consideradas | Percentual | Pontuação pelas faixas GQM |
+| --- | --- | --- | --- |
+| Protocolo completo original, incluindo tema e zoom | 11/13 | 84,62% | **0/2 — provisória até alinhamento metodológico** |
+| Somente operações consideradas elegíveis para o histórico nesta análise: dez edições e seleção (A01–A11) | 11/11 | 100% | **2/2 — cenário de sensibilidade** |
+
+A elegibilidade restrita é uma hipótese de análise, não um critério aprovado pelo grupo. A diferença decorre do escopo e da política de histórico, não de falhas na restauração das dez edições ou da seleção. Tema e zoom foram mantidos no protocolo original por terem sido definidos antes da execução; sua ausência no histórico não é automaticamente um defeito funcional. **Nenhuma mudança no denominador ou substituição da pontuação original será feita sem decisão explícita da equipe.**
 
 ### 5.3 Pontuação
 
 | Valor medido | Regra do roteiro (inalterada) | Pontuação |
 | --- | --- | --- |
-| 84,62% | 2 = 100%; 1 = 90% a 99%; 0 = abaixo de 90% | **0/2** |
+| 84,62% — protocolo original 11/13 | 2 = 100%; 1 = 90% a 99%; 0 = abaixo de 90% | **0/2 — provisória até alinhamento metodológico** |
 
-**Justificativa:** Onze das treze ações foram recuperadas pelo par desfazer/refazer; 84,62% fica abaixo de 90%. Não se atribuiu sucesso automaticamente às ações sem histórico nem se retiraram essas ações do total.
+**Justificativa:** Onze das treze ações foram recuperadas pelo par desfazer/refazer; 84,62% fica abaixo de 90%. Preservam-se o resultado e as faixas GQM originais. A nota 0/2 é provisória porque a decisão sobre contabilizar tema e zoom como ações não recuperáveis ainda precisa de alinhamento da equipe; o cenário 11/11 não substitui a classificação original.
 
 ## 6. Observações e limitações
 
 - Um navegador desktop headless e uma execução completa por ação; não avalia toque, outros navegadores, participantes, fadiga ou percepção humana.
-- Espera mínima fixa de 300 ms após gesto concluído, acrescida do custo das leituras/capturas. Feedback “imediato” significa observado na primeira amostra após a espera. **Não é medição de latência em milissegundos nem prova de retorno perceptualmente imediato**; eventos transitórios podem passar entre amostras.
+- A coleta contém esperas de 300 ms e, em alguns casos, duas esperas acumuladas, totalizando 600 ms antes da observação posterior. São pausas da automação, não tempos de resposta medidos. Ver [detalhamento na CI-M13](../CI-M13/CI-M13_feedback-visual.md#32-observacao-do-feedback-e-esperas-do-coletor).
 - Diferença de hash da captura, isoladamente, pode refletir controles e seleção. Por isso exige-se o efeito no estado real e inspeção visual. Capturas não substituem a conferência manual solicitada.
 - Ambiente de desenvolvimento com hook oficial apenas para leitura. Não se alterou código oficial para obter resultado. Não é build de produção.
 - Tema e zoom recuperáveis por seus próprios controles não equivalem a recuperáveis por Ctrl+Z/Ctrl+Shift+Z. Nota de M14 depende do conjunto completo previsto no planejamento; o achado não deve ser anunciado como corrupção ou perda de dados.
@@ -169,7 +195,19 @@ Numerador: A01–A11, incluindo seleção. A12 e A13 continuam no denominador de
 - `mkdocs build --strict` verifica o site existente. Estas evidências ficam fora de `docs/`; navegação e consolidações não foram alteradas.
 - Validação humana e revisão cruzada pendentes. Roteiro manual entregue, sem atribuir confirmação ao responsável.
 
+### 6.1 Pendências metodológicas
+
+Decisões ainda não alinhadas pela equipe:
+
+1. Tema e zoom contam como ações não recuperáveis para CI-M14?
+2. Qual é o critério operacional de feedback visual imediato para CI-M13?
+3. O conjunto das 13 ações representa adequadamente o plano da disciplina?
+
+A aprovação de Renato para estes esclarecimentos documentais não equivale à aprovação coletiva desses critérios. As definições e faixas percentuais do [roteiro GQM](../../../docs/analise/roteiro.md#capacidade-de-interacao) permanecem inalteradas. Os resultados originais, scripts, dados, capturas e tentativas foram preservados; esta revisão não executou uma nova coleta. Validação manual e revisão por outro integrante continuam pendentes.
+
 ## 7. Achado (preencher só se a pontuação for 0)
+
+Achado original preservado, associado à pontuação 0/2 provisória do protocolo completo. Seu enquadramento como limitação relevante para CI-M14 depende do alinhamento sobre elegibilidade; não constitui demonstração de perda de dados ou exigência já aprovada de incluir tema/zoom no histórico.
 
 | ID | Métrica | Evidência reproduzível | Pontuação | Impacto | Recomendação |
 | --- | --- | --- | --- | --- | --- |
@@ -179,4 +217,4 @@ Numerador: A01–A11, incluindo seleção. A12 e A13 continuam no denominador de
 
 | Questão | Esta métrica indica que a hipótese foi | Por quê |
 | --- | --- | --- |
-| CI-Q6 | Parcialmente sustentada no recorte | Edições e seleção recuperadas, mas tema/zoom não recuperados por histórico. O resultado 0 limita a hipótese positiva de CI-Q6 no denominador escolhido; prevenção e persistência dependem também de CI-M15/CI-M16. |
+| CI-Q6 | Parcialmente sustentada no recorte | Edições e seleção recuperadas, mas tema/zoom não recuperados por histórico. O resultado original 0/2 é provisório até alinhar a elegibilidade de tema/zoom; prevenção e persistência dependem também de CI-M15/CI-M16. |
