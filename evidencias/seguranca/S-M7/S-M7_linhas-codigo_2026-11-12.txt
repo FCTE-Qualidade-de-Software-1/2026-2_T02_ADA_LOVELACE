@@ -1,0 +1,16 @@
+aplicacao/excalidraw-app/app_constants.ts:18:  SERVER: "server-broadcast",
+aplicacao/excalidraw-app/collab/Collab.tsx:471:    encryptedData: ArrayBuffer,
+aplicacao/excalidraw-app/collab/Collab.tsx:475:      const decrypted = await decryptData(iv, encryptedData, decryptionKey);
+aplicacao/excalidraw-app/collab/Collab.tsx:529:    const { default: socketIOClient } = await import(
+aplicacao/excalidraw-app/collab/Collab.tsx:530:      /* webpackChunkName: "socketIoClient" */ "socket.io-client"
+aplicacao/excalidraw-app/collab/Collab.tsx:545:        socketIOClient(import.meta.env.VITE_APP_WS_SERVER_URL, {
+aplicacao/excalidraw-app/collab/Collab.tsx:590:      "client-broadcast",
+aplicacao/excalidraw-app/collab/Collab.tsx:591:      async (encryptedData: ArrayBuffer, iv: Uint8Array<ArrayBuffer>) => {
+aplicacao/excalidraw-app/collab/Collab.tsx:598:          encryptedData,
+aplicacao/excalidraw-app/components/ExportToExcalidrawPlus.tsx:40:  const encryptedData = await encryptData(
+aplicacao/excalidraw-app/components/ExportToExcalidrawPlus.tsx:46:    [encryptedData.iv, new Uint8Array(encryptedData.encryptedBuffer)],
+aplicacao/excalidraw-app/data/index.ts:74:export type EncryptedData = {
+
+Comando executado:
+git grep -n -I -i -E 'server-broadcast|client-broadcast|socketIOClient|encryptedData' -- aplicacao/excalidraw-app aplicacao/packages
+Exit code: 0

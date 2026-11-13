@@ -1,0 +1,16 @@
+# S-M7 - ações executadas
+Data da coleta: 2026-11-12
+Fonte dos horários: capturas e registro informado pelo avaliador.
+
+| Nº | Horário | Participante | Ação | Propagação/evidência | Autor identificado? |
+|---:|---|---|---|---|---|
+| 1 | 21:30:48 | Alice | Criar retângulo | Cena e Socket.IO; E1 | Não |
+| 2 | 21:35:48 | Bob | Criar seta | Cena e Socket.IO; E2 | Não |
+| 3 | 21:37:15 | Alice | Alterar cor do retângulo | Cena e Socket.IO; E4 | Não |
+| 4 | 21:38:00 | Bob | Mover/editar objeto | Cena e Socket.IO; E6 | Não |
+| 5 | 21:39:03 | Alice | Excluir objeto | Cena após alteração/remoção; E7 | Não |
+| 6 | 22:02:52 | Bob | Desfazer/refazer | Eventos 2/3 e mensagens Socket.IO; E9 | Não |
+| 7 | 21:39 | Alice | Exportar/salvar cena | Arquivo exportado; E8 | Não |
+
+Resultado: 0 ações com autor identificável em 7 ações. A exportação foi
+registrada em 12/11/2026 às 21:39.
