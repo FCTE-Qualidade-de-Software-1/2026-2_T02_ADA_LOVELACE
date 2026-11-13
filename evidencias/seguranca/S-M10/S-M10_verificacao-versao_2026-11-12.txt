@@ -1,0 +1,25 @@
+# 2026-11-12 22:51 | verificação dos arquivos citados contra o upstream e7b5346
+
+Método: git hash-object no snapshot local × sha do conteúdo na API do GitHub
+para o commit e7b534668a60add7f725531f3c9abf32508c7b4e.
+
+excalidraw-app/collab/Collab.tsx
+  upstream: 5569aa0fbffe84ba711bc9984d42ec8012b93282
+  local:    5569aa0fbffe84ba711bc9984d42ec8012b93282
+  resultado: IGUAL
+
+excalidraw-app/collab/Portal.tsx
+  upstream: 2e076a661ef9fb46d1bbe8b3ac48109fc2e56a58
+  local:    2e076a661ef9fb46d1bbe8b3ac48109fc2e56a58
+  resultado: IGUAL
+
+excalidraw-app/share/ShareDialog.tsx
+  upstream: 051393910af9a453573001e78d05e4d0943dae56
+  local:    051393910af9a453573001e78d05e4d0943dae56
+  resultado: IGUAL
+
+excalidraw-app/data/localStorage.ts
+  upstream: 28c166cd749c79795f45b61d0e59d7bcebafa29d
+  local:    28c166cd749c79795f45b61d0e59d7bcebafa29d
+  resultado: IGUAL
+
