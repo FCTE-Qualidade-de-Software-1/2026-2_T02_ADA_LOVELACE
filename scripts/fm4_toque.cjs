@@ -300,6 +300,7 @@ process.on("unhandledRejection", (e) => console.log("  [aviso]", String(e).split
     let ok = false;
     let detalhe = "";
     let gestoUsado = null;
+    let semPrint = false;
     try {
       const r = await Promise.race([
         fn(),
@@ -308,12 +309,13 @@ process.on("unhandledRejection", (e) => console.log("  [aviso]", String(e).split
       ok = r.ok;
       detalhe = r.detalhe;
       gestoUsado = r.gesto || null;
+      semPrint = !!r.semPrint; // a função já tirou o próprio print
     } catch (e) {
       ok = false;
       detalhe = "erro: " + e.message.split("\n")[0];
     }
     const print = `${id}_${MODO}_${DATA}.png`;
-    await page.screenshot({ path: path.join(PRINTS, print) }).catch(() => {});
+    if (!semPrint) await page.screenshot({ path: path.join(PRINTS, print) }).catch(() => {});
     const gesto = gestoUsado || (TOQUE ? gestoToque : gestoDesk);
     resultados.push({ id, nome, gesto, ok, detalhe, print });
     console.log(`${id} ${ok ? "OK   " : "FALHA"} ${nome} [${gesto}] | ${detalhe}`);
@@ -583,11 +585,13 @@ process.on("unhandledRejection", (e) => console.log("  [aviso]", String(e).split
     }
     await espera(1200);
     const z2 = (await estado()).zoom?.value || 1;
+    // o print sai aqui, com o zoom aplicado, e não no fim da função
+    await page.screenshot({ path: path.join(PRINTS, `M14_${MODO}_${DATA}.png`) }).catch(() => {});
     // volta ao zoom de 100% para os próximos passos
     if (TOQUE) await g.pinca(L.vazio[0] - 150, L.vazio[1] - 100, 110, 30);
     else await g.botao(visivel('button[aria-label="Reset zoom"]').first());
     await espera(800);
-    return { ok: z2 > z1 * 1.05, detalhe: `zoom ${Math.round(z1 * 100)}% → ${Math.round(z2 * 100)}%` };
+    return { ok: z2 > z1 * 1.05, detalhe: `zoom ${Math.round(z1 * 100)}% → ${Math.round(z2 * 100)}%`, semPrint: true };
   });
 
   // ---------------------------------------------------------------- M15

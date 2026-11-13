@@ -12,7 +12,7 @@
 | Responsável | Giovanna Felipe |
 | Data da coleta | 2026-11-13 |
 | Ambiente | Build de produção do Excalidraw, commit `e7b5346`, servido em `http://localhost:5000`; Google Chrome 157.0.8103.51 (headless, via Playwright 1.58.2) com emulação de dispositivo; Windows 11 |
-| Revisado por | — |
+| Revisado por | André Henrique em 2026-11-13 |
 
 ## 2. O que foi medido
 
@@ -87,7 +87,7 @@ Todos em `evidencias/flexibilidade/F-M4/`.
 | E1 | `F-M4_resultado-desktop_2026-11-13.md` | saída do script | Controle com mouse: resultado de cada função, ambiente e contagem de eventos de ponteiro |
 | E2 | `F-M4_resultado-celular_2026-11-13.md` | saída do script | O mesmo, só com toque, no celular emulado |
 | E3 | `F-M4_resultado-tablet_2026-11-13.md` | saída do script | O mesmo, só com toque, no tablet emulado |
-| E4 | `prints-desktop/`, `prints-celular/` e `prints-tablet/` (`Mxx_<modo>_2026-11-13.png`) | prints | Tela ao fim de cada função, em cada modo |
+| E4 | `prints-desktop/`, `prints-celular/` e `prints-tablet/` (`Mxx_<modo>_2026-11-13.png`) | prints | Tela ao fim de cada função, em cada modo. No M14, o print é tirado com o zoom aplicado, antes de o script voltar a 100% |
 | E5 | `F-M4_cena-<modo>_2026-11-13.excalidraw` | cena | Arquivo salvo em M16 e reaberto em M17 |
 | E6 | `F-M4_exportado-<modo>_2026-11-13.png` | imagem | PNG exportado em M18 e inserido de volta em M19 |
 | E7 | `scripts/fm4_toque.cjs` | script | Roteiro automatizado das 25 funções nos três modos |
@@ -142,7 +142,7 @@ Funções operáveis por toque ÷ funções operáveis com mouse no desktop:
 
 O denominador é 25 porque as 25 funções funcionaram com mouse no desktop (E1).
 
-**Sensibilidade:** duas funções só passaram no celular por um caminho diferente do desktop, porque o botão delas não aparece nessa largura (F-M6): o zoom (M14, pela pinça) e a trava (M25, pelo menu de preferências). Se só valesse o mesmo botão do desktop, o celular ficaria com 23 ÷ 25 = 92%, ainda nota 2. O roteiro mede a função, não o botão, por isso o valor adotado é 100%.
+**Sensibilidade:** o critério usado para "caminho diferente" é a falta, na tela, do controle que o desktop usa. Quando o controle está na tela e só o gesto muda, conta como o mesmo caminho: o toque longo no lugar do botão direito (M12 e M20) é o equivalente do toque ao clique direito, sobre o mesmo elemento e abrindo o mesmo menu. Por esse critério, duas funções só passaram no celular por um caminho diferente, porque o botão delas não aparece nessa largura (F-M6): o zoom (M14, pela pinça, sem os botões de zoom) e a trava (M25, pelo menu de preferências, sem o botão da barra). Se só valesse o mesmo botão do desktop, o celular ficaria com 23 ÷ 25 = 92%, ainda nota 2. Se também o toque longo contasse como caminho diferente, seriam 4 funções e o celular ficaria com 21 ÷ 25 = 84% (nota 1); essa leitura não foi adotada porque troca o gesto, não a função nem o controle. O roteiro mede a função, não o botão, por isso o valor adotado é 100%.
 
 ### 5.3 Pontuação
 
@@ -157,7 +157,7 @@ O denominador é 25 porque as 25 funções funcionaram com mouse no desktop (E1)
 - **Emulação, não aparelho real.** O teste usou o Chrome do Windows emulando celular e tablet: tamanho de tela, densidade de pixels, user agent, `pointer: coarse` e eventos de toque (cabeçalho de E2 e E3). Isso não reproduz a precisão do dedo, a rejeição de palma, a rolagem e o zoom do próprio navegador, nem o teclado virtual. O texto foi digitado com eventos de teclado, então autocorretor e sugestões do teclado do celular não foram testados.
 - **O tablet é um iPad só no user agent.** A página roda no motor do Chrome, não no Safari do iPadOS. O comportamento do Safari fica com as F-M1 e F-M2. Na largura de 810 px o Excalidraw usa o layout de desktop, com a barra completa, e não o de celular (E3).
 - **Caneta não testada.** O Excalidraw tem modo caneta (`penMode`), que não entrou no teste. O roteiro aceita toque ou caneta, e o toque bastou para as 25 funções.
-- **Recorte do denominador.** A lista tem 25 funções escolhidas pela equipe (seção 2) e não todas as ações do editor. Ficaram fora as funções que dependem de servidor e os atalhos de teclado. Com outra lista o valor pode mudar.
+- **Recorte do denominador.** A lista tem 25 funções escolhidas pela equipe (seção 2) e não todas as ações do editor. Ficaram fora as funções que dependem de servidor e os atalhos de teclado, inclusive os modificadores usados com o mouse (Shift+clique, Shift ao redimensionar, Alt+arrastar). Com outra lista o valor pode mudar.
 - **Seletores de arquivo.** Como na F-M5, o script remove `showSaveFilePicker` e `showOpenFilePicker`, e o Excalidraw usa o download e o `<input type="file">`. Os navegadores de celular não têm essas APIs, então esse é o mesmo caminho de um celular real. A escolha do arquivo em si (M17 e M19) é feita pelo Playwright, no lugar do seletor do sistema.
 - **Seletor de idioma.** É um `<select>` nativo. No teste, o toque abre o campo e a opção é escolhida pelo Playwright; num celular real abriria a lista do sistema.
 - **Fora da métrica:** no celular, tocar de novo na ferramenta de seleção já ativa troca para o laço, sem aviso além do ícone.
@@ -170,4 +170,4 @@ Não se aplica. Fica a oportunidade de mostrar no celular um atalho visível par
 
 | Questão | Esta métrica indica que a hipótese foi | Por quê |
 | --- | --- | --- |
-| F-Q2 | parcialmente confirmada | A barra própria para celular foi confirmada (C3 a C5). Já a limitação esperada para as funções ligadas a atalhos não apareceu nas 25 funções: as que não têm botão no celular têm gesto ou item de menu equivalente |
+| F-Q2 | parcialmente confirmada | A barra própria para celular foi confirmada (C3 a C5). Já a limitação esperada para as funções ligadas a atalhos não apareceu nas 25 funções escolhidas: as que não têm botão no celular têm gesto ou item de menu equivalente. Os atalhos ficaram fora do denominador (seção 2), e as funções que no desktop usam modificador junto com o mouse (Shift+clique para somar à seleção, Shift para manter a proporção, Alt+arrastar para duplicar) não foram testadas, então a hipótese não fica descartada para elas |
