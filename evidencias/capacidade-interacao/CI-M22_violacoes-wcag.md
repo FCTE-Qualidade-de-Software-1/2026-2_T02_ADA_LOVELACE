@@ -22,13 +22,13 @@ Número de violações dos critérios de nível A e AA da WCAG 2.2 na tela princ
 
 Recorte: a tela principal nos modos claro e escuro, em três estados: inicial (tela de boas-vindas), com uma forma e um texto selecionados (painel de propriedades aberto) e com o menu principal aberto. Os dois últimos estados entraram porque o painel e o menu fazem parte da tela principal e só aparecem depois de uma ação.
 
-**Como se conta:** uma violação é um problema distinto, isto é, uma regra reprovada num elemento. O mesmo elemento reprovado pela mesma regra em vários estados, nos dois modos ou nas duas ferramentas conta uma vez só.
+**Como se conta:** uma violação é um problema distinto, isto é, uma regra reprovada num elemento. O mesmo elemento reprovado pela mesma regra em vários estados, nos dois modos ou nas duas ferramentas conta uma vez só. A mesma regra reprovada em dois elementos diferentes conta duas vezes, porque são dois controles com problema, e cada um precisa de correção própria. Cada elemento apontado pelas ferramentas é conferido no código e na tela (seção 4.1); o que não se confirma como falha do critério fica registrado, mas fora da contagem (seção 5.1).
 
 ## 3. Procedimento
 
 1. Gerar o build de produção e servi-lo localmente (comandos em 3.1).
 2. Abrir o app no Chrome em 1366 × 768, gravar o tema no `localStorage` (`excalidraw-theme`) e recarregar.
-3. Em cada modo (claro e escuro) e estado (inicial, seleção e menu), injetar o axe-core e rodar só as regras com as tags `wcag2a`, `wcag2aa`, `wcag21a`, `wcag21aa`, `wcag22a` e `wcag22aa`. O script guarda as violações e um print de cada estado.
+3. Em cada modo (claro e escuro) e estado (inicial, seleção e menu), injetar o axe-core e rodar só as regras com as tags `wcag2a`, `wcag2aa`, `wcag21a`, `wcag21aa`, `wcag22a` e `wcag22aa`, mais a regra `label-content-name-mismatch` (2.5.3, nível A). Essa regra tem a tag `wcag21a`, mas o axe a marca como experimental e a deixa desligada por padrão, então o script a liga à parte. O script guarda todos os elementos reprovados e um print de cada estado.
 4. Rodar o Lighthouse (categoria acessibilidade, preset desktop) na tela inicial, nos dois modos. Como o Lighthouse não deixa escolher o tema, o script grava o tema num perfil novo do Chrome, abre o Chrome com esse perfil e conecta o Lighthouse a ele (`--port` e `--disable-storage-reset`). O print de página inteira do Lighthouse confirma o tema de cada execução (E3).
 5. Juntar as violações das duas ferramentas, tirar as repetidas e conferir cada uma no código (seção 4.1).
 
@@ -42,22 +42,22 @@ npx yarn@1.22.22 install --frozen-lockfile
 ```
 
 ```bash
-# 2026-11-13 13:45, raiz do repositório
+# 2026-11-13, raiz do repositório (refeito depois da revisão do PR #101)
 node scripts/ci_m22_m25_acessibilidade.cjs --saida evidencias/capacidade-interacao/CI-M22-M25
 ```
 
 ```text
-claro/inicial: 2 regra(s) violada(s) no axe; 20 aprovadas; contraste incompleto em 22 elemento(s)
-claro/selecao: 3 regra(s) violada(s) no axe; 23 aprovadas; contraste incompleto em 26 elemento(s)
-claro/menu: 3 regra(s) violada(s) no axe; 25 aprovadas; contraste incompleto em 43 elemento(s)
-escuro/inicial: 2 regra(s) violada(s) no axe; 20 aprovadas; contraste incompleto em 22 elemento(s)
-escuro/selecao: 3 regra(s) violada(s) no axe; 23 aprovadas; contraste incompleto em 26 elemento(s)
-escuro/menu: 3 regra(s) violada(s) no axe; 25 aprovadas; contraste incompleto em 43 elemento(s)
+claro/inicial: 3 regra(s) violada(s) no axe; 20 aprovadas; contraste incompleto em 22 elemento(s)
+claro/selecao: 4 regra(s) violada(s) no axe; 23 aprovadas; contraste incompleto em 26 elemento(s)
+claro/menu: 4 regra(s) violada(s) no axe; 26 aprovadas; contraste incompleto em 43 elemento(s)
+escuro/inicial: 3 regra(s) violada(s) no axe; 20 aprovadas; contraste incompleto em 22 elemento(s)
+escuro/selecao: 4 regra(s) violada(s) no axe; 23 aprovadas; contraste incompleto em 26 elemento(s)
+escuro/menu: 4 regra(s) violada(s) no axe; 26 aprovadas; contraste incompleto em 43 elemento(s)
 Lighthouse claro: 87/100; reprovadas: button-name, label-content-name-mismatch, meta-viewport
 Lighthouse escuro: 87/100; reprovadas: button-name, label-content-name-mismatch, meta-viewport
 ```
 
-O script foi rodado duas vezes, com o mesmo resultado. A saída completa está em `CI-M22-M25/CI-M22_resultado_2026-11-13.md` (E1).
+A saída completa, com a lista de todos os elementos reprovados, está em `CI-M22-M25/CI-M22_resultado_2026-11-13.md` (E1).
 
 ## 4. Evidências
 
@@ -70,6 +70,8 @@ O script foi rodado duas vezes, com o mesmo resultado. A saída completa está e
 | C3 | `aplicacao/packages/excalidraw/components/FontPicker/FontPickerTrigger.tsx:35-36` | O gatilho do seletor de fonte é um `<div>` sem papel dentro de `Popover.Trigger asChild`; o Radix põe `aria-haspopup` e `aria-expanded` nesse `<div>`, onde não são permitidos (V3) |
 | C4 | `aplicacao/excalidraw-app/components/AppMainMenu.tsx:81-86` e `aplicacao/packages/excalidraw/components/dropdownMenu/DropdownMenuContent.tsx:93` | O menu principal tem `role="menu"` (Radix), mas inclui o seletor de tema, a lista de idiomas (`<select>`) e o seletor de cor do fundo, que não são itens de menu (V4) |
 | C5 | `aplicacao/packages/excalidraw/actions/actionCanvas.tsx:276-285` | O botão de zoom mostra "100%", mas o nome acessível é "Reset zoom", que não contém o texto visível (V5) |
+| C6 | `aplicacao/packages/excalidraw/components/main-menu/DefaultItems.tsx:393-398` | O link do Discord mostra "Discord chat" (`labels.discordChat`), mas tem `aria-label="Discord"`, que não contém o texto visível (V6) |
+| C7 | `aplicacao/packages/excalidraw/components/dropdownMenu/DropdownMenuItemContent.tsx:28-29` | Os itens do menu mostram o atalho de teclado num `<div>` ao lado do nome; o axe junta esse atalho ao texto visível do item (F1 a F4) |
 
 ### 4.2 Arquivos de apoio
 
@@ -98,29 +100,43 @@ Todos em `evidencias/capacidade-interacao/CI-M22-M25/`.
 | V2 | `button-name` | 4.1.2 Nome, função, valor | A | botão do menu principal (C2) | Sim | Sim | todos, nos dois modos |
 | V3 | `aria-allowed-attr` | 4.1.2 Nome, função, valor | A | gatilho do seletor de fonte (C3) | Sim | — | seleção, nos dois modos |
 | V4 | `aria-required-children` | 1.3.1 Informações e relações | A | menu principal aberto (C4) | Sim | — | menu, nos dois modos |
-| V5 | `label-content-name-mismatch` | 2.5.3 Rótulo no nome | A | botão "100%" de zoom (C5) | — | Sim | inicial, nos dois modos |
+| V5 | `label-content-name-mismatch` | 2.5.3 Rótulo no nome | A | botão "100%" de zoom (C5) | Sim | Sim | todos, nos dois modos |
+| V6 | `label-content-name-mismatch` | 2.5.3 Rótulo no nome | A | link "Discord chat" do menu principal (C6) | Sim | — | menu, nos dois modos |
 
-O Lighthouse só avaliou a tela inicial, por isso não acusa V3 e V4, que dependem de seleção ou do menu aberto. O axe não acusa V5 porque a regra `label-content-name-mismatch` é marcada como experimental e fica fora das tags WCAG. O Lighthouse a roda à parte.
+O Lighthouse só avaliou a tela inicial, por isso não acusa V3, V4 e V6, que dependem de seleção ou do menu aberto. A regra `label-content-name-mismatch` tem a tag `wcag21a`, mas o axe a marca como experimental e a deixa desligada por padrão; o Lighthouse a roda por conta própria. Por isso o script a liga à parte no axe, para avaliá-la nos três estados (seção 3).
 
 Cada violação atinge um elemento. Os resultados são iguais nos modos claro e escuro.
 
+**Apontados pelo axe e não contados.** Com o menu aberto, a mesma regra reprova mais quatro itens. Conferindo no código e no print do menu (E2), o nome acessível de cada um é igual ao nome que aparece na tela. O axe reprova porque junta ao texto visível o atalho de teclado mostrado à direita (C7), e o atalho não faz parte do rótulo. Esses quatro casos não contam como violação:
+
+| # | Elemento | Nome acessível | Texto visível (nome + atalho) |
+| --- | --- | --- | --- |
+| F1 | item "Open" | Open | Open · Ctrl+O |
+| F2 | item "Export image..." | Export image... | Export image... · Ctrl+Shift+E |
+| F3 | item "Command palette" | Command palette | Command palette · Ctrl+/ |
+| F4 | item "Find on canvas" | Find on canvas | Find on canvas · Ctrl+F |
+
 ### 5.2 Cálculo
 
-Violações distintas = V1 a V5 = **5** (4 do axe-core, 3 do Lighthouse, 2 em comum).
+Violações distintas = V1 a V6 = **6** (6 do axe-core, 3 do Lighthouse, 3 em comum).
 
 **Sensibilidade:**
 
-- Só com o axe-core, seriam 4; só com o Lighthouse, 3. Os dois casos dão nota 1.
-- Contando cada repetição por estado e modo, o axe registra 16 ocorrências (E1), o que daria nota 0. Essa contagem não foi adotada porque repete o mesmo problema no mesmo elemento.
-- **Contraste:** nenhuma das ferramentas acusou violação de contraste (1.4.3). O axe deixou de 22 a 43 textos por estado como "incompletos", porque o texto fica sobre o canvas e o axe não consegue decidir a cor do fundo (E1). A medição da CI-M25 mostra que há texto abaixo de 4,5:1. Somando o critério 1.4.3, seriam **6** violações, nota 0. Como a métrica conta as violações **detectadas pelas ferramentas**, o valor adotado é 5, e o contraste fica com a CI-M25.
+- **Por regra distinta, e não por elemento:** seriam 5 (V5 e V6 são a mesma regra), nota 1. Essa contagem não foi adotada porque a unidade da seção 2 é a regra num elemento, e dois controles diferentes com o mesmo defeito são dois problemas para o usuário, cada um com sua correção.
+- **Contando também F1 a F4** (tudo o que o axe apontou, sem conferir): seriam 10, também nota 0.
+- **Só com o Lighthouse**, seriam 3 (nota 1), porque ele avalia só a tela inicial. Só com o axe-core, 6 (nota 0).
+- Contando cada repetição por estado e modo, o axe registra 32 elementos reprovados (E1). Essa contagem não foi adotada porque repete o mesmo problema no mesmo elemento.
+- **Contraste:** nenhuma das ferramentas acusou violação de contraste (1.4.3). O axe deixou de 22 a 43 textos por estado como "incompletos", porque o texto fica sobre o canvas e o axe não consegue decidir a cor do fundo (E1). A CI-M25 mostra que há texto abaixo de 4,5:1. Somando o critério 1.4.3, seriam 7 violações, sem mudar a nota. Como a métrica conta as violações **detectadas pelas ferramentas**, o contraste fica com a CI-M25.
+
+O valor adotado (6) fica logo acima do limite da faixa 1 (1 a 5): a nota depende de contar por elemento, e a sensibilidade acima mostra o valor por regra.
 
 ### 5.3 Pontuação
 
 | Valor medido | Regra da métrica | Pontuação |
 | --- | --- | --- |
-| 5 violações | 2 = 0; 1 = 1 a 5; 0 = ≥ 6 | **1** |
+| 6 violações | 2 = 0; 1 = 1 a 5; 0 = ≥ 6 | **0** |
 
-**Justificativa:** as duas ferramentas acharam 5 problemas distintos de nível A ou AA, todos em controles da interface (zoom bloqueado, botão sem nome, ARIA inválido e rótulo diferente do nome). O valor está no limite da faixa 1: com o contraste, que as ferramentas não conseguem avaliar sobre o canvas, passaria para 0.
+**Justificativa:** as duas ferramentas acharam 6 problemas distintos de nível A ou AA, todos em controles da interface: zoom bloqueado, botão sem nome, ARIA inválido e dois controles cujo nome acessível não contém o texto visível. São problemas simples de corrigir, mas afetam justamente quem usa leitor de tela, controle por voz ou zoom do navegador.
 
 ## 6. Observações e limitações
 
@@ -128,14 +144,18 @@ Violações distintas = V1 a V5 = **5** (4 do axe-core, 3 do Lighthouse, 2 em co
 - **O canvas não é avaliado.** O desenho fica num `<canvas>`, que as ferramentas não leem. A métrica cobre só a interface em HTML.
 - **Recorte de estados.** Foram avaliados três estados da tela principal. Diálogos (exportar, ajuda, colaboração) e a biblioteca não entraram e podem ter outras violações.
 - **Janelas diferentes.** O axe rodou em 1366 × 768 e o Lighthouse no preset desktop (1350 × 940). Na janela maior aparecem as dicas da tela de boas-vindas (setas com texto), que não mudam o resultado.
-- **Chrome headless no Windows**, interface em inglês. Outros navegadores ficam com as F-M1 a F-M3.
+- **Chrome headless no Windows**, interface em inglês. Outros navegadores ficam com as F-M1 a F-M3. O caminho do Chrome usado pelo Lighthouse é o padrão do Windows, mas pode ser trocado com `--chrome <caminho>`; o Lighthouse é baixado pelo `npx` na versão fixa 12.6.1.
+- **Regra experimental.** A `label-content-name-mismatch` ainda é experimental no axe 4.10 e gera falsos positivos como F1 a F4. Cada caso foi conferido na tela antes de entrar na contagem.
+- **Falha que as ferramentas não acusaram.** O link "Follow us" do menu tem `aria-label="X"` (`DefaultItems.tsx:386-392`), o mesmo defeito de V6, mas nenhuma das duas ferramentas o apontou. Fica fora da contagem, que é das violações detectadas pelas ferramentas.
 
-## 7. Achado (pontuação 1: não gera achado)
+## 7. Achado
 
-Não se aplica. Correções simples resolveriam as cinco violações: permitir o zoom no `<meta name="viewport">`, dar `aria-label` ao botão do menu, tirar o `<div>` do gatilho do seletor de fonte, mudar o papel do menu principal (ou separar as preferências) e incluir "100%" no nome do botão de zoom.
+| ID | Métrica | Evidência reproduzível | Pontuação | Impacto | Recomendação |
+| --- | --- | --- | --- | --- | --- |
+| A-CI-M22-01 | CI-M22 | Tabela 5.1 e E1; código em C1 a C6; passos da seção 3 | 0 | Médio. Quem usa leitor de tela não sabe o que faz o botão do menu (V2) e ouve uma estrutura de menu inválida (V3, V4); quem usa controle por voz não consegue acionar pelo nome visível o zoom e o link do Discord (V5, V6); e, no celular, o zoom do navegador fica bloqueado (V1) | Permitir o zoom no `<meta name="viewport">`; dar `aria-label` ao botão do menu; tirar o `<div>` do gatilho do seletor de fonte; mudar o papel do menu principal (ou separar as preferências); fazer o nome acessível conter o texto visível ("100%" no zoom, "Discord chat" e "Follow us" nos links) |
 
 ## 8. Contribuição para a questão
 
 | Questão | Esta métrica indica que a hipótese foi | Por quê |
 | --- | --- | --- |
-| CI-Q9 | parcialmente confirmada | A interface passa na maioria das regras automáticas (20 a 25 aprovadas por estado), mas tem 5 violações de nível A ou AA nos controles, e o canvas fica fora do alcance das ferramentas |
+| CI-Q9 | parcialmente confirmada | A interface passa na maioria das regras automáticas (20 a 26 aprovadas por estado), mas tem 6 violações de nível A ou AA nos controles, e o canvas fica fora do alcance das ferramentas |

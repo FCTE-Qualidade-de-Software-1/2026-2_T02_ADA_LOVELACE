@@ -48,6 +48,10 @@ fs.mkdirSync(SAIDA, { recursive: true });
 
 const espera = (ms) => new Promise((r) => setTimeout(r, ms));
 const TAGS = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22a", "wcag22aa"];
+// regras com tag WCAG A/AA que o axe marca como experimentais e deixa
+// desligadas por padrão; são ligadas à parte para cobrir os três estados
+// (o Lighthouse só avalia a tela inicial)
+const EXTRAS = ["label-content-name-mismatch"];
 const ESTADOS = ["inicial", "selecao", "menu"];
 const MODOS = ["claro", "escuro"];
 
@@ -206,8 +210,12 @@ const razao = (a, b) => {
       await page.screenshot({ path: path.join(SAIDA, `CI-M22_${modo}-${estado}_${DATA}.png`) });
       await page.addScriptTag({ content: AXE });
       const r = await page.evaluate(
-        (tags) => window.axe.run(document, { runOnly: { type: "tag", values: tags } }),
-        TAGS,
+        ([tags, extras]) =>
+          window.axe.run(document, {
+            runOnly: { type: "tag", values: tags },
+            rules: Object.fromEntries(extras.map((id) => [id, { enabled: true }])),
+          }),
+        [TAGS, EXTRAS],
       );
       // checagens de contraste que o axe não conseguiu decidir sozinho
       const cc = r.incomplete.find((v) => v.id === "color-contrast");
@@ -228,6 +236,7 @@ const razao = (a, b) => {
           descricao: v.help,
           nos: v.nodes.length,
           exemplos: v.nodes.slice(0, 3).map((n) => n.target.join(" ")),
+          elementos: v.nodes.map((n) => ({ alvo: n.target.join(" "), html: n.html.slice(0, 160) })),
         });
       }
       for (const t of await page.evaluate(coletarTextos)) textos.push({ modo, estado, ...t });
@@ -301,7 +310,7 @@ const razao = (a, b) => {
     `# CI-M22 · axe-core ${AXE_VERSAO} e Lighthouse · ${DATA}`,
     `URL: ${URL_APP}`,
     `Navegador: Chrome ${versao} (headless), janela 1366 × 768, ${process.platform}`,
-    `Regras do axe usadas: tags ${TAGS.join(", ")}`,
+    `Regras do axe usadas: tags ${TAGS.join(", ")}, mais as experimentais ${EXTRAS.join(", ")}`,
     "",
     "## axe-core: violações por modo e estado",
     "",
@@ -324,6 +333,22 @@ const razao = (a, b) => {
     ),
     "",
     `Regras distintas violadas (todos os modos e estados): ${regras.length}${regras.length ? " — " + regras.join(", ") : ""}`,
+    "",
+    "## axe-core: todos os elementos reprovados, por regra (sem repetir entre modos e estados)",
+    "",
+    "| Regra | Elemento | HTML | Modos e estados |",
+    "| --- | --- | --- | --- |",
+    ...(() => {
+      const m = new Map();
+      for (const v of axe)
+        for (const e of v.elementos) {
+          const k = `${v.regra}|${e.alvo}`;
+          if (!m.has(k)) m.set(k, { regra: v.regra, ...e, onde: [] });
+          m.get(k).onde.push(`${v.modo}/${v.estado}`);
+        }
+      const esc = (x) => x.replace(/\|/g, "/").replace(/\s+/g, " ");
+      return [...m.values()].map((e) => `| \`${e.regra}\` | \`${esc(e.alvo)}\` | \`${esc(e.html)}\` | ${e.onde.join(", ")} |`);
+    })(),
     "",
     "## Lighthouse (categoria acessibilidade, tela inicial, preset desktop)",
     "",
