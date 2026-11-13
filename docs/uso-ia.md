@@ -93,11 +93,21 @@ aparecer entre aspas e com a referência correspondente.
 
 ### Luís Cunha
 
-* **Ferramenta:** `[Preencher]`
-* **Tarefa:** `[Preencher]`
-* **Onde:** `[Preencher]`
-* **Quando:** `[Preencher]`
-* **Como conferiu e ajustou:** `[Preencher]`
+* **Ferramenta:** OpenCode, DeepSeek V4.1 Flash & MiniCPM V4.7 35B A3B - Local.
+* **Tarefa:** na primeira fase, orientação sobre os conteúdos e sobre a
+  estruturação inicial da GitPage e do artigo em LaTeX, que ainda eram
+  esqueletos sem as informações dos integrantes. Na segunda fase, orientação e
+  apoio passo a passo nas atividades de métricas, auxílio na redação de
+  commits e pull requests e execução assistida de algumas métricas.
+* **Onde:** estrutura da GitPage e do artigo (`main.tex`), [roteiro da
+  análise](analise/roteiro.md), [métricas de gestão](gestao/metricas.md) e
+  [evidências de capacidade de interação](../evidencias/capacidade-interacao/).
+* **Quando:** primeira e segunda fases da avaliação, entre out. e nov. 2026.
+* **Como conferiu e ajustou:** revisei e adaptei todas as sugestões ao
+  contexto do projeto, conferi os textos e as métricas nas fontes e nos
+  registros do repositório e acompanhei a execução das atividades. A
+  realização assistida da CI-M23 foi fiscalizada por mim, com conferência do
+  procedimento e do resultado antes do registro.
 
 ### Renato Araújo
 
