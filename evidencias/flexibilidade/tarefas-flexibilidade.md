@@ -10,7 +10,7 @@ Para cada métrica, copiar `evidencias/flexibilidade/template.md` para `F-Mxx_de
 | --- | --- | --- |
 | F-M10 | Coletada: 60%, nota 1; falta decidir o denominador com o grupo | `F-M10_formatos-exportacao.md` |
 | F-M12 | Coletada: 4 formatos, nota 2 | `F-M12_formatos-importacao.md` |
-| F-M11 | Teste de exportar e reimportar no app local | — |
+| F-M11 | Coletada: 100% nos três formatos, nota 2 | `F-M11_fidelidade-migracao.md` |
 | F-M5, M6 | Testes no navegador (offline e resoluções) | — |
 | F-M1, M2, M3 | Testes em vários navegadores e sistemas | — |
 | F-M4 | Teste em celular ou tablet | — |
@@ -24,7 +24,7 @@ Para cada métrica, copiar `evidencias/flexibilidade/template.md` para `F-Mxx_de
 
 ## Tarefas no navegador (instância local, `yarn start` em `aplicacao/`)
 
-- [ ] **F-M11:** desenhar uma cena com formas, textos, setas ligadas e cores; salvar em `.excalidraw`, exportar PNG e SVG com "incorporar cena", reabrir cada arquivo e contar os elementos preservados.
+- [x] **F-M11:** feito. Cena de 12 elementos salva em `.excalidraw` e exportada em PNG e SVG com "incorporar cena"; os três arquivos reabertos preservaram todos os elementos.
 - [ ] **F-M6:** abrir em 360, 768, 1366 e 2560 px e registrar com print se algum controle some ou fica cortado. A interface muda de layout em 599 px (celular) e 1180 px (tablet), conforme `packages/common/src/editorInterface.ts:19-26`.
 - [ ] **F-M5:** com o build de produção (o service worker só existe nele), carregar com rede, ativar o modo offline no DevTools e testar uma lista fixa de funções.
 
