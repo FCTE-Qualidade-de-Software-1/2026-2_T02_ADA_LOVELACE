@@ -1,0 +1,101 @@
+# S-M10 — registro da execução (console e estado das janelas)
+# Data: 2026-11-12
+# Pasta da aplicação: aplicacao/ (snapshot do grupo em da62b70; Excalidraw e7b5346)
+# Servidor de colaboração: excalidraw-room 03ff435, Docker, porta 3002
+
+## Ambiente
+
+- Aplicação: http://localhost:3001 (HTTP 200)
+- Servidor de colaboração: http://localhost:3002 (HTTP 200; "Excalidraw collaboration server is up :)")
+- Navegador: OpenCode 2.2.1 / Chromium 152.0.7977.167 (Electron 44.9.1)
+- Sistema: macOS (Darwin)
+- Contextos: três abas do mesmo perfil do navegador in-app
+
+## Passos executados
+
+1. Abri http://localhost:3001 e cliquei em "Live collaboration..." > "Start session".
+2. Copiei o link da sala gerado pela aplicação (link e chave omitidos deste registro).
+3. Abri o mesmo link em duas outras abas.
+4. Defini os nomes iniciais pelo console, usando o mesmo método do campo
+   "Your name" do diálogo de compartilhamento:
+
+   window.collab.setUsername("Alice")   // janela A
+   window.collab.setUsername("Bruno")   // janela B
+   window.collab.setUsername("Carlos")  // janela C
+
+5. Confirmei os nomes com window.collab.getUsername() nas três janelas.
+6. Na janela C, troquei o nome para "Alice":
+
+   window.collab.setUsername("Alice")
+
+7. Movi o ponteiro e depois criei um retângulo no quadro da janela C para
+   forçar o envio de uma atualização aos demais.
+8. Abri a lista de colaboradores (.UserList) nas três janelas e registrei os
+   nomes exibidos.
+
+## Estado antes da troca
+
+| Janela | window.collab.getUsername() | Socket.IO conectado |
+| --- | --- | --- |
+| A | Alice | sim |
+| B | Bruno | sim |
+| C | Carlos | sim |
+
+## Estado depois da troca
+
+| Janela | Nome próprio | Colaboradores vistos na lista | Alerta/bloqueio? |
+| --- | --- | --- | --- |
+| A | Alice | Alice (You), Alice, Bruno | não |
+| B | Bruno | Bruno (You), Alice, Alice | não |
+| C | Alice | Alice (You), Alice, Bruno | não |
+
+IDs de socket (prefixo) para mostrar que são conexões distintas:
+
+- A: PoCa0Spw...
+- B: 30iV5cS4...
+- C: 9_aF6ua9...
+
+Mapa `window.collab.collaborators` (igual nas três janelas depois da troca):
+
+```json
+[
+  { "socket": "PoCa0Spw...", "username": "Alice" },
+  { "socket": "9_aF6ua9...", "username": "Alice" },
+  { "socket": "30iV5cS4...", "username": "Bruno" }
+]
+```
+
+## Verificações de bloqueio, alerta e rejeição
+
+- `document.querySelectorAll('.Dialog')` nas janelas A, B e C: 0 diálogos
+  depois de fechar o diálogo de compartilhamento.
+- `document.querySelectorAll('[role=alert], .Toast, .Alert')`: nenhum alerta.
+- Console: nenhuma mensagem de nome duplicado, validação ou rejeição.
+- Socket.IO: `connected = true` nas três janelas durante todo o teste.
+- Nenhuma mensagem de erro do servidor de colaboração.
+- A alteração de nome foi aceita e exibida para as outras duas conexões.
+
+## Confirmação de que o servidor aceitou uma atualização da janela C
+
+Além do nome, criei um retângulo de 220 x 150 na janela C. As janelas A e B
+receberam o elemento (1 elemento na cena, mesmas dimensões), confirmando que o
+servidor local estava retransmitindo as atualizações da janela C:
+
+```text
+C: sm10-visible-1794534347931, rectangle, 220 x 150
+A: sm10-visible-1794534347931, rectangle, 220 x 150
+B: sm10-visible-1794534347931, rectangle, 220 x 150
+```
+
+## Observações
+
+- O nome foi alterado por `window.collab.setUsername`, que é o mesmo método
+  chamado pelo campo "Your name" do diálogo de compartilhamento
+  (`ShareDialog.tsx`, `onChange={collabAPI.setUsername}`). Não há validação
+  nesse método.
+- As três abas compartilham o mesmo localStorage do perfil, mas cada aba tem
+  estado e conexão Socket.IO próprios. Os nomes foram definidos explicitamente
+  em cada aba e os três sockets eram distintos.
+- O link da sala, a chave e a configuração do Firebase foram omitidos.
+- O teste foi feito somente na instância local. Nada foi enviado ao
+  excalidraw.com nem ao backend público.
