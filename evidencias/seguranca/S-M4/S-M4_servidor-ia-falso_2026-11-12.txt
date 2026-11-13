@@ -1,0 +1,7 @@
+Servidor de IA falso em http://localhost:3016
+2026-11-12T17:31:05.309Z POST /v1/ai/text-to-diagram/chat-streaming (98 bytes, 1 mensagem(ns))
+
+Transcrição da saída observada na sessão do servidor, iniciada com:
+node evidencias/ambiente/servidor-ia-falso.mjs
+Horário UTC; 14:31:05.309 em America/Sao_Paulo.
+Resposta fixa do simulador do grupo; não é resultado do serviço real de IA.

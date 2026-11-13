@@ -1,0 +1,10 @@
+scene: 2 elementos; texto e IDs originais presentes
+scene-reload: 2 elementos; texto e IDs originais presentes
+scene-reopen-tab: 2 elementos; texto e IDs originais presentes
+all-reload: 3 elementos; texto e IDs originais presentes
+Biblioteca: 1 registro, 1 item, 2 elementos legíveis; igual após reload
+Imagem: 1 registro image/svg+xml, mesmo dataURL após reload; base64 decodificada sem chave:
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="80" viewBox="0 0 240 80"><rect width="240" height="80" fill="#ffeeaa"/><text x="10" y="45" font-size="18">IMAGEM-FICTICIA-SM4</text></svg>
+TTD: 1 chat, 2 mensagens legíveis; iguais após reload; resposta de servidor falso
+Requisições externas interceptadas: 0. Contexto configurado para bloquear destinos externos.
+Resultado S-M4: Sim. Tabela 6: 0/2; nível 1 não se aplica.

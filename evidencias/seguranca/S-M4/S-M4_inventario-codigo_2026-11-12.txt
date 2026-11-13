@@ -1,0 +1,24 @@
+excalidraw-app/ExcalidrawPlusIframeExport.tsx:179:            rawAppStateString: localStorage.getItem(
+excalidraw-app/ExcalidrawPlusIframeExport.tsx:182:            rawElementsString: localStorage.getItem(
+excalidraw-app/app-jotai.ts:13:export const appJotaiStore = createStore();
+excalidraw-app/components/DebugCanvas.tsx:399:    localStorage.setItem(
+excalidraw-app/components/DebugCanvas.tsx:422:    const savedDebugState = localStorage.getItem(
+excalidraw-app/data/LocalData.ts:49:const filesStore = createStore("files-db", "files-store");
+excalidraw-app/data/LocalData.ts:90:    localStorage.setItem(
+excalidraw-app/data/LocalData.ts:94:    localStorage.setItem(
+excalidraw-app/data/LocalData.ts:242:  private static store = createStore(
+excalidraw-app/data/LocalData.ts:269:    const LSData = localStorage.getItem(
+excalidraw-app/data/TTDStorage.ts:17:  private static store = createStore(
+excalidraw-app/data/localStorage.ts:13:    localStorage.setItem(
+excalidraw-app/data/localStorage.ts:25:    const data = localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_COLLAB);
+excalidraw-app/data/localStorage.ts:42:    savedElements = localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_ELEMENTS);
+excalidraw-app/data/localStorage.ts:43:    savedState = localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_APP_STATE);
+excalidraw-app/data/localStorage.ts:78:    const elements = localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_ELEMENTS);
+excalidraw-app/data/localStorage.ts:89:    const appState = localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_APP_STATE);
+excalidraw-app/data/localStorage.ts:90:    const collab = localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_COLLAB);
+excalidraw-app/data/tabSync.ts:13:  const storageTimestamp = JSON.parse(localStorage.getItem(type) || "-1");
+excalidraw-app/data/tabSync.ts:20:    localStorage.setItem(type, JSON.stringify(timestamp));
+excalidraw-app/data/tabSync.ts:33:      localStorage.setItem(key, JSON.stringify(timestamp));
+excalidraw-app/index.html:72:          const theme = window.localStorage.getItem("excalidraw-theme");
+excalidraw-app/useHandleAppTheme.ts:14:      (localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_THEME) as
+excalidraw-app/useHandleAppTheme.ts:39:    localStorage.setItem(STORAGE_KEYS.LOCAL_STORAGE_THEME, appTheme);
