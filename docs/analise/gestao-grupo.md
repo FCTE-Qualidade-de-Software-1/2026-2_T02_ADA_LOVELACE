@@ -88,14 +88,14 @@ disponível para conferência e processamento.
 | Luis Felipe | 14 |
 | Zayra-Moraes | 14 |
 | Renato Araújo Gameiro | 12 |
-| andrehsb | 8 |
+| andrehsb | 9 |
 | giovannafg | 8 |
 | Giovanna Felipe | 2 |
 | Renato Gameiro | 1 |
 | renatvg | 1 |
-| **Total** | **85** |
+| **Total** | **86** |
 
-*Última coleta: 2026-11-13T13:54:44+00:00, referência `main`.*
+*Última coleta: 2026-11-13T13:57:08+00:00, referência `main`.*
 <!-- END AUTO: membros-commits -->
 
 A atualização é executada a cada push na `main` e semanalmente pelo
