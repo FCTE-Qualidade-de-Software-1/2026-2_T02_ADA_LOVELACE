@@ -1,0 +1,359 @@
+aplicacao/excalidraw-app/CustomStats.tsx:51:  let timestamp;
+aplicacao/excalidraw-app/CustomStats.tsx:54:    timestamp = version.slice(0, 16).replace("T", " ");
+aplicacao/excalidraw-app/CustomStats.tsx:57:    timestamp = t("stats.versionNotAvailable");
+aplicacao/excalidraw-app/CustomStats.tsx:73:        {timestamp}
+aplicacao/excalidraw-app/collab/Collab.tsx:13:  UserIdleState,
+aplicacao/excalidraw-app/collab/Collab.tsx:858:      this.onIdleStateChange(UserIdleState.AWAY);
+aplicacao/excalidraw-app/collab/Collab.tsx:865:      this.onIdleStateChange(UserIdleState.ACTIVE);
+aplicacao/excalidraw-app/collab/Collab.tsx:870:    this.onIdleStateChange(UserIdleState.IDLE);
+aplicacao/excalidraw-app/collab/Collab.tsx:878:    this.onIdleStateChange(UserIdleState.ACTIVE);
+aplicacao/excalidraw-app/collab/Collab.tsx:967:  onIdleStateChange = (userState: UserIdleState) => {
+aplicacao/excalidraw-app/collab/Portal.tsx:7:import type { UserIdleState } from "@excalidraw/common";
+aplicacao/excalidraw-app/collab/Portal.tsx:185:  broadcastIdleChange = (userState: UserIdleState) => {
+aplicacao/excalidraw-app/data/index.ts:16:import type { UserIdleState } from "@excalidraw/common";
+aplicacao/excalidraw-app/data/index.ts:117:      userState: UserIdleState;
+aplicacao/excalidraw-app/data/tabSync.ts:4:// timestamps of the last time the state was saved to browser storage.
+aplicacao/excalidraw-app/data/tabSync.ts:13:  const storageTimestamp = JSON.parse(localStorage.getItem(type) || "-1");
+aplicacao/excalidraw-app/data/tabSync.ts:14:  return storageTimestamp > LOCAL_STATE_VERSIONS[type];
+aplicacao/excalidraw-app/data/tabSync.ts:18:  const timestamp = Date.now();
+aplicacao/excalidraw-app/data/tabSync.ts:20:    localStorage.setItem(type, JSON.stringify(timestamp));
+aplicacao/excalidraw-app/data/tabSync.ts:21:    LOCAL_STATE_VERSIONS[type] = timestamp;
+aplicacao/excalidraw-app/data/tabSync.ts:32:      const timestamp = -1;
+aplicacao/excalidraw-app/data/tabSync.ts:33:      localStorage.setItem(key, JSON.stringify(timestamp));
+aplicacao/excalidraw-app/data/tabSync.ts:34:      LOCAL_STATE_VERSIONS[key] = timestamp;
+aplicacao/packages/common/debug.ts:19:  private static LAST_FRAME_TIMESTAMP = 0;
+aplicacao/packages/common/debug.ts:25:      Debug.ANIMATION_FRAME_ID = requestAnimationFrame((timestamp) => {
+aplicacao/packages/common/debug.ts:26:        if (Debug.LAST_FRAME_TIMESTAMP !== timestamp) {
+aplicacao/packages/common/debug.ts:27:          Debug.LAST_FRAME_TIMESTAMP = timestamp;
+aplicacao/packages/common/debug.ts:94:      Debug.LAST_FRAME_TIMESTAMP = 0;
+aplicacao/packages/common/src/constants.ts:603:export enum UserIdleState {
+aplicacao/packages/common/src/utils.test.ts:126:    const runScheduledFrame = (timestamp = 16) => {
+aplicacao/packages/common/src/utils.test.ts:129:      callbacks.forEach((callback) => callback(timestamp));
+aplicacao/packages/common/src/utils.ts:580:export const getUpdatedTimestamp = () => (isTestEnv() ? 1 : Date.now());
+aplicacao/packages/element/src/__tests__/stickyNote.test.ts:1054:    "hides an unknown or invalid timestamp: %s",
+aplicacao/packages/element/src/__tests__/transform.test.ts:7:  getUpdatedTimestamp,
+aplicacao/packages/element/src/__tests__/transform.test.ts:871:        customData: { createdBy: "user01" },
+aplicacao/packages/element/src/__tests__/transform.test.ts:879:      createdBy: "user01",
+aplicacao/packages/element/src/__tests__/transform.test.ts:1006:  describe("creation timestamps", () => {
+aplicacao/packages/element/src/__tests__/transform.test.ts:1022:    it("assigns fresh timestamps when regenerating IDs without mutating the input", () => {
+aplicacao/packages/element/src/__tests__/transform.test.ts:1032:        expect(element.created).toBe(getUpdatedTimestamp());
+aplicacao/packages/element/src/__tests__/transform.test.ts:1038:      "preserves an explicit timestamp of %s when retaining IDs",
+aplicacao/packages/element/src/__tests__/transform.test.ts:1053:    it("defaults missing timestamps when retaining IDs, as every type goes through a constructor", () => {
+aplicacao/packages/element/src/__tests__/transform.test.ts:1063:        expect(element.created).toBe(getUpdatedTimestamp());
+aplicacao/packages/element/src/__tests__/transform.test.ts:1068:    it("assigns fresh timestamps to generated labels and binding endpoints", () => {
+aplicacao/packages/element/src/__tests__/transform.test.ts:1085:        Array(4).fill(getUpdatedTimestamp()),
+aplicacao/packages/element/src/arrowEndpointText.ts:258: * arrow is the authoritative side of the relationship.
+aplicacao/packages/element/src/duplicate.ts:8:  getUpdatedTimestamp,
+aplicacao/packages/element/src/duplicate.ts:116:  copy.updated = getUpdatedTimestamp();
+aplicacao/packages/element/src/embeddable.ts:60:// share links can be prefixed with the author's username
+aplicacao/packages/element/src/embeddable.ts:65:const parseYouTubeLikeTimestamp = (url: string): number => {
+aplicacao/packages/element/src/embeddable.ts:96:): { fileId: string; resourceKey?: string; timestamp?: number } | null => {
+aplicacao/packages/element/src/embeddable.ts:122:    const timestamp = parseYouTubeLikeTimestamp(urlObj.toString());
+aplicacao/packages/element/src/embeddable.ts:132:      timestamp: timestamp > 0 ? timestamp : undefined,
+aplicacao/packages/element/src/embeddable.ts:200:    const startTime = parseYouTubeLikeTimestamp(originalLink);
+aplicacao/packages/element/src/embeddable.ts:266:    if (googleDriveVideo.timestamp) {
+aplicacao/packages/element/src/embeddable.ts:267:      searchParams.set("t", `${googleDriveVideo.timestamp}`);
+aplicacao/packages/element/src/mutateElement.ts:4:  getUpdatedTimestamp,
+aplicacao/packages/element/src/mutateElement.ts:144:  element.updated = getUpdatedTimestamp();
+aplicacao/packages/element/src/mutateElement.ts:179:    updated: getUpdatedTimestamp(),
+aplicacao/packages/element/src/mutateElement.ts:194:  element.updated = getUpdatedTimestamp();
+aplicacao/packages/element/src/newElement.ts:14:  getUpdatedTimestamp,
+aplicacao/packages/element/src/newElement.ts:136:  const timestamp = getUpdatedTimestamp();
+aplicacao/packages/element/src/newElement.ts:166:    updated: timestamp,
+aplicacao/packages/element/src/newElement.ts:168:    created: rest.created === undefined ? timestamp : rest.created,
+aplicacao/packages/element/src/stickyNote.ts:444: * `null` when the note has no usable timestamp (files restored without one).
+aplicacao/packages/element/src/transform.ts:24:  getUpdatedTimestamp,
+aplicacao/packages/element/src/transform.ts:694:  const created = getUpdatedTimestamp();
+aplicacao/packages/element/src/types.ts:77:  /** epoch (ms) timestamp of last element update */
+aplicacao/packages/element/tests/duplicate.test.tsx:9:  getUpdatedTimestamp,
+aplicacao/packages/element/tests/duplicate.test.tsx:72:        created: getUpdatedTimestamp(),
+aplicacao/packages/element/tests/embeddable.test.ts:3:describe("YouTube timestamp parsing", () => {
+aplicacao/packages/element/tests/embeddable.test.ts:4:  it("should parse YouTube URLs with timestamp in seconds", () => {
+aplicacao/packages/element/tests/embeddable.test.ts:30:  it("should parse YouTube URLs with timestamp in time format", () => {
+aplicacao/packages/element/tests/embeddable.test.ts:68:  it("should handle YouTube URLs without timestamps", () => {
+aplicacao/packages/element/tests/embeddable.test.ts:85:  it("should handle YouTube shorts URLs with timestamps", () => {
+aplicacao/packages/element/tests/embeddable.test.ts:110:  it("should handle playlist URLs with timestamps", () => {
+aplicacao/packages/element/tests/embeddable.test.ts:123:  it("should handle malformed or edge case timestamps", () => {
+aplicacao/packages/element/tests/embeddable.test.ts:127:        expectedStart: 0, // Invalid timestamp should default to 0
+aplicacao/packages/element/tests/embeddable.test.ts:131:        expectedStart: 0, // Empty timestamp should default to 0
+aplicacao/packages/element/tests/embeddable.test.ts:135:        expectedStart: 0, // Zero timestamp should be handled
+aplicacao/packages/element/tests/embeddable.test.ts:209:  it("should preserve timestamp when available", () => {
+aplicacao/packages/element/tests/embeddable.test.ts:223:  it("should preserve resourcekey and timestamp together", () => {
+aplicacao/packages/element/tests/newElement.test.ts:27:    vi.spyOn(common, "getUpdatedTimestamp").mockReturnValue(123);
+aplicacao/packages/element/tests/newElement.test.ts:31:    vi.mocked(common.getUpdatedTimestamp).mockReturnValue(456);
+aplicacao/packages/excalidraw/CHANGELOG.md:63:- Each note shows its creation date (`element.created`) in a footer band — "7 Sep", or "7 Sep 2025" once the year differs — on canvas and in SVG/PNG exports. The band is reserved in the note's layout, so the label never overlaps it; notes without a timestamp keep the band empty.
+aplicacao/packages/excalidraw/CHANGELOG.md:1571:- Disable canvas smoothing (antialiasing) for right-angled elements [#6186](https://github.com/excalidraw/excalidraw/pull/6186)Co-authored-by: Ignacio Cuadra <67276174+ignacio-cuadra@users.noreply.github.com>
+aplicacao/packages/excalidraw/clients.ts:5:  UserIdleState,
+aplicacao/packages/excalidraw/clients.ts:101:      userState === UserIdleState.IDLE ||
+aplicacao/packages/excalidraw/clients.ts:102:      userState === UserIdleState.AWAY;
+aplicacao/packages/excalidraw/components/App.text.ts:602:   * Whether a text element's content is still being authored.
+aplicacao/packages/excalidraw/components/App.tsx:1599:      this.lastPointerUpEvent.timeStamp - this.lastPointerDownEvent.timeStamp <=
+aplicacao/packages/excalidraw/components/App.tsx:1728:      currentPointerEvent.timeStamp - lastPointerEvent.timeStamp <=
+aplicacao/packages/excalidraw/components/LibraryMenuHeaderContent.tsx:105:    authorName: string;
+aplicacao/packages/excalidraw/components/LibraryMenuHeaderContent.tsx:118:            authorName={publishLibSuccess!.authorName}
+aplicacao/packages/excalidraw/components/LibraryMenuHeaderContent.tsx:144:    data: { url: string; authorName: string },
+aplicacao/packages/excalidraw/components/LibraryMenuHeaderContent.tsx:148:    setPublishLibSuccess({ url: data.url, authorName: data.authorName });
+aplicacao/packages/excalidraw/components/PublishLibrary.tsx:32:  authorName: string;
+aplicacao/packages/excalidraw/components/PublishLibrary.tsx:227:    authorName: string;
+aplicacao/packages/excalidraw/components/PublishLibrary.tsx:238:    authorName: "",
+aplicacao/packages/excalidraw/components/PublishLibrary.tsx:311:    formData.append("authorName", libraryData.authorName);
+aplicacao/packages/excalidraw/components/PublishLibrary.tsx:330:                authorName: libraryData.authorName,
+aplicacao/packages/excalidraw/components/PublishLibrary.tsx:474:                <span>{t("publishDialog.authorName")}</span>
+aplicacao/packages/excalidraw/components/PublishLibrary.tsx:481:                name="authorName"
+aplicacao/packages/excalidraw/components/PublishLibrary.tsx:483:                value={libraryData.authorName}
+aplicacao/packages/excalidraw/components/PublishLibrary.tsx:485:                placeholder={t("publishDialog.placeholder.authorName")}
+aplicacao/packages/excalidraw/components/TTDDialog/Chat/Chat.scss:243:    &__timestamp {
+aplicacao/packages/excalidraw/components/TTDDialog/Chat/ChatMessage.tsx:72:            <span className="chat-message__timestamp">
+aplicacao/packages/excalidraw/components/TTDDialog/Chat/ChatMessage.tsx:73:              {formatTime(message.timestamp)}
+aplicacao/packages/excalidraw/components/TTDDialog/Chat/ChatMessage.tsx:118:          <span className="chat-message__timestamp">
+aplicacao/packages/excalidraw/components/TTDDialog/Chat/ChatMessage.tsx:119:            {formatTime(message.timestamp)}
+aplicacao/packages/excalidraw/components/TTDDialog/hooks/useChatManagement.ts:32:        timestamp:
+aplicacao/packages/excalidraw/components/TTDDialog/hooks/useChatManagement.ts:33:          msg.timestamp instanceof Date
+aplicacao/packages/excalidraw/components/TTDDialog/hooks/useChatManagement.ts:34:            ? msg.timestamp
+aplicacao/packages/excalidraw/components/TTDDialog/hooks/useChatManagement.ts:35:            : new Date(msg.timestamp),
+aplicacao/packages/excalidraw/components/TTDDialog/types.ts:29:    timestamp: Date;
+aplicacao/packages/excalidraw/components/TTDDialog/types.ts:59:  timestamp: number;
+aplicacao/packages/excalidraw/components/TTDDialog/useTTDChatStorage.ts:118:          timestamp:
+aplicacao/packages/excalidraw/components/TTDDialog/useTTDChatStorage.ts:119:            msg.timestamp instanceof Date
+aplicacao/packages/excalidraw/components/TTDDialog/useTTDChatStorage.ts:120:              ? msg.timestamp
+aplicacao/packages/excalidraw/components/TTDDialog/useTTDChatStorage.ts:121:              : new Date(msg.timestamp),
+aplicacao/packages/excalidraw/components/TTDDialog/useTTDChatStorage.ts:124:      timestamp: messagesChanged
+aplicacao/packages/excalidraw/components/TTDDialog/useTTDChatStorage.ts:126:        : existingChat?.timestamp ?? Date.now(),
+aplicacao/packages/excalidraw/components/TTDDialog/useTTDChatStorage.ts:133:      .sort((a, b) => b.timestamp - a.timestamp)
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:22:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:28:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:50:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:56:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:62:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:84:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:106:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:129:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:150:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:174:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:180:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:191:        timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:204:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:210:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:216:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:236:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:260:    it("should add a single message with id and timestamp", () => {
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:280:      expect(result.messages[0].timestamp).toBeInstanceOf(Date);
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:315:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:421:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:427:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:433:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:454:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:460:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:466:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:487:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:518:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:540:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:546:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:552:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:558:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:579:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:602:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:637:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.test.ts:643:            timestamp: new Date("2024-01-01"),
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.ts:48:  messages: Array<Omit<TChat.ChatMessage, "id" | "timestamp">>,
+aplicacao/packages/excalidraw/components/TTDDialog/utils/chat.ts:53:    timestamp: new Date(),
+aplicacao/packages/excalidraw/data/ai/types.ts:48:     * The role of the messages author, in this case `user`.
+aplicacao/packages/excalidraw/data/ai/types.ts:60:     * The role of the messages author, in this case `system`.
+aplicacao/packages/excalidraw/data/ai/types.ts:205:     * The Unix timestamp (in seconds) of when the chat completion was created.
+aplicacao/packages/excalidraw/data/ai/types.ts:266:     * The role of the author of this message.
+aplicacao/packages/excalidraw/data/restore.ts:26:  getUpdatedTimestamp,
+aplicacao/packages/excalidraw/data/restore.ts:511:    updated: element.updated ?? getUpdatedTimestamp(),
+aplicacao/packages/excalidraw/fonts/ComicShanns/ComicShanns-Regular.sfd:6:Copyright: MIT License\n\nCopyright (c) 2018 Shannon Miwa\nCopyright (c) 2023 Jesus Gonzalez\nCopyright (c) 2023 Rodrigo Batista de Moraes\nCopyright (c) 2024 Fini Jastrow\nCopyright (c) 2024 Kyle Beechly\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the "Software"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.
+aplicacao/packages/excalidraw/fonts/ComicShanns/ComicShanns-Regular.sfd:62:LangName: 1033 "" "" "" "" "" "1.3.0" "" "" "" "" "" "" "" "MIT License+AAoACgAA-Copyright (c) 2018 Shannon Miwa+AAoA-Copyright (c) 2023 Jesus Gonzalez+AAoACgAA-Permission is hereby granted, free of charge, to any person obtaining a copy+AAoA-of this software and associated documentation files (the +ACIA-Software+ACIA), to deal+AAoA-in the Software without restriction, including without limitation the rights+AAoA-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell+AAoA-copies of the Software, and to permit persons to whom the Software is+AAoA-furnished to do so, subject to the following conditions:+AAoACgAA-The above copyright notice and this permission notice shall be included in all+AAoA-copies or substantial portions of the Software.+AAoACgAA-THE SOFTWARE IS PROVIDED +ACIA-AS IS+ACIA, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR+AAoA-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,+AAoA-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE+AAoA-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER+AAoA-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,+AAoA-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE+AAoA-SOFTWARE." "" "" "Comic Shanns Mono"
+aplicacao/packages/excalidraw/fonts/ComicShanns/index.ts:35:AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+aplicacao/packages/excalidraw/fonts/ComicShanns/index.ts:63:AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+aplicacao/packages/excalidraw/fonts/Excalifont/index.ts:67:"Author" refers to any designer, engineer, programmer, technical
+aplicacao/packages/excalidraw/fonts/Excalifont/index.ts:91:4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+aplicacao/packages/excalidraw/fonts/Excalifont/index.ts:94:Copyright Holder(s) and the Author(s) or with their explicit written
+aplicacao/packages/excalidraw/index.tsx:449:  UserIdleState,
+aplicacao/packages/excalidraw/locales/ar-SA.json:484:    "authorName": "اسم المؤلف",
+aplicacao/packages/excalidraw/locales/ar-SA.json:491:      "authorName": "اسمك أو اسم المستخدم",
+aplicacao/packages/excalidraw/locales/ar-SA.json:511:    "content": "شكرًا لك {{authorName}}. لقد تم إرسال مكتبتك للمراجعة. يمكنك تتبع الحالة"
+aplicacao/packages/excalidraw/locales/az-AZ.json:484:    "authorName": "",
+aplicacao/packages/excalidraw/locales/az-AZ.json:491:      "authorName": "",
+aplicacao/packages/excalidraw/locales/bg-BG.json:484:    "authorName": "Авторско име",
+aplicacao/packages/excalidraw/locales/bg-BG.json:491:      "authorName": "Името или потребителското Ви име",
+aplicacao/packages/excalidraw/locales/bn-BD.json:484:    "authorName": "",
+aplicacao/packages/excalidraw/locales/bn-BD.json:491:      "authorName": "",
+aplicacao/packages/excalidraw/locales/bn-IN.json:484:    "authorName": "",
+aplicacao/packages/excalidraw/locales/bn-IN.json:491:      "authorName": "",
+aplicacao/packages/excalidraw/locales/ca-ES.json:484:    "authorName": "Nom de l'autor/a",
+aplicacao/packages/excalidraw/locales/ca-ES.json:491:      "authorName": "Nom o usuari",
+aplicacao/packages/excalidraw/locales/ca-ES.json:511:    "content": "Gràcies, {{authorName}}. La vostra biblioteca ha estat enviada per a ser revisada. Podeu comprovar-ne l'estat<link>aquí</link>"
+aplicacao/packages/excalidraw/locales/cs-CZ.json:484:    "authorName": "Jméno autora",
+aplicacao/packages/excalidraw/locales/cs-CZ.json:491:      "authorName": "Jméno nebo uživatelské jméno",
+aplicacao/packages/excalidraw/locales/cs-CZ.json:511:    "content": "Děkujeme vám {{authorName}}. Vaše knihovna byla odeslána k posouzení. Stav můžete sledovat <link>zde</link>"
+aplicacao/packages/excalidraw/locales/da-DK.json:484:    "authorName": "",
+aplicacao/packages/excalidraw/locales/da-DK.json:491:      "authorName": "",
+aplicacao/packages/excalidraw/locales/de-CH.json:484:    "authorName": "Name des Autors",
+aplicacao/packages/excalidraw/locales/de-CH.json:491:      "authorName": "Dein Name oder Benutzername",
+aplicacao/packages/excalidraw/locales/de-CH.json:511:    "content": "Vielen Dank {{authorName}}. Deine Bibliothek wurde zur Überprüfung eingereicht. Du kannst den Status verfolgen<link>hier</link>"
+aplicacao/packages/excalidraw/locales/de-DE.json:484:    "authorName": "Name des Autors",
+aplicacao/packages/excalidraw/locales/de-DE.json:491:      "authorName": "Dein Name oder Benutzername",
+aplicacao/packages/excalidraw/locales/de-DE.json:511:    "content": "Vielen Dank {{authorName}}. Deine Bibliothek wurde zur Überprüfung eingereicht. Du kannst den Status verfolgen<link>hier</link>"
+aplicacao/packages/excalidraw/locales/el-GR.json:484:    "authorName": "Όνομα δημιουργού",
+aplicacao/packages/excalidraw/locales/el-GR.json:491:      "authorName": "Όνομα ή όνομα χρήστη",
+aplicacao/packages/excalidraw/locales/el-GR.json:511:    "content": "Ευχαριστούμε {{authorName}}. Η βιβλιοθήκη σας έχει υποβληθεί για αξιολόγηση. Μπορείτε να παρακολουθείτε τη διαδικασία<link>εδώ</link>"
+aplicacao/packages/excalidraw/locales/en.json:500:    "authorName": "Author name",
+aplicacao/packages/excalidraw/locales/en.json:507:      "authorName": "Your name or username",
+aplicacao/packages/excalidraw/locales/en.json:527:    "content": "Thank you {{authorName}}. Your library has been submitted for review. You can track the status <link>here</link>"
+aplicacao/packages/excalidraw/locales/es-ES.json:484:    "authorName": "Nombre del autor",
+aplicacao/packages/excalidraw/locales/es-ES.json:491:      "authorName": "Nombre o nombre de usuario",
+aplicacao/packages/excalidraw/locales/es-ES.json:511:    "content": "Gracias {{authorName}}. Su biblioteca ha sido enviada para ser revisada. Puede seguir el estado <link>aquí</link>"
+aplicacao/packages/excalidraw/locales/eu-ES.json:484:    "authorName": "Egilearen izena",
+aplicacao/packages/excalidraw/locales/eu-ES.json:491:      "authorName": "Zure izena edo erabiltzaile-izena",
+aplicacao/packages/excalidraw/locales/eu-ES.json:511:    "content": "Eskerrik asko {{authorName}}. Zure liburutegia bidali da berrikustera. Jarraitu dezakezu haren egoera<link>hemen</link>"
+aplicacao/packages/excalidraw/locales/fa-IR.json:484:    "authorName": "نام نویسنده",
+aplicacao/packages/excalidraw/locales/fa-IR.json:491:      "authorName": "نام یا نام کاربری شما",
+aplicacao/packages/excalidraw/locales/fa-IR.json:511:    "content": "تشکر از شما {{authorName}}. کتابخانه شما برای بررسی ارسال شده است. می توانید وضعیت را پیگیری کنید"
+aplicacao/packages/excalidraw/locales/fi-FI.json:484:    "authorName": "Tekijän nimi",
+aplicacao/packages/excalidraw/locales/fi-FI.json:491:      "authorName": "Nimesi tai käyttäjänimesi",
+aplicacao/packages/excalidraw/locales/fi-FI.json:511:    "content": "Kiitos {{authorName}}. Kirjastosi on lähetetty tarkistettavaksi. Voit seurata sen tilaa<link>täällä</link>"
+aplicacao/packages/excalidraw/locales/fr-FR.json:484:    "authorName": "Nom de l'auteur",
+aplicacao/packages/excalidraw/locales/fr-FR.json:491:      "authorName": "Votre nom ou nom d'utilisateur",
+aplicacao/packages/excalidraw/locales/fr-FR.json:511:    "content": "Merci {{authorName}}. Votre bibliothèque a été soumise pour examen. Vous pouvez suivre le statut<link>ici</link>"
+aplicacao/packages/excalidraw/locales/gl-ES.json:484:    "authorName": "Nome do autor",
+aplicacao/packages/excalidraw/locales/gl-ES.json:491:      "authorName": "O seu nome ou nome de usuario",
+aplicacao/packages/excalidraw/locales/gl-ES.json:511:    "content": "Grazas {{authorName}}. A súa biblioteca foi enviada para ser revisada. Pode seguir o estado<link>aquí</link>"
+aplicacao/packages/excalidraw/locales/he-IL.json:484:    "authorName": "שם היוצר",
+aplicacao/packages/excalidraw/locales/he-IL.json:491:      "authorName": "שמך או שם המשתמש שלך",
+aplicacao/packages/excalidraw/locales/he-IL.json:511:    "content": "תודה {{authorName}}. הספריה שלך נשלחה לבחינה. תוכל לעקוב אחרי סטטוס הפרסום"
+aplicacao/packages/excalidraw/locales/hi-IN.json:484:    "authorName": "लेखक का नाम",
+aplicacao/packages/excalidraw/locales/hi-IN.json:491:      "authorName": "आपका नाम अथवा उपयोक्तानाम",
+aplicacao/packages/excalidraw/locales/hi-IN.json:511:    "content": "{{authorName}} धन्यवाद. आपका संग्रहण समीक्षा के लिए दर्ज हो चुका है. समीक्षा स्थिति <link>यहाँ</link>जान सकते हैं."
+aplicacao/packages/excalidraw/locales/hu-HU.json:484:    "authorName": "Szerző neve",
+aplicacao/packages/excalidraw/locales/hu-HU.json:491:      "authorName": "Neved vagy felhasználóneved",
+aplicacao/packages/excalidraw/locales/hu-HU.json:511:    "content": "Köszönjük {{authorName}}. Könyvtáradat elküldtük felülvizsgálatra. Nyomon követheted az állapotot<link>itt</link>"
+aplicacao/packages/excalidraw/locales/id-ID.json:484:    "authorName": "Nama pembuat",
+aplicacao/packages/excalidraw/locales/id-ID.json:491:      "authorName": "Nama atau nama pengguna Anda",
+aplicacao/packages/excalidraw/locales/id-ID.json:511:    "content": "Terima kasih {{authorName}}. pustaka Anda telah diserahkan untuk ditinjau ulang. Anda dapat cek statusnya<link>di sini</link>"
+aplicacao/packages/excalidraw/locales/it-IT.json:484:    "authorName": "Nome dell'autore",
+aplicacao/packages/excalidraw/locales/it-IT.json:491:      "authorName": "Il tuo nome o nome utente",
+aplicacao/packages/excalidraw/locales/it-IT.json:511:    "content": "Grazie {{authorName}}. La tua libreria è stata inviata per la revisione. Puoi monitorarne lo stato<link>qui</link>"
+aplicacao/packages/excalidraw/locales/ja-JP.json:484:    "authorName": "作成者名",
+aplicacao/packages/excalidraw/locales/ja-JP.json:491:      "authorName": "お名前またはユーザー名",
+aplicacao/packages/excalidraw/locales/ja-JP.json:511:    "content": "{{authorName}} さん、ありがとうございます。あなたのライブラリはレビューのために提出されました。状況を追跡できます。<link>こちら</link>"
+aplicacao/packages/excalidraw/locales/kaa.json:484:    "authorName": "Avtor atı",
+aplicacao/packages/excalidraw/locales/kaa.json:491:      "authorName": "Atıńız yamasa paydalanıwshı atı",
+aplicacao/packages/excalidraw/locales/kab-KAB.json:484:    "authorName": "Isem n umeskar",
+aplicacao/packages/excalidraw/locales/kab-KAB.json:491:      "authorName": "Isem neɣ isem n useqdac inek•inem",
+aplicacao/packages/excalidraw/locales/kab-KAB.json:511:    "content": "Tanemmirt-ik•im {{authorName}}. Tamkarḍit-inek•inem tettwazen i weselken. Tzemreḍ ad tḍefreḍ aẓayer<link>dagi</link>"
+aplicacao/packages/excalidraw/locales/kk-KZ.json:484:    "authorName": "",
+aplicacao/packages/excalidraw/locales/kk-KZ.json:491:      "authorName": "",
+aplicacao/packages/excalidraw/locales/km-KH.json:484:    "authorName": "ឈ្មោះអ្នកនិពន្ធ",
+aplicacao/packages/excalidraw/locales/km-KH.json:491:      "authorName": "ឈ្មោះរបស់អ្នក ឬឈ្មោះអ្នកប្រើប្រាស់",
+aplicacao/packages/excalidraw/locales/km-KH.json:511:    "content": "សូមអរគុណ {{authorName}}។ បណ្ណាល័យរបស់អ្នកត្រូវបានបញ្ជូនមកពិនិត្យ។ សូមចុច <link>ទីនេះ</link> ដើម្បីតាមដានស្ថានភាពនៃការដាក់ស្នើនេះ។"
+aplicacao/packages/excalidraw/locales/ko-KR.json:484:    "authorName": "저자명",
+aplicacao/packages/excalidraw/locales/ko-KR.json:491:      "authorName": "이름 또는 사용자명",
+aplicacao/packages/excalidraw/locales/ko-KR.json:511:    "content": "{{authorName}}님 감사합니다. 당신의 라이브러리가 심사를 위해 제출되었습니다. 진행 상황을<link>여기에서 확인하실 수 있습니다.</link>"
+aplicacao/packages/excalidraw/locales/ku-TR.json:484:    "authorName": "ناوی نوسەر",
+aplicacao/packages/excalidraw/locales/ku-TR.json:491:      "authorName": "ناوەکات یاخود ناوی بەکارهێنەر",
+aplicacao/packages/excalidraw/locales/ku-TR.json:511:    "content": "سوپاس {{authorName}}. کتێبخانەکەت پێشکەش کراوە بۆ پێداچوونەوە. دەتوانیت بەدواداچوون بۆ دۆخەکە بکەیت<link>لێرە</link>"
+aplicacao/packages/excalidraw/locales/lt-LT.json:484:    "authorName": "Autoriaus vardas",
+aplicacao/packages/excalidraw/locales/lt-LT.json:491:      "authorName": "Tavo vardas arba spalyvardis",
+aplicacao/packages/excalidraw/locales/lt-LT.json:511:    "content": "Ačiū {{authorName}}. Tavo biblioteka buvo pateikta peržiūrai. Gali sekti būseną<link>čia</link>"
+aplicacao/packages/excalidraw/locales/lv-LV.json:484:    "authorName": "Autora vārds",
+aplicacao/packages/excalidraw/locales/lv-LV.json:491:      "authorName": "Jūsu vārds vai lietotājvārds",
+aplicacao/packages/excalidraw/locales/lv-LV.json:511:    "content": "Paldies, {{authorName}}! Jūsu bibliotēka iesniegta izskatīšanai. Jūs varat izsekot iesnieguma statusam<link>šeit</link>"
+aplicacao/packages/excalidraw/locales/mr-IN.json:484:    "authorName": "लेखक चे नाव",
+aplicacao/packages/excalidraw/locales/mr-IN.json:491:      "authorName": "तुमचे नाव किव्हा वापरकर्तानाव",
+aplicacao/packages/excalidraw/locales/mr-IN.json:511:    "content": "धन्यवाद {{authorName}}. आपला संग्रह पुनरावलोकना साठी जमा झाला आहे. तुम्हीं स्थिति सारखी तपासू सकता<link>इकडे</link>"
+aplicacao/packages/excalidraw/locales/my-MM.json:484:    "authorName": "",
+aplicacao/packages/excalidraw/locales/my-MM.json:491:      "authorName": "",
+aplicacao/packages/excalidraw/locales/nb-NO.json:484:    "authorName": "Forfatterens navn",
+aplicacao/packages/excalidraw/locales/nb-NO.json:491:      "authorName": "Ditt navn eller brukernavn",
+aplicacao/packages/excalidraw/locales/nb-NO.json:511:    "content": "Takk {{authorName}}. Ditt bibliotek har blitt sendt inn for gjennomgang. Du kan spore statusen<link>her</link>"
+aplicacao/packages/excalidraw/locales/nl-NL.json:484:    "authorName": "Naam auteur",
+aplicacao/packages/excalidraw/locales/nl-NL.json:491:      "authorName": "Je naam of gebruikersnaam",
+aplicacao/packages/excalidraw/locales/nl-NL.json:511:    "content": "Dank je {{authorName}}. Jouw bibliotheek is ingediend voor beoordeling. Je kunt de status <link>hier bijhouden</link>"
+aplicacao/packages/excalidraw/locales/nn-NO.json:484:    "authorName": "Eigaren sitt namn",
+aplicacao/packages/excalidraw/locales/nn-NO.json:491:      "authorName": "Namnet eller brukarnamnet ditt",
+aplicacao/packages/excalidraw/locales/nn-NO.json:511:    "content": "Tusen takk {{authorName}}! Biblioteket ditt har blitt sendt inn til gjennomgang. Du kan halde styr på status<link>her</link>"
+aplicacao/packages/excalidraw/locales/oc-FR.json:484:    "authorName": "Nom de l’autor",
+aplicacao/packages/excalidraw/locales/oc-FR.json:491:      "authorName": "Vòstre nom o nom d’utilizaire",
+aplicacao/packages/excalidraw/locales/oc-FR.json:511:    "content": "Mercés {{authorName}}. Vòstre bibliotèca es estada somesa per repassa. Podètz seguir l’avançament<link>aquí</link>"
+aplicacao/packages/excalidraw/locales/pa-IN.json:484:    "authorName": "ਲੇਖਕ ਦਾ ਨਾਂ",
+aplicacao/packages/excalidraw/locales/pa-IN.json:491:      "authorName": "ਤੁਹਾਡਾ ਨਾਂ ਜਾਂ ਵਰਤੋਂਕਾਰ-ਨਾਂ",
+aplicacao/packages/excalidraw/locales/pa-IN.json:511:    "content": "ਧੰਨਵਾਦ {{authorName}} ਜੀਉ। ਤੁਹਾਡੀ ਲਾਇਬ੍ਰੇਰੀ ਨੂੰ ਸਮੀਖਿਆ ਲਈ ਭੇਜ ਦਿੱਤਾ ਗਿਆ ਹੈ। ਤੁਸੀਂ ਉਸਦੀ ਸਥਿਤੀ <link>ਇੱਥੇ</link> ਦੇਖ ਸਕਦੇ ਹੋ।"
+aplicacao/packages/excalidraw/locales/pl-PL.json:484:    "authorName": "Nazwa autora",
+aplicacao/packages/excalidraw/locales/pl-PL.json:491:      "authorName": "Twoje imię lub nazwa użytkownika",
+aplicacao/packages/excalidraw/locales/pl-PL.json:511:    "content": "Dziękujemy {{authorName}}. Twoja biblioteka została przesłana do sprawdzenia. Możesz śledzić jej stan<link>tutaj</link>"
+aplicacao/packages/excalidraw/locales/pt-BR.json:484:    "authorName": "Nome do autor",
+aplicacao/packages/excalidraw/locales/pt-BR.json:491:      "authorName": "Seu nome ou nome de usuário",
+aplicacao/packages/excalidraw/locales/pt-BR.json:511:    "content": "Obrigado {{authorName}}. Sua biblioteca foi enviada para análise. Você pode acompanhar o status <link>aqui</link>"
+aplicacao/packages/excalidraw/locales/pt-PT.json:484:    "authorName": "Nome do autor",
+aplicacao/packages/excalidraw/locales/pt-PT.json:491:      "authorName": "Introduza o seu nome ou nome de utilizador",
+aplicacao/packages/excalidraw/locales/pt-PT.json:511:    "content": "Obrigado {{authorName}}. A sua biblioteca foi enviada para análise. Pode acompanhar o estado dela <link>aqui</link>"
+aplicacao/packages/excalidraw/locales/ro-RO.json:484:    "authorName": "Numele autorului",
+aplicacao/packages/excalidraw/locales/ro-RO.json:491:      "authorName": "Numele sau numele tău de utilizator",
+aplicacao/packages/excalidraw/locales/ro-RO.json:511:    "content": "Îți mulțumim, {{authorName}}. Biblioteca a fost trimisă spre revizuire. Poți urmări starea <link>aici</link>"
+aplicacao/packages/excalidraw/locales/ru-RU.json:484:    "authorName": "Имя автора",
+aplicacao/packages/excalidraw/locales/ru-RU.json:491:      "authorName": "Ваше имя или имя пользователя",
+aplicacao/packages/excalidraw/locales/ru-RU.json:511:    "content": "Благодарим вас, {{authorName}}. Ваша библиотека была отправлена на проверку. Вы можете отслеживать статус <link>здесь</link>"
+aplicacao/packages/excalidraw/locales/si-LK.json:484:    "authorName": "කතුවරයාගේ නම",
+aplicacao/packages/excalidraw/locales/si-LK.json:491:      "authorName": "කතුවරයාගේ නම ඇතුලත් කරන්න",
+aplicacao/packages/excalidraw/locales/sk-SK.json:484:    "authorName": "Meno autora",
+aplicacao/packages/excalidraw/locales/sk-SK.json:491:      "authorName": "Vaše meno alebo užívateľské meno",
+aplicacao/packages/excalidraw/locales/sk-SK.json:511:    "content": "Ďakujeme vám {{authorName}}. Vaša knižnica bola uverejnená na posúdenie. Stav môžete skontrolovať<link>tu</link>"
+aplicacao/packages/excalidraw/locales/sl-SI.json:484:    "authorName": "Ime avtorja",
+aplicacao/packages/excalidraw/locales/sl-SI.json:491:      "authorName": "Vaše ime ali uporabniško ime",
+aplicacao/packages/excalidraw/locales/sl-SI.json:511:    "content": "{{authorName}}, hvala. Vaša knjižnica je bila poslana v pregled. Stanje lahko spremljate<link>tukaj</link>"
+aplicacao/packages/excalidraw/locales/sv-SE.json:484:    "authorName": "Upphovsmannens namn",
+aplicacao/packages/excalidraw/locales/sv-SE.json:491:      "authorName": "Ditt namn eller användarnamn",
+aplicacao/packages/excalidraw/locales/sv-SE.json:511:    "content": "Tack {{authorName}}. Ditt bibliotek har skickats för granskning. Du kan följa status<link>här</link>"
+aplicacao/packages/excalidraw/locales/ta-IN.json:484:    "authorName": "ஆசிரியர் பெயர்",
+aplicacao/packages/excalidraw/locales/ta-IN.json:491:      "authorName": "உம் பெயர் அ பயனர்பெயர்",
+aplicacao/packages/excalidraw/locales/ta-IN.json:511:    "content": "நன்றி {{authorName}}. உமது நூலகம் மதிப்பாய்விற்காக சமர்ப்பிக்கப்பட்டது. நிலையை நீங்கள் தடமறியலாம்<link>இங்கே</link>"
+aplicacao/packages/excalidraw/locales/th-TH.json:484:    "authorName": "ชื่อเจ้าของ",
+aplicacao/packages/excalidraw/locales/th-TH.json:491:      "authorName": "",
+aplicacao/packages/excalidraw/locales/tr-TR.json:484:    "authorName": "Yazar adı",
+aplicacao/packages/excalidraw/locales/tr-TR.json:491:      "authorName": "Adınız ya da kullanıcı adınız",
+aplicacao/packages/excalidraw/locales/tr-TR.json:511:    "content": "Teşekkürler {{authorName}}. Kütüphaneniz gözden geçirme için alındı. Durumu takip edebilirsiniz <link>burada</link>"
+aplicacao/packages/excalidraw/locales/uk-UA.json:484:    "authorName": "Ім'я автора",
+aplicacao/packages/excalidraw/locales/uk-UA.json:491:      "authorName": "Ваше ім'я або ім'я користувача",
+aplicacao/packages/excalidraw/locales/uk-UA.json:511:    "content": "Дякуємо, {{authorName}}. Ваша бібліотека була відправлена для розгляду. Ви можете відстежувати статус<link>тут</link>"
+aplicacao/packages/excalidraw/locales/uz-UZ.json:484:    "authorName": "",
+aplicacao/packages/excalidraw/locales/uz-UZ.json:491:      "authorName": "",
+aplicacao/packages/excalidraw/locales/vi-VN.json:484:    "authorName": "Tên tác giả",
+aplicacao/packages/excalidraw/locales/vi-VN.json:491:      "authorName": "Tên của bạn hoặc tên tài khoản",
+aplicacao/packages/excalidraw/locales/vi-VN.json:511:    "content": "Cảm ơn {{authorName}}! Thư viện của bạn đã được gửi để duyệt. Bạn có thể xem tiến trình <link>tại đây</link>."
+aplicacao/packages/excalidraw/locales/zh-CN.json:484:    "authorName": "作者名",
+aplicacao/packages/excalidraw/locales/zh-CN.json:491:      "authorName": "您的名字或用户名",
+aplicacao/packages/excalidraw/locales/zh-CN.json:511:    "content": "谢谢你 {{authorName}}。您的素材库已被提交审核。请点击<link>此处</link>跟进此次提交的状态"
+aplicacao/packages/excalidraw/locales/zh-HK.json:484:    "authorName": "",
+aplicacao/packages/excalidraw/locales/zh-HK.json:491:      "authorName": "",
+aplicacao/packages/excalidraw/locales/zh-TW.json:484:    "authorName": "作者名稱",
+aplicacao/packages/excalidraw/locales/zh-TW.json:491:      "authorName": "您的名稱或帳號",
+aplicacao/packages/excalidraw/locales/zh-TW.json:511:    "content": "感謝 {{authorName}} 。您的資料庫已送出待審查。您可查看目前狀態<link>在此</link>"
+aplicacao/packages/excalidraw/scene/types.ts:1:import type { UserIdleState, EditorInterface } from "@excalidraw/common";
+aplicacao/packages/excalidraw/scene/types.ts:94:  remotePointerUserStates: Map<SocketId, UserIdleState>;
+aplicacao/packages/excalidraw/subset/harfbuzz/harfbuzz-bindings.ts:25:  * Neither the name of the author nor the names of contributors may
+aplicacao/packages/excalidraw/subset/harfbuzz/harfbuzz-wasm.ts:10:* @author Ebrahim Byagowi <ebrahim@gnu.org> 
+aplicacao/packages/excalidraw/subset/harfbuzz/harfbuzz-wasm.ts:32:AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+aplicacao/packages/excalidraw/subset/woff2/woff2-bindings.ts:28:AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+aplicacao/packages/excalidraw/subset/woff2/woff2-wasm.ts:10:* @author [{"name":"kekee000","email":"kekee000@gmail.com"},{"name":"junmer","email":"junmer@foxmail.com"}] 
+aplicacao/packages/excalidraw/subset/woff2/woff2-wasm.ts:31:AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+aplicacao/packages/excalidraw/tests/created.test.tsx:17:describe("element creation timestamps", () => {
+aplicacao/packages/excalidraw/tests/created.test.tsx:136:  it("preserves the remote creation timestamp and revision during reconciliation", () => {
+aplicacao/packages/excalidraw/tests/data/restore.test.ts:1616:describe("restoreLibraryItems creation timestamps", () => {
+aplicacao/packages/excalidraw/tests/helpers/api.ts:12:  getUpdatedTimestamp,
+aplicacao/packages/excalidraw/tests/helpers/api.ts:310:      created: rest.created === undefined ? getUpdatedTimestamp() : rest.created,
+aplicacao/packages/excalidraw/tests/interactivity.test.tsx:651:    // ui-only mode must not force view mode / non-interactivity
+aplicacao/packages/excalidraw/types.ts:3:  UserIdleState,
+aplicacao/packages/excalidraw/types.ts:84:  userState?: UserIdleState;
+aplicacao/packages/excalidraw/types.ts:130:   * Epoch timestamp in milliseconds
+aplicacao/packages/excalidraw/types.ts:138:   * Epoch timestamp in milliseconds.
+aplicacao/packages/excalidraw/types.ts:660:  /** timestamp in epoch (ms) */
+aplicacao/packages/excalidraw/types.ts:1444:   * values, including while authoring an animation preview in edit mode.
+aplicacao/packages/excalidraw/workers.ts:35:    // by default, active & idle workers will be terminated after 1s of inactivity
+aplicacao/packages/fractional-indexing/package.json:25:  "author": "arv@rocicorp.dev",
+aplicacao/packages/laser-pointer/LICENSE:18:AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+
+Comando executado (git grep; código versionado do snapshot local):
+git grep -n -I -i -E 'audit|auditlog|activity|author|createdBy|updatedBy|userId|timestamp' -- aplicacao/excalidraw-app aplicacao/packages
+Exit code: 0

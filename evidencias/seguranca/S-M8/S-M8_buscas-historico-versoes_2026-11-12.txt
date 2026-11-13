@@ -1,0 +1,38 @@
+aplicacao/packages/excalidraw/fonts/ComicShanns/ComicShanns-Regular.sfd:14:sfntRevision: 0x00000000
+aplicacao/packages/excalidraw/locales/it-IT.json:494:      "githubHandle": "Handle di GitHub (opzionale), così che tu possa modificare la libreria una volta inviata per la revisione",
+aplicacao/packages/excalidraw/locales/it-IT.json:511:    "content": "Grazie {{authorName}}. La tua libreria è stata inviata per la revisione. Puoi monitorarne lo stato<link>qui</link>"
+aplicacao/packages/excalidraw/tests/created.test.tsx:115:    // an element update, so a repair constructs a new element revision.
+aplicacao/packages/excalidraw/tests/created.test.tsx:136:  it("preserves the remote creation timestamp and revision during reconciliation", () => {
+
+Comando executado:
+git grep -n -I -i -E 'version history|versionHistory|revision|revisions|restore version|audit' -- aplicacao/excalidraw-app aplicacao/packages
+Exit code: 0
+
+Comandos complementares para distinguir undo/redo e broadcast:
+git grep -n -I -i -E 'undo|redo' -- aplicacao/excalidraw-app/tests/collab.test.tsx
+git grep -n -I -E 'SERVER_VOLATILE|SERVER|SCENE_INIT|SCENE_UPDATE' -- aplicacao/excalidraw-app/app_constants.ts
+aplicacao/excalidraw-app/tests/collab.test.tsx:3:  createRedoAction,
+aplicacao/excalidraw-app/tests/collab.test.tsx:4:  createUndoAction,
+aplicacao/excalidraw-app/tests/collab.test.tsx:145:  it("should allow to undo / redo even on force-deleted elements", async () => {
+aplicacao/excalidraw-app/tests/collab.test.tsx:178:      expect(API.getUndoStack().length).toBe(2);
+aplicacao/excalidraw-app/tests/collab.test.tsx:193:      expect(API.getUndoStack().length).toBe(2);
+aplicacao/excalidraw-app/tests/collab.test.tsx:202:    const undoAction = createUndoAction(h.history);
+aplicacao/excalidraw-app/tests/collab.test.tsx:203:    act(() => h.app.actionManager.executeAction(undoAction));
+aplicacao/excalidraw-app/tests/collab.test.tsx:205:    // with explicit undo (as addition) we expect our item to be restored from the snapshot!
+aplicacao/excalidraw-app/tests/collab.test.tsx:207:      expect(API.getUndoStack().length).toBe(1);
+aplicacao/excalidraw-app/tests/collab.test.tsx:208:      expect(API.getRedoStack().length).toBe(1);
+aplicacao/excalidraw-app/tests/collab.test.tsx:226:      expect(API.getUndoStack().length).toBe(1);
+aplicacao/excalidraw-app/tests/collab.test.tsx:227:      expect(API.getRedoStack().length).toBe(1);
+aplicacao/excalidraw-app/tests/collab.test.tsx:235:    const redoAction = createRedoAction(h.history);
+aplicacao/excalidraw-app/tests/collab.test.tsx:236:    act(() => h.app.actionManager.executeAction(redoAction));
+aplicacao/excalidraw-app/tests/collab.test.tsx:238:    // with explicit redo (as removal) we again restore the element from the snapshot!
+aplicacao/excalidraw-app/tests/collab.test.tsx:240:      expect(API.getUndoStack().length).toBe(2);
+aplicacao/excalidraw-app/tests/collab.test.tsx:241:      expect(API.getRedoStack().length).toBe(0);
+aplicacao/excalidraw-app/app_constants.ts:3:export const INITIAL_SCENE_UPDATE_TIMEOUT = 5000;
+aplicacao/excalidraw-app/app_constants.ts:17:  SERVER_VOLATILE: "server-volatile-broadcast",
+aplicacao/excalidraw-app/app_constants.ts:18:  SERVER: "server-broadcast",
+aplicacao/excalidraw-app/app_constants.ts:25:  INIT = "SCENE_INIT",
+aplicacao/excalidraw-app/app_constants.ts:26:  UPDATE = "SCENE_UPDATE",
+
+Snapshot local da documentação:
+da62b70ff0237079ab774dd1ab3e0e16edd77fe0
