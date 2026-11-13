@@ -53,19 +53,19 @@ aparecer entre aspas e com a referência correspondente.
 
 * **Ferramenta:** Claude Code, com o modelo Claude Opus 5.5 (Anthropic), na
   extensão do VS Code.
-* **Tarefa:** atualização do artigo da Entrega 1 a partir desta GitPage:
-  redação da seção de gestão com PSM/CID, revisão da metodologia,
-  encurtamento dos objetivos de medição, ajuste da diagramação e do limite
-  de páginas, levantamento das medidas de gestão no GitHub (pull requests,
-  issues e commits) e busca e leitura do estudo de caso de referência.
-  Revisão das referências do artigo e desta GitPage.
-* **Onde:** artigo (`main.tex`), [referências](referencias.md),
-  [objetivos de medição](fase_planejamento/objetivos-qualidade.md) (referência da
-  ISO/IEC 25040) e esta página.
-* **Quando:** 26 out. 2026.
-* **Como conferiu e ajustou:** comparei cada trecho do artigo com a página
-  correspondente da GitPage, li o estudo de caso antes de citá-lo e decidi
-  com a equipe as ações de gestão registradas no artigo.
+* **Tarefa:** apoio na formatação e nos diagramas das páginas da GitPage;
+  na atualização do artigo da Entrega 1 a partir da GitPage (seção de gestão
+  com PSM/CID, diagramação e referências); e na coleta das métricas de
+  flexibilidade F-M7 e F-M4, incluindo o script de teste por toque da F-M4.
+* **Onde:** [modelo de qualidade](fase_planejamento/modelo-qualidade.md),
+  [ODS](fase_planejamento/ods.md), [métricas de gestão](gestao/metricas.md),
+  [referências](referencias.md), artigo (`main.tex`), evidências da F-M7 e da
+  F-M4 e `scripts/fm4_toque.cjs`.
+* **Quando:** de 18 out. a 13 nov. 2026.
+* **Como conferiu e ajustou:** conferi o conteúdo das páginas e do artigo com
+  o material da equipe e decidi com o grupo as ações de gestão. Nas métricas,
+  defini o escopo de cada coleta, conferi os resultados nos relatórios e
+  prints e decidi o que entra na evidência.
 
 ### João Pedro Lopes
 
