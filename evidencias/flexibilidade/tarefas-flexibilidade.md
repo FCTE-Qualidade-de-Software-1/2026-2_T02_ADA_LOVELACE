@@ -14,7 +14,7 @@ Para cada métrica, copiar `evidencias/flexibilidade/template.md` para `F-Mxx_de
 | F-M6 | Coletada: 3 de 4 resoluções (360 px perde os botões de zoom e trava), nota 1 | `F-M6_resolucoes.md` |
 | F-M11 | Coletada: 100% nos três formatos, nota 2 | `F-M11_fidelidade-migracao.md` |
 | F-M1, M2, M3 | Testes em vários navegadores e sistemas | — |
-| F-M4 | Teste em celular ou tablet | — |
+| F-M4 | Coletada por emulação: 25 de 25 funções por toque no celular e no tablet (100%), nota 2 | `F-M4_cobertura-mobile.md` |
 | F-M7 | Comparação de funções com draw.io ou Miro | — |
 | F-M8, M9 | Exigem participantes: adiar | — |
 
@@ -32,7 +32,7 @@ Para cada métrica, copiar `evidencias/flexibilidade/template.md` para `F-Mxx_de
 ## Vários ambientes (O3)
 
 - [ ] **F-M1, F-M2 e F-M3:** repetir as mesmas tarefas em Chrome, Firefox, Edge e Safari e em Windows, Linux, macOS, Android e iOS; anotar os defeitos de renderização, fontes e atalhos (F-M3). Safari, macOS e iOS precisam de quem tenha Mac ou iPhone.
-- [ ] **F-M4:** num celular ou tablet, fazer por toque as funções da lista de desktop e contar as que funcionam.
+- [x] **F-M4:** feito com `scripts/fm4_toque.cjs`, emulando um Pixel 7 e um iPad no Chrome. As 25 funções feitas com mouse no desktop também funcionam só com toque; zoom e trava, sem botão no celular, passam pela pinça e pelo menu de preferências.
 
 ## Comparação com outra ferramenta (O4)
 
