@@ -10,9 +10,9 @@ Para cada métrica, copiar `evidencias/flexibilidade/template.md` para `F-Mxx_de
 | --- | --- | --- |
 | F-M10 | Coletada: 60%, nota 1; falta decidir o denominador com o grupo | `F-M10_formatos-exportacao.md` |
 | F-M12 | Coletada: 4 formatos, nota 2 | `F-M12_formatos-importacao.md` |
-| F-M11 | Teste de exportar e reimportar no app local | — |
 | F-M5 | Coletada: 16 de 23 funções sem rede (69,6%), nota 1 | `F-M5_cobertura-offline.md` |
 | F-M6 | Coletada: 3 de 4 resoluções (360 px perde os botões de zoom e trava), nota 1 | `F-M6_resolucoes.md` |
+| F-M11 | Coletada: 100% nos três formatos, nota 2 | `F-M11_fidelidade-migracao.md` |
 | F-M1, M2, M3 | Testes em vários navegadores e sistemas | — |
 | F-M4 | Teste em celular ou tablet | — |
 | F-M7 | Comparação de funções com draw.io ou Miro | — |
@@ -25,9 +25,9 @@ Para cada métrica, copiar `evidencias/flexibilidade/template.md` para `F-Mxx_de
 
 ## Tarefas no navegador (instância local, `yarn start` em `aplicacao/`)
 
-- [ ] **F-M11:** desenhar uma cena com formas, textos, setas ligadas e cores; salvar em `.excalidraw`, exportar PNG e SVG com "incorporar cena", reabrir cada arquivo e contar os elementos preservados.
 - [x] **F-M6:** feito com `scripts/fm6_resolucoes.cjs`. Nada fica cortado; em 360 px somem os botões de zoom e de trava de ferramenta, mas as funções continuam pelo teclado (3 de 4).
 - [x] **F-M5:** feito com `scripts/fm5_teste_offline.cjs` no build de produção. Sem rede, 16 de 23 funções funcionam; falham SVG, idioma, Mermaid e as quatro que dependem de servidor.
+- [x] **F-M11:** feito. Cena de 12 elementos salva em `.excalidraw` e exportada em PNG e SVG com "incorporar cena"; os três arquivos reabertos preservaram todos os elementos.
 
 ## Vários ambientes (O3)
 

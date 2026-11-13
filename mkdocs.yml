@@ -66,6 +66,7 @@ nav:
       - Resultados: analise/resultados.md
   - Fase de Aplicação:
       - Visão geral: fase_aplicacao/index.md
+      - Plano de avaliação: fase_aplicacao/plano-avaliacao.md
       - Segurança: fase_aplicacao/seguranca.md
       - Flexibilidade: fase_aplicacao/flexibilidade.md
       - Capacidade de interação: fase_aplicacao/capacidade-interacao.md

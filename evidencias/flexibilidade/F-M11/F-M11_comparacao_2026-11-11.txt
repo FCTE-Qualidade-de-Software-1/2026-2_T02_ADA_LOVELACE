@@ -1,0 +1,103 @@
+# 2026-11-11, na pasta evidencias/flexibilidade/F-M11
+
+$ python3 ../../../scripts/comparar_cenas_excalidraw.py F-M11_original_2026-11-11.excalidraw F-M11_reaberto-excalidraw_2026-11-11.excalidraw F-M11_reaberto-png_2026-11-11.excalidraw F-M11_reaberto-svg_2026-11-11.excalidraw
+Cena original: F-M11_original_2026-11-11.excalidraw (12 elementos)
+
+| Arquivo reaberto | Preservados | Total | Fidelidade |
+| --- | :-: | :-: | :-: |
+| F-M11_reaberto-excalidraw_2026-11-11.excalidraw | 12 | 12 | 100% |
+| F-M11_reaberto-png_2026-11-11.excalidraw | 12 | 12 | 100% |
+| F-M11_reaberto-svg_2026-11-11.excalidraw | 12 | 12 | 100% |
+
+F-M11_reaberto-excalidraw_2026-11-11.excalidraw
+
+| Elemento | Tipo | Situação |
+| --- | --- | --- |
+| `v-daQQ5Wgk1s2g55YGXxw` | rectangle | preservado |
+| `zr99Xv2R1QDTgAGscAQT6` | text | preservado |
+| `QIuKEYvsBfMyz1t60_kon` | ellipse | preservado |
+| `ygHRWcBXynDgC1CxbKxuG` | arrow | preservado |
+| `jqxpDqn4G49TR8k7gmlvS` | diamond | preservado |
+| `W1zUmA-X-mLq2kalCfZgZ` | text | preservado |
+| `C0S1QydvhzX5-Hpz98qWI` | arrow | preservado |
+| `W-AqYu95siEtm_PpMkDmH` | line | preservado |
+| `Y8h8s2VkEc3Nq9Jw6ONYD` | freedraw | preservado |
+| `LqSjttDrnJ9tILXbY8jck` | ellipse | preservado |
+| `J5K0GqnzIvG2OGFAsnM-s` | rectangle | preservado |
+| `e-CrrZxPEdCw-iXsZQ2k1` | ellipse | preservado |
+
+F-M11_reaberto-png_2026-11-11.excalidraw
+
+| Elemento | Tipo | Situação |
+| --- | --- | --- |
+| `v-daQQ5Wgk1s2g55YGXxw` | rectangle | preservado |
+| `zr99Xv2R1QDTgAGscAQT6` | text | preservado |
+| `QIuKEYvsBfMyz1t60_kon` | ellipse | preservado |
+| `ygHRWcBXynDgC1CxbKxuG` | arrow | preservado |
+| `jqxpDqn4G49TR8k7gmlvS` | diamond | preservado |
+| `W1zUmA-X-mLq2kalCfZgZ` | text | preservado |
+| `C0S1QydvhzX5-Hpz98qWI` | arrow | preservado |
+| `W-AqYu95siEtm_PpMkDmH` | line | preservado |
+| `Y8h8s2VkEc3Nq9Jw6ONYD` | freedraw | preservado |
+| `LqSjttDrnJ9tILXbY8jck` | ellipse | preservado |
+| `J5K0GqnzIvG2OGFAsnM-s` | rectangle | preservado |
+| `e-CrrZxPEdCw-iXsZQ2k1` | ellipse | preservado |
+
+F-M11_reaberto-svg_2026-11-11.excalidraw
+
+| Elemento | Tipo | Situação |
+| --- | --- | --- |
+| `v-daQQ5Wgk1s2g55YGXxw` | rectangle | preservado |
+| `zr99Xv2R1QDTgAGscAQT6` | text | preservado |
+| `QIuKEYvsBfMyz1t60_kon` | ellipse | preservado |
+| `ygHRWcBXynDgC1CxbKxuG` | arrow | preservado |
+| `jqxpDqn4G49TR8k7gmlvS` | diamond | preservado |
+| `W1zUmA-X-mLq2kalCfZgZ` | text | preservado |
+| `C0S1QydvhzX5-Hpz98qWI` | arrow | preservado |
+| `W-AqYu95siEtm_PpMkDmH` | line | preservado |
+| `Y8h8s2VkEc3Nq9Jw6ONYD` | freedraw | preservado |
+| `LqSjttDrnJ9tILXbY8jck` | ellipse | preservado |
+| `J5K0GqnzIvG2OGFAsnM-s` | rectangle | preservado |
+| `e-CrrZxPEdCw-iXsZQ2k1` | ellipse | preservado |
+
+$ python3 ../../../scripts/comparar_cenas_excalidraw.py F-M11_original_2026-11-11.excalidraw F-M11_exportado_2026-11-11.excalidraw.png F-M11_exportado_2026-11-11.excalidraw.svg
+Cena original: F-M11_original_2026-11-11.excalidraw (12 elementos)
+
+| Arquivo reaberto | Preservados | Total | Fidelidade |
+| --- | :-: | :-: | :-: |
+| F-M11_exportado_2026-11-11.excalidraw.png | 12 | 12 | 100% |
+| F-M11_exportado_2026-11-11.excalidraw.svg | 12 | 12 | 100% |
+
+F-M11_exportado_2026-11-11.excalidraw.png
+
+| Elemento | Tipo | Situação |
+| --- | --- | --- |
+| `v-daQQ5Wgk1s2g55YGXxw` | rectangle | preservado |
+| `zr99Xv2R1QDTgAGscAQT6` | text | preservado |
+| `QIuKEYvsBfMyz1t60_kon` | ellipse | preservado |
+| `ygHRWcBXynDgC1CxbKxuG` | arrow | preservado |
+| `jqxpDqn4G49TR8k7gmlvS` | diamond | preservado |
+| `W1zUmA-X-mLq2kalCfZgZ` | text | preservado |
+| `C0S1QydvhzX5-Hpz98qWI` | arrow | preservado |
+| `W-AqYu95siEtm_PpMkDmH` | line | preservado |
+| `Y8h8s2VkEc3Nq9Jw6ONYD` | freedraw | preservado |
+| `LqSjttDrnJ9tILXbY8jck` | ellipse | preservado |
+| `J5K0GqnzIvG2OGFAsnM-s` | rectangle | preservado |
+| `e-CrrZxPEdCw-iXsZQ2k1` | ellipse | preservado |
+
+F-M11_exportado_2026-11-11.excalidraw.svg
+
+| Elemento | Tipo | Situação |
+| --- | --- | --- |
+| `v-daQQ5Wgk1s2g55YGXxw` | rectangle | preservado |
+| `zr99Xv2R1QDTgAGscAQT6` | text | preservado |
+| `QIuKEYvsBfMyz1t60_kon` | ellipse | preservado |
+| `ygHRWcBXynDgC1CxbKxuG` | arrow | preservado |
+| `jqxpDqn4G49TR8k7gmlvS` | diamond | preservado |
+| `W1zUmA-X-mLq2kalCfZgZ` | text | preservado |
+| `C0S1QydvhzX5-Hpz98qWI` | arrow | preservado |
+| `W-AqYu95siEtm_PpMkDmH` | line | preservado |
+| `Y8h8s2VkEc3Nq9Jw6ONYD` | freedraw | preservado |
+| `LqSjttDrnJ9tILXbY8jck` | ellipse | preservado |
+| `J5K0GqnzIvG2OGFAsnM-s` | rectangle | preservado |
+| `e-CrrZxPEdCw-iXsZQ2k1` | ellipse | preservado |
