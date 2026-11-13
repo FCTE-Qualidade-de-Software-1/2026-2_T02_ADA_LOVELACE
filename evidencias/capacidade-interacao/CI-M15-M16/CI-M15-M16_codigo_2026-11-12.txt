@@ -1,0 +1,166 @@
+Excalidraw oficial e7b534668a60add7f725531f3c9abf32508c7b4e; extratos de apoio, nao substituem a execucao.
+
+packages/excalidraw/components/main-menu/DefaultItems.tsx
+212:
+213: export const ClearCanvas = () => {
+214:   const { t } = useI18n();
+215:
+216:   const setActiveConfirmDialog = useSetAtom(activeConfirmDialogAtom);
+217:   const actionManager = useExcalidrawActionManager();
+218:
+219:   if (!actionManager.isActionEnabled(actionClearCanvas)) {
+220:     return null;
+221:   }
+222:
+223:   return (
+224:     <DropdownMenuItem
+225:       icon={TrashIcon}
+226:       onSelect={() => setActiveConfirmDialog("clearCanvas")}
+227:       data-testid="clear-canvas-button"
+228:       aria-label={t("buttons.clearReset")}
+229:     >
+230:       {t("buttons.clearReset")}
+231:     </DropdownMenuItem>
+232:   );
+233: };
+234: ClearCanvas.displayName = "ClearCanvas";
+
+packages/excalidraw/components/ActiveConfirmDialog.tsx
+20:   if (activeConfirmDialog === "clearCanvas") {
+21:     return (
+22:       <ConfirmDialog
+23:         onConfirm={() => {
+24:           actionManager.executeAction(actionClearCanvas);
+25:           setActiveConfirmDialog(null);
+26:         }}
+27:         onCancel={() => setActiveConfirmDialog(null)}
+28:         title={t("clearCanvasDialog.title")}
+29:       >
+30:         <p className="clear-canvas__content"> {t("alerts.clearReset")}</p>
+31:       </ConfirmDialog>
+32:     );
+33:   }
+34:
+
+packages/excalidraw/components/LibraryMenuHeaderContent.tsx
+62:   const renderRemoveLibAlert = () => {
+63:     const content = selectedItems.length
+64:       ? t("alerts.removeItemsFromsLibrary", { count: selectedItems.length })
+65:       : t("alerts.resetLibrary");
+66:     const title = selectedItems.length
+67:       ? t("confirmDialog.removeItemsFromLib")
+68:       : t("confirmDialog.resetLibrary");
+69:     return (
+70:       <ConfirmDialog
+71:         onConfirm={() => {
+72:           if (selectedItems.length) {
+73:             onRemoveFromLibrary();
+74:           } else {
+75:             resetLibrary();
+76:           }
+77:           setShowRemoveLibAlert(false);
+78:         }}
+79:         onCancel={() => {
+80:           setShowRemoveLibAlert(false);
+81:         }}
+82:         title={title}
+83:       >
+84:         <p>{content}</p>
+85:       </ConfirmDialog>
+86:     );
+87:   };
+88:
+89:   const [showRemoveLibAlert, setShowRemoveLibAlert] = useState(false);
+90:
+
+packages/excalidraw/actions/actionExport.tsx
+394:   name: "loadScene",
+395:   label: "buttons.load",
+396:   trackEvent: { category: "export" },
+397:   predicate: (elements, appState, props, app) => {
+398:     return (
+399:       !!app.props.UIOptions.canvasActions.loadScene && !appState.viewModeEnabled
+400:     );
+401:   },
+402:   perform: async (elements, appState, _, app) => {
+403:     try {
+404:       const {
+405:         elements: loadedElements,
+406:         appState: loadedAppState,
+407:         files,
+408:       } = await loadFromJSON(appState, elements);
+409:       return {
+410:         elements: loadedElements,
+411:         appState: loadedAppState,
+412:         files,
+413:         captureUpdate: CaptureUpdateAction.IMMEDIATELY,
+414:       };
+415:     } catch (error: any) {
+416:       if (error?.name === "AbortError") {
+417:         console.warn(error);
+418:         return false;
+419:       }
+420:       return {
+421:         elements,
+422:         appState: { ...appState, errorMessage: error.message },
+423:         files: app.files,
+
+excalidraw-app/app_constants.ts
+1: // time constants (ms)
+2: export const SAVE_TO_LOCAL_STORAGE_TIMEOUT = 300;
+3: export const INITIAL_SCENE_UPDATE_TIMEOUT = 5000;
+4: export const FILE_UPLOAD_TIMEOUT = 300;
+
+excalidraw-app/data/LocalData.ts
+73: const saveDataStateToLocalStorage = (
+74:   elements: readonly ExcalidrawElement[],
+75:   appState: AppState,
+76: ) => {
+77:   const localStorageQuotaExceeded = appJotaiStore.get(
+78:     localStorageQuotaExceededAtom,
+79:   );
+80:   try {
+81:     const _appState = clearAppStateForLocalStorage(appState);
+82:
+83:     if (
+84:       _appState.openSidebar?.name === DEFAULT_SIDEBAR.name &&
+85:       _appState.openSidebar.tab === CANVAS_SEARCH_TAB
+86:     ) {
+87:       _appState.openSidebar = null;
+88:     }
+89:
+90:     localStorage.setItem(
+91:       STORAGE_KEYS.LOCAL_STORAGE_ELEMENTS,
+92:       JSON.stringify(getNonDeletedElements(elements)),
+93:     );
+94:     localStorage.setItem(
+95:       STORAGE_KEYS.LOCAL_STORAGE_APP_STATE,
+96:       JSON.stringify(_appState),
+97:     );
+98:     updateBrowserStateVersion(STORAGE_KEYS.VERSION_DATA_STATE);
+99:     if (localStorageQuotaExceeded) {
+100:       appJotaiStore.set(localStorageQuotaExceededAtom, false);
+101:     }
+102:   } catch (error: any) {
+103:     // Unable to access window.localStorage
+104:     console.error(error);
+
+excalidraw-app/data/LocalData.ts
+124: export class LocalData {
+125:   private static _save = debounce(
+126:     async (
+127:       elements: readonly ExcalidrawElement[],
+128:       appState: AppState,
+129:       files: BinaryFiles,
+130:       onFilesSaved: () => void,
+131:     ) => {
+132:       saveDataStateToLocalStorage(elements, appState);
+133:
+134:       await this.fileStorage.saveFiles({
+135:         elements,
+136:         files,
+137:       });
+138:       onFilesSaved();
+139:     },
+140:     SAVE_TO_LOCAL_STORAGE_TIMEOUT,
+141:   );
