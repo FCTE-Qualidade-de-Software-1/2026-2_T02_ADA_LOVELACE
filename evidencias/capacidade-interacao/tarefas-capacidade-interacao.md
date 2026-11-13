@@ -14,7 +14,9 @@ Para cada métrica, copiar `evidencias/capacidade-interacao/template.md` para `C
 | CI-M10 | Coletada (rascunho, falta revisão): 100%, nota 2 | `CI-M10_cobertura-atalhos.md` |
 | CI-M12, M13, M14, M15, M16 | Testes funcionais no app local | — |
 | CI-M9 | Contagem de cliques nas 4 tarefas | — |
-| CI-M22, M23, M24, M25 | Ferramentas de acessibilidade | — |
+| CI-M22 | Coletada: 5 violações de nível A ou AA (axe-core e Lighthouse), nota 1 | `CI-M22_violacoes-wcag.md` |
+| CI-M25 | Coletada: 8 de 19 combinações com contraste ≥ 4,5:1 (42,1%), nota 0 | `CI-M25_contraste.md` |
+| CI-M23, M24 | Ferramentas de acessibilidade | — |
 | CI-M1-M6, M8, M11, M17, M19-M21 | Exigem participantes: adiar | — |
 
 
@@ -33,10 +35,10 @@ Para cada métrica, copiar `evidencias/capacidade-interacao/template.md` para `C
 
 ## Acessibilidade (O6)
 
-- [ ] **CI-M22:** rodar axe DevTools e Lighthouse na tela principal (claro e escuro); contar violações WCAG 2.2 A/AA.
+- [x] **CI-M22:** feito com `scripts/ci_m22_m25_acessibilidade.cjs` (axe-core e Lighthouse, três estados da tela principal nos dois modos): 5 violações distintas, nota 1.
 - [ ] **CI-M23:** percorrer as funções só com teclado e contar as operáveis.
 - [ ] **CI-M24:** NVDA ou VoiceOver sobre o canvas; contar elementos anunciados.
-- [ ] **CI-M25:** medir contraste das combinações principais, nos dois modos.
+- [x] **CI-M25:** feito com o mesmo script, sobre todo o texto visível da tela principal: 8 de 19 combinações atingem 4,5:1 (42,1%), nota 0; os textos de apoio em cinza claro reprovam nos dois modos.
 
 ## Adiadas (precisam de participantes e autorização)
 
