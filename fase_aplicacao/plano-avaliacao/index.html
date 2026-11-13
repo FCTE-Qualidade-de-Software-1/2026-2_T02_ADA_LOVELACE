@@ -1,0 +1,2560 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação da análise de qualidades de software do projeto Ada Lovelace">
+      
+      
+        <meta name="author" content="Equipe Ada Lovelace">
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../seguranca/">
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Plano de avaliação - Análise de Qualidades de Software</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#plano-de-avaliacao" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Análise de Qualidades de Software" class="md-header__button md-logo" aria-label="Análise de Qualidades de Software" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Análise de Qualidades de Software
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Plano de avaliação
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Mudar para o modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Mudar para o modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2026-2_T02_ADA_LOVELACE
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../metodologia/" class="md-tabs__link">
+          
+  
+  
+  Metodologia
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fase_planejamento/proposito-partes-interessadas/" class="md-tabs__link">
+          
+  
+  
+  Fase de Planejamento
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../analise/roteiro/" class="md-tabs__link">
+          
+  
+  
+  Análise
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Fase de Aplicação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../resultados/" class="md-tabs__link">
+          
+  
+  
+  Resultados
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../gestao/metricas/" class="md-tabs__link">
+          
+  
+  
+  Gestão
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../referencias/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Referências
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../uso-ia/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Uso de IA
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Análise de Qualidades de Software" class="md-nav__button md-logo" aria-label="Análise de Qualidades de Software" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Análise de Qualidades de Software
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2026-2_T02_ADA_LOVELACE
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Início
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Metodologia
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Metodologia
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metodologia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Metodologia
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../priorizacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Priorização de qualidades
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Fase de Planejamento
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Fase de Planejamento
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase_planejamento/proposito-partes-interessadas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Propósito e partes interessadas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase_planejamento/modelo-qualidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modelo de qualidade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase_planejamento/ods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ODS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase_planejamento/objetivos-qualidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Objetivos de qualidade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Análise
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Análise
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analise/roteiro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Roteiro da análise
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analise/gestao-grupo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gestão do grupo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analise/resultados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Resultados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Fase de Aplicação
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Fase de Aplicação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visão geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Plano de avaliação
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Plano de avaliação
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-versao-avaliada-e-periodo-de-coleta" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Versão avaliada e período de coleta
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-ambiente-e-recursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Ambiente e recursos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Ambiente e recursos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-onde-os-testes-sao-executados" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Onde os testes são executados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-navegadores-sistemas-dispositivos-e-resolucoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Navegadores, sistemas, dispositivos e resoluções
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-ferramentas" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Ferramentas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-metodo-de-coleta-por-metrica" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Método de coleta por métrica
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-cronograma-das-medicoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Cronograma das medições
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-consistencia-com-a-fase-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Consistência com a Fase 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-registro-das-evidencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Registro das evidências
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seguranca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Segurança
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flexibilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Flexibilidade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capacidade-interacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Capacidade de interação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Resultados
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Resultados
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resultados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visão geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Segurança
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Segurança
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resultados/seguranca/s-m1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    S-M1 · Mensagens cifradas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resultados/seguranca/s-m2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    S-M2 · Chave enviada ao servidor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resultados/seguranca/s-m9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    S-M9 · Suficiência da autenticação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resultados/seguranca/s-m13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    S-M13 · Cabeçalhos HTTP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Flexibilidade
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Flexibilidade
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resultados/flexibilidade/f-m10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    F-M10 · Formatos de exportação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resultados/flexibilidade/f-m12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    F-M12 · Formatos de importação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Capacidade de interação
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            Capacidade de interação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resultados/capacidade-interacao/ci-m18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CI-M18 · Mensagens de erro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resultados/capacidade-interacao/ci-m26/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CI-M26 · Tradução para o português
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Gestão
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Gestão
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao/metricas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Métricas de desenvolvimento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao/cronograma/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cronograma
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao/estimativa-custos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Estimativa de custos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../referencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Referências
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../uso-ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Uso de IA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-versao-avaliada-e-periodo-de-coleta" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Versão avaliada e período de coleta
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-ambiente-e-recursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Ambiente e recursos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Ambiente e recursos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-onde-os-testes-sao-executados" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Onde os testes são executados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-navegadores-sistemas-dispositivos-e-resolucoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Navegadores, sistemas, dispositivos e resoluções
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-ferramentas" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Ferramentas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-metodo-de-coleta-por-metrica" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Método de coleta por métrica
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-cronograma-das-medicoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Cronograma das medições
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-consistencia-com-a-fase-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Consistência com a Fase 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-registro-das-evidencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Registro das evidências
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/edit/master/docs/fase_aplicacao/plano-avaliacao.md" title="Editar esta página" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="plano-de-avaliacao">Plano de avaliação<a class="headerlink" href="#plano-de-avaliacao" title="Permanent link">&para;</a></h1>
+<p>Este plano descreve como cada uma das 51 métricas do
+<a href="../../analise/roteiro/">roteiro da análise</a> é obtida, com quais recursos, por
+quem e até quando. Ele não redefine métricas nem critérios: fórmulas, metas e
+faixas de pontuação continuam sendo as do roteiro, e o passo a passo detalhado
+de cada coleta fica registrado na evidência da métrica.</p>
+<h2 id="1-versao-avaliada-e-periodo-de-coleta">1. Versão avaliada e período de coleta<a class="headerlink" href="#1-versao-avaliada-e-periodo-de-coleta" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Versão:</strong> commit
+  <a href="https://github.com/excalidraw/excalidraw/commit/e7b534668a60add7f725531f3c9abf32508c7b4e"><code>e7b5346</code></a>
+  do Excalidraw, conforme a <a href="../">visão geral da Fase de Aplicação</a>. Toda
+  inspeção de código, de dependências e de configuração usa essa versão. Testes
+  feitos no excalidraw.com podem refletir uma versão posterior, e isso é
+  registrado na evidência.</li>
+<li><strong>Período:</strong> as coletas começaram em 04/11/2026 e terminam em 16/11/2026,
+  data em que o <a href="../../gestao/cronograma/">cronograma</a> prevê as medições
+  concluídas. A data de cada coleta fica na evidência da métrica.</li>
+</ul>
+<h2 id="2-ambiente-e-recursos">2. Ambiente e recursos<a class="headerlink" href="#2-ambiente-e-recursos" title="Permanent link">&para;</a></h2>
+<h3 id="21-onde-os-testes-sao-executados">2.1 Onde os testes são executados<a class="headerlink" href="#21-onde-os-testes-sao-executados" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Ambiente</th>
+<th>Uso</th>
+<th>Referência</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Instância local do Excalidraw (<code>http://localhost:3001</code>) com servidor de colaboração <code>excalidraw-room</code> (commit <code>03ff435</code>) e projeto Firebase de teste do grupo</td>
+<td>Obrigatória para os testes que adulteram dados ou exigem controle do servidor (S-M5 e S-M6, conforme a seção 5 do roteiro); usada também na S-M1, na S-M2 e em testes funcionais</td>
+<td><a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/ambiente/ambiente-local.md">Ambiente de teste e instância local</a> (#36)</td>
+</tr>
+<tr>
+<td>Build de produção local</td>
+<td>F-M5, porque o <em>service worker</em> que permite o uso offline só existe nesse build</td>
+<td>#64</td>
+</tr>
+<tr>
+<td>excalidraw.com</td>
+<td>Cabeçalhos HTTP da versão pública (S-M13) e testes que não alteram dados de terceiros</td>
+<td>Seção 5 do roteiro</td>
+</tr>
+<tr>
+<td>Ferramenta anterior (draw.io ou Miro)</td>
+<td>Comparação funcional (F-M7) e tarefas do perfil que vem de outra ferramenta (F-M8 e F-M9)</td>
+<td>#65 e #66</td>
+</tr>
+</tbody>
+</table>
+<p>Nas sessões com participantes, todos usam a mesma instância, o mesmo
+navegador, o tema claro, o canvas vazio e o <code>localStorage</code> limpo, conforme o
+protocolo de testes com participantes (#37, PR #86).</p>
+<h3 id="22-navegadores-sistemas-dispositivos-e-resolucoes">2.2 Navegadores, sistemas, dispositivos e resoluções<a class="headerlink" href="#22-navegadores-sistemas-dispositivos-e-resolucoes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Recurso</th>
+<th>O que é coberto</th>
+<th>Métricas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Navegadores</td>
+<td>Chrome, Firefox, Edge e Safari</td>
+<td>F-M1, F-M3</td>
+</tr>
+<tr>
+<td>Sistemas operacionais</td>
+<td>Windows, Linux, macOS, Android e iOS, os que estiverem disponíveis</td>
+<td>F-M2, F-M3</td>
+</tr>
+<tr>
+<td>Dispositivos</td>
+<td>Celular ou tablet, com toque ou caneta</td>
+<td>F-M4</td>
+</tr>
+<tr>
+<td>Resoluções</td>
+<td>360 px, 768 px, 1366 px e 2560 px</td>
+<td>F-M6</td>
+</tr>
+</tbody>
+</table>
+<p>A <a href="../../gestao/estimativa-custos/">estimativa de custos</a> prevê cinco
+configurações que cobrem esses sistemas e navegadores, sem testar todas as
+combinações. Cada evidência registra o navegador, a versão, o sistema e o
+dispositivo usados. Exemplos de ambientes já registrados: Windows 11 com
+Helium 157 (baseado no Chromium), na instância local da #36, e Linux com
+Google Chrome 157, na F-M11.</p>
+<h3 id="23-ferramentas">2.3 Ferramentas<a class="headerlink" href="#23-ferramentas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Ferramenta</th>
+<th>Uso</th>
+<th>Métricas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DevTools do navegador (Network, WS, Application)</td>
+<td>Mensagens de rede, armazenamento local e modo offline</td>
+<td>S-M1, S-M2, S-M4, F-M5</td>
+</tr>
+<tr>
+<td>Proxy (Burp ou ZAP)</td>
+<td>Alternativa ao DevTools para capturar mensagens</td>
+<td>S-M1</td>
+</tr>
+<tr>
+<td><code>npm audit</code> ou <code>yarn audit</code></td>
+<td>Vulnerabilidades nas dependências</td>
+<td>S-M11</td>
+</tr>
+<tr>
+<td>GitHub Security Advisories</td>
+<td>Advisories e tempo de correção</td>
+<td>S-M12</td>
+</tr>
+<tr>
+<td>securityheaders.com</td>
+<td>Nota dos cabeçalhos HTTP</td>
+<td>S-M13</td>
+</tr>
+<tr>
+<td><code>git grep</code> e leitura do código em <code>aplicacao/</code></td>
+<td>Inspeção de código</td>
+<td>F-M10, F-M12, CI-M7, CI-M10, CI-M18, CI-M26</td>
+</tr>
+<tr>
+<td>axe DevTools, Lighthouse ou WAVE</td>
+<td>Violações da WCAG 2.2</td>
+<td>CI-M22</td>
+</tr>
+<tr>
+<td>Medidor de contraste</td>
+<td>Razão de contraste nos modos claro e escuro</td>
+<td>CI-M25</td>
+</tr>
+<tr>
+<td>NVDA ou VoiceOver</td>
+<td>Leitor de tela sobre a interface e o canvas</td>
+<td>CI-M24</td>
+</tr>
+<tr>
+<td>Cronômetro, ficha de observação, TCLE e questionários (SUS e Likert)</td>
+<td>Sessões com participantes</td>
+<td>CI-M1 a CI-M6, CI-M8, CI-M11, CI-M17, CI-M19 a CI-M21, F-M8, F-M9</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-metodo-de-coleta-por-metrica">3. Método de coleta por métrica<a class="headerlink" href="#3-metodo-de-coleta-por-metrica" title="Permanent link">&para;</a></h2>
+<p>As métricas são coletadas de quatro formas:</p>
+<ul>
+<li><strong>Código:</strong> inspeção do código-fonte, das dependências, da documentação ou
+  de registros públicos, sem executar a aplicação.</li>
+<li><strong>Navegador:</strong> teste funcional executado por um integrante.</li>
+<li><strong>Ferramenta:</strong> resultado gerado por uma ferramenta automática ou de
+  acessibilidade.</li>
+<li><strong>Participantes:</strong> sessões com pessoas de fora da equipe, com autorização
+  prévia e registros identificados apenas por código.</li>
+</ul>
+<p>A Tabela 1 resume a instrução de cada métrica, a partir das <em>issues</em> de
+medição. Fórmula, meta e faixas de pontuação estão nas tabelas da
+<a href="../../analise/roteiro/#4-estrategia-gqm">seção 4 do roteiro</a>.</p>
+<p><em>Tabela 1. Método, responsável e issue de cada métrica. Fonte: roteiro da
+análise, issues de medição e Kanban da equipe.</em></p>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Tipo</th>
+<th>Como é coletada</th>
+<th>Responsável</th>
+<th>Issue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S-M1</td>
+<td>Navegador</td>
+<td>Verificar no DevTools (Network/WS) ou por proxy se as mensagens da sala colaborativa trafegam cifradas</td>
+<td>João Pedro Lopes</td>
+<td>#55</td>
+</tr>
+<tr>
+<td>S-M2</td>
+<td>Navegador</td>
+<td>Verificar se a chave da sala (fragmento <code>#</code> do link) aparece em alguma requisição</td>
+<td>João Pedro Lopes</td>
+<td>#55</td>
+</tr>
+<tr>
+<td>S-M3</td>
+<td>Navegador</td>
+<td>Listar os mecanismos de controle de acesso a cenas e salas (link, permissões, leitura e edição) e pontuar na escala do roteiro</td>
+<td>Renato Araújo</td>
+<td>#56</td>
+</tr>
+<tr>
+<td>S-M4</td>
+<td>Navegador</td>
+<td>Inspecionar o localStorage e o IndexedDB e registrar os dados da cena salvos sem criptografia</td>
+<td>Renato Araújo</td>
+<td>#57</td>
+</tr>
+<tr>
+<td>S-M5</td>
+<td>Navegador</td>
+<td>Na instância local, alterar mensagens ou dados cifrados da cena e verificar se a adulteração é detectada</td>
+<td>João Pedro Lopes</td>
+<td>#58</td>
+</tr>
+<tr>
+<td>S-M6</td>
+<td>Navegador</td>
+<td>Na instância local, editar o mesmo elemento ao mesmo tempo em dois navegadores e contar as inconsistências</td>
+<td>João Pedro Lopes</td>
+<td>#58</td>
+</tr>
+<tr>
+<td>S-M7</td>
+<td>Navegador</td>
+<td>Verificar se existe registro de quem fez cada ação e medir a completude da trilha</td>
+<td>Luís Cunha</td>
+<td>#59</td>
+</tr>
+<tr>
+<td>S-M8</td>
+<td>Navegador</td>
+<td>Verificar se há histórico de versões com autor, na versão gratuita e no Excalidraw+</td>
+<td>Luís Cunha</td>
+<td>#59</td>
+</tr>
+<tr>
+<td>S-M9</td>
+<td>Código</td>
+<td>Identificar o mecanismo de autenticação da colaboração e pontuar na escala do roteiro</td>
+<td>João Pedro Lopes e Renato Araújo</td>
+<td>#52</td>
+</tr>
+<tr>
+<td>S-M10</td>
+<td>Navegador</td>
+<td>Em uma sala colaborativa, testar se um participante consegue usar o nome de outro e se algo impede ou sinaliza isso</td>
+<td>Luís Cunha</td>
+<td>#60</td>
+</tr>
+<tr>
+<td>S-M11</td>
+<td>Ferramenta</td>
+<td>Rodar <code>npm audit</code> ou <code>yarn audit</code> na versão fixada e contar as vulnerabilidades por severidade</td>
+<td>Renato Araújo</td>
+<td>#61</td>
+</tr>
+<tr>
+<td>S-M12</td>
+<td>Código</td>
+<td>Levantar os advisories de segurança do Excalidraw e o tempo até a correção</td>
+<td>Renato Araújo</td>
+<td>#61</td>
+</tr>
+<tr>
+<td>S-M13</td>
+<td>Ferramenta</td>
+<td>Obter a nota dos cabeçalhos CSP, HSTS e X-Frame-Options</td>
+<td>João Pedro Lopes e Renato Araújo</td>
+<td>#53</td>
+</tr>
+<tr>
+<td>F-M1</td>
+<td>Navegador</td>
+<td>Repetir a mesma lista de tarefas no Chrome, Firefox, Edge e Safari</td>
+<td>Luís Cunha</td>
+<td>#62</td>
+</tr>
+<tr>
+<td>F-M2</td>
+<td>Navegador</td>
+<td>Repetir a mesma lista em Windows, Linux, macOS, Android e iOS</td>
+<td>Luís Cunha</td>
+<td>#62</td>
+</tr>
+<tr>
+<td>F-M3</td>
+<td>Navegador</td>
+<td>Anotar defeitos específicos de cada ambiente (renderização, fontes e atalhos)</td>
+<td>Luís Cunha</td>
+<td>#62</td>
+</tr>
+<tr>
+<td>F-M4</td>
+<td>Navegador</td>
+<td>Num celular ou tablet, fazer por toque as funções da lista de desktop e contar as que funcionam</td>
+<td>Giovanna Felipe</td>
+<td>#63</td>
+</tr>
+<tr>
+<td>F-M5</td>
+<td>Navegador</td>
+<td>No build de produção, carregar com rede, ativar o modo offline no DevTools e testar uma lista fixa de funções</td>
+<td>André Henrique</td>
+<td>#64</td>
+</tr>
+<tr>
+<td>F-M6</td>
+<td>Navegador</td>
+<td>Abrir em 360, 768, 1366 e 2560 px e registrar com print se algum controle some ou fica cortado</td>
+<td>André Henrique</td>
+<td>#64</td>
+</tr>
+<tr>
+<td>F-M7</td>
+<td>Código</td>
+<td>Definir a lista de funções da ferramenta de referência (draw.io ou Miro) e marcar quais existem no Excalidraw</td>
+<td>Giovanna Felipe</td>
+<td>#65</td>
+</tr>
+<tr>
+<td>F-M8</td>
+<td>Participantes</td>
+<td>Cronometrar a mesma tarefa no Excalidraw e na ferramenta anterior e calcular a razão</td>
+<td>André Henrique</td>
+<td>#66</td>
+</tr>
+<tr>
+<td>F-M9</td>
+<td>Participantes</td>
+<td>Registrar tarefas concluídas ÷ tarefas propostas por participante vindo de outra ferramenta</td>
+<td>André Henrique</td>
+<td>#66</td>
+</tr>
+<tr>
+<td>F-M10</td>
+<td>Código</td>
+<td>Levantar os formatos de exportação pela interface e comparar com os formatos relevantes considerados</td>
+<td>André Henrique</td>
+<td>PR #54</td>
+</tr>
+<tr>
+<td>F-M11</td>
+<td>Navegador</td>
+<td>Salvar uma cena em <code>.excalidraw</code> e exportar em PNG e SVG com a cena incorporada, reabrir cada arquivo e contar os elementos preservados</td>
+<td>André Henrique</td>
+<td>#67</td>
+</tr>
+<tr>
+<td>F-M12</td>
+<td>Código</td>
+<td>Levantar os formatos aceitos ao abrir, importar biblioteca, inserir imagem e colar Mermaid</td>
+<td>André Henrique</td>
+<td>PR #54</td>
+</tr>
+<tr>
+<td>CI-M1</td>
+<td>Participantes</td>
+<td>Segundos até o participante identificar o propósito da ferramenta na tela inicial</td>
+<td>Zayra Moraes</td>
+<td>#75</td>
+</tr>
+<tr>
+<td>CI-M2</td>
+<td>Participantes</td>
+<td>Participantes que descrevem corretamente a ferramenta após 1 minuto de uso</td>
+<td>Zayra Moraes</td>
+<td>#75</td>
+</tr>
+<tr>
+<td>CI-M3</td>
+<td>Participantes</td>
+<td>Ícones da barra identificados sem tooltip</td>
+<td>Zayra Moraes</td>
+<td>#75</td>
+</tr>
+<tr>
+<td>CI-M4</td>
+<td>Participantes</td>
+<td>Minutos para desenhar um retângulo, ligá-lo com uma seta a uma elipse e rotulá-los, sem ajuda</td>
+<td>Zayra Moraes</td>
+<td>#75</td>
+</tr>
+<tr>
+<td>CI-M5</td>
+<td>Participantes</td>
+<td>Tarefas básicas concluídas sem ajuda externa ÷ tarefas propostas</td>
+<td>Zayra Moraes</td>
+<td>#75</td>
+</tr>
+<tr>
+<td>CI-M6</td>
+<td>Participantes</td>
+<td>Consultas à ajuda por participante durante as tarefas</td>
+<td>Zayra Moraes</td>
+<td>#75</td>
+</tr>
+<tr>
+<td>CI-M7</td>
+<td>Código</td>
+<td>Funções documentadas em <code>HelpDialog.tsx</code> ÷ funções disponíveis</td>
+<td>Zayra Moraes</td>
+<td>#68</td>
+</tr>
+<tr>
+<td>CI-M8</td>
+<td>Participantes</td>
+<td>Tempo da mesma tarefa na 1ª sessão ÷ tempo na 3ª sessão</td>
+<td>Zayra Moraes</td>
+<td>#75</td>
+</tr>
+<tr>
+<td>CI-M9</td>
+<td>Navegador</td>
+<td>Contar cliques para criar forma, mudar cor, agrupar e exportar em PNG</td>
+<td>Luís Cunha</td>
+<td>#69</td>
+</tr>
+<tr>
+<td>CI-M10</td>
+<td>Código</td>
+<td>Definir a lista de funções frequentes e marcar quais têm atalho</td>
+<td>Zayra Moraes</td>
+<td>#68</td>
+</tr>
+<tr>
+<td>CI-M11</td>
+<td>Participantes</td>
+<td>Tempo médio de experientes ÷ tempo médio de iniciantes</td>
+<td>Zayra Moraes</td>
+<td>#75</td>
+</tr>
+<tr>
+<td>CI-M12</td>
+<td>Navegador</td>
+<td>Registrar inconsistências de seleção, snapping e edição de texto em formas</td>
+<td>Luís Cunha</td>
+<td>#69</td>
+</tr>
+<tr>
+<td>CI-M13</td>
+<td>Navegador</td>
+<td>Listar ações (selecionar, desenhar, mover, redimensionar, cor, texto) e se cada uma dá retorno visual imediato</td>
+<td>Renato Araújo</td>
+<td>#70</td>
+</tr>
+<tr>
+<td>CI-M14</td>
+<td>Navegador</td>
+<td>Repetir as mesmas ações, conferir desfazer e refazer e registrar as não revertíveis</td>
+<td>Renato Araújo</td>
+<td>#70</td>
+</tr>
+<tr>
+<td>CI-M15</td>
+<td>Navegador</td>
+<td>Listar ações destrutivas e se pedem confirmação (limpar canvas, abrir arquivo sobre a cena atual, excluir biblioteca)</td>
+<td>Renato Araújo</td>
+<td>#71</td>
+</tr>
+<tr>
+<td>CI-M16</td>
+<td>Navegador</td>
+<td>Desenhar, recarregar a página e fechar a aba sem salvar, e conferir se a cena volta</td>
+<td>Renato Araújo</td>
+<td>#71</td>
+</tr>
+<tr>
+<td>CI-M17</td>
+<td>Participantes</td>
+<td>Ações erradas ÷ total de ações nas sessões observadas</td>
+<td>Zayra Moraes</td>
+<td>#75</td>
+</tr>
+<tr>
+<td>CI-M18</td>
+<td>Código</td>
+<td>Classificar as mensagens de erro exibidas quanto a compreensão e orientação ao usuário</td>
+<td>Zayra Moraes</td>
+<td>#49</td>
+</tr>
+<tr>
+<td>CI-M19</td>
+<td>Participantes</td>
+<td>Questionário SUS</td>
+<td>Zayra Moraes</td>
+<td>#75</td>
+</tr>
+<tr>
+<td>CI-M20</td>
+<td>Participantes</td>
+<td>Questionário Likert de satisfação visual</td>
+<td>Zayra Moraes</td>
+<td>#75</td>
+</tr>
+<tr>
+<td>CI-M21</td>
+<td>Participantes</td>
+<td>Participantes que usariam a ferramenta novamente</td>
+<td>Zayra Moraes</td>
+<td>#75</td>
+</tr>
+<tr>
+<td>CI-M22</td>
+<td>Ferramenta</td>
+<td>Rodar axe DevTools e Lighthouse na tela principal, nos modos claro e escuro, e contar as violações WCAG 2.2 A e AA</td>
+<td>Giovanna Felipe</td>
+<td>#72</td>
+</tr>
+<tr>
+<td>CI-M23</td>
+<td>Navegador</td>
+<td>Percorrer a lista de funções só com o teclado e contar as operáveis</td>
+<td>Luís Cunha</td>
+<td>#73</td>
+</tr>
+<tr>
+<td>CI-M24</td>
+<td>Ferramenta</td>
+<td>Usar NVDA ou VoiceOver sobre a interface e o canvas e contar os elementos anunciados</td>
+<td>João Pedro Lopes</td>
+<td>#74</td>
+</tr>
+<tr>
+<td>CI-M25</td>
+<td>Ferramenta</td>
+<td>Medir o contraste das combinações principais nos dois modos (mínimo de 4,5:1)</td>
+<td>Giovanna Felipe</td>
+<td>#72</td>
+</tr>
+<tr>
+<td>CI-M26</td>
+<td>Código</td>
+<td>Contar os idiomas disponíveis e a proporção de strings traduzidas para o português</td>
+<td>Zayra Moraes</td>
+<td>#49</td>
+</tr>
+</tbody>
+</table>
+<p>O passo a passo de flexibilidade e de capacidade de interação também está nos
+planos de tarefas
+(<a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/flexibilidade/tarefas-flexibilidade.md">flexibilidade</a>
+e <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/tarefas-capacidade-interacao.md">capacidade de interação</a>).
+As métricas com participantes seguem o roteiro único de tarefas, os perfis,
+as regras de condução e a tabela que leva do dado à métrica, definidos no
+protocolo de testes com participantes (#37, PR #86). F-M8 e F-M9 são
+registradas nas mesmas sessões da #75.</p>
+<h2 id="4-cronograma-das-medicoes">4. Cronograma das medições<a class="headerlink" href="#4-cronograma-das-medicoes" title="Permanent link">&para;</a></h2>
+<p><em>Tabela 2. Prazos das atividades da Fase 3. Fonte: Kanban da equipe e
+<a href="../../gestao/cronograma/">cronograma</a>.</em></p>
+<table>
+<thead>
+<tr>
+<th>Prazo</th>
+<th>Atividade</th>
+<th>Issues</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>07/11</td>
+<td>Roteiro de tarefas, participantes e consentimento</td>
+<td>#37</td>
+</tr>
+<tr>
+<td>09/11</td>
+<td>Ambiente de teste e instância local</td>
+<td>#36</td>
+</tr>
+<tr>
+<td>09/11</td>
+<td>Plano de avaliação</td>
+<td>#35</td>
+</tr>
+<tr>
+<td>09/11</td>
+<td>S-M11 e S-M12, F-M7, CI-M7 e CI-M10</td>
+<td>#61, #65, #68</td>
+</tr>
+<tr>
+<td>12/11</td>
+<td>Demais medições de segurança</td>
+<td>#55 a #60</td>
+</tr>
+<tr>
+<td>12/11</td>
+<td>Demais medições de flexibilidade</td>
+<td>#62 a #64, #66, #67</td>
+</tr>
+<tr>
+<td>12/11</td>
+<td>Medições de capacidade de interação e sessões com participantes</td>
+<td>#69 a #75</td>
+</tr>
+<tr>
+<td>13/11</td>
+<td>Revisão cruzada das métricas e decisões de denominador</td>
+<td>#77</td>
+</tr>
+<tr>
+<td>15/11</td>
+<td>Resultados da análise</td>
+<td>#20</td>
+</tr>
+<tr>
+<td>16/11</td>
+<td>Medições concluídas</td>
+<td>Cronograma</td>
+</tr>
+<tr>
+<td>18/11</td>
+<td>Entrega 2</td>
+<td>Cronograma</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>gantt
+    title Fase 3 – medições do Excalidraw
+    dateFormat YYYY-MM-DD
+    axisFormat %d/%m
+    section Preparação
+    Roteiro com participantes (#37)       :p1, 2026-11-04, 2026-11-07
+    Ambiente local (#36)                  :p2, 2026-11-04, 2026-11-09
+    Plano de avaliação (#35)              :p3, 2026-11-04, 2026-11-09
+    section Coleta
+    Medições de código e ferramentas      :c1, 2026-11-04, 2026-11-12
+    Medições no navegador                 :c2, 2026-11-06, 2026-11-12
+    Sessões com participantes (#75)       :c3, 2026-11-07, 2026-11-12
+    section Fechamento
+    Revisão cruzada (#77)                 :f1, 2026-11-12, 2026-11-13
+    Resultados da análise (#20)           :f2, 2026-11-12, 2026-11-15
+    Medições concluídas                   :milestone, 2026-11-16, 0d
+    Entrega 2                             :milestone, 2026-11-18, 0d</code></pre>
+<p><em>Diagrama 1. Cronograma das medições até a Entrega 2. As barras de coleta
+vão do início das coletas ao prazo do Kanban. Fonte: elaboração própria a
+partir do Kanban da equipe.</em></p>
+<p>O andamento de cada issue é acompanhado no
+<a href="https://github.com/users/giovannafg/projects/1">Kanban da equipe</a> e nas
+<a href="../../gestao/metricas/">métricas de desenvolvimento</a>.</p>
+<h2 id="5-consistencia-com-a-fase-2">5. Consistência com a Fase 2<a class="headerlink" href="#5-consistencia-com-a-fase-2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Cobertura:</strong> as 51 métricas do roteiro têm método, responsável e issue na
+  Tabela 1, e cada método produz o valor na unidade da métrica (proporção,
+  contagem, Sim/Não, escala, tempo ou nota), o que permite aplicar
+  diretamente as faixas de pontuação do roteiro.</li>
+<li><strong>Ambiente exigido pelo roteiro:</strong> os testes que adulteram dados ou
+  sobrecarregam o serviço (S-M5 e S-M6) são feitos na instância local, e não
+  no excalidraw.com, como determina a seção 5 do roteiro.</li>
+<li><strong>Participantes:</strong> as métricas que dependem de pessoas usam o protocolo da
+  #37, com autorização prévia e registros sem nomes reais, como exige a seção
+  5 do roteiro. A <a href="../../gestao/estimativa-custos/">estimativa de custos</a>
+  considerou seis participantes com três sessões cada; o protocolo define a
+  quantidade de participantes por perfil. A quantidade efetivamente atendida
+  é registrada nos resultados, porque a CI-M8 depende de três sessões com a
+  mesma pessoa.</li>
+<li><strong>Denominadores:</strong> os denominadores da F-M10, da CI-M7 e da CI-M10 são
+  decididos em grupo na #77 e registrados na evidência de cada métrica.</li>
+<li><strong>Pontuação:</strong> a nota de cada métrica e as médias por questão e por
+  objetivo seguem a seção 6 do roteiro, e os valores coletados são publicados
+  em <a href="../../resultados/">Resultados</a>.</li>
+</ul>
+<h2 id="6-registro-das-evidencias">6. Registro das evidências<a class="headerlink" href="#6-registro-das-evidencias" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Copiar o template da característica (<code>evidencias/&lt;característica&gt;/template.md</code>)
+   e preencher valor, pontuação de 0 a 2, data, ambiente, versão <code>e7b5346</code>,
+   responsável e evidências.</li>
+<li>Guardar os arquivos de apoio (prints, saídas de comando, arquivos de teste)
+   junto da evidência, com o nome da métrica e a data.</li>
+<li>Registrar também as buscas sem resultado, com o comando usado.</li>
+<li>Abrir um PR com <code>Closes #&lt;issue&gt;</code>. O PR passa pela revisão de outro
+   integrante antes do <em>merge</em>.</li>
+<li>Dados de participantes ficam fora do repositório público; no repositório
+   entram só os dados tabulados, identificados por código.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "content.code.copy", "content.action.edit"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>
