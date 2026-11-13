@@ -1,0 +1,16 @@
+{
+  "sha": "e7b534668a60add7f725531f3c9abf32508c7b4e",
+  "source": "C:\\Users\\Renato\\Documents\\2026-2_T02_ADA_LOVELACE\\.venv\\ci-m13-m14-source",
+  "started": "2026-11-13T01:51:08.974Z",
+  "dateLocal": "2026-11-12 22:51:08",
+  "node": "v22.23.3",
+  "platform": "win32",
+  "playwright": "1.58.2",
+  "waitMs": 300,
+  "cases": [],
+  "errors": [],
+  "blocked": [],
+  "status": "incomplete",
+  "failure": "TypeError: createServer is not a function",
+  "finished": "2026-11-13T01:51:09.164Z"
+}

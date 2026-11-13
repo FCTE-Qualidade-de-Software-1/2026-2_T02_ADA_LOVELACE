@@ -1,0 +1,28 @@
+Conferencia tecnica CI-M13/CI-M14 - 12/11/2026 America/Sao_Paulo
+Base origin/main: da62b70ff0237079ab774dd1ab3e0e16edd77fe0; arvore inicial limpa; somente arquivos novos autorizados.
+node --check: coletor e verificador
+Exit 0 nos dois scripts.
+A01: feedback=true; desfazer=true; refazer=true; entradaHistorico=true
+A02: feedback=true; desfazer=true; refazer=true; entradaHistorico=true
+A03: feedback=true; desfazer=true; refazer=true; entradaHistorico=true
+A04: feedback=true; desfazer=true; refazer=true; entradaHistorico=true
+A05: feedback=true; desfazer=true; refazer=true; entradaHistorico=true
+A06: feedback=true; desfazer=true; refazer=true; entradaHistorico=true
+A07: feedback=true; desfazer=true; refazer=true; entradaHistorico=true
+A08: feedback=true; desfazer=true; refazer=true; entradaHistorico=true
+A09: feedback=true; desfazer=true; refazer=true; entradaHistorico=true
+A10: feedback=true; desfazer=true; refazer=true; entradaHistorico=true
+A11: feedback=true; desfazer=true; refazer=true; entradaHistorico=true
+A12: feedback=true; desfazer=false; refazer=true; entradaHistorico=false
+A13: feedback=true; desfazer=false; refazer=true; entradaHistorico=false
+CI-M13: 13/13 = 100.00%; nota 2
+CI-M14: 11/13 = 84.62%; nota 0
+13 ações, 52 estados/capturas e hashes íntegros; nenhuma falha de página capturada.
+Oito secoes em cada evidencia; 13 linhas de acoes em cada; 130 links locais validos; sem padroes comuns de credenciais.
+Capturas inspecionadas pelo Codex: 52 estados em mosaico auxiliar; revisao humana pendente.
+git diff --check
+Exit 0; arquivos novos serao tambem conferidos apos staging.
+python -m mkdocs build --strict --site-dir .venv/ci-m13-m14-site: exit 0, Documentation built in 2.77 seconds.
+git status do checkout oficial vazio; origem https://github.com/excalidraw/excalidraw.git; SHA fixo e lockfile conferidos.
+Nenhuma alteracao em mkdocs.yml, docs/resultados/index.md, consolidacoes ou arquivos preexistentes de integrantes.
+Conferencia do indice identificou linha vazia extra ao fim do coletor; removida sem alterar a logica. Dados e PNGs preservados.

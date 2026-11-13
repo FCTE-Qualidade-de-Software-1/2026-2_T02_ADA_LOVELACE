@@ -1,0 +1,16 @@
+A01: feedback=true; desfazer=true; refazer=true; entradaHistorico=true
+A02: feedback=true; desfazer=true; refazer=true; entradaHistorico=true
+A03: feedback=true; desfazer=true; refazer=true; entradaHistorico=true
+A04: feedback=true; desfazer=true; refazer=true; entradaHistorico=true
+A05: feedback=true; desfazer=true; refazer=true; entradaHistorico=true
+A06: feedback=true; desfazer=true; refazer=true; entradaHistorico=true
+A07: feedback=true; desfazer=true; refazer=true; entradaHistorico=true
+A08: feedback=true; desfazer=true; refazer=true; entradaHistorico=true
+A09: feedback=true; desfazer=true; refazer=true; entradaHistorico=true
+A10: feedback=true; desfazer=true; refazer=true; entradaHistorico=true
+A11: feedback=true; desfazer=true; refazer=true; entradaHistorico=true
+A12: feedback=true; desfazer=false; refazer=true; entradaHistorico=false
+A13: feedback=true; desfazer=false; refazer=true; entradaHistorico=false
+CI-M13: 13/13 = 100.00%; nota 2
+CI-M14: 11/13 = 84.62%; nota 0
+13 ações, 52 estados/capturas e hashes íntegros; nenhuma falha de página capturada.

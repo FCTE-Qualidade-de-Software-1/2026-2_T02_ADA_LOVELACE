@@ -1,0 +1,22 @@
+{
+  "sha": "e7b534668a60add7f725531f3c9abf32508c7b4e",
+  "source": "C:\\Users\\Renato\\Documents\\2026-2_T02_ADA_LOVELACE\\.venv\\ci-m13-m14-source",
+  "started": "2026-11-13T01:51:24.347Z",
+  "dateLocal": "2026-11-12 22:51:24",
+  "node": "v22.23.3",
+  "platform": "win32",
+  "playwright": "1.58.2",
+  "waitMs": 300,
+  "cases": [],
+  "errors": [],
+  "blocked": [],
+  "server": {
+    "root": "C:/Users/Renato/Documents/2026-2_T02_ADA_LOVELACE/.venv/ci-m13-m14-source/excalidraw-app",
+    "configFile": "C:/Users/Renato/Documents/2026-2_T02_ADA_LOVELACE/.venv/ci-m13-m14-source/excalidraw-app/vite.config.mts",
+    "url": "http://127.0.0.1:3020",
+    "ownedByCollector": true
+  },
+  "status": "incomplete",
+  "failure": "Error: browserType.launch: Chromium distribution 'chrome' is not found at C:\\Users\\Renato\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe\nRun \"npx playwright install chrome\"",
+  "finished": "2026-11-13T01:51:32.618Z"
+}
