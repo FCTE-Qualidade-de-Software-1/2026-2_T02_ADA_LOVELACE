@@ -1,0 +1,51 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "CI71-fixture-local",
+  "elements": [
+    {
+      "id": "fdIuhk48O0lGcpRDzDjPZ",
+      "type": "text",
+      "x": 470,
+      "y": 427.5,
+      "width": 259.4598083496094,
+      "height": 25,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "index": "a0",
+      "roundness": null,
+      "seed": 1876677913,
+      "version": 3,
+      "versionNonce": 1473303351,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1794537778355,
+      "created": 1794537778282,
+      "link": null,
+      "locked": false,
+      "text": "ARQUIVO-FICTICIO-CI71",
+      "fontSize": 20,
+      "baseFontSize": null,
+      "fontFamily": 5,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "containerId": null,
+      "originalText": "ARQUIVO-FICTICIO-CI71",
+      "autoResize": true,
+      "lineHeight": 1.25,
+      "labelPosition": null
+    }
+  ],
+  "appState": {
+    "viewBackgroundColor": "#ffffff"
+  },
+  "files": {}
+}

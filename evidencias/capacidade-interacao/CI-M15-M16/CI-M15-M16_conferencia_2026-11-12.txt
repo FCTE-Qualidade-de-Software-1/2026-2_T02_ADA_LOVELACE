@@ -1,0 +1,30 @@
+Conferencia tecnica da issue #71; America/Sao_Paulo, 12/11/2026.
+git fetch origin: exit 0; main e origin/main = da62b70ff0237079ab774dd1ab3e0e16edd77fe0; arvore inicial limpa.
+Branch feat/interacao-ci-m15-m16 criada de origin/main; outras branches preservadas.
+node --check: evidencias\capacidade-interacao\CI-M15-M16\CI-M15-M16_coleta_2026-11-12.cjs - exit 0
+node --check: evidencias\capacidade-interacao\CI-M15-M16\CI-M15-M16_verificar_2026-11-12.cjs - exit 0
+node --check: evidencias\capacidade-interacao\CI-M15-M16\tentativa-01\coletor-executado.cjs - exit 0
+node --check: evidencias\capacidade-interacao\CI-M15-M16\tentativa-02\coletor-executado.cjs - exit 0
+node --check: evidencias\capacidade-interacao\CI-M15-M16\tentativa-03\coletor-executado.cjs - exit 0
+D01: execução confirmada; confirmação=true; recuperação estrita por Ctrl+Z=true
+D02: diferenças completas após desfazer: [{"id":"j4cqaVPjmNpqaqOsGKnbw","field":"index","before":"a0","after":"Zy"},{"id":"j4cqaVPjmNpqaqOsGKnbw","field":"version","before":14,"after":17},{"id":"j4cqaVPjmNpqaqOsGKnbw","field":"versionNonce","before":1923504516,"after":996046268},{"id":"j4cqaVPjmNpqaqOsGKnbw","field":"updated","before":1794537969798,"after":1794537970682},{"id":"on01MteNPVr_ZPSbZTnFt","field":"version","before":3,"after":5},{"id":"on01MteNPVr_ZPSbZTnFt","field":"versionNonce","before":1983608708,"after":386680068},{"id":"on01MteNPVr_ZPSbZTnFt","field":"updated","before":1794537969901,"after":1794537970681}]
+D02: elementos e ordem do array preservados, exceto metadados/index: true
+D02: execução confirmada; confirmação=false; recuperação estrita por Ctrl+Z=false
+D03: execução confirmada; confirmação=true; recuperação estrita por Ctrl+Z=false
+D04: execução confirmada; confirmação=true; recuperação estrita por Ctrl+Z=false
+CI-M16 diferenças completas após reload: [{"id":"D97_vkHWhXF7V_FmkDogF","field":"boundElements","before":null,"after":[]},{"id":"Mi_62Vb05RxBiqWtHrN6P","field":"boundElements","before":null,"after":[]},{"id":"8KJBr5X10agbma9nEW8hH","field":"boundElements","before":null,"after":[]}]
+CI-M16 diferenças completas após reabrir: []
+CI-M15: 1 de 4 tipos sem confirmação; nota 1/2.
+CI-M16: reload=true; reabertura=true; perda=Não; nota 2/2.
+26 estados/capturas com hashes válidos; erros de página/crash=0; requisições externas bloqueadas=0.
+Oito secoes por evidencia; 58 links locais validos; tres tentativas com capturas integras; script final identico ao executado.
+Calculos GQM: CI-M15 1 acao sem confirmacao -> 1/2; CI-M16 perda Nao nos dois cenarios -> 2/2; sem nota intermediaria.
+26 capturas finais inspecionadas pelo Codex em mosaico auxiliar; confirmacao humana e revisao cruzada pendentes.
+Nenhum padrao comum de credencial encontrado; dados de cenas ficticios.
+python -m mkdocs build --strict --site-dir .venv/ci-m15-m16-site
+INFO    -  Cleaning site directory
+INFO    -  Building documentation to directory: C:\Users\Renato\Documents\2026-2_T02_ADA_LOVELACE\.venv\ci-m15-m16-site
+INFO    -  Documentation built in 0.94 seconds
+git diff --check
+Exit 0; arquivos novos tambem serao conferidos no indice antes do commit.
+Fonte oficial permanece limpa; somente tres diretorios novos CI-M15, CI-M16 e CI-M15-M16 na entrega.
