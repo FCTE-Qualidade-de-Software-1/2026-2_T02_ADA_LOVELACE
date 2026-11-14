@@ -1,0 +1,630 @@
+{
+  "cena": {
+    "total": 168,
+    "naoIgnorados": 108,
+    "nos": [
+      {
+        "role": "RootWebArea",
+        "name": "CI-M24 NVDA cena P1"
+      },
+      {
+        "role": "banner",
+        "name": ""
+      },
+      {
+        "role": "generic",
+        "name": ""
+      },
+      {
+        "role": "heading",
+        "name": "Excalidraw"
+      },
+      {
+        "role": "generic",
+        "name": "Formas Try Excalidraw+ 14-day free trial Compartilhar Biblioteca Tela de desenho Quadro de teste"
+      },
+      {
+        "role": "StaticText",
+        "name": "Excalidraw"
+      },
+      {
+        "role": "generic",
+        "name": ""
+      },
+      {
+        "role": "generic",
+        "name": ""
+      },
+      {
+        "role": "generic",
+        "name": ""
+      },
+      {
+        "role": "generic",
+        "name": ""
+      },
+      {
+        "role": "generic",
+        "name": ""
+      },
+      {
+        "role": "Canvas",
+        "name": ""
+      },
+      {
+        "role": "generic",
+        "name": ""
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "Excalidraw"
+      },
+      {
+        "role": "generic",
+        "name": ""
+      },
+      {
+        "role": "contentinfo",
+        "name": ""
+      },
+      {
+        "role": "generic",
+        "name": ""
+      },
+      {
+        "role": "image",
+        "name": ""
+      },
+      {
+        "role": "Canvas",
+        "name": ""
+      },
+      {
+        "role": "StaticText",
+        "name": "Tela de desenho"
+      },
+      {
+        "role": "StaticText",
+        "name": "Quadro de teste"
+      },
+      {
+        "role": "generic",
+        "name": ""
+      },
+      {
+        "role": "region",
+        "name": "Formas"
+      },
+      {
+        "role": "link",
+        "name": "Try Excalidraw+ 14-day free trial"
+      },
+      {
+        "role": "button",
+        "name": "Compartilhar",
+        "description": "Colaboração ao vivo..."
+      },
+      {
+        "role": "button",
+        "name": "Biblioteca",
+        "description": "Biblioteca"
+      },
+      {
+        "role": "region",
+        "name": "Ações da tela"
+      },
+      {
+        "role": "link",
+        "name": "Publicação de blog com criptografia de ponta a ponta no Excalidraw"
+      },
+      {
+        "role": "generic",
+        "name": ""
+      },
+      {
+        "role": "status",
+        "name": ""
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "Quadro de teste"
+      },
+      {
+        "role": "button",
+        "name": ""
+      },
+      {
+        "role": "generic",
+        "name": ""
+      },
+      {
+        "role": "StaticText",
+        "name": "Try Excalidraw+"
+      },
+      {
+        "role": "StaticText",
+        "name": "14-day free trial"
+      },
+      {
+        "role": "StaticText",
+        "name": "Compartilhar"
+      },
+      {
+        "role": "generic",
+        "name": ""
+      },
+      {
+        "role": "heading",
+        "name": "Ações da tela"
+      },
+      {
+        "role": "button",
+        "name": "Diminuir zoom"
+      },
+      {
+        "role": "button",
+        "name": "Redefinir zoom"
+      },
+      {
+        "role": "button",
+        "name": "Aumentar zoom"
+      },
+      {
+        "role": "button",
+        "name": "Desfazer"
+      },
+      {
+        "role": "button",
+        "name": "Refazer"
+      },
+      {
+        "role": "button",
+        "name": "Ajuda"
+      },
+      {
+        "role": "generic",
+        "name": ""
+      },
+      {
+        "role": "button",
+        "name": "close"
+      },
+      {
+        "role": "generic",
+        "name": ""
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "Try Excalidraw+"
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "14-day free trial"
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "Compartilhar"
+      },
+      {
+        "role": "StaticText",
+        "name": "Ações da tela"
+      },
+      {
+        "role": "StaticText",
+        "name": "100"
+      },
+      {
+        "role": "StaticText",
+        "name": "%"
+      },
+      {
+        "role": "StaticText",
+        "name": "Content replaced. Ctrl+Z to undo"
+      },
+      {
+        "role": "generic",
+        "name": ""
+      },
+      {
+        "role": "heading",
+        "name": "Formas"
+      },
+      {
+        "role": "button",
+        "name": "Manter ativa a ferramenta selecionada após desenhar",
+        "description": "Manter ativa a ferramenta selecionada após desenhar — Q"
+      },
+      {
+        "role": "button",
+        "name": "Mão (ferramenta de rolagem)",
+        "description": "Mão (ferramenta de rolagem) — H"
+      },
+      {
+        "role": "button",
+        "name": "Seleção",
+        "description": "Seleção — V ou 1"
+      },
+      {
+        "role": "button",
+        "name": "Retângulo",
+        "description": "Retângulo — R ou 2"
+      },
+      {
+        "role": "button",
+        "name": "Losango",
+        "description": "Losango — D ou 3"
+      },
+      {
+        "role": "button",
+        "name": "Elipse",
+        "description": "Elipse — O ou 4"
+      },
+      {
+        "role": "button",
+        "name": "Flecha",
+        "description": "Flecha — A ou 5"
+      },
+      {
+        "role": "button",
+        "name": "Linha",
+        "description": "Linha — L ou 6"
+      },
+      {
+        "role": "button",
+        "name": "Desenhar",
+        "description": "Desenhar — P ou 7"
+      },
+      {
+        "role": "button",
+        "name": "Texto",
+        "description": "Texto — T ou 8"
+      },
+      {
+        "role": "button",
+        "name": "Sticky note",
+        "description": "Sticky note — N"
+      },
+      {
+        "role": "button",
+        "name": "Borracha",
+        "description": "Borracha — E ou 0"
+      },
+      {
+        "role": "button",
+        "name": "Mais ferramentas"
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "Ações da tela"
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "100"
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "%"
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "Content replaced. Ctrl+Z to undo"
+      },
+      {
+        "role": "StaticText",
+        "name": "Para mover a tela, segure "
+      },
+      {
+        "role": "generic",
+        "name": ""
+      },
+      {
+        "role": "StaticText",
+        "name": " ou "
+      },
+      {
+        "role": "generic",
+        "name": ""
+      },
+      {
+        "role": "StaticText",
+        "name": " enquanto arrasta ou use a ferramenta de mão"
+      },
+      {
+        "role": "StaticText",
+        "name": "Formas"
+      },
+      {
+        "role": "StaticText",
+        "name": "V"
+      },
+      {
+        "role": "StaticText",
+        "name": "R"
+      },
+      {
+        "role": "StaticText",
+        "name": "D"
+      },
+      {
+        "role": "StaticText",
+        "name": "O"
+      },
+      {
+        "role": "StaticText",
+        "name": "A"
+      },
+      {
+        "role": "StaticText",
+        "name": "L"
+      },
+      {
+        "role": "StaticText",
+        "name": "P"
+      },
+      {
+        "role": "StaticText",
+        "name": "T"
+      },
+      {
+        "role": "StaticText",
+        "name": "N"
+      },
+      {
+        "role": "StaticText",
+        "name": "E"
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "Para mover a tela, segure "
+      },
+      {
+        "role": "StaticText",
+        "name": "Roda do mouse"
+      },
+      {
+        "role": "InlineTextBox",
+        "name": " ou "
+      },
+      {
+        "role": "StaticText",
+        "name": "Barra de espaço"
+      },
+      {
+        "role": "InlineTextBox",
+        "name": " enquanto arrasta ou use a ferramenta de "
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "mão"
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "Formas"
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "V"
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "R"
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "D"
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "O"
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "A"
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "L"
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "P"
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "T"
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "N"
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "E"
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "Roda do mouse"
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "Barra de espaço"
+      }
+    ],
+    "canvas": [
+      {
+        "atributos": {
+          "width": "1912",
+          "height": "994",
+          "class": "excalidraw__canvas static"
+        },
+        "filhos": 0,
+        "ax": {
+          "role": "Canvas",
+          "name": "",
+          "ignored": false,
+          "ignoredReasons": []
+        }
+      },
+      {
+        "atributos": {
+          "class": "excalidraw__canvas interactive",
+          "width": "1912",
+          "height": "994"
+        },
+        "filhos": 1,
+        "ax": {
+          "role": "Canvas",
+          "name": "",
+          "ignored": false,
+          "ignoredReasons": []
+        }
+      }
+    ],
+    "porElemento": [
+      {
+        "elemento": "Retângulo",
+        "nos": [
+          "button: Retângulo"
+        ]
+      },
+      {
+        "elemento": "Elipse",
+        "nos": [
+          "button: Elipse"
+        ]
+      },
+      {
+        "elemento": "Losango",
+        "nos": [
+          "button: Losango"
+        ]
+      },
+      {
+        "elemento": "Seta",
+        "nos": [
+          "button: Flecha"
+        ]
+      },
+      {
+        "elemento": "Linha",
+        "nos": [
+          "button: Linha"
+        ]
+      },
+      {
+        "elemento": "Texto (\"Texto de teste\")",
+        "nos": [
+          "button: Texto"
+        ]
+      },
+      {
+        "elemento": "Desenho livre",
+        "nos": [
+          "button: Manter ativa a ferramenta selecionada após desenhar",
+          "button: Desenhar"
+        ]
+      },
+      {
+        "elemento": "Imagem",
+        "nos": []
+      },
+      {
+        "elemento": "Frame (\"Quadro de teste\")",
+        "nos": [
+          "generic: Formas Try Excalidraw+ 14-day free trial Compartilhar Biblioteca Tela de desenho Quadro de teste",
+          "StaticText: Quadro de teste",
+          "InlineTextBox: Quadro de teste"
+        ]
+      }
+    ]
+  },
+  "vazia": {
+    "total": 218,
+    "naoIgnorados": 151,
+    "canvas": [
+      {
+        "atributos": {
+          "width": "1912",
+          "height": "994",
+          "class": "excalidraw__canvas static"
+        },
+        "filhos": 0,
+        "ax": {
+          "role": "Canvas",
+          "name": "",
+          "ignored": false,
+          "ignoredReasons": []
+        }
+      },
+      {
+        "atributos": {
+          "class": "excalidraw__canvas interactive",
+          "width": "1912",
+          "height": "994"
+        },
+        "filhos": 1,
+        "ax": {
+          "role": "Canvas",
+          "name": "",
+          "ignored": false,
+          "ignoredReasons": []
+        }
+      }
+    ],
+    "porElemento": [
+      {
+        "elemento": "Retângulo",
+        "nos": [
+          "button: Retângulo"
+        ]
+      },
+      {
+        "elemento": "Elipse",
+        "nos": [
+          "button: Elipse"
+        ]
+      },
+      {
+        "elemento": "Losango",
+        "nos": [
+          "button: Losango"
+        ]
+      },
+      {
+        "elemento": "Seta",
+        "nos": [
+          "button: Flecha"
+        ]
+      },
+      {
+        "elemento": "Linha",
+        "nos": [
+          "button: Linha"
+        ]
+      },
+      {
+        "elemento": "Texto (\"Texto de teste\")",
+        "nos": [
+          "button: Texto"
+        ]
+      },
+      {
+        "elemento": "Desenho livre",
+        "nos": [
+          "button: Manter ativa a ferramenta selecionada após desenhar",
+          "button: Desenhar",
+          "StaticText: Escolha uma ferramenta e comece a desenhar!",
+          "InlineTextBox: desenhar!"
+        ]
+      },
+      {
+        "elemento": "Imagem",
+        "nos": []
+      },
+      {
+        "elemento": "Frame (\"Quadro de teste\")",
+        "nos": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,1800 @@
+{
+  "ambiente": {
+    "data": "2026-11-14",
+    "sistema": "Microsoft Windows 11 Home Single Language 10.0.26200 (x64)",
+    "node": "v24.12.0",
+    "nvda": "2026.3 (portátil do Guidepup, pacote 0.2.1-2026.3)",
+    "guidepup": "0.40.0",
+    "playwright": "1.58.2",
+    "navegador": "Microsoft Edge 157.0.4341.46",
+    "voz": "OneCore, volume 0, velocidade 100 com aumento",
+    "url": "http://localhost:5000/",
+    "cena": "evidencias/capacidade-interacao/CI-M24/CI-M24_cena-teste_2026-11-14.excalidraw"
+  },
+  "caminhos": {
+    "P1": "leitura contínua",
+    "P2": "navegação sequencial (próximo e anterior item)",
+    "P3": "navegação por Tab",
+    "P4": "seleção pelo teclado no canvas"
+  },
+  "registro": {
+    "vazia": {
+      "P1": [
+        {
+          "passo": "NVDA+Seta para baixo (ler tudo)",
+          "falas": [
+            "título, nível 1, Excalidraw",
+            "clicável, Seus desenhos estão salvos no armazenamento do seu navegador.",
+            "O armazenamento do navegador pode ser apagado inesperadamente.",
+            "Salve seu trabalho em um arquivo regularmente para evitar perdê-lo.",
+            "botão, Abrir, botão, Ctrl mais O",
+            "botão, Ajuda, botão",
+            "botão, Colaboração ao vivo...",
+            "link, Sign up",
+            "botão de menu, recolhido, sub Menu",
+            "Exportar, preferências, idiomas...",
+            "Formas, região, Escolha uma ferramenta e comece a desenhar!",
+            "Para mover a tela, segure, Roda do mouse, ou, Barra de espaço, enquanto arrasta ou use a ferramenta de mão",
+            "título, nível 2, Formas",
+            "botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar",
+            "botão de alternância, não pressionado, H, Mão (ferramenta de rolagem)",
+            "botão de alternância, pressionado, V ou 1, Seleção",
+            "botão de alternância, não pressionado, R ou 2, Retângulo",
+            "botão de alternância, não pressionado, D ou 3, Losango",
+            "botão de alternância, não pressionado, O ou 4, Elipse",
+            "botão de alternância, não pressionado, A ou 5, Flecha",
+            "botão de alternância, não pressionado, L ou 6, Linha",
+            "botão de alternância, não pressionado, P ou 7, Desenhar",
+            "botão de alternância, não pressionado, T ou 8, Texto",
+            "botão de alternância, não pressionado, N, Sticky note",
+            "botão de alternância, não pressionado, E ou 0, Borracha",
+            "botão de menu, recolhido, sub Menu, Mais ferramentas, fora de região",
+            "link, Try Excalidraw mais 14-day free trial",
+            "botão, Compartilhar",
+            "botão de alternância, não pressionado, 0, Biblioteca",
+            "conteúdo marco, região, título, nível 2, Ações da tela",
+            "botão, Diminuir zoom",
+            "botão, Redefinir zoom",
+            "botão, Aumentar zoom",
+            "botão, indisponível, Desfazer",
+            "botão, indisponível, Refazer, fora de região",
+            "link, Publicação de blog com criptografia de ponta a ponta no Excalidraw",
+            "Atalhos e ajuda",
+            "botão, Ajuda",
+            "clicável, Tela de desenho"
+          ]
+        }
+      ],
+      "P2": [
+        {
+          "passo": "estado da página (DOM)",
+          "falas": [],
+          "estado": {
+            "janela": "1912x994",
+            "nomesDeFrameNoDOM": []
+          }
+        },
+        {
+          "passo": "Ctrl+End (fim)",
+          "falas": [
+            "Tela de desenho"
+          ]
+        },
+        {
+          "passo": "item anterior 1",
+          "falas": [
+            "conteúdo marco, botão, Ajuda"
+          ]
+        },
+        {
+          "passo": "item anterior 2",
+          "falas": [
+            "Atalhos e ajuda"
+          ]
+        },
+        {
+          "passo": "item anterior 3",
+          "falas": [
+            "link, Publicação de blog com criptografia de ponta a ponta no Excalidraw"
+          ]
+        },
+        {
+          "passo": "item anterior 4",
+          "falas": [
+            "região, botão, indisponível, Refazer"
+          ]
+        },
+        {
+          "passo": "item anterior 5",
+          "falas": [
+            "botão, indisponível, Desfazer"
+          ]
+        },
+        {
+          "passo": "item anterior 6",
+          "falas": [
+            "botão, Aumentar zoom"
+          ]
+        },
+        {
+          "passo": "item anterior 7",
+          "falas": [
+            "botão, Redefinir zoom"
+          ]
+        },
+        {
+          "passo": "item anterior 8",
+          "falas": [
+            "botão, Diminuir zoom"
+          ]
+        },
+        {
+          "passo": "item anterior 9",
+          "falas": [
+            "título, nível 2, Ações da tela"
+          ]
+        },
+        {
+          "passo": "item anterior 10",
+          "falas": [
+            "fora de região, botão de alternância, não pressionado, 0, Biblioteca"
+          ]
+        },
+        {
+          "passo": "item anterior 11",
+          "falas": [
+            "botão, Compartilhar"
+          ]
+        },
+        {
+          "passo": "item anterior 12",
+          "falas": [
+            "link, Try Excalidraw mais 14-day free trial"
+          ]
+        },
+        {
+          "passo": "item anterior 13",
+          "falas": [
+            "Formas, região, botão de menu, recolhido, sub Menu, Mais ferramentas"
+          ]
+        },
+        {
+          "passo": "item anterior 14",
+          "falas": [
+            "botão de alternância, não pressionado, E ou 0, Borracha"
+          ]
+        },
+        {
+          "passo": "item anterior 15",
+          "falas": [
+            "botão de alternância, não pressionado, N, Sticky note"
+          ]
+        },
+        {
+          "passo": "item anterior 16",
+          "falas": [
+            "botão de alternância, não pressionado, T ou 8, Texto"
+          ]
+        },
+        {
+          "passo": "item anterior 17",
+          "falas": [
+            "botão de alternância, não pressionado, P ou 7, Desenhar"
+          ]
+        },
+        {
+          "passo": "item anterior 18",
+          "falas": [
+            "botão de alternância, não pressionado, L ou 6, Linha"
+          ]
+        },
+        {
+          "passo": "item anterior 19",
+          "falas": [
+            "botão de alternância, não pressionado, A ou 5, Flecha"
+          ]
+        },
+        {
+          "passo": "item anterior 20",
+          "falas": [
+            "botão de alternância, não pressionado, O ou 4, Elipse"
+          ]
+        },
+        {
+          "passo": "item anterior 21",
+          "falas": [
+            "botão de alternância, não pressionado, D ou 3, Losango"
+          ]
+        },
+        {
+          "passo": "item anterior 22",
+          "falas": [
+            "botão de alternância, não pressionado, R ou 2, Retângulo"
+          ]
+        },
+        {
+          "passo": "item anterior 23",
+          "falas": [
+            "botão de alternância, pressionado, V ou 1, Seleção"
+          ]
+        },
+        {
+          "passo": "item anterior 24",
+          "falas": [
+            "botão de alternância, não pressionado, H, Mão (ferramenta de rolagem)"
+          ]
+        },
+        {
+          "passo": "item anterior 25",
+          "falas": [
+            "botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar"
+          ]
+        },
+        {
+          "passo": "item anterior 26",
+          "falas": [
+            "título, nível 2, Formas"
+          ]
+        },
+        {
+          "passo": "item anterior 27",
+          "falas": [
+            "mão"
+          ]
+        },
+        {
+          "passo": "item anterior 28",
+          "falas": [
+            "Para mover a tela, segure, Roda do mouse, ou, Barra de espaço, enquanto arrasta ou use a ferramenta de"
+          ]
+        },
+        {
+          "passo": "item anterior 29",
+          "falas": [
+            "Escolha uma ferramenta e comece a desenhar!"
+          ]
+        },
+        {
+          "passo": "item anterior 30",
+          "falas": [
+            "fora de região, Exportar, preferências, idiomas..."
+          ]
+        },
+        {
+          "passo": "item anterior 31",
+          "falas": [
+            "botão de menu, recolhido, sub Menu"
+          ]
+        },
+        {
+          "passo": "item anterior 32",
+          "falas": [
+            "link, Sign up"
+          ]
+        },
+        {
+          "passo": "item anterior 33",
+          "falas": [
+            "botão, Colaboração ao vivo..."
+          ]
+        },
+        {
+          "passo": "item anterior 34",
+          "falas": [
+            "botão"
+          ]
+        },
+        {
+          "passo": "item anterior 35",
+          "falas": [
+            "botão, Ajuda"
+          ]
+        },
+        {
+          "passo": "item anterior 36",
+          "falas": [
+            "botão, Ctrl mais O"
+          ]
+        },
+        {
+          "passo": "item anterior 37",
+          "falas": [
+            "botão, Abrir"
+          ]
+        },
+        {
+          "passo": "item anterior 38",
+          "falas": [
+            "Salve seu trabalho em um arquivo regularmente para evitar perdê-lo."
+          ]
+        },
+        {
+          "passo": "item anterior 39",
+          "falas": [
+            "O armazenamento do navegador pode ser apagado inesperadamente."
+          ]
+        },
+        {
+          "passo": "item anterior 40",
+          "falas": [
+            "Seus desenhos estão salvos no armazenamento do seu navegador."
+          ]
+        },
+        {
+          "passo": "item anterior 41",
+          "falas": [
+            "bâner marco, título, nível 1, Excalidraw"
+          ]
+        },
+        {
+          "passo": "item anterior 42",
+          "falas": [
+            "título, nível 1, Excalidraw"
+          ]
+        },
+        {
+          "passo": "item anterior 43",
+          "falas": [
+            "título, nível 1, Excalidraw"
+          ]
+        },
+        {
+          "passo": "item anterior 44",
+          "falas": [
+            "título, nível 1, Excalidraw"
+          ]
+        },
+        {
+          "passo": "item anterior 45",
+          "falas": [
+            "título, nível 1, Excalidraw"
+          ]
+        },
+        {
+          "passo": "item anterior 46",
+          "falas": [
+            "título, nível 1, Excalidraw"
+          ]
+        },
+        {
+          "passo": "item anterior 47",
+          "falas": [
+            "título, nível 1, Excalidraw"
+          ]
+        },
+        {
+          "passo": "Ctrl+Home (topo)",
+          "falas": [
+            "título, nível 1, Excalidraw"
+          ]
+        },
+        {
+          "passo": "próximo item 1",
+          "falas": [
+            "clicável, Seus desenhos estão salvos no armazenamento do seu navegador."
+          ]
+        },
+        {
+          "passo": "próximo item 2",
+          "falas": [
+            "O armazenamento do navegador pode ser apagado inesperadamente."
+          ]
+        },
+        {
+          "passo": "próximo item 3",
+          "falas": [
+            "Salve seu trabalho em um arquivo regularmente para evitar perdê-lo."
+          ]
+        },
+        {
+          "passo": "próximo item 4",
+          "falas": [
+            "botão, Abrir"
+          ]
+        },
+        {
+          "passo": "próximo item 5",
+          "falas": [
+            "botão, Ctrl mais O"
+          ]
+        },
+        {
+          "passo": "próximo item 6",
+          "falas": [
+            "botão, Ajuda"
+          ]
+        },
+        {
+          "passo": "próximo item 7",
+          "falas": [
+            "botão"
+          ]
+        },
+        {
+          "passo": "próximo item 8",
+          "falas": [
+            "botão, Colaboração ao vivo..."
+          ]
+        },
+        {
+          "passo": "próximo item 9",
+          "falas": [
+            "link, Sign up"
+          ]
+        },
+        {
+          "passo": "próximo item 10",
+          "falas": [
+            "botão de menu, recolhido, sub Menu"
+          ]
+        },
+        {
+          "passo": "próximo item 11",
+          "falas": [
+            "Exportar, preferências, idiomas..."
+          ]
+        },
+        {
+          "passo": "próximo item 12",
+          "falas": [
+            "Formas, região, Escolha uma ferramenta e comece a desenhar!"
+          ]
+        },
+        {
+          "passo": "próximo item 13",
+          "falas": [
+            "Para mover a tela, segure, Roda do mouse, ou, Barra de espaço, enquanto arrasta ou use a ferramenta de"
+          ]
+        },
+        {
+          "passo": "próximo item 14",
+          "falas": [
+            "mão"
+          ]
+        },
+        {
+          "passo": "próximo item 15",
+          "falas": [
+            "título, nível 2, Formas"
+          ]
+        },
+        {
+          "passo": "próximo item 16",
+          "falas": [
+            "botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar"
+          ]
+        },
+        {
+          "passo": "próximo item 17",
+          "falas": [
+            "botão de alternância, não pressionado, H, Mão (ferramenta de rolagem)"
+          ]
+        },
+        {
+          "passo": "próximo item 18",
+          "falas": [
+            "botão de alternância, pressionado, V ou 1, Seleção"
+          ]
+        },
+        {
+          "passo": "próximo item 19",
+          "falas": [
+            "botão de alternância, não pressionado, R ou 2, Retângulo"
+          ]
+        },
+        {
+          "passo": "próximo item 20",
+          "falas": [
+            "botão de alternância, não pressionado, D ou 3, Losango"
+          ]
+        },
+        {
+          "passo": "próximo item 21",
+          "falas": [
+            "botão de alternância, não pressionado, O ou 4, Elipse"
+          ]
+        },
+        {
+          "passo": "próximo item 22",
+          "falas": [
+            "botão de alternância, não pressionado, A ou 5, Flecha"
+          ]
+        },
+        {
+          "passo": "próximo item 23",
+          "falas": [
+            "botão de alternância, não pressionado, L ou 6, Linha"
+          ]
+        },
+        {
+          "passo": "próximo item 24",
+          "falas": [
+            "botão de alternância, não pressionado, P ou 7, Desenhar"
+          ]
+        },
+        {
+          "passo": "próximo item 25",
+          "falas": [
+            "botão de alternância, não pressionado, T ou 8, Texto"
+          ]
+        },
+        {
+          "passo": "próximo item 26",
+          "falas": [
+            "botão de alternância, não pressionado, N, Sticky note"
+          ]
+        },
+        {
+          "passo": "próximo item 27",
+          "falas": [
+            "botão de alternância, não pressionado, E ou 0, Borracha"
+          ]
+        },
+        {
+          "passo": "próximo item 28",
+          "falas": [
+            "botão de menu, recolhido, sub Menu, Mais ferramentas"
+          ]
+        },
+        {
+          "passo": "próximo item 29",
+          "falas": [
+            "fora de região, link, Try Excalidraw mais 14-day free trial"
+          ]
+        },
+        {
+          "passo": "próximo item 30",
+          "falas": [
+            "botão, Compartilhar"
+          ]
+        },
+        {
+          "passo": "próximo item 31",
+          "falas": [
+            "botão de alternância, não pressionado, 0, Biblioteca"
+          ]
+        },
+        {
+          "passo": "próximo item 32",
+          "falas": [
+            "conteúdo marco, região, título, nível 2, Ações da tela"
+          ]
+        },
+        {
+          "passo": "próximo item 33",
+          "falas": [
+            "botão, Diminuir zoom"
+          ]
+        },
+        {
+          "passo": "próximo item 34",
+          "falas": [
+            "botão, Redefinir zoom"
+          ]
+        },
+        {
+          "passo": "próximo item 35",
+          "falas": [
+            "botão, Aumentar zoom"
+          ]
+        },
+        {
+          "passo": "próximo item 36",
+          "falas": [
+            "botão, indisponível, Desfazer"
+          ]
+        },
+        {
+          "passo": "próximo item 37",
+          "falas": [
+            "botão, indisponível, Refazer"
+          ]
+        },
+        {
+          "passo": "próximo item 38",
+          "falas": [
+            "fora de região, link, Publicação de blog com criptografia de ponta a ponta no Excalidraw"
+          ]
+        },
+        {
+          "passo": "próximo item 39",
+          "falas": [
+            "Atalhos e ajuda"
+          ]
+        },
+        {
+          "passo": "próximo item 40",
+          "falas": [
+            "botão, Ajuda"
+          ]
+        },
+        {
+          "passo": "próximo item 41",
+          "falas": [
+            "clicável, Tela de desenho"
+          ]
+        },
+        {
+          "passo": "próximo item 42",
+          "falas": [
+            "Tela de desenho"
+          ]
+        },
+        {
+          "passo": "próximo item 43",
+          "falas": [
+            "Tela de desenho"
+          ]
+        },
+        {
+          "passo": "próximo item 44",
+          "falas": [
+            "Tela de desenho"
+          ]
+        },
+        {
+          "passo": "próximo item 45",
+          "falas": [
+            "Tela de desenho"
+          ]
+        },
+        {
+          "passo": "próximo item 46",
+          "falas": [
+            "Tela de desenho"
+          ]
+        },
+        {
+          "passo": "próximo item 47",
+          "falas": [
+            "Tela de desenho"
+          ]
+        }
+      ],
+      "P3": [
+        {
+          "passo": "Tab 1 (estado inicial)",
+          "falas": [],
+          "foco": "div.excalidraw \"Seus desenhos estão salvos no armazename\""
+        },
+        {
+          "passo": "Tab 2 (estado inicial)",
+          "falas": [],
+          "foco": "div.excalidraw \"Seus desenhos estão salvos no armazename\""
+        },
+        {
+          "passo": "Tab 3 (estado inicial)",
+          "falas": [],
+          "foco": "div.excalidraw \"Seus desenhos estão salvos no armazename\""
+        },
+        {
+          "passo": "Tab 4 (estado inicial)",
+          "falas": [],
+          "foco": "div.excalidraw \"Seus desenhos estão salvos no armazename\""
+        },
+        {
+          "passo": "Tab 5 (estado inicial)",
+          "falas": [],
+          "foco": "div.excalidraw \"Seus desenhos estão salvos no armazename\""
+        },
+        {
+          "passo": "blur() no contêiner (feito pelo script)",
+          "falas": [],
+          "foco": "body"
+        },
+        {
+          "passo": "Tab 1",
+          "falas": [
+            "Abrir, Ctrl mais O, botão"
+          ],
+          "foco": "button.welcome-screen-menu-item \"AbrirCtrl+O\""
+        },
+        {
+          "passo": "Tab 2",
+          "falas": [
+            "Ajuda, botão"
+          ],
+          "foco": "button.welcome-screen-menu-item \"Ajuda?\""
+        },
+        {
+          "passo": "Tab 3",
+          "falas": [
+            "Colaboração ao vivo..., botão"
+          ],
+          "foco": "button.welcome-screen-menu-item \"Colaboração ao vivo...\""
+        },
+        {
+          "passo": "Tab 4",
+          "falas": [
+            "Sign up, link"
+          ],
+          "foco": "a.welcome-screen-menu-item \"Sign up\""
+        },
+        {
+          "passo": "Tab 5",
+          "falas": [
+            "botão de menu, recolhido, sub Menu"
+          ],
+          "foco": "button.dropdown-menu-button \"\""
+        },
+        {
+          "passo": "Tab 6",
+          "falas": [
+            "Formas, região, Manter ativa a ferramenta selecionada após desenhar, botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar — Q"
+          ],
+          "foco": "button.ToolIcon \"Manter ativa a ferramenta selecionada após desenhar\""
+        },
+        {
+          "passo": "Tab 7",
+          "falas": [
+            "Mão (ferramenta de rolagem), botão de alternância, não pressionado, Mão (ferramenta de rolagem) — H, H"
+          ],
+          "foco": "button.ToolIcon \"Mão (ferramenta de rolagem)\""
+        },
+        {
+          "passo": "Tab 8",
+          "falas": [
+            "Seleção, botão de alternância, pressionado, Seleção — V ou 1, V ou 1"
+          ],
+          "foco": "button.ToolIcon \"Seleção\""
+        },
+        {
+          "passo": "Tab 9",
+          "falas": [
+            "Retângulo, botão de alternância, não pressionado, Retângulo — R ou 2, R ou 2"
+          ],
+          "foco": "button.ToolIcon \"Retângulo\""
+        },
+        {
+          "passo": "Tab 10",
+          "falas": [
+            "Losango, botão de alternância, não pressionado, Losango — D ou 3, D ou 3"
+          ],
+          "foco": "button.ToolIcon \"Losango\""
+        },
+        {
+          "passo": "Tab 11",
+          "falas": [
+            "Elipse, botão de alternância, não pressionado, Elipse — O ou 4, O ou 4"
+          ],
+          "foco": "button.ToolIcon \"Elipse\""
+        },
+        {
+          "passo": "Tab 12",
+          "falas": [
+            "Flecha, botão de alternância, não pressionado, Flecha — A ou 5, A ou 5"
+          ],
+          "foco": "button.ToolIcon \"Flecha\""
+        },
+        {
+          "passo": "Tab 13",
+          "falas": [
+            "Linha, botão de alternância, não pressionado, Linha — L ou 6, L ou 6"
+          ],
+          "foco": "button.ToolIcon \"Linha\""
+        },
+        {
+          "passo": "Tab 14",
+          "falas": [
+            "Desenhar, botão de alternância, não pressionado, Desenhar — P ou 7, P ou 7"
+          ],
+          "foco": "button.ToolIcon \"Desenhar\""
+        },
+        {
+          "passo": "Tab 15",
+          "falas": [
+            "Texto, botão de alternância, não pressionado, Texto — T ou 8, T ou 8"
+          ],
+          "foco": "button.ToolIcon \"Texto\""
+        },
+        {
+          "passo": "Tab 16",
+          "falas": [
+            "Sticky note, botão de alternância, não pressionado, Sticky note — N, N"
+          ],
+          "foco": "button.ToolIcon \"Sticky note\""
+        },
+        {
+          "passo": "Tab 17",
+          "falas": [
+            "Borracha, botão de alternância, não pressionado, Borracha — E ou 0, E ou 0"
+          ],
+          "foco": "button.ToolIcon \"Borracha\""
+        },
+        {
+          "passo": "Tab 18",
+          "falas": [
+            "Mais ferramentas, botão de menu, recolhido, sub Menu"
+          ],
+          "foco": "button.dropdown-menu-button \"Mais ferramentas\""
+        },
+        {
+          "passo": "Tab 19",
+          "falas": [
+            "Try Excalidraw mais 14-day free trial, link"
+          ],
+          "foco": "a.plus-banner \"Try Excalidraw+14-day free trial\""
+        },
+        {
+          "passo": "Tab 20",
+          "falas": [
+            "Compartilhar, botão, Colaboração ao vivo..."
+          ],
+          "foco": "button.excalidraw-button \"Colaboração ao vivo...\""
+        },
+        {
+          "passo": "Tab 21",
+          "falas": [
+            "Biblioteca, botão de alternância, não pressionado, 0"
+          ],
+          "foco": "button.sidebar-trigger__label-element \"Biblioteca\""
+        },
+        {
+          "passo": "Tab 22",
+          "falas": [
+            "conteúdo marco, Ações da tela, região, Diminuir zoom, botão"
+          ],
+          "foco": "button.ToolIcon_type_button \"Diminuir zoom\""
+        },
+        {
+          "passo": "Tab 23",
+          "falas": [
+            "Redefinir zoom, botão"
+          ],
+          "foco": "button.ToolIcon_type_button \"Redefinir zoom\""
+        },
+        {
+          "passo": "Tab 24",
+          "falas": [
+            "Aumentar zoom, botão"
+          ],
+          "foco": "button.ToolIcon_type_button \"Aumentar zoom\""
+        },
+        {
+          "passo": "Tab 25",
+          "falas": [
+            "Publicação de blog com criptografia de ponta a ponta no Excalidraw, link"
+          ],
+          "foco": "a.encrypted-icon \"Publicação de blog com criptografia de ponta a ponta no Excalidraw\""
+        },
+        {
+          "passo": "Tab 26",
+          "falas": [
+            "Ajuda, botão"
+          ],
+          "foco": "button.help-icon \"Ajuda\""
+        },
+        {
+          "passo": "Tab 27",
+          "falas": [
+            "CI-M 24 NVDA vazia P 3 — Microsoft Edge, região",
+            "Barra de guias, navegação marco",
+            "Pesquisar Guias, botão, recolhido"
+          ],
+          "foco": "body"
+        }
+      ],
+      "P4": [
+        {
+          "passo": "Ctrl+End (cursor virtual no fim, sobre o canvas)",
+          "falas": [
+            "Tela de desenho"
+          ]
+        },
+        {
+          "passo": "NVDA+Espaço (modo foco)",
+          "falas": [],
+          "foco": "div.excalidraw \"Seus desenhos estão salvos no armazename\""
+        },
+        {
+          "passo": "Ctrl+A (selecionar tudo)",
+          "falas": [],
+          "foco": "div.excalidraw \"Seus desenhos estão salvos no armazename\"",
+          "selecionados": 0
+        },
+        {
+          "passo": "Seta para a direita",
+          "falas": [],
+          "foco": "div.excalidraw \"Seus desenhos estão salvos no armazename\""
+        },
+        {
+          "passo": "Seta para baixo",
+          "falas": [],
+          "foco": "div.excalidraw \"Seus desenhos estão salvos no armazename\""
+        },
+        {
+          "passo": "Tab",
+          "falas": [],
+          "foco": "div.excalidraw \"Seus desenhos estão salvos no armazename\""
+        },
+        {
+          "passo": "Shift+Tab",
+          "falas": [],
+          "foco": "div.excalidraw \"Seus desenhos estão salvos no armazename\""
+        },
+        {
+          "passo": "Esc",
+          "falas": [],
+          "foco": "div.excalidraw \"Seus desenhos estão salvos no armazename\""
+        },
+        {
+          "passo": "Ctrl+A (selecionar tudo)",
+          "falas": [],
+          "foco": "div.excalidraw \"Seus desenhos estão salvos no armazename\"",
+          "selecionados": 0
+        },
+        {
+          "passo": "NVDA+Espaço (modo de navegação)",
+          "falas": []
+        },
+        {
+          "passo": "NVDA+Seta para baixo (ler tudo, com a seleção ativa)",
+          "falas": [
+            "título, nível 1, Excalidraw",
+            "clicável, Seus desenhos estão salvos no armazenamento do seu navegador.",
+            "O armazenamento do navegador pode ser apagado inesperadamente.",
+            "Salve seu trabalho em um arquivo regularmente para evitar perdê-lo.",
+            "botão, Abrir, botão, Ctrl mais O",
+            "botão, Ajuda, botão",
+            "botão, Colaboração ao vivo...",
+            "link, Sign up",
+            "botão de menu, recolhido, sub Menu",
+            "Exportar, preferências, idiomas...",
+            "Formas, região, Escolha uma ferramenta e comece a desenhar!",
+            "Para mover a tela, segure, Roda do mouse, ou, Barra de espaço, enquanto arrasta ou use a ferramenta de mão",
+            "título, nível 2, Formas",
+            "botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar",
+            "botão de alternância, não pressionado, H, Mão (ferramenta de rolagem)",
+            "botão de alternância, pressionado, V ou 1, Seleção",
+            "botão de alternância, não pressionado, R ou 2, Retângulo",
+            "botão de alternância, não pressionado, D ou 3, Losango",
+            "botão de alternância, não pressionado, O ou 4, Elipse",
+            "botão de alternância, não pressionado, A ou 5, Flecha",
+            "botão de alternância, não pressionado, L ou 6, Linha",
+            "botão de alternância, não pressionado, P ou 7, Desenhar",
+            "botão de alternância, não pressionado, T ou 8, Texto",
+            "botão de alternância, não pressionado, N, Sticky note",
+            "botão de alternância, não pressionado, E ou 0, Borracha",
+            "botão de menu, recolhido, sub Menu, Mais ferramentas, fora de região",
+            "link, Try Excalidraw mais 14-day free trial",
+            "botão, Compartilhar",
+            "botão de alternância, não pressionado, 0, Biblioteca",
+            "conteúdo marco, região, título, nível 2, Ações da tela",
+            "botão, Diminuir zoom",
+            "botão, Redefinir zoom",
+            "botão, Aumentar zoom",
+            "botão, indisponível, Desfazer",
+            "botão, indisponível, Refazer, fora de região",
+            "link, Publicação de blog com criptografia de ponta a ponta no Excalidraw",
+            "Atalhos e ajuda",
+            "botão, Ajuda",
+            "clicável, Tela de desenho"
+          ]
+        }
+      ]
+    },
+    "cena": {
+      "P1": [
+        {
+          "passo": "NVDA+Seta para baixo (ler tudo)",
+          "falas": [
+            "título, nível 1, Excalidraw",
+            "clicável, botão de menu, recolhido, sub Menu",
+            "região, Para mover a tela, segure, Roda do mouse, ou, Barra de espaço, enquanto arrasta ou use a ferramenta de mão",
+            "título, nível 2, Formas",
+            "botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar",
+            "botão de alternância, não pressionado, H, Mão (ferramenta de rolagem)",
+            "botão de alternância, pressionado, V ou 1, Seleção",
+            "botão de alternância, não pressionado, R ou 2, Retângulo",
+            "botão de alternância, não pressionado, D ou 3, Losango",
+            "botão de alternância, não pressionado, O ou 4, Elipse",
+            "botão de alternância, não pressionado, A ou 5, Flecha",
+            "botão de alternância, não pressionado, L ou 6, Linha",
+            "botão de alternância, não pressionado, P ou 7, Desenhar",
+            "botão de alternância, não pressionado, T ou 8, Texto",
+            "botão de alternância, não pressionado, N, Sticky note",
+            "botão de alternância, não pressionado, E ou 0, Borracha",
+            "botão de menu, recolhido, sub Menu, Mais ferramentas, fora de região",
+            "link, Try Excalidraw mais 14-day free trial",
+            "botão, Compartilhar",
+            "botão de alternância, não pressionado, 0, Biblioteca",
+            "conteúdo marco, região, título, nível 2, Ações da tela",
+            "botão, Diminuir zoom",
+            "botão, Redefinir zoom",
+            "botão, Aumentar zoom",
+            "botão, indisponível, Desfazer",
+            "botão, indisponível, Refazer, fora de região",
+            "link, Publicação de blog com criptografia de ponta a ponta no Excalidraw",
+            "botão, Ajuda",
+            "clicável, Tela de desenho",
+            "Quadro de teste"
+          ]
+        }
+      ],
+      "P2": [
+        {
+          "passo": "estado da página (DOM)",
+          "falas": [],
+          "estado": {
+            "janela": "1912x994",
+            "nomesDeFrameNoDOM": [
+              "Quadro de teste"
+            ]
+          }
+        },
+        {
+          "passo": "Ctrl+End (fim)",
+          "falas": [
+            "Quadro de teste"
+          ]
+        },
+        {
+          "passo": "item anterior 1",
+          "falas": [
+            "clicável, Tela de desenho"
+          ]
+        },
+        {
+          "passo": "item anterior 2",
+          "falas": [
+            "conteúdo marco, botão, Ajuda"
+          ]
+        },
+        {
+          "passo": "item anterior 3",
+          "falas": [
+            "link, Publicação de blog com criptografia de ponta a ponta no Excalidraw"
+          ]
+        },
+        {
+          "passo": "item anterior 4",
+          "falas": [
+            "região, botão, indisponível, Refazer"
+          ]
+        },
+        {
+          "passo": "item anterior 5",
+          "falas": [
+            "botão, indisponível, Desfazer"
+          ]
+        },
+        {
+          "passo": "item anterior 6",
+          "falas": [
+            "botão, Aumentar zoom"
+          ]
+        },
+        {
+          "passo": "item anterior 7",
+          "falas": [
+            "botão, Redefinir zoom"
+          ]
+        },
+        {
+          "passo": "item anterior 8",
+          "falas": [
+            "botão, Diminuir zoom"
+          ]
+        },
+        {
+          "passo": "item anterior 9",
+          "falas": [
+            "título, nível 2, Ações da tela"
+          ]
+        },
+        {
+          "passo": "item anterior 10",
+          "falas": [
+            "fora de região, botão de alternância, não pressionado, 0, Biblioteca"
+          ]
+        },
+        {
+          "passo": "item anterior 11",
+          "falas": [
+            "botão, Compartilhar"
+          ]
+        },
+        {
+          "passo": "item anterior 12",
+          "falas": [
+            "link, Try Excalidraw mais 14-day free trial"
+          ]
+        },
+        {
+          "passo": "item anterior 13",
+          "falas": [
+            "região, botão de menu, recolhido, sub Menu, Mais ferramentas"
+          ]
+        },
+        {
+          "passo": "item anterior 14",
+          "falas": [
+            "botão de alternância, não pressionado, E ou 0, Borracha"
+          ]
+        },
+        {
+          "passo": "item anterior 15",
+          "falas": [
+            "botão de alternância, não pressionado, N, Sticky note"
+          ]
+        },
+        {
+          "passo": "item anterior 16",
+          "falas": [
+            "botão de alternância, não pressionado, T ou 8, Texto"
+          ]
+        },
+        {
+          "passo": "item anterior 17",
+          "falas": [
+            "botão de alternância, não pressionado, P ou 7, Desenhar"
+          ]
+        },
+        {
+          "passo": "item anterior 18",
+          "falas": [
+            "botão de alternância, não pressionado, L ou 6, Linha"
+          ]
+        },
+        {
+          "passo": "item anterior 19",
+          "falas": [
+            "botão de alternância, não pressionado, A ou 5, Flecha"
+          ]
+        },
+        {
+          "passo": "item anterior 20",
+          "falas": [
+            "botão de alternância, não pressionado, O ou 4, Elipse"
+          ]
+        },
+        {
+          "passo": "item anterior 21",
+          "falas": [
+            "botão de alternância, não pressionado, D ou 3, Losango"
+          ]
+        },
+        {
+          "passo": "item anterior 22",
+          "falas": [
+            "botão de alternância, não pressionado, R ou 2, Retângulo"
+          ]
+        },
+        {
+          "passo": "item anterior 23",
+          "falas": [
+            "botão de alternância, pressionado, V ou 1, Seleção"
+          ]
+        },
+        {
+          "passo": "item anterior 24",
+          "falas": [
+            "botão de alternância, não pressionado, H, Mão (ferramenta de rolagem)"
+          ]
+        },
+        {
+          "passo": "item anterior 25",
+          "falas": [
+            "botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar"
+          ]
+        },
+        {
+          "passo": "item anterior 26",
+          "falas": [
+            "título, nível 2, Formas"
+          ]
+        },
+        {
+          "passo": "item anterior 27",
+          "falas": [
+            "mão"
+          ]
+        },
+        {
+          "passo": "item anterior 28",
+          "falas": [
+            "Para mover a tela, segure, Roda do mouse, ou, Barra de espaço, enquanto arrasta ou use a ferramenta de"
+          ]
+        },
+        {
+          "passo": "item anterior 29",
+          "falas": [
+            "fora de região, botão de menu, recolhido, sub Menu"
+          ]
+        },
+        {
+          "passo": "item anterior 30",
+          "falas": [
+            "bâner marco, título, nível 1, Excalidraw"
+          ]
+        },
+        {
+          "passo": "item anterior 31",
+          "falas": [
+            "título, nível 1, Excalidraw"
+          ]
+        },
+        {
+          "passo": "item anterior 32",
+          "falas": [
+            "título, nível 1, Excalidraw"
+          ]
+        },
+        {
+          "passo": "item anterior 33",
+          "falas": [
+            "título, nível 1, Excalidraw"
+          ]
+        },
+        {
+          "passo": "item anterior 34",
+          "falas": [
+            "título, nível 1, Excalidraw"
+          ]
+        },
+        {
+          "passo": "item anterior 35",
+          "falas": [
+            "título, nível 1, Excalidraw"
+          ]
+        },
+        {
+          "passo": "item anterior 36",
+          "falas": [
+            "título, nível 1, Excalidraw"
+          ]
+        },
+        {
+          "passo": "Ctrl+Home (topo)",
+          "falas": [
+            "título, nível 1, Excalidraw"
+          ]
+        },
+        {
+          "passo": "próximo item 1",
+          "falas": [
+            "clicável, botão de menu, recolhido, sub Menu"
+          ]
+        },
+        {
+          "passo": "próximo item 2",
+          "falas": [
+            "região, Para mover a tela, segure, Roda do mouse, ou, Barra de espaço, enquanto arrasta ou use a ferramenta de"
+          ]
+        },
+        {
+          "passo": "próximo item 3",
+          "falas": [
+            "mão"
+          ]
+        },
+        {
+          "passo": "próximo item 4",
+          "falas": [
+            "título, nível 2, Formas"
+          ]
+        },
+        {
+          "passo": "próximo item 5",
+          "falas": [
+            "botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar"
+          ]
+        },
+        {
+          "passo": "próximo item 6",
+          "falas": [
+            "botão de alternância, não pressionado, H, Mão (ferramenta de rolagem)"
+          ]
+        },
+        {
+          "passo": "próximo item 7",
+          "falas": [
+            "botão de alternância, pressionado, V ou 1, Seleção"
+          ]
+        },
+        {
+          "passo": "próximo item 8",
+          "falas": [
+            "botão de alternância, não pressionado, R ou 2, Retângulo"
+          ]
+        },
+        {
+          "passo": "próximo item 9",
+          "falas": [
+            "botão de alternância, não pressionado, D ou 3, Losango"
+          ]
+        },
+        {
+          "passo": "próximo item 10",
+          "falas": [
+            "botão de alternância, não pressionado, O ou 4, Elipse"
+          ]
+        },
+        {
+          "passo": "próximo item 11",
+          "falas": [
+            "botão de alternância, não pressionado, A ou 5, Flecha"
+          ]
+        },
+        {
+          "passo": "próximo item 12",
+          "falas": [
+            "botão de alternância, não pressionado, L ou 6, Linha"
+          ]
+        },
+        {
+          "passo": "próximo item 13",
+          "falas": [
+            "botão de alternância, não pressionado, P ou 7, Desenhar"
+          ]
+        },
+        {
+          "passo": "próximo item 14",
+          "falas": [
+            "botão de alternância, não pressionado, T ou 8, Texto"
+          ]
+        },
+        {
+          "passo": "próximo item 15",
+          "falas": [
+            "botão de alternância, não pressionado, N, Sticky note"
+          ]
+        },
+        {
+          "passo": "próximo item 16",
+          "falas": [
+            "botão de alternância, não pressionado, E ou 0, Borracha"
+          ]
+        },
+        {
+          "passo": "próximo item 17",
+          "falas": [
+            "botão de menu, recolhido, sub Menu, Mais ferramentas"
+          ]
+        },
+        {
+          "passo": "próximo item 18",
+          "falas": [
+            "fora de região, link, Try Excalidraw mais 14-day free trial"
+          ]
+        },
+        {
+          "passo": "próximo item 19",
+          "falas": [
+            "botão, Compartilhar"
+          ]
+        },
+        {
+          "passo": "próximo item 20",
+          "falas": [
+            "botão de alternância, não pressionado, 0, Biblioteca"
+          ]
+        },
+        {
+          "passo": "próximo item 21",
+          "falas": [
+            "conteúdo marco, região, título, nível 2, Ações da tela"
+          ]
+        },
+        {
+          "passo": "próximo item 22",
+          "falas": [
+            "botão, Diminuir zoom"
+          ]
+        },
+        {
+          "passo": "próximo item 23",
+          "falas": [
+            "botão, Redefinir zoom"
+          ]
+        },
+        {
+          "passo": "próximo item 24",
+          "falas": [
+            "botão, Aumentar zoom"
+          ]
+        },
+        {
+          "passo": "próximo item 25",
+          "falas": [
+            "botão, indisponível, Desfazer"
+          ]
+        },
+        {
+          "passo": "próximo item 26",
+          "falas": [
+            "botão, indisponível, Refazer"
+          ]
+        },
+        {
+          "passo": "próximo item 27",
+          "falas": [
+            "fora de região, link, Publicação de blog com criptografia de ponta a ponta no Excalidraw"
+          ]
+        },
+        {
+          "passo": "próximo item 28",
+          "falas": [
+            "botão, Ajuda"
+          ]
+        },
+        {
+          "passo": "próximo item 29",
+          "falas": [
+            "clicável, Tela de desenho"
+          ]
+        },
+        {
+          "passo": "próximo item 30",
+          "falas": [
+            "Quadro de teste"
+          ]
+        },
+        {
+          "passo": "próximo item 31",
+          "falas": [
+            "Quadro de teste"
+          ]
+        },
+        {
+          "passo": "próximo item 32",
+          "falas": [
+            "Quadro de teste"
+          ]
+        },
+        {
+          "passo": "próximo item 33",
+          "falas": [
+            "Quadro de teste"
+          ]
+        },
+        {
+          "passo": "próximo item 34",
+          "falas": [
+            "Quadro de teste"
+          ]
+        },
+        {
+          "passo": "próximo item 35",
+          "falas": [
+            "Quadro de teste"
+          ]
+        }
+      ],
+      "P3": [
+        {
+          "passo": "Tab 1 (estado inicial)",
+          "falas": [],
+          "foco": "div.excalidraw \"Para mover a tela, segure Roda do mouse \""
+        },
+        {
+          "passo": "Tab 2 (estado inicial)",
+          "falas": [],
+          "foco": "div.excalidraw \"Para mover a tela, segure Roda do mouse \""
+        },
+        {
+          "passo": "Tab 3 (estado inicial)",
+          "falas": [],
+          "foco": "div.excalidraw \"Para mover a tela, segure Roda do mouse \""
+        },
+        {
+          "passo": "Tab 4 (estado inicial)",
+          "falas": [],
+          "foco": "div.excalidraw \"Para mover a tela, segure Roda do mouse \""
+        },
+        {
+          "passo": "Tab 5 (estado inicial)",
+          "falas": [],
+          "foco": "div.excalidraw \"Para mover a tela, segure Roda do mouse \""
+        },
+        {
+          "passo": "blur() no contêiner (feito pelo script)",
+          "falas": [],
+          "foco": "body"
+        },
+        {
+          "passo": "Tab 1",
+          "falas": [
+            "botão de menu, recolhido, sub Menu"
+          ],
+          "foco": "button.dropdown-menu-button \"\""
+        },
+        {
+          "passo": "Tab 2",
+          "falas": [
+            "Formas, região, Manter ativa a ferramenta selecionada após desenhar, botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar — Q"
+          ],
+          "foco": "button.ToolIcon \"Manter ativa a ferramenta selecionada após desenhar\""
+        },
+        {
+          "passo": "Tab 3",
+          "falas": [
+            "Mão (ferramenta de rolagem), botão de alternância, não pressionado, Mão (ferramenta de rolagem) — H, H"
+          ],
+          "foco": "button.ToolIcon \"Mão (ferramenta de rolagem)\""
+        },
+        {
+          "passo": "Tab 4",
+          "falas": [
+            "Seleção, botão de alternância, pressionado, Seleção — V ou 1, V ou 1"
+          ],
+          "foco": "button.ToolIcon \"Seleção\""
+        },
+        {
+          "passo": "Tab 5",
+          "falas": [
+            "Retângulo, botão de alternância, não pressionado, Retângulo — R ou 2, R ou 2"
+          ],
+          "foco": "button.ToolIcon \"Retângulo\""
+        },
+        {
+          "passo": "Tab 6",
+          "falas": [
+            "Losango, botão de alternância, não pressionado, Losango — D ou 3, D ou 3"
+          ],
+          "foco": "button.ToolIcon \"Losango\""
+        },
+        {
+          "passo": "Tab 7",
+          "falas": [
+            "Elipse, botão de alternância, não pressionado, Elipse — O ou 4, O ou 4"
+          ],
+          "foco": "button.ToolIcon \"Elipse\""
+        },
+        {
+          "passo": "Tab 8",
+          "falas": [
+            "Flecha, botão de alternância, não pressionado, Flecha — A ou 5, A ou 5"
+          ],
+          "foco": "button.ToolIcon \"Flecha\""
+        },
+        {
+          "passo": "Tab 9",
+          "falas": [
+            "Linha, botão de alternância, não pressionado, Linha — L ou 6, L ou 6"
+          ],
+          "foco": "button.ToolIcon \"Linha\""
+        },
+        {
+          "passo": "Tab 10",
+          "falas": [
+            "Desenhar, botão de alternância, não pressionado, Desenhar — P ou 7, P ou 7"
+          ],
+          "foco": "button.ToolIcon \"Desenhar\""
+        },
+        {
+          "passo": "Tab 11",
+          "falas": [
+            "Texto, botão de alternância, não pressionado, Texto — T ou 8, T ou 8"
+          ],
+          "foco": "button.ToolIcon \"Texto\""
+        },
+        {
+          "passo": "Tab 12",
+          "falas": [
+            "Sticky note, botão de alternância, não pressionado, Sticky note — N, N"
+          ],
+          "foco": "button.ToolIcon \"Sticky note\""
+        },
+        {
+          "passo": "Tab 13",
+          "falas": [
+            "Borracha, botão de alternância, não pressionado, Borracha — E ou 0, E ou 0"
+          ],
+          "foco": "button.ToolIcon \"Borracha\""
+        },
+        {
+          "passo": "Tab 14",
+          "falas": [
+            "Mais ferramentas, botão de menu, recolhido, sub Menu"
+          ],
+          "foco": "button.dropdown-menu-button \"Mais ferramentas\""
+        },
+        {
+          "passo": "Tab 15",
+          "falas": [
+            "Try Excalidraw mais 14-day free trial, link"
+          ],
+          "foco": "a.plus-banner \"Try Excalidraw+14-day free trial\""
+        },
+        {
+          "passo": "Tab 16",
+          "falas": [
+            "Compartilhar, botão, Colaboração ao vivo..."
+          ],
+          "foco": "button.excalidraw-button \"Colaboração ao vivo...\""
+        },
+        {
+          "passo": "Tab 17",
+          "falas": [
+            "Biblioteca, botão de alternância, não pressionado, 0"
+          ],
+          "foco": "button.sidebar-trigger__label-element \"Biblioteca\""
+        },
+        {
+          "passo": "Tab 18",
+          "falas": [
+            "conteúdo marco, Ações da tela, região, Diminuir zoom, botão"
+          ],
+          "foco": "button.ToolIcon_type_button \"Diminuir zoom\""
+        },
+        {
+          "passo": "Tab 19",
+          "falas": [
+            "Redefinir zoom, botão"
+          ],
+          "foco": "button.ToolIcon_type_button \"Redefinir zoom\""
+        },
+        {
+          "passo": "Tab 20",
+          "falas": [
+            "Aumentar zoom, botão"
+          ],
+          "foco": "button.ToolIcon_type_button \"Aumentar zoom\""
+        },
+        {
+          "passo": "Tab 21",
+          "falas": [
+            "Publicação de blog com criptografia de ponta a ponta no Excalidraw, link"
+          ],
+          "foco": "a.encrypted-icon \"Publicação de blog com criptografia de ponta a ponta no Excalidraw\""
+        },
+        {
+          "passo": "Tab 22",
+          "falas": [
+            "Ajuda, botão"
+          ],
+          "foco": "button.help-icon \"Ajuda\""
+        },
+        {
+          "passo": "Tab 23",
+          "falas": [
+            "CI-M 24 NVDA cena P 3 — Microsoft Edge, região",
+            "Barra de guias, navegação marco",
+            "Pesquisar Guias, botão, recolhido"
+          ],
+          "foco": "body"
+        }
+      ],
+      "P4": [
+        {
+          "passo": "Ctrl+End (cursor virtual no fim, sobre o canvas)",
+          "falas": [
+            "Quadro de teste"
+          ]
+        },
+        {
+          "passo": "NVDA+Espaço (modo foco)",
+          "falas": [],
+          "foco": "div.excalidraw \"Para mover a tela, segure Roda do mouse \""
+        },
+        {
+          "passo": "Ctrl+A (selecionar tudo)",
+          "falas": [],
+          "foco": "div.excalidraw \"Ações das formas selecionadasContornoFun\"",
+          "selecionados": 9
+        },
+        {
+          "passo": "Seta para a direita",
+          "falas": [],
+          "foco": "div.excalidraw \"Ações das formas selecionadasContornoFun\""
+        },
+        {
+          "passo": "Seta para baixo",
+          "falas": [],
+          "foco": "div.excalidraw \"Ações das formas selecionadasContornoFun\""
+        },
+        {
+          "passo": "Tab",
+          "falas": [],
+          "foco": "div.excalidraw \"Ações das formas selecionadasContornoFun\""
+        },
+        {
+          "passo": "Shift+Tab",
+          "falas": [],
+          "foco": "div.excalidraw \"Ações das formas selecionadasContornoFun\""
+        },
+        {
+          "passo": "Esc",
+          "falas": [],
+          "foco": "div.excalidraw \"Para mover a tela, segure Roda do mouse \""
+        },
+        {
+          "passo": "Ctrl+A (selecionar tudo)",
+          "falas": [],
+          "foco": "div.excalidraw \"Ações das formas selecionadasContornoFun\"",
+          "selecionados": 9
+        },
+        {
+          "passo": "NVDA+Espaço (modo de navegação)",
+          "falas": []
+        },
+        {
+          "passo": "NVDA+Seta para baixo (ler tudo, com a seleção ativa)",
+          "falas": [
+            "título, nível 1, Excalidraw",
+            "clicável, botão de menu, recolhido, sub Menu",
+            "região, título, nível 2, Ações das formas selecionadas",
+            "diálogo",
+            "diálogo",
+            "grupo, Espessura do traço",
+            "botão de opção, não marcado",
+            "botão de opção, não marcado",
+            "botão de opção, não marcado, fora de grupo",
+            "grupo, Estilo do traço",
+            "botão de opção, marcado",
+            "botão de opção, não marcado",
+            "botão de opção, não marcado, fora de grupo",
+            "grupo, Pressure",
+            "botão de opção, não marcado",
+            "botão de opção, marcado, fora de grupo",
+            "grupo, Precisão do traço",
+            "botão de opção, não marcado",
+            "botão de opção, marcado",
+            "botão de opção, não marcado, fora de grupo",
+            "grupo, Arestas",
+            "botão de opção, marcado",
+            "botão de opção, não marcado, fora de grupo",
+            "grupo, Tipo de seta",
+            "botão de opção, marcado",
+            "botão de opção, não marcado",
+            "botão de opção, não marcado, fora de grupo",
+            "grupo, Família da fonte",
+            "diálogo, fora de grupo",
+            "grupo, Tamanho da fonte",
+            "botão de opção, não marcado",
+            "botão de opção, marcado",
+            "botão de opção, não marcado",
+            "botão de opção, não marcado, fora de grupo",
+            "grupo, Alinhamento do texto",
+            "botão de opção, marcado",
+            "botão de opção, não marcado",
+            "botão de opção, não marcado, fora de grupo",
+            "grupo, Pontas",
+            "botão, recolhido, abre diálogo, arrowhead start",
+            "botão, recolhido, abre diálogo, arrowhead end, fora de grupo",
+            "Opacidade, deslizante, 100",
+            "100",
+            "0",
+            "grupo, Camadas",
+            "botão, Enviar para o fundo — Ctrl mais Shift mais",
+            "botão, Enviar para trás — Ctrl mais",
+            "botão, Trazer para a frente — Ctrl mais",
+            "botão, Trazer para o primeiro plano — Ctrl mais Shift mais, fora de grupo",
+            "grupo, Ações",
+            "botão, Duplicar",
+            "botão, Apagar",
+            "botão, Agrupar seleção, fora de grupo, fora de região",
+            "região, título, nível 2, Formas",
+            "botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar",
+            "botão de alternância, não pressionado, H, Mão (ferramenta de rolagem)",
+            "botão de alternância, pressionado, V ou 1, Seleção",
+            "botão de alternância, não pressionado, R ou 2, Retângulo",
+            "botão de alternância, não pressionado, D ou 3, Losango",
+            "botão de alternância, não pressionado, O ou 4, Elipse",
+            "botão de alternância, não pressionado, A ou 5, Flecha",
+            "botão de alternância, não pressionado, L ou 6, Linha",
+            "botão de alternância, não pressionado, P ou 7, Desenhar",
+            "botão de alternância, não pressionado, T ou 8, Texto",
+            "botão de alternância, não pressionado, N, Sticky note",
+            "botão de alternância, não pressionado, E ou 0, Borracha",
+            "botão de menu, recolhido, sub Menu, Mais ferramentas, fora de região",
+            "link, Try Excalidraw mais 14-day free trial",
+            "botão, Compartilhar",
+            "botão de alternância, não pressionado, 0, Biblioteca",
+            "conteúdo marco, região, título, nível 2, Ações da tela",
+            "botão, Diminuir zoom",
+            "botão, Redefinir zoom",
+            "botão, Aumentar zoom",
+            "botão, Desfazer",
+            "botão, indisponível, Refazer, fora de região",
+            "link, Publicação de blog com criptografia de ponta a ponta no Excalidraw",
+            "botão, Ajuda",
+            "clicável, Tela de desenho",
+            "Quadro de teste"
+          ]
+        }
+      ]
+    }
+  }
+}
