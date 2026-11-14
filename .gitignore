@@ -49,3 +49,6 @@ htmlcov/
 
 # Dados de participantes (gravações, TCLE assinado, tabela código-nome)
 evidencias/participantes/privado/
+
+# Dependências do script da CI-M24 (Guidepup)
+scripts/node_modules/

@@ -1,0 +1,40 @@
+# ariaSnapshot do <body> com a cena carregada
+- banner:
+  - heading "Excalidraw" [level=1]
+- button
+- region "Formas":
+  - text: Para mover a tela, segure Roda do mouse ou Barra de espaço enquanto arrasta ou use a ferramenta de mão
+  - heading "Formas" [level=2]
+  - button "Manter ativa a ferramenta selecionada após desenhar"
+  - button "Mão (ferramenta de rolagem)"
+  - button "Seleção" [pressed]: V
+  - button "Retângulo": R
+  - button "Losango": D
+  - button "Elipse": O
+  - button "Flecha": A
+  - button "Linha": L
+  - button "Desenhar": P
+  - button "Texto": T
+  - button "Sticky note": "N"
+  - button "Borracha": E
+  - button "Mais ferramentas"
+- link "Try Excalidraw+ 14-day free trial":
+  - /url: https://plus.excalidraw.com/plus?utm_source=excalidraw&utm_medium=app&utm_content=guestBanner#excalidraw-redirect
+- button "Compartilhar"
+- button "Biblioteca"
+- contentinfo:
+  - region "Ações da tela":
+    - heading "Ações da tela" [level=2]
+    - button "Diminuir zoom"
+    - button "Redefinir zoom": 100%
+    - button "Aumentar zoom"
+    - button "Desfazer"
+    - button "Refazer" [disabled]
+  - link "Publicação de blog com criptografia de ponta a ponta no Excalidraw":
+    - /url: https://plus.excalidraw.com/blog/end-to-end-encryption
+  - button "Ajuda"
+- status:
+  - text: Content replaced. Ctrl+Z to undo
+  - button "close"
+- img
+- text: Tela de desenho Quadro de teste

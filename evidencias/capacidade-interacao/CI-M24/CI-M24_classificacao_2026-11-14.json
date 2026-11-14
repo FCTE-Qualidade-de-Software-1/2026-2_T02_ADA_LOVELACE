@@ -1,0 +1,429 @@
+[
+  {
+    "elemento": "Retângulo",
+    "id": "ci-m24-retangulo",
+    "caminhos": {
+      "P1": {
+        "anunciado": false,
+        "ocorrenciasCena": 1,
+        "ocorrenciasVazia": 1,
+        "trechos": [
+          "botão de alternância, não pressionado, R ou 2, Retângulo"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      },
+      "P2": {
+        "anunciado": false,
+        "ocorrenciasCena": 2,
+        "ocorrenciasVazia": 2,
+        "trechos": [
+          "botão de alternância, não pressionado, R ou 2, Retângulo"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      },
+      "P3": {
+        "anunciado": false,
+        "ocorrenciasCena": 2,
+        "ocorrenciasVazia": 2,
+        "trechos": [
+          "Retângulo, botão de alternância, não pressionado, Retângulo — R ou 2, R ou 2"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      },
+      "P4": {
+        "anunciado": false,
+        "ocorrenciasCena": 1,
+        "ocorrenciasVazia": 1,
+        "trechos": [
+          "botão de alternância, não pressionado, R ou 2, Retângulo"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      }
+    },
+    "anunciado": false
+  },
+  {
+    "elemento": "Elipse",
+    "id": "ci-m24-elipse",
+    "caminhos": {
+      "P1": {
+        "anunciado": false,
+        "ocorrenciasCena": 1,
+        "ocorrenciasVazia": 1,
+        "trechos": [
+          "botão de alternância, não pressionado, O ou 4, Elipse"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      },
+      "P2": {
+        "anunciado": false,
+        "ocorrenciasCena": 2,
+        "ocorrenciasVazia": 2,
+        "trechos": [
+          "botão de alternância, não pressionado, O ou 4, Elipse"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      },
+      "P3": {
+        "anunciado": false,
+        "ocorrenciasCena": 2,
+        "ocorrenciasVazia": 2,
+        "trechos": [
+          "Elipse, botão de alternância, não pressionado, Elipse — O ou 4, O ou 4"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      },
+      "P4": {
+        "anunciado": false,
+        "ocorrenciasCena": 1,
+        "ocorrenciasVazia": 1,
+        "trechos": [
+          "botão de alternância, não pressionado, O ou 4, Elipse"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      }
+    },
+    "anunciado": false
+  },
+  {
+    "elemento": "Losango",
+    "id": "ci-m24-losango",
+    "caminhos": {
+      "P1": {
+        "anunciado": false,
+        "ocorrenciasCena": 1,
+        "ocorrenciasVazia": 1,
+        "trechos": [
+          "botão de alternância, não pressionado, D ou 3, Losango"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      },
+      "P2": {
+        "anunciado": false,
+        "ocorrenciasCena": 2,
+        "ocorrenciasVazia": 2,
+        "trechos": [
+          "botão de alternância, não pressionado, D ou 3, Losango"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      },
+      "P3": {
+        "anunciado": false,
+        "ocorrenciasCena": 2,
+        "ocorrenciasVazia": 2,
+        "trechos": [
+          "Losango, botão de alternância, não pressionado, Losango — D ou 3, D ou 3"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      },
+      "P4": {
+        "anunciado": false,
+        "ocorrenciasCena": 1,
+        "ocorrenciasVazia": 1,
+        "trechos": [
+          "botão de alternância, não pressionado, D ou 3, Losango"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      }
+    },
+    "anunciado": false
+  },
+  {
+    "elemento": "Seta",
+    "id": "ci-m24-seta",
+    "caminhos": {
+      "P1": {
+        "anunciado": false,
+        "ocorrenciasCena": 1,
+        "ocorrenciasVazia": 1,
+        "trechos": [
+          "botão de alternância, não pressionado, A ou 5, Flecha"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      },
+      "P2": {
+        "anunciado": false,
+        "ocorrenciasCena": 2,
+        "ocorrenciasVazia": 2,
+        "trechos": [
+          "botão de alternância, não pressionado, A ou 5, Flecha"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      },
+      "P3": {
+        "anunciado": false,
+        "ocorrenciasCena": 2,
+        "ocorrenciasVazia": 2,
+        "trechos": [
+          "Flecha, botão de alternância, não pressionado, Flecha — A ou 5, A ou 5"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      },
+      "P4": {
+        "anunciado": false,
+        "ocorrenciasCena": 1,
+        "ocorrenciasVazia": 1,
+        "trechos": [
+          "botão de alternância, não pressionado, A ou 5, Flecha"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": [
+          {
+            "fala": "grupo, Tipo de seta",
+            "motivo": "botão \"Tipo de seta\" do painel de propriedades (aparece com a seleção; não identifica o elemento)"
+          }
+        ]
+      }
+    },
+    "anunciado": false
+  },
+  {
+    "elemento": "Linha",
+    "id": "ci-m24-linha",
+    "caminhos": {
+      "P1": {
+        "anunciado": false,
+        "ocorrenciasCena": 1,
+        "ocorrenciasVazia": 1,
+        "trechos": [
+          "botão de alternância, não pressionado, L ou 6, Linha"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      },
+      "P2": {
+        "anunciado": false,
+        "ocorrenciasCena": 2,
+        "ocorrenciasVazia": 2,
+        "trechos": [
+          "botão de alternância, não pressionado, L ou 6, Linha"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      },
+      "P3": {
+        "anunciado": false,
+        "ocorrenciasCena": 2,
+        "ocorrenciasVazia": 2,
+        "trechos": [
+          "Linha, botão de alternância, não pressionado, Linha — L ou 6, L ou 6"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      },
+      "P4": {
+        "anunciado": false,
+        "ocorrenciasCena": 1,
+        "ocorrenciasVazia": 1,
+        "trechos": [
+          "botão de alternância, não pressionado, L ou 6, Linha"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      }
+    },
+    "anunciado": false
+  },
+  {
+    "elemento": "Texto (\"Texto de teste\")",
+    "id": "ci-m24-texto",
+    "caminhos": {
+      "P1": {
+        "anunciado": false,
+        "ocorrenciasCena": 1,
+        "ocorrenciasVazia": 1,
+        "trechos": [
+          "botão de alternância, não pressionado, T ou 8, Texto"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      },
+      "P2": {
+        "anunciado": false,
+        "ocorrenciasCena": 2,
+        "ocorrenciasVazia": 2,
+        "trechos": [
+          "botão de alternância, não pressionado, T ou 8, Texto"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      },
+      "P3": {
+        "anunciado": false,
+        "ocorrenciasCena": 2,
+        "ocorrenciasVazia": 2,
+        "trechos": [
+          "Texto, botão de alternância, não pressionado, Texto — T ou 8, T ou 8"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      },
+      "P4": {
+        "anunciado": false,
+        "ocorrenciasCena": 1,
+        "ocorrenciasVazia": 1,
+        "trechos": [
+          "botão de alternância, não pressionado, T ou 8, Texto"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": [
+          {
+            "fala": "grupo, Alinhamento do texto",
+            "motivo": "grupo \"Alinhamento do texto\" do painel de propriedades (aparece com a seleção; não identifica o elemento)"
+          }
+        ]
+      }
+    },
+    "anunciado": false
+  },
+  {
+    "elemento": "Desenho livre",
+    "id": "ci-m24-desenho-livre",
+    "caminhos": {
+      "P1": {
+        "anunciado": false,
+        "ocorrenciasCena": 2,
+        "ocorrenciasVazia": 3,
+        "trechos": [
+          "botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar",
+          "botão de alternância, não pressionado, P ou 7, Desenhar"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      },
+      "P2": {
+        "anunciado": false,
+        "ocorrenciasCena": 4,
+        "ocorrenciasVazia": 6,
+        "trechos": [
+          "botão de alternância, não pressionado, P ou 7, Desenhar",
+          "botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      },
+      "P3": {
+        "anunciado": false,
+        "ocorrenciasCena": 4,
+        "ocorrenciasVazia": 4,
+        "trechos": [
+          "Formas, região, Manter ativa a ferramenta selecionada após desenhar, botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar — Q",
+          "Desenhar, botão de alternância, não pressionado, Desenhar — P ou 7, P ou 7"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      },
+      "P4": {
+        "anunciado": false,
+        "ocorrenciasCena": 2,
+        "ocorrenciasVazia": 3,
+        "trechos": [
+          "botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar",
+          "botão de alternância, não pressionado, P ou 7, Desenhar"
+        ],
+        "trechosTambemNaVazia": true,
+        "excluidas": []
+      }
+    },
+    "anunciado": false
+  },
+  {
+    "elemento": "Imagem",
+    "id": "ci-m24-imagem",
+    "caminhos": {
+      "P1": {
+        "anunciado": false,
+        "ocorrenciasCena": 0,
+        "ocorrenciasVazia": 0,
+        "trechos": [],
+        "trechosTambemNaVazia": false,
+        "excluidas": []
+      },
+      "P2": {
+        "anunciado": false,
+        "ocorrenciasCena": 0,
+        "ocorrenciasVazia": 0,
+        "trechos": [],
+        "trechosTambemNaVazia": false,
+        "excluidas": []
+      },
+      "P3": {
+        "anunciado": false,
+        "ocorrenciasCena": 0,
+        "ocorrenciasVazia": 0,
+        "trechos": [],
+        "trechosTambemNaVazia": false,
+        "excluidas": []
+      },
+      "P4": {
+        "anunciado": false,
+        "ocorrenciasCena": 0,
+        "ocorrenciasVazia": 0,
+        "trechos": [],
+        "trechosTambemNaVazia": false,
+        "excluidas": []
+      }
+    },
+    "anunciado": false
+  },
+  {
+    "elemento": "Frame (\"Quadro de teste\")",
+    "id": "ci-m24-frame",
+    "caminhos": {
+      "P1": {
+        "anunciado": true,
+        "ocorrenciasCena": 1,
+        "ocorrenciasVazia": 0,
+        "trechos": [
+          "Quadro de teste"
+        ],
+        "trechosTambemNaVazia": false,
+        "excluidas": []
+      },
+      "P2": {
+        "anunciado": true,
+        "ocorrenciasCena": 7,
+        "ocorrenciasVazia": 0,
+        "trechos": [
+          "Quadro de teste"
+        ],
+        "trechosTambemNaVazia": false,
+        "excluidas": []
+      },
+      "P3": {
+        "anunciado": false,
+        "ocorrenciasCena": 0,
+        "ocorrenciasVazia": 0,
+        "trechos": [],
+        "trechosTambemNaVazia": false,
+        "excluidas": []
+      },
+      "P4": {
+        "anunciado": true,
+        "ocorrenciasCena": 2,
+        "ocorrenciasVazia": 0,
+        "trechos": [
+          "Quadro de teste"
+        ],
+        "trechosTambemNaVazia": false,
+        "excluidas": []
+      }
+    },
+    "anunciado": true
+  }
+]

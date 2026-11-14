@@ -1,0 +1,8 @@
+{
+  "name": "scripts-ci-m24",
+  "private": true,
+  "description": "Dependência do scripts/ci_m24_leitor_tela.cjs (CI-M24): Guidepup para controlar o NVDA.",
+  "devDependencies": {
+    "@guidepup/guidepup": "0.40.0"
+  }
+}

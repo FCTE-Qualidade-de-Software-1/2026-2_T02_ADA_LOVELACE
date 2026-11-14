@@ -84,6 +84,7 @@ nav:
           - F-M12 · Formatos de importação: resultados/flexibilidade/f-m12.md
       - Capacidade de interação:
           - CI-M18 · Mensagens de erro: resultados/capacidade-interacao/ci-m18.md
+          - CI-M24 · Elementos anunciados por leitor de tela: resultados/capacidade-interacao/ci-m24.md
           - CI-M26 · Tradução para o português: resultados/capacidade-interacao/ci-m26.md
   - Gestão:
       - Métricas de desenvolvimento: gestao/metricas.md

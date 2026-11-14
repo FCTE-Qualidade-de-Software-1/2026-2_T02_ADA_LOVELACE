@@ -67,6 +67,6 @@ do Excalidraw. Só as métricas já coletadas têm nota. Os critérios estão no
 | CI-M21 · Intenção de uso futuro | — | — |
 | CI-M22 · Violações da WCAG 2.2 (A e AA) | — | — |
 | CI-M23 · Funções operáveis só pelo teclado | — | — |
-| CI-M24 · Elementos anunciados por leitor de tela | — | — |
+| [CI-M24 · Elementos anunciados por leitor de tela](capacidade-interacao/ci-m24.md) | 1 de 9 (11%) | **0** |
 | CI-M25 · Contraste mínimo de 4,5:1 | — | — |
 | [CI-M26 · Idiomas e tradução para o português](capacidade-interacao/ci-m26.md) | 92,5% | **1** |

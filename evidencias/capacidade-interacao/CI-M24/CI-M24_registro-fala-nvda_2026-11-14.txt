@@ -1,0 +1,718 @@
+=== cenário vazia · P1. leitura contínua
+--- NVDA+Seta para baixo (ler tudo)
+  título, nível 1, Excalidraw
+  clicável, Seus desenhos estão salvos no armazenamento do seu navegador.
+  O armazenamento do navegador pode ser apagado inesperadamente.
+  Salve seu trabalho em um arquivo regularmente para evitar perdê-lo.
+  botão, Abrir, botão, Ctrl mais O
+  botão, Ajuda, botão
+  botão, Colaboração ao vivo...
+  link, Sign up
+  botão de menu, recolhido, sub Menu
+  Exportar, preferências, idiomas...
+  Formas, região, Escolha uma ferramenta e comece a desenhar!
+  Para mover a tela, segure, Roda do mouse, ou, Barra de espaço, enquanto arrasta ou use a ferramenta de mão
+  título, nível 2, Formas
+  botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar
+  botão de alternância, não pressionado, H, Mão (ferramenta de rolagem)
+  botão de alternância, pressionado, V ou 1, Seleção
+  botão de alternância, não pressionado, R ou 2, Retângulo
+  botão de alternância, não pressionado, D ou 3, Losango
+  botão de alternância, não pressionado, O ou 4, Elipse
+  botão de alternância, não pressionado, A ou 5, Flecha
+  botão de alternância, não pressionado, L ou 6, Linha
+  botão de alternância, não pressionado, P ou 7, Desenhar
+  botão de alternância, não pressionado, T ou 8, Texto
+  botão de alternância, não pressionado, N, Sticky note
+  botão de alternância, não pressionado, E ou 0, Borracha
+  botão de menu, recolhido, sub Menu, Mais ferramentas, fora de região
+  link, Try Excalidraw mais 14-day free trial
+  botão, Compartilhar
+  botão de alternância, não pressionado, 0, Biblioteca
+  conteúdo marco, região, título, nível 2, Ações da tela
+  botão, Diminuir zoom
+  botão, Redefinir zoom
+  botão, Aumentar zoom
+  botão, indisponível, Desfazer
+  botão, indisponível, Refazer, fora de região
+  link, Publicação de blog com criptografia de ponta a ponta no Excalidraw
+  Atalhos e ajuda
+  botão, Ajuda
+  clicável, Tela de desenho
+
+=== cenário vazia · P2. navegação sequencial (próximo e anterior item)
+--- estado da página (DOM) (janela 1912x994; nomes de frame no DOM: [])
+  (sem fala)
+--- Ctrl+End (fim)
+  Tela de desenho
+--- item anterior 1
+  conteúdo marco, botão, Ajuda
+--- item anterior 2
+  Atalhos e ajuda
+--- item anterior 3
+  link, Publicação de blog com criptografia de ponta a ponta no Excalidraw
+--- item anterior 4
+  região, botão, indisponível, Refazer
+--- item anterior 5
+  botão, indisponível, Desfazer
+--- item anterior 6
+  botão, Aumentar zoom
+--- item anterior 7
+  botão, Redefinir zoom
+--- item anterior 8
+  botão, Diminuir zoom
+--- item anterior 9
+  título, nível 2, Ações da tela
+--- item anterior 10
+  fora de região, botão de alternância, não pressionado, 0, Biblioteca
+--- item anterior 11
+  botão, Compartilhar
+--- item anterior 12
+  link, Try Excalidraw mais 14-day free trial
+--- item anterior 13
+  Formas, região, botão de menu, recolhido, sub Menu, Mais ferramentas
+--- item anterior 14
+  botão de alternância, não pressionado, E ou 0, Borracha
+--- item anterior 15
+  botão de alternância, não pressionado, N, Sticky note
+--- item anterior 16
+  botão de alternância, não pressionado, T ou 8, Texto
+--- item anterior 17
+  botão de alternância, não pressionado, P ou 7, Desenhar
+--- item anterior 18
+  botão de alternância, não pressionado, L ou 6, Linha
+--- item anterior 19
+  botão de alternância, não pressionado, A ou 5, Flecha
+--- item anterior 20
+  botão de alternância, não pressionado, O ou 4, Elipse
+--- item anterior 21
+  botão de alternância, não pressionado, D ou 3, Losango
+--- item anterior 22
+  botão de alternância, não pressionado, R ou 2, Retângulo
+--- item anterior 23
+  botão de alternância, pressionado, V ou 1, Seleção
+--- item anterior 24
+  botão de alternância, não pressionado, H, Mão (ferramenta de rolagem)
+--- item anterior 25
+  botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar
+--- item anterior 26
+  título, nível 2, Formas
+--- item anterior 27
+  mão
+--- item anterior 28
+  Para mover a tela, segure, Roda do mouse, ou, Barra de espaço, enquanto arrasta ou use a ferramenta de
+--- item anterior 29
+  Escolha uma ferramenta e comece a desenhar!
+--- item anterior 30
+  fora de região, Exportar, preferências, idiomas...
+--- item anterior 31
+  botão de menu, recolhido, sub Menu
+--- item anterior 32
+  link, Sign up
+--- item anterior 33
+  botão, Colaboração ao vivo...
+--- item anterior 34
+  botão
+--- item anterior 35
+  botão, Ajuda
+--- item anterior 36
+  botão, Ctrl mais O
+--- item anterior 37
+  botão, Abrir
+--- item anterior 38
+  Salve seu trabalho em um arquivo regularmente para evitar perdê-lo.
+--- item anterior 39
+  O armazenamento do navegador pode ser apagado inesperadamente.
+--- item anterior 40
+  Seus desenhos estão salvos no armazenamento do seu navegador.
+--- item anterior 41
+  bâner marco, título, nível 1, Excalidraw
+--- item anterior 42
+  título, nível 1, Excalidraw
+--- item anterior 43
+  título, nível 1, Excalidraw
+--- item anterior 44
+  título, nível 1, Excalidraw
+--- item anterior 45
+  título, nível 1, Excalidraw
+--- item anterior 46
+  título, nível 1, Excalidraw
+--- item anterior 47
+  título, nível 1, Excalidraw
+--- Ctrl+Home (topo)
+  título, nível 1, Excalidraw
+--- próximo item 1
+  clicável, Seus desenhos estão salvos no armazenamento do seu navegador.
+--- próximo item 2
+  O armazenamento do navegador pode ser apagado inesperadamente.
+--- próximo item 3
+  Salve seu trabalho em um arquivo regularmente para evitar perdê-lo.
+--- próximo item 4
+  botão, Abrir
+--- próximo item 5
+  botão, Ctrl mais O
+--- próximo item 6
+  botão, Ajuda
+--- próximo item 7
+  botão
+--- próximo item 8
+  botão, Colaboração ao vivo...
+--- próximo item 9
+  link, Sign up
+--- próximo item 10
+  botão de menu, recolhido, sub Menu
+--- próximo item 11
+  Exportar, preferências, idiomas...
+--- próximo item 12
+  Formas, região, Escolha uma ferramenta e comece a desenhar!
+--- próximo item 13
+  Para mover a tela, segure, Roda do mouse, ou, Barra de espaço, enquanto arrasta ou use a ferramenta de
+--- próximo item 14
+  mão
+--- próximo item 15
+  título, nível 2, Formas
+--- próximo item 16
+  botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar
+--- próximo item 17
+  botão de alternância, não pressionado, H, Mão (ferramenta de rolagem)
+--- próximo item 18
+  botão de alternância, pressionado, V ou 1, Seleção
+--- próximo item 19
+  botão de alternância, não pressionado, R ou 2, Retângulo
+--- próximo item 20
+  botão de alternância, não pressionado, D ou 3, Losango
+--- próximo item 21
+  botão de alternância, não pressionado, O ou 4, Elipse
+--- próximo item 22
+  botão de alternância, não pressionado, A ou 5, Flecha
+--- próximo item 23
+  botão de alternância, não pressionado, L ou 6, Linha
+--- próximo item 24
+  botão de alternância, não pressionado, P ou 7, Desenhar
+--- próximo item 25
+  botão de alternância, não pressionado, T ou 8, Texto
+--- próximo item 26
+  botão de alternância, não pressionado, N, Sticky note
+--- próximo item 27
+  botão de alternância, não pressionado, E ou 0, Borracha
+--- próximo item 28
+  botão de menu, recolhido, sub Menu, Mais ferramentas
+--- próximo item 29
+  fora de região, link, Try Excalidraw mais 14-day free trial
+--- próximo item 30
+  botão, Compartilhar
+--- próximo item 31
+  botão de alternância, não pressionado, 0, Biblioteca
+--- próximo item 32
+  conteúdo marco, região, título, nível 2, Ações da tela
+--- próximo item 33
+  botão, Diminuir zoom
+--- próximo item 34
+  botão, Redefinir zoom
+--- próximo item 35
+  botão, Aumentar zoom
+--- próximo item 36
+  botão, indisponível, Desfazer
+--- próximo item 37
+  botão, indisponível, Refazer
+--- próximo item 38
+  fora de região, link, Publicação de blog com criptografia de ponta a ponta no Excalidraw
+--- próximo item 39
+  Atalhos e ajuda
+--- próximo item 40
+  botão, Ajuda
+--- próximo item 41
+  clicável, Tela de desenho
+--- próximo item 42
+  Tela de desenho
+--- próximo item 43
+  Tela de desenho
+--- próximo item 44
+  Tela de desenho
+--- próximo item 45
+  Tela de desenho
+--- próximo item 46
+  Tela de desenho
+--- próximo item 47
+  Tela de desenho
+
+=== cenário vazia · P3. navegação por Tab
+--- Tab 1 (estado inicial) (foco: div.excalidraw "Seus desenhos estão salvos no armazename")
+  (sem fala)
+--- Tab 2 (estado inicial) (foco: div.excalidraw "Seus desenhos estão salvos no armazename")
+  (sem fala)
+--- Tab 3 (estado inicial) (foco: div.excalidraw "Seus desenhos estão salvos no armazename")
+  (sem fala)
+--- Tab 4 (estado inicial) (foco: div.excalidraw "Seus desenhos estão salvos no armazename")
+  (sem fala)
+--- Tab 5 (estado inicial) (foco: div.excalidraw "Seus desenhos estão salvos no armazename")
+  (sem fala)
+--- blur() no contêiner (feito pelo script) (foco: body)
+  (sem fala)
+--- Tab 1 (foco: button.welcome-screen-menu-item "AbrirCtrl+O")
+  Abrir, Ctrl mais O, botão
+--- Tab 2 (foco: button.welcome-screen-menu-item "Ajuda?")
+  Ajuda, botão
+--- Tab 3 (foco: button.welcome-screen-menu-item "Colaboração ao vivo...")
+  Colaboração ao vivo..., botão
+--- Tab 4 (foco: a.welcome-screen-menu-item "Sign up")
+  Sign up, link
+--- Tab 5 (foco: button.dropdown-menu-button "")
+  botão de menu, recolhido, sub Menu
+--- Tab 6 (foco: button.ToolIcon "Manter ativa a ferramenta selecionada após desenhar")
+  Formas, região, Manter ativa a ferramenta selecionada após desenhar, botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar — Q
+--- Tab 7 (foco: button.ToolIcon "Mão (ferramenta de rolagem)")
+  Mão (ferramenta de rolagem), botão de alternância, não pressionado, Mão (ferramenta de rolagem) — H, H
+--- Tab 8 (foco: button.ToolIcon "Seleção")
+  Seleção, botão de alternância, pressionado, Seleção — V ou 1, V ou 1
+--- Tab 9 (foco: button.ToolIcon "Retângulo")
+  Retângulo, botão de alternância, não pressionado, Retângulo — R ou 2, R ou 2
+--- Tab 10 (foco: button.ToolIcon "Losango")
+  Losango, botão de alternância, não pressionado, Losango — D ou 3, D ou 3
+--- Tab 11 (foco: button.ToolIcon "Elipse")
+  Elipse, botão de alternância, não pressionado, Elipse — O ou 4, O ou 4
+--- Tab 12 (foco: button.ToolIcon "Flecha")
+  Flecha, botão de alternância, não pressionado, Flecha — A ou 5, A ou 5
+--- Tab 13 (foco: button.ToolIcon "Linha")
+  Linha, botão de alternância, não pressionado, Linha — L ou 6, L ou 6
+--- Tab 14 (foco: button.ToolIcon "Desenhar")
+  Desenhar, botão de alternância, não pressionado, Desenhar — P ou 7, P ou 7
+--- Tab 15 (foco: button.ToolIcon "Texto")
+  Texto, botão de alternância, não pressionado, Texto — T ou 8, T ou 8
+--- Tab 16 (foco: button.ToolIcon "Sticky note")
+  Sticky note, botão de alternância, não pressionado, Sticky note — N, N
+--- Tab 17 (foco: button.ToolIcon "Borracha")
+  Borracha, botão de alternância, não pressionado, Borracha — E ou 0, E ou 0
+--- Tab 18 (foco: button.dropdown-menu-button "Mais ferramentas")
+  Mais ferramentas, botão de menu, recolhido, sub Menu
+--- Tab 19 (foco: a.plus-banner "Try Excalidraw+14-day free trial")
+  Try Excalidraw mais 14-day free trial, link
+--- Tab 20 (foco: button.excalidraw-button "Colaboração ao vivo...")
+  Compartilhar, botão, Colaboração ao vivo...
+--- Tab 21 (foco: button.sidebar-trigger__label-element "Biblioteca")
+  Biblioteca, botão de alternância, não pressionado, 0
+--- Tab 22 (foco: button.ToolIcon_type_button "Diminuir zoom")
+  conteúdo marco, Ações da tela, região, Diminuir zoom, botão
+--- Tab 23 (foco: button.ToolIcon_type_button "Redefinir zoom")
+  Redefinir zoom, botão
+--- Tab 24 (foco: button.ToolIcon_type_button "Aumentar zoom")
+  Aumentar zoom, botão
+--- Tab 25 (foco: a.encrypted-icon "Publicação de blog com criptografia de ponta a ponta no Excalidraw")
+  Publicação de blog com criptografia de ponta a ponta no Excalidraw, link
+--- Tab 26 (foco: button.help-icon "Ajuda")
+  Ajuda, botão
+--- Tab 27 (foco: body)
+  CI-M 24 NVDA vazia P 3 — Microsoft Edge, região
+  Barra de guias, navegação marco
+  Pesquisar Guias, botão, recolhido
+
+=== cenário vazia · P4. seleção pelo teclado no canvas
+--- Ctrl+End (cursor virtual no fim, sobre o canvas)
+  Tela de desenho
+--- NVDA+Espaço (modo foco) (foco: div.excalidraw "Seus desenhos estão salvos no armazename")
+  (sem fala)
+--- Ctrl+A (selecionar tudo) (foco: div.excalidraw "Seus desenhos estão salvos no armazename"; selecionados: 0)
+  (sem fala)
+--- Seta para a direita (foco: div.excalidraw "Seus desenhos estão salvos no armazename")
+  (sem fala)
+--- Seta para baixo (foco: div.excalidraw "Seus desenhos estão salvos no armazename")
+  (sem fala)
+--- Tab (foco: div.excalidraw "Seus desenhos estão salvos no armazename")
+  (sem fala)
+--- Shift+Tab (foco: div.excalidraw "Seus desenhos estão salvos no armazename")
+  (sem fala)
+--- Esc (foco: div.excalidraw "Seus desenhos estão salvos no armazename")
+  (sem fala)
+--- Ctrl+A (selecionar tudo) (foco: div.excalidraw "Seus desenhos estão salvos no armazename"; selecionados: 0)
+  (sem fala)
+--- NVDA+Espaço (modo de navegação)
+  (sem fala)
+--- NVDA+Seta para baixo (ler tudo, com a seleção ativa)
+  título, nível 1, Excalidraw
+  clicável, Seus desenhos estão salvos no armazenamento do seu navegador.
+  O armazenamento do navegador pode ser apagado inesperadamente.
+  Salve seu trabalho em um arquivo regularmente para evitar perdê-lo.
+  botão, Abrir, botão, Ctrl mais O
+  botão, Ajuda, botão
+  botão, Colaboração ao vivo...
+  link, Sign up
+  botão de menu, recolhido, sub Menu
+  Exportar, preferências, idiomas...
+  Formas, região, Escolha uma ferramenta e comece a desenhar!
+  Para mover a tela, segure, Roda do mouse, ou, Barra de espaço, enquanto arrasta ou use a ferramenta de mão
+  título, nível 2, Formas
+  botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar
+  botão de alternância, não pressionado, H, Mão (ferramenta de rolagem)
+  botão de alternância, pressionado, V ou 1, Seleção
+  botão de alternância, não pressionado, R ou 2, Retângulo
+  botão de alternância, não pressionado, D ou 3, Losango
+  botão de alternância, não pressionado, O ou 4, Elipse
+  botão de alternância, não pressionado, A ou 5, Flecha
+  botão de alternância, não pressionado, L ou 6, Linha
+  botão de alternância, não pressionado, P ou 7, Desenhar
+  botão de alternância, não pressionado, T ou 8, Texto
+  botão de alternância, não pressionado, N, Sticky note
+  botão de alternância, não pressionado, E ou 0, Borracha
+  botão de menu, recolhido, sub Menu, Mais ferramentas, fora de região
+  link, Try Excalidraw mais 14-day free trial
+  botão, Compartilhar
+  botão de alternância, não pressionado, 0, Biblioteca
+  conteúdo marco, região, título, nível 2, Ações da tela
+  botão, Diminuir zoom
+  botão, Redefinir zoom
+  botão, Aumentar zoom
+  botão, indisponível, Desfazer
+  botão, indisponível, Refazer, fora de região
+  link, Publicação de blog com criptografia de ponta a ponta no Excalidraw
+  Atalhos e ajuda
+  botão, Ajuda
+  clicável, Tela de desenho
+
+=== cenário cena · P1. leitura contínua
+--- NVDA+Seta para baixo (ler tudo)
+  título, nível 1, Excalidraw
+  clicável, botão de menu, recolhido, sub Menu
+  região, Para mover a tela, segure, Roda do mouse, ou, Barra de espaço, enquanto arrasta ou use a ferramenta de mão
+  título, nível 2, Formas
+  botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar
+  botão de alternância, não pressionado, H, Mão (ferramenta de rolagem)
+  botão de alternância, pressionado, V ou 1, Seleção
+  botão de alternância, não pressionado, R ou 2, Retângulo
+  botão de alternância, não pressionado, D ou 3, Losango
+  botão de alternância, não pressionado, O ou 4, Elipse
+  botão de alternância, não pressionado, A ou 5, Flecha
+  botão de alternância, não pressionado, L ou 6, Linha
+  botão de alternância, não pressionado, P ou 7, Desenhar
+  botão de alternância, não pressionado, T ou 8, Texto
+  botão de alternância, não pressionado, N, Sticky note
+  botão de alternância, não pressionado, E ou 0, Borracha
+  botão de menu, recolhido, sub Menu, Mais ferramentas, fora de região
+  link, Try Excalidraw mais 14-day free trial
+  botão, Compartilhar
+  botão de alternância, não pressionado, 0, Biblioteca
+  conteúdo marco, região, título, nível 2, Ações da tela
+  botão, Diminuir zoom
+  botão, Redefinir zoom
+  botão, Aumentar zoom
+  botão, indisponível, Desfazer
+  botão, indisponível, Refazer, fora de região
+  link, Publicação de blog com criptografia de ponta a ponta no Excalidraw
+  botão, Ajuda
+  clicável, Tela de desenho
+  Quadro de teste
+
+=== cenário cena · P2. navegação sequencial (próximo e anterior item)
+--- estado da página (DOM) (janela 1912x994; nomes de frame no DOM: ["Quadro de teste"])
+  (sem fala)
+--- Ctrl+End (fim)
+  Quadro de teste
+--- item anterior 1
+  clicável, Tela de desenho
+--- item anterior 2
+  conteúdo marco, botão, Ajuda
+--- item anterior 3
+  link, Publicação de blog com criptografia de ponta a ponta no Excalidraw
+--- item anterior 4
+  região, botão, indisponível, Refazer
+--- item anterior 5
+  botão, indisponível, Desfazer
+--- item anterior 6
+  botão, Aumentar zoom
+--- item anterior 7
+  botão, Redefinir zoom
+--- item anterior 8
+  botão, Diminuir zoom
+--- item anterior 9
+  título, nível 2, Ações da tela
+--- item anterior 10
+  fora de região, botão de alternância, não pressionado, 0, Biblioteca
+--- item anterior 11
+  botão, Compartilhar
+--- item anterior 12
+  link, Try Excalidraw mais 14-day free trial
+--- item anterior 13
+  região, botão de menu, recolhido, sub Menu, Mais ferramentas
+--- item anterior 14
+  botão de alternância, não pressionado, E ou 0, Borracha
+--- item anterior 15
+  botão de alternância, não pressionado, N, Sticky note
+--- item anterior 16
+  botão de alternância, não pressionado, T ou 8, Texto
+--- item anterior 17
+  botão de alternância, não pressionado, P ou 7, Desenhar
+--- item anterior 18
+  botão de alternância, não pressionado, L ou 6, Linha
+--- item anterior 19
+  botão de alternância, não pressionado, A ou 5, Flecha
+--- item anterior 20
+  botão de alternância, não pressionado, O ou 4, Elipse
+--- item anterior 21
+  botão de alternância, não pressionado, D ou 3, Losango
+--- item anterior 22
+  botão de alternância, não pressionado, R ou 2, Retângulo
+--- item anterior 23
+  botão de alternância, pressionado, V ou 1, Seleção
+--- item anterior 24
+  botão de alternância, não pressionado, H, Mão (ferramenta de rolagem)
+--- item anterior 25
+  botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar
+--- item anterior 26
+  título, nível 2, Formas
+--- item anterior 27
+  mão
+--- item anterior 28
+  Para mover a tela, segure, Roda do mouse, ou, Barra de espaço, enquanto arrasta ou use a ferramenta de
+--- item anterior 29
+  fora de região, botão de menu, recolhido, sub Menu
+--- item anterior 30
+  bâner marco, título, nível 1, Excalidraw
+--- item anterior 31
+  título, nível 1, Excalidraw
+--- item anterior 32
+  título, nível 1, Excalidraw
+--- item anterior 33
+  título, nível 1, Excalidraw
+--- item anterior 34
+  título, nível 1, Excalidraw
+--- item anterior 35
+  título, nível 1, Excalidraw
+--- item anterior 36
+  título, nível 1, Excalidraw
+--- Ctrl+Home (topo)
+  título, nível 1, Excalidraw
+--- próximo item 1
+  clicável, botão de menu, recolhido, sub Menu
+--- próximo item 2
+  região, Para mover a tela, segure, Roda do mouse, ou, Barra de espaço, enquanto arrasta ou use a ferramenta de
+--- próximo item 3
+  mão
+--- próximo item 4
+  título, nível 2, Formas
+--- próximo item 5
+  botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar
+--- próximo item 6
+  botão de alternância, não pressionado, H, Mão (ferramenta de rolagem)
+--- próximo item 7
+  botão de alternância, pressionado, V ou 1, Seleção
+--- próximo item 8
+  botão de alternância, não pressionado, R ou 2, Retângulo
+--- próximo item 9
+  botão de alternância, não pressionado, D ou 3, Losango
+--- próximo item 10
+  botão de alternância, não pressionado, O ou 4, Elipse
+--- próximo item 11
+  botão de alternância, não pressionado, A ou 5, Flecha
+--- próximo item 12
+  botão de alternância, não pressionado, L ou 6, Linha
+--- próximo item 13
+  botão de alternância, não pressionado, P ou 7, Desenhar
+--- próximo item 14
+  botão de alternância, não pressionado, T ou 8, Texto
+--- próximo item 15
+  botão de alternância, não pressionado, N, Sticky note
+--- próximo item 16
+  botão de alternância, não pressionado, E ou 0, Borracha
+--- próximo item 17
+  botão de menu, recolhido, sub Menu, Mais ferramentas
+--- próximo item 18
+  fora de região, link, Try Excalidraw mais 14-day free trial
+--- próximo item 19
+  botão, Compartilhar
+--- próximo item 20
+  botão de alternância, não pressionado, 0, Biblioteca
+--- próximo item 21
+  conteúdo marco, região, título, nível 2, Ações da tela
+--- próximo item 22
+  botão, Diminuir zoom
+--- próximo item 23
+  botão, Redefinir zoom
+--- próximo item 24
+  botão, Aumentar zoom
+--- próximo item 25
+  botão, indisponível, Desfazer
+--- próximo item 26
+  botão, indisponível, Refazer
+--- próximo item 27
+  fora de região, link, Publicação de blog com criptografia de ponta a ponta no Excalidraw
+--- próximo item 28
+  botão, Ajuda
+--- próximo item 29
+  clicável, Tela de desenho
+--- próximo item 30
+  Quadro de teste
+--- próximo item 31
+  Quadro de teste
+--- próximo item 32
+  Quadro de teste
+--- próximo item 33
+  Quadro de teste
+--- próximo item 34
+  Quadro de teste
+--- próximo item 35
+  Quadro de teste
+
+=== cenário cena · P3. navegação por Tab
+--- Tab 1 (estado inicial) (foco: div.excalidraw "Para mover a tela, segure Roda do mouse ")
+  (sem fala)
+--- Tab 2 (estado inicial) (foco: div.excalidraw "Para mover a tela, segure Roda do mouse ")
+  (sem fala)
+--- Tab 3 (estado inicial) (foco: div.excalidraw "Para mover a tela, segure Roda do mouse ")
+  (sem fala)
+--- Tab 4 (estado inicial) (foco: div.excalidraw "Para mover a tela, segure Roda do mouse ")
+  (sem fala)
+--- Tab 5 (estado inicial) (foco: div.excalidraw "Para mover a tela, segure Roda do mouse ")
+  (sem fala)
+--- blur() no contêiner (feito pelo script) (foco: body)
+  (sem fala)
+--- Tab 1 (foco: button.dropdown-menu-button "")
+  botão de menu, recolhido, sub Menu
+--- Tab 2 (foco: button.ToolIcon "Manter ativa a ferramenta selecionada após desenhar")
+  Formas, região, Manter ativa a ferramenta selecionada após desenhar, botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar — Q
+--- Tab 3 (foco: button.ToolIcon "Mão (ferramenta de rolagem)")
+  Mão (ferramenta de rolagem), botão de alternância, não pressionado, Mão (ferramenta de rolagem) — H, H
+--- Tab 4 (foco: button.ToolIcon "Seleção")
+  Seleção, botão de alternância, pressionado, Seleção — V ou 1, V ou 1
+--- Tab 5 (foco: button.ToolIcon "Retângulo")
+  Retângulo, botão de alternância, não pressionado, Retângulo — R ou 2, R ou 2
+--- Tab 6 (foco: button.ToolIcon "Losango")
+  Losango, botão de alternância, não pressionado, Losango — D ou 3, D ou 3
+--- Tab 7 (foco: button.ToolIcon "Elipse")
+  Elipse, botão de alternância, não pressionado, Elipse — O ou 4, O ou 4
+--- Tab 8 (foco: button.ToolIcon "Flecha")
+  Flecha, botão de alternância, não pressionado, Flecha — A ou 5, A ou 5
+--- Tab 9 (foco: button.ToolIcon "Linha")
+  Linha, botão de alternância, não pressionado, Linha — L ou 6, L ou 6
+--- Tab 10 (foco: button.ToolIcon "Desenhar")
+  Desenhar, botão de alternância, não pressionado, Desenhar — P ou 7, P ou 7
+--- Tab 11 (foco: button.ToolIcon "Texto")
+  Texto, botão de alternância, não pressionado, Texto — T ou 8, T ou 8
+--- Tab 12 (foco: button.ToolIcon "Sticky note")
+  Sticky note, botão de alternância, não pressionado, Sticky note — N, N
+--- Tab 13 (foco: button.ToolIcon "Borracha")
+  Borracha, botão de alternância, não pressionado, Borracha — E ou 0, E ou 0
+--- Tab 14 (foco: button.dropdown-menu-button "Mais ferramentas")
+  Mais ferramentas, botão de menu, recolhido, sub Menu
+--- Tab 15 (foco: a.plus-banner "Try Excalidraw+14-day free trial")
+  Try Excalidraw mais 14-day free trial, link
+--- Tab 16 (foco: button.excalidraw-button "Colaboração ao vivo...")
+  Compartilhar, botão, Colaboração ao vivo...
+--- Tab 17 (foco: button.sidebar-trigger__label-element "Biblioteca")
+  Biblioteca, botão de alternância, não pressionado, 0
+--- Tab 18 (foco: button.ToolIcon_type_button "Diminuir zoom")
+  conteúdo marco, Ações da tela, região, Diminuir zoom, botão
+--- Tab 19 (foco: button.ToolIcon_type_button "Redefinir zoom")
+  Redefinir zoom, botão
+--- Tab 20 (foco: button.ToolIcon_type_button "Aumentar zoom")
+  Aumentar zoom, botão
+--- Tab 21 (foco: a.encrypted-icon "Publicação de blog com criptografia de ponta a ponta no Excalidraw")
+  Publicação de blog com criptografia de ponta a ponta no Excalidraw, link
+--- Tab 22 (foco: button.help-icon "Ajuda")
+  Ajuda, botão
+--- Tab 23 (foco: body)
+  CI-M 24 NVDA cena P 3 — Microsoft Edge, região
+  Barra de guias, navegação marco
+  Pesquisar Guias, botão, recolhido
+
+=== cenário cena · P4. seleção pelo teclado no canvas
+--- Ctrl+End (cursor virtual no fim, sobre o canvas)
+  Quadro de teste
+--- NVDA+Espaço (modo foco) (foco: div.excalidraw "Para mover a tela, segure Roda do mouse ")
+  (sem fala)
+--- Ctrl+A (selecionar tudo) (foco: div.excalidraw "Ações das formas selecionadasContornoFun"; selecionados: 9)
+  (sem fala)
+--- Seta para a direita (foco: div.excalidraw "Ações das formas selecionadasContornoFun")
+  (sem fala)
+--- Seta para baixo (foco: div.excalidraw "Ações das formas selecionadasContornoFun")
+  (sem fala)
+--- Tab (foco: div.excalidraw "Ações das formas selecionadasContornoFun")
+  (sem fala)
+--- Shift+Tab (foco: div.excalidraw "Ações das formas selecionadasContornoFun")
+  (sem fala)
+--- Esc (foco: div.excalidraw "Para mover a tela, segure Roda do mouse ")
+  (sem fala)
+--- Ctrl+A (selecionar tudo) (foco: div.excalidraw "Ações das formas selecionadasContornoFun"; selecionados: 9)
+  (sem fala)
+--- NVDA+Espaço (modo de navegação)
+  (sem fala)
+--- NVDA+Seta para baixo (ler tudo, com a seleção ativa)
+  título, nível 1, Excalidraw
+  clicável, botão de menu, recolhido, sub Menu
+  região, título, nível 2, Ações das formas selecionadas
+  diálogo
+  diálogo
+  grupo, Espessura do traço
+  botão de opção, não marcado
+  botão de opção, não marcado
+  botão de opção, não marcado, fora de grupo
+  grupo, Estilo do traço
+  botão de opção, marcado
+  botão de opção, não marcado
+  botão de opção, não marcado, fora de grupo
+  grupo, Pressure
+  botão de opção, não marcado
+  botão de opção, marcado, fora de grupo
+  grupo, Precisão do traço
+  botão de opção, não marcado
+  botão de opção, marcado
+  botão de opção, não marcado, fora de grupo
+  grupo, Arestas
+  botão de opção, marcado
+  botão de opção, não marcado, fora de grupo
+  grupo, Tipo de seta
+  botão de opção, marcado
+  botão de opção, não marcado
+  botão de opção, não marcado, fora de grupo
+  grupo, Família da fonte
+  diálogo, fora de grupo
+  grupo, Tamanho da fonte
+  botão de opção, não marcado
+  botão de opção, marcado
+  botão de opção, não marcado
+  botão de opção, não marcado, fora de grupo
+  grupo, Alinhamento do texto
+  botão de opção, marcado
+  botão de opção, não marcado
+  botão de opção, não marcado, fora de grupo
+  grupo, Pontas
+  botão, recolhido, abre diálogo, arrowhead start
+  botão, recolhido, abre diálogo, arrowhead end, fora de grupo
+  Opacidade, deslizante, 100
+  100
+  0
+  grupo, Camadas
+  botão, Enviar para o fundo — Ctrl mais Shift mais
+  botão, Enviar para trás — Ctrl mais
+  botão, Trazer para a frente — Ctrl mais
+  botão, Trazer para o primeiro plano — Ctrl mais Shift mais, fora de grupo
+  grupo, Ações
+  botão, Duplicar
+  botão, Apagar
+  botão, Agrupar seleção, fora de grupo, fora de região
+  região, título, nível 2, Formas
+  botão de alternância, não pressionado, Manter ativa a ferramenta selecionada após desenhar
+  botão de alternância, não pressionado, H, Mão (ferramenta de rolagem)
+  botão de alternância, pressionado, V ou 1, Seleção
+  botão de alternância, não pressionado, R ou 2, Retângulo
+  botão de alternância, não pressionado, D ou 3, Losango
+  botão de alternância, não pressionado, O ou 4, Elipse
+  botão de alternância, não pressionado, A ou 5, Flecha
+  botão de alternância, não pressionado, L ou 6, Linha
+  botão de alternância, não pressionado, P ou 7, Desenhar
+  botão de alternância, não pressionado, T ou 8, Texto
+  botão de alternância, não pressionado, N, Sticky note
+  botão de alternância, não pressionado, E ou 0, Borracha
+  botão de menu, recolhido, sub Menu, Mais ferramentas, fora de região
+  link, Try Excalidraw mais 14-day free trial
+  botão, Compartilhar
+  botão de alternância, não pressionado, 0, Biblioteca
+  conteúdo marco, região, título, nível 2, Ações da tela
+  botão, Diminuir zoom
+  botão, Redefinir zoom
+  botão, Aumentar zoom
+  botão, Desfazer
+  botão, indisponível, Refazer, fora de região
+  link, Publicação de blog com criptografia de ponta a ponta no Excalidraw
+  botão, Ajuda
+  clicável, Tela de desenho
+  Quadro de teste
+

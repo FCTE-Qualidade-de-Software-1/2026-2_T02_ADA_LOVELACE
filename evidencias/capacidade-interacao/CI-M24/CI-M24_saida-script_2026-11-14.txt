@@ -1,0 +1,54 @@
+http://localhost:5000/ não responde; subindo o vite preview
+data: 2026-11-14
+sistema: Microsoft Windows 11 Home Single Language 10.0.26200 (x64)
+node: v24.12.0
+nvda: 2026.3 (portátil do Guidepup, pacote 0.2.1-2026.3)
+guidepup: 0.40.0
+playwright: 1.58.2
+navegador: Microsoft Edge 157.0.4341.46
+voz: OneCore, volume 0, velocidade 100 com aumento
+url: http://localhost:5000/
+cena: evidencias/capacidade-interacao/CI-M24/CI-M24_cena-teste_2026-11-14.excalidraw
+
+== cenário vazia
+árvore de acessibilidade: 151 nós expostos; canvas: 2
+janela: CI-M24 NVDA vazia P1 - Perfil 1 - Microsoft? Edge
+área visível: 1912x994
+P1. leitura contínua: 1 passo(s), 39 fala(s)
+janela: CI-M24 NVDA vazia P2 - Perfil 1 - Microsoft? Edge
+área visível: 1912x994
+P2. navegação sequencial (próximo e anterior item): 97 passo(s), 96 fala(s)
+janela: CI-M24 NVDA vazia P3 - Perfil 1 - Microsoft? Edge
+área visível: 1912x994
+P3. navegação por Tab: 33 passo(s), 29 fala(s)
+janela: CI-M24 NVDA vazia P4 - Perfil 1 - Microsoft? Edge
+área visível: 1912x994
+P4. seleção pelo teclado no canvas: 11 passo(s), 40 fala(s)
+
+== cenário cena
+cena carregada: 9 elementos
+árvore de acessibilidade: 108 nós expostos; canvas: 2
+janela: CI-M24 NVDA cena P1 - Perfil 1 - Microsoft? Edge
+área visível: 1912x994
+P1. leitura contínua: 1 passo(s), 30 fala(s)
+janela: CI-M24 NVDA cena P2 - Perfil 1 - Microsoft? Edge
+área visível: 1912x994
+P2. navegação sequencial (próximo e anterior item): 74 passo(s), 73 fala(s)
+janela: CI-M24 NVDA cena P3 - Perfil 1 - Microsoft? Edge
+área visível: 1912x994
+P3. navegação por Tab: 29 passo(s), 25 fala(s)
+janela: CI-M24 NVDA cena P4 - Perfil 1 - Microsoft? Edge
+área visível: 1912x994
+P4. seleção pelo teclado no canvas: 11 passo(s), 81 fala(s)
+elementos depois do P4: ci-m24-retangulo:diamond, ci-m24-elipse:diamond, ci-m24-losango:diamond, ci-m24-seta:arrow, ci-m24-linha:line, ci-m24-texto:text, ci-m24-desenho-livre:freedraw, ci-m24-imagem:image, ci-m24-frame:frame
+
+classificação automática: 1 de 9 elementos anunciados
+  Retângulo: não
+  Elipse: não
+  Losango: não
+  Seta: não
+  Linha: não
+  Texto ("Texto de teste"): não
+  Desenho livre: não
+  Imagem: não
+  Frame ("Quadro de teste"): sim (P1, P2, P4)
