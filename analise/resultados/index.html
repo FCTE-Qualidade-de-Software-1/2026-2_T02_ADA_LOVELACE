@@ -1258,6 +1258,52 @@
   
   
     <li class="md-nav__item">
+      <a href="../../resultados/seguranca/s-m5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    S-M5 · Detecção de adulteração
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resultados/seguranca/s-m6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    S-M6 · Edição simultânea
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../resultados/seguranca/s-m9/" class="md-nav__link">
         
   
@@ -1847,12 +1893,44 @@ atendidos e principais riscos.]</code></p>
 </thead>
 <tbody>
 <tr>
-<td>A-001</td>
-<td><code>[S-Q1, F-M1 ou CI-M1]</code></td>
-<td><code>[Link para evidência]</code></td>
-<td><code>[Preencher]</code></td>
-<td><code>[Baixo/Médio/Alto]</code></td>
-<td><code>[Preencher]</code></td>
+<td>A-S-M5-1</td>
+<td>S-Q3 · S-M5: mensagem válida reenviada (replay) é aceita, porque a cifra não tem contador nem AAD; no teste, a reconciliação descartou a versão antiga e a cena não mudou</td>
+<td><a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/seguranca/S-M5/S-M5_deteccao-adulteracao.md#6-observações-e-limitações">S-M5, O1</a></td>
+<td>2</td>
+<td>Baixo</td>
+<td>Incluir contador ou ID da sala como AAD e descartar sequências repetidas</td>
+</tr>
+<tr>
+<td>A-S-M5-2</td>
+<td>S-Q3 · S-M5: cada mensagem inválida abre um <code>window.alert</code> bloqueante; quem souber só o ID da sala pode inundar a sessão (21 mensagens inválidas, enviadas sem a chave a partir de um participante, geraram 21 alertas no teste ponta a ponta)</td>
+<td><a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/seguranca/S-M5/S-M5_deteccao-adulteracao.md#6-observações-e-limitações">S-M5, O2</a></td>
+<td>2</td>
+<td>Médio</td>
+<td>Trocar o alerta por aviso não bloqueante e limitar a frequência</td>
+</tr>
+<tr>
+<td>A-S-M6-1</td>
+<td>S-Q3 · S-M6: participantes divergem por até cerca de 20 s depois de edições concorrentes, até a ressincronização completa (rodadas 7, 9 e 10 no app; no modelo, 35% das rodadas com o destinatário editando o elemento)</td>
+<td><a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/seguranca/S-M6/S-M6_edicao-simultanea.md#6-observações-e-limitações">S-M6, O2</a></td>
+<td>1</td>
+<td>Baixo</td>
+<td>Ressincronizar o elemento assim que a edição local termina</td>
+</tr>
+<tr>
+<td>A-S-M6-2</td>
+<td>S-Q3 · S-M6: em edições concorrentes do mesmo elemento, a edição perdedora é descartada sem aviso; mover um elemento não é protegido, e ele "pisca" para quem o está arrastando</td>
+<td><a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/seguranca/S-M6/S-M6_edicao-simultanea.md#6-observações-e-limitações">S-M6, O3</a></td>
+<td>1</td>
+<td>Baixo a médio</td>
+<td>Avisar o autor da edição substituída ou bloquear o elemento em edição por outro</td>
+</tr>
+<tr>
+<td>A-S-M6-3</td>
+<td>S-Q3 · S-M6: depois de um empate de versão, quem perde o desempate sobe a versão sozinho (<code>bumpElementVersions</code> no recebimento) e, se isso ocorrer depois da última ressincronização dela, a versão não chega aos outros (2 de 8 rodadas no app real; na rodada 8, persistiu por 2 min). Depois disso, uma edição não concorrente de outro participante pode ser descartada em silêncio nessa janela (teste <code>edição posterior</code>)</td>
+<td><a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/seguranca/S-M6/S-M6_edicao-simultanea.md#7-achado-preencher-só-se-a-pontuação-for-0">S-M6, O1 e seção 7</a></td>
+<td>1</td>
+<td>Médio a alto</td>
+<td>Não aplicar <code>bumpElementVersions</code> a atualizações recebidas da colaboração, como o comentário da própria função indica, ou retransmitir a versão gerada</td>
 </tr>
 </tbody>
 </table>
