@@ -1,0 +1,88 @@
+# S-M6: rodadas 6 a 10 com 3 janelas e verificação de persistência (2 min)
+# 2026-11-14, horários em UTC (17:37 a 17:55 UTC = 14:37 a 14:55 -0300)
+# App: localhost:3001 (Vite 5.0.12), servidor de sala: excalidraw-room 03ff435 em localhost:3002 (Docker)
+# Navegador: Helium (Chromium); A = janela normal, B e C = janelas anônimas, mesma sala, lado a lado
+# Script: S-M6_snippet-janelas.js (versão com a assinatura de 2 min)
+# Cena: 1 retângulo (alvo oAkZjrskoktSgH6OgbA7J). Em cada rodada, as 3 janelas começam no
+# mesmo instante e editam o alvo a cada 100 ms por 30 s (299 edições locais em cada janela).
+# Assinaturas: fim (logo ao terminar), final (30 s depois) e 2min (2 min depois, sem edições).
+# Linhas no formato id:version:versionNonce:x:y. O ID da sala e a chave foram omitidos.
+#
+# Resumo
+#   rodada  início    fim                         final (30 s)                2min                        resultado
+#   6       14:37:00  A=B=C 6202:1475518200       A=B=C 6202:1475518200       A=B=C 6202:1475518200       consistente
+#   7       14:42:00  A,C 6732 | B 6733           A=B=C 6733:2483921          A=B=C 6733:2483921          consistente
+#   8       14:45:30  A 7261:416376951            A 7261:416376951            A 7261:416376951            INCONSISTENTE
+#                     B 7261:904439871            B 7262:1710286577           B 7262:1710286577           (persistente)
+#                     C 7260:1444032094           C 7261:416376951            C 7261:416376951
+#   9       14:49:30  A,C 7798 | B 7799           A=B=C 7799:1570415839       A=B=C 7799:1570415839       consistente
+#   10      14:53:00  A 8324 | B 8323 | C 8324    A=B=C 8325:753346252        A=B=C 8325:753346252        consistente
+#
+# Rodada 8: A e B terminaram empatadas na versão 7261. A tem o menor versionNonce (416376951 < 904439871).
+# B adotou o elemento de A e bumpElementVersions (Collab.tsx:790-793) subiu a versão para 7262 com um
+# versionNonce novo (1710286577), que não foi retransmitido. C adotou a versão de A sem empate (7260 < 7261).
+# Dois minutos depois, sem nenhuma edição, B continuava diferente de A e C. A posição (149, 303) é a mesma
+# nas 3 janelas: a divergência é de versão.
+#
+# Rodadas 7, 9 e 10: alguma janela terminou uma versão atrás e convergiu depois, pela ressincronização
+# (divergência temporária). Na 7, 9 e 10, a última versão não empatou com outra de mesmo número.
+
+## __sm6.relatorio() na janela A
+{
+  "r6-fim":    { "hora": "2026-11-14T17:37:30.022Z", "hash": "0aa094de25b6b147", "linhas": "oAkZjrskoktSgH6OgbA7J:6202:1475518200:157:358" },
+  "r6-final":  { "hora": "2026-11-14T17:38:00.042Z", "hash": "0aa094de25b6b147", "linhas": "oAkZjrskoktSgH6OgbA7J:6202:1475518200:157:358" },
+  "r6-2min":   { "hora": "2026-11-14T17:39:30.033Z", "hash": "0aa094de25b6b147", "linhas": "oAkZjrskoktSgH6OgbA7J:6202:1475518200:157:358" },
+  "r7-fim":    { "hora": "2026-11-14T17:42:30.024Z", "hash": "535ebf4aa8e3a763", "linhas": "oAkZjrskoktSgH6OgbA7J:6732:1216741639:105:326" },
+  "r7-final":  { "hora": "2026-11-14T17:43:00.032Z", "hash": "6c5408b2d50c6cd3", "linhas": "oAkZjrskoktSgH6OgbA7J:6733:2483921:105:326" },
+  "r7-2min":   { "hora": "2026-11-14T17:44:30.024Z", "hash": "6c5408b2d50c6cd3", "linhas": "oAkZjrskoktSgH6OgbA7J:6733:2483921:105:326" },
+  "r8-fim":    { "hora": "2026-11-14T17:46:00.006Z", "hash": "957d6c044c9f6051", "linhas": "oAkZjrskoktSgH6OgbA7J:7261:416376951:149:303" },
+  "r8-final":  { "hora": "2026-11-14T17:46:30.014Z", "hash": "957d6c044c9f6051", "linhas": "oAkZjrskoktSgH6OgbA7J:7261:416376951:149:303" },
+  "r8-2min":   { "hora": "2026-11-14T17:48:00.022Z", "hash": "957d6c044c9f6051", "linhas": "oAkZjrskoktSgH6OgbA7J:7261:416376951:149:303" },
+  "r9-fim":    { "hora": "2026-11-14T17:50:00.014Z", "hash": "64aeb8445f8173e2", "linhas": "oAkZjrskoktSgH6OgbA7J:7798:1130725015:180:296" },
+  "r9-final":  { "hora": "2026-11-14T17:50:30.021Z", "hash": "f47d73031dbf48d6", "linhas": "oAkZjrskoktSgH6OgbA7J:7799:1570415839:180:296" },
+  "r9-2min":   { "hora": "2026-11-14T17:52:00.015Z", "hash": "f47d73031dbf48d6", "linhas": "oAkZjrskoktSgH6OgbA7J:7799:1570415839:180:296" },
+  "r10-fim":   { "hora": "2026-11-14T17:53:30.019Z", "hash": "aac055eee9e2119a", "linhas": "oAkZjrskoktSgH6OgbA7J:8324:692378935:222:280" },
+  "r10-final": { "hora": "2026-11-14T17:54:00.035Z", "hash": "e055cfffd071db54", "linhas": "oAkZjrskoktSgH6OgbA7J:8325:753346252:222:280" },
+  "r10-2min":  { "hora": "2026-11-14T17:55:30.044Z", "hash": "e055cfffd071db54", "linhas": "oAkZjrskoktSgH6OgbA7J:8325:753346252:222:280" }
+}
+edições locais por rodada: {"6":299,"7":299,"8":299,"9":299,"10":299}
+
+## __sm6.relatorio() na janela B
+{
+  "r6-fim":    { "hora": "2026-11-14T17:37:30.021Z", "hash": "0aa094de25b6b147", "linhas": "oAkZjrskoktSgH6OgbA7J:6202:1475518200:157:358" },
+  "r6-final":  { "hora": "2026-11-14T17:38:00.042Z", "hash": "0aa094de25b6b147", "linhas": "oAkZjrskoktSgH6OgbA7J:6202:1475518200:157:358" },
+  "r6-2min":   { "hora": "2026-11-14T17:39:30.033Z", "hash": "0aa094de25b6b147", "linhas": "oAkZjrskoktSgH6OgbA7J:6202:1475518200:157:358" },
+  "r7-fim":    { "hora": "2026-11-14T17:42:30.024Z", "hash": "6c5408b2d50c6cd3", "linhas": "oAkZjrskoktSgH6OgbA7J:6733:2483921:105:326" },
+  "r7-final":  { "hora": "2026-11-14T17:43:00.032Z", "hash": "6c5408b2d50c6cd3", "linhas": "oAkZjrskoktSgH6OgbA7J:6733:2483921:105:326" },
+  "r7-2min":   { "hora": "2026-11-14T17:44:30.024Z", "hash": "6c5408b2d50c6cd3", "linhas": "oAkZjrskoktSgH6OgbA7J:6733:2483921:105:326" },
+  "r8-fim":    { "hora": "2026-11-14T17:46:00.004Z", "hash": "b66d269bbe0f8b09", "linhas": "oAkZjrskoktSgH6OgbA7J:7261:904439871:149:303" },
+  "r8-final":  { "hora": "2026-11-14T17:46:30.014Z", "hash": "5e108278183a20aa", "linhas": "oAkZjrskoktSgH6OgbA7J:7262:1710286577:149:303" },
+  "r8-2min":   { "hora": "2026-11-14T17:48:00.007Z", "hash": "5e108278183a20aa", "linhas": "oAkZjrskoktSgH6OgbA7J:7262:1710286577:149:303" },
+  "r9-fim":    { "hora": "2026-11-14T17:50:00.011Z", "hash": "f47d73031dbf48d6", "linhas": "oAkZjrskoktSgH6OgbA7J:7799:1570415839:180:296" },
+  "r9-final":  { "hora": "2026-11-14T17:50:30.021Z", "hash": "f47d73031dbf48d6", "linhas": "oAkZjrskoktSgH6OgbA7J:7799:1570415839:180:296" },
+  "r9-2min":   { "hora": "2026-11-14T17:52:00.015Z", "hash": "f47d73031dbf48d6", "linhas": "oAkZjrskoktSgH6OgbA7J:7799:1570415839:180:296" },
+  "r10-fim":   { "hora": "2026-11-14T17:53:30.019Z", "hash": "2d58a4b0af40469b", "linhas": "oAkZjrskoktSgH6OgbA7J:8323:670576114:196:299" },
+  "r10-final": { "hora": "2026-11-14T17:54:00.035Z", "hash": "e055cfffd071db54", "linhas": "oAkZjrskoktSgH6OgbA7J:8325:753346252:222:280" },
+  "r10-2min":  { "hora": "2026-11-14T17:55:30.044Z", "hash": "e055cfffd071db54", "linhas": "oAkZjrskoktSgH6OgbA7J:8325:753346252:222:280" }
+}
+edições locais por rodada: {"6":299,"7":299,"8":299,"9":299,"10":299}
+
+## __sm6.relatorio() na janela C
+{
+  "r6-fim":    { "hora": "2026-11-14T17:37:30.022Z", "hash": "0aa094de25b6b147", "linhas": "oAkZjrskoktSgH6OgbA7J:6202:1475518200:157:358" },
+  "r6-final":  { "hora": "2026-11-14T17:38:00.042Z", "hash": "0aa094de25b6b147", "linhas": "oAkZjrskoktSgH6OgbA7J:6202:1475518200:157:358" },
+  "r6-2min":   { "hora": "2026-11-14T17:39:30.033Z", "hash": "0aa094de25b6b147", "linhas": "oAkZjrskoktSgH6OgbA7J:6202:1475518200:157:358" },
+  "r7-fim":    { "hora": "2026-11-14T17:42:30.016Z", "hash": "535ebf4aa8e3a763", "linhas": "oAkZjrskoktSgH6OgbA7J:6732:1216741639:105:326" },
+  "r7-final":  { "hora": "2026-11-14T17:43:00.016Z", "hash": "6c5408b2d50c6cd3", "linhas": "oAkZjrskoktSgH6OgbA7J:6733:2483921:105:326" },
+  "r7-2min":   { "hora": "2026-11-14T17:44:30.028Z", "hash": "6c5408b2d50c6cd3", "linhas": "oAkZjrskoktSgH6OgbA7J:6733:2483921:105:326" },
+  "r8-fim":    { "hora": "2026-11-14T17:46:00.007Z", "hash": "9fa4ef3ed113c382", "linhas": "oAkZjrskoktSgH6OgbA7J:7260:1444032094:149:303" },
+  "r8-final":  { "hora": "2026-11-14T17:46:30.014Z", "hash": "957d6c044c9f6051", "linhas": "oAkZjrskoktSgH6OgbA7J:7261:416376951:149:303" },
+  "r8-2min":   { "hora": "2026-11-14T17:48:00.022Z", "hash": "957d6c044c9f6051", "linhas": "oAkZjrskoktSgH6OgbA7J:7261:416376951:149:303" },
+  "r9-fim":    { "hora": "2026-11-14T17:50:00.014Z", "hash": "64aeb8445f8173e2", "linhas": "oAkZjrskoktSgH6OgbA7J:7798:1130725015:180:296" },
+  "r9-final":  { "hora": "2026-11-14T17:50:30.021Z", "hash": "f47d73031dbf48d6", "linhas": "oAkZjrskoktSgH6OgbA7J:7799:1570415839:180:296" },
+  "r9-2min":   { "hora": "2026-11-14T17:52:00.015Z", "hash": "f47d73031dbf48d6", "linhas": "oAkZjrskoktSgH6OgbA7J:7799:1570415839:180:296" },
+  "r10-fim":   { "hora": "2026-11-14T17:53:30.019Z", "hash": "495c79eaef6f3378", "linhas": "oAkZjrskoktSgH6OgbA7J:8324:2026055924:196:299" },
+  "r10-final": { "hora": "2026-11-14T17:54:00.035Z", "hash": "e055cfffd071db54", "linhas": "oAkZjrskoktSgH6OgbA7J:8325:753346252:222:280" },
+  "r10-2min":  { "hora": "2026-11-14T17:55:30.044Z", "hash": "e055cfffd071db54", "linhas": "oAkZjrskoktSgH6OgbA7J:8325:753346252:222:280" }
+}
+edições locais por rodada: {"6":299,"7":299,"8":299,"9":299,"10":299}

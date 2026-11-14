@@ -3,11 +3,13 @@
 // Conta inconsistências entre participantes depois de edições simultâneas,
 // usando a reconciliação real da colaboração (reconcile.ts:23-115).
 
+import { reseed } from "@excalidraw/common";
 import { syncInvalidIndices } from "@excalidraw/element";
 
 import type { OrderedExcalidrawElement } from "@excalidraw/element/types";
 
 import { reconcileElements } from "../../data/reconcile";
+import { bumpElementVersions } from "../../data/restore";
 
 import { criarPrng } from "./prng";
 
@@ -24,6 +26,11 @@ const IDS = ["alvo", "e1", "e2", "e3", "e4"];
 type Elemento = OrderedExcalidrawElement & { x: number };
 type Replica = { nome: string; elementos: Elemento[] };
 type Rng = () => number;
+type Receptor = (
+  replica: Replica,
+  remotos: readonly Elemento[],
+  appState: AppState,
+) => void;
 
 const SEM_EDICAO = {
   editingTextElement: null,
@@ -77,6 +84,22 @@ const receber = (
   ) as unknown as Elemento[];
 };
 
+// como Collab._reconcileElements (excalidraw-app/collab/Collab.tsx:772-803):
+// reconcilia e depois aplica bumpElementVersions contra a cena local anterior.
+// O restoreElements da linha 782 não altera versões destes elementos.
+const receberApp: Receptor = (replica, remotos, appState) => {
+  const locais = replica.elementos;
+  const reconciliados = reconcileElements(
+    locais,
+    clonar(remotos) as unknown as RemoteExcalidrawElement[],
+    appState,
+  );
+  replica.elementos = bumpElementVersions(
+    reconciliados,
+    locais,
+  ) as unknown as Elemento[];
+};
+
 const assinatura = (replica: Replica) =>
   [...replica.elementos]
     .sort((a, b) => a.id.localeCompare(b.id))
@@ -88,17 +111,21 @@ const convergiram = (replicas: Replica[]) =>
 
 // cada réplica envia a cena inteira às outras, sem elemento em edição,
 // como a sincronização completa periódica (Portal.tsx:151-153)
-const ressincronizar = (replicas: Replica[]) => {
+const ressincronizar = (replicas: Replica[], receptor: Receptor) => {
   for (const origem of replicas) {
     for (const destino of replicas) {
       if (destino !== origem) {
-        receber(destino, origem.elementos, SEM_EDICAO);
+        receptor(destino, origem.elementos, SEM_EDICAO);
       }
     }
   }
 };
 
-const rodada = (rng: Rng, probEditando = PROB_EDITANDO) => {
+const rodada = (
+  rng: Rng,
+  probEditando = PROB_EDITANDO,
+  receptor: Receptor = receber,
+) => {
   const base = cenaBase(rng);
   const replicas: Replica[] = ["A", "B", "C"].map((nome) => ({
     nome,
@@ -141,12 +168,12 @@ const rodada = (rng: Rng, probEditando = PROB_EDITANDO) => {
           descartesPorEdicao++;
         }
       }
-      receber(destino, [msg], appState);
+      receptor(destino, [msg], appState);
     }
   }
 
   const antes = convergiram(replicas);
-  ressincronizar(replicas);
+  ressincronizar(replicas, receptor);
   const final = convergiram(replicas);
   return { antes, final, descartesPorEdicao };
 };
@@ -216,5 +243,66 @@ describe("S-M6: inconsistências após edições simultâneas", () => {
       `P(destinatário editando o alvo) = 0: ${divergentesAntesResync} de ${RODADAS} rodadas divergentes antes da ressincronização`,
     );
     expect(divergentesAntesResync).toBe(0);
+  });
+});
+
+// No app, o recebimento não usa só reconcileElements: Collab._reconcileElements
+// (excalidraw-app/collab/Collab.tsx:772-803) chama em seguida bumpElementVersions,
+// e a versão criada ali não é retransmitida (Collab.tsx:795-801).
+describe("S-M6: caminho do app (reconcileElements + bumpElementVersions)", () => {
+  it("reprodução: quem perde o desempate sobe a versão sozinho e diverge", () => {
+    reseed(SEMENTE);
+    const base = cenaBase(criarPrng(SEMENTE));
+    const comVersao = (versionNonce: number) =>
+      base.map((el) =>
+        el.id === "alvo" ? { ...el, version: 10, versionNonce, x: 5 } : el,
+      );
+    // A e B terminam a edição do alvo empatados na versão 10
+    const A: Replica = { nome: "A", elementos: comVersao(100) };
+    const B: Replica = { nome: "B", elementos: comVersao(200) };
+    const ultimaDeA = A.elementos.find((el) => el.id === "alvo")!;
+    const ultimaDeB = B.elementos.find((el) => el.id === "alvo")!;
+
+    receberApp(A, [ultimaDeB], SEM_EDICAO);
+    receberApp(B, [ultimaDeA], SEM_EDICAO);
+
+    const alvoA = A.elementos.find((el) => el.id === "alvo")!;
+    const alvoB = B.elementos.find((el) => el.id === "alvo")!;
+    console.log(
+      `reprodução: A ${alvoA.version}:${alvoA.versionNonce} | B ${alvoB.version}:${alvoB.versionNonce}`,
+    );
+    // A tem o menor versionNonce e mantém a sua versão
+    expect([alvoA.version, alvoA.versionNonce]).toEqual([10, 100]);
+    // B adota o elemento de A, mas bumpElementVersions sobe a versão
+    expect(alvoB.version).toBe(11);
+    expect(alvoB.versionNonce).not.toBe(100);
+    expect(assinatura(B)).not.toEqual(assinatura(A));
+  });
+
+  it("S-M6 (caminho do app): 500 rodadas com 3 réplicas", () => {
+    reseed(SEMENTE);
+    const rng = criarPrng(SEMENTE);
+    let divergentesAntesResync = 0;
+    let divergentesFinal = 0;
+    for (let i = 0; i < RODADAS; i++) {
+      const r = rodada(rng, PROB_EDITANDO, receberApp);
+      if (!r.antes) {
+        divergentesAntesResync++;
+      }
+      if (!r.final) {
+        divergentesFinal++;
+      }
+    }
+    console.table({
+      rodadas: RODADAS,
+      divergentesAntesResync,
+      divergentesFinal,
+    });
+    console.log(
+      `S-M6 (caminho do app) = ${divergentesFinal} de ${RODADAS} rodadas inconsistentes ` +
+        `(${((100 * divergentesFinal) / RODADAS).toFixed(1)}%)`,
+    );
+    // registra o achado: o caminho do app deixa réplicas divergentes
+    expect(divergentesFinal).toBeGreaterThan(0);
   });
 });

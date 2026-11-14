@@ -9,20 +9,17 @@
 | Tarefa do plano | T1.4 (ver `tarefas-seguranca-excalidraw.md`) |
 | Issue | #58 |
 | Responsável | João Pedro Lopes da Cruz |
-| Data(s) da coleta | 2026-11-14 (teste automatizado); teste manual com 3 janelas `<pendente>` |
+| Data(s) da coleta | 2026-11-14 (teste automatizado e teste com 3 janelas) |
 | Versão avaliada | Excalidraw `e7b5346` (snapshot em `aplicacao/`) |
 | Revisado por | `<preencher>` em `<AAAA-MM-DD>` |
 
 ## 2. O que foi medido
 
-A métrica conta em quantas rodadas de edição simultânea os participantes terminam com cenas diferentes. A reconciliação usada é a mesma do app (`reconcileElements`).
+A métrica conta em quantas rodadas de edição simultânea os participantes terminam com cenas diferentes.
 
-**Critério de inconsistência:** só conta a divergência que **continua depois da ressincronização completa**. No app, essa ressincronização envia a cena inteira no máximo a cada 20 s enquanto há edições, e mais uma vez depois que elas param (C4). A divergência que some na ressincronização é **temporária**. Ela é registrada à parte e não conta para a métrica.
+**Critério de inconsistência:** só conta a divergência que **continua depois da ressincronização completa**. No app, essa ressincronização envia a cena inteira no máximo a cada 20 s, e só depois de uma edição local (C4). Por isso a cena foi comparada 30 s depois do fim das edições. Nas rodadas 6 a 10, também 2 min depois, para ver se a divergência persiste. A divergência que some na ressincronização é **temporária** e não conta.
 
-A medição tem duas fontes:
-
-1. um teste automatizado com 500 rodadas, 3 réplicas e entrega fora de ordem, que é a base da nota;
-2. um teste manual com 3 janelas na instância local (`<pendente, Tarefa 4 do plano>`).
+**Fonte da nota:** o teste com 3 janelas no app real, em 8 rodadas concorrentes. O teste automatizado explica o mecanismo e mostra a frequência num modelo (seção 6, O7).
 
 ## 3. Procedimento
 
@@ -33,50 +30,59 @@ Rodei os testes de reconciliação e de colaboração que já vêm com o Excalid
 - `reconcile.test.ts`: **2 de 2 passaram**.
 - `collab.test.tsx`: **não carregou neste ambiente**. Ele importa `tests/helpers/api.ts:67`, que chama `util.promisify`, e o módulo `util` carregado pelo Vitest/jsdom não tem essa função (`TypeError: default.promisify is not a function`).
 
-A falha é do ambiente (Node v24.12.0 no Windows com Vitest 3.0.6), não do código avaliado. Outros testes que importam o mesmo helper falham do mesmo jeito, por exemplo `clipboard.test.tsx`. A saída completa está em `S-M6_vitest-existentes_2026-11-14.txt`.
+A falha é do ambiente (Node v24.12.0 no Windows com Vitest 3.0.6), não do código avaliado. O mesmo acontece com outros testes que importam esse helper, por exemplo `clipboard.test.tsx`. A saída está em `S-M6_vitest-existentes_2026-11-14.txt`.
 
-### 3.2 Teste automatizado
+### 3.2 Teste com 3 janelas (app real)
 
-1. Criei `aplicacao/packages/excalidraw/tests/avaliacao/concorrencia.test.ts`, que usa a função real `reconcileElements` de `packages/excalidraw/data/reconcile.ts` (C1 e C2). Os sorteios vêm de um PRNG com semente fixa (mulberry32, semente 58, `tests/avaliacao/prng.ts`).
-2. **Cena base:** 5 elementos (`alvo`, `e1` a `e4`), com índices fracionários válidos (`syncInvalidIndices`). As 3 réplicas (A, B e C) começam com cópias da mesma cena.
-3. **Edições:** cada rodada tem 30 edições, 10 por réplica. Metade cai no `alvo` e o resto num elemento sorteado entre `e1` e `e4`. Cada edição faz `version + 1`, sorteia um `versionNonce` em [0, 2³¹) e muda `x`, como `bumpVersion` (C5) e `randomInteger` (C6). A mensagem enviada leva o elemento editado, como as atualizações incrementais do app.
-4. **Concorrência:** as edições e as entregas se intercalam ao acaso. Cada mensagem vai para as outras duas réplicas e é entregue **fora de ordem**: o destinatário e a mensagem da fila são sorteados.
-5. **Elemento em edição:** em 20% das entregas, o destinatário está redimensionando o `alvo` (`appState.resizingElement`). Nesse caso o app nunca sobrescreve o elemento local (C1).
-6. **Comparação:** a assinatura de cada réplica é a lista ordenada de `id:version:versionNonce:x`. Comparei as assinaturas em dois momentos:
-   - depois de todas as entregas ("antes da ressincronização");
-   - depois de simular a ressincronização completa, em que cada réplica envia a cena inteira às outras sem elemento em edição ("final").
-7. **Controle:** sem concorrência, uma edição de A chega idêntica a B e C.
-8. **Causa da divergência temporária:** repeti as 500 rodadas sem o destinatário estar editando o alvo (probabilidade 0).
-9. **Verificação do próprio teste:** rodei uma cópia temporária em que a réplica descartava toda mensagem recebida. As 500 rodadas divergiram e os 3 testes falharam. Isso mostra que as asserções detectam quando as réplicas não convergem. A cópia foi apagada depois.
+O ambiente foi o de `evidencias/ambiente/ambiente-local.md`:
 
-### 3.3 Teste manual com 3 janelas
+- app em `localhost:3001`;
+- servidor de sala `excalidraw-room` `03ff435` em Docker, na porta 3002;
+- navegador Helium (Chromium): A em janela normal, B e C em janelas anônimas, as três lado a lado e visíveis.
 
-`<pendente, Tarefa 4 do plano: script de edição concorrente no alvo nas 3 janelas por 30 s, 5 rodadas, assinatura SHA-256 da cena 25 s depois do fim>`
+1. Na A: **Live collaboration** → **Start session**. Abri o link na B e na C e desenhei **1 retângulo** (o alvo).
+2. Colei `S-M6_snippet-janelas.js` no console das 3 janelas.
+3. `__sm6.rodar(n)` agenda o início para o próximo múltiplo de 30 s do relógio, para as 3 janelas começarem no mesmo instante. Durante 30 s, a cada 100 ms, o script move o alvo como uma edição do app: `version + 1`, `versionNonce` novo e `updateScene`, que passa pelo `onChange` e envia a mudança aos outros. Cada janela fez 299 edições por rodada.
+4. Ao terminar, cada janela calcula sozinha a **assinatura** da cena: a lista `id:version:versionNonce:x:y` e o SHA-256 dela. São três momentos: `fim` (logo ao terminar), `final` (30 s depois) e `2min` (só nas rodadas 6 a 10).
+5. **Rodada 0 (controle):** só a A editou. A B e a C receberam as edições, e as 3 janelas terminaram iguais.
+6. Fiz as rodadas 1 a 3 com a primeira versão do script, sem a assinatura de 2 min (`S-M6_rodadas-exploratorias_2026-11-14.txt`).
+7. Fiz as rodadas 6 a 10 com a versão final do script (`S-M6_rodadas-2min_2026-11-14.txt`).
+8. A rodada 4 foi descartada, porque a B e a C começaram com 30 s de diferença e não editaram ao mesmo tempo. A rodada 5 não foi feita.
+
+### 3.3 Teste automatizado
+
+`aplicacao/packages/excalidraw/tests/avaliacao/concorrencia.test.ts`, com PRNG de semente 58 (`tests/avaliacao/prng.ts`) e `reseed(58)` no gerador do Excalidraw.
+
+1. **Cena e réplicas:** 5 elementos, um deles o `alvo`. 3 réplicas (A, B e C), 30 edições por rodada e 500 rodadas.
+2. **Edições:** metade cai no `alvo`. Cada edição faz `version + 1` e sorteia um `versionNonce` novo, como `bumpVersion` (C5).
+3. **Entrega fora de ordem:** o destinatário e a mensagem da fila são sorteados.
+4. **Elemento em edição:** em 20% das entregas, o destinatário está redimensionando o alvo (C1).
+5. **Comparação:** depois de todas as entregas e depois de uma ressincronização completa, em que cada réplica envia a cena inteira às outras.
+6. **Dois modelos de recebimento:**
+   - **reconciliação pura:** só `reconcileElements` (C1 e C2);
+   - **caminho do app:** `reconcileElements` seguido de `bumpElementVersions`, como `Collab._reconcileElements` (C8 e C9).
+7. **Testes:**
+   - controle: sem concorrência, uma edição de A chega igual a B e C;
+   - teste sem elemento em edição;
+   - **reprodução** mínima do mecanismo encontrado no teste com 3 janelas.
 
 ### 3.4 Comandos executados
 
 ```bash
-# 2026-11-14 13:34 -0300, pasta aplicacao/
+# 2026-11-14, pasta aplicacao/
 yarn test:app --watch=false packages/excalidraw/tests/data/reconcile.test.ts excalidraw-app/tests/collab.test.tsx
-# 2026-11-14 13:39 -0300
 yarn test:app --watch=false packages/excalidraw/tests/avaliacao/concorrencia.test.ts
 ```
 
 ```text
-semente: 58
-réplicas: 3, edições por rodada: 30, P(alvo): 0.5, P(destinatário editando o alvo): 0.2
-│ rodadas                │ 500  │
-│ divergentesAntesResync │ 175  │
-│ divergentesFinal       │ 0    │
-│ descartesPorEdicao     │ 3014 │
-S-M6 = 0 inconsistências finais
-P(destinatário editando o alvo) = 0: 0 de 500 rodadas divergentes antes da ressincronização
-Tests  3 passed (3)
+reconciliação pura:  divergentesAntesResync 175 | divergentesFinal 0   (500 rodadas)
+sem elemento em edição: 0 de 500 rodadas divergentes antes da ressincronização
+reprodução: A 10:100 | B 11:780759674
+caminho do app:      divergentesAntesResync 471 | divergentesFinal 257 (500 rodadas, 51,4%)
+Tests  5 passed (5)
 ```
 
-As saídas completas estão em `S-M6_vitest-existentes_2026-11-14.txt` e `S-M6_vitest-concorrencia_2026-11-14.txt`.
-
-Os sete arquivos citados abaixo foram comparados por hash com o upstream no commit `e7b534668a60add7f725531f3c9abf32508c7b4e`, e todos são idênticos (`S-M6_verificacao-versao_2026-11-14.txt`).
+Os oito arquivos citados foram comparados por hash com o upstream no commit `e7b534668a60add7f725531f3c9abf32508c7b4e`, e todos são idênticos (`S-M6_verificacao-versao_2026-11-14.txt`).
 
 ## 4. Evidências
 
@@ -85,12 +91,65 @@ Os sete arquivos citados abaixo foram comparados por hash com o upstream no comm
 | # | Arquivo:linha | O que mostra |
 | --- | --- | --- |
 | C1 | `packages/excalidraw/data/reconcile.ts:23-44` | Regra de desempate: o elemento local em edição nunca é sobrescrito; fora isso, vence a maior `version` e, no empate, o menor `versionNonce` |
-| C2 | `packages/excalidraw/data/reconcile.ts:73-118` | Junção: aplica a regra elemento a elemento e reordena pelo índice fracionário |
-| C3 | `excalidraw-app/collab/Portal.tsx:151-153` | Comentário dos autores: a ressincronização completa periódica existe para que ninguém fique divergente |
-| C4 | `excalidraw-app/collab/Collab.tsx:970-999` e `excalidraw-app/app_constants.ts:6` | Cada envio incremental agenda a ressincronização completa, limitada a uma a cada 20 s (`SYNC_FULL_SCENE_INTERVAL_MS = 20000`) |
-| C5 | `packages/element/src/mutateElement.ts:188-197` | `bumpVersion`: cada edição faz `version + 1` e sorteia um novo `versionNonce` |
+| C2 | `packages/excalidraw/data/reconcile.ts:73-118` | Junção: aplica a regra elemento a elemento |
+| C3 | `excalidraw-app/collab/Portal.tsx:151-153` | Comentário dos autores: a ressincronização completa existe para que ninguém fique divergente |
+| C4 | `excalidraw-app/collab/Collab.tsx:970-999` e `app_constants.ts:6` | A ressincronização completa só é agendada quando há envio de edição local, e no máximo a cada 20 s |
+| C5 | `packages/element/src/mutateElement.ts:188-197` | `bumpVersion`: `version + 1` e um `versionNonce` aleatório novo |
 | C6 | `packages/common/src/random.ts:9` | `randomInteger` sorteia em [0, 2³¹) |
-| C7 | `excalidraw-app/data/firebase.ts:209-241` | A gravação no Firestore roda numa transação e reconcilia com a cena já salva |
+| C7 | `excalidraw-app/data/firebase.ts:209-241` | A gravação no Firestore roda numa transação e reconcilia com a cena salva |
+| C8 | `excalidraw-app/collab/Collab.tsx:772-803` | Ao receber, o app reconcilia e em seguida chama `bumpElementVersions`; a versão resultante é marcada como já recebida e não é retransmitida |
+| C9 | `packages/excalidraw/data/restore.ts:1154-1189` | `bumpElementVersions` sobe para `local + 1` (com `versionNonce` novo) todo elemento cuja versão local seja maior ou igual com outro `versionNonce`. O comentário diz que a função **não** deveria ser usada em atualizações da colaboração |
+
+```ts
+// C8: excalidraw-app/collab/Collab.tsx:772-803
+  private _reconcileElements = (
+    remoteElements: readonly RemoteExcalidrawElement[],
+  ): ReconciledExcalidrawElement[] => {
+    const appState = this.excalidrawAPI.getAppState();
+
+    const existingElements = this.getSceneElementsIncludingDeleted();
+
+    // NOTE ideally we restore _after_ reconciliation but we can't do that
+    // as we'd regenerate even elements such as appState.newElement which would
+    // break the state
+    remoteElements = restoreElements(remoteElements, existingElements);
+
+    let reconciledElements = reconcileElements(
+      existingElements,
+      remoteElements,
+      appState,
+    );
+
+    reconciledElements = bumpElementVersions(
+      reconciledElements,
+      existingElements,
+    );
+
+    // Avoid broadcasting to the rest of the collaborators the scene
+    // we just received!
+    // Note: this needs to be set before updating the scene as it
+    // synchronously calls render.
+    this.setLastBroadcastedOrReceivedSceneVersion(
+      getSceneVersion(reconciledElements),
+    );
+
+    return reconciledElements;
+  };
+```
+
+```ts
+// C9: packages/excalidraw/data/restore.ts:1154-1163 (comentário de bumpElementVersions)
+/**
+ * When replacing elements that may exist locally, this bumps their versions
+ * to the local version + 1. Mainly for later reconciliation to work properly.
+ *
+ * See https://github.com/excalidraw/excalidraw/issues/3795
+ *
+ * Generally use this on editor boundaries (importing from file etc.), though
+ * it does not apply universally (e.g. we don't want to do this for collab
+ * updates).
+ */
+```
 
 ```ts
 // C1: packages/excalidraw/data/reconcile.ts:23-44
@@ -118,88 +177,99 @@ export const shouldDiscardRemoteElement = (
 };
 ```
 
-```ts
-// C4: excalidraw-app/collab/Collab.tsx:970-979
-  broadcastElements = (elements: readonly OrderedExcalidrawElement[]) => {
-    if (
-      getSceneVersion(elements) >
-      this.getLastBroadcastedOrReceivedSceneVersion()
-    ) {
-      this.portal.broadcastScene(WS_SUBTYPES.UPDATE, elements, false);
-      this.lastBroadcastedOrReceivedSceneVersion = getSceneVersion(elements);
-      this.queueBroadcastAllElements();
-    }
-  };
-```
-
 ### 4.2 Arquivos de apoio
 
 | # | Arquivo | Tipo | O que mostra |
 | --- | --- | --- | --- |
-| E1 | `aplicacao/packages/excalidraw/tests/avaliacao/concorrencia.test.ts` | teste | Controle, 500 rodadas com 3 réplicas e o teste sem elemento em edição |
-| E2 | `aplicacao/packages/excalidraw/tests/avaliacao/prng.ts` | código | PRNG com semente (mulberry32) |
-| E3 | `S-M6_vitest-existentes_2026-11-14.txt` | saída de comando | `reconcile.test.ts` 2/2; `collab.test.tsx` não carrega (ambiente) |
-| E4 | `S-M6_vitest-concorrencia_2026-11-14.txt` | saída de comando | 175 de 500 rodadas divergentes antes da ressincronização e 0 depois |
-| E5 | `S-M6_verificacao-versao_2026-11-14.txt` | saída de comando | Hash dos 7 arquivos citados igual ao do upstream `e7b5346` |
-| E6 | `S-M6_editor-concorrente.js` e `S-M6_assinatura.js` | scripts | `<pendente, Tarefa 4>` |
-| E7 | `S-M6_assinaturas-rodada<N>_<data>.txt` | saída de console | `<pendente, Tarefa 4>` |
-| E8 | `S-M6_tres-janelas_<data>.png` | print | `<pendente, Tarefa 4>` |
+| E1 | `S-M6_snippet-janelas.js` | script | Edição concorrente sincronizada e assinaturas da cena |
+| E2 | `S-M6_rodadas-exploratorias_2026-11-14.txt` | registro | Rodadas 0 a 4 (relatório das 3 janelas); na rodada 1, a cena divergente com as linhas completas |
+| E3 | `S-M6_rodadas-2min_2026-11-14.txt` | registro | Rodadas 6 a 10 com as linhas completas em `fim`, `final` e `2min` |
+| E4 | `S-M6_rodada8-divergente_2026-11-14.png` | print | Consoles das 3 janelas: B em 7262 e A e C em 7261 no `final` e no `2min` |
+| E5 | `S-M6_rodada10-consistente_2026-11-14.png` | print | Consoles das 3 janelas: rodada 10 com o mesmo hash no `final` e no `2min` |
+| E6 | `aplicacao/packages/excalidraw/tests/avaliacao/concorrencia.test.ts` | teste | Reconciliação pura, caminho do app e reprodução do mecanismo |
+| E7 | `S-M6_vitest-concorrencia_2026-11-14.txt` | saída de comando | Execução do teste automatizado (5 testes) |
+| E8 | `S-M6_vitest-existentes_2026-11-14.txt` | saída de comando | `reconcile.test.ts` 2/2; `collab.test.tsx` não carrega (ambiente) |
+| E9 | `S-M6_verificacao-versao_2026-11-14.txt` | saída de comando | Hash dos 8 arquivos citados igual ao do upstream `e7b5346` |
 
 ### 4.3 Buscas sem resultado
 
 | O que se procurou | Onde / comando | Resultado |
 | --- | --- | --- |
-| Aviso ao usuário quando a edição dele perde para a de outro participante | leitura de C1, C2 e `Collab.tsx:589-716` (tratamento de `SCENE_UPDATE`) | Nenhum: o elemento remoto substitui o local sem aviso |
+| Ressincronização periódica independente de edição local | `git grep -n "SYNC_FULL_SCENE_INTERVAL_MS\|setInterval" -- excalidraw-app/collab` | Só os `throttle` de `Collab.tsx:987-999` (envio) e `:1001-1012` (Firebase), ambos acionados por edição local. Os dois `setInterval` (`:841` e `:861`) só reportam o estado de presença (`reportActive`) |
+| Aviso ao usuário quando a edição dele perde para a de outro participante | leitura de C1, C2 e `Collab.tsx:589-716` | Nenhum: o elemento remoto substitui o local sem aviso |
 
 ## 5. Resultado
 
 ### 5.1 Dados brutos
 
-| Cenário (500 rodadas, 3 réplicas, 30 edições por rodada) | Rodadas divergentes antes da ressincronização | Rodadas divergentes depois (inconsistências) |
-| --- | --- | --- |
-| Destinatário editando o alvo em 20% das entregas | 175 (35%) | **0** |
-| Destinatário nunca editando o alvo | 0 | 0 |
-| Teste manual com 3 janelas (5 rodadas) | `<pendente>` | `<pendente>` |
+**Teste com 3 janelas (app real):**
 
-No cenário com edição, 3014 mensagens sobre o `alvo` chegaram enquanto o destinatário o editava e foram descartadas pela exceção de C1.
+| Rodada | Concorrente | `final` (30 s depois do fim) | `2min` | Inconsistente? |
+| --- | --- | --- | --- | --- |
+| 0 | não (só a A, controle) | A = B = C | não medido | não (controle) |
+| 1 | sim | A 880:157834071, B 879:979519135, C 880:1081316812 | não medido | **sim** |
+| 2 | sim | A = B = C (v1412) | não medido | não |
+| 3 | sim | A = B = C (v3213) | não medido | não |
+| 4 | não (B e C defasadas em 30 s) | descartada | descartada | descartada |
+| 6 | sim | A = B = C (v6202) | igual | não |
+| 7 | sim | A = B = C (v6733) | igual | não |
+| 8 | sim | A 7261:416376951, B **7262**:1710286577, C 7261:416376951 | **igual ao `final`** (persistiu) | **sim** |
+| 9 | sim | A = B = C (v7799) | igual | não |
+| 10 | sim | A = B = C (v8325) | igual | não |
+
+Nas duas rodadas inconsistentes, a posição do alvo era a mesma em todas as janelas. A divergência é de **versão** (`version` e `versionNonce`), e é ela que decide como a próxima edição concorrente será resolvida em cada participante. Nas rodadas 7, 9 e 10, alguma janela terminou uma versão atrás e convergiu na ressincronização (divergência temporária).
+
+**Teste automatizado (500 rodadas por modelo):**
+
+| Modelo | Divergentes antes da ressincronização | Divergentes depois (inconsistências) |
+| --- | --- | --- |
+| Reconciliação pura, 20% das entregas com o destinatário editando | 175 | 0 |
+| Reconciliação pura, sem elemento em edição | 0 | 0 |
+| **Caminho do app** (reconciliação + `bumpElementVersions`) | 471 | **257 (51,4%)** |
 
 ### 5.2 Cálculo
 
 ```text
-teste automatizado: inconsistências finais = 0 em 500 rodadas
-nota final: inconsistências finais do automatizado + do manual = 0 + <pendente>
+teste com 3 janelas: rodadas concorrentes válidas = 8 (1, 2, 3, 6, 7, 8, 9, 10)
+                     inconsistências finais       = 2 (rodadas 1 e 8)
+S-M6 = 2
 ```
 
 ### 5.3 Pontuação
 
 | Valor medido | Regra da métrica | Pontuação (0–2) |
 | --- | --- | --- |
-| 0 inconsistências finais em 500 rodadas (automatizado); manual `<pendente>` | 2 = 0; 1 = 1 a 2; 0 = ≥ 3 | **2** (parcial, confirmar com o teste manual) |
+| 2 inconsistências em 8 rodadas concorrentes no app real | 2 = 0; 1 = 1 a 2; 0 = ≥ 3 | **1** |
 
-**Justificativa:** a regra de desempate (C1) define uma ordem total sobre as versões de cada elemento: maior `version` e, no empate, menor `versionNonce`. Por isso todas as réplicas que recebem as mesmas versões escolhem a mesma, em qualquer ordem de entrega. As divergências observadas vieram só da exceção do elemento em edição e sumiram na ressincronização completa.
+**Justificativa:** em 2 das 8 rodadas, os participantes terminaram com versões diferentes do mesmo elemento. Na rodada 8, a diferença continuava 2 min depois, sem novas edições.
+
+A causa é a etapa `bumpElementVersions` do recebimento (C8 e C9). Quem perde um desempate de versão adota o elemento vencedor, mas sobe a versão dele com um `versionNonce` novo, e essa versão não é enviada a ninguém. Como a ressincronização completa só acontece depois de uma edição local (C4), nada corrige a diferença até alguém editar de novo.
+
+A regra de desempate em si (C1) converge. O problema está na camada do app. **Ponto para decisão do grupo (#77):** o roteiro não fixa o N da métrica. Com mais rodadas, a contagem tende a crescer: no modelo do caminho do app, 51% das rodadas terminam inconsistentes. Se o grupo considerar também o teste automatizado do caminho do app, a contagem passa de 3 e a nota seria **0**.
 
 ## 6. Observações e limitações
 
-- **O1. Divergência temporária de até cerca de 20 s.** Em 35% das rodadas, os participantes ficaram com cenas diferentes até a ressincronização completa. A causa é só a exceção do elemento em edição: sem ela, nenhuma rodada divergiu (seção 5.1). No app, a ressincronização completa roda no máximo a cada 20 s (C4). Então, enquanto alguém arrasta ou redimensiona um elemento que outro participante também alterou, cada um pode ver uma versão diferente por até cerca de 20 s depois que as edições param. Impacto estimado: baixo. A cena converge sozinha.
-- **O2. Perda silenciosa de atualização.** Quando dois participantes editam o mesmo elemento ao mesmo tempo, uma das edições é descartada (vence a de maior versão, ou a de menor `versionNonce` no empate), e o autor da edição perdida não recebe aviso (seção 4.3). Isso não é inconsistência, porque todos convergem para a mesma cena, mas é perda de dado. Não foi quantificada. Impacto estimado: baixo a médio, conforme o uso.
-- **O3. Colisão de `versionNonce` (teórica).** Se duas edições do mesmo elemento tiverem a mesma `version` **e** o mesmo `versionNonce` com conteúdo diferente, cada réplica mantém a sua (`<=` em C1), e a divergência fica permanente. A chance por empate é de 1 em 2³¹ (C6), por isso o caso é só teórico e não apareceu na medição.
-- **O4. Escopo do teste automatizado.** O teste exercita a mesma função de reconciliação do app, mas sem socket, sem interface, sem perda de mensagem e sem o Firestore (C7). O teste manual da Tarefa 4 cobre o caminho real pelo socket.
-- **O5. Modelo da ressincronização.** O teste simula uma ressincronização completa depois do fim das edições, sem elemento em edição. Se um participante continuar editando o mesmo elemento sem parar, a versão dele não é substituída enquanto a edição durar. O teste não modela esse caso.
-- **O6.** O `collab.test.tsx` não pôde ser executado neste ambiente (seção 3.1). O resultado da métrica não depende dele.
-- **O7.** As regras abertas do Firestore (`firestore.rules`: `allow get, write: if true`) permitem que quem souber o ID da sala sobrescreva a cena salva. Esse ponto está registrado na S-M3 e não é duplicado aqui.
-- Nenhum teste foi feito contra o excalidraw.com, o Firebase público ou o backend de IA.
+- **O1. Divergência persistente de versão** (seção 5.1, rodadas 1 e 8). Mecanismo descrito na justificativa e reproduzido no teste automatizado (`reprodução: A 10:100 | B 11:780759674`). Consequência: na próxima edição concorrente do mesmo elemento, os participantes podem resolver o desempate de formas diferentes, porque partem de versões diferentes. Impacto estimado: médio.
+- **O2. Divergência temporária de até cerca de 20 s.** Nas rodadas 7, 9 e 10, alguma janela terminou uma versão atrás e convergiu na ressincronização. No teste automatizado com reconciliação pura, o mesmo acontece em 35% das rodadas quando o destinatário está editando o elemento (a regra C1 não o sobrescreve). Impacto estimado: baixo.
+- **O3. Perda silenciosa de atualização.** Quando dois participantes editam o mesmo elemento ao mesmo tempo, vale uma das edições e o autor da outra não recebe aviso (seção 4.3). **Mover** um elemento não é protegido pela regra de edição local, que só cobre texto em edição, redimensionamento e criação (C1). Na rodada 4, enquanto a A arrastava o alvo e outra janela o editava, o retângulo **piscava** na A entre a posição do arraste e a posição remota. Impacto estimado: baixo a médio, conforme o uso.
+- **O4. Colisão de `versionNonce` (teórica).** Duas edições com a mesma `version` e o mesmo `versionNonce` e conteúdo diferente nunca convergiriam. A chance por empate é de 1 em 2³¹ (C6).
+- **O5. Escopo do teste com 3 janelas.** O teste tem 1 elemento, edições por script (`updateScene`) a cada 100 ms e 3 janelas no mesmo computador e no mesmo servidor local. A frequência real depende de quantas pessoas editam o mesmo elemento ao mesmo tempo. O Firestore estava ativo, mas a assinatura compara só a cena em memória de cada janela.
+- **O6. Rodadas exploratórias.** As rodadas 1 a 3 usaram a primeira versão do script, sem a assinatura de 2 min. A rodada 1 conta pelo critério de 30 s, mas sua persistência não foi medida. Na rodada 3, o registro guardou só a segunda execução.
+- **O7. Modelo do teste automatizado.** A ressincronização foi modelada como um único envio da cena inteira por cada réplica, depois das entregas. A taxa de 51,4% depende desse modelo e dos parâmetros (5 elementos, 30 edições). Por isso o teste mostra o mecanismo e a ordem de grandeza, e a nota vem do app real.
+- **O8.** O `collab.test.tsx` não pôde ser executado neste ambiente (seção 3.1). O resultado não depende dele.
+- **O9.** As regras abertas do Firestore (`firestore.rules`: `allow get, write: if true`) estão registradas na S-M3 e não são duplicadas aqui.
+- Nenhum teste foi feito contra o excalidraw.com, o Firebase público ou o backend de IA. Os prints foram recortados sem a barra de endereço.
 
 ## 7. Achado (preencher só se a pontuação for 0)
 
-Não se aplica: a pontuação é 2. As observações O1 e O2 ficam como pontos de atenção.
+A pontuação é 1, mas O1 é um defeito reproduzível de integridade e vai para a tabela de achados da GitPage:
 
-| Observação | Recomendação |
-| --- | --- |
-| O1 (divergência temporária) | Fazer uma ressincronização do elemento logo que a edição local termina, em vez de esperar até 20 s pela sincronização completa |
-| O2 (perda silenciosa) | Avisar o participante quando a edição dele for substituída pela de outro, ou bloquear o elemento enquanto outro participante o edita |
+| ID | Métrica | Evidência reproduzível | Pontuação | Impacto (Baixo/Médio/Alto) | Recomendação |
+| --- | --- | --- | --- | --- | --- |
+| A-S-M6-3 | S-M6 | C8, C9, E3 (rodada 8), E4 e o teste `reprodução` em E6 | 1 | Médio | Não aplicar `bumpElementVersions` ao reconciliar atualizações recebidas da colaboração, como o próprio comentário da função indica, ou retransmitir a versão gerada no recebimento |
 
 ## 8. Contribuição para a questão
 
 | Questão | Esta métrica indica que a hipótese foi | Por quê |
 | --- | --- | --- |
-| S-Q3 | confirmada para edição simultânea (parcial até o teste manual) | Nenhuma das 500 rodadas terminou com cenas diferentes depois da ressincronização. As divergências temporárias (O1) e a perda silenciosa de atualização (O2) não violam a consistência final. |
+| S-Q3 | parcialmente confirmada | A regra de reconciliação converge, mas no app real 2 de 8 rodadas concorrentes terminaram com versões diferentes entre os participantes, e numa delas a diferença persistiu sem novas edições. |

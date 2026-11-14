@@ -31,3 +31,7 @@ packages/common/src/random.ts
   local    581cf79cae8f3e63ad426dcf0a0c458d233b38c0
   upstream 581cf79cae8f3e63ad426dcf0a0c458d233b38c0
   IGUAL
+packages/excalidraw/data/restore.ts
+  local    51201b773c579b75cef9c9e10ef3b12ffe136042
+  upstream 51201b773c579b75cef9c9e10ef3b12ffe136042
+  IGUAL
