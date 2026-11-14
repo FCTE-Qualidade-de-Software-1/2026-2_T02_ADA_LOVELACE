@@ -1,0 +1,21 @@
+# S-M5: verificação dos arquivos citados contra o upstream
+# 2026-11-14 13:33 -0300, pasta aplicacao/
+# local: git hash-object <arquivo>
+# upstream: gh api repos/excalidraw/excalidraw/contents/<arquivo>?ref=e7b534668a60add7f725531f3c9abf32508c7b4e --jq .sha
+
+packages/excalidraw/data/encryption.ts
+  local    d411884d3c1267cc3e1146f552a447638ceaec84
+  upstream d411884d3c1267cc3e1146f552a447638ceaec84
+  IGUAL
+excalidraw-app/collab/Collab.tsx
+  local    5569aa0fbffe84ba711bc9984d42ec8012b93282
+  upstream 5569aa0fbffe84ba711bc9984d42ec8012b93282
+  IGUAL
+excalidraw-app/collab/Portal.tsx
+  local    2e076a661ef9fb46d1bbe8b3ac48109fc2e56a58
+  upstream 2e076a661ef9fb46d1bbe8b3ac48109fc2e56a58
+  IGUAL
+excalidraw-app/data/index.ts
+  local    bf765941a239dfec90d107a690221a7fc2146a96
+  upstream bf765941a239dfec90d107a690221a7fc2146a96
+  IGUAL
