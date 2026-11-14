@@ -64,7 +64,8 @@ O ambiente foi o de `evidencias/ambiente/ambiente-local.md`:
 7. **Testes:**
    - controle: sem concorrência, uma edição de A chega igual a B e C;
    - teste sem elemento em edição;
-   - **reprodução** mínima do mecanismo encontrado no teste com 3 janelas.
+   - **reprodução** mínima do mecanismo encontrado no teste com 3 janelas;
+   - **edição posterior:** depois da divergência, uma edição não concorrente da A, nos dois casos de desempate.
 
 ### 3.4 Comandos executados
 
@@ -78,8 +79,10 @@ yarn test:app --watch=false packages/excalidraw/tests/avaliacao/concorrencia.tes
 reconciliação pura:  divergentesAntesResync 175 | divergentesFinal 0   (500 rodadas)
 sem elemento em edição: 0 de 500 rodadas divergentes antes da ressincronização
 reprodução: A 10:100 | B 11:780759674
+edição posterior, caso 1: A x=50 v11 | B x=5 v11
+edição posterior, caso 2: A x=50 v11 | B x=50 v12
 caminho do app:      divergentesAntesResync 471 | divergentesFinal 257 (500 rodadas, 51,4%)
-Tests  5 passed (5)
+Tests  6 passed (6)
 ```
 
 Os oito arquivos citados foram comparados por hash com o upstream no commit `e7b534668a60add7f725531f3c9abf32508c7b4e`, e todos são idênticos (`S-M6_verificacao-versao_2026-11-14.txt`).
@@ -98,7 +101,7 @@ Os oito arquivos citados foram comparados por hash com o upstream no commit `e7b
 | C6 | `packages/common/src/random.ts:9` | `randomInteger` sorteia em [0, 2³¹) |
 | C7 | `excalidraw-app/data/firebase.ts:209-241` | A gravação no Firestore roda numa transação e reconcilia com a cena salva |
 | C8 | `excalidraw-app/collab/Collab.tsx:772-803` | Ao receber, o app reconcilia e em seguida chama `bumpElementVersions`; a versão resultante é marcada como já recebida e não é retransmitida |
-| C9 | `packages/excalidraw/data/restore.ts:1154-1189` | `bumpElementVersions` sobe para `local + 1` (com `versionNonce` novo) todo elemento cuja versão local seja maior ou igual com outro `versionNonce`. O comentário diz que a função **não** deveria ser usada em atualizações da colaboração |
+| C9 | `packages/excalidraw/data/restore.ts:1154-1187` | `bumpElementVersions` sobe para `local + 1` (com `versionNonce` novo) todo elemento cuja versão local seja maior ou igual com outro `versionNonce`. O comentário diz que a função **não** deveria ser usada em atualizações da colaboração |
 
 ```ts
 // C8: excalidraw-app/collab/Collab.tsx:772-803
@@ -186,8 +189,8 @@ export const shouldDiscardRemoteElement = (
 | E3 | `S-M6_rodadas-2min_2026-11-14.txt` | registro | Rodadas 6 a 10 com as linhas completas em `fim`, `final` e `2min` |
 | E4 | `S-M6_rodada8-divergente_2026-11-14.png` | print | Consoles das 3 janelas: B em 7262 e A e C em 7261 no `final` e no `2min` |
 | E5 | `S-M6_rodada10-consistente_2026-11-14.png` | print | Consoles das 3 janelas: rodada 10 com o mesmo hash no `final` e no `2min` |
-| E6 | `aplicacao/packages/excalidraw/tests/avaliacao/concorrencia.test.ts` | teste | Reconciliação pura, caminho do app e reprodução do mecanismo |
-| E7 | `S-M6_vitest-concorrencia_2026-11-14.txt` | saída de comando | Execução do teste automatizado (5 testes) |
+| E6 | `aplicacao/packages/excalidraw/tests/avaliacao/concorrencia.test.ts` | teste | Reconciliação pura, caminho do app, reprodução do mecanismo e perda de uma edição posterior |
+| E7 | `S-M6_vitest-concorrencia_2026-11-14.txt` | saída de comando | Execução do teste automatizado (6 testes) |
 | E8 | `S-M6_vitest-existentes_2026-11-14.txt` | saída de comando | `reconcile.test.ts` 2/2; `collab.test.tsx` não carrega (ambiente) |
 | E9 | `S-M6_verificacao-versao_2026-11-14.txt` | saída de comando | Hash dos 8 arquivos citados igual ao do upstream `e7b5346` |
 
@@ -217,7 +220,12 @@ export const shouldDiscardRemoteElement = (
 | 9 | sim | A = B = C (v7799) | igual | não |
 | 10 | sim | A = B = C (v8325) | igual | não |
 
-Nas duas rodadas inconsistentes, a posição do alvo era a mesma em todas as janelas. A divergência é de **versão** (`version` e `versionNonce`), e é ela que decide como a próxima edição concorrente será resolvida em cada participante. Nas rodadas 7, 9 e 10, alguma janela terminou uma versão atrás e convergiu na ressincronização (divergência temporária).
+Nas duas rodadas inconsistentes, a posição do alvo era a mesma em todas as janelas no momento da assinatura. A divergência é de **versão** (`version` e `versionNonce`). Ela decide como as próximas edições do elemento serão aceitas em cada participante e pode fazer uma edição posterior se perder (O1).
+
+Nas rodadas consistentes com diferença no `fim`:
+
+- **rodadas 7 e 9:** a B terminou uma versão à frente, porque a última mensagem dela ainda estava a caminho, e a A e a C a alcançaram;
+- **rodada 10:** a A e a C terminaram empatadas em 8324. A C perdeu o desempate e subiu para 8325. A ressincronização completa da C, que disparou depois disso, levou a versão 8325 à A e à B. É o mesmo mecanismo da rodada 8, mas com a ressincronização acontecendo depois da subida de versão.
 
 **Teste automatizado (500 rodadas por modelo):**
 
@@ -243,18 +251,34 @@ S-M6 = 2
 
 **Justificativa:** em 2 das 8 rodadas, os participantes terminaram com versões diferentes do mesmo elemento. Na rodada 8, a diferença continuava 2 min depois, sem novas edições.
 
-A causa é a etapa `bumpElementVersions` do recebimento (C8 e C9). Quem perde um desempate de versão adota o elemento vencedor, mas sobe a versão dele com um `versionNonce` novo, e essa versão não é enviada a ninguém. Como a ressincronização completa só acontece depois de uma edição local (C4), nada corrige a diferença até alguém editar de novo.
+A causa é a etapa `bumpElementVersions` do recebimento (C8 e C9):
 
-A regra de desempate em si (C1) converge. O problema está na camada do app. **Ponto para decisão do grupo (#77):** o roteiro não fixa o N da métrica. Com mais rodadas, a contagem tende a crescer: no modelo do caminho do app, 51% das rodadas terminam inconsistentes. Se o grupo considerar também o teste automatizado do caminho do app, a contagem passa de 3 e a nota seria **0**.
+1. Quem perde um desempate de versão adota o elemento vencedor, mas sobe a versão dele com um `versionNonce` novo.
+2. Essa versão não sai como atualização incremental. Ela só chega aos outros se a ressincronização completa dessa janela disparar **depois** da subida de versão. Essa ressincronização é um `throttle` de 20 s com chamada final, acionado só por edição local (C4).
+3. Na rodada 10, a ressincronização da C veio depois, e as 3 janelas convergiram. Na rodada 8, a subida de versão da B veio depois da última ressincronização dela, e nada mais corrigiu a diferença sem uma nova edição.
+
+A regra de desempate em si (C1) converge. O problema está na camada do app.
+
+**Por que a nota não soma o teste automatizado, ao contrário da S-M5:** na S-M5, as duas fontes medem a mesma coisa (a decifragem real de mensagens adulteradas) e concordam. Na S-M6, o teste automatizado é um modelo, e a contagem dele depende do número de rodadas e dos parâmetros escolhidos (O7). Por isso ele serve para explicar e reproduzir o mecanismo, não para contar. **Ponto para decisão do grupo (#77):** o roteiro não fixa o N da métrica. Com mais rodadas, a contagem tende a crescer: no modelo do caminho do app, 51% das rodadas terminam inconsistentes. Se o grupo considerar também o teste automatizado do caminho do app, a contagem passa de 3 e a nota seria **0**.
 
 ## 6. Observações e limitações
 
-- **O1. Divergência persistente de versão** (seção 5.1, rodadas 1 e 8). Mecanismo descrito na justificativa e reproduzido no teste automatizado (`reprodução: A 10:100 | B 11:780759674`). Consequência: na próxima edição concorrente do mesmo elemento, os participantes podem resolver o desempate de formas diferentes, porque partem de versões diferentes. Impacto estimado: médio.
-- **O2. Divergência temporária de até cerca de 20 s.** Nas rodadas 7, 9 e 10, alguma janela terminou uma versão atrás e convergiu na ressincronização. No teste automatizado com reconciliação pura, o mesmo acontece em 35% das rodadas quando o destinatário está editando o elemento (a regra C1 não o sobrescreve). Impacto estimado: baixo.
+- **O1. Divergência persistente de versão, que pode virar perda de edição** (seção 5.1, rodadas 1 e 8). Mecanismo descrito na justificativa e reproduzido no teste automatizado (`reprodução: A 10:100 | B 11:780759674`).
+  - **Consequência mostrada no teste:** depois da divergência, a A move o elemento sozinha, **sem nenhuma edição concorrente** (versão 11). A edição empata com a versão 11 que a B criou ao receber. Há dois casos:
+    - se o `versionNonce` da A for maior, a B descarta a edição e continua com o conteúdo antigo (`caso 1: A x=50 v11 | B x=5 v11`);
+    - se for menor, a B aceita o conteúdo, mas sobe a versão de novo (`caso 2: B x=50 v12`), e a divergência se repete.
+  - **Chance e alcance:** cada caso tem cerca de 50% de chance. Nas ressincronizações seguintes da A, a B descarta da mesma forma. A A e a C passam a ver a nova posição, e a B continua na antiga, sem aviso, até a própria B editar o elemento.
+  - Impacto estimado: médio a alto, porque o conteúdo diverge de forma silenciosa e persistente, mas depende de um empate anterior no mesmo elemento.
+- **O2. Divergência temporária.** Nas rodadas 7, 9 e 10, as janelas terminaram em versões diferentes e convergiram na ressincronização: nas rodadas 7 e 9 por uma mensagem ainda a caminho, e na rodada 10 pelo mecanismo de O1, corrigido a tempo.
+  - **No modelo automatizado:** com reconciliação pura, 35% das rodadas divergem antes da ressincronização quando o destinatário está editando o elemento (a regra C1 não o sobrescreve).
+  - **Essa causa não ocorreu no teste com janelas:** o script não usa redimensionamento nem criação de elemento.
+  - Impacto estimado: baixo.
 - **O3. Perda silenciosa de atualização.** Quando dois participantes editam o mesmo elemento ao mesmo tempo, vale uma das edições e o autor da outra não recebe aviso (seção 4.3). **Mover** um elemento não é protegido pela regra de edição local, que só cobre texto em edição, redimensionamento e criação (C1). Na rodada 4, enquanto a A arrastava o alvo e outra janela o editava, o retângulo **piscava** na A entre a posição do arraste e a posição remota. Impacto estimado: baixo a médio, conforme o uso.
 - **O4. Colisão de `versionNonce` (teórica).** Duas edições com a mesma `version` e o mesmo `versionNonce` e conteúdo diferente nunca convergiriam. A chance por empate é de 1 em 2³¹ (C6).
 - **O5. Escopo do teste com 3 janelas.** O teste tem 1 elemento, edições por script (`updateScene`) a cada 100 ms e 3 janelas no mesmo computador e no mesmo servidor local. A frequência real depende de quantas pessoas editam o mesmo elemento ao mesmo tempo. O Firestore estava ativo, mas a assinatura compara só a cena em memória de cada janela.
-- **O6. Rodadas exploratórias.** As rodadas 1 a 3 usaram a primeira versão do script, sem a assinatura de 2 min. A rodada 1 conta pelo critério de 30 s, mas sua persistência não foi medida. Na rodada 3, o registro guardou só a segunda execução.
+- **O6. Rodadas exploratórias.** As rodadas 1 a 3 usaram a primeira versão do script, sem a assinatura de 2 min. A rodada 1 conta pelo critério de 30 s, mas sua persistência não foi medida.
+  - **Rodada 3:** foi executada mais de uma vez. Nas execuções anteriores, as janelas não começaram juntas: os consoles mostram a A terminando na versão 2240, a B e a C na 2687, e um `r3-final` da C na 1942. Por isso a rodada foi repetida.
+  - **O que conta:** só a execução das 14:19:30, iniciada nas 3 janelas no mesmo horário, entra na contagem. As assinaturas das execuções anteriores foram sobrescritas no registro (o script guardava por nome). Como nelas as janelas não editaram juntas, elas não são rodadas concorrentes válidas.
 - **O7. Modelo do teste automatizado.** A ressincronização foi modelada como um único envio da cena inteira por cada réplica, depois das entregas. A taxa de 51,4% depende desse modelo e dos parâmetros (5 elementos, 30 edições). Por isso o teste mostra o mecanismo e a ordem de grandeza, e a nota vem do app real.
 - **O8.** O `collab.test.tsx` não pôde ser executado neste ambiente (seção 3.1). O resultado não depende dele.
 - **O9.** As regras abertas do Firestore (`firestore.rules`: `allow get, write: if true`) estão registradas na S-M3 e não são duplicadas aqui.
@@ -266,7 +290,7 @@ A pontuação é 1, mas O1 é um defeito reproduzível de integridade e vai para
 
 | ID | Métrica | Evidência reproduzível | Pontuação | Impacto (Baixo/Médio/Alto) | Recomendação |
 | --- | --- | --- | --- | --- | --- |
-| A-S-M6-3 | S-M6 | C8, C9, E3 (rodada 8), E4 e o teste `reprodução` em E6 | 1 | Médio | Não aplicar `bumpElementVersions` ao reconciliar atualizações recebidas da colaboração, como o próprio comentário da função indica, ou retransmitir a versão gerada no recebimento |
+| A-S-M6-3 | S-M6 | C8, C9, E3 (rodada 8), E4 e os testes `reprodução` e `edição posterior` em E6 | 1 | Médio a alto | Não aplicar `bumpElementVersions` ao reconciliar atualizações recebidas da colaboração, como o próprio comentário da função indica, ou retransmitir a versão gerada no recebimento |
 
 ## 8. Contribuição para a questão
 

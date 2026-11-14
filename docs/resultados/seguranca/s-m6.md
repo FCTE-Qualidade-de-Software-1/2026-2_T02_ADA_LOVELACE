@@ -3,7 +3,9 @@
 **Nota 1**: em 2 de 8 rodadas com três participantes editando o mesmo elemento,
 eles terminaram com versões diferentes. Numa delas, a diferença persistiu
 2 min sem novas edições. Quem perde o desempate sobe a versão sozinho
-(`bumpElementVersions`, `Collab.tsx:790`) e não a retransmite.
+(`bumpElementVersions`, `Collab.tsx:790`). Se isso acontece depois da última
+ressincronização dessa janela, a versão não chega aos outros, e uma edição
+posterior pode se perder.
 
 ```mermaid
 flowchart LR

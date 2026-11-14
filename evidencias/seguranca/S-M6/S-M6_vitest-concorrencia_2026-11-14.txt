@@ -1,5 +1,5 @@
 # S-M6: teste automatizado de concorrência
-# 2026-11-14 15:00 -0300, pasta aplicacao/
+# 2026-11-14 15:15 -0300, pasta aplicacao/
 # Node v24.12.0, Yarn 1.22.22, versão avaliada: Excalidraw e7b5346
 # yarn test:app --watch=false packages/excalidraw/tests/avaliacao/concorrencia.test.ts
 # Bloco 1: só reconcileElements (reconcile.ts). Bloco 2: caminho do app (reconcileElements + bumpElementVersions, Collab.tsx:772-803).
@@ -26,6 +26,10 @@ P(destinatário editando o alvo) = 0: 0 de 500 rodadas divergentes antes da ress
 stdout | packages/excalidraw/tests/avaliacao/concorrencia.test.ts > S-M6: caminho do app (reconcileElements + bumpElementVersions) > reprodução: quem perde o desempate sobe a versão sozinho e diverge
 reprodução: A 10:100 | B 11:780759674
 
+stdout | packages/excalidraw/tests/avaliacao/concorrencia.test.ts > S-M6: caminho do app (reconcileElements + bumpElementVersions) > depois da divergência, uma edição posterior e não concorrente de A se perde em B ou divide a versão de novo
+edição posterior, caso 1: A x=50 v11 | B x=5 v11
+edição posterior, caso 2: A x=50 v11 | B x=50 v12
+
 stdout | packages/excalidraw/tests/avaliacao/concorrencia.test.ts > S-M6: caminho do app (reconcileElements + bumpElementVersions) > S-M6 (caminho do app): 500 rodadas com 3 réplicas
 ┌────────────────────────┬────────┐
 │ (index)                │ Values │
@@ -36,10 +40,10 @@ stdout | packages/excalidraw/tests/avaliacao/concorrencia.test.ts > S-M6: caminh
 └────────────────────────┴────────┘
 S-M6 (caminho do app) = 257 de 500 rodadas inconsistentes (51.4%)
 
- ✓ packages/excalidraw/tests/avaliacao/concorrencia.test.ts (5 tests) 538ms
+ ✓ packages/excalidraw/tests/avaliacao/concorrencia.test.ts (6 tests) 471ms
 
  Test Files  1 passed (1)
-      Tests  5 passed (5)
-   Start at  15:00:34
-   Duration  5.18s (transform 1.10s, setup 976ms, collect 1.60s, tests 538ms, environment 1.40s, prepare 252ms)
+      Tests  6 passed (6)
+   Start at  15:15:02
+   Duration  4.71s (transform 1.12s, setup 837ms, collect 1.62s, tests 471ms, environment 1.30s, prepare 162ms)
 

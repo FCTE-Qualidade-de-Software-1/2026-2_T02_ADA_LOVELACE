@@ -10,8 +10,10 @@
 #   r0: só a A editou (controle de propagação): as 3 janelas iguais no final
 #   r1: A, B e C editando juntas: 3 cenas DIFERENTES 30 s depois do fim (detalhe abaixo)
 #   r2: A, B e C editando juntas: iguais no final
-#   r3: A, B e C editando juntas (segunda execução, início 14:19:30): iguais no final
-#       (a primeira execução da r3 foi sobrescrita no registro: o script guardava por nome)
+#   r3: A, B e C editando juntas (execução com início 14:19:30 nas 3 janelas): iguais no final
+#       Antes dela, a r3 foi executada sem as janelas começarem juntas. Nos consoles, a A terminou
+#       na versão 2240, a B e a C na 2687, e há um r3-final da C na 1942. Por isso a rodada foi
+#       repetida. Essas execuções não contam e foram sobrescritas no registro (o script guardava por nome).
 #   r4: B (início 14:23:30) e C (início 14:23:00) não editaram ao mesmo tempo; não conta
 #   r3-agora: tirada às 17:28, depois da r4; não serve para medir persistência
 #

@@ -24,8 +24,12 @@
 # Dois minutos depois, sem nenhuma edição, B continuava diferente de A e C. A posição (149, 303) é a mesma
 # nas 3 janelas: a divergência é de versão.
 #
-# Rodadas 7, 9 e 10: alguma janela terminou uma versão atrás e convergiu depois, pela ressincronização
-# (divergência temporária). Na 7, 9 e 10, a última versão não empatou com outra de mesmo número.
+# Rodadas 7 e 9: B terminou uma versão à frente (a última mensagem ainda estava a caminho) e A e C a
+# alcançaram (divergência temporária).
+# Rodada 10: A e C terminaram empatadas em 8324 (692378935 < 2026055924). C perdeu o desempate e
+# bumpElementVersions a subiu para 8325:753346252. A ressincronização completa de C (throttle de 20 s com
+# chamada final, Collab.tsx:987-999) disparou depois disso e levou a versão 8325 a A e B. Mesmo mecanismo
+# da rodada 8, mas lá a subida de versão de B veio depois da última ressincronização de B.
 
 ## __sm6.relatorio() na janela A
 {

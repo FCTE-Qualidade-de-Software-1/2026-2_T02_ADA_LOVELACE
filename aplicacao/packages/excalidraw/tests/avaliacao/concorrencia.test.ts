@@ -1,7 +1,7 @@
 /* eslint-disable no-console -- a saída no console é o registro da medição */
 // Avaliação de qualidade (equipe Ada Lovelace), issue #58, métrica S-M6.
 // Conta inconsistências entre participantes depois de edições simultâneas,
-// usando a reconciliação real da colaboração (reconcile.ts:23-115).
+// usando a reconciliação real da colaboração (reconcile.ts:23-118).
 
 import { reseed } from "@excalidraw/common";
 import { syncInvalidIndices } from "@excalidraw/element";
@@ -277,6 +277,65 @@ describe("S-M6: caminho do app (reconcileElements + bumpElementVersions)", () =>
     expect(alvoB.version).toBe(11);
     expect(alvoB.versionNonce).not.toBe(100);
     expect(assinatura(B)).not.toEqual(assinatura(A));
+  });
+
+  it("depois da divergência, uma edição posterior e não concorrente de A se perde em B ou divide a versão de novo", () => {
+    const dividir = () => {
+      reseed(SEMENTE);
+      const base = cenaBase(criarPrng(SEMENTE));
+      const comVersao = (versionNonce: number) =>
+        base.map((el) =>
+          el.id === "alvo" ? { ...el, version: 10, versionNonce, x: 5 } : el,
+        );
+      const A: Replica = { nome: "A", elementos: comVersao(100) };
+      const B: Replica = { nome: "B", elementos: comVersao(200) };
+      const ultimaDeA = A.elementos.find((el) => el.id === "alvo")!;
+      const ultimaDeB = B.elementos.find((el) => el.id === "alvo")!;
+      receberApp(A, [ultimaDeB], SEM_EDICAO);
+      receberApp(B, [ultimaDeA], SEM_EDICAO);
+      // A em 10:100 e B em 11:<nonce novo>, mesmo conteúdo (x = 5)
+      return {
+        A,
+        B,
+        nonceB: B.elementos.find((e) => e.id === "alvo")!.versionNonce,
+      };
+    };
+    // A move o alvo sozinho, sem nenhuma edição concorrente: versão 11
+    const editarA = (A: Replica, versionNonce: number) => {
+      const atual = A.elementos.find((el) => el.id === "alvo")!;
+      const novo = {
+        ...atual,
+        version: atual.version + 1,
+        versionNonce,
+        x: 50,
+      };
+      A.elementos = A.elementos.map((el) => (el.id === "alvo" ? novo : el));
+      return novo;
+    };
+    const alvo = (r: Replica) => r.elementos.find((el) => el.id === "alvo")!;
+
+    // caso 1: versionNonce da edição de A maior que o de B (empate em 11, B mantém o seu)
+    const c1 = dividir();
+    receberApp(c1.B, [editarA(c1.A, c1.nonceB + 1)], SEM_EDICAO);
+    console.log(
+      `edição posterior, caso 1: A x=${alvo(c1.A).x} v${
+        alvo(c1.A).version
+      } | B x=${alvo(c1.B).x} v${alvo(c1.B).version}`,
+    );
+    expect(alvo(c1.A).x).toBe(50);
+    expect(alvo(c1.B).x).toBe(5); // a edição de A se perdeu em B
+
+    // caso 2: versionNonce da edição de A menor (B aceita o conteúdo, mas sobe a versão de novo)
+    const c2 = dividir();
+    receberApp(c2.B, [editarA(c2.A, c2.nonceB - 1)], SEM_EDICAO);
+    console.log(
+      `edição posterior, caso 2: A x=${alvo(c2.A).x} v${
+        alvo(c2.A).version
+      } | B x=${alvo(c2.B).x} v${alvo(c2.B).version}`,
+    );
+    expect(alvo(c2.B).x).toBe(50);
+    expect(alvo(c2.B).version).toBe(12);
+    expect(assinatura(c2.B)).not.toEqual(assinatura(c2.A));
   });
 
   it("S-M6 (caminho do app): 500 rodadas com 3 réplicas", () => {

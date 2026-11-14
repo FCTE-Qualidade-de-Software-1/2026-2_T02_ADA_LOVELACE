@@ -31,7 +31,7 @@ A nota usa as duas fontes somadas.
 1. Na branch `feat/seguranca-sm5-sm6`, criei `aplicacao/packages/excalidraw/tests/avaliacao/adulteracao.test.ts`. Ele usa as funções reais `encryptData`, `decryptData` e `generateEncryptionKey` de `packages/excalidraw/data/encryption.ts` (C1 e C2).
 2. **Payload:** `{"type":"SCENE_INIT","payload":{"elements":[…]}}`, no mesmo formato que `Portal._broadcastSocketData` cifra (C3). Os elementos vêm de uma cena real com 4 elementos, exportada do app em 2026-11-12 (`fixtures/cena-s-m5.json`, cópia de `evidencias/capacidade-interacao/CI-M23/CI-M23_cena-de-apoio_2026-11-12.excalidraw`).
 3. **Controle:** cifrei 40 mensagens sem adulteração e confirmei que todas são decifradas e ficam idênticas ao original. Isso mostra que o teste não rejeita tudo por algum defeito próprio.
-4. **Adulterações:** 200, em 5 grupos de 40. Cada adulteração é feita sobre uma mensagem cifrada nova, com IV próprio. As posições e os bits sorteados vêm de um PRNG com semente fixa (mulberry32, semente 58, `tests/avaliacao/prng.ts`), então a medição se repete exatamente.
+4. **Adulterações:** 200, em 5 grupos de 40. Cada adulteração é feita sobre uma mensagem cifrada nova, com IV próprio. As posições, os bits e os tamanhos sorteados vêm de um PRNG com semente fixa (mulberry32, semente 58, `tests/avaliacao/prng.ts`) e se repetem a cada execução. A chave, os IVs e os bytes acrescentados no grupo `tamanho` são aleatórios a cada execução, o que não muda o resultado.
 
    | Grupo | O que é alterado |
    | --- | --- |
@@ -65,7 +65,7 @@ O ambiente foi o de `evidencias/ambiente/ambiente-local.md`:
 8. **Replay:**
    - na A, marquei a última mensagem válida (`__sm5.antiga = __sm5.validas.at(-1)`) e arrastei um dos retângulos; a B recebeu o movimento;
    - na B, registrei `__sm5b.foto("antes-replay")`;
-   - na A, reenviei a mensagem antiga sem alteração (`__sm5.reenviar(...)`);
+   - na A, reenviei a mensagem marcada, sem alteração, com `__sm5.reenviar(__sm5.validas.indexOf(__sm5.antiga))`. É a mensagem válida de 16:52:17.672Z (E7);
    - na B, registrei `__sm5b.foto("depois-replay")` (E10).
 9. Exportei os registros com `__sm5.relatorio()` e `__sm5b.relatorio()` (E7). Os registros não incluem o ID da sala nem a chave. Os prints foram recortados sem a barra de endereço.
 
@@ -243,7 +243,9 @@ S-M5 = (200 + 21) ÷ (200 + 21) = 221 ÷ 221 = 100%
 
 **Confirmado no teste ponta a ponta:** as 21 mensagens inválidas geraram 21 alertas na B, quatro deles no mesmo intervalo de 4 ms (E7). O primeiro bloqueou a janela até o clique em OK (E8). Sem o contador do script, seriam 21 caixas de diálogo seguidas.
 
-As mensagens injetadas foram montadas sem usar a chave: são cópias adulteradas de texto cifrado, enviadas só com o ID da sala. Isso mostra que o servidor retransmite qualquer conteúdo endereçado à sala. Impacto estimado: médio para a sessão afetada.
+As mensagens injetadas foram montadas sem usar a chave: são cópias adulteradas de texto cifrado, enviadas só com o ID da sala. Isso mostra que o servidor retransmite qualquer conteúdo endereçado à sala.
+
+Elas saíram do socket da janela A, que já participava da sala. Um cliente de fora precisaria só entrar na sala com o ID (`join-room`, `Portal.tsx:45`). Esse caso não foi executado; vem da leitura do código. Impacto estimado: médio para a sessão afetada.
 - **O3. IV fixo no link `#json` legado** (C6). Na leitura de links antigos, se a decifragem com o IV embutido falha, o app tenta de novo com um IV fixo de zeros. A segunda tentativa também é autenticada, então uma adulteração continua sendo rejeitada. O IV fixo só aparece nesse caminho de compatibilidade de leitura, não na colaboração atual. Impacto estimado: baixo.
 - **O4. Escopo de cada fonte.** O teste automatizado exercita a mesma função de decifragem que o app usa (`decryptData`), mas não passa pelo socket nem pela interface. O teste ponta a ponta cobre esse caminho com o servidor de sala local, mas com uma amostra menor (21) e sem o modo de chave trocada.
 - **O5. Ambiente.** O Vitest roda em jsdom com o Web Crypto do Node 24. No navegador, o AES-GCM é o do Chromium (Helium), e o teste ponta a ponta mostrou o mesmo comportamento.
