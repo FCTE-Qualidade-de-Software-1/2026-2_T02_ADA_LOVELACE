@@ -13,8 +13,8 @@ do Excalidraw. Só as métricas já coletadas têm nota. Os critérios estão no
 | [S-M2 · Chave enviada ao servidor](seguranca/s-m2.md) | Não (0 ocorrências) | **2** |
 | S-M3 · Mecanismos de controle de acesso | — | — |
 | S-M4 · Dados persistidos localmente sem criptografia | — | — |
-| S-M5 · Taxa de detecção de adulteração | — | — |
-| S-M6 · Inconsistências após edições simultâneas | — | — |
+| [S-M5 · Taxa de detecção de adulteração](seguranca/s-m5.md) | 221 de 221 rejeitadas (100%) | **2** |
+| [S-M6 · Inconsistências após edições simultâneas](seguranca/s-m6.md) | 2 em 8 rodadas | **1** |
 | S-M7 · Completude da trilha de auditoria | — | — |
 | S-M8 · Histórico de versões com autoria | — | — |
 | [S-M9 · Suficiência da autenticação](seguranca/s-m9.md) | Nome autodeclarado | **1** |

@@ -75,6 +75,8 @@ nav:
       - Segurança:
           - S-M1 · Mensagens cifradas: resultados/seguranca/s-m1.md
           - S-M2 · Chave enviada ao servidor: resultados/seguranca/s-m2.md
+          - S-M5 · Detecção de adulteração: resultados/seguranca/s-m5.md
+          - S-M6 · Edição simultânea: resultados/seguranca/s-m6.md
           - S-M9 · Suficiência da autenticação: resultados/seguranca/s-m9.md
           - S-M13 · Cabeçalhos HTTP: resultados/seguranca/s-m13.md
       - Flexibilidade:
