@@ -9,7 +9,7 @@
 | Tarefa do plano | T1.3 (ver `tarefas-seguranca-excalidraw.md`) |
 | Issue | #58 |
 | Responsável | João Pedro Lopes da Cruz |
-| Data(s) da coleta | 2026-11-14 (teste automatizado); teste ponta a ponta `<pendente>` |
+| Data(s) da coleta | 2026-11-14 (teste automatizado e teste ponta a ponta) |
 | Versão avaliada | Excalidraw `e7b5346` (snapshot em `aplicacao/`) |
 | Revisado por | `<preencher>` em `<AAAA-MM-DD>` |
 
@@ -20,7 +20,9 @@ A métrica mede a proporção de mensagens de colaboração adulteradas que a de
 O denominador são as adulterações injetadas, sem contar as mensagens de controle. A medição tem duas fontes:
 
 1. um teste automatizado com 200 adulterações em 5 grupos de 40, que é a base da nota;
-2. um teste ponta a ponta na instância local, com duas janelas na mesma sala, para confirmar a reação do app (`<pendente, Tarefa 2 do plano>`).
+2. um teste ponta a ponta na instância local, com duas janelas na mesma sala, que confirma a reação do app real: 21 adulterações enviadas pelo socket.
+
+A nota usa as duas fontes somadas.
 
 ## 3. Procedimento
 
@@ -45,7 +47,27 @@ O denominador são as adulterações injetadas, sem contar as mensagens de contr
 
 ### 3.2 Teste ponta a ponta
 
-`<pendente, Tarefa 2 do plano: script de console na janela A altera o buffer cifrado antes do emit; a janela B conta os alertas; controle com 2 desenhos sem adulteração; replay pelo socket>`
+O ambiente foi o de `evidencias/ambiente/ambiente-local.md`:
+
+- app em `localhost:3001` (`yarn vite`);
+- servidor de sala `excalidraw-room` `03ff435` em Docker, na porta 3002;
+- navegador Helium (Chromium): janela A normal e janela B anônima, na mesma sala.
+
+1. Na janela A: **Live collaboration** → **Start session**. Abri o link da sala na janela B.
+2. Colei `S-M5_snippet-janela-A.js` no console da A. O script intercepta `socket.emit` e guarda cópias das mensagens `server-broadcast` reais, já cifradas pelo app (C3). Ele não altera nada do que o app envia.
+3. Colei `S-M5_snippet-janela-B.js` no console da B. O script troca `window.alert` por um contador. Só o primeiro alerta aparece de verdade, para o print; os outros são só contados, para a janela não travar.
+4. **Controle do canal:** desenhei 2 retângulos na A, e eles apareceram na B. Registrei a cena da B com `__sm5b.foto("antes")`.
+5. Na A, `__sm5.injetar("bit-tag", 1)`. A B mostrou o alerta "Não foi possível descriptografar os dados." (E8).
+6. Na A, `__sm5.injetar(<modo>, 4)` para cada um dos 5 modos: `bit-cifrado`, `bit-tag`, `bit-iv`, `truncar` e `iv-de-outra-msg`.
+   - Cada injeção reenvia, direto ao servidor de sala, uma cópia adulterada da última mensagem válida que a A enviou.
+   - A troca de chave do teste automatizado não foi repetida aqui, porque pelo console não dá para cifrar com outra chave sem mexer no app. No lugar dela entrou o IV de outra mensagem.
+7. Na B, conferi `__sm5b.alertas.length` e `__sm5b.foto("depois")` (E9).
+8. **Replay:**
+   - na A, marquei a última mensagem válida (`__sm5.antiga = __sm5.validas.at(-1)`) e arrastei um dos retângulos; a B recebeu o movimento;
+   - na B, registrei `__sm5b.foto("antes-replay")`;
+   - na A, reenviei a mensagem antiga sem alteração (`__sm5.reenviar(...)`);
+   - na B, registrei `__sm5b.foto("depois-replay")` (E10).
+9. Exportei os registros com `__sm5.relatorio()` e `__sm5b.relatorio()` (E7). Os registros não incluem o ID da sala nem a chave. Os prints foram recortados sem a barra de endereço.
 
 ### 3.3 Comandos executados
 
@@ -153,10 +175,11 @@ Os quatro arquivos citados abaixo foram comparados por hash com o upstream no co
 | E3 | `aplicacao/packages/excalidraw/tests/avaliacao/fixtures/cena-s-m5.json` | cena | Payload real com 4 elementos |
 | E4 | `S-M5_vitest_2026-11-14.txt` | saída de comando | Execução do teste: 200 ÷ 200 rejeitadas, controle 0 ÷ 40 e replay aceito |
 | E5 | `S-M5_verificacao-versao_2026-11-14.txt` | saída de comando | Hash dos 4 arquivos citados igual ao do upstream `e7b5346` |
-| E6 | `S-M5_snippet-console.js` | script | `<pendente, Tarefa 2>` |
-| E7 | `S-M5_contagem-e2e_<data>.txt` | contagem | `<pendente, Tarefa 2>` |
-| E8 | `S-M5_alerta-janela-B_<data>.png` | print | `<pendente, Tarefa 2>` |
-| E9 | `S-M5_cena-intacta_<data>.png` | print | `<pendente, Tarefa 2>` |
+| E6 | `S-M5_snippet-janela-A.js` e `S-M5_snippet-janela-B.js` | scripts | Captura das mensagens válidas e injeção das adulteradas (A); contagem dos alertas e fotos da cena (B) |
+| E7 | `S-M5_contagem-e2e_2026-11-14.txt` | registro | As 21 adulterações (modo, byte e bit), os 21 alertas com horário, as fotos da cena e o replay |
+| E8 | `S-M5_alerta-janela-B_2026-11-14.png` | print | Janela B com o alerta "Não foi possível descriptografar os dados." e a cena intacta |
+| E9 | `S-M5_cena-intacta_2026-11-14.png` | print | Janela B depois das 21 adulterações: 21 erros em `decryptData` (`encryption.ts:86`), `alertas.length = 21` e cena igual à de antes |
+| E10 | `S-M5_replay-janela-B_2026-11-14.png` | print | Janela B antes e depois do replay: a cena não volta à versão antiga e a contagem continua em 21 |
 
 ### 4.3 Buscas sem resultado
 
@@ -177,35 +200,54 @@ Os quatro arquivos citados abaixo foram comparados por hash com o upstream no co
 | `tamanho` | 40 | 40 |
 | `chave-ou-iv-trocado` | 40 | 40 |
 | **Total (teste automatizado)** | **200** | **200** |
-| Ponta a ponta | `<pendente>` | `<pendente>` |
+
+| Ponta a ponta (grupo) | Injetadas (A) | Rejeitadas (alertas na B) |
+| --- | --- | --- |
+| `bit-cifrado` | 4 | 4 |
+| `bit-tag` | 5 | 5 |
+| `bit-iv` | 4 | 4 |
+| `truncar` | 4 | 4 |
+| `iv-de-outra-msg` | 4 | 4 |
+| **Total (ponta a ponta)** | **21** | **21** |
+
+No `bit-tag` entraram 5 injeções: 1 para o print do alerta e mais 4. As injeções 10 e 13 (`bit-iv`) sortearam o mesmo byte e bit, e as duas foram enviadas e contadas. Os horários de cada injeção na A e de cada alerta na B batem um a um, com 2 a 4 ms de diferença (E7).
 
 | Controle e observação | Resultado |
 | --- | --- |
-| Mensagens sem adulteração (controle) | 40 enviadas, 0 rejeitadas, todas idênticas ao original |
-| Mesma mensagem válida decifrada duas vezes (replay) | Aceita nas duas vezes |
+| Mensagens sem adulteração (controle, automatizado) | 40 enviadas, 0 rejeitadas, todas idênticas ao original |
+| Controle do canal (ponta a ponta) | Os 2 retângulos desenhados na A apareceram na B |
+| Cena da B antes e depois das 21 adulterações | Idêntica: `…eG:33:146,218 \| …ehb:33:150,424` |
+| Mesma mensagem válida decifrada duas vezes (automatizado) | Aceita nas duas vezes |
+| Replay pelo socket de mensagem válida antiga (retângulo na versão 33, depois de movido para a versão 51) | Sem alerta e sem efeito: a cena da B continuou na versão 51, na nova posição |
 
 ### 5.2 Cálculo
 
 ```text
-teste automatizado: rejeitadas ÷ injetadas = 200 ÷ 200 = 100%
-nota final: (200 + rejeitadas no e2e) ÷ (200 + adulteradas no e2e) = <pendente>
+teste automatizado: 200 ÷ 200 = 100%
+ponta a ponta:       21 ÷ 21  = 100%
+S-M5 = (200 + 21) ÷ (200 + 21) = 221 ÷ 221 = 100%
 ```
 
 ### 5.3 Pontuação
 
 | Valor medido | Regra da métrica | Pontuação (0–2) |
 | --- | --- | --- |
-| 100% (200 ÷ 200) no teste automatizado; ponta a ponta `<pendente>` | 2 = 100%; 1 = ≥ 90% e < 100%; 0 = < 90% | **2** (parcial, confirmar com o e2e) |
+| 100% (221 ÷ 221) | 2 = 100%; 1 = ≥ 90% e < 100%; 0 = < 90% | **2** |
 
-**Justificativa:** todas as 200 adulterações foram rejeitadas, nos cinco tipos: texto cifrado, tag, IV, tamanho e chave ou IV trocados. O AES-GCM autentica o texto cifrado e o IV, então qualquer alteração faz a decifragem falhar (C1 e C2). Nesse caso, o app descarta a mensagem sem tocar na cena (C4 e C5).
+**Justificativa:** todas as 221 adulterações foram rejeitadas, nos cinco tipos: texto cifrado, tag, IV, tamanho e chave ou IV trocados. O AES-GCM autentica o texto cifrado e o IV, então qualquer alteração faz a decifragem falhar (C1 e C2). No app real, cada mensagem adulterada gerou um erro em `decryptData` e um alerta, e foi descartada sem alterar a cena (C4, C5, E9).
 
 ## 6. Observações e limitações
 
-- **O1. Não há proteção contra replay.** A mesma mensagem válida é aceita quantas vezes for reenviada (seção 5.1). A cifra não usa AAD nem contador, e a mensagem não leva número de sequência (seção 4.3). Quem tiver uma mensagem antiga e o ID da sala pode reenviá-la, sem precisar da chave. O efeito na cena depende da reconciliação, que descarta elementos com versão menor ou igual à local (`packages/excalidraw/data/reconcile.ts:23-44`). Por isso, o replay tende a não ter efeito visível. `<confirmar no e2e, Tarefa 2>`. Impacto estimado: baixo. A observação não entra na taxa, porque o replay não é adulteração do texto cifrado.
-- **O2. Cada mensagem inválida abre um `window.alert` bloqueante** (C4). O servidor de sala só retransmite e não conhece a chave. Então qualquer cliente que saiba o ID da sala, que trafega em claro no `join-room` (`Portal.tsx:45`, ver S-M1), pode enviar lixo e fazer cada participante receber um alerta por mensagem. Isso trava a interação até o alerta ser fechado. A integridade da cena se mantém, porque a mensagem é descartada, mas a disponibilidade da sessão fica afetada. Por ora é **risco potencial lido no código**. `<confirmar no e2e, Tarefa 2>`. Impacto estimado: médio para a sessão afetada.
+- **O1. Não há proteção contra replay.** A mesma mensagem válida é aceita quantas vezes for reenviada (seção 5.1). A cifra não usa AAD nem contador, e a mensagem não leva número de sequência (seção 4.3). Quem tiver uma mensagem antiga e o ID da sala pode reenviá-la, sem precisar da chave. O efeito na cena depende da reconciliação, que descarta elementos com versão menor ou igual à local (`packages/excalidraw/data/reconcile.ts:23-44`). No teste ponta a ponta, o replay de uma mensagem antiga chegou à janela B sem alerta, mas não teve efeito: o retângulo estava na versão 51 e a mensagem trazia a versão 33 (seção 5.1, E10). O replay só teria efeito se o destinatário ainda não tivesse uma versão mais nova do elemento, por exemplo um participante que entrou na sala depois. Impacto estimado: baixo. A observação não entra na taxa, porque o replay não é adulteração do texto cifrado.
+- **O2. Cada mensagem inválida abre um `window.alert` bloqueante** (C4). O servidor de sala só retransmite e não conhece a chave. Então qualquer cliente que saiba o ID da sala, que trafega em claro no `join-room` (`Portal.tsx:45`, ver S-M1), pode enviar lixo e fazer cada participante receber um alerta por mensagem. Isso trava a interação até o alerta ser fechado. A integridade da cena se mantém, porque a mensagem é descartada, mas a disponibilidade da sessão fica afetada.
+
+**Confirmado no teste ponta a ponta:** as 21 mensagens inválidas geraram 21 alertas na B, quatro deles no mesmo intervalo de 4 ms (E7). O primeiro bloqueou a janela até o clique em OK (E8). Sem o contador do script, seriam 21 caixas de diálogo seguidas.
+
+As mensagens injetadas foram montadas sem usar a chave: são cópias adulteradas de texto cifrado, enviadas só com o ID da sala. Isso mostra que o servidor retransmite qualquer conteúdo endereçado à sala. Impacto estimado: médio para a sessão afetada.
 - **O3. IV fixo no link `#json` legado** (C6). Na leitura de links antigos, se a decifragem com o IV embutido falha, o app tenta de novo com um IV fixo de zeros. A segunda tentativa também é autenticada, então uma adulteração continua sendo rejeitada. O IV fixo só aparece nesse caminho de compatibilidade de leitura, não na colaboração atual. Impacto estimado: baixo.
-- **O4. Escopo do teste automatizado.** O teste exercita a mesma função de decifragem que o app usa (`decryptData`), mas não passa pelo socket nem pela interface. O teste ponta a ponta da Tarefa 2 cobre esse caminho.
-- **O5. Ambiente.** O Vitest roda em jsdom com o Web Crypto do Node 24. No navegador, a implementação do AES-GCM é a do próprio navegador. O teste ponta a ponta confirma o comportamento com ela.
+- **O4. Escopo de cada fonte.** O teste automatizado exercita a mesma função de decifragem que o app usa (`decryptData`), mas não passa pelo socket nem pela interface. O teste ponta a ponta cobre esse caminho com o servidor de sala local, mas com uma amostra menor (21) e sem o modo de chave trocada.
+- **O5. Ambiente.** O Vitest roda em jsdom com o Web Crypto do Node 24. No navegador, o AES-GCM é o do Chromium (Helium), e o teste ponta a ponta mostrou o mesmo comportamento.
+- **O6. Instrumentação.** Na janela B, o `window.alert` foi trocado por um contador depois do primeiro alerta. O script não altera a decifragem nem a cena; só evita 20 caixas de diálogo seguidas.
 - Nenhum teste foi feito contra o excalidraw.com, o Firebase público ou o backend de IA.
 
 ## 7. Achado (preencher só se a pontuação for 0)
@@ -221,4 +263,4 @@ Não se aplica: a pontuação é 2. As observações O1 e O2 ficam como pontos d
 
 | Questão | Esta métrica indica que a hipótese foi | Por quê |
 | --- | --- | --- |
-| S-Q3 | confirmada para adulteração (parcial; a parte de edição simultânea é a S-M6) | Todas as 200 adulterações foram rejeitadas e descartadas sem alterar a cena. O replay de mensagem válida não é detectado pela cifra (O1). |
+| S-Q3 | confirmada para adulteração (a parte de edição simultânea é a S-M6) | Todas as 221 adulterações foram rejeitadas e descartadas sem alterar a cena. O replay de mensagem válida não é detectado pela cifra, mas não teve efeito porque a reconciliação descartou a versão antiga (O1). |
