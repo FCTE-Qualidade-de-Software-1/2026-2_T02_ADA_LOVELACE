@@ -1,0 +1,35 @@
+# S-M5: teste automatizado de adulteração
+# 2026-11-14 13:31 -0300, pasta aplicacao/
+# Node v24.12.0, Yarn 1.22.22, versão avaliada: Excalidraw e7b5346
+# yarn test:app --watch=false packages/excalidraw/tests/avaliacao/adulteracao.test.ts
+
+
+ RUN  v3.0.6 c:/Users/ojoao/Desktop/qualidades/aplicacao
+
+stdout | packages/excalidraw/tests/avaliacao/adulteracao.test.ts > S-M5: detecção de adulteração (AES-GCM) > controle: 40 mensagens sem adulteração são decifradas e idênticas ao original
+controle: 40 enviadas, 0 rejeitadas
+
+stdout | packages/excalidraw/tests/avaliacao/adulteracao.test.ts > S-M5: detecção de adulteração (AES-GCM) > S-M5: 200 adulterações (5 grupos × 40)
+semente: 58
+┌─────────┬───────────────────────┬───────────┬────────────┐
+│ (index) │ grupo                 │ injetadas │ rejeitadas │
+├─────────┼───────────────────────┼───────────┼────────────┤
+│ 0       │ 'bit-cifrado'         │ 40        │ 40         │
+│ 1       │ 'bit-tag'             │ 40        │ 40         │
+│ 2       │ 'bit-iv'              │ 40        │ 40         │
+│ 3       │ 'tamanho'             │ 40        │ 40         │
+│ 4       │ 'chave-ou-iv-trocado' │ 40        │ 40         │
+│ 5       │ 'TOTAL'               │ 200       │ 200        │
+└─────────┴───────────────────────┴───────────┴────────────┘
+S-M5 = 200 ÷ 200 = 100.0%
+
+stdout | packages/excalidraw/tests/avaliacao/adulteracao.test.ts > S-M5: detecção de adulteração (AES-GCM) > observação de replay: a mesma mensagem válida é aceita duas vezes
+replay: 1ª entrega aceita, reenvio aceito
+
+ ✓ packages/excalidraw/tests/avaliacao/adulteracao.test.ts (3 tests) 59ms
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  13:31:11
+   Duration  5.74s (transform 1.53s, setup 805ms, collect 2.76s, tests 59ms, environment 1.45s, prepare 214ms)
+
