@@ -1,0 +1,31 @@
+# S-M6: teste automatizado de concorrência
+# 2026-11-14 13:38 -0300, pasta aplicacao/
+# Node v24.12.0, Yarn 1.22.22, versão avaliada: Excalidraw e7b5346
+# yarn test:app --watch=false packages/excalidraw/tests/avaliacao/concorrencia.test.ts
+
+
+ RUN  v3.0.6 c:/Users/ojoao/Desktop/qualidades/aplicacao
+
+stdout | packages/excalidraw/tests/avaliacao/concorrencia.test.ts > S-M6: inconsistências após edições simultâneas > S-M6: 500 rodadas com 3 réplicas e entrega fora de ordem
+semente: 58
+réplicas: 3, edições por rodada: 30, P(alvo): 0.5, P(destinatário editando o alvo): 0.2
+┌────────────────────────┬────────┐
+│ (index)                │ Values │
+├────────────────────────┼────────┤
+│ rodadas                │ 500    │
+│ divergentesAntesResync │ 175    │
+│ divergentesFinal       │ 0      │
+│ descartesPorEdicao     │ 3014   │
+└────────────────────────┴────────┘
+S-M6 = 0 inconsistências finais
+
+stdout | packages/excalidraw/tests/avaliacao/concorrencia.test.ts > S-M6: inconsistências após edições simultâneas > sem elemento em edição, as réplicas já convergem antes da ressincronização
+P(destinatário editando o alvo) = 0: 0 de 500 rodadas divergentes antes da ressincronização
+
+ ✓ packages/excalidraw/tests/avaliacao/concorrencia.test.ts (3 tests) 311ms
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  13:38:51
+   Duration  4.32s (transform 1.03s, setup 766ms, collect 1.50s, tests 311ms, environment 1.22s, prepare 209ms)
+

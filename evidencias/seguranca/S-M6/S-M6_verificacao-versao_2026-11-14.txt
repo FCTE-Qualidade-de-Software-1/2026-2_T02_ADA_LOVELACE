@@ -1,0 +1,33 @@
+# S-M6: verificação dos arquivos citados contra o upstream
+# 2026-11-14 13:39 -0300, pasta aplicacao/
+# local: git hash-object <arquivo>
+# upstream: gh api repos/excalidraw/excalidraw/contents/<arquivo>?ref=e7b534668a60add7f725531f3c9abf32508c7b4e --jq .sha
+
+packages/excalidraw/data/reconcile.ts
+  local    7cb702cff9987bec590520cf8dde9e49087352b0
+  upstream 7cb702cff9987bec590520cf8dde9e49087352b0
+  IGUAL
+excalidraw-app/collab/Collab.tsx
+  local    5569aa0fbffe84ba711bc9984d42ec8012b93282
+  upstream 5569aa0fbffe84ba711bc9984d42ec8012b93282
+  IGUAL
+excalidraw-app/collab/Portal.tsx
+  local    2e076a661ef9fb46d1bbe8b3ac48109fc2e56a58
+  upstream 2e076a661ef9fb46d1bbe8b3ac48109fc2e56a58
+  IGUAL
+excalidraw-app/data/firebase.ts
+  local    e534f2ca652fd64d01d88916ffaf8bccbcb41254
+  upstream e534f2ca652fd64d01d88916ffaf8bccbcb41254
+  IGUAL
+excalidraw-app/app_constants.ts
+  local    e4370e798663b8052525bc397b056645a025eda3
+  upstream e4370e798663b8052525bc397b056645a025eda3
+  IGUAL
+packages/element/src/mutateElement.ts
+  local    3efc3bff162dc28652adff3a5579984ea43849c6
+  upstream 3efc3bff162dc28652adff3a5579984ea43849c6
+  IGUAL
+packages/common/src/random.ts
+  local    581cf79cae8f3e63ad426dcf0a0c458d233b38c0
+  upstream 581cf79cae8f3e63ad426dcf0a0c458d233b38c0
+  IGUAL
