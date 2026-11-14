@@ -24,7 +24,10 @@ atendidos e principais riscos.]`
 
 | ID | Objetivo/métrica | Evidência reproduzível | Pontuação (0–2) | Impacto | Recomendação |
 | --- | --- | --- | --- | --- | --- |
-| A-001 | `[S-Q1, F-M1 ou CI-M1]` | `[Link para evidência]` | `[Preencher]` | `[Baixo/Médio/Alto]` | `[Preencher]` |
+| A-S-M5-1 | S-Q3 · S-M5: mensagem válida reenviada (replay) é aceita, porque a cifra não tem contador nem AAD | [S-M5, O1](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/seguranca/S-M5/S-M5_deteccao-adulteracao.md#6-observações-e-limitações) | 2 | Baixo | Incluir contador ou ID da sala como AAD e descartar sequências repetidas |
+| A-S-M5-2 | S-Q3 · S-M5: cada mensagem inválida abre um `window.alert` bloqueante; quem souber só o ID da sala pode inundar a sessão (a confirmar no teste ponta a ponta) | [S-M5, O2](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/seguranca/S-M5/S-M5_deteccao-adulteracao.md#6-observações-e-limitações) | 2 | Médio | Trocar o alerta por aviso não bloqueante e limitar a frequência |
+| A-S-M6-1 | S-Q3 · S-M6: participantes divergem por até cerca de 20 s quando um deles edita o elemento alterado por outro (35% das rodadas simuladas) | [S-M6, O1](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/seguranca/S-M6/S-M6_edicao-simultanea.md#6-observações-e-limitações) | 2 | Baixo | Ressincronizar o elemento assim que a edição local termina |
+| A-S-M6-2 | S-Q3 · S-M6: em edições concorrentes do mesmo elemento, a edição perdedora é descartada sem aviso | [S-M6, O2](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/seguranca/S-M6/S-M6_edicao-simultanea.md#6-observações-e-limitações) | 2 | Baixo a médio | Avisar o autor da edição substituída ou bloquear o elemento em edição por outro |
 
 ## Síntese por objetivo
 
