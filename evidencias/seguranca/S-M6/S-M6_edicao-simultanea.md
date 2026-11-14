@@ -47,7 +47,7 @@ O ambiente foi o de `evidencias/ambiente/ambiente-local.md`:
 5. **Rodada 0 (controle):** só a A editou. A B e a C receberam as edições, e as 3 janelas terminaram iguais.
 6. Fiz as rodadas 1 a 3 com a primeira versão do script, sem a assinatura de 2 min (`S-M6_rodadas-exploratorias_2026-11-14.txt`).
 7. Fiz as rodadas 6 a 10 com a versão final do script (`S-M6_rodadas-2min_2026-11-14.txt`).
-8. A rodada 4 foi descartada, porque a B e a C começaram com 30 s de diferença e não editaram ao mesmo tempo. A rodada 5 não foi feita.
+8. A rodada 4 tinha a B e a C editando com o script e a A arrastando o alvo com o mouse. Foi descartada, porque a B e a C começaram com 30 s de diferença e não editaram ao mesmo tempo. A rodada 5 repetiria esse formato e não foi feita. As rodadas com a versão final do script foram numeradas a partir de 6, para não se misturarem com as exploratórias.
 
 ### 3.3 Teste automatizado
 
