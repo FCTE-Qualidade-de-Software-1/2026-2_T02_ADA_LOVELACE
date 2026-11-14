@@ -1,0 +1,83 @@
+# S-M5: teste ponta a ponta na instância local
+# 2026-11-14, horários em UTC (16:50 a 17:01 UTC = 13:50 a 14:01 -0300)
+# App: localhost:3001 (yarn vite, Vite 5.0.12), servidor de sala: excalidraw-room 03ff435 em localhost:3002 (Docker)
+# Navegador: Helium (Chromium); janela A normal, janela B anônima, mesma sala
+# Scripts: S-M5_snippet-janela-A.js (injeta) e S-M5_snippet-janela-B.js (conta os alertas)
+# O ID da sala e a chave foram omitidos; os IDs abaixo são de elementos do desenho.
+#
+# Resumo
+#   adulteradas (A): 21  = 1 bit-tag (print do alerta) + 4 × 5 modos
+#   alertas de falha de decifragem (B): 21
+#   console da B: 21 erros OperationError em decryptData (encryption.ts:86) via Collab.decryptPayload (Collab.tsx:475)
+#   cena da B antes = depois (mesmas versões e posições)
+#   replay de mensagem válida antiga após o elemento ser movido: sem alerta e sem efeito na cena
+#
+# Observação: as adulterações 10 e 13 (bit-iv) sortearam o mesmo byte e bit; as duas foram enviadas e contadas.
+
+## Saída de __sm5.relatorio() na janela A
+
+{
+  "janela": "A",
+  "adulteradas": 21,
+  "validasGuardadas": 50,
+  "registro": [
+    { "n": 1,  "hora": "2026-11-14T16:51:02.133Z", "modo": "bit-tag",         "detalhe": "byte 1119, bit 4" },
+    { "n": 2,  "hora": "2026-11-14T16:52:29.737Z", "modo": "bit-cifrado",     "detalhe": "byte 123, bit 5" },
+    { "n": 3,  "hora": "2026-11-14T16:52:29.737Z", "modo": "bit-cifrado",     "detalhe": "byte 257, bit 3" },
+    { "n": 4,  "hora": "2026-11-14T16:52:29.737Z", "modo": "bit-cifrado",     "detalhe": "byte 30, bit 6" },
+    { "n": 5,  "hora": "2026-11-14T16:52:29.737Z", "modo": "bit-cifrado",     "detalhe": "byte 23, bit 5" },
+    { "n": 6,  "hora": "2026-11-14T16:52:45.481Z", "modo": "bit-tag",         "detalhe": "byte 1114, bit 0" },
+    { "n": 7,  "hora": "2026-11-14T16:52:45.481Z", "modo": "bit-tag",         "detalhe": "byte 1110, bit 3" },
+    { "n": 8,  "hora": "2026-11-14T16:52:45.481Z", "modo": "bit-tag",         "detalhe": "byte 1118, bit 1" },
+    { "n": 9,  "hora": "2026-11-14T16:52:45.481Z", "modo": "bit-tag",         "detalhe": "byte 1115, bit 1" },
+    { "n": 10, "hora": "2026-11-14T16:52:54.965Z", "modo": "bit-iv",          "detalhe": "IV byte 5, bit 5" },
+    { "n": 11, "hora": "2026-11-14T16:52:54.965Z", "modo": "bit-iv",          "detalhe": "IV byte 4, bit 2" },
+    { "n": 12, "hora": "2026-11-14T16:52:54.965Z", "modo": "bit-iv",          "detalhe": "IV byte 3, bit 6" },
+    { "n": 13, "hora": "2026-11-14T16:52:54.965Z", "modo": "bit-iv",          "detalhe": "IV byte 5, bit 5" },
+    { "n": 14, "hora": "2026-11-14T16:53:03.228Z", "modo": "truncar",         "detalhe": "-6 bytes" },
+    { "n": 15, "hora": "2026-11-14T16:53:03.228Z", "modo": "truncar",         "detalhe": "-7 bytes" },
+    { "n": 16, "hora": "2026-11-14T16:53:03.228Z", "modo": "truncar",         "detalhe": "-11 bytes" },
+    { "n": 17, "hora": "2026-11-14T16:53:03.228Z", "modo": "truncar",         "detalhe": "-5 bytes" },
+    { "n": 18, "hora": "2026-11-14T16:53:10.844Z", "modo": "iv-de-outra-msg", "detalhe": "IV de 2026-11-14T16:50:48.041Z" },
+    { "n": 19, "hora": "2026-11-14T16:53:10.844Z", "modo": "iv-de-outra-msg", "detalhe": "IV de 2026-11-14T16:50:48.041Z" },
+    { "n": 20, "hora": "2026-11-14T16:53:10.844Z", "modo": "iv-de-outra-msg", "detalhe": "IV de 2026-11-14T16:50:48.041Z" },
+    { "n": 21, "hora": "2026-11-14T16:53:10.844Z", "modo": "iv-de-outra-msg", "detalhe": "IV de 2026-11-14T16:50:48.041Z" },
+    { "n": "-", "hora": "2026-11-14T17:01:16.368Z", "modo": "replay",         "detalhe": "mensagem de 2026-11-14T16:52:17.672Z" }
+  ]
+}
+
+## Saída de __sm5b.relatorio() na janela B
+
+{
+  "janela": "B",
+  "alertas": 21,
+  "registro": [
+    { "n": 1,  "hora": "2026-11-14T16:51:02.135Z", "mensagem": "Não foi possível descriptografar os dados." },
+    { "n": 2,  "hora": "2026-11-14T16:52:29.739Z", "mensagem": "Não foi possível descriptografar os dados." },
+    { "n": 3,  "hora": "2026-11-14T16:52:29.740Z", "mensagem": "Não foi possível descriptografar os dados." },
+    { "n": 4,  "hora": "2026-11-14T16:52:29.742Z", "mensagem": "Não foi possível descriptografar os dados." },
+    { "n": 5,  "hora": "2026-11-14T16:52:29.743Z", "mensagem": "Não foi possível descriptografar os dados." },
+    { "n": 6,  "hora": "2026-11-14T16:52:45.483Z", "mensagem": "Não foi possível descriptografar os dados." },
+    { "n": 7,  "hora": "2026-11-14T16:52:45.484Z", "mensagem": "Não foi possível descriptografar os dados." },
+    { "n": 8,  "hora": "2026-11-14T16:52:45.484Z", "mensagem": "Não foi possível descriptografar os dados." },
+    { "n": 9,  "hora": "2026-11-14T16:52:45.485Z", "mensagem": "Não foi possível descriptografar os dados." },
+    { "n": 10, "hora": "2026-11-14T16:52:54.969Z", "mensagem": "Não foi possível descriptografar os dados." },
+    { "n": 11, "hora": "2026-11-14T16:52:54.969Z", "mensagem": "Não foi possível descriptografar os dados." },
+    { "n": 12, "hora": "2026-11-14T16:52:54.970Z", "mensagem": "Não foi possível descriptografar os dados." },
+    { "n": 13, "hora": "2026-11-14T16:52:54.970Z", "mensagem": "Não foi possível descriptografar os dados." },
+    { "n": 14, "hora": "2026-11-14T16:53:03.231Z", "mensagem": "Não foi possível descriptografar os dados." },
+    { "n": 15, "hora": "2026-11-14T16:53:03.232Z", "mensagem": "Não foi possível descriptografar os dados." },
+    { "n": 16, "hora": "2026-11-14T16:53:03.232Z", "mensagem": "Não foi possível descriptografar os dados." },
+    { "n": 17, "hora": "2026-11-14T16:53:03.233Z", "mensagem": "Não foi possível descriptografar os dados." },
+    { "n": 18, "hora": "2026-11-14T16:53:10.847Z", "mensagem": "Não foi possível descriptografar os dados." },
+    { "n": 19, "hora": "2026-11-14T16:53:10.847Z", "mensagem": "Não foi possível descriptografar os dados." },
+    { "n": 20, "hora": "2026-11-14T16:53:10.848Z", "mensagem": "Não foi possível descriptografar os dados." },
+    { "n": 21, "hora": "2026-11-14T16:53:10.848Z", "mensagem": "Não foi possível descriptografar os dados." }
+  ],
+  "fotos": {
+    "antes":         { "hora": "2026-11-14T16:50:50.537Z", "cena": "6ec420RMGFi_vmhkYZ3eG:33:146,218 | mJgXOXyC2wxP4DGWuvehb:33:150,424" },
+    "depois":        { "hora": "2026-11-14T16:53:37.316Z", "cena": "6ec420RMGFi_vmhkYZ3eG:33:146,218 | mJgXOXyC2wxP4DGWuvehb:33:150,424" },
+    "antes-replay":  { "hora": "2026-11-14T17:01:08.528Z", "cena": "6ec420RMGFi_vmhkYZ3eG:51:306,214 | mJgXOXyC2wxP4DGWuvehb:33:150,424" },
+    "depois-replay": { "hora": "2026-11-14T17:01:24.440Z", "cena": "6ec420RMGFi_vmhkYZ3eG:51:306,214 | mJgXOXyC2wxP4DGWuvehb:33:150,424" }
+  }
+}

@@ -1,0 +1,32 @@
+# S-M6: testes existentes de reconciliação e colaboração
+# 2026-11-14 13:34 -0300, pasta aplicacao/
+# Node v24.12.0, Yarn 1.22.22, versão avaliada: Excalidraw e7b5346
+# yarn test:app --watch=false packages/excalidraw/tests/data/reconcile.test.ts excalidraw-app/tests/collab.test.tsx
+
+
+ RUN  v3.0.6 C:/Users/ojoao/Desktop/qualidades/aplicacao
+
+ ✓ packages/excalidraw/tests/data/reconcile.test.ts (2 tests) 22ms
+ ❯ excalidraw-app/tests/collab.test.tsx (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  excalidraw-app/tests/collab.test.tsx [ excalidraw-app/tests/collab.test.tsx ]
+TypeError: default.promisify is not a function
+ ❯ packages/excalidraw/tests/helpers/api.ts:67:23
+     65| 
+     66| 
+     67| const readFile = util.promisify(fs.readFile);
+       |                       ^
+     68| // so that window.h is available when App.tsx is not imported as well.
+     69| createTestHook();
+ ❯ excalidraw-app/tests/collab.test.tsx:7:1
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  2 passed (2)
+   Start at  13:34:58
+   Duration  11.41s (transform 4.03s, setup 2.15s, collect 1.75s, tests 22ms, environment 3.04s, prepare 405ms)
+

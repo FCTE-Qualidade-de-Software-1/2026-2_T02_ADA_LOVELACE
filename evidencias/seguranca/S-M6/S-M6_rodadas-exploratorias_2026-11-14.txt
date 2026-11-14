@@ -1,0 +1,78 @@
+# S-M6: rodadas exploratórias com 3 janelas (rodadas 0 a 4)
+# 2026-11-14, horários em UTC (17:11 a 17:28 UTC = 14:11 a 14:28 -0300)
+# App: localhost:3001 (Vite 5.0.12), servidor de sala: excalidraw-room 03ff435 em localhost:3002 (Docker)
+# Navegador: Helium (Chromium); A = janela normal, B e C = janelas anônimas, mesma sala, lado a lado
+# Script: primeira versão de S-M6_snippet-janelas.js (assinaturas "fim" e "final", sem a de 2 min)
+# Cena: 1 retângulo (alvo oAkZjrskoktSgH6OgbA7J). Cada janela edita o alvo a cada 100 ms por 30 s.
+# O ID da sala e a chave foram omitidos.
+#
+# Resumo
+#   r0: só a A editou (controle de propagação): as 3 janelas iguais no final
+#   r1: A, B e C editando juntas: 3 cenas DIFERENTES 30 s depois do fim (detalhe abaixo)
+#   r2: A, B e C editando juntas: iguais no final
+#   r3: A, B e C editando juntas (execução com início 14:19:30 nas 3 janelas): iguais no final
+#       Antes dela, a r3 foi executada sem as janelas começarem juntas. Nos consoles, a A terminou
+#       na versão 2240, a B e a C na 2687, e há um r3-final da C na 1942. Por isso a rodada foi
+#       repetida. Essas execuções não contam e foram sobrescritas no registro (o script guardava por nome).
+#   r4: B (início 14:23:30) e C (início 14:23:00) não editaram ao mesmo tempo; não conta
+#   r3-agora: tirada às 17:28, depois da r4; não serve para medir persistência
+#
+# Rodada 1 em detalhe (linhas id:version:versionNonce:x:y, lidas no console de cada janela)
+#   fim (17:14:00):
+#     A  oAkZjrskoktSgH6OgbA7J:878:1136479023:179:233
+#     B  oAkZjrskoktSgH6OgbA7J:879:979519135:179:233
+#     C  oAkZjrskoktSgH6OgbA7J:879:2128124020:179:233
+#   final (17:14:30, 30 s depois do fim):
+#     A  oAkZjrskoktSgH6OgbA7J:880:157834071:179:233
+#     B  oAkZjrskoktSgH6OgbA7J:879:979519135:179:233
+#     C  oAkZjrskoktSgH6OgbA7J:880:1081316812:179:233
+#   B e C terminaram empatadas na versão 879. B tem o menor versionNonce e manteve a sua.
+#   A e C perderam o desempate, adotaram o elemento de B e, em seguida,
+#   bumpElementVersions (excalidraw-app/collab/Collab.tsx:790-793) subiu a versão para 880
+#   com um versionNonce novo e aleatório. Essa versão não é retransmitida
+#   (Collab.tsx:795-801), e a ressincronização completa só ocorre após edição local
+#   (Collab.tsx:970-999). A posição (179, 233) é a mesma nas 3: a divergência é de versão.
+
+## __sm6.relatorio() na janela A
+{
+  "r0-fim":   { "hora": "2026-11-14T17:12:00.052Z", "hash": "68d133031d4246b1" },
+  "r0-final": { "hora": "2026-11-14T17:12:30.060Z", "hash": "68d133031d4246b1" },
+  "r1-fim":   { "hora": "2026-11-14T17:14:00.006Z", "hash": "6fe36b4bab5a23d2" },
+  "r1-final": { "hora": "2026-11-14T17:14:30.032Z", "hash": "f8c28038d87340d4" },
+  "r2-fim":   { "hora": "2026-11-14T17:16:00.018Z", "hash": "467fde5ec47c3c81" },
+  "r2-final": { "hora": "2026-11-14T17:16:30.032Z", "hash": "1a6dc44a25b956d9" },
+  "r3-fim":   { "hora": "2026-11-14T17:20:00.003Z", "hash": "e6bf6cd11e16dcc6" },
+  "r3-final": { "hora": "2026-11-14T17:20:30.035Z", "hash": "3e3a2e35ae25eee3" },
+  "r3-agora": { "hora": "2026-11-14T17:28:16.461Z", "hash": "8978881108a43750" }
+}
+edições locais por rodada: {"0":295,"1":299,"2":299,"3":299}
+
+## __sm6.relatorio() na janela B
+{
+  "r0-final": { "hora": "2026-11-14T17:12:32.050Z", "hash": "68d133031d4246b1" },
+  "r1-fim":   { "hora": "2026-11-14T17:14:00.020Z", "hash": "c1d420cf90e54c26" },
+  "r1-final": { "hora": "2026-11-14T17:14:30.032Z", "hash": "c1d420cf90e54c26" },
+  "r2-fim":   { "hora": "2026-11-14T17:16:00.018Z", "hash": "1a6dc44a25b956d9" },
+  "r2-final": { "hora": "2026-11-14T17:16:30.032Z", "hash": "1a6dc44a25b956d9" },
+  "r3-fim":   { "hora": "2026-11-14T17:20:00.003Z", "hash": "3e3a2e35ae25eee3" },
+  "r3-final": { "hora": "2026-11-14T17:20:30.036Z", "hash": "3e3a2e35ae25eee3" },
+  "r4-fim":   { "hora": "2026-11-14T17:24:00.021Z", "hash": "8978881108a43750" },
+  "r4-final": { "hora": "2026-11-14T17:24:30.041Z", "hash": "8978881108a43750" },
+  "r3-agora": { "hora": "2026-11-14T17:28:15.244Z", "hash": "8978881108a43750" }
+}
+edições locais por rodada: {"1":299,"2":299,"3":299,"4":299}
+
+## __sm6.relatorio() na janela C
+{
+  "r0-final": { "hora": "2026-11-14T17:12:35.769Z", "hash": "68d133031d4246b1" },
+  "r1-fim":   { "hora": "2026-11-14T17:14:00.020Z", "hash": "7fa807745e2d7bde" },
+  "r1-final": { "hora": "2026-11-14T17:14:30.032Z", "hash": "555b4dffc949c38c" },
+  "r2-fim":   { "hora": "2026-11-14T17:16:00.015Z", "hash": "467fde5ec47c3c81" },
+  "r2-final": { "hora": "2026-11-14T17:16:30.016Z", "hash": "1a6dc44a25b956d9" },
+  "r3-fim":   { "hora": "2026-11-14T17:20:00.003Z", "hash": "e6bf6cd11e16dcc6" },
+  "r3-final": { "hora": "2026-11-14T17:20:30.035Z", "hash": "3e3a2e35ae25eee3" },
+  "r4-fim":   { "hora": "2026-11-14T17:23:30.007Z", "hash": "2c477b621b5e53f6" },
+  "r4-final": { "hora": "2026-11-14T17:24:00.021Z", "hash": "8978881108a43750" },
+  "r3-agora": { "hora": "2026-11-14T17:28:14.192Z", "hash": "8978881108a43750" }
+}
+edições locais por rodada: {"1":299,"2":299,"3":299,"4":299}
