@@ -98,16 +98,25 @@ aparecer entre aspas e com a referência correspondente.
   estruturação inicial da GitPage e do artigo em LaTeX, que ainda eram
   esqueletos sem as informações dos integrantes. Na segunda fase, orientação e
   apoio passo a passo nas atividades de métricas, auxílio na redação de
-  commits e pull requests e execução assistida de algumas métricas.
+  commits e pull requests e execução assistida de algumas métricas. Na terceira
+  fase, apoio na análise das gravações e dos prints das F-M1, F-M2 e F-M3,
+  incluindo a extração de quadros dos vídeos, a conferência do código do
+  Excalidraw e a redação das evidências e das páginas de resultados.
 * **Onde:** estrutura da GitPage e do artigo (`main.tex`), [roteiro da
-  análise](analise/roteiro.md), [métricas de gestão](gestao/metricas.md) e
-  [evidências de capacidade de interação](../evidencias/capacidade-interacao/).
-* **Quando:** primeira e segunda fases da avaliação, entre out. e nov. 2026.
+  análise](analise/roteiro.md), [métricas de gestão](gestao/metricas.md),
+  [evidências de capacidade de interação](../evidencias/capacidade-interacao/) e
+  resultados das [F-M1](resultados/flexibilidade/f-m1.md),
+  [F-M2](resultados/flexibilidade/f-m2.md) e
+  [F-M3](resultados/flexibilidade/f-m3.md).
+* **Quando:** primeira, segunda e terceira fases da avaliação, entre out. e
+  nov. 2026.
 * **Como conferiu e ajustou:** revisei e adaptei todas as sugestões ao
   contexto do projeto, conferi os textos e as métricas nas fontes e nos
   registros do repositório e acompanhei a execução das atividades. A
   realização assistida da CI-M23 foi fiscalizada por mim, com conferência do
-  procedimento e do resultado antes do registro.
+  procedimento e do resultado antes do registro. Nas F-M1 a F-M3, conferi cada
+  vídeo, print e versão registrada, refiz as contagens e decidi com o grupo
+  quais observações entram como defeito específico de ambiente.
 
 ### Renato Araújo
 
