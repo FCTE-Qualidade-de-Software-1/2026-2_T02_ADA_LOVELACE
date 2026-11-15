@@ -92,11 +92,12 @@ disponível para conferência e processamento.
 | Zayra-Moraes | 14 |
 | Giovanna Felipe | 2 |
 | renatoyx | 2 |
+| Luís Felipe Parreira Cunha | 1 |
 | Renato Gameiro | 1 |
 | renatvg | 1 |
-| **Total** | **123** |
+| **Total** | **124** |
 
-*Última coleta: 2026-11-14T23:41:27+00:00, referência `main`.*
+*Última coleta: 2026-11-15T20:25:56+00:00, referência `main`.*
 <!-- END AUTO: membros-commits -->
 
 A atualização é executada a cada push na `main` e semanalmente pelo
