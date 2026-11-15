@@ -145,7 +145,7 @@ mesmo motivo, os eventos do Project #19 posteriores a esse horário também são
 descartados.
 
 A leitura dos quadros usa o secret `KANBAN_TOKEN` do repositório, um token
-clássico da dona do Project de usuário com os escopos `repo` e `project`. O
+clássico da dona do Project de usuário com os escopos `public_repo` e `project`. O
 mesmo secret é usado pelo workflow
 [Adicionar issue ao Kanban](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/.github/workflows/adicionar-ao-kanban.yml),
 que adiciona ao quadro as issues abertas no repositório, porque o auto-add de

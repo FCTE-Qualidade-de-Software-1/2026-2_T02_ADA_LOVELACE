@@ -183,7 +183,7 @@ commits da `main`.*
 ## Como reproduzir
 
 ```bash
-# coleta do Project (token com os escopos repo e project)
+# coleta do Project (token com os escopos public_repo e project)
 PROJECTS_TOKEN=<token> GITHUB_REPOSITORY=FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE \
   python scripts/collect_project_metrics.py
 
