@@ -47,6 +47,10 @@ CICLOS = [
 ]
 INICIO, FIM = CICLOS[0][1], CICLOS[-1][2]
 
+# Troca do quadro: Project #19 da organização -> Project de usuário, para que
+# todos os integrantes pudessem mover os cartões (ver gestao-grupo.md).
+MIGRACAO = datetime(2026, 11, 6, 5, 47, tzinfo=timezone.utc).astimezone(BRT)
+
 ESTADOS = ["Backlog", "A fazer", "Em andamento", "Em revisão", "Concluído"]
 CORES = {
     "Backlog": "#c9c9d6",
@@ -203,6 +207,63 @@ def lead_cycle(issues: list[dict]) -> str:
 
 
 # --------------------------------------------------------------------------
+# Efeito da troca do quadro: Entrega 1 x Entrega 2
+
+
+def comparacao_entregas(todas: list[dict]) -> str:
+    entregas = ["Entrega 1", "Entrega 2"]
+    resumo = {}
+    for entrega in entregas:
+        concluidas = [
+            (issue, t) for issue in todas
+            if issue["milestone"] == entrega and issue["motivo_fechamento"] != "NOT_PLANNED"
+            and (t := tempos(issue))
+        ]
+        total = len(concluidas)
+        com_andamento = sum(1 for _, t in concluidas if t[1])
+        com_revisao = sum(
+            1 for issue, _ in concluidas if any(e["para"] == "Em revisão" for e in issue["eventos"])
+        )
+        resumo[entrega] = (total, com_andamento, com_revisao)
+
+    def pct(parte: int, total: int) -> float:
+        return 100 * parte / total if total else 0
+
+    figura, eixo = plt.subplots(figsize=(7, 3.4))
+    grupos = ["Passaram por Em andamento\n(Cycle Time mensurável)", "Passaram por Em revisão"]
+    largura = 0.35
+    for deslocamento, entrega, cor in [(-largura / 2, "Entrega 1", "#c9c9d6"), (largura / 2, "Entrega 2", COR_PRINCIPAL)]:
+        total, andamento, revisao = resumo[entrega]
+        rects = eixo.bar(
+            [p + deslocamento for p in range(len(grupos))],
+            [pct(andamento, total), pct(revisao, total)],
+            largura, color=cor, label=f"{entrega} ({total} issues concluídas)",
+        )
+        eixo.bar_label(rects, labels=[f"{andamento}/{total}", f"{revisao}/{total}"], fontsize=8)
+    eixo.set_xticks(range(len(grupos)), grupos)
+    eixo.set_ylim(0, 110)
+    eixo.set_ylabel("% das issues concluídas")
+    eixo.set_title("Issues concluídas com cada etapa registrada no quadro", fontsize=10)
+    eixo.legend(frameon=False, fontsize=8, loc="upper left")
+    eixo.spines[["top", "right"]].set_visible(False)
+    eixo.grid(axis="y", color="#e6e6ee", linewidth=0.8)
+    eixo.set_axisbelow(True)
+    salvar(figura, "comparacao-entregas.svg")
+
+    linhas = [
+        "| Entrega | Issues concluídas | Passaram por Em andamento | Passaram por Em revisão |",
+        "| --- | ---: | ---: | ---: |",
+    ]
+    for entrega in entregas:
+        total, andamento, revisao = resumo[entrega]
+        linhas.append(
+            f"| {entrega} | {total} | {andamento} ({fmt_num(pct(andamento, total), 0)}%) "
+            f"| {revisao} ({fmt_num(pct(revisao, total), 0)}%) |"
+        )
+    return "\n".join(linhas)
+
+
+# --------------------------------------------------------------------------
 # Fluxo acumulado
 
 
@@ -226,6 +287,10 @@ def fluxo_acumulado(issues: list[dict], hoje: date) -> str:
     for nome, comeco, _ in CICLOS[1:]:
         eixo.axvline(comeco, color="#555", linestyle=":", linewidth=1)
         eixo.text(comeco, eixo.get_ylim()[1] * 0.98, f" {nome}", va="top", fontsize=8, color="#555")
+    troca = MIGRACAO.date()
+    if INICIO <= troca <= ultimo:
+        eixo.axvline(troca, color="#222", linestyle="--", linewidth=1)
+        eixo.text(troca, eixo.get_ylim()[1] * 0.90, " novo quadro", va="top", fontsize=8, color="#222")
     eixo.set_xlim(dias_serie[0], dias_serie[-1])
     eixo.set_ylabel("issues")
     eixo.set_title("Fluxo acumulado das issues da Entrega 2 (Status no fim de cada dia)", fontsize=10)
@@ -372,6 +437,7 @@ def main() -> None:
         f"*Dados do Project coletados em {coleta:%d/%m/%Y %H:%M} (horário de Brasília); "
         f"{len(issues)} issues no milestone {MILESTONE}.*",
     )
+    pagina = substituir_bloco(pagina, "comparacao", comparacao_entregas(dados["issues"]))
     pagina = substituir_bloco(pagina, "lead-cycle", lead_cycle(issues))
     pagina = substituir_bloco(pagina, "fluxo", fluxo_acumulado(issues, hoje))
     pagina = substituir_bloco(pagina, "planejado", planejado_concluido(issues, coleta))

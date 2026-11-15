@@ -30,6 +30,29 @@ mão.
   O histórico completo fica em
   [`historico-status.json`](dados/historico-status.json).
 
+## Efeito da troca do quadro
+
+Até a Entrega 1, o quadro era o Project #19 da organização, onde só uma
+pessoa conseguia mover os cartões. Na prática, as issues iam direto para
+**Concluído** e as etapas intermediárias não ficavam registradas, o que
+impedia medir o Cycle Time. Em 06/11/2026 o quadro passou para um Project de
+usuário, com todos os integrantes como colaboradores
+([decisão de gestão](../analise/gestao-grupo.md#processo-de-trabalho-e-fonte-dos-dados)).
+O gráfico compara, nas duas entregas, quantas issues concluídas tiveram as
+etapas **Em andamento** e **Em revisão** registradas no quadro.
+
+![Issues concluídas com cada etapa registrada, Entrega 1 e Entrega 2](../assets/gestao/comparacao-entregas.svg)
+
+*Gráfico 1. Registro das etapas do Kanban nas issues concluídas da Entrega 1 e
+da Entrega 2. Fonte: histórico de Status dos dois quadros.*
+
+<!-- BEGIN AUTO: comparacao -->
+| Entrega | Issues concluídas | Passaram por Em andamento | Passaram por Em revisão |
+| --- | ---: | ---: | ---: |
+| Entrega 1 | 17 | 1 (6%) | 1 (6%) |
+| Entrega 2 | 26 | 21 (81%) | 22 (85%) |
+<!-- END AUTO: comparacao -->
+
 ## Lead Time e Cycle Time
 
 Lead Time vai da criação da issue até a entrada em **Concluído**; Cycle Time,
@@ -47,7 +70,7 @@ ficam com Cycle Time N/A.
 
 ![Lead Time e Cycle Time por issue concluída da Entrega 2](../assets/gestao/lead-cycle-time-entrega-2.svg)
 
-*Gráfico 1. Lead Time e Cycle Time por issue concluída. Fonte: histórico de
+*Gráfico 2. Lead Time e Cycle Time por issue concluída. Fonte: histórico de
 Status do Kanban.*
 
 <!-- BEGIN AUTO: lead-cycle -->
@@ -87,12 +110,12 @@ Status do Kanban.*
 
 Para cada dia, conta quantas issues da Entrega 2 estavam em cada Status no fim
 do dia. Uma issue só aparece a partir do primeiro Status registrado no quadro.
-Faixas de **Em andamento** e **Em revisão** largas indicam muito trabalho
+A linha tracejada marca a troca do quadro (06/11). Faixas de **Em andamento** e **Em revisão** largas indicam muito trabalho
 aberto ao mesmo tempo (WIP).
 
 ![Fluxo acumulado das issues da Entrega 2](../assets/gestao/fluxo-acumulado-entrega-2.svg)
 
-*Gráfico 2. Diagrama de fluxo acumulado da Entrega 2. Fonte: histórico de
+*Gráfico 3. Diagrama de fluxo acumulado da Entrega 2. Fonte: histórico de
 Status do Kanban.*
 
 A tabela mostra o início do período, o início de cada ciclo, as
@@ -119,7 +142,7 @@ segundas-feiras e o último dia coletado.
 
 ![Planejado × concluído por ciclo da Entrega 2](../assets/gestao/planejado-concluido-entrega-2.svg)
 
-*Gráfico 3. Issues planejadas e concluídas em cada ciclo. Fonte: campo Prazo e
+*Gráfico 4. Issues planejadas e concluídas em cada ciclo. Fonte: campo Prazo e
 histórico de Status do Kanban.*
 
 <!-- BEGIN AUTO: planejado -->
@@ -142,7 +165,7 @@ contribuição e não serve para comparar integrantes.
 
 ![Commits por integrante na Entrega 2](../assets/gestao/commits-integrante-entrega-2.svg)
 
-*Gráfico 4. Commits não-merge por integrante na Entrega 2. Fonte: histórico de
+*Gráfico 5. Commits não-merge por integrante na Entrega 2. Fonte: histórico de
 commits da `main`.*
 
 <!-- BEGIN AUTO: commits -->
