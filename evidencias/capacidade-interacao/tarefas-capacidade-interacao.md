@@ -30,8 +30,8 @@ Para cada métrica, copiar `evidencias/capacidade-interacao/template.md` para `C
 - [ ] **CI-M14:** repetir as mesmas ações e conferir desfazer/refazer. Registrar ações não revertíveis (exportar, mudar tema, zoom).
 - [ ] **CI-M15:** listar ações destrutivas e se pedem confirmação (limpar canvas, abrir arquivo sobre cena atual, excluir biblioteca).
 - [ ] **CI-M16:** desenhar, recarregar a página e fechar a aba sem salvar; conferir se a cena volta (`localStorage`).
-- [ ] **CI-M12:** registrar inconsistências de seleção, snapping e edição de texto em formas.
-- [ ] **CI-M9:** contar cliques de criar forma, mudar cor, agrupar e exportar PNG.
+- [x] **CI-M12:** registrar inconsistências de seleção, snapping e edição de texto em formas. Relatório preenchido; 0 inconsistências observáveis e reproduzíveis (nota 2).
+- [x] **CI-M9:** contar cliques de criar forma, mudar cor, agrupar e exportar PNG. Relatório preenchido; média de 2,5 ações (nota 2).
 
 ## Acessibilidade (O6)
 
