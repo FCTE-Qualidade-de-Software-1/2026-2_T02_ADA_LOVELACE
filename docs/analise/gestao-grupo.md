@@ -136,12 +136,10 @@ interpretação do motivo de atrasos, devoluções e mudanças de escopo permane
 responsabilidade da equipe. Quando uma tarefa não tiver data ou estado
 suficiente para o cálculo, o resultado deve ser `N/A`, e não zero.
 
-No estado atual do projeto, a coleta automática disponível é a quantidade de
-commits não-merge. Os indicadores de Lead Time, Cycle Time, velocidade, WIP e
-fluxo por estado ainda devem ser preenchidos pela equipe a cada ciclo a partir
-do histórico do GitHub Projects. Eles estão definidos aqui para padronizar a
-coleta, mas não devem ser apresentados como resultados automatizados enquanto
-não houver dados registrados.
+Lead Time, Cycle Time, planejado versus concluído, velocidade, WIP e fluxo
+por estado da Entrega 2 são calculados automaticamente a partir do histórico
+de Status do GitHub Projects e publicados em
+[Gráficos de gestão da Entrega 2](../gestao/graficos-entrega-2.md).
 
 | ID | Métrica e fórmula | Fonte mínima | Referência para acompanhamento |
 | --- | --- | --- | --- |
