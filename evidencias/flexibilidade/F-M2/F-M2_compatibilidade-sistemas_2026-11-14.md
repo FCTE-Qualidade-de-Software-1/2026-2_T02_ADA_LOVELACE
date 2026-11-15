@@ -18,7 +18,8 @@
 ## 2. O que foi medido
 
 Proporção de sistemas operacionais que concluem a lista fixa de 25 tarefas sem
-falha. O denominador são os sistemas disponíveis: Windows, macOS, Android 10 e iOS.
+falha. O denominador são os cinco sistemas disponíveis e testados: Windows,
+macOS, Android 10, iPadOS 27.2 e iOS 27.2.1.
 O Linux não estava disponível e não entrou na contagem.
 
 **Sem falha** significa que nenhuma tarefa exigiu recarregar a página, reiniciar
@@ -92,7 +93,8 @@ originais ficam fora do repositório.
 | Windows | 11 | Microsoft Edge 157.0.4341.60 | desktop | 25 de 25 | Nenhuma | Sem falhas |
 | macOS | 27.2.1 | Safari 27.2, Chromium (Helium 0.21.3.1), Firefox 160.0 e Edge 157.0.4341.60 | Mac | 25 de 25 | Nenhuma | Sem falhas |
 | Android | 10 | Firefox 160.0 | celular | 24 de 25 (1 não disponível) | Erro de clipboard em 1:20; a sessão foi interrompida e parte da cena foi refeita | **Com falha** |
-| iPadOS / iOS | 27.2 / 27.2.1 | Safari 27.2 | iPad e iPhone | 24 de 25 (1 não disponível) | No iPad, a tela não rolava; só voltou ao normal depois de recarregar o site | **Com falha** |
+| iPadOS | 27.2 | Safari 27.2 | iPad | 24 de 25 (1 não disponível) | A tela não rolava; só voltou ao normal depois de recarregar o site | **Com falha** |
+| iOS | 27.2.1 | Safari 27.2 | iPhone | 24 de 25 (1 não disponível) | Nenhuma | Sem falhas |
 | Linux | — | — | — | — | Não testado | Não testado |
 
 Detalhe por tarefa. **P** = passou; **N/D** = não disponível no ambiente. As
@@ -100,33 +102,33 @@ tarefas 14, 15 e 18 foram as mais afetadas pelas interrupções; depois da recar
 foram repetidas e concluídas. A tarefa 25 não existe no Android 10, no iPadOS
 27.2 e no iOS 27.2.1.
 
-| # | Tarefa | Windows | macOS | Android | iPadOS/iOS |
+| # | Tarefa | Windows | macOS | Android | iPadOS | iOS |
 | :-: | --- | :-: | :-: | :-: | :-: |
-| 1 | Criar retângulo, losango e elipse | P | P | P | P |
-| 2 | Criar seta ligada a duas formas | P | P | P | P |
-| 3 | Inserir texto em uma forma | P | P | P | P |
-| 4 | Fazer desenho livre | P | P | P | P |
-| 5 | Alterar cor do traço e do fundo | P | P | P | P |
-| 6 | Selecionar e mover um elemento | P | P | P | P |
-| 7 | Redimensionar um elemento | P | P | P | P |
-| 8 | Selecionar vários elementos | P | P | P | P |
-| 9 | Agrupar a seleção | P | P | P | P |
-| 10 | Desfazer e refazer | P | P | P | P |
-| 11 | Duplicar e excluir | P | P | P | P |
-| 12 | Usar o menu de contexto | P | P | P | P |
-| 13 | Usar a borracha | P | P | P | P |
-| 14 | Aplicar zoom | P | P | P* | P* |
-| 15 | Mover a tela | P | P | P* | P* |
-| 16 | Salvar um arquivo `.excalidraw` | P | P | P | P |
-| 17 | Abrir um arquivo `.excalidraw` | P | P | P | P |
-| 18 | Exportar uma imagem PNG | P | P | P* | P |
-| 19 | Inserir uma imagem | P | P | P | P |
-| 20 | Adicionar e reutilizar um item da biblioteca | P | P | P | P |
-| 21 | Alternar o tema claro/escuro | P | P | P | P |
-| 22 | Trocar o idioma | P | P | P | P |
-| 23 | Converter Mermaid em diagrama | P | P | P | P |
-| 24 | Trocar a fonte do texto | P | P | P | P |
-| 25 | Ativar a trava de ferramenta | P | P | N/D | N/D |
+| 1 | Criar retângulo, losango e elipse | P | P | P | P | P |
+| 2 | Criar seta ligada a duas formas | P | P | P | P | P |
+| 3 | Inserir texto em uma forma | P | P | P | P | P |
+| 4 | Fazer desenho livre | P | P | P | P | P |
+| 5 | Alterar cor do traço e do fundo | P | P | P | P | P |
+| 6 | Selecionar e mover um elemento | P | P | P | P | P |
+| 7 | Redimensionar um elemento | P | P | P | P | P |
+| 8 | Selecionar vários elementos | P | P | P | P | P |
+| 9 | Agrupar a seleção | P | P | P | P | P |
+| 10 | Desfazer e refazer | P | P | P | P | P |
+| 11 | Duplicar e excluir | P | P | P | P | P |
+| 12 | Usar o menu de contexto | P | P | P | P | P |
+| 13 | Usar a borracha | P | P | P | P | P |
+| 14 | Aplicar zoom | P | P | P* | P* | P |
+| 15 | Mover a tela | P | P | P* | P* | P |
+| 16 | Salvar um arquivo `.excalidraw` | P | P | P | P | P |
+| 17 | Abrir um arquivo `.excalidraw` | P | P | P | P | P |
+| 18 | Exportar uma imagem PNG | P | P | P* | P | P |
+| 19 | Inserir uma imagem | P | P | P | P | P |
+| 20 | Adicionar e reutilizar um item da biblioteca | P | P | P | P | P |
+| 21 | Alternar o tema claro/escuro | P | P | P | P | P |
+| 22 | Trocar o idioma | P | P | P | P | P |
+| 23 | Converter Mermaid em diagrama | P | P | P | P | P |
+| 24 | Trocar a fonte do texto | P | P | P | P | P |
+| 25 | Ativar a trava de ferramenta | P | P | N/D | N/D | N/D |
 
 \* Concluída depois da recarga/refresh; a interrupção está descrita na F-M3.
 **N/D** = a tarefa não existe no ambiente e não conta como falha.
@@ -134,20 +136,19 @@ foram repetidas e concluídas. A tarefa 25 não existe no Android 10, no iPadOS
 ### 5.2 Cálculo
 
 ```text
-sistemas sem falhas ÷ sistemas testados = 2 ÷ 4 = 50%
+sistemas sem falhas ÷ sistemas testados = 3 ÷ 5 = 60%
 ```
 
 ### 5.3 Pontuação
 
 | Valor medido | Regra da métrica | Pontuação (0–2) |
 | --- | --- | --- |
-| 50% | 2 = ≥ 80%; 1 = 60% a 79%; 0 = < 60% | **0** |
+| 60% | 2 = ≥ 80%; 1 = 60% a 79%; 0 = < 60% | **1** |
 
-**Justificativa:** Windows e macOS concluíram as 25 tarefas sem interrupção. O
-Android e o iOS concluíram as tarefas disponíveis, mas tiveram falhas que
-obrigaram a recarregar e refazer parte do trabalho; pela definição da métrica, o
-sistema não é “sem falhas”. A tarefa 25 não existir no mobile não conta como
-falha.
+**Justificativa:** Windows, macOS e iOS concluíram as 25 tarefas disponíveis sem
+interrupção. O Android e o iPadOS tiveram falhas que obrigaram a recarregar e
+refazer parte do trabalho; pela definição da métrica, esses sistemas não são
+“sem falhas”. A tarefa 25 não existir no mobile não conta como falha.
 
 ## 6. Observações e limitações
 
@@ -156,9 +157,10 @@ falha.
   disponível**, não como falha; no desktop (Chromium, Firefox, Edge e Safari) a
   função funciona. A ausência não muda a nota, que já era 0 pelas falhas de
   estabilidade.
-- **As tarefas disponíveis passaram em todos os sistemas.** O que derruba a nota
+- **As tarefas disponíveis passaram em todos os sistemas.** O que reduz a nota
   não é a ausência de função, e sim a falha de estabilidade que exige recarga e
-  refazer a ação. Isso está explícito no critério “sem falhas”.
+  refazer a ação no Android e no iPadOS. Isso está explícito no critério “sem
+  falhas”.
 - **Android 10:** o “crash” relatado aparece no vídeo como um diálogo de erro do
   Excalidraw sobre a flag `dom.events.asyncClipboard.clipboardItem` do Firefox
   160.0. A gravação foi interrompida e a adição que estava sendo feita no

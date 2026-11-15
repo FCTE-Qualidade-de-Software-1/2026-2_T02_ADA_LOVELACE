@@ -14,7 +14,7 @@ Para cada métrica, copiar `evidencias/flexibilidade/template.md` para `F-Mxx_de
 | F-M6 | Coletada: 3 de 4 resoluções (360 px perde os botões de zoom e trava), nota 1 | `F-M6_resolucoes.md` |
 | F-M11 | Coletada: 100% nos três formatos, nota 2 | `F-M11_fidelidade-migracao.md` |
 | F-M1 | Coletada: 4 de 4 navegadores (100%), nota 2; Chrome testado via Helium 0.21.3.1 | `F-M1/F-M1_compatibilidade-navegadores_2026-11-14.md` |
-| F-M2 | Coletada: 2 de 4 sistemas (50%), nota 0; Linux indisponível | `F-M2/F-M2_compatibilidade-sistemas_2026-11-14.md` |
+| F-M2 | Coletada: 3 de 5 sistemas (60%), nota 1; Linux indisponível | `F-M2/F-M2_compatibilidade-sistemas_2026-11-14.md` |
 | F-M3 | Coletada: 2 defeitos específicos, nota 1 | `F-M3/F-M3_defeitos-ambiente_2026-11-14.md` |
 | F-M4 | Coletada por emulação: 25 de 25 funções por toque no celular e no tablet (100%), nota 2 | `F-M4_cobertura-mobile.md` |
 | F-M7 | Comparação de funções com draw.io ou Miro | — |
@@ -33,7 +33,7 @@ Para cada métrica, copiar `evidencias/flexibilidade/template.md` para `F-Mxx_de
 
 ## Vários ambientes (O3)
 
-- [x] **F-M1, F-M2 e F-M3:** feito. As mesmas 25 tarefas foram executadas em Chromium (Helium 0.21.3.1), Firefox 160.0, Edge 157.0.4341.60 e Safari 27.2 no macOS 27.2.1, e em Windows 11, Android 10, iPadOS 27.2 e iOS 27.2.1. A F-M1 fechou em 4 de 4 navegadores (nota 2); a F-M2, em 2 de 4 sistemas (nota 0); a F-M3 contou 2 defeitos específicos (nota 1). O Linux não estava disponível.
+- [x] **F-M1, F-M2 e F-M3:** feito. As mesmas 25 tarefas foram executadas em Chromium (Helium 0.21.3.1), Firefox 160.0, Edge 157.0.4341.60 e Safari 27.2 no macOS 27.2.1, e em Windows 11, Android 10, iPadOS 27.2 e iOS 27.2.1. A F-M1 fechou em 4 de 4 navegadores (nota 2); a F-M2, em 3 de 5 sistemas (nota 1); a F-M3 contou 2 defeitos específicos (nota 1). O Linux não estava disponível.
 - [x] **F-M4:** feito com `scripts/fm4_toque.cjs`, emulando um Pixel 7 e um iPad no Chrome. As 25 funções feitas com mouse no desktop também funcionam só com toque; no celular, o zoom passa pela pinça e a trava pelo menu de preferências na emulação. Nos aparelhos reais da F-M2, a trava não foi encontrada.
 
 ## Comparação com outra ferramenta (O4)

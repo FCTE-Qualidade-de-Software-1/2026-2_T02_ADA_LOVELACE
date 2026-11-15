@@ -28,7 +28,7 @@ do Excalidraw. Só as métricas já coletadas têm nota. Os critérios estão no
 | Métrica | Valor medido | Nota (0–2) |
 | --- | --- | :---: |
 | [F-M1 · Compatibilidade de navegadores](flexibilidade/f-m1.md) | 4 de 4 navegadores (100%) | **2** |
-| [F-M2 · Compatibilidade de sistemas operacionais](flexibilidade/f-m2.md) | 2 de 4 sistemas (50%) | **0** |
+| [F-M2 · Compatibilidade de sistemas operacionais](flexibilidade/f-m2.md) | 3 de 5 sistemas (60%) | **1** |
 | [F-M3 · Defeitos específicos de ambiente](flexibilidade/f-m3.md) | 2 defeitos específicos | **1** |
 | F-M4 · Cobertura funcional em dispositivos móveis | — | — |
 | F-M5 · Cobertura funcional offline | — | — |
