@@ -65,7 +65,7 @@ Todos em `evidencias/flexibilidade/F-M2/`.
 | # | Arquivo | Tipo | O que mostra |
 | --- | --- | --- | --- |
 | E1 | `Windows2 2026-11-14 185037.mp4` | vídeo (4:12) | Sessão no Windows 11 com Edge 157.0.4341.60 |
-| E2 | `Android 14 Nov 2026 at 18:16.mp4` | vídeo (5:11) | Sessão no Android 10 com Firefox 160.0; erro de clipboard em 1:20. O nome do arquivo diz “Android 14”, mas o sistema registrado é Android 10 |
+| E2 | `F-M2_android_2026-11-14.mp4` | vídeo (5:11) | Sessão no Android 10 com Firefox 160.0; erro de clipboard em 1:20. O nome original do arquivo dizia “Android 14”, mas o sistema registrado é Android 10 |
 | E3 | `iPad2 11-14-2026 17-44-14_1.mp4` | vídeo (6:27) | Sessão no iPad com iPadOS 27.2 e Safari 27.2; falha de scroll relatada |
 | E4 | `iPhone 11-14-2026 17-51-17_1.MP4` | vídeo (5:19) | Sessão no iPhone com iOS 27.2.1 e Safari 27.2 |
 | E5 | `Safari 2026-11-14 at 17.02.47.mov` | vídeo (7:17) | Sessão no macOS com Safari (mesma gravação usada na F-M1) |
@@ -182,7 +182,7 @@ A pontuação foi 0, então os achados estão registrados abaixo.
 
 | ID | Métrica | Evidência reproduzível | Pontuação | Impacto (Baixo/Médio/Alto) | Recomendação |
 | --- | --- | --- | :-: | --- | --- |
-| A-001 | F-M2 | Android 10, `Android 14 Nov 2026 at 18:16.mp4` em 1:20; F-M3 C4 e C5 | 0 | **Alto** | Tratar o Firefox sem a flag de clipboard: avisar antes de copiar/colar, oferecer download como alternativa e evitar que a falha interrompa a sessão e perca a cena |
+| A-001 | F-M2 | Android 10, `F-M2_android_2026-11-14.mp4` em 1:20; F-M3 C4 e C5 | 0 | **Alto** | Tratar o Firefox sem a flag de clipboard: avisar antes de copiar/colar, oferecer download como alternativa e evitar que a falha interrompa a sessão e perca a cena |
 | A-002 | F-M2 | iPadOS 27.2, `iPad2 11-14-2026 17-44-14_1.mp4` (sessão de 6:27) e relato do avaliador | 0 | **Médio** | Investigar o bloqueio de scroll por toque no iPadOS e garantir que o canvas volte a responder sem recarregar a página |
 
 ## 8. Contribuição para a questão

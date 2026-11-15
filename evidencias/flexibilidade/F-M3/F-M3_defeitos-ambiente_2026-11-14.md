@@ -113,7 +113,7 @@ Todos em `evidencias/flexibilidade/`.
 | E5 | `F-M3/background bug - iPhone.PNG` | print | O mesmo no iPhone com iOS 27.2.1 |
 | E6 | `F-M3/background bug -Android.png` | print | O mesmo no Android |
 | E7 | `F-M3/background bug - Firefox.png` | print | O desenho livre no Firefox; o painel não aparece no enquadramento, mas o comportamento foi o mesmo |
-| E8 | `F-M2/Android 14 Nov 2026 at 18:16.mp4` | vídeo | Erro de clipboard em 1:20 e interrupção da sessão; sistema Android 10 com Firefox 160.0 (o nome do arquivo diz “Android 14”) |
+| E8 | `F-M2/F-M2_android_2026-11-14.mp4` | vídeo | Erro de clipboard em 1:20 e interrupção da sessão; sistema Android 10 com Firefox 160.0 (o nome original do arquivo dizia “Android 14”) |
 | E9 | `F-M2/iPad2 11-14-2026 17-44-14_1.mp4` | vídeo | Sessão no iPad com iPadOS 27.2 e Safari 27.2 em que o scroll falhou; o gesto não aparece na gravação |
 | E10 | `F-M1/save board modal - Chrome.png` e `F-M1/save image modal - Chrome.png` | prints | Modal “Salvar como…” + diálogo nativo do Chromium |
 | E11 | `F-M1/save board modal - Edge.png` e `F-M1/save image modal - Edge.png` | prints | O mesmo no Edge |
