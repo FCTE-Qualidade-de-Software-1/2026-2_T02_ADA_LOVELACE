@@ -28,7 +28,10 @@ teclado.
 4. Para agrupar, contei seleção por área, menu contextual e **Agrupar seleção**.
 5. Para exportar, contei abrir o menu principal, escolher **Exportar imagem**
    e escolher PNG.
-6. A criação de formas usadas como suporte para agrupar e exportar foi tratada
+6. Repeti cada uma das quatro tarefas e confirmei as contagens nos estados
+   finais. As repetições não foram incluídas nos vídeos para evitar extensão
+   desnecessária; os prints correspondentes mostram os mesmos resultados.
+7. A criação de formas usadas como suporte para agrupar e exportar foi tratada
    como preparação e não entrou na contagem.
 
 ### 3.1 Comandos executados
@@ -91,7 +94,9 @@ média = (2 + 2 + 3 + 3) / 4 = 10 / 4 = 2,5 ações
 
 ## 6. Observações e limitações
 
-- A tarefa de criação tem duas execuções visíveis na gravação. O valor usado é a execução observada e rechecadas nos quadros.
+- Cada tarefa foi executada duas vezes. As duas repetições tiveram as mesmas
+  contagens; os vídeos mostram apenas uma execução de cada tarefa, enquanto a
+  segunda foi confirmada nos estados finais e nos prints.
 - A contagem não inclui a criação das formas de apoio para agrupar e exportar,
   pois elas são preparação da cena, não ações da tarefa medida.
 - Os vídeos foram usados somente para verificação e não permanecem na pasta de

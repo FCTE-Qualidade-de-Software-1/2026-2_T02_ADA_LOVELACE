@@ -44,6 +44,36 @@ Não aplicável: esta é uma comparação funcional da interface.
 
 ### 4.2 Arquivos de apoio
 
+Os vídeos abaixo são as evidências principais da comparação. Substitua apenas
+o valor de `src` em cada bloco pelo link do vídeo correspondente.
+
+#### E13 · Vídeo de seleção
+
+<video controls width="100%" src="https://youtu.be/9gzApPJQU-A">
+  Seu navegador não suporta a reprodução de vídeo.
+</video>
+
+Abrange I1–I4: clique simples, Shift+clique, seleção por área e sobreposição.
+
+#### E14 · Vídeo de snapping
+
+<video controls width="100%" src="https://youtu.be/MgK9QpfUqPQ">
+  Seu navegador não suporta a reprodução de vídeo.
+</video>
+
+Abrange I5–I7: conexão de setas, borda × centro e movimento da forma
+conectada.
+
+#### E15 · Vídeo de edição de texto
+
+<video controls width="100%" src="https://youtu.be/qHcJAX3MtEg">
+  Seu navegador não suporta a reprodução de vídeo.
+</video>
+
+Abrange I8–I11: duplo clique, Enter, confirmação/cancelamento e texto longo.
+
+Os prints abaixo permanecem como arquivos de apoio e referência visual:
+
 | # | Arquivo | O que mostra |
 | --- | --- | --- |
 | E1 | [quadro-cenarios_2026-11-14.png](quadro-cenarios_2026-11-14.png) | Quadro geral dos casos |
@@ -65,20 +95,17 @@ Não aplicável: esta é uma comparação funcional da interface.
 
 | ID | Área | Contextos comparados | Resultado esperado | Resultado observado | Inconsistente? | Evidência |
 | --- | --- | --- | --- | --- | --- | --- |
-| I1 | seleção | forma sem texto × forma com texto | Selecionar a forma | A forma foi selecionada nos dois casos | não | E2 |
-| I2 | seleção | par sem texto × par com texto | Shift adicionar a segunda forma | As duas formas foram selecionadas nos dois casos | não | E3 |
-| I3 | seleção | par sem texto × par com texto | Seleção por área incluir o par | O par foi selecionado nos dois casos | não | E4 |
-| I4 | seleção | sobreposição sem texto × com texto | Selecionar a forma de cima | A forma de cima foi selecionada nos dois casos | não | E5 |
-| I5 | snapping | seta para forma sem texto × com texto | Ponta reconhecer e manter a conexão | As duas setas encostaram e permaneceram conectadas | não | E6 |
-| I6 | snapping | ponta na borda × ponta no centro | Reconhecer ambos os alvos | Os dois alvos foram reconhecidos visualmente | não | E7 |
-| I7 | snapping | forma sem texto × forma com texto | Seta acompanhar a forma | A forma sem texto acompanhou a seta; o segundo contexto não foi concluído | não* | E8 |
-| I8 | texto | texto solto × texto dentro da forma | Entrar/sair da edição e preservar texto | Ambos preservaram a alteração | não | E9 |
-| I9 | texto | texto solto × texto dentro da forma | Enter iniciar edição | Enter iniciou a edição nos dois casos | não | E10 |
-| I10 | texto | Escape × clique fora, nos dois contextos | Cancelar/confirmar de modo equivalente | Escape e clique fora tiveram o mesmo comportamento nos dois contextos | não | E11 |
-| I11 | texto | texto longo solto × dentro da forma | Preservar e refluír o texto | O conteúdo foi preservado; cada contêiner refluíu conforme seu layout | não | E12 |
-
-\* I7 não apresentou evidência de diferença, mas a comparação com a forma com
-texto ficou incompleta; portanto não foi classificado como inconsistência.
+| I1 | seleção | forma sem texto × forma com texto | Selecionar a forma | A forma foi selecionada nos dois casos | não | E13 |
+| I2 | seleção | par sem texto × par com texto | Shift adicionar a segunda forma | As duas formas foram selecionadas nos dois casos | não | E13 |
+| I3 | seleção | par sem texto × par com texto | Seleção por área incluir o par | O par foi selecionado nos dois casos | não | E13 |
+| I4 | seleção | sobreposição sem texto × com texto | Selecionar a forma de cima | A forma de cima foi selecionada nos dois casos | não | E13 |
+| I5 | snapping | seta para forma sem texto × com texto | Ponta reconhecer e manter a conexão | As duas setas encostaram e permaneceram conectadas | não | E14 |
+| I6 | snapping | ponta na borda × ponta no centro | Reconhecer ambos os alvos | Os dois alvos foram reconhecidos visualmente | não | E14 |
+| I7 | snapping | forma sem texto × forma com texto | Seta acompanhar a forma | A seta acompanhou a forma nos dois contextos; após a movimentação e a reconexão, o binding permaneceu | não | E14 |
+| I8 | texto | texto solto × texto dentro da forma | Entrar/sair da edição e preservar texto | Ambos preservaram a alteração | não | E15 |
+| I9 | texto | texto solto × texto dentro da forma | Enter iniciar edição | Enter iniciou a edição nos dois casos | não | E15 |
+| I10 | texto | Escape × clique fora, nos dois contextos | Cancelar/confirmar de modo equivalente | Escape e clique fora tiveram o mesmo comportamento nos dois contextos | não | E15 |
+| I11 | texto | texto longo solto × dentro da forma | Preservar e refluír o texto | O conteúdo foi preservado; cada contêiner refluíu conforme seu layout | não | E15 |
 
 ### 5.2 Cálculo
 
@@ -92,8 +119,9 @@ inconsistências observáveis e reproduzíveis = 0
 | ---: | --- | ---: |
 | 0 | 2 = 0; 1 = 1–2; 0 = 3 ou mais | 2 |
 
-**Justificativa:** nenhum dos onze casos apresentou diferença observável e
-reproduzível que pudesse ser contabilizada como inconsistência.
+**Justificativa:** os onze casos foram executados nos dois contextos e
+repetidos. Nenhum apresentou diferença observável e reproduzível que pudesse
+ser contabilizada como inconsistência.
 
 ## 6. Observações e limitações
 
@@ -103,8 +131,8 @@ reproduzível que pudesse ser contabilizada como inconsistência.
 - Em I11, texto solto e texto dentro de forma têm contêineres diferentes; a
   quebra e o crescimento observados foram tratados como diferenças de layout,
   não como inconsistência.
-- Os vídeos foram usados somente para verificação e não permanecem na pasta de
-  evidências.
+- As repetições dos casos foram realizadas; os três vídeos serão usados como
+  evidência principal, e os prints permanecem como apoio.
 
 ## 7. Achado
 
@@ -114,4 +142,4 @@ Não se aplica: a pontuação não foi 0.
 
 | Questão | Esta métrica indica que a hipótese foi | Por quê |
 | --- | --- | --- |
-| CI-Q5 | Confirmada | Não foram observadas inconsistências reproduzíveis nos casos comparados|
+| CI-Q5 | Refutada | A hipótese previa parcialmente que seleção, snapping e edição de texto poderiam mudar conforme o contexto. Os onze casos, repetidos nos dois contextos, não mostraram inconsistências reproduzíveis; o resultado foi melhor e oposto ao previsto. |
