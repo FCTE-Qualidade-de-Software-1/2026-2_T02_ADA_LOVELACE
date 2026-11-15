@@ -10,7 +10,7 @@
 | Questão | CI-Q10 : Inclusividade (adapta-se a diferentes perfis de usuário?) |
 | Responsável | Zayra Moraes |
 | Data da coleta | 2026-11-04 |
-| Revisado por | _pendente_ |
+| Revisado por | Luís Felipe Parreira Cunha |
 
 ## 2. O que foi medido
 
