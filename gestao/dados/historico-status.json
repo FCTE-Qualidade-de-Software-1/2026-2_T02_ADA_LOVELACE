@@ -1,0 +1,1735 @@
+{
+ "coletado_em": "2026-11-15T20:29:14+00:00",
+ "issues": [
+  {
+   "issue": 9,
+   "titulo": "Estrutura inicial do GitPages",
+   "milestone": "Entrega 1",
+   "responsaveis": [
+    "cunha-luiss"
+   ],
+   "criada_em": "2026-10-19T13:42:22Z",
+   "fechada_em": "2026-10-19T13:42:37Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": null,
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-10-19T13:47:42Z",
+     "de": "",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 10,
+   "titulo": "Documentar a metodologia",
+   "milestone": "Entrega 1",
+   "responsaveis": [
+    "renatoyx"
+   ],
+   "criada_em": "2026-10-19T13:42:24Z",
+   "fechada_em": "2026-10-19T13:42:39Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": null,
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-10-19T13:47:47Z",
+     "de": "",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 11,
+   "titulo": "Propósito e partes interessadas",
+   "milestone": "Entrega 1",
+   "responsaveis": [
+    "andrehsb"
+   ],
+   "criada_em": "2026-10-19T13:42:26Z",
+   "fechada_em": "2026-10-19T13:42:40Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": null,
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-10-19T13:47:52Z",
+     "de": "",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 12,
+   "titulo": "Modelo de qualidade (ISO/IEC 25010:2023)",
+   "milestone": "Entrega 1",
+   "responsaveis": [
+    "giovannafg"
+   ],
+   "criada_em": "2026-10-19T13:42:29Z",
+   "fechada_em": "2026-10-19T13:42:42Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": null,
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-10-19T13:47:57Z",
+     "de": "",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 13,
+   "titulo": "Relação com os ODS",
+   "milestone": "Entrega 1",
+   "responsaveis": [
+    "giovannafg"
+   ],
+   "criada_em": "2026-10-19T13:42:31Z",
+   "fechada_em": "2026-10-19T13:42:44Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": null,
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-10-19T13:48:03Z",
+     "de": "",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 14,
+   "titulo": "Objetivos de qualidade",
+   "milestone": "Entrega 1",
+   "responsaveis": [
+    "Zayra-Moraes"
+   ],
+   "criada_em": "2026-10-19T13:42:33Z",
+   "fechada_em": "2026-10-19T13:42:46Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": null,
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-10-19T13:48:07Z",
+     "de": "",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 15,
+   "titulo": "Ajustar cores dos diagramas para o modo escuro",
+   "milestone": "Entrega 1",
+   "responsaveis": [
+    "giovannafg"
+   ],
+   "criada_em": "2026-10-19T13:42:35Z",
+   "fechada_em": "2026-10-19T13:42:48Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": null,
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-10-19T13:48:13Z",
+     "de": "",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 16,
+   "titulo": "Roteiro da análise (GQM)",
+   "milestone": "Entrega 1",
+   "responsaveis": [
+    "ojplc"
+   ],
+   "criada_em": "2026-10-19T13:42:51Z",
+   "fechada_em": "2026-10-26T23:38:55Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": null,
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-10-19T13:48:19Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-10-26T23:39:00Z",
+     "de": "A fazer",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 17,
+   "titulo": "Medições: Segurança",
+   "milestone": "Entrega 2",
+   "responsaveis": [],
+   "criada_em": "2026-10-19T13:42:53Z",
+   "fechada_em": null,
+   "estado": "OPEN",
+   "motivo_fechamento": null,
+   "prazo": null,
+   "status_atual": "Backlog",
+   "eventos": [
+    {
+     "em": "2026-10-19T13:48:23Z",
+     "de": "",
+     "para": "Backlog"
+    }
+   ]
+  },
+  {
+   "issue": 18,
+   "titulo": "Medições: Flexibilidade",
+   "milestone": "Entrega 2",
+   "responsaveis": [],
+   "criada_em": "2026-10-19T13:42:55Z",
+   "fechada_em": null,
+   "estado": "OPEN",
+   "motivo_fechamento": null,
+   "prazo": null,
+   "status_atual": "Backlog",
+   "eventos": [
+    {
+     "em": "2026-10-19T13:48:26Z",
+     "de": "",
+     "para": "Backlog"
+    }
+   ]
+  },
+  {
+   "issue": 19,
+   "titulo": "Medições: Capacidade de interação",
+   "milestone": "Entrega 2",
+   "responsaveis": [],
+   "criada_em": "2026-10-19T13:42:57Z",
+   "fechada_em": null,
+   "estado": "OPEN",
+   "motivo_fechamento": null,
+   "prazo": null,
+   "status_atual": "Backlog",
+   "eventos": [
+    {
+     "em": "2026-10-19T13:48:33Z",
+     "de": "",
+     "para": "Backlog"
+    }
+   ]
+  },
+  {
+   "issue": 20,
+   "titulo": "Resultados da análise",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "andrehsb",
+    "renatoyx"
+   ],
+   "criada_em": "2026-10-19T13:43:00Z",
+   "fechada_em": null,
+   "estado": "OPEN",
+   "motivo_fechamento": null,
+   "prazo": "2026-11-15",
+   "status_atual": "A fazer",
+   "eventos": [
+    {
+     "em": "2026-10-19T13:48:37Z",
+     "de": "",
+     "para": "Backlog"
+    },
+    {
+     "em": "2026-11-04T17:08:17Z",
+     "de": "Backlog",
+     "para": "A fazer"
+    }
+   ]
+  },
+  {
+   "issue": 21,
+   "titulo": "Página de métricas de desenvolvimento",
+   "milestone": "Entrega 1",
+   "responsaveis": [
+    "Zayra-Moraes",
+    "cunha-luiss",
+    "giovannafg"
+   ],
+   "criada_em": "2026-10-19T13:43:02Z",
+   "fechada_em": "2026-10-25T23:32:21Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": null,
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-10-19T13:48:42Z",
+     "de": "",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-10-19T13:55:22Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-10-19T14:28:15Z",
+     "de": "Em revisão",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-10-26T23:39:08Z",
+     "de": "Em andamento",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 22,
+   "titulo": "Definir as métricas que serão avaliadas nas próximas fases",
+   "milestone": "Entrega 1",
+   "responsaveis": [
+    "ojplc"
+   ],
+   "criada_em": "2026-10-19T13:51:58Z",
+   "fechada_em": "2026-10-19T13:52:01Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": null,
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-10-26T23:39:14Z",
+     "de": "",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 27,
+   "titulo": "Priorização das características (matriz impacto × risco)",
+   "milestone": "Entrega 1",
+   "responsaveis": [
+    "ojplc"
+   ],
+   "criada_em": "2026-10-26T23:39:15Z",
+   "fechada_em": "2026-10-26T23:39:18Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": null,
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-10-26T23:39:24Z",
+     "de": "",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 28,
+   "titulo": "Métricas de gestão do grupo e coleta automática de commits",
+   "milestone": "Entrega 1",
+   "responsaveis": [
+    "cunha-luiss"
+   ],
+   "criada_em": "2026-10-26T23:39:24Z",
+   "fechada_em": "2026-10-26T23:39:27Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": null,
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-10-26T23:39:34Z",
+     "de": "",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 29,
+   "titulo": "Estimativa de custos da avaliação",
+   "milestone": "Entrega 1",
+   "responsaveis": [
+    "renatoyx"
+   ],
+   "criada_em": "2026-10-26T23:39:35Z",
+   "fechada_em": "2026-10-26T23:39:38Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": null,
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-10-26T23:39:43Z",
+     "de": "",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 30,
+   "titulo": "Cronograma da avaliação",
+   "milestone": "Entrega 1",
+   "responsaveis": [
+    "andrehsb"
+   ],
+   "criada_em": "2026-10-26T23:39:45Z",
+   "fechada_em": "2026-10-26T23:39:47Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": null,
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-10-26T23:39:52Z",
+     "de": "",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 31,
+   "titulo": "Artigo da Entrega 1 (Fases 1 e 2)",
+   "milestone": "Entrega 1",
+   "responsaveis": [
+    "giovannafg",
+    "ojplc"
+   ],
+   "criada_em": "2026-10-26T23:39:54Z",
+   "fechada_em": "2026-10-26T23:39:57Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": null,
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-10-26T23:40:02Z",
+     "de": "",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 32,
+   "titulo": "Referências e navegação da GitPage",
+   "milestone": "Entrega 1",
+   "responsaveis": [
+    "giovannafg"
+   ],
+   "criada_em": "2026-10-26T23:40:03Z",
+   "fechada_em": "2026-10-26T23:40:08Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": null,
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-10-26T23:40:15Z",
+     "de": "",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 33,
+   "titulo": "Declarações de uso de IA",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "Zayra-Moraes",
+    "andrehsb",
+    "cunha-luiss",
+    "giovannafg",
+    "ojplc",
+    "renatoyx"
+   ],
+   "criada_em": "2026-10-26T23:40:15Z",
+   "fechada_em": "2026-11-13T14:17:06Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-15",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-10-26T23:40:23Z",
+     "de": "",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-04T13:49:08Z",
+     "de": "Em andamento",
+     "para": "Concluído"
+    },
+    {
+     "em": "2026-11-04T17:09:52Z",
+     "de": "Concluído",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-13T11:15:24Z",
+     "de": "A fazer",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-13T14:17:10Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 34,
+   "titulo": "Release E1 do repositório",
+   "milestone": "Entrega 1",
+   "responsaveis": [
+    "giovannafg"
+   ],
+   "criada_em": "2026-10-26T23:40:23Z",
+   "fechada_em": "2026-10-26T23:54:23Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": null,
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-10-26T23:40:31Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-10-27T00:02:32Z",
+     "de": "A fazer",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 35,
+   "titulo": "Plano de avaliação (Fase 3)",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "andrehsb"
+   ],
+   "criada_em": "2026-10-26T23:40:55Z",
+   "fechada_em": "2026-11-13T13:58:38Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-09",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-10-26T23:41:01Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-11T18:55:37Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-11T19:33:37Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-13T13:58:41Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 36,
+   "titulo": "Ambiente de teste e instância local do Excalidraw",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "ojplc"
+   ],
+   "criada_em": "2026-10-26T23:41:01Z",
+   "fechada_em": "2026-11-09T22:41:24Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-09",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-10-26T23:41:08Z",
+     "de": "",
+     "para": "Backlog"
+    },
+    {
+     "em": "2026-11-04T14:55:33Z",
+     "de": "Backlog",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-09T17:32:43Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-09T17:42:15Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-09T18:10:42Z",
+     "de": "Em revisão",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-09T18:20:46Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-09T22:41:26Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 37,
+   "titulo": "Roteiro de tarefas, participantes e consentimento",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "Zayra-Moraes"
+   ],
+   "criada_em": "2026-10-26T23:41:08Z",
+   "fechada_em": "2026-11-12T12:18:14Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-07",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-10-26T23:41:14Z",
+     "de": "",
+     "para": "Backlog"
+    },
+    {
+     "em": "2026-11-04T14:55:38Z",
+     "de": "Backlog",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-11T13:23:21Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-11T14:11:53Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-12T12:18:18Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 38,
+   "titulo": "Oportunidade de melhoria e ação executada",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "Zayra-Moraes",
+    "renatoyx"
+   ],
+   "criada_em": "2026-10-26T23:41:15Z",
+   "fechada_em": null,
+   "estado": "OPEN",
+   "motivo_fechamento": null,
+   "prazo": "2026-11-15",
+   "status_atual": "A fazer",
+   "eventos": [
+    {
+     "em": "2026-10-26T23:41:20Z",
+     "de": "",
+     "para": "Backlog"
+    },
+    {
+     "em": "2026-11-04T17:08:29Z",
+     "de": "Backlog",
+     "para": "A fazer"
+    }
+   ]
+  },
+  {
+   "issue": 39,
+   "titulo": "Ameaças à validade e conclusão",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "ojplc"
+   ],
+   "criada_em": "2026-10-26T23:41:21Z",
+   "fechada_em": null,
+   "estado": "OPEN",
+   "motivo_fechamento": null,
+   "prazo": "2026-11-15",
+   "status_atual": "A fazer",
+   "eventos": [
+    {
+     "em": "2026-10-26T23:41:26Z",
+     "de": "",
+     "para": "Backlog"
+    },
+    {
+     "em": "2026-11-04T17:08:43Z",
+     "de": "Backlog",
+     "para": "A fazer"
+    }
+   ]
+  },
+  {
+   "issue": 40,
+   "titulo": "Gestão PSM/CID na Entrega 2",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "giovannafg"
+   ],
+   "criada_em": "2026-10-26T23:41:27Z",
+   "fechada_em": null,
+   "estado": "OPEN",
+   "motivo_fechamento": null,
+   "prazo": "2026-11-15",
+   "status_atual": "Em andamento",
+   "eventos": [
+    {
+     "em": "2026-10-26T23:41:32Z",
+     "de": "",
+     "para": "Backlog"
+    },
+    {
+     "em": "2026-11-04T17:08:57Z",
+     "de": "Backlog",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-15T00:02:35Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    }
+   ]
+  },
+  {
+   "issue": 41,
+   "titulo": "Revisão obrigatória na main",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "giovannafg"
+   ],
+   "criada_em": "2026-10-26T23:41:33Z",
+   "fechada_em": "2026-11-04T17:09:57Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": null,
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-10-26T23:41:40Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-04T16:14:14Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-04T17:09:58Z",
+     "de": "Em andamento",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 42,
+   "titulo": "Artigo da Entrega 2 (Fases 3 e 4)",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "cunha-luiss",
+    "ojplc"
+   ],
+   "criada_em": "2026-10-26T23:41:40Z",
+   "fechada_em": null,
+   "estado": "OPEN",
+   "motivo_fechamento": null,
+   "prazo": "2026-11-18",
+   "status_atual": "A fazer",
+   "eventos": [
+    {
+     "em": "2026-10-26T23:41:45Z",
+     "de": "",
+     "para": "Backlog"
+    },
+    {
+     "em": "2026-11-04T17:09:09Z",
+     "de": "Backlog",
+     "para": "A fazer"
+    }
+   ]
+  },
+  {
+   "issue": 43,
+   "titulo": "GitPage e release da Entrega 2",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "Zayra-Moraes",
+    "giovannafg"
+   ],
+   "criada_em": "2026-10-26T23:41:47Z",
+   "fechada_em": null,
+   "estado": "OPEN",
+   "motivo_fechamento": null,
+   "prazo": "2026-11-18",
+   "status_atual": "Em andamento",
+   "eventos": [
+    {
+     "em": "2026-10-26T23:41:53Z",
+     "de": "",
+     "para": "Backlog"
+    },
+    {
+     "em": "2026-11-04T17:09:23Z",
+     "de": "Backlog",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-15T00:02:39Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    }
+   ]
+  },
+  {
+   "issue": 44,
+   "titulo": "Apresentação final",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "Zayra-Moraes",
+    "andrehsb",
+    "cunha-luiss",
+    "giovannafg",
+    "ojplc",
+    "renatoyx"
+   ],
+   "criada_em": "2026-10-26T23:41:53Z",
+   "fechada_em": null,
+   "estado": "OPEN",
+   "motivo_fechamento": null,
+   "prazo": "2026-11-22",
+   "status_atual": "A fazer",
+   "eventos": [
+    {
+     "em": "2026-10-26T23:41:58Z",
+     "de": "",
+     "para": "Backlog"
+    },
+    {
+     "em": "2026-11-04T17:09:37Z",
+     "de": "Backlog",
+     "para": "A fazer"
+    }
+   ]
+  },
+  {
+   "issue": 49,
+   "titulo": "CI-M18 e M26",
+   "milestone": "Entrega 2",
+   "responsaveis": [],
+   "criada_em": "2026-11-04T13:20:36Z",
+   "fechada_em": "2026-11-04T13:22:26Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": null,
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-04T13:30:18Z",
+     "de": "",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 52,
+   "titulo": "S-M9 suficiência da autenticação",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "ojplc",
+    "renatoyx"
+   ],
+   "criada_em": "2026-11-04T13:30:53Z",
+   "fechada_em": "2026-11-04T13:30:56Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": null,
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-04T13:33:23Z",
+     "de": "",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 53,
+   "titulo": "S-M13 cabeçalhos de segurança HTTP",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "ojplc",
+    "renatoyx"
+   ],
+   "criada_em": "2026-11-04T13:30:58Z",
+   "fechada_em": "2026-11-04T13:31:01Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": null,
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-04T13:49:29Z",
+     "de": "",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 55,
+   "titulo": "S-M1 e S-M2 criptografia da colaboração e chave enviada ao servidor",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "ojplc"
+   ],
+   "criada_em": "2026-11-04T14:50:03Z",
+   "fechada_em": "2026-11-09T22:42:28Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-12",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:50:13Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-09T18:35:03Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-09T19:12:42Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-09T22:42:31Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 56,
+   "titulo": "S-M3 mecanismos de controle de acesso",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "renatoyx"
+   ],
+   "criada_em": "2026-11-04T14:50:15Z",
+   "fechada_em": "2026-11-13T14:07:44Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-12",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:50:26Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-12T14:43:57Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-12T16:25:49Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-13T14:07:47Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 57,
+   "titulo": "S-M4 dados locais sem criptografia",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "renatoyx"
+   ],
+   "criada_em": "2026-11-04T14:50:28Z",
+   "fechada_em": "2026-11-13T14:09:59Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-12",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:50:37Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-12T17:34:51Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-12T19:25:28Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-13T14:10:03Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 58,
+   "titulo": "S-M5 e S-M6 detecção de adulteração e edição simultânea",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "ojplc"
+   ],
+   "criada_em": "2026-11-04T14:50:41Z",
+   "fechada_em": "2026-11-14T23:38:42Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-12",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:50:49Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-14T16:26:24Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-14T18:21:46Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-14T23:38:45Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 59,
+   "titulo": "S-M7 e S-M8 trilha de auditoria e histórico de versões com autoria",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "cunha-luiss"
+   ],
+   "criada_em": "2026-11-04T14:50:52Z",
+   "fechada_em": "2026-11-13T14:11:18Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-12",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:51:00Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-13T00:23:57Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-13T01:27:56Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-13T14:11:22Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 60,
+   "titulo": "S-M10 personificação pelo nome exibido",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "cunha-luiss"
+   ],
+   "criada_em": "2026-11-04T14:51:04Z",
+   "fechada_em": "2026-11-13T14:14:18Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-12",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:51:12Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-13T01:35:39Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-13T01:55:42Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-13T14:14:22Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 61,
+   "titulo": "S-M11 e S-M12 vulnerabilidades nas dependências e advisories",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "renatoyx"
+   ],
+   "criada_em": "2026-11-04T14:51:16Z",
+   "fechada_em": "2026-11-09T23:05:50Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-09",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:51:27Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-08T22:03:38Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-09T21:36:44Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-09T23:05:52Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 62,
+   "titulo": "F-M1, F-M2 e F-M3 compatibilidade de navegadores e sistemas",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "cunha-luiss"
+   ],
+   "criada_em": "2026-11-04T14:51:29Z",
+   "fechada_em": "2026-11-15T20:25:33Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-12",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:51:39Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-14T18:41:29Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-14T23:18:12Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-15T20:25:36Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 63,
+   "titulo": "F-M4 cobertura funcional em dispositivos móveis",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "giovannafg"
+   ],
+   "criada_em": "2026-11-04T14:51:40Z",
+   "fechada_em": "2026-11-13T17:56:02Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-12",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:51:49Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-13T14:18:32Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-13T16:21:24Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-13T17:56:05Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 64,
+   "titulo": "F-M5 e F-M6 funcionamento offline e resoluções",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "andrehsb"
+   ],
+   "criada_em": "2026-11-04T14:51:54Z",
+   "fechada_em": "2026-11-13T14:06:20Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-12",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:52:04Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-12T12:51:57Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-12T14:07:16Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-13T14:06:24Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 65,
+   "titulo": "F-M7 inclusão funcional em relação ao draw.io ou Miro",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "giovannafg"
+   ],
+   "criada_em": "2026-11-04T14:52:07Z",
+   "fechada_em": "2026-11-12T11:48:29Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-09",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:52:17Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-09T23:19:41Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-09T23:37:30Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-12T11:48:32Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 66,
+   "titulo": "F-M8 e F-M9 tempo e conclusão de tarefas nas sessões com participantes",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "andrehsb"
+   ],
+   "criada_em": "2026-11-04T14:52:19Z",
+   "fechada_em": null,
+   "estado": "OPEN",
+   "motivo_fechamento": null,
+   "prazo": "2026-11-12",
+   "status_atual": "A fazer",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:53:01Z",
+     "de": "",
+     "para": "A fazer"
+    }
+   ]
+  },
+  {
+   "issue": 67,
+   "titulo": "F-M11 fidelidade de migração (exportar e reimportar)",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "andrehsb"
+   ],
+   "criada_em": "2026-11-04T14:53:03Z",
+   "fechada_em": "2026-11-13T13:56:57Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-12",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:53:14Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-11T13:31:25Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-11T16:50:44Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-13T13:57:00Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 68,
+   "titulo": "CI-M7 e CI-M10 cobertura da ajuda interna e dos atalhos",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "Zayra-Moraes"
+   ],
+   "criada_em": "2026-11-04T14:53:17Z",
+   "fechada_em": "2026-11-13T13:54:34Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-09",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:53:26Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-11T14:14:00Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-11T14:40:23Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-13T13:54:38Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 69,
+   "titulo": "CI-M9 e CI-M12 cliques por tarefa e consistência",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "cunha-luiss"
+   ],
+   "criada_em": "2026-11-04T14:53:29Z",
+   "fechada_em": null,
+   "estado": "OPEN",
+   "motivo_fechamento": null,
+   "prazo": "2026-11-12",
+   "status_atual": "Em revisão",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:53:37Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-14T23:25:22Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-15T02:17:35Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    }
+   ]
+  },
+  {
+   "issue": 70,
+   "titulo": "CI-M13 e CI-M14 retorno visual e desfazer/refazer",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "renatoyx"
+   ],
+   "criada_em": "2026-11-04T14:53:40Z",
+   "fechada_em": "2026-11-13T14:14:55Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-12",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:53:51Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-13T01:38:10Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-13T02:29:50Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-13T14:14:58Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 71,
+   "titulo": "CI-M15 e CI-M16 confirmação de ações destrutivas e recuperação",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "renatoyx"
+   ],
+   "criada_em": "2026-11-04T14:53:53Z",
+   "fechada_em": "2026-11-13T14:17:55Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-12",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:54:02Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-13T02:37:54Z",
+     "de": "A fazer",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-13T02:38:03Z",
+     "de": "Em revisão",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-13T02:57:12Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-13T14:17:58Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 72,
+   "titulo": "CI-M22 e CI-M25 violações da WCAG 2.2 e contraste",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "giovannafg"
+   ],
+   "criada_em": "2026-11-04T14:54:04Z",
+   "fechada_em": "2026-11-13T18:03:40Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-12",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:54:13Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-13T16:22:24Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-13T17:17:31Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-13T18:03:44Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 73,
+   "titulo": "CI-M23 funções operáveis sem mouse",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "cunha-luiss"
+   ],
+   "criada_em": "2026-11-04T14:54:17Z",
+   "fechada_em": "2026-11-13T14:15:26Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-12",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:54:26Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-13T01:59:58Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-13T02:34:18Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-13T14:15:30Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 74,
+   "titulo": "CI-M24 elementos anunciados por leitor de tela",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "ojplc"
+   ],
+   "criada_em": "2026-11-04T14:54:29Z",
+   "fechada_em": "2026-11-14T23:41:07Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-12",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:54:37Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-14T18:23:53Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-14T20:12:49Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-14T23:41:11Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 75,
+   "titulo": "Sessões com participantes: CI-M1 a CI-M6, CI-M8, CI-M11, CI-M17 e CI-M19 a CI-M21",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "Zayra-Moraes"
+   ],
+   "criada_em": "2026-11-04T14:54:40Z",
+   "fechada_em": null,
+   "estado": "OPEN",
+   "motivo_fechamento": null,
+   "prazo": "2026-11-12",
+   "status_atual": "Em andamento",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:54:50Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-11T14:51:56Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    }
+   ]
+  },
+  {
+   "issue": 76,
+   "titulo": "Gráficos de gestão da Entrega 2",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "giovannafg"
+   ],
+   "criada_em": "2026-11-04T14:54:52Z",
+   "fechada_em": "2026-11-15T20:28:52Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": "2026-11-13",
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:55:00Z",
+     "de": "",
+     "para": "A fazer"
+    },
+    {
+     "em": "2026-11-14T23:30:06Z",
+     "de": "A fazer",
+     "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-15T00:19:41Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-15T20:28:56Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  },
+  {
+   "issue": 77,
+   "titulo": "Revisão cruzada das métricas e decisões de denominador",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "Zayra-Moraes",
+    "andrehsb",
+    "cunha-luiss",
+    "giovannafg",
+    "ojplc",
+    "renatoyx"
+   ],
+   "criada_em": "2026-11-04T14:55:04Z",
+   "fechada_em": null,
+   "estado": "OPEN",
+   "motivo_fechamento": null,
+   "prazo": "2026-11-13",
+   "status_atual": "A fazer",
+   "eventos": [
+    {
+     "em": "2026-11-04T14:55:15Z",
+     "de": "",
+     "para": "A fazer"
+    }
+   ]
+  },
+  {
+   "issue": 82,
+   "titulo": "Páginas de resultado de S-M9, S-M13, F-M10, F-M12, CI-M18 e CI-M26",
+   "milestone": "Entrega 2",
+   "responsaveis": [
+    "ojplc"
+   ],
+   "criada_em": "2026-11-09T20:23:49Z",
+   "fechada_em": "2026-11-09T22:50:59Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
+   "prazo": null,
+   "status_atual": "Concluído",
+   "eventos": [
+    {
+     "em": "2026-11-09T20:24:35Z",
+     "de": "",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-09T22:51:01Z",
+     "de": "Em revisão",
+     "para": "Concluído"
+    }
+   ]
+  }
+ ]
+}
