@@ -91,13 +91,13 @@ disponível para conferência e processamento.
 | andrehsb | 14 |
 | Zayra-Moraes | 14 |
 | Giovanna Felipe | 3 |
+| Luís Felipe Parreira Cunha | 2 |
 | renatoyx | 2 |
-| Luís Felipe Parreira Cunha | 1 |
 | Renato Gameiro | 1 |
 | renatvg | 1 |
-| **Total** | **125** |
+| **Total** | **126** |
 
-*Última coleta: 2026-11-15T20:29:09+00:00, referência `main`.*
+*Última coleta: 2026-11-16T00:34:49+00:00, referência `main`.*
 <!-- END AUTO: membros-commits -->
 
 A atualização é executada a cada push na `main` e semanalmente pelo
