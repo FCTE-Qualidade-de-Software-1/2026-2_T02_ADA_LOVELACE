@@ -52,10 +52,10 @@ do Excalidraw. Só as métricas já coletadas têm nota. Os critérios estão no
 | CI-M6 · Consultas à ajuda | — | — |
 | [CI-M7 · Cobertura da ajuda interna](capacidade-interacao/ci-m7.md) | 46 de 74 funções (62,2%) | **1** |
 | CI-M8 · Melhoria de desempenho entre sessões | — | — |
-| CI-M9 · Ações por tarefa frequente | — | — |
+| [CI-M9 · Ações por tarefa frequente](capacidade-interacao/ci-m9.md) | média de 2,5 ações | **2** |
 | [CI-M10 · Cobertura de atalhos de teclado](capacidade-interacao/ci-m10.md) | 17 de 17 funções frequentes (100%) | **2** |
 | CI-M11 · Tempo de experientes em relação a iniciantes | — | — |
-| CI-M12 · Inconsistências da interface | — | — |
+| [CI-M12 · Inconsistências da interface](capacidade-interacao/ci-m12.md) | 0 inconsistências em 11 casos | **2** |
 | [CI-M13 · Ações com feedback visual imediato](capacidade-interacao/ci-m13.md) | 13 de 13 ações (100%) | **2** |
 | [CI-M14 · Taxa de recuperabilidade](capacidade-interacao/ci-m14.md) | 11 de 13 ações (84,62%) | **0 provisória** |
 | [CI-M15 · Ações destrutivas sem confirmação](capacidade-interacao/ci-m15.md) | 1 ação sem confirmação entre 4 tipos | **1** |

@@ -54,8 +54,8 @@ As notas de cada métrica estão em [Resultados](../resultados/index.md).
 | CI-Q1 · Reconhecer a adequação | CI-M1 a CI-M3 | `[ ]` | `[ ]%` | `[ ]` | Dependem das sessões com participantes |
 | CI-Q2 · Aprender as funções básicas | CI-M4 a CI-M6 | `[ ]` | `[ ]%` | `[ ]` | Dependem das sessões com participantes |
 | CI-Q3 · Apoio ao aprendizado contínuo | CI-M7 (1), CI-M8 | `[ ]` | `[ ]%` | `[ ]` | CI-M7: a ajuda documenta 46 de 74 funções (62,2%) e não tem tutorial guiado. CI-M8 depende das sessões |
-| CI-Q4 · Eficiência nas tarefas comuns | CI-M9, CI-M10 (2), CI-M11 | `[ ]` | `[ ]%` | `[ ]` | CI-M10: as 17 funções frequentes têm atalho, as ferramentas com uma tecla. CI-M9 está no PR #106 e CI-M11 depende das sessões |
-| CI-Q5 · Consistência e previsibilidade | CI-M12, CI-M13 (2) | `[ ]` | `[ ]%` | `[ ]` | CI-M13: as 13 ações testadas deram retorno visual. CI-M12 está no PR #106 |
+| CI-Q4 · Eficiência nas tarefas comuns | CI-M9 (2), CI-M10 (2), CI-M11 | `[ ]` | `[ ]%` | `[ ]` | CI-M9: as tarefas frequentes pedem em média 2,5 ações. CI-M10: as 17 funções frequentes têm atalho, as ferramentas com uma tecla. CI-M11 depende das sessões |
+| CI-Q5 · Consistência e previsibilidade | CI-M12 (2), CI-M13 (2) | 2,00 | 100% | Refutada | A hipótese previa diferenças conforme o contexto, mas os 11 casos de seleção, snapping e texto se comportaram igual nos dois contextos (CI-M12), e as 13 ações deram retorno visual (CI-M13). O resultado é melhor que o previsto |
 | CI-Q6 · Evitar e recuperar erros | CI-M14 a CI-M16 | `[ ]` | `[ ]%` | Confirmada parcialmente; classificação provisória | Ver análise parcial de Renato, seção CI-Q6; médias reservadas à etapa conjunta. |
 | CI-Q7 · Frequência e clareza dos erros | CI-M17, CI-M18 | `[ ]` | `[ ]%` | Confirmação parcial apenas na clareza; frequência inconclusiva | Ver análise parcial de Renato, seção CI-Q7; médias reservadas à etapa conjunta. |
 | CI-Q8 · Satisfação | CI-M19 a CI-M21 | `[ ]` | `[ ]%` | Inconclusiva; sem confirmação ou refutação | Ver análise parcial de Renato, seção CI-Q8; médias reservadas à etapa conjunta. |
