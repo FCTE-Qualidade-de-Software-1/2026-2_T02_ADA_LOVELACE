@@ -33,6 +33,9 @@ theme:
     - content.code.copy
     - content.action.edit
 
+hooks:
+  - hooks/rodape.py
+
 extra_css:
   - stylesheets/extra.css
 
@@ -80,6 +83,9 @@ nav:
           - S-M9 · Suficiência da autenticação: resultados/seguranca/s-m9.md
           - S-M13 · Cabeçalhos HTTP: resultados/seguranca/s-m13.md
       - Flexibilidade:
+          - F-M1 · Compatibilidade de navegadores: resultados/flexibilidade/f-m1.md
+          - F-M2 · Compatibilidade de sistemas operacionais: resultados/flexibilidade/f-m2.md
+          - F-M3 · Defeitos específicos de ambiente: resultados/flexibilidade/f-m3.md
           - F-M10 · Formatos de exportação: resultados/flexibilidade/f-m10.md
           - F-M12 · Formatos de importação: resultados/flexibilidade/f-m12.md
       - Capacidade de interação:
@@ -88,6 +94,7 @@ nav:
           - CI-M26 · Tradução para o português: resultados/capacidade-interacao/ci-m26.md
   - Gestão:
       - Métricas de desenvolvimento: gestao/metricas.md
+      - Gráficos da Entrega 2: gestao/graficos-entrega-2.md
       - Cronograma: gestao/cronograma.md
       - Estimativa de custos: gestao/estimativa-custos.md
   - Referências: referencias.md

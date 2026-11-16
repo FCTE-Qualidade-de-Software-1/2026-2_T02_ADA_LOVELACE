@@ -6,6 +6,7 @@ from __future__ import annotations
 import csv
 import json
 import os
+import re
 import sys
 import urllib.error
 import urllib.request
@@ -35,6 +36,9 @@ IN_PROGRESS = os.environ.get("IN_PROGRESS_STATUS", "Em andamento").casefold()
 REVIEW = os.environ.get("REVIEW_STATUS", "Em revisão").casefold()
 DONE = os.environ.get("DONE_STATUS", "Concluído").casefold()
 OUTPUT = Path(os.environ.get("METRICS_OUTPUT", "docs/gestao/dados/lead-cycle-time.csv"))
+# Histórico completo de Status por issue, usado pelos gráficos de gestão
+# (scripts/gerar_graficos_gestao.py): fluxo acumulado e planejado x concluído.
+HISTORY_OUTPUT = Path(os.environ.get("HISTORY_OUTPUT", "docs/gestao/dados/historico-status.json"))
 
 
 def graphql(token: str, query: str, variables: dict) -> dict:
@@ -67,10 +71,17 @@ query($owner: String!, $number: Int!, $after: String) {
       id
       items(first: 100, after: $after) {
         nodes {
+          prazo: fieldValueByName(name: "Prazo") { ... on ProjectV2ItemFieldDateValue { date } }
+          status: fieldValueByName(name: "Status") { ... on ProjectV2ItemFieldSingleSelectValue { name } }
+          horas: fieldValueByName(name: "Horas") { ... on ProjectV2ItemFieldNumberValue { number } }
           content {
             ... on Issue {
-              id number title createdAt url
+              id number title createdAt closedAt state stateReason url
               repository { nameWithOwner }
+              milestone { title }
+              assignees(first: 10) { nodes { login } }
+              labels(first: 20) { nodes { name } }
+              comments(last: 100) { nodes { author { login } body } }
               timelineItems(first: 100, itemTypes: [PROJECT_V2_ITEM_STATUS_CHANGED_EVENT]) {
                 nodes {
                   ... on ProjectV2ItemStatusChangedEvent {
@@ -111,10 +122,56 @@ def parse_date(value: str) -> datetime:
     return datetime.fromisoformat(value.replace("Z", "+00:00"))
 
 
+HOURS_COMMENT = re.compile(r"\bHoras\s*:\s*(\d+(?:[.,]\d+)?)", re.IGNORECASE)
+
+
+def write_history(issues, collected_at: str) -> None:
+    """Grava o histórico de Status de todas as issues dos quadros (não só as concluídas)."""
+    records = []
+    for issue in sorted(issues, key=lambda row: row["number"]):
+        records.append({
+            "issue": issue["number"],
+            "titulo": issue["title"],
+            "milestone": (issue.get("milestone") or {}).get("title"),
+            "responsaveis": sorted(node["login"] for node in issue["assignees"]["nodes"]),
+            "criada_em": issue["createdAt"],
+            "fechada_em": issue["closedAt"],
+            "estado": issue["state"],
+            "motivo_fechamento": issue["stateReason"],
+            "prazo": issue.get("prazo"),
+            "status_atual": issue.get("status_atual"),
+            "labels": sorted(node["name"] for node in issue["labels"]["nodes"]),
+            "horas": issue.get("horas"),
+            # Atividades compartilhadas: cada integrante comenta "Horas: 1,5".
+            "horas_comentadas": [
+                {"autor": node["author"]["login"], "horas": float(match.group(1).replace(",", "."))}
+                for node in issue["comments"]["nodes"]
+                if node.get("author")
+                for match in HOURS_COMMENT.finditer(node["body"] or "")
+            ],
+            "eventos": [
+                {"em": event["createdAt"], "de": event["previousStatus"], "para": event["status"]}
+                for event in issue["events"]
+            ],
+        })
+    payload = {"issues": records}
+    if HISTORY_OUTPUT.exists():
+        previous = json.loads(HISTORY_OUTPUT.read_text(encoding="utf-8"))
+        if previous.get("issues") == records:
+            print(f"Histórico inalterado em {HISTORY_OUTPUT}; nada a gravar.")
+            return
+    HISTORY_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    HISTORY_OUTPUT.write_text(
+        json.dumps({"coletado_em": collected_at, **payload}, ensure_ascii=False, indent=1) + "\n",
+        encoding="utf-8",
+    )
+    print(f"Histórico de Status gravado em {HISTORY_OUTPUT} ({len(records)} issues).")
+
+
 def main() -> int:
     token = os.environ.get("PROJECTS_TOKEN") or os.environ.get("GH_TOKEN")
     if not token:
-        raise RuntimeError("Defina o secret PROJECTS_TOKEN com leitura do Project.")
+        raise RuntimeError("Defina PROJECTS_TOKEN (no workflow, vem do secret KANBAN_TOKEN) com leitura do Project.")
     if not REPOSITORY:
         raise RuntimeError("GITHUB_REPOSITORY não está definido; execute pelo GitHub Actions.")
 
@@ -136,7 +193,16 @@ def main() -> int:
             connection = project["items"]
             for item in connection["nodes"]:
                 issue = item.get("content")
-                if not issue or not issue.get("number") or issue["id"] in issues:
+                if not issue or not issue.get("number"):
+                    continue
+                if issue["id"] in issues:
+                    # O quadro novo é lido depois e prevalece para Prazo e Status atual.
+                    if (item.get("prazo") or {}).get("date"):
+                        issues[issue["id"]]["prazo"] = item["prazo"]["date"]
+                    if (item.get("status") or {}).get("name"):
+                        issues[issue["id"]]["status_atual"] = item["status"]["name"]
+                    if (item.get("horas") or {}).get("number") is not None:
+                        issues[issue["id"]]["horas"] = item["horas"]["number"]
                     continue
                 if issue["repository"]["nameWithOwner"].casefold() != REPOSITORY.casefold():
                     continue
@@ -148,7 +214,14 @@ def main() -> int:
                     timeline = graphql(token, TIMELINE_QUERY, {"id": issue["id"], "after": page["endCursor"]})["node"]["timelineItems"]
                     events.extend(timeline["nodes"])
                     page = timeline["pageInfo"]
-                issues[issue["id"]] = {**issue, "events": events}
+                issues[issue["id"]] = {
+                    **issue,
+                    "events": events,
+                    "prazo": (item.get("prazo") or {}).get("date"),
+                    "status_atual": (item.get("status") or {}).get("name"),
+                    "horas": (item.get("horas") or {}).get("number"),
+                    "quadro": label,
+                }
             page = connection["pageInfo"]
             if not page["hasNextPage"]:
                 break
@@ -166,6 +239,7 @@ def main() -> int:
         issue["events"] = sorted(filter(counts, issue["events"]), key=lambda event: event["createdAt"])
 
     collected_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    write_history(issues.values(), collected_at)
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     columns = [
         "coletado_em", "repositorio", "issue", "titulo", "url", "criada_em",

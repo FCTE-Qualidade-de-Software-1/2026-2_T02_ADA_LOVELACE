@@ -4,9 +4,6 @@
 (92,5%). Fica abaixo de 95% quando se conta o que falta, quase tudo de recursos
 recentes.
 
-!!! note "Revisão pendente"
-    A coleta ainda não foi revisada por outro integrante.
-
 ```mermaid
 flowchart LR
     EN["en.json<br/>642 strings"] --> T["594 traduzidas<br/>(92,5%)"]
@@ -41,3 +38,5 @@ O `percentages.json` oficial diz 96% (o que daria nota 2), mas calcula sobre as
 
 Registro completo:
 [`CI-M26_idiomas-traducao-pt-BR.md`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M26_idiomas-traducao-pt-BR.md).
+Revisão independente:
+[`CI-M26_comparacao.md`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M26_comparacao.md).

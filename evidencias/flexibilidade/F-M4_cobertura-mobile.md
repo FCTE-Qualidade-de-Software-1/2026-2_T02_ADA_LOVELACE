@@ -158,13 +158,18 @@ O denominador é 25 porque as 25 funções funcionaram com mouse no desktop (E1)
 - **O tablet é um iPad só no user agent.** A página roda no motor do Chrome, não no Safari do iPadOS. O comportamento do Safari fica com as F-M1 e F-M2. Na largura de 810 px o Excalidraw usa o layout de desktop, com a barra completa, e não o de celular (E3).
 - **Caneta não testada.** O Excalidraw tem modo caneta (`penMode`), que não entrou no teste. O roteiro aceita toque ou caneta, e o toque bastou para as 25 funções.
 - **Recorte do denominador.** A lista tem 25 funções escolhidas pela equipe (seção 2) e não todas as ações do editor. Ficaram fora as funções que dependem de servidor e os atalhos de teclado, inclusive os modificadores usados com o mouse (Shift+clique, Shift ao redimensionar, Alt+arrastar). Com outra lista o valor pode mudar.
+- **Trava de ferramenta em aparelho real.** A F-M4 foi feita por emulação. Nos
+  dispositivos reais da F-M2 (Android 10, iPadOS 27.2 e iOS 27.2.1), a tarefa 25
+  não existe e foi registrada como não disponível. O item de menu foi encontrado
+  na emulação, mas não nesses aparelhos. Contando a tarefa 25 como não
+  disponível, a F-M4 fica em 24 de 25 (96%) e a nota continua 2.
 - **Seletores de arquivo.** Como na F-M5, o script remove `showSaveFilePicker` e `showOpenFilePicker`, e o Excalidraw usa o download e o `<input type="file">`. Os navegadores de celular não têm essas APIs, então esse é o mesmo caminho de um celular real. A escolha do arquivo em si (M17 e M19) é feita pelo Playwright, no lugar do seletor do sistema.
 - **Seletor de idioma.** É um `<select>` nativo. No teste, o toque abre o campo e a opção é escolhida pelo Playwright; num celular real abriria a lista do sistema.
 - **Fora da métrica:** no celular, tocar de novo na ferramenta de seleção já ativa troca para o laço, sem aviso além do ícone.
 
 ## 7. Achado (pontuação 2: não gera achado)
 
-Não se aplica. Fica a oportunidade de mostrar no celular um atalho visível para a trava de ferramenta, hoje só no menu de preferências.
+Não se aplica. Fica a oportunidade de mostrar no celular um atalho visível para a trava de ferramenta, hoje só no menu de preferências na emulação; nos aparelhos reais da F-M2 a opção não foi encontrada.
 
 ## 8. Contribuição para a questão
 

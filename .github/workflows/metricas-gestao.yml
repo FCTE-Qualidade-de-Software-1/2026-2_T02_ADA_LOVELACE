@@ -10,6 +10,10 @@ on:
       - docs/gestao/dados/membros-commits.csv
       - docs/gestao/dados/lead-cycle-time.csv
       - docs/gestao/dados/custos-calculados.json
+      - docs/gestao/dados/historico-status.json
+      - docs/gestao/dados/revisoes-prs.json
+      - docs/gestao/graficos-entrega-2.md
+      - docs/assets/gestao/**
   # O cron semanal recoleta o Project mesmo sem pushes na semana.
   schedule:
     - cron: "17 8 * * 1"
@@ -17,6 +21,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: read
 
 concurrency:
   group: metricas-gestao
@@ -26,7 +31,7 @@ jobs:
   atualizar:
     runs-on: ubuntu-latest
     env:
-      TEM_PROJECTS_TOKEN: ${{ secrets.PROJECTS_TOKEN != '' }}
+      TEM_KANBAN_TOKEN: ${{ secrets.KANBAN_TOKEN != '' }}
     steps:
       - name: Baixar repositório
         uses: actions/checkout@v4
@@ -51,26 +56,39 @@ jobs:
         run: python scripts/collect_member_metrics.py
 
       - name: Coletar Lead Time e Cycle Time do Project
-        if: env.TEM_PROJECTS_TOKEN == 'true'
+        if: env.TEM_KANBAN_TOKEN == 'true'
         env:
-          PROJECTS_TOKEN: ${{ secrets.PROJECTS_TOKEN }}
+          PROJECTS_TOKEN: ${{ secrets.KANBAN_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: python scripts/collect_project_metrics.py
 
-      - name: Avisar ausência do PROJECTS_TOKEN
-        if: env.TEM_PROJECTS_TOKEN != 'true'
-        run: echo "::warning::Secret PROJECTS_TOKEN não cadastrado; Lead Time e Cycle Time não foram coletados."
+      - name: Avisar ausência do KANBAN_TOKEN
+        if: env.TEM_KANBAN_TOKEN != 'true'
+        run: echo "::warning::Secret KANBAN_TOKEN não cadastrado; Lead Time e Cycle Time não foram coletados."
+
+      - name: Coletar revisões dos pull requests
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python scripts/collect_pr_reviews.py
 
       - name: Recalcular custos da avaliação
         run: |
           python scripts/calcular_custos_avaliacao.py --write
           python scripts/calcular_custos_avaliacao.py --check
 
+      - name: Gerar gráficos de gestão da Entrega 2
+        run: |
+          pip install matplotlib==3.11.2
+          python scripts/gerar_graficos_gestao.py
+
       - name: Salvar métricas na main
         run: |
           git add docs/gestao/dados/membros-commits.csv docs/analise/gestao-grupo.md \
             docs/gestao/dados/lead-cycle-time.csv \
-            docs/gestao/dados/custos-calculados.json docs/gestao/estimativa-custos.md
+            docs/gestao/dados/custos-calculados.json docs/gestao/estimativa-custos.md \
+            docs/gestao/dados/historico-status.json docs/gestao/graficos-entrega-2.md \
+            docs/gestao/dados/revisoes-prs.json docs/assets/gestao
           if git diff --cached --quiet; then
             echo "Nenhuma alteração nas métricas."
           else

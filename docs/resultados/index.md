@@ -27,9 +27,9 @@ do Excalidraw. Só as métricas já coletadas têm nota. Os critérios estão no
 
 | Métrica | Valor medido | Nota (0–2) |
 | --- | --- | :---: |
-| F-M1 · Compatibilidade de navegadores | — | — |
-| F-M2 · Compatibilidade de sistemas operacionais | — | — |
-| F-M3 · Defeitos específicos de ambiente | — | — |
+| [F-M1 · Compatibilidade de navegadores](flexibilidade/f-m1.md) | 4 de 4 navegadores (100%) | **2** |
+| [F-M2 · Compatibilidade de sistemas operacionais](flexibilidade/f-m2.md) | 3 de 5 sistemas (60%) | **1** |
+| [F-M3 · Defeitos específicos de ambiente](flexibilidade/f-m3.md) | 2 defeitos específicos | **1** |
 | F-M4 · Cobertura funcional em dispositivos móveis | — | — |
 | F-M5 · Cobertura funcional offline | — | — |
 | F-M6 · Resoluções sem perda de elementos | — | — |
@@ -52,10 +52,10 @@ do Excalidraw. Só as métricas já coletadas têm nota. Os critérios estão no
 | CI-M6 · Consultas à ajuda | — | — |
 | CI-M7 · Cobertura da ajuda interna | — | — |
 | CI-M8 · Melhoria de desempenho entre sessões | — | — |
-| CI-M9 · Ações por tarefa frequente | — | — |
+| [CI-M9 · Ações por tarefa frequente](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M9/CI-M9_acoes-por-tarefa.md) | média de 2,5 ações | **2** |
 | CI-M10 · Cobertura de atalhos de teclado | — | — |
 | CI-M11 · Tempo de experientes em relação a iniciantes | — | — |
-| CI-M12 · Inconsistências da interface | — | — |
+| [CI-M12 · Inconsistências da interface](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M12/CI-M12_inconsistencias-interface.md) | 0 inconsistências reproduzíveis | **2** |
 | CI-M13 · Ações com feedback visual imediato | — | — |
 | CI-M14 · Taxa de recuperabilidade | — | — |
 | CI-M15 · Ações destrutivas sem confirmação | — | — |

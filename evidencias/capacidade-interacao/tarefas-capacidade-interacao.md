@@ -8,7 +8,7 @@ Para cada métrica, copiar `evidencias/capacidade-interacao/template.md` para `C
 
 | Métrica | Situação | Arquivo |
 | --- | --- | --- |
-| CI-M26 | Coletada (rascunho, falta revisão): 92,5%, nota 1 | `CI-M26_idiomas-traducao-pt-BR.md` |
+| CI-M26 | Coletada e revisada (reavaliação independente): 92,5%, nota 1 | `CI-M26_idiomas-traducao-pt-BR.md` |
 | CI-M18 | Coletada parcialmente (rascunho): 44%, nota 0 | `CI-M18_mensagens-de-erro.md` |
 | CI-M7 | Coletada (rascunho, denominador: ferramentas da barra + ações visíveis): 62,2%, nota 1 | `CI-M7_cobertura-ajuda-interna.md` |
 | CI-M10 | Coletada (rascunho, falta revisão): 100%, nota 2 | `CI-M10_cobertura-atalhos.md` |
@@ -30,8 +30,8 @@ Para cada métrica, copiar `evidencias/capacidade-interacao/template.md` para `C
 - [ ] **CI-M14:** repetir as mesmas ações e conferir desfazer/refazer. Registrar ações não revertíveis (exportar, mudar tema, zoom).
 - [ ] **CI-M15:** listar ações destrutivas e se pedem confirmação (limpar canvas, abrir arquivo sobre cena atual, excluir biblioteca).
 - [ ] **CI-M16:** desenhar, recarregar a página e fechar a aba sem salvar; conferir se a cena volta (`localStorage`).
-- [ ] **CI-M12:** registrar inconsistências de seleção, snapping e edição de texto em formas.
-- [ ] **CI-M9:** contar cliques de criar forma, mudar cor, agrupar e exportar PNG.
+- [x] **CI-M12:** registrar inconsistências de seleção, snapping e edição de texto em formas. Relatório preenchido; 0 inconsistências observáveis e reproduzíveis (nota 2).
+- [x] **CI-M9:** contar cliques de criar forma, mudar cor, agrupar e exportar PNG. Relatório preenchido; média de 2,5 ações (nota 2).
 
 ## Acessibilidade (O6)
 
