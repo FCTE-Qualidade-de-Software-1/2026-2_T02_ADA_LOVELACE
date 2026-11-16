@@ -44,31 +44,24 @@ Não aplicável: esta é uma comparação funcional da interface.
 
 ### 4.2 Arquivos de apoio
 
-Os vídeos abaixo são as evidências principais da comparação. Substitua apenas
-o valor de `src` em cada bloco pelo link do vídeo correspondente.
+Os vídeos abaixo são as evidências principais da comparação.
 
 #### E13 · Vídeo de seleção
 
-<video controls width="100%" src="https://youtu.be/9gzApPJQU-A">
-  Seu navegador não suporta a reprodução de vídeo.
-</video>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/9gzApPJQU-A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Abrange I1–I4: clique simples, Shift+clique, seleção por área e sobreposição.
 
 #### E14 · Vídeo de snapping
 
-<video controls width="100%" src="https://youtu.be/MgK9QpfUqPQ">
-  Seu navegador não suporta a reprodução de vídeo.
-</video>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/MgK9QpfUqPQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Abrange I5–I7: conexão de setas, borda × centro e movimento da forma
 conectada.
 
 #### E15 · Vídeo de edição de texto
 
-<video controls width="100%" src="https://youtu.be/qHcJAX3MtEg">
-  Seu navegador não suporta a reprodução de vídeo.
-</video>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/qHcJAX3MtEg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Abrange I8–I11: duplo clique, Enter, confirmação/cancelamento e texto longo.
 
