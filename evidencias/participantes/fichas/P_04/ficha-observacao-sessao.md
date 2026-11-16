@@ -58,5 +58,6 @@ Transcrever o texto exibido e se o participante entendeu e soube agir: nenhuma m
 
 | Item | Responsável | Data |
 | --- | --- | --- |
-| Ficha conferida com a gravação | | |
-| Dados passados para o CSV | | |
+| Ficha conferida com a gravação | pendente (conferida só com a transcrição) | |
+| Ficha conferida com a transcrição | Zayra Moraes (com apoio do Claude) | 2026-11-16 |
+| Dados passados para o CSV | `registro-sessoes.csv` | 2026-11-16 |
