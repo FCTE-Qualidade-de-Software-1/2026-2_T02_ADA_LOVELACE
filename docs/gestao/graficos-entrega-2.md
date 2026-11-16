@@ -10,7 +10,7 @@ a partir do histórico de **Status** do Kanban e do histórico de commits da
 mão.
 
 <!-- BEGIN AUTO: coleta -->
-*Dados do Project coletados em 15/11/2026 17:29 (horário de Brasília); 42 issues no milestone Entrega 2.*
+*Dados do Project coletados em 15/11/2026 21:34 (horário de Brasília); 42 issues no milestone Entrega 2.*
 <!-- END AUTO: coleta -->
 
 ## Escopo e regras de contagem
@@ -50,7 +50,7 @@ da Entrega 2. Fonte: histórico de Status dos dois quadros.*
 | Entrega | Issues concluídas | Passaram por Em andamento | Passaram por Em revisão |
 | --- | ---: | ---: | ---: |
 | Entrega 1 | 17 | 1 (6%) | 1 (6%) |
-| Entrega 2 | 28 | 23 (82%) | 24 (86%) |
+| Entrega 2 | 29 | 24 (83%) | 25 (86%) |
 <!-- END AUTO: comparacao -->
 
 ## Lead Time e Cycle Time
@@ -97,6 +97,7 @@ Status do Kanban.*
 | [#65](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/65) | F-M7 inclusão funcional em relação ao draw.io ou Miro | 12/11 | 7,9 | 2,5 |
 | [#67](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/67) | F-M11 fidelidade de migração (exportar e reimportar) | 13/11 | 9,0 | 2,0 |
 | [#68](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/68) | CI-M7 e CI-M10 cobertura da ajuda interna e dos atalhos | 13/11 | 9,0 | 2,0 |
+| [#69](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/69) | CI-M9 e CI-M12 cliques por tarefa e consistência | 15/11 | 11,4 | 1,0 |
 | [#70](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/70) | CI-M13 e CI-M14 retorno visual e desfazer/refazer | 13/11 | 9,0 | 0,5 |
 | [#71](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/71) | CI-M15 e CI-M16 confirmação de ações destrutivas e recuperação | 13/11 | 9,0 | 0,5 |
 | [#72](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/72) | CI-M22 e CI-M25 violações da WCAG 2.2 e contraste | 13/11 | 9,1 | 0,1 |
@@ -105,7 +106,7 @@ Status do Kanban.*
 | [#76](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/76) | Gráficos de gestão da Entrega 2 | 15/11 | 11,2 | 0,9 |
 | [#82](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/82) | Páginas de resultado de S-M9, S-M13, F-M10, F-M12, CI-M18 e CI-M26 | 09/11 | 0,1 | N/A |
 
-**Mediana:** Lead Time de **9,0 dias** (28 issues) e Cycle Time de **0,6 dias** (23 issues; 5 sem passagem por *Em andamento* ficam como N/A).
+**Mediana:** Lead Time de **9,0 dias** (29 issues) e Cycle Time de **0,7 dias** (24 issues; 5 sem passagem por *Em andamento* ficam como N/A).
 <!-- END AUTO: lead-cycle -->
 
 ## Fluxo acumulado
@@ -130,7 +131,7 @@ segundas-feiras e o último dia coletado.
 | 02/11 | 12 | 2 | 1 | 0 | 0 | 1 |
 | 09/11 | 3 | 30 | 0 | 1 | 8 | 1 |
 | 10/11 | 3 | 30 | 0 | 1 | 8 | 1 |
-| 15/11 | 3 | 7 | 3 | 1 | 28 | 4 |
+| 15/11 | 3 | 5 | 5 | 0 | 29 | 5 |
 <!-- END AUTO: fluxo -->
 
 ## Planejado × concluído por ciclo
@@ -151,7 +152,7 @@ histórico de Status do Kanban.*
 | Ciclo | Período | Planejadas | Planejadas e concluídas | Planejado × concluído | Total concluído no ciclo |
 | --- | --- | ---: | ---: | ---: | ---: |
 | Ciclo 1 | 27/10 a 09/11 | 6 | 2 | 33% | 8 |
-| Ciclo 2 (em curso) | 10/11 a 18/11 | 27 | 17 | 63% | 20 |
+| Ciclo 2 (em curso) | 10/11 a 18/11 | 27 | 18 | 67% | 21 |
 
 Issues da Entrega 2 sem Prazo no Project (fora do planejado): 8 ([#17](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/17), [#18](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/18), [#19](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/19), [#41](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/41), [#49](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/49), [#52](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/52), [#53](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/53), [#82](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/82)).
 <!-- END AUTO: planejado -->
@@ -181,7 +182,7 @@ commits da `main`.*
 | Zayra Moraes | 9 |
 | **Total** | **80** |
 
-Identidades não associadas a um integrante: Luís Felipe Parreira Cunha (1).
+Identidades não associadas a um integrante: Luís Felipe Parreira Cunha (2).
 <!-- END AUTO: commits -->
 
 ## Como reproduzir
