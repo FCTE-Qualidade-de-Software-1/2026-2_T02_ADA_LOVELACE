@@ -30,14 +30,14 @@ do Excalidraw. Só as métricas já coletadas têm nota. Os critérios estão no
 | [F-M1 · Compatibilidade de navegadores](flexibilidade/f-m1.md) | 4 de 4 navegadores (100%) | **2** |
 | [F-M2 · Compatibilidade de sistemas operacionais](flexibilidade/f-m2.md) | 3 de 5 sistemas (60%) | **1** |
 | [F-M3 · Defeitos específicos de ambiente](flexibilidade/f-m3.md) | 2 defeitos específicos | **1** |
-| F-M4 · Cobertura funcional em dispositivos móveis | — | — |
-| F-M5 · Cobertura funcional offline | — | — |
-| F-M6 · Resoluções sem perda de elementos | — | — |
-| F-M7 · Inclusão funcional | — | — |
+| [F-M4 · Cobertura funcional em dispositivos móveis](flexibilidade/f-m4.md) | 25 de 25 funções por toque (100%) | **2** |
+| [F-M5 · Cobertura funcional offline](flexibilidade/f-m5.md) | 16 de 23 funções sem rede (69,6%) | **1** |
+| [F-M6 · Resoluções sem perda de elementos](flexibilidade/f-m6.md) | 3 de 4 larguras | **1** |
+| [F-M7 · Inclusão funcional](flexibilidade/f-m7.md) | 24 de 42 funções do draw.io (57,1%) | **0** |
 | F-M8 · Razão de tempo de tarefa | — | — |
 | F-M9 · Conclusão de tarefas por quem vem de outra ferramenta | — | — |
 | [F-M10 · Cobertura de formatos de exportação](flexibilidade/f-m10.md) | 60% | **1** |
-| F-M11 · Fidelidade de migração | — | — |
+| [F-M11 · Fidelidade de migração](flexibilidade/f-m11.md) | 12 de 12 elementos (100%) | **2** |
 | [F-M12 · Formatos de importação aceitos](flexibilidade/f-m12.md) | 4 formatos | **2** |
 
 ## Capacidade de interação
@@ -50,13 +50,13 @@ do Excalidraw. Só as métricas já coletadas têm nota. Os critérios estão no
 | CI-M4 · Tempo da primeira tarefa | — | — |
 | CI-M5 · Conclusão sem ajuda | — | — |
 | CI-M6 · Consultas à ajuda | — | — |
-| CI-M7 · Cobertura da ajuda interna | — | — |
+| [CI-M7 · Cobertura da ajuda interna](capacidade-interacao/ci-m7.md) | 46 de 74 funções (62,2%) | **1** |
 | CI-M8 · Melhoria de desempenho entre sessões | — | — |
 | CI-M9 · Ações por tarefa frequente | — | — |
-| CI-M10 · Cobertura de atalhos de teclado | — | — |
+| [CI-M10 · Cobertura de atalhos de teclado](capacidade-interacao/ci-m10.md) | 17 de 17 funções frequentes (100%) | **2** |
 | CI-M11 · Tempo de experientes em relação a iniciantes | — | — |
 | CI-M12 · Inconsistências da interface | — | — |
-| CI-M13 · Ações com feedback visual imediato | — | — |
+| [CI-M13 · Ações com feedback visual imediato](capacidade-interacao/ci-m13.md) | 13 de 13 ações (100%) | **2** |
 | CI-M14 · Taxa de recuperabilidade | — | — |
 | CI-M15 · Ações destrutivas sem confirmação | — | — |
 | CI-M16 · Perda de dados ao fechar ou recarregar | — | — |

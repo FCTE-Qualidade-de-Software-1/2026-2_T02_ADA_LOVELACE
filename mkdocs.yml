@@ -83,9 +83,17 @@ nav:
           - F-M1 · Compatibilidade de navegadores: resultados/flexibilidade/f-m1.md
           - F-M2 · Compatibilidade de sistemas operacionais: resultados/flexibilidade/f-m2.md
           - F-M3 · Defeitos específicos de ambiente: resultados/flexibilidade/f-m3.md
+          - F-M4 · Dispositivos móveis: resultados/flexibilidade/f-m4.md
+          - F-M5 · Funcionamento offline: resultados/flexibilidade/f-m5.md
+          - F-M6 · Resoluções: resultados/flexibilidade/f-m6.md
+          - F-M7 · Inclusão funcional: resultados/flexibilidade/f-m7.md
           - F-M10 · Formatos de exportação: resultados/flexibilidade/f-m10.md
+          - F-M11 · Fidelidade de migração: resultados/flexibilidade/f-m11.md
           - F-M12 · Formatos de importação: resultados/flexibilidade/f-m12.md
       - Capacidade de interação:
+          - CI-M7 · Ajuda interna: resultados/capacidade-interacao/ci-m7.md
+          - CI-M10 · Atalhos de teclado: resultados/capacidade-interacao/ci-m10.md
+          - CI-M13 · Feedback visual: resultados/capacidade-interacao/ci-m13.md
           - CI-M18 · Mensagens de erro: resultados/capacidade-interacao/ci-m18.md
           - CI-M24 · Elementos anunciados por leitor de tela: resultados/capacidade-interacao/ci-m24.md
           - CI-M26 · Tradução para o português: resultados/capacidade-interacao/ci-m26.md
