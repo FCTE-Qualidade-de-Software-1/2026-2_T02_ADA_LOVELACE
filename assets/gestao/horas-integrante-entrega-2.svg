@@ -308,8 +308,8 @@ z
    </g>
    <g id="patch_14">
     <path d="M 120.928544 168.29692 
-L 271.698606 168.29692 
-L 271.698606 190.542437 
+L 301.852618 168.29692 
+L 301.852618 190.542437 
 L 120.928544 190.542437 
 z
 " clip-path="url(#p95cc3e0619)" style="fill: #6965db"/>
@@ -355,10 +355,10 @@ z
 " clip-path="url(#p95cc3e0619)" style="fill: #3f9e6e"/>
    </g>
    <g id="patch_20">
-    <path d="M 271.698606 168.29692 
-L 291.801281 168.29692 
-L 291.801281 190.542437 
-L 271.698606 190.542437 
+    <path d="M 301.852618 168.29692 
+L 321.955293 168.29692 
+L 321.955293 190.542437 
+L 301.852618 190.542437 
 z
 " clip-path="url(#p95cc3e0619)" style="fill: #3f9e6e"/>
    </g>
@@ -388,7 +388,7 @@ L 481.374531 198.606437
     <text style="font-size: 8px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="320.146052" y="153.690907" transform="rotate(-0 320.146052 153.690907)"> 7,6</text>
    </g>
    <g id="text_20">
-    <text style="font-size: 8px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="291.801281" y="181.497804" transform="rotate(-0 291.801281 181.497804)"> 6,7</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="321.955293" y="181.497804" transform="rotate(-0 321.955293 181.497804)"> 7,7</text>
    </g>
    <g id="text_21">
     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="286.074531" y="15.198437" transform="rotate(-0 286.074531 15.198437)">Horas registradas por integrante e por fase, Entrega 2 (ordem alfabética)</text>
