@@ -44,27 +44,27 @@ do Excalidraw. Só as métricas já coletadas têm nota. Os critérios estão no
 
 | Métrica | Valor medido | Nota (0–2) |
 | --- | --- | :---: |
-| CI-M1 · Tempo até identificar o propósito | — | — |
-| CI-M2 · Taxa de reconhecimento correto | — | — |
-| CI-M3 · Ícones autoexplicativos | — | — |
-| CI-M4 · Tempo da primeira tarefa | — | — |
-| CI-M5 · Conclusão sem ajuda | — | — |
-| CI-M6 · Consultas à ajuda | — | — |
+| [CI-M1 · Tempo até identificar o propósito](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M1_tempo-proposito.md) | média de 18,7 s (n = 3) | **1** |
+| [CI-M2 · Taxa de reconhecimento correto](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M2_reconhecimento-correto.md) | 4 de 4 (100%) | **2** |
+| [CI-M3 · Ícones autoexplicativos](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M3_icones-autoexplicativos.md) | 80,8% | **2** |
+| [CI-M4 · Tempo da primeira tarefa](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M4_tempo-primeira-tarefa.md) | média de 0,6 min (n = 3) | **2** |
+| [CI-M5 · Conclusão sem ajuda](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M5_conclusao-sem-ajuda.md) | 1 de 6 tarefas (16,7%) | **0** |
+| [CI-M6 · Consultas à ajuda](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M6_consultas-ajuda.md) | média de 1,0 consulta (provisória) | **2** |
 | CI-M7 · Cobertura da ajuda interna | — | — |
-| CI-M8 · Melhoria de desempenho entre sessões | — | — |
+| [CI-M8 · Melhoria de desempenho entre sessões](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M8_melhoria-entre-sessoes.md) | não medida (1 sessão por pessoa) | — |
 | [CI-M9 · Ações por tarefa frequente](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M9/CI-M9_acoes-por-tarefa.md) | média de 2,5 ações | **2** |
 | CI-M10 · Cobertura de atalhos de teclado | — | — |
-| CI-M11 · Tempo de experientes em relação a iniciantes | — | — |
+| [CI-M11 · Tempo de experientes em relação a iniciantes](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M11_experientes-vs-iniciantes.md) | razão de 0,43 (n = 1 experiente; provisória) | **2** |
 | [CI-M12 · Inconsistências da interface](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M12/CI-M12_inconsistencias-interface.md) | 0 inconsistências reproduzíveis | **2** |
 | CI-M13 · Ações com feedback visual imediato | — | — |
 | CI-M14 · Taxa de recuperabilidade | — | — |
 | CI-M15 · Ações destrutivas sem confirmação | — | — |
 | CI-M16 · Perda de dados ao fechar ou recarregar | — | — |
-| CI-M17 · Taxa de erro do usuário | — | — |
+| [CI-M17 · Taxa de erro do usuário](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M17_taxa-erro-usuario.md) | 28,0% (40 de 143 ações) | **0** |
 | [CI-M18 · Mensagens de erro compreensíveis](capacidade-interacao/ci-m18.md) | 44% | **0** |
-| CI-M19 · Escore SUS | — | — |
-| CI-M20 · Satisfação visual | — | — |
-| CI-M21 · Intenção de uso futuro | — | — |
+| [CI-M19 · Escore SUS](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M19_escore-sus.md) | média de 82,0 | **2** |
+| [CI-M20 · Satisfação visual](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M20_satisfacao-visual.md) | média de 4,27 | **2** |
+| [CI-M21 · Intenção de uso futuro](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M21_intencao-de-uso.md) | 4 de 4 (100%) | **2** |
 | CI-M22 · Violações da WCAG 2.2 (A e AA) | — | — |
 | CI-M23 · Funções operáveis só pelo teclado | — | — |
 | [CI-M24 · Elementos anunciados por leitor de tela](capacidade-interacao/ci-m24.md) | 1 de 9 (11%) | **0** |
