@@ -75,19 +75,42 @@ nav:
       - Segurança:
           - S-M1 · Mensagens cifradas: resultados/seguranca/s-m1.md
           - S-M2 · Chave enviada ao servidor: resultados/seguranca/s-m2.md
+          - S-M3 · Mecanismos de controle de acesso: resultados/seguranca/s-m3.md
+          - S-M4 · Dados persistidos localmente sem criptografia: resultados/seguranca/s-m4.md
           - S-M5 · Detecção de adulteração: resultados/seguranca/s-m5.md
           - S-M6 · Edição simultânea: resultados/seguranca/s-m6.md
+          - S-M7 · Completude da trilha de auditoria: resultados/seguranca/s-m7.md
+          - S-M8 · Histórico de versões com autoria: resultados/seguranca/s-m8.md
           - S-M9 · Suficiência da autenticação: resultados/seguranca/s-m9.md
+          - S-M10 · Passar-se por outro participante: resultados/seguranca/s-m10.md
+          - S-M11 · Vulnerabilidades altas ou críticas nas dependências: resultados/seguranca/s-m11.md
+          - S-M12 · Advisories, CVEs e tempo de correção: resultados/seguranca/s-m12.md
           - S-M13 · Cabeçalhos HTTP: resultados/seguranca/s-m13.md
       - Flexibilidade:
           - F-M1 · Compatibilidade de navegadores: resultados/flexibilidade/f-m1.md
           - F-M2 · Compatibilidade de sistemas operacionais: resultados/flexibilidade/f-m2.md
           - F-M3 · Defeitos específicos de ambiente: resultados/flexibilidade/f-m3.md
+          - F-M4 · Cobertura funcional em dispositivos móveis: resultados/flexibilidade/f-m4.md
+          - F-M5 · Cobertura funcional offline: resultados/flexibilidade/f-m5.md
+          - F-M6 · Resoluções sem perda de elementos: resultados/flexibilidade/f-m6.md
+          - F-M7 · Inclusão funcional: resultados/flexibilidade/f-m7.md
           - F-M10 · Formatos de exportação: resultados/flexibilidade/f-m10.md
+          - F-M11 · Fidelidade de migração: resultados/flexibilidade/f-m11.md
           - F-M12 · Formatos de importação: resultados/flexibilidade/f-m12.md
       - Capacidade de interação:
+          - CI-M7 · Cobertura da ajuda interna: resultados/capacidade-interacao/ci-m7.md
+          - CI-M9 · Ações por tarefa frequente: resultados/capacidade-interacao/ci-m9.md
+          - CI-M10 · Cobertura de atalhos de teclado: resultados/capacidade-interacao/ci-m10.md
+          - CI-M12 · Inconsistências da interface: resultados/capacidade-interacao/ci-m12.md
+          - CI-M13 · Ações com feedback visual imediato: resultados/capacidade-interacao/ci-m13.md
+          - CI-M14 · Taxa de recuperabilidade: resultados/capacidade-interacao/ci-m14.md
+          - CI-M15 · Ações destrutivas sem confirmação: resultados/capacidade-interacao/ci-m15.md
+          - CI-M16 · Perda de dados ao fechar ou recarregar: resultados/capacidade-interacao/ci-m16.md
           - CI-M18 · Mensagens de erro: resultados/capacidade-interacao/ci-m18.md
+          - CI-M22 · Violações da WCAG 2.2 (A e AA): resultados/capacidade-interacao/ci-m22.md
+          - CI-M23 · Funções operáveis só pelo teclado: resultados/capacidade-interacao/ci-m23.md
           - CI-M24 · Elementos anunciados por leitor de tela: resultados/capacidade-interacao/ci-m24.md
+          - CI-M25 · Contraste mínimo de 4,5:1: resultados/capacidade-interacao/ci-m25.md
           - CI-M26 · Tradução para o português: resultados/capacidade-interacao/ci-m26.md
   - Gestão:
       - Métricas de desenvolvimento: gestao/metricas.md
