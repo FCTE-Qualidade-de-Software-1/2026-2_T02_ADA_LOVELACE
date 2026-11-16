@@ -1,6 +1,6 @@
 # Evidência CI-M26 : Idiomas e tradução para o português
 
-> Status: **rascunho da coleta de código** (feito com apoio do Claude, ver `docs/uso-ia.md`). Falta revisão por outro integrante.
+> Status: **revisado** (coleta feita com apoio do Claude, ver `docs/uso-ia.md`). Reavaliação independente em `CI-M26_reavaliacao_independente.md`, comparação em `CI-M26_comparacao.md`.
 
 ## 1. Identificação
 
@@ -10,7 +10,7 @@
 | Questão | CI-Q10 : Inclusividade (adapta-se a diferentes perfis de usuário?) |
 | Responsável | Zayra Moraes |
 | Data da coleta | 2026-11-04 |
-| Revisado por | _pendente_ |
+| Revisado por | Luís Felipe Parreira Cunha em 2026-11-15 |
 
 ## 2. O que foi medido
 
