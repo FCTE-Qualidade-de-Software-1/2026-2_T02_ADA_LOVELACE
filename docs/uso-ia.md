@@ -104,7 +104,7 @@ aparecer entre aspas e com a referência correspondente.
   Excalidraw e a redação das evidências e das páginas de resultados.
 * **Onde:** estrutura da GitPage e do artigo (`main.tex`), [roteiro da
   análise](analise/roteiro.md), [métricas de gestão](gestao/metricas.md),
-  [evidências de capacidade de interação](../evidencias/capacidade-interacao/) e
+  [evidências de capacidade de interação](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/tree/main/evidencias/capacidade-interacao) e
   resultados das [F-M1](resultados/flexibilidade/f-m1.md),
   [F-M2](resultados/flexibilidade/f-m2.md) e
   [F-M3](resultados/flexibilidade/f-m3.md).
