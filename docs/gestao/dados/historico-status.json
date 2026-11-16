@@ -1,5 +1,5 @@
 {
- "coletado_em": "2026-11-16T01:04:25+00:00",
+ "coletado_em": "2026-11-16T02:02:41+00:00",
  "issues": [
   {
    "issue": 9,
@@ -303,6 +303,7 @@
    "milestone": "Entrega 2",
    "responsaveis": [
     "andrehsb",
+    "giovannafg",
     "renatoyx"
    ],
    "criada_em": "2026-10-19T13:43:00Z",
@@ -587,7 +588,7 @@
    "labels": [
     "documentation"
    ],
-   "horas": null,
+   "horas": 1.0,
    "horas_comentadas": [],
    "eventos": [
     {
@@ -864,15 +865,15 @@
     "giovannafg"
    ],
    "criada_em": "2026-10-26T23:41:27Z",
-   "fechada_em": null,
-   "estado": "OPEN",
-   "motivo_fechamento": null,
+   "fechada_em": "2026-11-16T02:02:18Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
    "prazo": "2026-11-15",
-   "status_atual": "Em andamento",
+   "status_atual": "Concluído",
    "labels": [
     "gestão"
    ],
-   "horas": null,
+   "horas": 1.5,
    "horas_comentadas": [],
    "eventos": [
     {
@@ -889,6 +890,16 @@
      "em": "2026-11-15T00:02:35Z",
      "de": "A fazer",
      "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-16T01:36:38Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-16T02:02:22Z",
+     "de": "Em revisão",
+     "para": "Concluído"
     }
    ]
   },
@@ -908,7 +919,7 @@
    "labels": [
     "gestão"
    ],
-   "horas": null,
+   "horas": 1.0,
    "horas_comentadas": [],
    "eventos": [
     {
@@ -979,7 +990,7 @@
     "documentation",
     "gitpages"
    ],
-   "horas": null,
+   "horas": 1.0,
    "horas_comentadas": [],
    "eventos": [
     {
@@ -1039,7 +1050,9 @@
    "issue": 49,
    "titulo": "CI-M18 e M26",
    "milestone": "Entrega 2",
-   "responsaveis": [],
+   "responsaveis": [
+    "Zayra-Moraes"
+   ],
    "criada_em": "2026-11-04T13:20:36Z",
    "fechada_em": "2026-11-04T13:22:26Z",
    "estado": "CLOSED",
@@ -1075,7 +1088,7 @@
     "fase-3",
     "medição"
    ],
-   "horas": null,
+   "horas": 4.0,
    "horas_comentadas": [],
    "eventos": [
     {
@@ -1103,7 +1116,7 @@
     "fase-3",
     "medição"
    ],
-   "horas": null,
+   "horas": 3.0,
    "horas_comentadas": [],
    "eventos": [
     {
@@ -1844,7 +1857,7 @@
     "fase-3",
     "medição"
    ],
-   "horas": null,
+   "horas": 2.0,
    "horas_comentadas": [],
    "eventos": [
     {
@@ -2006,7 +2019,7 @@
    "labels": [
     "gestão"
    ],
-   "horas": null,
+   "horas": 3.5,
    "horas_comentadas": [],
    "eventos": [
     {

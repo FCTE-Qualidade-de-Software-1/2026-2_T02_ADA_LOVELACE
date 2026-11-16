@@ -10,7 +10,7 @@ a partir do histórico de **Status** do Kanban e do histórico de commits da
 mão.
 
 <!-- BEGIN AUTO: coleta -->
-*Dados do Project coletados em 15/11/2026 22:04 (horário de Brasília); 42 issues no milestone Entrega 2.*
+*Dados do Project coletados em 15/11/2026 23:02 (horário de Brasília); 42 issues no milestone Entrega 2.*
 <!-- END AUTO: coleta -->
 
 ## Escopo e regras de contagem
@@ -50,7 +50,7 @@ da Entrega 2. Fonte: histórico de Status dos dois quadros.*
 | Entrega | Issues concluídas | Passaram por Em andamento | Passaram por Em revisão |
 | --- | ---: | ---: | ---: |
 | Entrega 1 | 17 | 1 (6%) | 1 (6%) |
-| Entrega 2 | 29 | 24 (83%) | 25 (86%) |
+| Entrega 2 | 30 | 25 (83%) | 26 (87%) |
 <!-- END AUTO: comparacao -->
 
 ## Lead Time e Cycle Time
@@ -80,6 +80,7 @@ Status do Kanban.*
 | [#35](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/35) | Plano de avaliação (Fase 3) | 13/11 | 17,6 | 1,8 |
 | [#36](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/36) | Ambiente de teste e instância local do Excalidraw | 09/11 | 14,0 | 0,2 |
 | [#37](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/37) | Roteiro de tarefas, participantes e consentimento | 12/11 | 16,5 | 1,0 |
+| [#40](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/40) | Gestão PSM/CID na Entrega 2 | 15/11 | 20,1 | 1,1 |
 | [#41](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/41) | Revisão obrigatória na main | 04/11 | 8,7 | 0,0 |
 | [#49](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/49) | CI-M18 e M26 | 04/11 | 0,0 | N/A |
 | [#52](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/52) | S-M9 suficiência da autenticação | 04/11 | 0,0 | N/A |
@@ -106,7 +107,7 @@ Status do Kanban.*
 | [#76](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/76) | Gráficos de gestão da Entrega 2 | 15/11 | 11,2 | 0,9 |
 | [#82](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/82) | Páginas de resultado de S-M9, S-M13, F-M10, F-M12, CI-M18 e CI-M26 | 09/11 | 0,1 | N/A |
 
-**Mediana:** Lead Time de **9,0 dias** (29 issues) e Cycle Time de **0,7 dias** (24 issues; 5 sem passagem por *Em andamento* ficam como N/A).
+**Mediana:** Lead Time de **9,0 dias** (30 issues) e Cycle Time de **0,9 dias** (25 issues; 5 sem passagem por *Em andamento* ficam como N/A).
 <!-- END AUTO: lead-cycle -->
 
 ## Fluxo acumulado
@@ -131,7 +132,7 @@ segundas-feiras e o último dia coletado.
 | 02/11 | 12 | 2 | 1 | 0 | 0 | 1 |
 | 09/11 | 3 | 30 | 0 | 1 | 8 | 1 |
 | 10/11 | 3 | 30 | 0 | 1 | 8 | 1 |
-| 15/11 | 3 | 5 | 5 | 0 | 29 | 5 |
+| 15/11 | 3 | 5 | 4 | 0 | 30 | 4 |
 <!-- END AUTO: fluxo -->
 
 ## Planejado × concluído por ciclo
@@ -152,7 +153,7 @@ histórico de Status do Kanban.*
 | Ciclo | Período | Planejadas | Planejadas e concluídas | Planejado × concluído | Total concluído no ciclo |
 | --- | --- | ---: | ---: | ---: | ---: |
 | Ciclo 1 | 27/10 a 09/11 | 6 | 2 | 33% | 8 |
-| Ciclo 2 (em curso) | 10/11 a 18/11 | 27 | 18 | 67% | 21 |
+| Ciclo 2 (em curso) | 10/11 a 18/11 | 27 | 19 | 70% | 22 |
 
 Issues da Entrega 2 sem Prazo no Project (fora do planejado): 8 ([#17](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/17), [#18](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/18), [#19](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/19), [#41](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/41), [#49](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/49), [#52](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/52), [#53](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/53), [#82](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/82)).
 <!-- END AUTO: planejado -->
@@ -175,12 +176,12 @@ commits da `main`.*
 | Integrante | Commits não-merge |
 | --- | ---: |
 | André Henrique | 10 |
-| Giovanna Felipe | 14 |
+| Giovanna Felipe | 15 |
 | João Pedro Lopes | 30 |
 | Luís Cunha | 7 |
 | Renato Araújo | 13 |
 | Zayra Moraes | 9 |
-| **Total** | **83** |
+| **Total** | **84** |
 <!-- END AUTO: commits -->
 
 ## Horas por integrante e por fase
@@ -202,16 +203,16 @@ campo Horas e comentários das issues.*
 <!-- BEGIN AUTO: horas -->
 | Integrante | Fase 3 | Fase 4 | Transversal | Total |
 | --- | ---: | ---: | ---: | ---: |
-| André Henrique | 1,0 | 7,6 | 0,0 | 8,6 |
-| Giovanna Felipe | 0,0 | 3,7 | 0,0 | 3,7 |
-| João Pedro Lopes | 0,7 | 4,1 | 0,7 | 5,5 |
-| Luís Cunha | 0,0 | 7,8 | 0,0 | 7,8 |
-| Renato Araújo | 0,0 | 3,9 | 0,0 | 3,9 |
-| Zayra Moraes | 1,0 | 5,0 | 0,0 | 6,0 |
-| **Total** | **2,7** | **32,1** | **0,7** | **35,5** |
+| André Henrique | 1,0 | 7,6 | 0,2 | 8,7 |
+| Giovanna Felipe | 0,0 | 5,7 | 6,7 | 12,3 |
+| João Pedro Lopes | 0,7 | 7,6 | 0,8 | 9,1 |
+| Luís Cunha | 0,0 | 7,8 | 0,2 | 8,0 |
+| Renato Araújo | 0,0 | 7,4 | 0,2 | 7,6 |
+| Zayra Moraes | 1,0 | 5,0 | 0,7 | 6,7 |
+| **Total** | **2,7** | **41,1** | **8,7** | **52,5** |
 
-Issues concluídas com horas registradas: **22 de 29**.
-Sem horas no Project (preencher o campo **Horas** ou comentar "Horas: x" na issue): [#33](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/33), [#41](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/41), [#49](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/49), [#52](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/52), [#53](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/53), [#72](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/72), [#76](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/76).
+Issues concluídas com horas registradas: **29 de 30**.
+Sem horas no Project (preencher o campo **Horas** ou comentar "Horas: x" na issue): [#49](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/49).
 <!-- END AUTO: horas -->
 
 ## Esforço previsto × realizado
@@ -234,18 +235,18 @@ Fonte: estimativa de custos e campo Horas do Project.*
 | F3.1 | [#35](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/35) | 18,0 | 1,0 | -17,0 (-94%) |
 | F3.2 | [#36](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/36) | 10,0 | 0,7 | -9,3 (-93%) |
 | F3.3 | [#37](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/37) | 5,0 | 1,0 | -4,0 (-80%) |
-| F4.1 | [#52](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/52), [#53](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/53), [#55](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/55), [#56](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/56), [#57](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/57), [#58](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/58), [#59](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/59), [#60](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/60), [#61](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/61) | 16,0 | 6,7 | -9,3 (-58%) |
+| F4.1 | [#52](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/52), [#53](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/53), [#55](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/55), [#56](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/56), [#57](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/57), [#58](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/58), [#59](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/59), [#60](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/60), [#61](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/61) | 16,0 | 13,7 | -2,3 (-15%) |
 | F4.2 | [#62](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/62), [#63](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/63), [#64](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/64), [#65](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/65), [#66](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/66), [#67](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/67) | 16,0 | 12,2 | -3,8 (-24%) |
-| F4.3 | [#49](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/49), [#68](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/68), [#69](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/69), [#70](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/70), [#71](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/71), [#72](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/72), [#73](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/73), [#74](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/74), [#75](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/75) | 30,0 | 10,3 | -19,7 (-66%) |
+| F4.3 | [#49](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/49), [#68](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/68), [#69](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/69), [#70](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/70), [#71](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/71), [#72](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/72), [#73](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/73), [#74](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/74), [#75](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/75) | 30,0 | 12,3 | -17,7 (-59%) |
 | F4.4 | [#20](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/20), [#77](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/77) | 12,0 | 3,0 | -9,1 (-75%) |
 | F4.5 | [#38](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/38) | 10,0 | 0,0 | -10,0 (-100%) |
 | F4.6 | [#39](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/39), [#42](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/42) | 10,0 | 0,0 | -10,0 (-100%) |
-| T.1 | [#43](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/43), [#82](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/82) | 4,0 | 0,7 | -3,3 (-83%) |
-| T.2 | [#40](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/40), [#41](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/41), [#76](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/76) | 10,0 | 0,0 | -10,0 (-100%) |
-| T.3 | [#33](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/33) | 9,0 | 0,0 | -9,0 (-100%) |
-| **Total** | | **150,0** | **35,5** | **-114,5 (-76%)** |
+| T.1 | [#43](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/43), [#82](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/82) | 4,0 | 1,7 | -2,3 (-58%) |
+| T.2 | [#40](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/40), [#41](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/41), [#76](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/76) | 10,0 | 6,0 | -4,0 (-40%) |
+| T.3 | [#33](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/33) | 9,0 | 1,0 | -8,0 (-89%) |
+| **Total** | | **150,0** | **52,5** | **-97,5 (-65%)** |
 
-Custo de referência do realizado: **R$ 286,44** (35,5 p-h × R$ 8,08/p-h), contra R$ 1.212,00 previstos.
+Custo de referência do realizado: **R$ 423,80** (52,5 p-h × R$ 8,08/p-h), contra R$ 1.212,00 previstos.
 <!-- END AUTO: esforco -->
 
 ## Revisão efetiva dos pull requests
@@ -269,8 +270,8 @@ Fonte: pull requests e revisões do repositório.*
 | --- | ---: | ---: | ---: | :---: | ---: | ---: |
 | Entrega 1 | 12 | 0 | 0% | 0 | 5 | 13 |
 | Entrega 2, antes da regra (até 04/11) | 7 | 0 | 0% | 0 | 0 | 2 |
-| Entrega 2, depois da regra | 28 | 26 | 93% | 2 | 0 | 0 |
-| Entrega 2 (total) | 35 | 26 | 74% | 1 | 0 | 2 |
+| Entrega 2, depois da regra | 29 | 27 | 93% | 2 | 0 | 0 |
+| Entrega 2 (total) | 36 | 27 | 75% | 1 | 0 | 2 |
 
 Integrados sem aprovação depois da regra: [#87](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/87), [#103](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/103).
 <!-- END AUTO: revisao -->

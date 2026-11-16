@@ -90,14 +90,14 @@ disponível para conferência e processamento.
 | Renato Araújo Gameiro | 17 |
 | andrehsb | 14 |
 | Zayra-Moraes | 14 |
-| Giovanna Felipe | 3 |
+| Giovanna Felipe | 4 |
 | Luís Felipe Parreira Cunha | 3 |
 | renatoyx | 2 |
 | Renato Gameiro | 1 |
 | renatvg | 1 |
-| **Total** | **127** |
+| **Total** | **128** |
 
-*Última coleta: 2026-11-16T00:57:56+00:00, referência `main`.*
+*Última coleta: 2026-11-16T02:02:36+00:00, referência `main`.*
 <!-- END AUTO: membros-commits -->
 
 A atualização é executada a cada push na `main` e semanalmente pelo

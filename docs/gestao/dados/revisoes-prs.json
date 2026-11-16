@@ -1,5 +1,5 @@
 {
- "coletado_em": "2026-11-16T01:04:47+00:00",
+ "coletado_em": "2026-11-16T02:02:42+00:00",
  "prs": [
   {
    "numero": 1,
@@ -624,6 +624,21 @@
      "revisor": "ojplc",
      "estado": "APPROVED",
      "em": "2026-11-16T00:57:25Z"
+    }
+   ]
+  },
+  {
+   "numero": 108,
+   "titulo": "feat: horas, esforço previsto x realizado e revisão efetiva na gestão…",
+   "autor": "giovannafg",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-11-16T01:36:34Z",
+   "integrado_em": "2026-11-16T02:02:16Z",
+   "revisoes": [
+    {
+     "revisor": "ojplc",
+     "estado": "APPROVED",
+     "em": "2026-11-16T02:01:59Z"
     }
    ]
   }
