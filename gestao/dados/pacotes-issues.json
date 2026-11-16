@@ -1,0 +1,20 @@
+{
+ "descricao": "Pacote da estimativa de custos (estimativa-custos.md) de cada issue da Entrega 2. Usado para comparar o esforço previsto com as horas registradas no Project. Issues fora da lista não entram na comparação.",
+ "pacotes": {
+  "F3.1": [35],
+  "F3.2": [36],
+  "F3.3": [37],
+  "F4.1": [52, 53, 55, 56, 57, 58, 59, 60, 61],
+  "F4.2": [62, 63, 64, 65, 66, 67],
+  "F4.3": [49, 68, 69, 70, 71, 72, 73, 74, 75],
+  "F4.4": [20, 77],
+  "F4.5": [38],
+  "F4.6": [39, 42],
+  "T.1": [43, 82],
+  "T.2": [40, 41, 76],
+  "T.3": [33]
+ },
+ "fora_da_estimativa": {
+  "44": "Apresentação final: não fazia parte dos 19 pacotes da estimativa."
+ }
+}
