@@ -1,5 +1,5 @@
 {
- "coletado_em": "2026-11-16T02:02:41+00:00",
+ "coletado_em": "2026-11-16T18:39:05+00:00",
  "issues": [
   {
    "issue": 9,
@@ -952,7 +952,7 @@
    "estado": "OPEN",
    "motivo_fechamento": null,
    "prazo": "2026-11-18",
-   "status_atual": "A fazer",
+   "status_atual": "Em andamento",
    "labels": [
     "documentation",
     "fase-4"
@@ -969,6 +969,11 @@
      "em": "2026-11-04T17:09:09Z",
      "de": "Backlog",
      "para": "A fazer"
+    },
+    {
+     "em": "2026-11-16T13:44:17Z",
+     "de": "A fazer",
+     "para": "Em andamento"
     }
    ]
   },
@@ -1060,7 +1065,7 @@
    "prazo": null,
    "status_atual": "Concluído",
    "labels": [],
-   "horas": null,
+   "horas": 1.0,
    "horas_comentadas": [],
    "eventos": [
     {
