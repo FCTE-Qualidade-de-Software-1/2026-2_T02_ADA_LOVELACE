@@ -10,7 +10,7 @@ a partir do histórico de **Status** do Kanban e do histórico de commits da
 mão.
 
 <!-- BEGIN AUTO: coleta -->
-*Dados do Project coletados em 15/11/2026 21:34 (horário de Brasília); 42 issues no milestone Entrega 2.*
+*Dados do Project coletados em 15/11/2026 22:04 (horário de Brasília); 42 issues no milestone Entrega 2.*
 <!-- END AUTO: coleta -->
 
 ## Escopo e regras de contagem
@@ -177,13 +177,103 @@ commits da `main`.*
 | André Henrique | 10 |
 | Giovanna Felipe | 14 |
 | João Pedro Lopes | 30 |
-| Luís Cunha | 4 |
+| Luís Cunha | 7 |
 | Renato Araújo | 13 |
 | Zayra Moraes | 9 |
-| **Total** | **80** |
-
-Identidades não associadas a um integrante: Luís Felipe Parreira Cunha (3).
+| **Total** | **83** |
 <!-- END AUTO: commits -->
+
+## Horas por integrante e por fase
+
+Horas de trabalho registradas no campo **Horas** do Project. Em issue de um
+só responsável, vale o campo; em atividade compartilhada, vale o comentário
+"Horas: x" de cada integrante na issue (sem comentários, o campo é dividido
+igualmente entre os responsáveis). As fases seguem os pacotes da
+[estimativa de custos](estimativa-custos.md): Fase 3 é o plano de avaliação,
+Fase 4 são as medições e a análise, e Transversal reúne GitPage, gestão e
+revisão. Como em commits, a ordem é alfabética e o número não serve para
+comparar integrantes: as horas dependem do registro de cada um.
+
+![Horas registradas por integrante e por fase na Entrega 2](../assets/gestao/horas-integrante-entrega-2.svg)
+
+*Gráfico 6. Horas registradas no Project por integrante e por fase. Fonte:
+campo Horas e comentários das issues.*
+
+<!-- BEGIN AUTO: horas -->
+| Integrante | Fase 3 | Fase 4 | Transversal | Total |
+| --- | ---: | ---: | ---: | ---: |
+| André Henrique | 1,0 | 7,6 | 0,0 | 8,6 |
+| Giovanna Felipe | 0,0 | 3,7 | 0,0 | 3,7 |
+| João Pedro Lopes | 0,7 | 4,1 | 0,7 | 5,5 |
+| Luís Cunha | 0,0 | 7,8 | 0,0 | 7,8 |
+| Renato Araújo | 0,0 | 3,9 | 0,0 | 3,9 |
+| Zayra Moraes | 1,0 | 5,0 | 0,0 | 6,0 |
+| **Total** | **2,7** | **32,1** | **0,7** | **35,5** |
+
+Issues concluídas com horas registradas: **22 de 29**.
+Sem horas no Project (preencher o campo **Horas** ou comentar "Horas: x" na issue): [#33](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/33), [#41](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/41), [#49](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/49), [#52](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/52), [#53](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/53), [#72](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/72), [#76](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/76).
+<!-- END AUTO: horas -->
+
+## Esforço previsto × realizado
+
+Compara, por pacote da [estimativa de custos](estimativa-custos.md), o
+esforço que restava na data-base da estimativa (25/10, cenário B) com as
+horas registradas nas issues do pacote
+(`desvio = realizado − previsto`). A ligação entre issue e pacote está em
+[`pacotes-issues.json`](dados/pacotes-issues.json). Enquanto houver issues
+abertas ou sem horas, o realizado é um piso, e não o esforço final.
+
+![Esforço previsto e horas registradas por pacote na Entrega 2](../assets/gestao/esforco-previsto-realizado-entrega-2.svg)
+
+*Gráfico 7. Esforço previsto (cenário B) e horas registradas por pacote.
+Fonte: estimativa de custos e campo Horas do Project.*
+
+<!-- BEGIN AUTO: esforco -->
+| Pacote | Issues | Previsto B (p-h) | Realizado (p-h) | Desvio |
+| --- | --- | ---: | ---: | ---: |
+| F3.1 | [#35](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/35) | 18,0 | 1,0 | -17,0 (-94%) |
+| F3.2 | [#36](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/36) | 10,0 | 0,7 | -9,3 (-93%) |
+| F3.3 | [#37](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/37) | 5,0 | 1,0 | -4,0 (-80%) |
+| F4.1 | [#52](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/52), [#53](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/53), [#55](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/55), [#56](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/56), [#57](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/57), [#58](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/58), [#59](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/59), [#60](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/60), [#61](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/61) | 16,0 | 6,7 | -9,3 (-58%) |
+| F4.2 | [#62](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/62), [#63](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/63), [#64](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/64), [#65](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/65), [#66](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/66), [#67](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/67) | 16,0 | 12,2 | -3,8 (-24%) |
+| F4.3 | [#49](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/49), [#68](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/68), [#69](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/69), [#70](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/70), [#71](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/71), [#72](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/72), [#73](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/73), [#74](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/74), [#75](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/75) | 30,0 | 10,3 | -19,7 (-66%) |
+| F4.4 | [#20](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/20), [#77](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/77) | 12,0 | 3,0 | -9,1 (-75%) |
+| F4.5 | [#38](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/38) | 10,0 | 0,0 | -10,0 (-100%) |
+| F4.6 | [#39](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/39), [#42](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/42) | 10,0 | 0,0 | -10,0 (-100%) |
+| T.1 | [#43](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/43), [#82](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/82) | 4,0 | 0,7 | -3,3 (-83%) |
+| T.2 | [#40](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/40), [#41](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/41), [#76](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/76) | 10,0 | 0,0 | -10,0 (-100%) |
+| T.3 | [#33](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/33) | 9,0 | 0,0 | -9,0 (-100%) |
+| **Total** | | **150,0** | **35,5** | **-114,5 (-76%)** |
+
+Custo de referência do realizado: **R$ 286,44** (35,5 p-h × R$ 8,08/p-h), contra R$ 1.212,00 previstos.
+<!-- END AUTO: esforco -->
+
+## Revisão efetiva dos pull requests
+
+Métrica **G-G5** da [gestão do grupo](../analise/gestao-grupo.md#metricas-do-grupo):
+pull requests integrados com aprovação (*Approve*) de outro integrante antes
+do merge ÷ pull requests integrados. Comentários e revisões de bots não
+contam. O período da Entrega 2 é dividido pela regra de revisão obrigatória
+na `main` ([#41](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/41),
+04/11), decisão tomada a partir da medição da Entrega 1. Pela mesma regra de
+contagem, nenhum PR da Entrega 1 teve aprovação formal; o valor de 2 de 12
+registrado no artigo da Entrega 1 contava também revisões sem aprovação.
+
+![Revisão efetiva antes e depois da regra de revisão obrigatória](../assets/gestao/revisao-efetiva.svg)
+
+*Gráfico 8. Percentual de PRs aprovados por outro integrante antes do merge.
+Fonte: pull requests e revisões do repositório.*
+
+<!-- BEGIN AUTO: revisao -->
+| Período | PRs integrados | Aprovados por outro integrante | Revisão efetiva | Pontos G-G5 | Integrados pelo próprio autor | Commits direto na `main` |
+| --- | ---: | ---: | ---: | :---: | ---: | ---: |
+| Entrega 1 | 12 | 0 | 0% | 0 | 5 | 13 |
+| Entrega 2, antes da regra (até 04/11) | 7 | 0 | 0% | 0 | 0 | 2 |
+| Entrega 2, depois da regra | 28 | 26 | 93% | 2 | 0 | 0 |
+| Entrega 2 (total) | 35 | 26 | 74% | 1 | 0 | 2 |
+
+Integrados sem aprovação depois da regra: [#87](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/87), [#103](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/103).
+<!-- END AUTO: revisao -->
 
 ## Como reproduzir
 

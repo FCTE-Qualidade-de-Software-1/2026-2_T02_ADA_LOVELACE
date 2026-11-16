@@ -106,7 +106,9 @@ Conforme a decisão de gestão registrada no artigo, a equipe passa a registrar
 as horas por integrante e por fase a partir da execução das medições. Na
 Entrega 2, o esforço realizado de cada pacote será comparado ao previsto
 (`desvio = realizado − previsto`, em p-h e em percentual), mantendo a mesma
-taxa para isolar a variação de esforço.
+taxa para isolar a variação de esforço. As horas registradas no Project e a
+comparação por pacote são atualizadas automaticamente em
+[Gráficos de gestão da Entrega 2](graficos-entrega-2.md#esforco-previsto-realizado).
 
 As tabelas de custo são geradas por
 [`calcular_custos_avaliacao.py`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/scripts/calcular_custos_avaliacao.py),
