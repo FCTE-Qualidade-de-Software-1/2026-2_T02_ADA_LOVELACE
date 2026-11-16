@@ -176,12 +176,12 @@ commits da `main`.*
 | Integrante | Commits não-merge |
 | --- | ---: |
 | André Henrique | 10 |
-| Giovanna Felipe | 15 |
+| Giovanna Felipe | 16 |
 | João Pedro Lopes | 30 |
 | Luís Cunha | 7 |
 | Renato Araújo | 13 |
 | Zayra Moraes | 9 |
-| **Total** | **84** |
+| **Total** | **85** |
 <!-- END AUTO: commits -->
 
 ## Horas por integrante e por fase

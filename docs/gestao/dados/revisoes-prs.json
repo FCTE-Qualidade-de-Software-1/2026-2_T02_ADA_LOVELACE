@@ -1,5 +1,5 @@
 {
- "coletado_em": "2026-11-16T02:02:42+00:00",
+ "coletado_em": "2026-11-16T22:21:36+00:00",
  "prs": [
   {
    "numero": 1,
@@ -639,6 +639,21 @@
      "revisor": "ojplc",
      "estado": "APPROVED",
      "em": "2026-11-16T02:01:59Z"
+    }
+   ]
+  },
+  {
+   "numero": 109,
+   "titulo": "docs: publica as páginas de resultado das métricas já coletadas",
+   "autor": "giovannafg",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-11-16T01:37:31Z",
+   "integrado_em": "2026-11-16T22:21:09Z",
+   "revisoes": [
+    {
+     "revisor": "ojplc",
+     "estado": "APPROVED",
+     "em": "2026-11-16T22:21:00Z"
     }
    ]
   }
