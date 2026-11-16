@@ -44,3 +44,21 @@ Exemplos do bloco `errors` de `locales/en.json`:
 
 Classificação das 18 mensagens:
 [`CI-M18_mensagens-de-erro.md`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M18_mensagens-de-erro.md).
+
+## Contexto da consolidação
+
+| Item | Registro |
+| --- | --- |
+| Objetivo e questão GQM | O5 · CI-Q7 ([roteiro](../../analise/roteiro.md)) |
+| Versão de referência | Excalidraw [`e7b534668a60add7f725531f3c9abf32508c7b4e`](https://github.com/excalidraw/excalidraw/commit/e7b534668a60add7f725531f3c9abf32508c7b4e); ressalvas de correspondência abaixo |
+| Valor medido | 8 de 18 mensagens (44%) — provisório |
+| Pontuação | **0/2 (provisória)** |
+| Origem | [PR #50](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/50), integrado na main |
+
+**Procedimento resumido:** Classificação documental das mensagens errors.* em inglês: explicar o problema e indicar uma ação.
+
+**Resultado e justificativa:** O registro classifica oito de dezoito como compreensíveis e acionáveis. Abaixo de 50% recebe 0.
+
+**Limitações:** Rascunho de uma avaliadora, sem validação de compreensão com participantes; revisão pendente e sensibilidade de 39% a 61%. Não incorpora entrevistas nem cobre toasts, pt-BR ou todas as mensagens exibidas. SHA do snapshot não confirmado na evidência.
+
+**Evidência original:** [CI-M18_mensagens-de-erro.md](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/c9ac9610b92474af82cc9ad3e67dc53bfa3490d4/evidencias/capacidade-interacao/CI-M18_mensagens-de-erro.md), com dados, procedimento completo e arquivos de apoio. Esta página consolida a coleta existente; não registra nova medição ou aprovação humana.

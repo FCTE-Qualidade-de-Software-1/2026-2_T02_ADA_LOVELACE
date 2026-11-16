@@ -11,16 +11,16 @@ do Excalidraw. Só as métricas já coletadas têm nota. Os critérios estão no
 | --- | --- | :---: |
 | [S-M1 · Mensagens de colaboração cifradas](seguranca/s-m1.md) | 5 de 6 tipos de evento (83,3%) | **0** |
 | [S-M2 · Chave enviada ao servidor](seguranca/s-m2.md) | Não (0 ocorrências) | **2** |
-| S-M3 · Mecanismos de controle de acesso | — | — |
-| S-M4 · Dados persistidos localmente sem criptografia | — | — |
+| [S-M3 · Mecanismos de controle de acesso](seguranca/s-m3.md) | 0 mecanismos | **0** |
+| [S-M4 · Dados persistidos localmente sem criptografia](seguranca/s-m4.md) | Sim: cena e dados associados legíveis | **0** |
 | [S-M5 · Taxa de detecção de adulteração](seguranca/s-m5.md) | 221 de 221 rejeitadas (100%) | **2** |
 | [S-M6 · Inconsistências após edições simultâneas](seguranca/s-m6.md) | 2 em 8 rodadas | **1** |
-| S-M7 · Completude da trilha de auditoria | — | — |
-| S-M8 · Histórico de versões com autoria | — | — |
+| [S-M7 · Completude da trilha de auditoria](seguranca/s-m7.md) | 0 de 7 ações com autoria verificável (0%) | **0** |
+| [S-M8 · Histórico de versões com autoria](seguranca/s-m8.md) | Histórico persistente com autoria não encontrado | **0** |
 | [S-M9 · Suficiência da autenticação](seguranca/s-m9.md) | Nome autodeclarado | **1** |
-| S-M10 · Passar-se por outro participante | — | — |
-| S-M11 · Vulnerabilidades altas ou críticas nas dependências | — | — |
-| S-M12 · Advisories, CVEs e tempo de correção | — | — |
+| [S-M10 · Passar-se por outro participante](seguranca/s-m10.md) | Sim (1 tentativa aceita sem alerta) | **0** |
+| [S-M11 · Vulnerabilidades altas ou críticas nas dependências](seguranca/s-m11.md) | 5 avisos altos; 0 críticos no recorte web | **0** |
+| [S-M12 · Advisories, CVEs e tempo de correção](seguranca/s-m12.md) | 1 aviso aplicável sem correção identificada; média indisponível | **0** |
 | [S-M13 · Cabeçalhos de segurança HTTP](seguranca/s-m13.md) | 3 de 6 cabeçalhos (nota C) | **1** |
 
 ## Flexibilidade
@@ -57,16 +57,20 @@ do Excalidraw. Só as métricas já coletadas têm nota. Os critérios estão no
 | CI-M11 · Tempo de experientes em relação a iniciantes | — | — |
 | CI-M12 · Inconsistências da interface | — | — |
 | [CI-M13 · Ações com feedback visual imediato](capacidade-interacao/ci-m13.md) | 13 de 13 ações (100%) | **2** |
-| CI-M14 · Taxa de recuperabilidade | — | — |
-| CI-M15 · Ações destrutivas sem confirmação | — | — |
-| CI-M16 · Perda de dados ao fechar ou recarregar | — | — |
+| [CI-M14 · Taxa de recuperabilidade](capacidade-interacao/ci-m14.md) | 11 de 13 ações (84,62%) | **0 provisória** |
+| [CI-M15 · Ações destrutivas sem confirmação](capacidade-interacao/ci-m15.md) | 1 ação sem confirmação entre 4 tipos | **1** |
+| [CI-M16 · Perda de dados ao fechar ou recarregar](capacidade-interacao/ci-m16.md) | Não houve perda nos 2 cenários testados | **2** |
 | CI-M17 · Taxa de erro do usuário | — | — |
-| [CI-M18 · Mensagens de erro compreensíveis](capacidade-interacao/ci-m18.md) | 44% | **0** |
+| [CI-M18 · Mensagens de erro compreensíveis](capacidade-interacao/ci-m18.md) | 8 de 18 mensagens (44%) — provisório | **0 provisória** |
 | CI-M19 · Escore SUS | — | — |
 | CI-M20 · Satisfação visual | — | — |
 | CI-M21 · Intenção de uso futuro | — | — |
-| CI-M22 · Violações da WCAG 2.2 (A e AA) | — | — |
-| CI-M23 · Funções operáveis só pelo teclado | — | — |
-| [CI-M24 · Elementos anunciados por leitor de tela](capacidade-interacao/ci-m24.md) | 1 de 9 (11%) | **0** |
-| CI-M25 · Contraste mínimo de 4,5:1 | — | — |
-| [CI-M26 · Idiomas e tradução para o português](capacidade-interacao/ci-m26.md) | 92,5% | **1** |
+| [CI-M22 · Violações da WCAG 2.2 (A e AA)](capacidade-interacao/ci-m22.md) | 6 violações distintas | **0** |
+| [CI-M23 · Funções operáveis só pelo teclado](capacidade-interacao/ci-m23.md) | 18 de 28 funções (64,3%) | **1** |
+| [CI-M24 · Elementos anunciados por leitor de tela](capacidade-interacao/ci-m24.md) | 1 de 9 elementos (11,1%) | **0** |
+| [CI-M25 · Contraste mínimo de 4,5:1](capacidade-interacao/ci-m25.md) | 8 de 19 combinações (42,1%) | **0** |
+| [CI-M26 · Idiomas e tradução para o português](capacidade-interacao/ci-m26.md) | 57 idiomas; 594 de 642 strings (92,5%) | **1** |
+
+## Rastreabilidade da contribuição de Renato
+
+[Inventário das 26 métricas](inventario-renato-issue-20.md), com origem, integração, revisão e limitações. CI-M17 e CI-M19 a CI-M21 permanecem sem valor e sem nota; há fichas em branch de entrevistas aguardando revisão e consolidação. Notas provisórias não representam revisão concluída.
