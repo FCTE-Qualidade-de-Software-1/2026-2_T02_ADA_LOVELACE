@@ -17,7 +17,7 @@ Para cada métrica, copiar `evidencias/flexibilidade/template.md` para `F-Mxx_de
 | F-M2 | Coletada: 3 de 5 sistemas (60%), nota 1; Linux indisponível | `F-M2/F-M2_compatibilidade-sistemas_2026-11-14.md` |
 | F-M3 | Coletada: 2 defeitos específicos, nota 1 | `F-M3/F-M3_defeitos-ambiente_2026-11-14.md` |
 | F-M4 | Coletada por emulação: 25 de 25 funções por toque no celular e no tablet (100%), nota 2 | `F-M4_cobertura-mobile.md` |
-| F-M7 | Comparação de funções com draw.io ou Miro | — |
+| F-M7 | Coletada com o draw.io: 24 de 42 funções (57,1%), nota 0 | `F-M7_inclusao-funcional.md` |
 | F-M8, M9 | Exigem participantes: adiar | — |
 
 ## Tarefas de código (sem navegador)
