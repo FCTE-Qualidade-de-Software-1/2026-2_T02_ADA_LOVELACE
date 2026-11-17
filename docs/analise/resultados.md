@@ -6,19 +6,36 @@ partir da documentação do Excalidraw.
 
 ## Resumo executivo
 
-`[Apresente a síntese após a coleta: versão avaliada, ambientes, objetivos
-atendidos e principais riscos.]`
+O Excalidraw foi avaliado no commit `e7b5346`, entre 4 e 15 de novembro de
+2026, em seis objetivos ligados a três características da ISO/IEC 25010:2023:
+Segurança, Flexibilidade e Capacidade de interação. Das 51 métricas do
+roteiro, 37 têm nota; as outras 14 dependem das sessões com participantes.
+
+Com os dados atuais:
+
+- **Segurança é o ponto fraco.** O1 (41,7%) e O2 (13,9%) não são atendidos. A
+  colaboração cifra o desenho e não envia a chave ao servidor, mas não há
+  controle de acesso ao link, autoria das alterações nem identificação dos
+  participantes, e a cena fica sem cifra no navegador.
+- **Flexibilidade é parcial.** O3 (66,7%) é parcialmente atendido: o editor
+  funciona em navegadores, no toque e offline, mas falham dois sistemas
+  móveis e as funções que dependem de rede. A migração de dados (F-Q4, 83,3%)
+  é atendida, com 100% de fidelidade no formato próprio.
+- **Acessibilidade não é atendida.** O6 (31,3%): o leitor de tela não
+  anuncia o que está desenhado, e há violações da WCAG e textos com pouco
+  contraste.
+- O4 e O5 dependem das métricas das sessões com participantes.
 
 ## Configuração da avaliação
 
 | Item | Registro |
 | --- | --- |
-| Versão ou commit avaliado | `[Preencher]` |
-| Data e duração da coleta | `[Preencher]` |
-| Navegadores e versões | `[Preencher]` |
-| Sistemas e dispositivos | `[Preencher]` |
-| Participantes e perfil | `[Preencher sem nomes reais]` |
-| Casos de teste executados | `[Preencher]` |
+| Versão ou commit avaliado | Commit [`e7b5346`](https://github.com/excalidraw/excalidraw/commit/e7b534668a60add7f725531f3c9abf32508c7b4e) do Excalidraw, em instância local e em build de produção servido localmente ([ambiente](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/ambiente/ambiente-local.md)) |
+| Data e duração da coleta | De 4 a 15 de novembro de 2026; sessões com participantes de 12 a 15 de novembro |
+| Navegadores e versões | Google Chrome 157 (também automatizado com Playwright), Microsoft Edge 157, Helium 157 (Chromium), Firefox 160, Safari 27.2 e Opera; NVDA 2026.3 com Edge para o leitor de tela |
+| Sistemas e dispositivos | Linux, Windows 10 e 11, macOS 27.2.1, Android 10, iOS 27.2.1 e iPadOS 27.2; celular e tablet também emulados no Chrome (Pixel 7 e iPad) |
+| Participantes e perfil | 5 participantes, identificados de P01 a P05: 3 iniciantes, 1 experiente e 1 vindo de outra ferramenta (Lucidchart) |
+| Casos de teste executados | As 51 métricas do [roteiro](roteiro.md); 37 coletadas, cada uma com evidência em `evidencias/`. Nas sessões, o roteiro único de seis tarefas do [protocolo](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/participantes/protocolo-testes-participantes.md) |
 
 ## Achados
 
@@ -41,12 +58,12 @@ As notas de cada métrica estão em [Resultados](../resultados/index.md).
 
 | Questão | Métricas (nota) | Média | Percentual | Hipótese | Por quê |
 | --- | --- | ---: | ---: | --- | --- |
-| S-Q1 · Confidencialidade dos dados | S-M1, S-M2 | `[ ]` | `[ ]%` | Confirmada parcialmente | Ver análise parcial de Renato, seção S-Q1; médias reservadas à etapa conjunta. |
-| S-Q2 · Controle de acesso | S-M3, S-M4 | `[ ]` | `[ ]%` | Confirmada no recorte, com limitações | Ver análise parcial de Renato, seção S-Q2; médias reservadas à etapa conjunta. |
-| S-Q3 · Integridade | S-M5, S-M6 | `[ ]` | `[ ]%` | Confirmada parcialmente | Ver análise parcial de Renato, seção S-Q3; médias reservadas à etapa conjunta. |
-| S-Q4 · Rastreabilidade | S-M7, S-M8 | `[ ]` | `[ ]%` | Confirmada no recorte observável | Ver análise parcial de Renato, seção S-Q4; médias reservadas à etapa conjunta. |
-| S-Q5 · Autenticidade | S-M9, S-M10 | `[ ]` | `[ ]%` | Confirmada no recorte local | Ver análise parcial de Renato, seção S-Q5; médias reservadas à etapa conjunta. |
-| S-Q6 · Resistência | S-M11 a S-M13 | `[ ]` | `[ ]%` | Confirmada parcialmente, com ressalvas | Ver análise parcial de Renato, seção S-Q6; médias reservadas à etapa conjunta. |
+| S-Q1 · Confidencialidade dos dados | S-M1 (0), S-M2 (2) | 1,00 | 50,0% | Confirmada parcialmente | Ver análise parcial de Renato, seção S-Q1. |
+| S-Q2 · Controle de acesso | S-M3 (0), S-M4 (0) | 0,00 | 0,0% | Confirmada no recorte, com limitações | Ver análise parcial de Renato, seção S-Q2. |
+| S-Q3 · Integridade | S-M5 (2), S-M6 (1) | 1,50 | 75,0% | Confirmada parcialmente | Ver análise parcial de Renato, seção S-Q3. |
+| S-Q4 · Rastreabilidade | S-M7 (0), S-M8 (0) | 0,00 | 0,0% | Confirmada no recorte observável | Ver análise parcial de Renato, seção S-Q4. |
+| S-Q5 · Autenticidade | S-M9 (1), S-M10 (0) | 0,50 | 25,0% | Confirmada no recorte local | Ver análise parcial de Renato, seção S-Q5. |
+| S-Q6 · Resistência | S-M11 (0), S-M12 (0), S-M13 (1) | 0,33 | 16,7% | Confirmada parcialmente, com ressalvas | Ver análise parcial de Renato, seção S-Q6. |
 | F-Q1 · Navegadores e sistemas | F-M1 (2), F-M2 (1), F-M3 (1) | 1,33 | 66,7% | Confirmada em parte | Os quatro navegadores passaram, mas 2 de 5 sistemas falharam (erro de clipboard no Firefox do Android e scroll travado no Safari do iPad): as diferenças ficaram nos dispositivos móveis, não no macOS |
 | F-Q2 · Dispositivos e condições de uso | F-M4 (2), F-M5 (1), F-M6 (1) | 1,33 | 66,7% | Confirmada em parte | Há barra própria para celular e o editor funciona offline, mas colaboração, IA, idioma e Mermaid dependem de rede, e o celular perde os botões de zoom e trava. A limitação no toque não apareceu nas 25 funções testadas |
 | F-Q3 · Substituir uma ferramenta equivalente | F-M7 (0), F-M8, F-M9 | `[ ]` | `[ ]%` | `[ ]` | F-M7: 24 de 42 funções do draw.io (57,1%), faltam as avançadas. F-M8 e F-M9 dependem das sessões com participantes |
@@ -55,12 +72,12 @@ As notas de cada métrica estão em [Resultados](../resultados/index.md).
 | CI-Q2 · Aprender as funções básicas | CI-M4 a CI-M6 | `[ ]` | `[ ]%` | `[ ]` | Dependem das sessões com participantes |
 | CI-Q3 · Apoio ao aprendizado contínuo | CI-M7 (1), CI-M8 | `[ ]` | `[ ]%` | `[ ]` | CI-M7: a ajuda documenta 46 de 74 funções (62,2%) e não tem tutorial guiado. CI-M8 depende das sessões |
 | CI-Q4 · Eficiência nas tarefas comuns | CI-M9 (2), CI-M10 (2), CI-M11 | `[ ]` | `[ ]%` | `[ ]` | CI-M9: as tarefas frequentes pedem em média 2,5 ações. CI-M10: as 17 funções frequentes têm atalho, as ferramentas com uma tecla. CI-M11 depende das sessões |
-| CI-Q5 · Consistência e previsibilidade | CI-M12 (2), CI-M13 (2) | 2,00 | 100% | Refutada | A hipótese previa diferenças conforme o contexto, mas os 11 casos de seleção, snapping e texto se comportaram igual nos dois contextos (CI-M12), e as 13 ações deram retorno visual (CI-M13). O resultado é melhor que o previsto |
-| CI-Q6 · Evitar e recuperar erros | CI-M14 a CI-M16 | `[ ]` | `[ ]%` | Confirmada parcialmente; classificação provisória | Ver análise parcial de Renato, seção CI-Q6; médias reservadas à etapa conjunta. |
+| CI-Q5 · Consistência e previsibilidade | CI-M12 (2), CI-M13 (2, provisória) | 2,00 | 100% | Refutada | A hipótese previa diferenças conforme o contexto, mas os 11 casos de seleção, snapping e texto se comportaram igual nos dois contextos (CI-M12), e as 13 ações deram retorno visual (CI-M13). O resultado é melhor que o previsto |
+| CI-Q6 · Evitar e recuperar erros | CI-M14 (0, provisória), CI-M15 (1), CI-M16 (2) | 1,00 | 50,0% | Confirmada parcialmente; classificação provisória | Ver análise parcial de Renato, seção CI-Q6. |
 | CI-Q7 · Frequência e clareza dos erros | CI-M17, CI-M18 | `[ ]` | `[ ]%` | Confirmação parcial apenas na clareza; frequência inconclusiva | Ver análise parcial de Renato, seção CI-Q7; médias reservadas à etapa conjunta. |
 | CI-Q8 · Satisfação | CI-M19 a CI-M21 | `[ ]` | `[ ]%` | Inconclusiva; sem confirmação ou refutação | Ver análise parcial de Renato, seção CI-Q8; médias reservadas à etapa conjunta. |
-| CI-Q9 · Uso por pessoas com deficiência | CI-M22 a CI-M25 | `[ ]` | `[ ]%` | Confirmada parcialmente, com barreiras adicionais | Ver análise parcial de Renato, seção CI-Q9; médias reservadas à etapa conjunta. |
-| CI-Q10 · Adaptação a perfis de usuário | CI-M26 | `[ ]` | `[ ]%` | Confirmada parcialmente na dimensão linguística | Ver análise parcial de Renato, seção CI-Q10; médias reservadas à etapa conjunta. |
+| CI-Q9 · Uso por pessoas com deficiência | CI-M22 (0), CI-M23 (1), CI-M24 (0), CI-M25 (0) | 0,25 | 12,5% | Confirmada parcialmente, com barreiras adicionais | Ver análise parcial de Renato, seção CI-Q9. |
+| CI-Q10 · Adaptação a perfis de usuário | CI-M26 (1) | 1,00 | 50,0% | Confirmada parcialmente na dimensão linguística | Ver análise parcial de Renato, seção CI-Q10. |
 
 ## Análise parcial de Segurança e Capacidade de interação — Renato
 
@@ -186,12 +203,24 @@ Definir o tratamento das métricas sem resultado, resolver as ressalvas metodol�
 
 | Objetivo | Média (0–2) | Percentual | Julgamento |
 | --- | ---: | ---: | --- |
-| O1 — Proteção das informações e controle de acesso | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
-| O2 — Identificação, responsabilização e riscos de segurança | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
+| O1 — Proteção das informações e controle de acesso | 0,83 | 41,7% | Não atendido |
+| O2 — Identificação, responsabilização e riscos de segurança | 0,28 | 13,9% | Não atendido |
 | O3 — Adaptabilidade a diferentes ambientes e dispositivos | 1,33 | 66,7% | Parcialmente atendido |
 | O4 — Substituibilidade e migração de diagramas | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
 | O5 — Compreensão, aprendizagem e operação da interface | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
-| O6 — Acessibilidade e adequação a diferentes perfis | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
+| O6 — Acessibilidade e adequação a diferentes perfis | 0,63 | 31,3% | Não atendido |
+
+## Relação com as decisões do propósito
+
+A Tabela 1 do [propósito](../fase_planejamento/proposito-partes-interessadas.md)
+liga cada decisão a objetivos e a um critério. Com os resultados atuais:
+
+| Decisão | Critério | Resultado |
+| --- | --- | --- |
+| Usar o link de colaboração gratuito para diagramas sensíveis | O1 e O2 atendidos e nenhuma métrica de confidencialidade com nota 0 | **Não recomendado.** O1 e O2 não são atendidos, e S-M1, S-M3 e S-M4 têm nota 0. A chave não vai ao servidor (S-M2), mas quem tiver o link entra sem senha e sem prazo |
+| Adotar como recurso pedagógico com alunos no celular ou com deficiência | O1, O3, O5 e O6 ao menos parcialmente atendidos | **Não recomendado sem restrições.** O3 é parcial, mas O1 e O6 não são atendidos. As barreiras com nota 0 viram restrições de uso: não usar com leitor de tela (CI-M24), atenção ao contraste (CI-M25) e ao zoom bloqueado (CI-M22) |
+| Migrar do draw.io ou do Miro | O4 atendido e fidelidade de 100% ao exportar e reimportar | **Em aberto.** A fidelidade é de 100% (F-M11) e a migração de dados atende (F-Q4), mas o Excalidraw tem só 57,1% das funções do draw.io (F-M7), e o O4 depende da F-M8 e da F-M9 |
+| Quais problemas corrigir primeiro | Métricas com nota 0 | As 14 da tabela de [oportunidades de melhoria](#oportunidades-de-melhoria), começando pelas de Segurança |
 
 ## Gestão do grupo
 
@@ -215,14 +244,64 @@ atendida]`**. Métricas com 0 pontos e respectivas ações: `[Preencher]`.
 
 ## Pontos fortes
 
-* `[Descreva o ponto forte, a métrica e a evidência que o sustentam.]`
+Métricas com nota 2:
+
+* **Integridade da colaboração:** 221 de 221 mensagens adulteradas foram
+  rejeitadas ([S-M5](../resultados/seguranca/s-m5.md)), e a chave de
+  criptografia não é enviada ao servidor ([S-M2](../resultados/seguranca/s-m2.md)).
+* **Compatibilidade e toque:** sem falhas nos quatro navegadores testados
+  ([F-M1](../resultados/flexibilidade/f-m1.md)) e 25 de 25 funções operáveis só
+  com toque no celular e no tablet ([F-M4](../resultados/flexibilidade/f-m4.md)).
+* **Dados sem perda:** 12 de 12 elementos preservados ao salvar e reabrir em
+  `.excalidraw`, PNG e SVG com cena ([F-M11](../resultados/flexibilidade/f-m11.md)),
+  e quatro formatos de importação ([F-M12](../resultados/flexibilidade/f-m12.md)).
+  Recarregar ou reabrir a aba não perde a cena ([CI-M16](../resultados/capacidade-interacao/ci-m16.md)).
+* **Operação eficiente e consistente:** média de 2,5 ações nas tarefas
+  frequentes ([CI-M9](../resultados/capacidade-interacao/ci-m9.md)), atalhos para
+  as 17 funções frequentes ([CI-M10](../resultados/capacidade-interacao/ci-m10.md)),
+  nenhuma inconsistência em 11 casos ([CI-M12](../resultados/capacidade-interacao/ci-m12.md))
+  e retorno visual nas 13 ações testadas ([CI-M13](../resultados/capacidade-interacao/ci-m13.md)).
 
 ## Oportunidades de melhoria
 
-* `[Descreva a oportunidade, sua prioridade, o impacto e a recomendação.]`
+Toda métrica com nota 0 vira oportunidade, mesmo quando a média da questão é
+maior ([seção 6 do roteiro](roteiro.md#6-criterios-de-julgamento)):
+
+| Métrica | Problema | Recomendação |
+| --- | --- | --- |
+| [S-M1](../resultados/seguranca/s-m1.md) | 1 de 6 tipos de evento da colaboração vai sem cifra (o nome no pedido de seguir) | Enviar o pedido de seguir pelo canal cifrado ou mandar só o `socketId` |
+| [S-M3](../resultados/seguranca/s-m3.md) | Link de colaboração sem senha, expiração nem revogação | Oferecer senha separada do link, expiração e revogação validadas pelo servidor |
+| [S-M4](../resultados/seguranca/s-m4.md) | Cena, arquivos e biblioteca ficam sem cifra no navegador | Avisar do salvamento local e permitir limpar ou não persistir; cifrar com chave do usuário num modo protegido |
+| [S-M7](../resultados/seguranca/s-m7.md) | Nenhuma das 7 ações tem autor registrado | Registrar ação, participante, horário e operação numa trilha persistente |
+| [S-M8](../resultados/seguranca/s-m8.md) | Não há histórico de versões, só desfazer e refazer | Guardar versões com data, autor e opção de restaurar |
+| [S-M10](../resultados/seguranca/s-m10.md) | Um participante assumiu o nome de outro sem bloqueio | Autenticar participantes ou, sem login, impedir nomes repetidos |
+| [S-M11](../resultados/seguranca/s-m11.md) | 5 vulnerabilidades altas nas dependências | Atualizar `nanoid` e `socket.io-parser` e repetir a auditoria |
+| [S-M12](../resultados/seguranca/s-m12.md) | Advisory aplicável sem correção publicada | Acompanhar a correção e verificar de novo a importação de cenas |
+| [F-M7](../resultados/flexibilidade/f-m7.md) | Só 24 de 42 funções do draw.io | Priorizar tabelas, swimlanes e importação de arquivos `.drawio` |
+| [CI-M14](../resultados/capacidade-interacao/ci-m14.md) (provisória) | Tema e zoom não entram no desfazer | Deixar claro o que o histórico cobre e manter controles para restaurar tema e zoom |
+| [CI-M18](../resultados/capacidade-interacao/ci-m18.md) | Só 8 de 18 mensagens de erro explicam o problema e a saída | Incluir o motivo provável e uma ação (por exemplo, "Use PNG, JPEG ou SVG") |
+| [CI-M22](../resultados/capacidade-interacao/ci-m22.md) | 6 violações da WCAG 2.2 (A e AA) | Permitir zoom no `viewport`, nomear o botão do menu e corrigir papéis e rótulos ARIA |
+| [CI-M24](../resultados/capacidade-interacao/ci-m24.md) | O leitor de tela anuncia 1 de 9 elementos desenhados | Expor os elementos numa estrutura acessível e anunciar seleção e mudanças |
+| [CI-M25](../resultados/capacidade-interacao/ci-m25.md) | 11 de 19 combinações de texto abaixo de 4,5:1 | Escurecer os cinzas usados em texto até 4,5:1 e não usar `opacity` nos atalhos |
 
 ## Limitações
 
-`[Registre limitações de ambiente, tamanho da amostra, funcionalidades não
-acessíveis, dependência de serviços externos e qualquer condição que limite a
-validade dos resultados.]`
+* **Instância local.** As medições usaram o commit `e7b5346` em instância
+  local ou build de produção local, não o excalidraw.com. O servidor de
+  colaboração foi o `excalidraw-room` local, e a IA usou um servidor falso.
+* **Amostra de participantes.** Cinco pessoas (três iniciantes, uma
+  experiente e uma vinda de outra ferramenta, nenhuma do perfil de
+  acessibilidade), em uma sessão cada. Médias de tempo e satisfação têm
+  baixo poder de generalização, e a CI-M8, que exige três sessões, fica
+  limitada.
+* **Emulação e automação.** Parte das métricas de Flexibilidade e de
+  acessibilidade foi coletada com Playwright no Chrome, e o celular e o tablet
+  da F-M4 foram emulados. Aparelhos reais aparecem só na F-M2 e na F-M3.
+* **Notas provisórias.** A CI-M13 e a CI-M14 têm nota provisória nas próprias
+  evidências, e a CI-M18 é uma classificação de uma pessoa, em revisão cruzada
+  na #77.
+* **Denominadores escolhidos pela equipe.** F-M7, F-M10, CI-M7 e CI-M10
+  dependem de listas definidas na coleta, registradas em cada evidência.
+* **Funções pagas e de rede.** O Excalidraw+ não foi avaliado, e as funções
+  que dependem de servidores oficiais (link compartilhável, IA, bibliotecas
+  públicas) foram testadas só no que é possível localmente.
