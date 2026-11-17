@@ -2,6 +2,7 @@
 
 **Nota 2**: as 25 funções feitas com mouse no desktop também foram feitas só com
 toque, no celular (Pixel 7 emulado) e no tablet (iPad emulado), 100% nos dois.
+A coleta usou Chrome 157 via Playwright.
 
 ```mermaid
 flowchart LR
@@ -23,7 +24,12 @@ ainda nota 2.
 !!! note "Recorte"
     A lista não inclui as funções que dependem de servidor nem atalhos e
     modificadores de teclado (Shift+clique, Alt+arrastar). A coleta foi por
-    emulação no Chrome, não em aparelhos reais.
+    emulação no Chrome, não em aparelhos reais: não reproduz a precisão do
+    dedo, o teclado virtual nem o Safari do iPadOS. Nos aparelhos reais da
+    F-M2 (Android 10, iPadOS 27.2 e iOS 27.2.1), a trava de ferramenta
+    (tarefa 25) não foi encontrada e ficou como não disponível. Contando
+    assim, seriam 24 de 25 (96%), ainda nota 2; esse recorte não substitui
+    os 25 de 25 da emulação.
 
 ## Evidências
 
@@ -42,3 +48,5 @@ ainda nota 2.
 
 Registro completo:
 [`F-M4_cobertura-mobile.md`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/flexibilidade/F-M4_cobertura-mobile.md).
+
+Arquivos de apoio: [arquivos de apoio](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/tree/main/evidencias/flexibilidade/F-M4).

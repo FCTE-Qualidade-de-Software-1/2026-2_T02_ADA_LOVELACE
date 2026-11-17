@@ -444,30 +444,31 @@ com 0 ponto deve gerar uma ação registrada. A quantidade de \textit{commits} �
 tratada como sinal de atividade, e não como medida de produtividade
 individual.
 
-A coleta é parcialmente automatizada: um \textit{workflow} semanal conta os
-\textit{commits} não-\textit{merge} por integrante, e outro extrai do
-histórico do quadro as datas de mudança de estado para calcular o
-\textit{Lead Time} e o \textit{Cycle Time} a cada 14 dias. A estimativa de
+A coleta é automatizada: a cada \textit{push} na \texttt{main} e
+semanalmente, um \textit{workflow} conta os \textit{commits} não-\textit{merge}
+por integrante, extrai do histórico do quadro as mudanças de estado e as horas
+registradas, lê as revisões dos \textit{pull requests} e regera os gráficos
+de gestão publicados na GitPage. A estimativa de
 custos decompõe o trabalho por atividades~\cite{gao20}, com três cenários de
 esforço (otimista, base e pessimista) e uma taxa de referência acadêmica de
 R\$~8,08 por pessoa-hora, obtida da bolsa de iniciação científica de
 R\$~700,00 para 20 horas semanais~\cite{cnpq25}; os valores calculados não são
-pagamentos. A Tabela~\ref{tab:psm} apresenta os valores medidos até a
-Entrega~1.
+pagamentos. A Tabela~\ref{tab:psm} compara os valores medidos na
+Entrega~1 e na Entrega~2.
 
 \begin{table*}[!t]
-\caption{Medidas de gestão do projeto (PSM/CID) na Entrega 1. Fonte: histórico do repositório, \textit{issues}, \textit{pull requests} e estimativa de custos, coletados em 26/10/2026.}
+\caption{Medidas de gestão do projeto (PSM/CID) na Entrega 1 e na Entrega 2. Fonte: histórico do repositório, quadro Kanban, \textit{pull requests} e estimativa de custos, coletados em 26/10/2026 (Entrega 1) e 15/11/2026 (Entrega 2).}
 \label{tab:psm}
 \centering
 \scriptsize
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}L{1.8cm} L{6.0cm} L{4.6cm} L{4.6cm}@{}}
+\begin{tabular}{@{}L{1.8cm} L{4.6cm} L{5.6cm} L{5.0cm}@{}}
 \toprule
-\textbf{Categoria} & \textbf{Medida e valor} & \textbf{Interpretação} & \textbf{Decisão de gestão}\\
+\textbf{Categoria} & \textbf{Entrega 1 e decisão} & \textbf{Entrega 2} & \textbf{Efeito da decisão}\\
 \midrule
-Desempenho dos processos & Revisão efetiva: 2 de 12 \textit{pull requests} integrados (17\%) tiveram revisão registrada de outro integrante antes do \textit{merge}; 5 dos 12 foram integrados pelo próprio autor; 7 \textit{commits} foram feitos direto na \texttt{main} depois do primeiro \textit{pull request} (18 a 21/10). \textit{Lead Time} e \textit{Cycle Time}: sem dados, pois a primeira coleta automática ainda não registrou \textit{issues} concluídas & Revisão efetiva abaixo de 70\%, portanto 0 ponto, o que exige ação; parte das alterações chegou à \texttt{main} sem revisão & Toda alteração na \texttt{main} passa por \textit{pull request} aprovado por outro integrante antes do \textit{merge}\\
-Calendário e progresso & 14 \textit{issues}: 9 concluídas (Fase~1, GitPage e métricas) e 5 abertas da Fase~2 (roteiro GQM, três medições e resultados), sem responsável e sem prazo; 8 das 9 concluídas foram abertas e fechadas no mesmo dia (19/10); nenhum \textit{milestone}. Marcos: Ponto de Controle~1 em 19/10, Entrega~1 em 26/10 e Entrega~2 em 18/11 & As \textit{issues} foram registradas depois do trabalho feito, o que impede medir o planejado versus realizado e a saúde do \textit{backlog} (N/A); a \textit{issue} do roteiro GQM continua aberta, embora o roteiro esteja publicado & Atribuir responsável e prazo às \textit{issues} das medições e criar o \textit{milestone} da Entrega~2 antes de iniciar a execução\\
-Recursos e custos & 32 \textit{commits} não-\textit{merge} na \texttt{main} (14, 5, 5, 4, 3 e 1 por integrante), com os seis integrantes ativos (100\%). Esforço estimado da equipe: 135, 213 e 329 pessoas-hora nos cenários otimista, base e pessimista, mais 9 pessoas-hora de participantes; subtotal humano do cenário base de R\$~1.793,76, dos quais R\$~1.349,36 correspondem ao trabalho restante & Participação completa, mas desigual em \textit{commits}, o que não mede esforço; sem registro de horas reais, os valores são estimativas, e não custos efetivos & Registrar as horas por integrante e por fase a partir da execução das medições, para comparar previsto e realizado\\
+Desempenho dos processos & Revisão efetiva: nenhum dos 12 \textit{pull requests} teve aprovação de outro integrante antes do \textit{merge} (0 ponto); 5 integrados pelo próprio autor. Quadro na organização: só uma pessoa movia os cartões, e 1 de 17 \textit{issues} concluídas registrou Em andamento. Decisão: revisão obrigatória na \texttt{main} e quadro em que todos movem os cartões & Revisão efetiva de 26 de 35 \textit{pull requests} (74\%, 1 ponto); depois da regra de revisão obrigatória (04/11), 26 de 28 (93\%), sem \textit{commits} diretos na \texttt{main}. Com o novo quadro (06/11), 24 de 29 \textit{issues} concluídas registraram Em andamento. \textit{Lead Time} mediano de 9,0 dias (29 \textit{issues}) e \textit{Cycle Time} mediano de 0,7 dia (24 \textit{issues}) & Decisões efetivas: a revisão passou de 0\% para 93\% e o \textit{Cycle Time} passou a ser mensurável. O \textit{Cycle Time} curto indica que o cartão vai para Em andamento só perto do \textit{pull request}, o que subestima a execução\\
+Calendário e progresso & \textit{Issues} registradas depois do trabalho feito, sem responsável, sem prazo e sem \textit{milestone}; planejado versus realizado e saúde do \textit{backlog} N/A. Decisão: \textit{milestone}, responsável e prazo nas \textit{issues} da Entrega~2 & 42 \textit{issues} no \textit{milestone} da Entrega~2: 38 com responsável e 34 com prazo (sem eles ficam as três \textit{issues}-mãe das características e as registradas depois do trabalho feito). Planejado versus concluído: 2 de 6 no ciclo 1 (27/10 a 09/11, 33\%) e 18 de 27 no ciclo 2 até 15/11 (67\%). Saúde do \textit{backlog}: 3 de 10 \textit{issues} abertas com prazo estão vencidas (30\%, 0 ponto) & O planejamento passou a ser medido, mas a execução concentrou-se no ciclo 2: as medições começaram depois de 09/11, e as sessões com participantes (CI-M1 a CI-M6 e F-M8/F-M9) seguem atrasadas, o que exige replanejamento até a entrega\\
+Recursos e custos & 32 \textit{commits} não-\textit{merge}, com os seis integrantes ativos; esforço só estimado (213 p-h no cenário base), sem horas reais. Decisão: registrar as horas por integrante e por fase & 83 \textit{commits} não-\textit{merge}, com os seis integrantes ativos. 35,5 p-h registradas no Project, em 22 de 29 \textit{issues} concluídas, contra 150 p-h previstas para os pacotes da Entrega~2 (cenário base), ou R\$~286,44 contra R\$~1.212,00 & As horas passaram a ser registradas, mas o realizado é um piso: faltam horas em 7 \textit{issues} concluídas e nas atividades ainda abertas. Mesmo assim, as medições automatizadas custaram bem menos que o previsto, e a diferença se concentra nas sessões com participantes e na análise\\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -478,9 +479,11 @@ criou os \textit{milestones} da Entrega~1 e da Entrega~2, fechou a
 tarefas da Entrega~1 feitas sem \textit{issue}, cada uma ligada ao seu
 \textit{pull request} ou \textit{commit}, e detalhou as \textit{issues} da
 Entrega~2 com as métricas a coletar. A atribuição de responsáveis e a
-proteção da \texttt{main} ficam para o início da Fase~3. As mesmas medidas
-serão repetidas na Entrega~2, com as horas registradas e a série do quadro
-Kanban, para verificar o efeito dessas decisões.
+proteção da \texttt{main} foram feitas no início da Fase~3 (04/11), e o
+quadro foi copiado para um \textit{Project} em que todos os integrantes movem
+os cartões (06/11). Na Entrega~2, as mesmas medidas foram repetidas com as
+horas registradas e a série do quadro, e os gráficos estão na GitPage, em
+Gestão.
 
 \subsection{Registro, rastreabilidade e repositório}
 O repositório Git da disciplina

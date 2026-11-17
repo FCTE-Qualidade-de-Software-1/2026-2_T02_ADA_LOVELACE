@@ -2,7 +2,8 @@
 
 **Nota 2**: nenhuma inconsistência reproduzível em 11 casos que comparam o
 mesmo gesto em dois contextos, nas três áreas apontadas pela hipótese:
-seleção, snapping e edição de texto.
+seleção, snapping e edição de texto. Os casos foram repetidos e gravados em
+vídeo; os três vídeos estão incorporados no registro completo abaixo.
 
 ```mermaid
 flowchart LR
@@ -34,3 +35,5 @@ Quadro com os 11 cenários, montado no próprio Excalidraw para a coleta:
 
 Registro completo:
 [`CI-M12_inconsistencias-interface.md`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M12/CI-M12_inconsistencias-interface.md).
+
+Arquivos de apoio: [`CI-M12_inconsistencias-interface.md`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/tree/main/evidencias/capacidade-interacao/CI-M12).

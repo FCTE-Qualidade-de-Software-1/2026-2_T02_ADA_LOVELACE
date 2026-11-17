@@ -1,7 +1,9 @@
 # F-M7 · Inclusão funcional
 
-**Nota 0**: o Excalidraw tem 24 das 42 funções do draw.io (57,1%). Cobre as
-funções básicas de diagramação, mas não as avançadas.
+**Nota 0**: das 42 funções da página oficial de funções do draw.io (seções de
+uso do editor), 24 existem no Excalidraw (57,1%). O Excalidraw cobre as funções
+básicas de diagramação, como formas, conectores, texto, estilos e exportação,
+mas não tem as avançadas do draw.io.
 
 ```mermaid
 flowchart LR
@@ -9,14 +11,16 @@ flowchart LR
     D --> N["18 ausentes"]
 ```
 
-| Presentes no Excalidraw | Ausentes |
+| Presentes (24) | Ausentes (18) |
 | --- | --- |
-| Conectar formas, rótulos, estilos de forma, seta e texto, exportação, biblioteca, Mermaid, colaboração em tempo real, modo escuro, links, desenho livre | Tabelas, swimlanes, camadas, layout automático, modelos, metadados e tags, fórmulas, importação de CSV, SQL e de arquivos de outras ferramentas, entre outras |
+| Colaboração, conectores e pontos de passagem, rótulos, estilos de forma, seta, preenchimento e texto, busca na biblioteca (limitada), IA, atalhos, quadro online, painéis, idioma, importar e exportar, modo escuro, cores adaptativas, grade, links, desenho livre, formas e bibliotecas personalizadas, Mermaid | Tabelas, swimlanes, modelos, temas do editor, formatos de outras ferramentas, layout automático, camadas, tags, propriedades e metadados de forma, placeholders, traduções, tooltips, texto HTML, fórmulas, CSV, SQL, paletas e configuração |
 
-!!! note "Leituras alternativas"
-    Quatro itens admitem outra classificação (busca de formas, temas do
-    editor, propriedades da forma e formas personalizadas). O resultado varia
-    de 52,4% a 61,9%, sempre abaixo de 70%: a nota continua 0.
+!!! note "Itens ambíguos"
+    Quatro itens admitem outra leitura (busca de formas, temas do editor,
+    propriedades de forma e formas personalizadas). Com a leitura menos e a mais
+    favorável, o resultado vai de 52,4% a 61,9%, sempre abaixo de 70%, e a nota
+    não muda. A medição verifica se a função existe no código e na interface,
+    não a qualidade nem a facilidade de uso.
 
 Achado: para quem migra do draw.io, priorizar tabelas, swimlanes e importação
 de arquivos `.drawio`.

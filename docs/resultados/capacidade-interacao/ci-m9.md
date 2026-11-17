@@ -42,3 +42,5 @@ do cursor nem a criação das formas de apoio.
 
 Registro completo:
 [`CI-M9_acoes-por-tarefa.md`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M9/CI-M9_acoes-por-tarefa.md).
+
+Arquivos de apoio: [`CI-M9_acoes-por-tarefa.md`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/tree/main/evidencias/capacidade-interacao/CI-M9).

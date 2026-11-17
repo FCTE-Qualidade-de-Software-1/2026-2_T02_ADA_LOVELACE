@@ -51,6 +51,14 @@ INICIO, FIM = CICLOS[0][1], CICLOS[-1][2]
 # todos os integrantes pudessem mover os cartões (ver gestao-grupo.md).
 MIGRACAO = datetime(2026, 11, 6, 5, 47, tzinfo=timezone.utc).astimezone(BRT)
 
+# Regra de revisão obrigatória na main (#41, concluída em 04/11/2026).
+REGRA_REVISAO = datetime(2026, 11, 4, 17, 9, tzinfo=timezone.utc).astimezone(BRT)
+
+PACOTES = Path("docs/gestao/dados/pacotes-issues.json")
+CUSTOS = Path("docs/gestao/dados/custos-calculados.json")
+REVISOES = Path("docs/gestao/dados/revisoes-prs.json")
+TAXA = float(json.loads(CUSTOS.read_text(encoding="utf-8"))["taxa_brl_ph"])
+
 ESTADOS = ["Backlog", "A fazer", "Em andamento", "Em revisão", "Concluído"]
 CORES = {
     "Backlog": "#c9c9d6",
@@ -68,7 +76,7 @@ INTEGRANTES = {
     "André Henrique": {"andrehsb"},
     "Giovanna Felipe": {"giovannafg", "Giovanna Felipe"},
     "João Pedro Lopes": {"João Pedro Lopes da Cruz", "ojplc"},
-    "Luís Cunha": {"Luis Felipe", "cunha-luiss"},
+    "Luís Cunha": {"Luis Felipe", "Luís Felipe Parreira Cunha", "cunha-luiss"},
     "Renato Araújo": {"Renato Araújo Gameiro", "Renato Gameiro", "renatoyx", "renatvg"},
     "Zayra Moraes": {"Zayra-Moraes"},
 }
@@ -82,6 +90,10 @@ def fmt_num(valor: float | None, casas: int = 1) -> str:
     if valor is None:
         return "N/A"
     return f"{valor:.{casas}f}".replace(".", ",")
+
+
+def fmt_reais(valor: float) -> str:
+    return f"{valor:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
 
 def fmt_data(dia: date) -> str:
@@ -421,6 +433,237 @@ def commits_por_integrante() -> str:
     return "\n".join(tabela)
 
 
+# --------------------------------------------------------------------------
+# Horas registradas no Project e esforço previsto x realizado
+
+
+def integrante_do_login(login: str) -> str:
+    return next((nome for nome, ids in INTEGRANTES.items() if login in ids), login)
+
+
+def horas_por_issue(issue: dict) -> dict[str, float]:
+    """Horas de cada integrante numa issue.
+
+    Issue de um responsável: campo Horas do Project. Atividade compartilhada:
+    os comentários "Horas: x" de cada integrante; sem comentários, o campo
+    Horas é dividido igualmente entre os responsáveis.
+    """
+    responsaveis = issue["responsaveis"]
+    comentadas = issue.get("horas_comentadas") or []
+    if len(responsaveis) == 1 and issue.get("horas") is not None:
+        return {integrante_do_login(responsaveis[0]): float(issue["horas"])}
+    if comentadas:
+        soma: dict[str, float] = {}
+        for registro in comentadas:
+            nome = integrante_do_login(registro["autor"])
+            soma[nome] = soma.get(nome, 0) + registro["horas"]
+        return soma
+    if issue.get("horas") is not None and responsaveis:
+        parte = float(issue["horas"]) / len(responsaveis)
+        return {integrante_do_login(login): parte for login in responsaveis}
+    return {}
+
+
+def fase_do_pacote(pacote: str) -> str:
+    return {"F3": "Fase 3", "F4": "Fase 4", "T": "Transversal"}.get(pacote.split(".")[0], pacote)
+
+
+def horas_e_esforco(issues: list[dict]) -> tuple[str, str]:
+    mapa = json.loads(PACOTES.read_text(encoding="utf-8"))
+    pacote_da_issue = {numero: pacote for pacote, numeros in mapa["pacotes"].items() for numero in numeros}
+    custos = {p["id"]: p for p in json.loads(CUSTOS.read_text(encoding="utf-8"))["pacotes"]}
+
+    por_integrante = {nome: {} for nome in INTEGRANTES}
+    por_pacote: dict[str, float] = {}
+    sem_horas = []
+    for issue in issues:
+        horas = horas_por_issue(issue)
+        pacote = pacote_da_issue.get(issue["issue"])
+        concluida = issue["status_atual"] == "Concluído"
+        if concluida and not horas and pacote:
+            sem_horas.append(issue["issue"])
+        if not pacote:
+            continue
+        fase = fase_do_pacote(pacote)
+        for nome, valor in horas.items():
+            por_integrante.setdefault(nome, {})
+            por_integrante[nome][fase] = por_integrante[nome].get(fase, 0) + valor
+            por_pacote[pacote] = por_pacote.get(pacote, 0) + valor
+
+    fases = ["Fase 3", "Fase 4", "Transversal"]
+    nomes = sorted(por_integrante, key=str.casefold)
+    concluidas = [i for i in issues if i["status_atual"] == "Concluído" and i["issue"] in pacote_da_issue]
+
+    # Gráfico de horas por integrante, empilhado por fase.
+    figura, eixo = plt.subplots(figsize=(7, 3.2))
+    esquerda = [0.0] * len(nomes)
+    for fase, cor in zip(fases, [COR_SECUNDARIA, COR_PRINCIPAL, "#3f9e6e"]):
+        valores = [por_integrante[n].get(fase, 0) for n in nomes]
+        eixo.barh(nomes, valores, left=esquerda, color=cor, label=fase)
+        esquerda = [a + b for a, b in zip(esquerda, valores)]
+    for posicao, total in enumerate(esquerda):
+        eixo.text(total, posicao, f" {fmt_num(total)}", va="center", fontsize=8)
+    eixo.invert_yaxis()
+    eixo.set_xlabel("horas registradas no Project")
+    eixo.set_title("Horas registradas por integrante e por fase, Entrega 2 (ordem alfabética)", fontsize=10)
+    eixo.legend(frameon=False, fontsize=8, loc="lower right")
+    estilo(eixo)
+    salvar(figura, "horas-integrante-entrega-2.svg")
+
+    tabela_horas = [
+        "| Integrante | " + " | ".join(fases) + " | Total |",
+        "| --- |" + " ---: |" * (len(fases) + 1),
+        *(
+            f"| {n} | " + " | ".join(fmt_num(por_integrante[n].get(f, 0)) for f in fases)
+            + f" | {fmt_num(sum(por_integrante[n].values()))} |"
+            for n in nomes
+        ),
+        "| **Total** | " + " | ".join(
+            f"**{fmt_num(sum(por_integrante[n].get(f, 0) for n in nomes))}**" for f in fases
+        ) + f" | **{fmt_num(sum(sum(v.values()) for v in por_integrante.values()))}** |",
+        "",
+        f"Issues concluídas com horas registradas: **{len(concluidas) - len(sem_horas)} de {len(concluidas)}**.",
+    ]
+    if sem_horas:
+        tabela_horas.append(
+            "Sem horas no Project (preencher o campo **Horas** ou comentar \"Horas: x\" na issue): "
+            + ", ".join(link(n) for n in sorted(sem_horas)) + "."
+        )
+
+    # Previsto (cenário B da estimativa) x realizado, por pacote.
+    pacotes = list(mapa["pacotes"])
+    previsto = {}
+    for pacote in pacotes:
+        # O que restava fazer na data-base da estimativa (25/10): o pacote
+        # inteiro se era futuro; só o restante se já tinha começado.
+        previsto[pacote] = float(custos[pacote]["restante_ph"]["B"])
+    realizado = {p: por_pacote.get(p, 0.0) for p in pacotes}
+
+    figura, eixo = plt.subplots(figsize=(7, 0.36 * len(pacotes) + 1.2))
+    posicoes = range(len(pacotes))
+    eixo.barh([p - 0.2 for p in posicoes], [previsto[p] for p in pacotes], 0.4, color="#c9c9d6", label="Previsto (cenário B)")
+    eixo.barh([p + 0.2 for p in posicoes], [realizado[p] for p in pacotes], 0.4, color=COR_PRINCIPAL, label="Realizado (horas registradas)")
+    eixo.set_yticks(list(posicoes), pacotes)
+    eixo.invert_yaxis()
+    eixo.set_xlabel("pessoa-hora")
+    eixo.set_title("Esforço previsto × horas registradas por pacote, Entrega 2", fontsize=10)
+    eixo.legend(frameon=False, fontsize=8, loc="lower right")
+    estilo(eixo)
+    salvar(figura, "esforco-previsto-realizado-entrega-2.svg")
+
+    def desvio(p: str) -> str:
+        if not previsto[p]:
+            return "N/A"
+        return f"{fmt_num(realizado[p] - previsto[p])} ({fmt_num(100 * (realizado[p] - previsto[p]) / previsto[p], 0)}%)"
+
+    total_prev, total_real = sum(previsto.values()), sum(realizado.values())
+    tabela_esforco = [
+        "| Pacote | Issues | Previsto B (p-h) | Realizado (p-h) | Desvio |",
+        "| --- | --- | ---: | ---: | ---: |",
+        *(
+            f"| {p} | {', '.join(link(n) for n in mapa['pacotes'][p])} | {fmt_num(previsto[p])} | {fmt_num(realizado[p])} | {desvio(p)} |"
+            for p in pacotes
+        ),
+        f"| **Total** | | **{fmt_num(total_prev)}** | **{fmt_num(total_real)}** | "
+        f"**{fmt_num(total_real - total_prev)} ({fmt_num(100 * (total_real - total_prev) / total_prev, 0)}%)** |",
+        "",
+        f"Custo de referência do realizado: **R$ {fmt_reais(total_real * TAXA)}** "
+        f"({fmt_num(total_real)} p-h × R$ {fmt_num(TAXA, 2)}/p-h), contra R$ {fmt_reais(total_prev * TAXA)} previstos.",
+    ]
+    return "\n".join(tabela_horas), "\n".join(tabela_esforco)
+
+
+# --------------------------------------------------------------------------
+# Revisão efetiva dos pull requests (G-G5)
+
+
+def pontos_gg5(percentual: float | None) -> str:
+    if percentual is None:
+        return "N/A"
+    return "2" if percentual >= 90 else "1" if percentual >= 70 else "0"
+
+
+def commits_diretos(desde: datetime, ate: datetime) -> int:
+    """Commits na main que não vieram de pull request (sem merge, sem squash "(#n)" e sem bots)."""
+    saida = subprocess.run(
+        ["git", "log", REF, "--first-parent", "--no-merges", f"--since={desde.isoformat()}",
+         f"--until={ate.isoformat()}", "--format=%an%x09%s"],
+        check=True, capture_output=True, text=True, encoding="utf-8",
+    ).stdout
+    return sum(
+        1 for linha in saida.splitlines()
+        if linha and not linha.split("\t", 1)[0].endswith("[bot]")
+        and not re.search(r"\(#\d+\)$", linha.split("\t", 1)[1])
+    )
+
+
+def revisao_efetiva(coleta: datetime) -> str:
+    prs = json.loads(REVISOES.read_text(encoding="utf-8"))["prs"]
+    logins = set().union(*INTEGRANTES.values())
+
+    def aprovado(pr: dict) -> bool:
+        return any(r["estado"] == "APPROVED" and r["revisor"] in logins for r in pr["revisoes"])
+
+    inicio_e2 = datetime.combine(INICIO, datetime.min.time(), BRT)
+    periodos = [
+        ("Entrega 1", None, inicio_e2),
+        ("Entrega 2, antes da regra (até 04/11)", inicio_e2, REGRA_REVISAO),
+        ("Entrega 2, depois da regra", REGRA_REVISAO, coleta),
+        ("Entrega 2 (total)", inicio_e2, coleta),
+    ]
+    linhas, rotulos, percentuais = [], [], []
+    for nome, desde, ate in periodos:
+        grupo = [
+            pr for pr in prs
+            if (desde is None or instante(pr["integrado_em"]) >= desde) and instante(pr["integrado_em"]) < ate
+        ]
+        aprovados = sum(aprovado(pr) for pr in grupo)
+        proprio = sum(pr["autor"] == pr["integrado_por"] for pr in grupo)
+        pct = 100 * aprovados / len(grupo) if grupo else None
+        # Na Entrega 1, conta a partir do primeiro PR, quando o fluxo por PR começou.
+        primeiro_pr = min(instante(pr["integrado_em"]) for pr in prs)
+        diretos = commits_diretos(desde or primeiro_pr, ate)
+        linhas.append(
+            f"| {nome} | {len(grupo)} | {aprovados} | {fmt_num(pct, 0) + '%' if pct is not None else 'N/A'} "
+            f"| {pontos_gg5(pct)} | {proprio} | {diretos} |"
+        )
+        if nome != "Entrega 2 (total)":
+            rotulos.append(nome.replace(", ", "\n"))
+            percentuais.append(pct or 0)
+
+    figura, eixo = plt.subplots(figsize=(7, 3.2))
+    rects = eixo.bar(rotulos, percentuais, color=["#c9c9d6", "#c9c9d6", COR_PRINCIPAL], width=0.55)
+    eixo.bar_label(rects, labels=[f"{fmt_num(p, 0)}%" for p in percentuais], fontsize=8)
+    eixo.axhline(90, color="#3f9e6e", linestyle="--", linewidth=1)
+    eixo.text(-0.4, 91, "meta G-G5 (90%)", ha="left", va="bottom", fontsize=8, color="#3f9e6e")
+    eixo.set_ylim(0, 110)
+    eixo.set_ylabel("% dos PRs integrados")
+    eixo.set_title("PRs aprovados por outro integrante antes do merge", fontsize=10)
+    eixo.spines[["top", "right"]].set_visible(False)
+    eixo.grid(axis="y", color="#e6e6ee", linewidth=0.8)
+    eixo.set_axisbelow(True)
+    salvar(figura, "revisao-efetiva.svg")
+
+    sem_aprovacao = [
+        pr for pr in prs
+        if instante(pr["integrado_em"]) >= REGRA_REVISAO and instante(pr["integrado_em"]) < coleta and not aprovado(pr)
+    ]
+    tabela = [
+        "| Período | PRs integrados | Aprovados por outro integrante | Revisão efetiva | Pontos G-G5 | Integrados pelo próprio autor | Commits direto na `main` |",
+        "| --- | ---: | ---: | ---: | :---: | ---: | ---: |",
+        *linhas,
+    ]
+    if sem_aprovacao:
+        tabela += [
+            "",
+            "Integrados sem aprovação depois da regra: " + ", ".join(
+                f"[#{pr['numero']}](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/{pr['numero']})"
+                for pr in sem_aprovacao
+            ) + ".",
+        ]
+    return "\n".join(tabela)
+
+
 def main() -> None:
     plt.rcParams.update({"font.size": 9, "svg.hashsalt": "ada-lovelace", "svg.fonttype": "none"})
     dados = json.loads(HISTORY.read_text(encoding="utf-8"))
@@ -442,6 +685,10 @@ def main() -> None:
     pagina = substituir_bloco(pagina, "fluxo", fluxo_acumulado(issues, hoje))
     pagina = substituir_bloco(pagina, "planejado", planejado_concluido(issues, coleta))
     pagina = substituir_bloco(pagina, "commits", commits_por_integrante())
+    tabela_horas, tabela_esforco = horas_e_esforco(issues)
+    pagina = substituir_bloco(pagina, "horas", tabela_horas)
+    pagina = substituir_bloco(pagina, "esforco", tabela_esforco)
+    pagina = substituir_bloco(pagina, "revisao", revisao_efetiva(coleta))
     PAGE.write_text(pagina, encoding="utf-8")
     print(f"Gráficos em {IMAGES} e tabelas em {PAGE} atualizados.")
 

@@ -8,7 +8,7 @@ Para cada métrica, copiar `evidencias/capacidade-interacao/template.md` para `C
 
 | Métrica | Situação | Arquivo |
 | --- | --- | --- |
-| CI-M26 | Coletada (rascunho, falta revisão): 92,5%, nota 1 | `CI-M26_idiomas-traducao-pt-BR.md` |
+| CI-M26 | Coletada e revisada (reavaliação independente): 92,5%, nota 1 | `CI-M26_idiomas-traducao-pt-BR.md` |
 | CI-M18 | Coletada parcialmente (rascunho): 44%, nota 0 | `CI-M18_mensagens-de-erro.md` |
 | CI-M7 | Coletada (rascunho, denominador: ferramentas da barra + ações visíveis): 62,2%, nota 1 | `CI-M7_cobertura-ajuda-interna.md` |
 | CI-M10 | Coletada (rascunho, falta revisão): 100%, nota 2 | `CI-M10_cobertura-atalhos.md` |

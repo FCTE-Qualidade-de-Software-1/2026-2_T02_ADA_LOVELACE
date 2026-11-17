@@ -176,7 +176,7 @@ O [inventário das 26 métricas](../resultados/inventario-renato-issue-20.md) re
 
 **Interpretação — Confirmada parcialmente na dimensão linguística:** A quantidade de idiomas sustenta a hipótese, mas os 96% usam como denominador as chaves existentes no próprio pt-BR. Considerando todas as strings de en.json, o resultado registrado é 92,5%, com 48 sem tradução. A confirmação é parcial e restrita à cobertura linguística, sem concluir adequação a todos os perfis.
 
-**Limitações e pendências:** O snapshot da coleta original não teve correspondência com o SHA upstream confirmada. O PR #107, ainda aberto, registra reavaliação e comparação com os mesmos números em a8800f8 do repositório do grupo; essa diferença de versão é mantida. A métrica não avalia qualidade de todas as traduções. Resultado existente preservado; complemento pendente de integração.
+**Limitações e pendências:** O complemento do PR #107 foi integrado na main em `460d7e4` e está disponível na [comparação da CI-M26](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M26_comparacao.md). O registro original identifica revisão por Luís Felipe em 15/11/2026. A comparação esclarece que `a8800f8` é o snapshot do grupo, não outra versão do Excalidraw, e mantém os mesmos números. Não foi feita nova verificação por hash nesta integração. A amostra qualitativa de 20 chaves não avalia todas as traduções ou todos os perfis; resultado e interpretação existentes preservados.
 
 ### Pendências da etapa conjunta
 

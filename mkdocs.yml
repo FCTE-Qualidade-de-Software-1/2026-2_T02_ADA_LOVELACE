@@ -33,6 +33,9 @@ theme:
     - content.code.copy
     - content.action.edit
 
+hooks:
+  - hooks/rodape.py
+
 extra_css:
   - stylesheets/extra.css
 
@@ -91,19 +94,19 @@ nav:
           - F-M1 · Compatibilidade de navegadores: resultados/flexibilidade/f-m1.md
           - F-M2 · Compatibilidade de sistemas operacionais: resultados/flexibilidade/f-m2.md
           - F-M3 · Defeitos específicos de ambiente: resultados/flexibilidade/f-m3.md
-          - F-M4 · Dispositivos móveis: resultados/flexibilidade/f-m4.md
-          - F-M5 · Funcionamento offline: resultados/flexibilidade/f-m5.md
-          - F-M6 · Resoluções: resultados/flexibilidade/f-m6.md
+          - F-M4 · Cobertura funcional em dispositivos móveis: resultados/flexibilidade/f-m4.md
+          - F-M5 · Cobertura funcional offline: resultados/flexibilidade/f-m5.md
+          - F-M6 · Resoluções sem perda de elementos: resultados/flexibilidade/f-m6.md
           - F-M7 · Inclusão funcional: resultados/flexibilidade/f-m7.md
           - F-M10 · Formatos de exportação: resultados/flexibilidade/f-m10.md
           - F-M11 · Fidelidade de migração: resultados/flexibilidade/f-m11.md
           - F-M12 · Formatos de importação: resultados/flexibilidade/f-m12.md
       - Capacidade de interação:
-          - CI-M7 · Ajuda interna: resultados/capacidade-interacao/ci-m7.md
+          - CI-M7 · Cobertura da ajuda interna: resultados/capacidade-interacao/ci-m7.md
           - CI-M9 · Ações por tarefa frequente: resultados/capacidade-interacao/ci-m9.md
-          - CI-M10 · Atalhos de teclado: resultados/capacidade-interacao/ci-m10.md
+          - CI-M10 · Cobertura de atalhos de teclado: resultados/capacidade-interacao/ci-m10.md
           - CI-M12 · Inconsistências da interface: resultados/capacidade-interacao/ci-m12.md
-          - CI-M13 · Feedback visual: resultados/capacidade-interacao/ci-m13.md
+          - CI-M13 · Ações com feedback visual imediato: resultados/capacidade-interacao/ci-m13.md
           - CI-M14 · Taxa de recuperabilidade: resultados/capacidade-interacao/ci-m14.md
           - CI-M15 · Ações destrutivas sem confirmação: resultados/capacidade-interacao/ci-m15.md
           - CI-M16 · Perda de dados ao fechar ou recarregar: resultados/capacidade-interacao/ci-m16.md

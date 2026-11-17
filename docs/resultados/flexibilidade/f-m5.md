@@ -1,7 +1,7 @@
 # F-M5 · Cobertura funcional offline
 
-**Nota 1**: sem rede, 16 de 23 funções funcionaram (69,6%). O editor funciona
-inteiro offline; falham as funções que dependem de servidor e três que dependem
+**Nota 1**: com o modo offline do Chrome, 16 de 23 funções funcionaram (69,6%). As funções básicas de desenho e edição funcionam
+offline; falham as funções que dependem de servidor e três que dependem
 de arquivos não guardados no primeiro acesso.
 
 ```mermaid
@@ -21,7 +21,9 @@ flowchart LR
 | Dependem de servidor (colaboração, link, IA, bibliotecas públicas) | 0 de 4 | Botão de compartilhar some; IA e site não carregam |
 
 Com rede, as 21 funções testadas passaram. Só com as 19 que não dependem de
-servidor, o valor seria 84,2% (nota 2).
+servidor, o valor seria 84,2% (nota 2). Contando o SVG sem fonte embutida
+como Sim, seriam 17 de 23 (73,9%, ainda nota 1); isso não substitui a
+classificação original.
 
 !!! note "Primeiro acesso"
     O teste abriu o app uma vez com rede, como um visitante novo. Idioma,
@@ -45,3 +47,5 @@ servidor, o valor seria 84,2% (nota 2).
 
 Registro completo:
 [`F-M5_cobertura-offline.md`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/flexibilidade/F-M5_cobertura-offline.md).
+
+Arquivos de apoio: [arquivos de apoio](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/tree/main/evidencias/flexibilidade/F-M5).

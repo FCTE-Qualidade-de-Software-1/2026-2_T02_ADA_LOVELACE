@@ -11,14 +11,14 @@ do Excalidraw. Só as métricas já coletadas têm nota. Os critérios estão no
 | --- | --- | :---: |
 | [S-M1 · Mensagens de colaboração cifradas](seguranca/s-m1.md) | 5 de 6 tipos de evento (83,3%) | **0** |
 | [S-M2 · Chave enviada ao servidor](seguranca/s-m2.md) | Não (0 ocorrências) | **2** |
-| [S-M3 · Mecanismos de controle de acesso](seguranca/s-m3.md) | 0 mecanismos | **0** |
-| [S-M4 · Dados persistidos localmente sem criptografia](seguranca/s-m4.md) | Sim: cena e dados associados legíveis | **0** |
+| [S-M3 · Mecanismos de controle de acesso](seguranca/s-m3.md) | 0 de 3 mecanismos | **0** |
+| [S-M4 · Dados persistidos localmente sem criptografia](seguranca/s-m4.md) | Sim: cena e dados associados legíveis (localStorage e IndexedDB) | **0** |
 | [S-M5 · Taxa de detecção de adulteração](seguranca/s-m5.md) | 221 de 221 rejeitadas (100%) | **2** |
 | [S-M6 · Inconsistências após edições simultâneas](seguranca/s-m6.md) | 2 em 8 rodadas | **1** |
 | [S-M7 · Completude da trilha de auditoria](seguranca/s-m7.md) | 0 de 7 ações com autoria verificável (0%) | **0** |
 | [S-M8 · Histórico de versões com autoria](seguranca/s-m8.md) | Histórico persistente com autoria não encontrado | **0** |
 | [S-M9 · Suficiência da autenticação](seguranca/s-m9.md) | Nome autodeclarado | **1** |
-| [S-M10 · Passar-se por outro participante](seguranca/s-m10.md) | Sim (1 tentativa aceita sem alerta) | **0** |
+| [S-M10 · Passar-se por outro participante](seguranca/s-m10.md) | Sim (1 de 1 tentativa aceita sem alerta) | **0** |
 | [S-M11 · Vulnerabilidades altas ou críticas nas dependências](seguranca/s-m11.md) | 5 avisos altos; 0 críticos no recorte web | **0** |
 | [S-M12 · Advisories, CVEs e tempo de correção](seguranca/s-m12.md) | 1 aviso aplicável sem correção identificada; média indisponível | **0** |
 | [S-M13 · Cabeçalhos de segurança HTTP](seguranca/s-m13.md) | 3 de 6 cabeçalhos (nota C) | **1** |
@@ -56,7 +56,7 @@ do Excalidraw. Só as métricas já coletadas têm nota. Os critérios estão no
 | [CI-M10 · Cobertura de atalhos de teclado](capacidade-interacao/ci-m10.md) | 17 de 17 funções frequentes (100%) | **2** |
 | CI-M11 · Tempo de experientes em relação a iniciantes | — | — |
 | [CI-M12 · Inconsistências da interface](capacidade-interacao/ci-m12.md) | 0 inconsistências em 11 casos | **2** |
-| [CI-M13 · Ações com feedback visual imediato](capacidade-interacao/ci-m13.md) | 13 de 13 ações (100%) | **2** |
+| [CI-M13 · Ações com feedback visual imediato](capacidade-interacao/ci-m13.md) | 13 de 13 ações (100%) | **2** (provisória) |
 | [CI-M14 · Taxa de recuperabilidade](capacidade-interacao/ci-m14.md) | 11 de 13 ações (84,62%) | **0 provisória** |
 | [CI-M15 · Ações destrutivas sem confirmação](capacidade-interacao/ci-m15.md) | 1 ação sem confirmação entre 4 tipos | **1** |
 | [CI-M16 · Perda de dados ao fechar ou recarregar](capacidade-interacao/ci-m16.md) | Não houve perda nos 2 cenários testados | **2** |

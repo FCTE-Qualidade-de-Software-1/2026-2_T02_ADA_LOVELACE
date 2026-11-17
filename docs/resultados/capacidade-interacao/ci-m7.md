@@ -22,7 +22,10 @@ flowchart LR
     O total segue o roteiro ("total de funções disponíveis"), com o recorte
     sugerido nas tarefas do grupo: ferramentas da barra e ações com botão ou
     menu visível. Com as 17 funções frequentes da [CI-M10](ci-m10.md), o valor
-    seria 82,4% (nota 2).
+    seria 82,4% (nota 2). Funções sem atalho tendem a ficar fora desse
+    diálogo. A evidência diz que o recorte foi adotado após revisão, mas o
+    campo "Revisado por" permanece pendente; não se declara a revisão cruzada
+    concluída.
 
 A ajuda é uma lista de atalhos: não há tutorial guiado, e abrir, salvar e
 exportar não aparecem nela.

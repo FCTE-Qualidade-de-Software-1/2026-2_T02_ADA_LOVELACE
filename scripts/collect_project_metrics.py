@@ -6,6 +6,7 @@ from __future__ import annotations
 import csv
 import json
 import os
+import re
 import sys
 import urllib.error
 import urllib.request
@@ -72,12 +73,15 @@ query($owner: String!, $number: Int!, $after: String) {
         nodes {
           prazo: fieldValueByName(name: "Prazo") { ... on ProjectV2ItemFieldDateValue { date } }
           status: fieldValueByName(name: "Status") { ... on ProjectV2ItemFieldSingleSelectValue { name } }
+          horas: fieldValueByName(name: "Horas") { ... on ProjectV2ItemFieldNumberValue { number } }
           content {
             ... on Issue {
               id number title createdAt closedAt state stateReason url
               repository { nameWithOwner }
               milestone { title }
               assignees(first: 10) { nodes { login } }
+              labels(first: 20) { nodes { name } }
+              comments(last: 100) { nodes { author { login } body } }
               timelineItems(first: 100, itemTypes: [PROJECT_V2_ITEM_STATUS_CHANGED_EVENT]) {
                 nodes {
                   ... on ProjectV2ItemStatusChangedEvent {
@@ -118,6 +122,9 @@ def parse_date(value: str) -> datetime:
     return datetime.fromisoformat(value.replace("Z", "+00:00"))
 
 
+HOURS_COMMENT = re.compile(r"\bHoras\s*:\s*(\d+(?:[.,]\d+)?)", re.IGNORECASE)
+
+
 def write_history(issues, collected_at: str) -> None:
     """Grava o histórico de Status de todas as issues dos quadros (não só as concluídas)."""
     records = []
@@ -133,6 +140,15 @@ def write_history(issues, collected_at: str) -> None:
             "motivo_fechamento": issue["stateReason"],
             "prazo": issue.get("prazo"),
             "status_atual": issue.get("status_atual"),
+            "labels": sorted(node["name"] for node in issue["labels"]["nodes"]),
+            "horas": issue.get("horas"),
+            # Atividades compartilhadas: cada integrante comenta "Horas: 1,5".
+            "horas_comentadas": [
+                {"autor": node["author"]["login"], "horas": float(match.group(1).replace(",", "."))}
+                for node in issue["comments"]["nodes"]
+                if node.get("author")
+                for match in HOURS_COMMENT.finditer(node["body"] or "")
+            ],
             "eventos": [
                 {"em": event["createdAt"], "de": event["previousStatus"], "para": event["status"]}
                 for event in issue["events"]
@@ -185,6 +201,8 @@ def main() -> int:
                         issues[issue["id"]]["prazo"] = item["prazo"]["date"]
                     if (item.get("status") or {}).get("name"):
                         issues[issue["id"]]["status_atual"] = item["status"]["name"]
+                    if (item.get("horas") or {}).get("number") is not None:
+                        issues[issue["id"]]["horas"] = item["horas"]["number"]
                     continue
                 if issue["repository"]["nameWithOwner"].casefold() != REPOSITORY.casefold():
                     continue
@@ -201,6 +219,7 @@ def main() -> int:
                     "events": events,
                     "prazo": (item.get("prazo") or {}).get("date"),
                     "status_atual": (item.get("status") or {}).get("name"),
+                    "horas": (item.get("horas") or {}).get("number"),
                     "quadro": label,
                 }
             page = connection["pageInfo"]

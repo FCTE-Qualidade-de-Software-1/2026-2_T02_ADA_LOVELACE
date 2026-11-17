@@ -2,6 +2,7 @@
 
 **Nota 1**: 3 de 4 larguras sem perda. Nenhum controle fica cortado, mas em
 360 px o layout de celular tira os botões de zoom e de trava de ferramenta.
+Nenhuma largura apresentou rolagem horizontal.
 
 ```mermaid
 flowchart LR
@@ -20,7 +21,9 @@ flowchart LR
 
 !!! note "Perda de controle, não de função"
     A métrica conta elementos da interface, por isso 360 px fica como Não.
-    Contando só funções, seriam 4 de 4 (nota 2).
+    Contando só funções, seriam 4 de 4 (nota 2). O selo de criptografia é
+    um link informativo. A medição usou só o Chrome, em inglês, com a janela
+    redimensionada, sem emular toque.
 
 ## Evidências
 
@@ -44,3 +47,5 @@ flowchart LR
 
 Registro completo:
 [`F-M6_resolucoes.md`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/flexibilidade/F-M6_resolucoes.md).
+
+Arquivos de apoio: [arquivos de apoio](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/tree/main/evidencias/flexibilidade/F-M6).

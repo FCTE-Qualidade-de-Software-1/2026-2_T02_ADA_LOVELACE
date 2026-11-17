@@ -1,0 +1,661 @@
+{
+ "coletado_em": "2026-11-16T22:21:36+00:00",
+ "prs": [
+  {
+   "numero": 1,
+   "titulo": "Dev",
+   "autor": "cunha-luiss",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-10-18T01:32:39Z",
+   "integrado_em": "2026-10-18T19:44:59Z",
+   "revisoes": []
+  },
+  {
+   "numero": 2,
+   "titulo": "feat: adiciona modelo de qualidade e ODS da Fase 1 no gitpages",
+   "autor": "giovannafg",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-10-18T19:14:08Z",
+   "integrado_em": "2026-10-18T19:44:41Z",
+   "revisoes": []
+  },
+  {
+   "numero": 3,
+   "titulo": "docs: adiciona Metodologia da avaliação",
+   "autor": "renatoyx",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-10-18T20:36:36Z",
+   "integrado_em": "2026-10-18T21:06:45Z",
+   "revisoes": [
+    {
+     "revisor": "copilot-pull-request-reviewer",
+     "estado": "COMMENTED",
+     "em": "2026-10-18T20:36:43Z"
+    }
+   ]
+  },
+  {
+   "numero": 4,
+   "titulo": "feat: adiciona objetivos de medição",
+   "autor": "Zayra-Moraes",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-10-18T20:49:56Z",
+   "integrado_em": "2026-10-18T21:06:23Z",
+   "revisoes": []
+  },
+  {
+   "numero": 5,
+   "titulo": "Feat/luis",
+   "autor": "cunha-luiss",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-10-18T21:07:06Z",
+   "integrado_em": "2026-10-18T21:11:19Z",
+   "revisoes": []
+  },
+  {
+   "numero": 6,
+   "titulo": "Feat/proposito partes interessadas",
+   "autor": "andrehsb",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-10-18T22:28:51Z",
+   "integrado_em": "2026-10-18T22:29:53Z",
+   "revisoes": []
+  },
+  {
+   "numero": 7,
+   "titulo": "docs: Detalha melhor as métricas e atualiza a página de objetivos de …",
+   "autor": "ojplc",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-10-18T22:49:49Z",
+   "integrado_em": "2026-10-18T22:49:58Z",
+   "revisoes": []
+  },
+  {
+   "numero": 8,
+   "titulo": "adiciona o uso de IA",
+   "autor": "andrehsb",
+   "integrado_por": "andrehsb",
+   "criado_em": "2026-10-19T00:31:24Z",
+   "integrado_em": "2026-10-19T00:31:53Z",
+   "revisoes": []
+  },
+  {
+   "numero": 23,
+   "titulo": "docs: reestrutura página de métricas com framework PSM para CID e adiciona coleta automatizada",
+   "autor": "Zayra-Moraes",
+   "integrado_por": "cunha-luiss",
+   "criado_em": "2026-10-25T02:12:16Z",
+   "integrado_em": "2026-10-25T23:39:59Z",
+   "revisoes": []
+  },
+  {
+   "numero": 24,
+   "titulo": "Feat/luis",
+   "autor": "cunha-luiss",
+   "integrado_por": "cunha-luiss",
+   "criado_em": "2026-10-25T03:05:27Z",
+   "integrado_em": "2026-10-25T23:32:20Z",
+   "revisoes": []
+  },
+  {
+   "numero": 25,
+   "titulo": "docs: adiciona estimativa de custos da avaliacao e comparativo economico",
+   "autor": "renatoyx",
+   "integrado_por": "renatoyx",
+   "criado_em": "2026-10-25T20:38:09Z",
+   "integrado_em": "2026-10-26T21:50:45Z",
+   "revisoes": []
+  },
+  {
+   "numero": 26,
+   "titulo": "feat: Adiciona calendario",
+   "autor": "andrehsb",
+   "integrado_por": "andrehsb",
+   "criado_em": "2026-10-25T21:10:31Z",
+   "integrado_em": "2026-10-25T22:19:20Z",
+   "revisoes": []
+  },
+  {
+   "numero": 45,
+   "titulo": "T02 Ada Lovelace - E1 Retrospectiva",
+   "autor": "giovannafg",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-10-28T14:25:12Z",
+   "integrado_em": "2026-10-28T14:26:03Z",
+   "revisoes": []
+  },
+  {
+   "numero": 46,
+   "titulo": "docs: acrescenta estrutura de arquivos para continuação do trabalho",
+   "autor": "ojplc",
+   "integrado_por": "Zayra-Moraes",
+   "criado_em": "2026-10-30T11:24:54Z",
+   "integrado_em": "2026-10-30T16:24:45Z",
+   "revisoes": []
+  },
+  {
+   "numero": 47,
+   "titulo": "ACRESCENTA CÓDIGO DO EXCALIDRAW",
+   "autor": "ojplc",
+   "integrado_por": "Zayra-Moraes",
+   "criado_em": "2026-10-30T11:25:44Z",
+   "integrado_em": "2026-10-30T16:24:54Z",
+   "revisoes": []
+  },
+  {
+   "numero": 48,
+   "titulo": "Atualiza gitactions para calcular automaticamente as métricas",
+   "autor": "ojplc",
+   "integrado_por": "Zayra-Moraes",
+   "criado_em": "2026-10-30T12:17:58Z",
+   "integrado_em": "2026-10-30T16:25:07Z",
+   "revisoes": []
+  },
+  {
+   "numero": 50,
+   "titulo": "feat: adiciona métricas m26 e m18",
+   "autor": "Zayra-Moraes",
+   "integrado_por": "renatoyx",
+   "criado_em": "2026-11-04T13:21:44Z",
+   "integrado_em": "2026-11-04T13:22:24Z",
+   "revisoes": []
+  },
+  {
+   "numero": 51,
+   "titulo": "docs: coleta das evidencias de seguranca S-M9 e S-M13",
+   "autor": "ojplc",
+   "integrado_por": "renatoyx",
+   "criado_em": "2026-11-04T13:25:17Z",
+   "integrado_em": "2026-11-04T13:25:54Z",
+   "revisoes": []
+  },
+  {
+   "numero": 54,
+   "titulo": "feat: adiciona métricas F-M10 e F-M12 de flexibilidade",
+   "autor": "andrehsb",
+   "integrado_por": "renatoyx",
+   "criado_em": "2026-11-04T13:38:51Z",
+   "integrado_em": "2026-11-04T13:40:49Z",
+   "revisoes": []
+  },
+  {
+   "numero": 78,
+   "titulo": "Chore/kanban projeto usuario",
+   "autor": "giovannafg",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-11-06T06:22:25Z",
+   "integrado_em": "2026-11-07T09:32:07Z",
+   "revisoes": [
+    {
+     "revisor": "renatoyx",
+     "estado": "APPROVED",
+     "em": "2026-11-07T03:13:07Z"
+    },
+    {
+     "revisor": "ojplc",
+     "estado": "APPROVED",
+     "em": "2026-11-07T09:31:17Z"
+    }
+   ]
+  },
+  {
+   "numero": 79,
+   "titulo": "docs: simplifica a estimativa de custos da avaliação",
+   "autor": "ojplc",
+   "integrado_por": "giovannafg",
+   "criado_em": "2026-11-09T17:21:07Z",
+   "integrado_em": "2026-11-09T23:00:58Z",
+   "revisoes": [
+    {
+     "revisor": "giovannafg",
+     "estado": "APPROVED",
+     "em": "2026-11-09T23:00:47Z"
+    }
+   ]
+  },
+  {
+   "numero": 80,
+   "titulo": "docs: registra o ambiente local de teste do Excalidraw",
+   "autor": "ojplc",
+   "integrado_por": "giovannafg",
+   "criado_em": "2026-11-09T17:42:11Z",
+   "integrado_em": "2026-11-09T22:41:23Z",
+   "revisoes": [
+    {
+     "revisor": "giovannafg",
+     "estado": "APPROVED",
+     "em": "2026-11-09T22:41:07Z"
+    }
+   ]
+  },
+  {
+   "numero": 81,
+   "titulo": "docs: registra as evidências de S-M1 e S-M2 da segurança",
+   "autor": "ojplc",
+   "integrado_por": "giovannafg",
+   "criado_em": "2026-11-09T19:12:39Z",
+   "integrado_em": "2026-11-09T22:42:27Z",
+   "revisoes": [
+    {
+     "revisor": "giovannafg",
+     "estado": "APPROVED",
+     "em": "2026-11-09T22:42:03Z"
+    }
+   ]
+  },
+  {
+   "numero": 83,
+   "titulo": "docs: cria as páginas de resultado de S-M9, S-M13, F-M10, F-M12, CI-M18 e CI-M26",
+   "autor": "ojplc",
+   "integrado_por": "giovannafg",
+   "criado_em": "2026-11-09T20:24:19Z",
+   "integrado_em": "2026-11-09T22:50:57Z",
+   "revisoes": [
+    {
+     "revisor": "giovannafg",
+     "estado": "APPROVED",
+     "em": "2026-11-09T22:42:49Z"
+    }
+   ]
+  },
+  {
+   "numero": 84,
+   "titulo": "docs: adiciona evidências das métricas S-M11 e S-M12",
+   "autor": "renatoyx",
+   "integrado_por": "giovannafg",
+   "criado_em": "2026-11-09T21:36:39Z",
+   "integrado_em": "2026-11-09T23:05:48Z",
+   "revisoes": [
+    {
+     "revisor": "copilot-pull-request-reviewer",
+     "estado": "COMMENTED",
+     "em": "2026-11-09T21:36:48Z"
+    },
+    {
+     "revisor": "giovannafg",
+     "estado": "APPROVED",
+     "em": "2026-11-09T23:05:35Z"
+    }
+   ]
+  },
+  {
+   "numero": 85,
+   "titulo": "docs: adiciona a evidência da F-M7 (inclusão funcional)",
+   "autor": "giovannafg",
+   "integrado_por": "andrehsb",
+   "criado_em": "2026-11-09T23:37:27Z",
+   "integrado_em": "2026-11-12T11:48:27Z",
+   "revisoes": [
+    {
+     "revisor": "andrehsb",
+     "estado": "APPROVED",
+     "em": "2026-11-12T11:48:01Z"
+    }
+   ]
+  },
+  {
+   "numero": 86,
+   "titulo": "Feat/roteiro cap inter",
+   "autor": "Zayra-Moraes",
+   "integrado_por": "andrehsb",
+   "criado_em": "2026-11-11T14:11:10Z",
+   "integrado_em": "2026-11-12T12:18:13Z",
+   "revisoes": [
+    {
+     "revisor": "andrehsb",
+     "estado": "APPROVED",
+     "em": "2026-11-12T12:13:32Z"
+    }
+   ]
+  },
+  {
+   "numero": 87,
+   "titulo": "Feat/ci m7 m10",
+   "autor": "Zayra-Moraes",
+   "integrado_por": "giovannafg",
+   "criado_em": "2026-11-11T14:40:18Z",
+   "integrado_em": "2026-11-13T13:54:32Z",
+   "revisoes": [
+    {
+     "revisor": "andrehsb",
+     "estado": "CHANGES_REQUESTED",
+     "em": "2026-11-12T12:35:03Z"
+    }
+   ]
+  },
+  {
+   "numero": 88,
+   "titulo": "feat: adiciona métrica F-M11 de fidelidade de migração",
+   "autor": "andrehsb",
+   "integrado_por": "giovannafg",
+   "criado_em": "2026-11-11T16:50:40Z",
+   "integrado_em": "2026-11-13T13:56:55Z",
+   "revisoes": [
+    {
+     "revisor": "giovannafg",
+     "estado": "APPROVED",
+     "em": "2026-11-13T13:56:37Z"
+    }
+   ]
+  },
+  {
+   "numero": 89,
+   "titulo": "docs: adiciona plano de avaliação da Fase 3",
+   "autor": "andrehsb",
+   "integrado_por": "giovannafg",
+   "criado_em": "2026-11-11T19:33:33Z",
+   "integrado_em": "2026-11-13T13:58:36Z",
+   "revisoes": [
+    {
+     "revisor": "giovannafg",
+     "estado": "APPROVED",
+     "em": "2026-11-13T13:58:26Z"
+    }
+   ]
+  },
+  {
+   "numero": 90,
+   "titulo": "docs: adiciona as evidências da F-M5 (offline) e da F-M6 (resoluções)",
+   "autor": "andrehsb",
+   "integrado_por": "giovannafg",
+   "criado_em": "2026-11-12T14:07:12Z",
+   "integrado_em": "2026-11-13T14:06:18Z",
+   "revisoes": [
+    {
+     "revisor": "giovannafg",
+     "estado": "APPROVED",
+     "em": "2026-11-13T14:06:05Z"
+    }
+   ]
+  },
+  {
+   "numero": 91,
+   "titulo": "docs: registra evidências da métrica de segurança S-M3",
+   "autor": "renatoyx",
+   "integrado_por": "giovannafg",
+   "criado_em": "2026-11-12T16:25:46Z",
+   "integrado_em": "2026-11-13T14:07:42Z",
+   "revisoes": [
+    {
+     "revisor": "copilot-pull-request-reviewer",
+     "estado": "COMMENTED",
+     "em": "2026-11-12T16:25:57Z"
+    },
+    {
+     "revisor": "giovannafg",
+     "estado": "APPROVED",
+     "em": "2026-11-13T14:07:29Z"
+    }
+   ]
+  },
+  {
+   "numero": 92,
+   "titulo": "docs: registra evidências da métrica de segurança S-M4",
+   "autor": "renatoyx",
+   "integrado_por": "giovannafg",
+   "criado_em": "2026-11-12T19:25:24Z",
+   "integrado_em": "2026-11-13T14:09:57Z",
+   "revisoes": [
+    {
+     "revisor": "copilot-pull-request-reviewer",
+     "estado": "COMMENTED",
+     "em": "2026-11-12T19:25:34Z"
+    },
+    {
+     "revisor": "giovannafg",
+     "estado": "APPROVED",
+     "em": "2026-11-13T14:09:46Z"
+    }
+   ]
+  },
+  {
+   "numero": 94,
+   "titulo": "Adiciona evidências do histórico de versões do S-M8 e de auditoria de criação de elementos do S-M7",
+   "autor": "cunha-luiss",
+   "integrado_por": "giovannafg",
+   "criado_em": "2026-11-13T01:29:58Z",
+   "integrado_em": "2026-11-13T14:11:17Z",
+   "revisoes": [
+    {
+     "revisor": "giovannafg",
+     "estado": "APPROVED",
+     "em": "2026-11-13T14:11:06Z"
+    }
+   ]
+  },
+  {
+   "numero": 95,
+   "titulo": "docs: registrar avaliação da S-M10",
+   "autor": "cunha-luiss",
+   "integrado_por": "giovannafg",
+   "criado_em": "2026-11-13T01:55:38Z",
+   "integrado_em": "2026-11-13T14:14:16Z",
+   "revisoes": [
+    {
+     "revisor": "giovannafg",
+     "estado": "APPROVED",
+     "em": "2026-11-13T14:14:03Z"
+    }
+   ]
+  },
+  {
+   "numero": 96,
+   "titulo": "docs: registra medições de feedback visual e recuperabilidade",
+   "autor": "renatoyx",
+   "integrado_por": "giovannafg",
+   "criado_em": "2026-11-13T02:29:46Z",
+   "integrado_em": "2026-11-13T14:14:53Z",
+   "revisoes": [
+    {
+     "revisor": "copilot-pull-request-reviewer",
+     "estado": "COMMENTED",
+     "em": "2026-11-13T02:29:55Z"
+    },
+    {
+     "revisor": "giovannafg",
+     "estado": "APPROVED",
+     "em": "2026-11-13T14:14:44Z"
+    }
+   ]
+  },
+  {
+   "numero": 97,
+   "titulo": "docs: registrar evidência da CI-M23",
+   "autor": "cunha-luiss",
+   "integrado_por": "giovannafg",
+   "criado_em": "2026-11-13T02:34:14Z",
+   "integrado_em": "2026-11-13T14:15:24Z",
+   "revisoes": [
+    {
+     "revisor": "giovannafg",
+     "estado": "APPROVED",
+     "em": "2026-11-13T14:15:13Z"
+    }
+   ]
+  },
+  {
+   "numero": 98,
+   "titulo": "docs: atualizar contribuições de Luís Cunha e adicionar detalhes sobre uso de IA",
+   "autor": "cunha-luiss",
+   "integrado_por": "giovannafg",
+   "criado_em": "2026-11-13T02:48:10Z",
+   "integrado_em": "2026-11-13T14:17:04Z",
+   "revisoes": [
+    {
+     "revisor": "giovannafg",
+     "estado": "APPROVED",
+     "em": "2026-11-13T14:16:33Z"
+    }
+   ]
+  },
+  {
+   "numero": 99,
+   "titulo": "docs: registra medições de ações destrutivas e recuperação de dados",
+   "autor": "renatoyx",
+   "integrado_por": "giovannafg",
+   "criado_em": "2026-11-13T02:57:07Z",
+   "integrado_em": "2026-11-13T14:17:53Z",
+   "revisoes": [
+    {
+     "revisor": "copilot-pull-request-reviewer",
+     "estado": "COMMENTED",
+     "em": "2026-11-13T02:57:17Z"
+    },
+    {
+     "revisor": "giovannafg",
+     "estado": "APPROVED",
+     "em": "2026-11-13T14:17:43Z"
+    }
+   ]
+  },
+  {
+   "numero": 100,
+   "titulo": "docs: adiciona a evidência da F-M4 (cobertura em dispositivos móveis)",
+   "autor": "giovannafg",
+   "integrado_por": "andrehsb",
+   "criado_em": "2026-11-13T16:21:20Z",
+   "integrado_em": "2026-11-13T17:56:00Z",
+   "revisoes": [
+    {
+     "revisor": "andrehsb",
+     "estado": "APPROVED",
+     "em": "2026-11-13T17:36:52Z"
+    }
+   ]
+  },
+  {
+   "numero": 101,
+   "titulo": "docs: adiciona as evidências da CI-M22 (WCAG 2.2) e da CI-M25 (contraste)",
+   "autor": "giovannafg",
+   "integrado_por": "andrehsb",
+   "criado_em": "2026-11-13T17:17:27Z",
+   "integrado_em": "2026-11-13T18:03:38Z",
+   "revisoes": [
+    {
+     "revisor": "andrehsb",
+     "estado": "CHANGES_REQUESTED",
+     "em": "2026-11-13T17:36:53Z"
+    },
+    {
+     "revisor": "andrehsb",
+     "estado": "APPROVED",
+     "em": "2026-11-13T18:03:03Z"
+    }
+   ]
+  },
+  {
+   "numero": 102,
+   "titulo": "docs: adiciona as evidências da S-M5 (adulteração) e da S-M6 (edição simultânea)",
+   "autor": "ojplc",
+   "integrado_por": "giovannafg",
+   "criado_em": "2026-11-14T18:21:42Z",
+   "integrado_em": "2026-11-14T23:38:40Z",
+   "revisoes": [
+    {
+     "revisor": "giovannafg",
+     "estado": "APPROVED",
+     "em": "2026-11-14T23:38:17Z"
+    }
+   ]
+  },
+  {
+   "numero": 103,
+   "titulo": "docs: adiciona a evidência da CI-M24 (elementos anunciados por leitor de tela)",
+   "autor": "ojplc",
+   "integrado_por": "giovannafg",
+   "criado_em": "2026-11-14T20:12:45Z",
+   "integrado_em": "2026-11-14T23:41:06Z",
+   "revisoes": []
+  },
+  {
+   "numero": 104,
+   "titulo": "docs: adiciona as evidências da F-M1, F-M2 e F-M3",
+   "autor": "cunha-luiss",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-11-14T23:18:08Z",
+   "integrado_em": "2026-11-15T20:25:31Z",
+   "revisoes": [
+    {
+     "revisor": "ojplc",
+     "estado": "APPROVED",
+     "em": "2026-11-15T20:25:02Z"
+    }
+   ]
+  },
+  {
+   "numero": 105,
+   "titulo": "Feat/graficos gestao entrega2",
+   "autor": "giovannafg",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-11-15T00:19:38Z",
+   "integrado_em": "2026-11-15T20:28:51Z",
+   "revisoes": [
+    {
+     "revisor": "ojplc",
+     "estado": "APPROVED",
+     "em": "2026-11-15T20:28:41Z"
+    }
+   ]
+  },
+  {
+   "numero": 106,
+   "titulo": "docs: Adiciona relatórios de evidências CI-M12 e CI-M9 com descobertas detalhadas e imagens",
+   "autor": "cunha-luiss",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-11-15T02:17:33Z",
+   "integrado_em": "2026-11-16T00:34:29Z",
+   "revisoes": [
+    {
+     "revisor": "ojplc",
+     "estado": "APPROVED",
+     "em": "2026-11-16T00:34:03Z"
+    }
+   ]
+  },
+  {
+   "numero": 107,
+   "titulo": "docs: registra reavaliação independente da CI-M26",
+   "autor": "cunha-luiss",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-11-15T20:09:09Z",
+   "integrado_em": "2026-11-16T00:57:34Z",
+   "revisoes": [
+    {
+     "revisor": "ojplc",
+     "estado": "APPROVED",
+     "em": "2026-11-16T00:57:25Z"
+    }
+   ]
+  },
+  {
+   "numero": 108,
+   "titulo": "feat: horas, esforço previsto x realizado e revisão efetiva na gestão…",
+   "autor": "giovannafg",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-11-16T01:36:34Z",
+   "integrado_em": "2026-11-16T02:02:16Z",
+   "revisoes": [
+    {
+     "revisor": "ojplc",
+     "estado": "APPROVED",
+     "em": "2026-11-16T02:01:59Z"
+    }
+   ]
+  },
+  {
+   "numero": 109,
+   "titulo": "docs: publica as páginas de resultado das métricas já coletadas",
+   "autor": "giovannafg",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-11-16T01:37:31Z",
+   "integrado_em": "2026-11-16T22:21:09Z",
+   "revisoes": [
+    {
+     "revisor": "ojplc",
+     "estado": "APPROVED",
+     "em": "2026-11-16T22:21:00Z"
+    }
+   ]
+  }
+ ]
+}
