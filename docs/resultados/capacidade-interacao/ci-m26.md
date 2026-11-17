@@ -4,8 +4,12 @@
 (92,5%). Fica abaixo de 95% quando se conta o que falta, quase tudo de recursos
 recentes.
 
-!!! note "Revisão pendente"
-    A coleta ainda não foi revisada por outro integrante.
+!!! note "Revisão registrada"
+    A evidência original registra revisão por Luís Felipe Parreira Cunha em
+    15/11/2026. A reavaliação independente e a comparação foram integradas pelo
+    [PR #107](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/107),
+    mantendo 57 idiomas, 594/642 strings (92,5%) e nota 1. Isso não representa
+    nova medição ou revisão nesta etapa.
 
 ```mermaid
 flowchart LR

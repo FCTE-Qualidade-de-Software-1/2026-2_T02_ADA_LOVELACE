@@ -36,7 +36,7 @@ Com os dados atuais:
 | Data e duração da coleta | De 4 a 15 de novembro de 2026; sessões com participantes de 12 a 15 de novembro |
 | Navegadores e versões | Google Chrome 157 (também automatizado com Playwright), Microsoft Edge 157, Helium 157 (Chromium), Firefox 160, Safari 27.2 e Opera; NVDA 2026.3 com Edge para o leitor de tela |
 | Sistemas e dispositivos | Windows 10 e 11, macOS 27.2.1, Android 10, iOS 27.2.1 e iPadOS 27.2; celular e tablet também emulados no Chrome (Pixel 7 e iPad). Linux era previsto, mas não foi testado na F-M2; iOS e iPadOS foram contados separadamente |
-| Participantes e perfil | Perfil informado na síntese de André: 5 participantes, P01 a P05 (3 iniciantes, 1 experiente e 1 vindo do Lucidchart). Resultados individuais ainda não consolidados nesta base; esses perfis não constituem notas de métricas |
+| Participantes e perfil | Perfil informado na síntese de André: 5 participantes, P01 a P05 (3 iniciantes, 1 experiente e 1 vindo do Lucidchart). Resultados individuais ainda não consolidados nesta base; a elegibilidade de P05 para F-M8/F-M9 depende de confirmação na [#66](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/66). Esses perfis não constituem notas de métricas |
 | Casos de teste executados | Inventário de 51 métricas do [roteiro](roteiro.md); 37 com resultado e evidência em `evidencias/`, e 14 sem consolidação. Nas sessões, o roteiro único de seis tarefas do [protocolo](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/participantes/protocolo-testes-participantes.md) |
 
 ## Achados
@@ -280,7 +280,7 @@ das coletas. As hipóteses são literais conforme o roteiro.
 
 **Justificativa:** A parcela funcional da hipótese é compatível com a presença de funções básicas e ausência das avançadas. A previsão de tempo parecido depende da F-M8, e a conclusão por usuários migrantes depende da F-M9; ambas estão pendentes. Por isso a hipótese composta permanece inconclusiva, sem transformá-la em refutada apenas pela nota 0 da F-M7.
 
-**Limitações e métricas pendentes:** Pendentes: F-M8 e F-M9, sem valor nem nota. A referência efetivamente examinada foi draw.io, não Miro. F-M7 mede existência de funções no recorte escolhido, não produtividade nem facilidade de uso; as leituras alternativas documentadas mantêm sua nota 0. Nenhuma nova sessão ou medição foi realizada.
+**Limitações e métricas pendentes:** Pendentes: F-M8 e F-M9, sem valor nem nota, até confirmar a elegibilidade do perfil de P05 e validar as evidências na [#66](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/66). O roteiro prevê usuários vindos de draw.io/Miro; a síntese de perfil informa Lucidchart, o que exige confirmação, sem escolher julgamento alternativo de O4. A referência efetivamente examinada na F-M7 foi draw.io, não Miro. F-M7 mede existência de funções no recorte escolhido, não produtividade nem facilidade de uso; as leituras alternativas documentadas mantêm sua nota 0. Nenhuma nova sessão ou medição foi realizada.
 
 #### F-Q4 — Os dados podem ser migrados para dentro e para fora do Excalidraw sem perdas?
 
@@ -500,7 +500,7 @@ das coletas. As hipóteses são literais conforme o roteiro.
 
 **Justificativa:** Mantém-se a conclusão parcial de Renato: dezenas de idiomas sustentam a expectativa, mas a cobertura oficial não equivale à cobertura de todas as strings. A [comparação independente integrada](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M26_comparacao.md) confirmou os mesmos números e nota 1; não se recalcula a métrica nesta etapa nem se toma tradução como substituto de acessibilidade.
 
-**Limitações e métricas pendentes:** Não há métrica pendente. Há divergência documental de revisão: a página individual ainda tem aviso de revisão pendente, enquanto seu contexto e a evidência original identificam Luís Felipe em 15/11/2026 e o PR #107 integrado. Registra-se a inconsistência sem editar a página ou inventar revisão. A comparação esclarece que `a8800f8` é snapshot do grupo, não outra versão do Excalidraw. A amostra qualitativa de 20 chaves não cobre toda a tradução ou todos os perfis.
+**Limitações e métricas pendentes:** Não há métrica pendente. A evidência original identifica revisão por Luís Felipe em 15/11/2026 e a comparação foi integrada no PR #107. Na revisão documental de 17/11/2026, o aviso desatualizado da página individual foi alinhado a esse registro, sem nova medição ou revisão da coleta. A comparação esclarece que `a8800f8` é snapshot do grupo, não outra versão do Excalidraw. A amostra qualitativa de 20 chaves não cobre toda a tradução ou todos os perfis.
 
 
 ## Síntese por objetivo
@@ -707,9 +707,9 @@ assistivas também restringem o uso, sem uma pontuação de prioridade inventada
   integralmente aos cabeçalhos. Os recortes não autorizam generalização a
   produção, Excalidraw+, biblioteca, outros leitores ou versões futuras.
 * **Revisão documental.** CI-M26 possui revisão registrada por Luís Felipe
-  em 15/11/2026 e comparação integrada, mas a página ainda exibe aviso de
-  revisão pendente. Há inconsistência textual a corrigir nessa página,
-  sem divergência numérica nova. Integração documental não equivale à revisão
+  em 15/11/2026 e comparação integrada. O aviso da página individual foi
+  corrigido na revisão documental de 17/11/2026, sem divergência numérica ou
+  nova revisão da coleta. Integração documental não equivale à revisão
   de todas as coletas. S-M12 conserva média de correção indisponível, nunca
   zero dias; avisos técnicos não comprovam exploração.
 
@@ -723,9 +723,19 @@ iguais por questão; as contribuições interpretativas de Renato foram
 incorporadas e qualificadas sem nova medição. As 14 notas zero têm
 problema, impacto, recomendação e rastreabilidade na tabela de melhorias.
 
-Antes do PR: consolidar e revisar os resultados dos participantes, registrar
-como tratar a CI-M8 diante das sessões disponíveis, resolver as decisões
-metodológicas e revisões listadas acima e atualizar o aviso da CI-M26.
+Na conferência de 17/11/2026, a branch
+[`feat/entrevistas`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/tree/feat/entrevistas),
+no commit `859e745`, contém fichas e rascunhos de métricas das sessões de
+Zayra, sem PR identificado para essa branch. Esses dados não foram integrados
+nem usados como resultados revisados neste relatório.
+
+Antes do PR: Zayra deve disponibilizar as evidências das sessões para revisão;
+André deve concluir F-M8/F-M9 após confirmar a elegibilidade de P05 e validar
+as evidências na #66. A CI-M8 continua **não medida, sem valor e sem nota**:
+falta evidência comparável da primeira e da terceira sessão, exigida no
+roteiro. Sua ausência limita CI-Q3 e O5; não se imputa zero nem se altera a
+regra oficial de cálculo. Permanecem as decisões metodológicas e revisões
+listadas acima, incluindo CI-M14 e CI-M18.
 Os indicadores G-G1 a G-G8 continuam a cargo da sessão automatizada de gestão,
 fora das 51 métricas do produto. Os julgamentos desta versão valem para as
 notas publicadas; alterações futuras exigem atualizar os cálculos e suas
