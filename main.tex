@@ -1207,10 +1207,71 @@ das tabelas GQM.
 % efeito das decisões de gestão da Entrega 1.
 
 \section{Ameaças à Validade}
-% Validade de construção, interna, externa e de conclusão.
+\label{sec:ameacas}
+As ameaças seguem os quatro tipos de Wohlin et al.~\cite{wohlin12}. Para cada
+um, indica-se o que foi feito para reduzi-las e quanto elas podem mudar o
+resultado.
+
+\textbf{Construção.} Algumas métricas medem uma aproximação do atributo: a
+CI-M18 classifica o texto das mensagens no código, sem medir se o usuário o
+entende; a CI-M13 observa o retorno visual, sem medir a latência; e a CI-M5
+conta como ajuda qualquer pergunta, inclusive sobre o enunciado. Os
+denominadores da F-M7, F-M10, CI-M7, CI-M10, S-M1 e S-M6 foram escolhidos por
+quem mediu, registrados em cada evidência e levados ao grupo. Com 3 formatos
+na F-M10, o O4 iria a 83,3\%; com o modelo automatizado na S-M6, o O1 cairia a
+33,3\%, sem mudar os julgamentos. A CI-M8, que exige três sessões com a mesma
+pessoa, não foi medida nem tratada como zero; o O5 fica parcial em todos os
+cenários (de 65,6\% a 71,4\%).
+
+\textbf{Interna.} Na F-M8, o Excalidraw veio primeiro, o que favorece a
+ferramenta anterior, e ainda assim a razão foi 0,71. O único participante do
+perfil C marcou no questionário que já usava o Excalidraw, o que favorece a
+ferramenta avaliada; se ele não valer para o perfil, F-M8 e F-M9 ficam sem
+valor. Cada coleta teve um avaliador, e as ações erradas foram contadas por
+uma pessoa, pela transcrição; o protocolo previa dois avaliadores pela
+gravação. Para reduzir essa ameaça, cada evidência foi revisada por outro
+integrante, e a CI-M26 e a CI-M18 foram reavaliadas de forma independente. O
+uso de IA está declarado, com a forma de conferência de cada integrante.
+
+\textbf{Externa.} Os resultados valem para o commit \texttt{e7b5346} em
+instância local, com servidor de colaboração local e IA simulada, sem o
+Excalidraw+. O celular e o tablet da F-M4 foram emulados; aparelhos reais
+entraram só na F-M2 e na F-M3, que mostraram falhas no Android e no iPadOS, e
+o Linux não foi testado. As sessões tiveram cinco participantes, nenhum com
+deficiência, e a ferramenta anterior foi o Lucidchart, enquanto a F-M7 usou o
+draw.io.
+
+\textbf{Conclusão.} As amostras são pequenas (n = 1 na F-M8 e na F-M9; uma
+experiente contra dois iniciantes na CI-M11), e os resultados são descritivos,
+sem teste estatístico. O O4 fica no limite exato de 75\%: se a migração (T6)
+contasse na F-M9, cairia a 58,3\% (parcial), único julgamento que muda nos
+cenários alternativos. As médias dão o mesmo peso a cada questão, conforme o
+método fixado antes da coleta.
 
 \section{Conclusão}
-% Síntese, limitações, contribuições e trabalhos futuros.
+\label{sec:conclusao}
+No commit avaliado, o Excalidraw protege o conteúdo da colaboração, mas não
+controla quem entra nem registra quem fez cada alteração (O1 41,7\% e O2
+13,9\%, não atendidos). Funciona em navegadores, no toque e offline (O3
+66,7\%, parcial) e substitui outra ferramenta para diagramas básicos (O4
+75,0\%, atendido). A interface agrada e é fácil de reconhecer, mas iniciantes
+erram e pedem ajuda (O5 71,4\%, parcial), e o canvas é praticamente
+inacessível ao leitor de tela (O6 31,3\%, não atendido). Para as decisões do
+propósito, o link gratuito não é recomendado para diagramas sensíveis, o uso
+pedagógico com alunos no celular ou com deficiência não atinge o critério, e a
+migração do draw.io ou do Miro é recomendada só para diagramas básicos. Esses
+julgamentos valem para o commit, o ambiente e os participantes avaliados
+(Seção~\ref{sec:ameacas}).
+
+As contribuições são uma avaliação reprodutível, com 51 métricas GQM ligadas
+a evidências, commit e regra de pontuação; scripts reutilizáveis de teste
+offline, resoluções, toque e acessibilidade; um protocolo de sessões com
+registro anônimo; e 16 oportunidades de melhoria, uma por métrica com nota 0.
+Como trabalhos futuros, propõe-se medir a CI-M8 com três sessões por pessoa,
+ampliar a amostra com pessoas com deficiência e vindas do draw.io ou do Miro,
+alternar a ordem das ferramentas na F-M8, testar em aparelhos reais e no
+Linux, avaliar o Excalidraw+, fechar as notas provisórias e repetir a
+avaliação em uma versão mais nova.
 \fi
 
 % O \clearpage antes das referências garante que todas as tabelas e figuras
@@ -1367,6 +1428,11 @@ GAO-20-195G, Washington, DC, USA, 2020. [Online]. Available:
 [Online]. Available:
 \url{https://www.gov.br/cnpq/pt-br/acesso-a-informacao/bolsas-e-auxilios/copy_of_modalidades/tabela-de-valores-no-pais}.
 Acesso em: 25 out. 2026.
+\ifentregafinal
+\bibitem{wohlin12} C. Wohlin, P. Runeson, M. H\"{o}st, M. C. Ohlsson,
+B. Regnell, and A. Wessl\'{e}n, \textit{Experimentation in Software
+Engineering}. Berlin: Springer, 2012.
+\fi
 \end{thebibliography}
 
 %% =====================================================================

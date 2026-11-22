@@ -161,3 +161,7 @@ Referências citadas no artigo da equipe que não aparecem nas seções acima.
     <http://sedici.unlp.edu.ar/handle/10915/63778>. Acesso em: 26 out. 2026.
     Estudo de caso de referência: GQM aplicado à Segurança da ISO/IEC 25010
     em três aplicações web.
+41. WOHLIN, Claes; RUNESON, Per; HÖST, Martin; OHLSSON, Magnus C.; REGNELL,
+    Björn; WESSLÉN, Anders. **Experimentation in Software Engineering**.
+    Berlin: Springer, 2012. Classificação das ameaças à validade em
+    construção, interna, externa e de conclusão.

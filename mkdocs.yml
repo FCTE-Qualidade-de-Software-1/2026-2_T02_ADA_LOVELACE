@@ -67,6 +67,7 @@ nav:
       - Roteiro da análise: analise/roteiro.md
       - Gestão do grupo: analise/gestao-grupo.md
       - Resultados: analise/resultados.md
+      - Ameaças à validade e conclusão: analise/ameacas-conclusao.md
   - Fase de Aplicação:
       - Visão geral: fase_aplicacao/index.md
       - Plano de avaliação: fase_aplicacao/plano-avaliacao.md
