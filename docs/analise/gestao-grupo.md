@@ -96,9 +96,10 @@ disponível para conferência e processamento.
 | André Henrique Belarmino | 1 |
 | Renato Gameiro | 1 |
 | renatvg | 1 |
-| **Total** | **130** |
+| Zayra Moraes | 1 |
+| **Total** | **131** |
 
-*Última coleta: 2026-11-22T15:52:46+00:00, referência `main`.*
+*Última coleta: 2026-11-22T23:26:58+00:00, referência `main`.*
 <!-- END AUTO: membros-commits -->
 
 A atualização é executada a cada push na `main` e semanalmente pelo
