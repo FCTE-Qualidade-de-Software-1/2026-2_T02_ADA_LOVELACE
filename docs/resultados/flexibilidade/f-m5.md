@@ -1,25 +1,51 @@
 # F-M5 · Cobertura funcional offline
 
-**Nota 1**: com o modo offline do Chrome, depois de abrir o app uma vez com
-rede, 16 das 23 funções testadas funcionaram (69,6%). Todas as funções de
-desenho, edição e arquivo funcionaram sem rede. Falharam as 4 que dependem de
-servidor e 3 locais que dependem de arquivos não guardados no primeiro acesso.
+**Nota 1**: com o modo offline do Chrome, 16 de 23 funções funcionaram (69,6%). As funções básicas de desenho e edição funcionam
+offline; falham as funções que dependem de servidor e três que dependem
+de arquivos não guardados no primeiro acesso.
 
-| Grupo | Sem rede |
-| --- | :-: |
-| Desenho, edição, salvar, abrir, exportar PNG, biblioteca, tema, fonte (16) | Sim |
-| Exportar SVG (a fonte fica só como link, não embutida) | **Não** |
-| Trocar o idioma (a interface continua em inglês, sem aviso) | **Não** |
-| Converter Mermaid ("Couldn't load Mermaid") | **Não** |
-| Colaboração, link compartilhável, IA e bibliotecas públicas | **Não** |
+```mermaid
+flowchart LR
+    A["Primeiro acesso<br/>com rede"] --> SW["Service worker guarda<br/>16 arquivos"]
+    SW --> OFF["Sem rede:<br/>23 funções testadas"]
+    OFF --> OK["16 funcionam<br/>desenho, edição, arquivo"]
+    OFF --> X["7 falham"]
+```
 
-!!! note "Sensibilidade"
-    Só com as 19 funções que não dependem de servidor, seriam 16 de 19 (84,2%,
-    nota 2). Contando o SVG como Sim, seriam 17 de 23 (73,9%, ainda nota 1).
-    Quem já usou idioma, Mermaid e SVG com rede teria resultado melhor nesses
-    itens, porque o service worker só guarda esses arquivos depois do primeiro
-    uso.
+| Grupo | Sem rede | O que falhou |
+| --- | :---: | --- |
+| Desenho e edição (formas, seta, texto, desenho livre, cores, desfazer, agrupar) | 7 de 7 | — |
+| Arquivo e imagem (salvar, abrir, PNG, SVG, inserir imagem, biblioteca) | 5 de 6 | SVG sai sem a fonte embutida |
+| Interface (recarregar, cena preservada, tema, idioma, fonte) | 4 de 5 | Troca para português não acontece |
+| Mermaid | 0 de 1 | "Couldn't load Mermaid" |
+| Dependem de servidor (colaboração, link, IA, bibliotecas públicas) | 0 de 4 | Botão de compartilhar some; IA e site não carregam |
+
+Com rede, as 21 funções testadas passaram. Só com as 19 que não dependem de
+servidor, o valor seria 84,2% (nota 2). Contando o SVG sem fonte embutida
+como Sim, seriam 17 de 23 (73,9%, ainda nota 1); isso não substitui a
+classificação original.
+
+!!! note "Primeiro acesso"
+    O teste abriu o app uma vez com rede, como um visitante novo. Idioma,
+    Mermaid e o código que embute a fonte no SVG só ficam guardados se forem
+    usados uma vez com rede.
+
+## Evidências
+
+=== "Mermaid"
+
+    O diálogo do Mermaid não carrega sem rede.
+
+    ![Erro ao carregar o Mermaid offline](../../assets/resultados/flexibilidade/F-M5_mermaid-offline_2026-11-12.png)
+
+=== "Compartilhar"
+
+    Sem rede, o botão de compartilhar some (`excalidraw-app/App.tsx:824-826`),
+    e com ele a colaboração e o link compartilhável.
+
+    ![Interface offline sem o botão de compartilhar](../../assets/resultados/flexibilidade/F-M5_sem-compartilhar-offline_2026-11-12.png)
 
 Registro completo:
-[`F-M5_cobertura-offline.md`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/flexibilidade/F-M5_cobertura-offline.md)
-e [arquivos de apoio](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/tree/main/evidencias/flexibilidade/F-M5).
+[`F-M5_cobertura-offline.md`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/flexibilidade/F-M5_cobertura-offline.md).
+
+Arquivos de apoio: [arquivos de apoio](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/tree/main/evidencias/flexibilidade/F-M5).

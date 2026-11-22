@@ -75,6 +75,7 @@ nav:
       - Capacidade de interação: fase_aplicacao/capacidade-interacao.md
   - Resultados:
       - Visão geral: resultados/index.md
+      - Inventário de Renato (issue 20): resultados/inventario-renato-issue-20.md
       - Segurança:
           - S-M1 · Mensagens cifradas: resultados/seguranca/s-m1.md
           - S-M2 · Chave enviada ao servidor: resultados/seguranca/s-m2.md

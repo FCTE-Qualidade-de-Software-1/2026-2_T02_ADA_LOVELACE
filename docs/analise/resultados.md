@@ -1,24 +1,56 @@
 # Resultados
 
-Esta página deve ser preenchida após a execução dos casos de teste descritos no
-[roteiro da análise](roteiro.md). Nenhum resultado deve ser inferido apenas a
-partir da documentação do Excalidraw.
+Relatório integrado da issue #20, com as interpretações de Renato
+(`34ca062591887d5f7779b2d33d145b26a8de8edb`) e os cálculos e a síntese de André
+(`44302e5ee7d6805124bf5846d5628c09df2fcad1`), preservados no histórico Git.
+A integração de 17/11/2026 não realiza novas medições nem altera valores,
+notas ou denominadores publicados. A atualização de 22/11/2026 incorpora a
+F-M8 e a F-M9 ([PR #110](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/110))
+e as métricas das sessões com participantes calculadas por Zayra
+([PR #113](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/113)),
+com os valores e as notas registrados nas evidências, e completa as respostas
+às questões e o julgamento de O4 e O5. Os critérios são os do [roteiro](roteiro.md).
 
 ## Resumo executivo
 
-`[Apresente a síntese após a coleta: versão avaliada, ambientes, objetivos
-atendidos e principais riscos.]`
+O Excalidraw foi avaliado no commit `e7b5346`, entre 4 e 22 de novembro de
+2026, em seis objetivos ligados a três características da ISO/IEC 25010:2023:
+Segurança, Flexibilidade e Capacidade de interação. Das 51 métricas do
+roteiro, 50 têm nota; a CI-M8 não foi medida, porque exige três sessões
+com a mesma pessoa e cada participante fez uma.
+
+Com os dados atuais:
+
+- **Segurança é o ponto fraco.** O1 (41,7%) e O2 (13,9%) não são atendidos. A
+  colaboração cifra o desenho e não envia a chave ao servidor, mas não há
+  controle de acesso ao link, autoria das alterações nem identificação dos
+  participantes, e a cena fica sem cifra no navegador.
+- **Flexibilidade é parcial.** O3 (66,7%) é parcialmente atendido: o editor
+  funciona em navegadores, no toque e offline, mas há falhas em dois sistemas
+  móveis e dependência de rede para parte das funções. A migração de dados (F-Q4, 83,3%)
+  é atendida, com 100% de fidelidade no formato próprio.
+- **Acessibilidade não é atendida.** O6 (31,3%): o leitor de tela não
+  anuncia o que está desenhado, e há violações da WCAG e textos com pouco
+  contraste.
+- **Substituir outra ferramenta é viável no básico.** O4 (75,0%) é
+  atendido: o participante vindo do Lucidchart reproduziu o diagrama-modelo
+  em 71% do tempo e concluiu as tarefas (F-M8 e F-M9), mas faltam as funções
+  avançadas do draw.io (F-M7, nota 0).
+- **A interface é fácil de reconhecer e agrada, mas os iniciantes erram e
+  pedem ajuda.** O5 (71,4%) é parcialmente atendido: SUS médio de 82,9,
+  propósito reconhecido por todos e 80,8% dos ícones identificados, mas 23,3% das
+  ações dos iniciantes foram erradas e só 5 de 8 tarefas saíram sem ajuda.
 
 ## Configuração da avaliação
 
 | Item | Registro |
 | --- | --- |
-| Versão ou commit avaliado | `[Preencher]` |
-| Data e duração da coleta | `[Preencher]` |
-| Navegadores e versões | `[Preencher]` |
-| Sistemas e dispositivos | `[Preencher]` |
-| Participantes e perfil | `[Preencher sem nomes reais]` |
-| Casos de teste executados | `[Preencher]` |
+| Versão ou commit avaliado | Commit [`e7b5346`](https://github.com/excalidraw/excalidraw/commit/e7b534668a60add7f725531f3c9abf32508c7b4e) do Excalidraw, em instância local e em build de produção servido localmente ([ambiente](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/ambiente/ambiente-local.md)) |
+| Data e duração da coleta | De 4 a 22 de novembro de 2026; sessões com participantes de 12 a 15 de novembro, mais a de P06 (22/11 na ficha; a data não consta no CSV) |
+| Navegadores e versões | Google Chrome 157 (também automatizado com Playwright), Microsoft Edge 157, Helium 157 (Chromium), Firefox 160, Safari 27.2 e Opera; NVDA 2026.3 com Edge para o leitor de tela |
+| Sistemas e dispositivos | Windows 10 e 11, macOS 27.2.1, Android 10, iOS 27.2.1 e iPadOS 27.2; celular e tablet também emulados no Chrome (Pixel 7 e iPad). Linux era previsto, mas não foi testado na F-M2; iOS e iPadOS foram contados separadamente |
+| Participantes e perfil | 6 participantes, uma sessão cada, conduzidas por Zayra: P01, P03 e P04 iniciantes (perfil A), P02 e P06 experientes (B) e P05 vindo do Lucidchart (C); nenhum do perfil D (acessibilidade), que não foi recrutado. Dados por código em [`registro-sessoes.csv`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/participantes/registro-sessoes.csv). P05 marcou no questionário que já usou o Excalidraw "regularmente", o que está registrado como limitação na F-M8 e na F-M9 |
+| Casos de teste executados | Inventário de 51 métricas do [roteiro](roteiro.md); 50 com resultado e evidência em `evidencias/` e 1 não medida (CI-M8). Nas sessões, o roteiro único de seis tarefas do [protocolo](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/participantes/protocolo-testes-participantes.md) |
 
 ## Achados
 
@@ -31,16 +63,555 @@ atendidos e principais riscos.]`
 | A-S-M6-3 | S-Q3 · S-M6: depois de um empate de versão, quem perde o desempate sobe a versão sozinho (`bumpElementVersions` no recebimento) e, se isso ocorrer depois da última ressincronização dela, a versão não chega aos outros (2 de 8 rodadas no app real; na rodada 8, persistiu por 2 min). Depois disso, uma edição não concorrente de outro participante pode ser descartada em silêncio nessa janela (teste `edição posterior`) | [S-M6, O1 e seção 7](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/seguranca/S-M6/S-M6_edicao-simultanea.md#7-achado-preencher-só-se-a-pontuação-for-0) | 1 | Médio a alto | Não aplicar `bumpElementVersions` a atualizações recebidas da colaboração, como o comentário da própria função indica, ou retransmitir a versão gerada |
 | A-CI-M24-1 | CI-Q9 · CI-M24: o NVDA anuncia só 1 de 9 elementos desenhados (o nome do frame, que é HTML); formas, linhas, texto, desenho livre e imagem são pixels num canvas lido só como "Tela de desenho", e seleção e mudanças pelo teclado não produzem fala | [CI-M24, seção 7](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M24/CI-M24_elementos-anunciados.md#7-achado-preencher-só-se-a-pontuação-for-0) | 0 | Alto | Expor os elementos numa estrutura acessível paralela ao canvas (tipo, texto, rótulo e posição), anunciar seleção e mudanças numa região `aria-live` e permitir texto alternativo em imagens |
 
+## Síntese por questão
+
+A pontuação de cada questão é a média simples das notas das suas métricas, e o
+percentual é `média / 2 × 100`, interpretado conforme a
+[seção 6 do roteiro](roteiro.md#6-criterios-de-julgamento): 75% ou mais,
+atendido; de 50% a 74%, parcialmente atendido; abaixo de 50%, não atendido.
+As notas de cada métrica estão em [Resultados](../resultados/index.md).
+Calcula-se com as frações completas e arredonda-se apenas a apresentação
+(médias com duas casas e percentuais com uma). Média ausente é indicada por
+**—**, sem imputar zero nem calcular média apenas das métricas disponíveis.
+Isso mantém integralmente os vínculos do roteiro; não cria regra de imputação.
+Há **19 questões com média completa e 1 sem média** (CI-Q3, porque a CI-M8
+não foi medida). O julgamento da hipótese
+é distinto do atendimento quantitativo: confirmar uma previsão negativa
+confirma uma limitação.
+
+| Questão | Métricas (nota) | Média | Percentual | Hipótese | Por quê |
+| --- | --- | ---: | ---: | --- | --- |
+| S-Q1 · Confidencialidade dos dados | S-M1 (0), S-M2 (2) | 1,00 | 50,0% | Confirmada parcialmente | Proteção parcial: nome em claro; chave não observada no servidor. |
+| S-Q2 · Controle de acesso | S-M3 (0), S-M4 (0) | 0,00 | 0,0% | Confirmada no recorte, com limitações | Ausência de senha, expiração e revogação; persistência local legível. |
+| S-Q3 · Integridade | S-M5 (2), S-M6 (1) | 1,50 | 75,0% | Confirmada parcialmente | 221/221 adulterações rejeitadas; duas divergências em oito rodadas. |
+| S-Q4 · Rastreabilidade | S-M7 (0), S-M8 (0) | 0,00 | 0,0% | Confirmada no recorte observável | Sem autoria verificável ou histórico persistente no recorte gratuito. |
+| S-Q5 · Autenticidade | S-M9 (1), S-M10 (0) | 0,50 | 25,0% | Confirmada no recorte local | Nome autodeclarado e personificação aceita no teste local. |
+| S-Q6 · Resistência | S-M11 (0), S-M12 (0), S-M13 (1) | 0,33 | 16,7% | Confirmada parcialmente, com ressalvas | Cinco avisos altos, um caso sem correção identificada e cabeçalhos incompletos. |
+| F-Q1 · Navegadores e sistemas | F-M1 (2), F-M2 (1), F-M3 (1) | 1,33 | 66,7% | Confirmada em parte | Os quatro navegadores passaram, mas 2 de 5 sistemas falharam (erro de clipboard no Firefox do Android e scroll travado no Safari do iPad): as diferenças ficaram nos dispositivos móveis, não no macOS |
+| F-Q2 · Dispositivos e condições de uso | F-M4 (2), F-M5 (1), F-M6 (1) | 1,33 | 66,7% | Confirmada em parte | Há barra própria para celular e o editor funciona offline, mas colaboração, IA, idioma e Mermaid dependem de rede, e em 360 px faltam os botões de zoom e de trava da ferramenta. A limitação no toque não apareceu nas 25 funções testadas |
+| F-Q3 · Substituir uma ferramenta equivalente | F-M7 (0), F-M8 (2), F-M9 (2) | 1,33 | 66,7% | Confirmada | O participante vindo do Lucidchart reproduziu o diagrama-modelo em 94 s contra 132 s (razão 0,71) e concluiu as duas tarefas, mas o Excalidraw tem só 24 de 42 funções do draw.io (57,1%) |
+| F-Q4 · Migração de dados | F-M10 (1), F-M11 (2), F-M12 (2) | 1,67 | 83,3% | Confirmada | O `.excalidraw` e as imagens com cena incorporada preservaram 12 de 12 elementos, mas faltam PDF e JPEG na exportação e nenhum formato de outra ferramenta é importado como diagrama editável |
+| CI-Q1 · Reconhecer a adequação | CI-M1 (1), CI-M2 (2), CI-M3 (2) | 1,67 | 83,3% | Confirmada parcialmente | Todos os iniciantes e o participante do perfil C descreveram corretamente o propósito, e 80,8% dos ícones foram identificados, mas a média foi de 18,7 s, acima dos "poucos segundos" previstos |
+| CI-Q2 · Aprender as funções básicas | CI-M4 (2), CI-M5 (0), CI-M6 (2, provisória) | 1,33 | 66,7% | Confirmada parcialmente | A primeira tarefa saiu em 0,6 min em média, mas só 5 de 8 tarefas foram concluídas sem ajuda (62,5%): as três falhas foram na T5, e ninguém abriu a ajuda |
+| CI-Q3 · Apoio ao aprendizado contínuo | CI-M7 (1), CI-M8 (não medida) | — | — | Parcialmente confirmada quanto ao apoio documental | CI-M7: a ajuda documenta 46 de 74 funções (62,2%) e não tem tutorial guiado. CI-M8 não foi medida (cada participante fez uma sessão) |
+| CI-Q4 · Eficiência nas tarefas comuns | CI-M9 (2), CI-M10 (2), CI-M11 (2, provisória) | 2,00 | 100% | Confirmada | Tarefas frequentes com 2,5 ações em média, atalho para as 17 funções frequentes, e os experientes levaram 0,41 do tempo dos iniciantes na T5 (n = 2 em cada grupo) |
+| CI-Q5 · Consistência e previsibilidade | CI-M12 (2), CI-M13 (2, provisória) | 2,00 | 100% | Refutada | A hipótese previa diferenças conforme o contexto, mas os 11 casos de seleção, snapping e texto se comportaram igual nos dois contextos (CI-M12), e as 13 ações deram retorno visual no ponto observado (CI-M13, sem medir latência). O resultado de consistência é melhor que o previsto |
+| CI-Q6 · Evitar e recuperar erros | CI-M14 (0, provisória), CI-M15 (1), CI-M16 (2) | 1,00 | 50,0% | Confirmada parcialmente; classificação provisória | Recuperação e autosave presentes, com abertura destrutiva e nota provisória em CI-M14. |
+| CI-Q7 · Frequência e clareza dos erros | CI-M17 (0), CI-M18 (0, provisória) | 0,00 | 0,0% | Refutada | A hipótese previa poucos erros nas tarefas básicas, mas 44 de 189 ações dos iniciantes e do perfil C foram erradas (23,3%), e só 8 de 18 mensagens explicam o problema e a saída |
+| CI-Q8 · Satisfação | CI-M19 (2), CI-M20 (2), CI-M21 (2) | 2,00 | 100% | Confirmada | SUS médio de 82,9, acima de 68; satisfação visual de 4,22 (estilo desenhado à mão 4,7; modo escuro 3,3, com opiniões divididas); 6 de 6 usariam de novo |
+| CI-Q9 · Uso por pessoas com deficiência | CI-M22 (0), CI-M23 (1), CI-M24 (0), CI-M25 (0) | 0,25 | 12,5% | Confirmada parcialmente, com barreiras adicionais | Barreiras de teclado, leitor de tela e contraste; ver ressalvas da coleta. |
+| CI-Q10 · Adaptação a perfis de usuário | CI-M26 (1) | 1,00 | 50,0% | Confirmada parcialmente na dimensão linguística | 57 idiomas; cobertura de pt-BR de 92,5% usa todas as strings de referência. |
+
+## Interpretação das 20 questões GQM
+
+A cadeia de rastreabilidade é **objetivo → questão → hipótese → métrica →
+página de resultado/evidência → interpretação**. Cada página de métrica
+abaixo liga à evidência original. O [inventário de Renato](../resultados/inventario-renato-issue-20.md)
+complementa a rastreabilidade de suas 26 métricas. Confirmar uma hipótese
+negativa não significa atender ao objetivo. As ressalvas de versão, ambiente
+e revisão acompanham os resultados; esta consolidação não substitui a revisão
+das coletas. As hipóteses são literais conforme o roteiro.
+
+
+### Segurança · O1 — Proteção das informações e controle de acesso
+
+#### S-Q1 — Os dados do desenho trafegam e ficam armazenados de forma protegida contra acesso não autorizado?
+
+**Hipótese original:** Sim: o código cifra as mensagens da colaboração com AES-GCM no navegador, e a chave fica no fragmento `#` do link, que o navegador não envia ao servidor
+
+**Métricas relacionadas e resultados disponíveis:**
+
+| Métrica / evidência | Valor documentado | Nota documentada (0–2) |
+| --- | --- | --- |
+| [S-M1 · Mensagens de colaboração cifradas](../resultados/seguranca/s-m1.md) | 5 de 6 tipos de evento (83,3%) | **0** |
+| [S-M2 · Chave enviada ao servidor](../resultados/seguranca/s-m2.md) | Não (0 ocorrências) | **2** |
+
+**Resposta fundamentada:** Os dados examinados têm proteção parcial. O desenho e outros eventos da colaboração usam cifra no cliente, e a chave não apareceu no tráfego capturado; o nome em `user-follow` foi enviado em claro ao servidor de sala. Não há demonstração de proteção integral do tráfego e do armazenamento.
+
+**Julgamento da hipótese:** **Parcialmente confirmada** no recorte documentado.
+
+**Justificativa:** Mantém-se a conclusão parcial de Renato: a S-M2 favorável não elimina a exceção registrada na S-M1. O envio à IA é uma observação separada, fora da proporção da S-M1; a persistência local é coberta pela S-M4 em S-Q2, conforme o vínculo oficial.
+
+**Limitações e métricas pendentes:** Não há métrica pendente nesta questão. Coleta local; Sentry desativado nesse ambiente, com risco teórico de registrar o fragmento ainda não confirmado em produção. Tipos de evento e volume de mensagens são unidades distintas; conserva-se a nota por tipo, sem substituí-la pelo percentual por volume. Revisões cruzadas não preenchidas.
+
+#### S-Q2 — É possível controlar quem acessa um desenho compartilhado?
+
+**Hipótese original:** Não: na versão gratuita, quem tem o link acessa o desenho, sem senha, expiração ou revogação, e a cena fica sem criptografia no `localStorage`
+
+**Métricas relacionadas e resultados disponíveis:**
+
+| Métrica / evidência | Valor documentado | Nota documentada (0–2) |
+| --- | --- | --- |
+| [S-M3 · Mecanismos de controle de acesso](../resultados/seguranca/s-m3.md) | 0 de 3 mecanismos | **0** |
+| [S-M4 · Dados persistidos localmente sem criptografia](../resultados/seguranca/s-m4.md) | Sim: cena e dados associados legíveis (localStorage e IndexedDB) | **0** |
+
+**Resposta fundamentada:** O cliente gratuito examinado não oferece senha, expiração ou revogação de links, e a cena e dados associados ficaram legíveis no armazenamento do navegador. O controle de acesso previsto na pergunta não foi demonstrado.
+
+**Julgamento da hipótese:** **Confirmada** no recorte documentado.
+
+**Justificativa:** Mantém-se a confirmação da hipótese negativa de Renato no recorte observado: as duas métricas sustentam as limitações previstas. Encerrar a participação do criador não invalidou o link enquanto outro participante permanecia conectado; posse do link e da chave não equivale a autorização por identidade.
+
+**Limitações e métricas pendentes:** Não há métrica pendente. Na S-M3, Firebase indisponível e exportação `#json` não concluída limitam o teste remoto; a reentrada de C tem registro visual limitado. Na S-M4, não foi comprovado o vínculo entre o checkout auditado e o processo Vite; a coleta não mede cifra de disco, acesso remoto indevido ou segurança da IA real. Revisão cruzada pendente.
+
+#### S-Q3 — O sistema impede alteração ou corrupção não autorizada dos dados?
+
+**Hipótese original:** Sim: o AES-GCM é autenticado, então um payload adulterado falha ao ser decifrado, e a reconciliação por versão dos elementos deve evitar inconsistências na edição simultânea
+
+**Métricas relacionadas e resultados disponíveis:**
+
+| Métrica / evidência | Valor documentado | Nota documentada (0–2) |
+| --- | --- | --- |
+| [S-M5 · Taxa de detecção de adulteração](../resultados/seguranca/s-m5.md) | 221 de 221 rejeitadas (100%) | **2** |
+| [S-M6 · Inconsistências após edições simultâneas](../resultados/seguranca/s-m6.md) | 2 em 8 rodadas | **1** |
+
+**Resposta fundamentada:** A adulteração dos payloads testados foi rejeitada sem alterar a cena, mas a colaboração não evitou todas as inconsistências nas edições simultâneas. Duas das oito rodadas terminaram com versões divergentes.
+
+**Julgamento da hipótese:** **Parcialmente confirmada** no recorte documentado.
+
+**Justificativa:** Mantém-se a análise composta de Renato: há suporte à autenticação criptográfica das mensagens, mas a expectativa sobre reconciliação não se sustenta integralmente. Uma divergência persistiu por dois minutos. Nem a nota alta da S-M5 confirma toda a hipótese, nem a falha de sincronização invalida a rejeição de adulterações demonstrada.
+
+**Limitações e métricas pendentes:** Não há métrica pendente. O ensaio é local e controlado; não estima a frequência em produção. Replay de mensagem válida fica fora da taxa de adulteração e, no caso documentado, foi descartado pela reconciliação. Alertas bloqueantes são efeito adicional, não nova pontuação. Revisão cruzada não preenchida.
+
+### Segurança · O2 — Identificação, responsabilização e riscos de segurança
+
+#### S-Q4 — As ações dos usuários são rastreáveis?
+
+**Hipótese original:** Não: a versão gratuita não guarda histórico de versões nem registra o autor de cada alteração
+
+**Métricas relacionadas e resultados disponíveis:**
+
+| Métrica / evidência | Valor documentado | Nota documentada (0–2) |
+| --- | --- | --- |
+| [S-M7 · Completude da trilha de auditoria](../resultados/seguranca/s-m7.md) | 0 de 7 ações com autoria verificável (0%) | **0** |
+| [S-M8 · Histórico de versões com autoria](../resultados/seguranca/s-m8.md) | Histórico persistente com autoria não encontrado | **0** |
+
+**Resposta fundamentada:** Não foi encontrada rastreabilidade persistente das ações até seus autores no material observável. Presença de participantes e desfazer/refazer não formam histórico auditável com autoria.
+
+**Julgamento da hipótese:** **Confirmada** no recorte documentado.
+
+**Justificativa:** Mantém-se a confirmação da hipótese negativa de Renato: nenhuma das sete ações teve autoria verificável, e não foi encontrado histórico persistente com data e autor. A conclusão descreve o recorte observável do cliente gratuito.
+
+**Limitações e métricas pendentes:** Não há métrica pendente. S-M7 não preservou HAR completo nem decifrou os payloads; não prova ausência de todo campo interno cifrado. S-M8 não comparou efetivamente o Excalidraw+: conserva-se a nota registrada 0, com o enquadramento entre 0 e 1 pendente de revisão metodológica. Registros não revisados.
+
+#### S-Q5 — O sistema confirma a identidade de quem participa da sessão?
+
+**Hipótese original:** Não: o participante só informa um nome, sem login, e qualquer pessoa pode usar o nome de outra
+
+**Métricas relacionadas e resultados disponíveis:**
+
+| Métrica / evidência | Valor documentado | Nota documentada (0–2) |
+| --- | --- | --- |
+| [S-M9 · Suficiência da autenticação](../resultados/seguranca/s-m9.md) | Nome autodeclarado | **1** |
+| [S-M10 · Passar-se por outro participante](../resultados/seguranca/s-m10.md) | Sim (1 de 1 tentativa aceita sem alerta) | **0** |
+
+**Resposta fundamentada:** Não há confirmação da identidade no fluxo gratuito examinado. O nome é autodeclarado, e uma tentativa de usar o nome de outro participante foi aceita sem alerta ou bloqueio.
+
+**Julgamento da hipótese:** **Confirmada** no recorte documentado.
+
+**Justificativa:** Mantém-se a confirmação da hipótese negativa de Renato. A existência de nome e `socketId` não verifica a identidade: duas conexões distintas passaram a aparecer como Alice. S-M9 e S-M10 sustentam conjuntamente a conclusão.
+
+**Limitações e métricas pendentes:** Não há métrica pendente. A troca de nome chamou pelo console o método usado pela interface; foram três abas do mesmo perfil, com sockets distintos e armazenamento compartilhado. Quatro arquivos relevantes foram conferidos por hash contra o upstream na evidência. Não generalizar para todas as formas de personificação ou para o produto pago; revisões cruzadas não preenchidas.
+
+#### S-Q6 — A aplicação resiste a ataques e vulnerabilidades conhecidas?
+
+**Hipótese original:** Parcialmente: o projeto é mantido ativamente e deve ter poucas vulnerabilidades críticas, mas a configuração de hospedagem do repositório não define CSP, o que deve baixar a nota dos cabeçalhos
+
+**Métricas relacionadas e resultados disponíveis:**
+
+| Métrica / evidência | Valor documentado | Nota documentada (0–2) |
+| --- | --- | --- |
+| [S-M11 · Vulnerabilidades altas ou críticas nas dependências](../resultados/seguranca/s-m11.md) | 5 avisos altos; 0 críticos no recorte web | **0** |
+| [S-M12 · Advisories, CVEs e tempo de correção](../resultados/seguranca/s-m12.md) | 1 aviso aplicável sem correção identificada; média indisponível | **0** |
+| [S-M13 · Cabeçalhos de segurança HTTP](../resultados/seguranca/s-m13.md) | 3 de 6 cabeçalhos (nota C) | **1** |
+
+**Resposta fundamentada:** Há fragilidades documentadas, e as evidências não certificam resistência a ataques. O recorte do cliente web teve cinco avisos altos e nenhum crítico; um caso aplicável ficou sem correção pública identificada no corte da coleta. A resposta HTTP coletada tinha proteção incompleta.
+
+**Julgamento da hipótese:** **Parcialmente confirmada** no recorte documentado.
+
+**Justificativa:** Mantém-se a conclusão parcial de Renato: ausência de CSP e nota C apoiam a previsão sobre cabeçalhos, e o recorte web não apresentou críticos. Porém avisos altos e o caso sem correção impedem tomar manutenção ativa como prova de resistência satisfatória; a coleta não demonstra relação causal entre manutenção e contagem de avisos.
+
+**Limitações e métricas pendentes:** Não há métrica pendente, mas o tempo médio de correção é indisponível, não zero dias. S-M11/S-M12 retratam 08/11/2026 e não demonstram exploração ou composição do bundle implantado. Os recortes de dependências não são aditivos; o registro do CVE ainda não estava revisado na coleta. S-M13 mistura configuração versionada e resposta pública cujo SHA implantado não foi comprovado. Revisões cruzadas pendentes.
+
+### Flexibilidade · O3 — Adaptabilidade a diferentes ambientes e dispositivos
+
+#### F-Q1 — O Excalidraw funciona de forma consistente em diferentes navegadores e sistemas operacionais?
+
+**Hipótese original:** Sim, com pequenas diferenças: é uma aplicação web que roda inteira no navegador, mas fontes e atalhos de teclado podem variar no macOS e no Safari
+
+**Métricas relacionadas e resultados disponíveis:**
+
+| Métrica / evidência | Valor documentado | Nota documentada (0–2) |
+| --- | --- | --- |
+| [F-M1 · Compatibilidade de navegadores](../resultados/flexibilidade/f-m1.md) | 4 de 4 navegadores (100%) | **2** |
+| [F-M2 · Compatibilidade de sistemas operacionais](../resultados/flexibilidade/f-m2.md) | 3 de 5 sistemas (60%) | **1** |
+| [F-M3 · Defeitos específicos de ambiente](../resultados/flexibilidade/f-m3.md) | 2 defeitos específicos | **1** |
+
+**Resposta fundamentada:** O funcionamento foi consistente nos quatro ambientes de navegador examinados no macOS, mas a estabilidade não foi uniforme entre sistemas e dispositivos. Houve interrupção por clipboard no Firefox do Android e scroll travado no Safari do iPad.
+
+**Julgamento da hipótese:** **Parcialmente confirmada** no recorte documentado.
+
+**Justificativa:** Aproveita-se a síntese parcial de André: as tarefas disponíveis foram concluídas nos cinco sistemas, mas apenas três ficaram sem falhas. Portanto, falha de estabilidade não significa que todas as tarefas falharam. As diferenças observadas concentraram-se no mobile; a previsão específica sobre fontes e atalhos no macOS não foi demonstrada.
+
+**Limitações e métricas pendentes:** Não há métrica pendente, mas a cobertura tem desvios documentados: Chrome foi representado pelo Helium/Chromium; Linux não estava disponível; iOS e iPadOS foram contados separadamente. F-M1 testa navegadores no macOS, não todas as combinações de navegador e sistema. A trava de ferramenta ausente no mobile foi registrada como não disponível, não como defeito da F-M3. Preservam-se denominadores e notas existentes; revisões pendentes.
+
+#### F-Q2 — A aplicação se adapta a diferentes dispositivos e condições de uso?
+
+**Hipótese original:** Parcialmente: há barra de ferramentas própria para celular e uso offline como PWA, mas colaboração e IA dependem de conexão, e funções ligadas a atalhos devem ser limitadas no toque
+
+**Métricas relacionadas e resultados disponíveis:**
+
+| Métrica / evidência | Valor documentado | Nota documentada (0–2) |
+| --- | --- | --- |
+| [F-M4 · Cobertura funcional em dispositivos móveis](../resultados/flexibilidade/f-m4.md) | 25 de 25 funções por toque (100%) | **2** |
+| [F-M5 · Cobertura funcional offline](../resultados/flexibilidade/f-m5.md) | 16 de 23 funções sem rede (69,6%) | **1** |
+| [F-M6 · Resoluções sem perda de elementos](../resultados/flexibilidade/f-m6.md) | 3 de 4 larguras | **1** |
+
+**Resposta fundamentada:** A aplicação se adapta parcialmente: as 25 funções selecionadas funcionaram por toque na emulação, o núcleo de desenho e edição funcionou offline e três larguras mantiveram os elementos da interface. Serviços remotos e alguns recursos não armazenados no primeiro acesso dependeram de rede.
+
+**Julgamento da hipótese:** **Parcialmente confirmada** no recorte documentado.
+
+**Justificativa:** Aproveita-se a síntese de André com as ressalvas integradas: colaboração e IA dependerem de conexão sustenta parte da hipótese, mas o ensaio de toque não demonstrou a limitação prevista nas 25 funções escolhidas. A ausência dos botões de zoom e trava em 360 px é perda de controle visível, não prova de ausência da função. A combinação das três métricas sustenta adaptação parcial.
+
+**Limitações e métricas pendentes:** Não há métrica pendente. F-M4 usa emulação Chrome, não iPad/Safari real, e exclui modificadores de teclado e funções dependentes de servidor; a trava não foi encontrada nos aparelhos reais da F-M2. F-M5 pressupõe um primeiro acesso com rede e tem sensibilidade ao cache. F-M6 redimensiona janela desktop, sem toque. Não trocar as notas pelos cenários alternativos já documentados.
+
+### Flexibilidade · O4 — Substituibilidade e migração de diagramas
+
+#### F-Q3 — O Excalidraw pode substituir uma ferramenta equivalente (por exemplo, draw.io ou Miro) sem perda de funcionalidade e produtividade?
+
+**Hipótese original:** Parcialmente: deve cobrir as tarefas básicas de diagramação em tempo parecido, mas não todas as funções de ferramentas mais completas como o draw.io e o Miro
+
+**Métricas relacionadas e resultados disponíveis:**
+
+| Métrica / evidência | Valor documentado | Nota documentada (0–2) |
+| --- | --- | --- |
+| [F-M7 · Inclusão funcional](../resultados/flexibilidade/f-m7.md) | 24 de 42 funções do draw.io (57,1%) | **0** |
+| [F-M8 · Razão de tempo de tarefa](../resultados/flexibilidade/f-m8.md) | 94 s no Excalidraw ÷ 132 s no Lucidchart = 0,71 | **2** |
+| [F-M9 · Conclusão de tarefas por quem vem de outra ferramenta](../resultados/flexibilidade/f-m9.md) | 2 de 2 tarefas (100%) | **2** |
+
+**Resposta fundamentada:** Para as tarefas básicas de diagramação, sim. O participante que vem de outra ferramenta reproduziu o diagrama-modelo mais rápido no Excalidraw do que no Lucidchart, que já usa, e concluiu as duas tarefas propostas sem ação errada. Para quem depende de funções avançadas, não: o Excalidraw tem 24 das 42 funções do draw.io e não tem tabelas, swimlanes, camadas nem importação de arquivos de outras ferramentas.
+
+**Julgamento da hipótese:** **Confirmada**.
+
+**Justificativa:** As três métricas sustentam as duas partes da hipótese. F-M8 e F-M9 mostram que as tarefas básicas saem em tempo igual ou menor (razão 0,71) e são concluídas; a F-M7 mostra que as funções avançadas faltam. A média de 66,7% (parcial) reflete exatamente essa substituição limitada ao básico.
+
+**Limitações e métricas pendentes:** Não há métrica pendente. F-M8 e F-M9 vêm de um único participante (P05), que marcou no questionário já usar o Excalidraw "regularmente", embora classificado no perfil C; isso favorece o Excalidraw. A ferramenta anterior foi o Lucidchart (o Miro estava bloqueado pelo limite do plano), enquanto a F-M7 usou o draw.io como referência. O Excalidraw veio primeiro na sessão, o que dá vantagem de aprendizado ao Lucidchart. A F-M9 não conta a T6 (migração), que é qualitativa; contada como não concluída, a taxa seria 66,7% (nota 0).
+
+#### F-Q4 — Os dados podem ser migrados para dentro e para fora do Excalidraw sem perdas?
+
+**Hipótese original:** Parcialmente: o formato `.excalidraw` é um JSON aberto e deve preservar tudo ao exportar e reimportar, mas não há importação direta de arquivos do draw.io nem do Miro
+
+**Métricas relacionadas e resultados disponíveis:**
+
+| Métrica / evidência | Valor documentado | Nota documentada (0–2) |
+| --- | --- | --- |
+| [F-M10 · Cobertura de formatos de exportação](../resultados/flexibilidade/f-m10.md) | 60% | **1** |
+| [F-M11 · Fidelidade de migração](../resultados/flexibilidade/f-m11.md) | 12 de 12 elementos (100%) | **2** |
+| [F-M12 · Formatos de importação aceitos](../resultados/flexibilidade/f-m12.md) | 4 formatos | **2** |
+
+**Resposta fundamentada:** A migração é possível com limites: o round-trip no próprio Excalidraw preservou os 12 elementos e 34 atributos comparados, enquanto importação direta de diagramas do draw.io/Miro não foi encontrada. Exportar ou inserir uma imagem comum não garante diagrama editável em outra ferramenta.
+
+**Julgamento da hipótese:** **Confirmada** no recorte documentado.
+
+**Justificativa:** Mantém-se o julgamento de André como confirmação da hipótese originalmente parcial, dentro do recorte ensaiado. Os três formatos com cena preservaram os elementos; os limites de exportação e de importação documentados correspondem à expectativa de migração restrita. Confirmar essa hipótese não equivale a declarar migração irrestrita ou O4 atendido.
+
+**Limitações e métricas pendentes:** Não há métrica pendente, mas F-M10 mantém lista de cinco formatos ainda sujeita à decisão do grupo; sua nota 1 não é recalculada. F-M11 é uma cena sem imagens, frames ou embeds, na mesma versão e ferramenta; PNG/SVG exigem cena incorporada. F-M12 mede existência dos caminhos no código, e a lista de tipos Mermaid editáveis vem da documentação, não de ensaio completo.
+
+### Capacidade de interação · O5 — Compreensão, aprendizagem e operação da interface
+
+#### CI-Q1 — O usuário consegue reconhecer rapidamente se o Excalidraw atende à sua necessidade?
+
+**Hipótese original:** Sim: a tela de boas-vindas e a barra de ferramentas à vista deixam claro, em poucos segundos, que é um quadro branco para desenhar
+
+**Métricas relacionadas e resultados disponíveis:**
+
+| Métrica / evidência | Valor documentado | Nota documentada (0–2) |
+| --- | --- | --- |
+| [CI-M1 · Tempo até identificar o propósito](../resultados/capacidade-interacao/ci-m1.md) | média de 18,7 s (n = 3) | **1** |
+| [CI-M2 · Taxa de reconhecimento correto](../resultados/capacidade-interacao/ci-m2.md) | 4 de 4 (100%) | **2** |
+| [CI-M3 · Ícones autoexplicativos](../resultados/capacidade-interacao/ci-m3.md) | 80,8% (42 de 52 ícones) | **2** |
+
+**Resposta fundamentada:** Sim, com ressalva no tempo. Os quatro participantes dos perfis A e C descreveram corretamente para que serve a ferramenta e identificaram, em média, 80,8% dos ícones da barra. A resposta levou 18,7 s em média (21, 9 e 26 s), na faixa parcial.
+
+**Julgamento da hipótese:** **Confirmada parcialmente**.
+
+**Justificativa:** O reconhecimento correto e a leitura dos ícones confirmam que a tela deixa claro que é um quadro para desenhar. A previsão de "poucos segundos" não se sustenta na média: só um participante respondeu em até 10 s, e esse pode ter sido influenciado pela fala da facilitadora.
+
+**Limitações e métricas pendentes:** Não há métrica pendente. P01 não tem tempo medido (transcrição sem marcação). A resposta de P03 na CI-M2 está quase inaudível; se for considerada errada, a taxa cai para 75% (nota 1). A CI-M3 está na fronteira: sem P01, 79,5% (nota 1). Amostra de quatro pessoas, uma sessão cada, conferida com as transcrições e não com o vídeo.
+
+#### CI-Q2 — Um usuário novo consegue aprender a usar as funções básicas sem treinamento?
+
+**Hipótese original:** Sim: as funções básicas seguem as convenções de editores gráficos (escolher a ferramenta, arrastar para desenhar)
+
+**Métricas relacionadas e resultados disponíveis:**
+
+| Métrica / evidência | Valor documentado | Nota documentada (0–2) |
+| --- | --- | --- |
+| [CI-M4 · Tempo da primeira tarefa](../resultados/capacidade-interacao/ci-m4.md) | média de 0,6 min (n = 3) | **2** |
+| [CI-M5 · Conclusão sem ajuda](../resultados/capacidade-interacao/ci-m5.md) | 5 de 8 tarefas (62,5%) | **0** |
+| [CI-M6 · Consultas à ajuda](../resultados/capacidade-interacao/ci-m6.md) | média de 0,5 consulta | **2 provisória** |
+
+**Resposta fundamentada:** Em parte. A primeira tarefa (retângulo, elipse, seta e texto) foi concluída em menos de 1 minuto em média, e as consultas ficaram em meia por pessoa. Mas só 5 das 8 tarefas de iniciantes e do perfil C foram concluídas sem ajuda; as três falhas foram na T5, o diagrama completo.
+
+**Julgamento da hipótese:** **Confirmada parcialmente**.
+
+**Justificativa:** O tempo baixo da T4 confirma que escolher a ferramenta e arrastar para desenhar é aprendido sem treinamento. A taxa de conclusão sem ajuda, porém, fica muito abaixo da meta. Ninguém abriu o diálogo de ajuda do Excalidraw: as dúvidas foram levadas à facilitadora. Por decisão da equipe, a dúvida sobre o termo "elipse" não conta como ajuda, por ser vocabulário do enunciado e não da interface; pela regra rígida, a CI-M5 seria 2 de 8 (25%) e a CI-M6, 1,0, com as mesmas notas.
+
+**Limitações e métricas pendentes:** Não há métrica pendente. A CI-M6 é provisória: falta conferir a T5 de P01 no vídeo, mas uma consulta a mais não muda a nota. Na T4 de P03, a facilitadora ditou etapas, o que foge do protocolo; a T4 foi mantida como sem ajuda. P03 passou do limite de 8 min na T5. P01 não entra na média de tempo.
+
+#### CI-Q3 — A ferramenta oferece recursos que apoiam o aprendizado contínuo?
+
+**Hipótese original:** Parcialmente: há diálogo de ajuda com os atalhos e dicas na tela, mas não há tutorial guiado
+
+**Métricas relacionadas e resultados disponíveis:**
+
+| Métrica / evidência | Valor documentado | Nota documentada (0–2) |
+| --- | --- | --- |
+| [CI-M7 · Cobertura da ajuda interna](../resultados/capacidade-interacao/ci-m7.md) | 46 de 74 funções (62,2%) | **1** |
+| [CI-M8 · Melhoria de desempenho entre sessões](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M8_melhoria-entre-sessoes.md) | não medida (uma sessão por pessoa) | — |
+
+**Resposta fundamentada:** Há apoio documental parcial ao aprendizado: o diálogo de atalhos cobre 46 das 74 funções com controle visível, mas não cobre abrir, salvar, exportar e parte das propriedades; não há tutorial guiado no recorte documentado. A melhoria de desempenho ao longo de sessões ainda não foi demonstrada.
+
+**Julgamento da hipótese:** **Parcialmente confirmada** no recorte documentado.
+
+**Justificativa:** O recurso e a limitação previstos na hipótese estão documentados pela CI-M7. Isso permite confirmação parcial quanto ao apoio oferecido, mas não autoriza afirmar eficácia do aprendizado contínuo, pois a CI-M8 não foi medida. A nota da cobertura da ajuda não funciona como medida de ganho entre sessões. Nas sessões, nenhum participante abriu o diálogo de ajuda (CI-M6): as dúvidas foram levadas à facilitadora.
+
+**Limitações e métricas pendentes:** CI-M8 não medida, sem valor nem nota: exige a mesma tarefa em três sessões do mesmo participante, e cada pessoa fez uma (o protocolo já previa que isso não caberia no prazo). Por isso a CI-Q3 fica sem média. CI-M7 inspeciona o diálogo de ajuda e sua cobertura, não a clareza de toda a documentação, tooltips ou material externo. Conserva-se o denominador 74; o cenário com 17 funções é apenas sensibilidade. O campo de revisão da evidência está pendente.
+
+#### CI-Q4 — As tarefas comuns podem ser realizadas de forma eficiente?
+
+**Hipótese original:** Sim: as ferramentas têm atalho de uma tecla (por exemplo, R ou 2 para retângulo), o que deve tornar os usuários experientes bem mais rápidos
+
+**Métricas relacionadas e resultados disponíveis:**
+
+| Métrica / evidência | Valor documentado | Nota documentada (0–2) |
+| --- | --- | --- |
+| [CI-M9 · Ações por tarefa frequente](../resultados/capacidade-interacao/ci-m9.md) | média de 2,5 ações | **2** |
+| [CI-M10 · Cobertura de atalhos de teclado](../resultados/capacidade-interacao/ci-m10.md) | 17 de 17 funções frequentes (100%) | **2** |
+| [CI-M11 · Tempo de experientes em relação a iniciantes](../resultados/capacidade-interacao/ci-m11.md) | razão de 0,41 (2,55 min ÷ 6,25 min) | **2 provisória** |
+
+**Resposta fundamentada:** Sim. As quatro tarefas frequentes pedem em média 2,5 ações, as 17 funções frequentes têm atalho, e os dois experientes reproduziram o diagrama-modelo em 2,55 min em média, contra 6,25 min dos iniciantes.
+
+**Julgamento da hipótese:** **Confirmada**.
+
+**Justificativa:** Os mecanismos (poucas ações e atalhos de uma tecla) e o efeito previsto (experientes bem mais rápidos) foram observados. A razão de 0,41 fica abaixo de 0,5, a meta do nível 2. 2,5 ações é o resultado coletado da CI-M9, distinto da média GQM das notas.
+
+**Limitações e métricas pendentes:** Não há métrica pendente. A CI-M11 é provisória: compara dois experientes (P02 e P06) com dois iniciantes (P03, limitado a 8 min, e P04); com os 10,6 min reais de P03 a razão seria 0,34, e com o perfil C entre os iniciantes, 0,54 (nota 1). P01 não tem tempo exato da T5; incluído, a razão iria de 0,40 a 0,53. Não se mediu se os experientes usaram atalhos. CI-M9 cobre quatro tarefas, duas repetições cada, e exclui a preparação da cena. CI-M10 é inspeção de código, não validação de todos os atalhos no navegador.
+
+#### CI-Q5 — A interface se comporta de forma consistente e previsível?
+
+**Hipótese original:** Parcialmente: a interface é simples e dá retorno visual imediato, mas seleção, snapping e edição de texto em formas podem mudar conforme o contexto
+
+**Métricas relacionadas e resultados disponíveis:**
+
+| Métrica / evidência | Valor documentado | Nota documentada (0–2) |
+| --- | --- | --- |
+| [CI-M12 · Inconsistências da interface](../resultados/capacidade-interacao/ci-m12.md) | 0 inconsistências em 11 casos | **2** |
+| [CI-M13 · Ações com feedback visual imediato](../resultados/capacidade-interacao/ci-m13.md) | 13 de 13 ações (100%) | **2** (provisória) |
+
+**Resposta fundamentada:** No recorte testado, a interface se mostrou consistente: os 11 casos repetidos não produziram inconsistências entre contextos, e as 13 ações deram retorno visual no ponto de observação. A imediaticidade desse retorno ainda não foi comprovada.
+
+**Julgamento da hipótese:** **Refutada** no recorte documentado.
+
+**Justificativa:** Preserva-se a refutação registrada por André, restrita à previsão de mudanças de comportamento por contexto nos casos de seleção, snapping e texto examinados: o resultado foi melhor que a limitação esperada. A análise considera também a CI-M13, que apoia presença de feedback, mas não resolve sua dimensão temporal. Assim, não se refuta a existência de feedback nem se conclui previsibilidade universal; a classificação da hipótese fica qualificada pelo recorte e pela nota provisória.
+
+**Limitações e métricas pendentes:** Não há métrica sem resultado. CI-M12 examina 11 casos em Safari/macOS e não prova ausência de toda inconsistência. Escape preservou texto nos dois contextos; diferenças de quebra de linha foram classificadas como layout. CI-M13 usa Edge headless/Windows, sem medição de latência ou critério operacional temporal aprovado; a nota 2/2 é provisória, com validação manual e revisão cruzada pendentes. A média 2,00 e os 100% da síntese de André são aritmeticamente corretos com as notas publicadas, mas dependem da nota provisória da CI-M13; não comprovam imediaticidade.
+
+#### CI-Q6 — O sistema evita e permite recuperar erros do usuário?
+
+**Hipótese original:** Sim: há desfazer e refazer, a cena é salva automaticamente no navegador e limpar o canvas pede confirmação
+
+**Métricas relacionadas e resultados disponíveis:**
+
+| Métrica / evidência | Valor documentado | Nota documentada (0–2) |
+| --- | --- | --- |
+| [CI-M14 · Taxa de recuperabilidade](../resultados/capacidade-interacao/ci-m14.md) | 11 de 13 ações (84,62%) | **0 provisória** |
+| [CI-M15 · Ações destrutivas sem confirmação](../resultados/capacidade-interacao/ci-m15.md) | 1 ação sem confirmação entre 4 tipos | **1** |
+| [CI-M16 · Perda de dados ao fechar ou recarregar](../resultados/capacidade-interacao/ci-m16.md) | Não houve perda nos 2 cenários testados | **2** |
+
+**Resposta fundamentada:** Há prevenção e recuperação de erros no recorte ensaiado: edições e seleção foram recuperadas, a limpeza pediu confirmação e o autosave preservou a cena após reload e reabertura da aba. A proteção é incompleta: abrir outro arquivo substituiu a cena sem confirmação no fallback HTML, e tema/zoom não foram recuperados pelo histórico.
+
+**Julgamento da hipótese:** **Parcialmente confirmada** no recorte documentado.
+
+**Justificativa:** Mantém-se a conclusão parcial de Renato, considerando as três métricas em conjunto. A recuperação observada e a persistência apoiam a hipótese, mas não eliminam o fluxo destrutivo sem confirmação nem a pendência metodológica da recuperabilidade. A nota provisória 0 da CI-M14 não constitui, sozinha, conclusão de ausência de toda recuperação.
+
+**Limitações e métricas pendentes:** Não há métrica sem resultado. CI-M14 conserva 11/13, 84,62%, nota 0/2 provisória; tema e zoom continuam no denominador original. O cenário documentado 11/11 é sensibilidade, não substituição autorizada. CI-M15 não cobre seletor nativo ou arrastar e soltar. CI-M16 aguardou autosave e reabriu a aba no mesmo contexto; não cobre crash, gravação pendente ou reinício do navegador/SO. Validação manual e revisão cruzada pendentes.
+
+#### CI-Q7 — Os erros cometidos são frequentes e fáceis de entender?
+
+**Hipótese original:** Parcialmente: os erros devem ser poucos nas tarefas básicas, mas seleções e movimentos acidentais devem aparecer entre iniciantes e no toque
+
+**Métricas relacionadas e resultados disponíveis:**
+
+| Métrica / evidência | Valor documentado | Nota documentada (0–2) |
+| --- | --- | --- |
+| [CI-M17 · Taxa de erro do usuário](../resultados/capacidade-interacao/ci-m17.md) | 44 de 189 ações (23,3%) | **0** |
+| [CI-M18 · Mensagens de erro compreensíveis](../resultados/capacidade-interacao/ci-m18.md) | 8 de 18 mensagens (44%) — provisório | **0 provisória** |
+
+**Resposta fundamentada:** Os erros foram frequentes e as mensagens explicam pouco. Nas tarefas T4 e T5, 23,3% das ações dos iniciantes e do participante do perfil C foram erradas, com grande variação: 47,1% em P03, 21,6% em P04, 8,7% em P01 e nenhuma em P05. Das 18 mensagens de erro do código, 8 explicam o problema e o que fazer.
+
+**Julgamento da hipótese:** **Refutada**.
+
+**Justificativa:** A hipótese previa poucos erros nas tarefas básicas, restritos a seleções e movimentos acidentais. A taxa observada é mais de duas vezes o limite de 10%. Sem P03, o caso extremo, cairia para 9,9% (nota 1), então a nota 0 depende em grande parte de uma pessoa. A observação de Renato sobre a clareza parcial das mensagens se mantém pela CI-M18. O resultado é pior que o previsto, por isso a hipótese é refutada.
+
+**Limitações e métricas pendentes:** Não há métrica pendente. As contagens da CI-M17 vêm das fichas, contadas por uma pessoa; o protocolo pede dois avaliadores pela gravação. As contagens de P01 vêm de uma transcrição sem marcação de tempo. O toque não foi testado com participantes. A CI-M18 é classificação de uma pessoa, restrita a `errors.*` em inglês e sem validação de compreensão; a sensibilidade documentada de 39% a 61% pode mudar a nota.
+
+#### CI-Q8 — A interface é agradável e satisfatória para o usuário?
+
+**Hipótese original:** Sim: o estilo desenhado à mão e o modo escuro tendem a agradar, e o SUS deve ficar acima da média de 68
+
+**Métricas relacionadas e resultados disponíveis:**
+
+| Métrica / evidência | Valor documentado | Nota documentada (0–2) |
+| --- | --- | --- |
+| [CI-M19 · Escore SUS](../resultados/capacidade-interacao/ci-m19.md) | média de 82,9 (47,5 a 97,5) | **2** |
+| [CI-M20 · Satisfação visual](../resultados/capacidade-interacao/ci-m20.md) | média de 4,22 | **2** |
+| [CI-M21 · Intenção de uso futuro](../resultados/capacidade-interacao/ci-m21.md) | 6 de 6 (100%) | **2** |
+
+**Resposta fundamentada:** Sim. O SUS médio foi 82,9, a satisfação visual 4,22 de 5 e os seis participantes usariam o Excalidraw de novo. O estilo desenhado à mão (4,7) e a organização da tela (4,7) foram bem avaliados; o modo escuro (3,3) dividiu opiniões, de 1 a 5.
+
+**Julgamento da hipótese:** **Confirmada**.
+
+**Justificativa:** O SUS passa de 68 com folga, e o estilo desenhado à mão agradou, como previsto. O modo escuro é a parte mais fraca da previsão, mas a média geral de satisfação visual continua acima de 4.
+
+**Limitações e métricas pendentes:** Não há métrica pendente. P03 teve SUS de 47,5, abaixo de 51, e foi a mesma participante com mais erros e 10,6 min na T5. Alguns itens do SUS de P01 a P04 não ficaram audíveis e foram mantidos os valores do formulário. A nota 1 de P01 no modo escuro veio de um "não" depois de vê-lo; sem ela, a média visual seria 4,4. O "sim" de P01 na intenção de uso foi confirmado depois pela equipe, porque o campo estava sem marca.
+
+### Capacidade de interação · O6 — Acessibilidade e adequação a diferentes perfis de usuários
+
+#### CI-Q9 — Pessoas com deficiência conseguem usar o Excalidraw?
+
+**Hipótese original:** Parcialmente: menus e barra de ferramentas devem ser operáveis pelo teclado, mas os elementos desenhados no canvas não devem ser anunciados por leitores de tela
+
+**Métricas relacionadas e resultados disponíveis:**
+
+| Métrica / evidência | Valor documentado | Nota documentada (0–2) |
+| --- | --- | --- |
+| [CI-M22 · Violações da WCAG 2.2 (A e AA)](../resultados/capacidade-interacao/ci-m22.md) | 6 violações distintas | **0** |
+| [CI-M23 · Funções operáveis só pelo teclado](../resultados/capacidade-interacao/ci-m23.md) | 18 de 28 funções (64,3%) | **1** |
+| [CI-M24 · Elementos anunciados por leitor de tela](../resultados/capacidade-interacao/ci-m24.md) | 1 de 9 elementos (11,1%) | **0** |
+| [CI-M25 · Contraste mínimo de 4,5:1](../resultados/capacidade-interacao/ci-m25.md) | 8 de 19 combinações (42,1%) | **0** |
+
+**Resposta fundamentada:** O uso por pessoas com deficiência encontra barreiras importantes: a operação por teclado é incompleta, só o nome HTML do frame foi anunciado na cena testada e há violações de interface e contraste insuficiente em parte dos textos.
+
+**Julgamento da hipótese:** **Parcialmente confirmada** no recorte documentado.
+
+**Justificativa:** Mantém-se a conclusão parcial de Renato. A previsão de barreira no canvas se sustenta para o NVDA/Edge examinado, mas a expectativa de menus e barra operáveis não foi plenamente atendida. As quatro métricas convergem para assistência limitada; a exceção do frame impede afirmar que nenhum elemento é anunciado, e os recursos operáveis impedem concluir ausência de toda assistência.
+
+**Limitações e métricas pendentes:** Não há métrica pendente, mas persistem revisões. CI-M22 conta seis violações por regra e elemento (nota 0); por regra seriam cinco (nota 1), alternativa ainda não adotada; ferramentas não cobrem todo o canvas ou diálogos. CI-M23 não confirmou SHA por hash e tem quatro casos Sim com clipboard/diálogos não concluídos integralmente; 14/28 = 50% é apenas cenário estrito a revisar, sem substituir 18/28 ou a nota 1. CI-M24 cobre NVDA/Edge, com frame visível, não todos os leitores. CI-M25 usa combinações de texto e fundo padrão, com ressalva de ancestrais do DOM; não mede ícones.
+
+#### CI-Q10 — A ferramenta se adapta a diferentes perfis de usuário?
+
+**Hipótese original:** Sim: a interface é traduzida para dezenas de idiomas, e o arquivo de traduções do repositório indica 96% das strings em português do Brasil
+
+**Métricas relacionadas e resultados disponíveis:**
+
+| Métrica / evidência | Valor documentado | Nota documentada (0–2) |
+| --- | --- | --- |
+| [CI-M26 · Idiomas e tradução para o português](../resultados/capacidade-interacao/ci-m26.md) | 57 idiomas; 594 de 642 strings (92,5%) | **1** |
+
+**Resposta fundamentada:** Há ampla oferta de idiomas e cobertura significativa de pt-BR, porém incompleta: 48 strings sem tradução (28 ausentes e 20 vazias). Os 96% do arquivo oficial usam as chaves existentes no próprio pt-BR; a comparação com todas as strings de referência registra 92,5%. Isso não demonstra adequação a todos os perfis.
+
+**Julgamento da hipótese:** **Parcialmente confirmada** no recorte documentado.
+
+**Justificativa:** Mantém-se a conclusão parcial de Renato: dezenas de idiomas sustentam a expectativa, mas a cobertura oficial não equivale à cobertura de todas as strings. A [comparação independente integrada](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M26_comparacao.md) confirmou os mesmos números e nota 1; não se recalcula a métrica nesta etapa nem se toma tradução como substituto de acessibilidade.
+
+**Limitações e métricas pendentes:** Não há métrica pendente. A evidência original identifica revisão por Luís Felipe em 15/11/2026 e a comparação foi integrada no PR #107. Na revisão documental de 17/11/2026, o aviso desatualizado da página individual foi alinhado a esse registro, sem nova medição ou revisão da coleta. A comparação esclarece que `a8800f8` é snapshot do grupo, não outra versão do Excalidraw. A amostra qualitativa de 20 chaves não cobre toda a tradução ou todos os perfis.
+
+
 ## Síntese por objetivo
 
 | Objetivo | Média (0–2) | Percentual | Julgamento |
 | --- | ---: | ---: | --- |
-| O1 — Proteção das informações e controle de acesso | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
-| O2 — Identificação, responsabilização e riscos de segurança | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
-| O3 — Adaptabilidade a diferentes ambientes e dispositivos | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
-| O4 — Substituibilidade e migração de diagramas | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
-| O5 — Compreensão, aprendizagem e operação da interface | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
-| O6 — Acessibilidade e adequação a diferentes perfis | `[ ]` | `[ ]%` | `[Atendido/Parcial/Não atendido]` |
+| O1 — Proteção das informações e controle de acesso | 0,83 | 41,7% | Não atendido |
+| O2 — Identificação, responsabilização e riscos de segurança | 0,28 | 13,9% | Não atendido |
+| O3 — Adaptabilidade a diferentes ambientes e dispositivos | 1,33 | 66,7% | Parcialmente atendido |
+| O4 — Substituibilidade e migração de diagramas | 1,50 | 75,0% | Atendido |
+| O5 — Compreensão, aprendizagem e operação da interface | 1,43 | 71,4% | Parcialmente atendido |
+| O6 — Acessibilidade e adequação a diferentes perfis | 0,63 | 31,3% | Não atendido |
+
+### Conciliação dos julgamentos e memória de cálculo
+
+Os julgamentos preliminares de Renato e os quantitativos de André coincidem
+em O1, O2, O3 e O6. O4 e O5 foram fechados na atualização de 22/11/2026, com
+a F-M8, a F-M9 e as métricas das sessões.
+Pela seção 6 do roteiro, a média do objetivo é a média das **questões**,
+não a média direta de todas as suas métricas. Com frações não arredondadas:
+
+| Objetivo | Cálculo da média das questões | Cobertura de métricas | Ressalva qualitativa preservada |
+| --- | --- | --- | --- |
+| O1 | `(1 + 0 + 3/2) / 3 = 5/6` → 0,83; 41,7% | 6/6 com resultado | S-Q3 atinge 75%, mas as divergências de edição e as falhas de acesso/confidencialidade permanecem; não há certificação de segurança |
+| O2 | `(0 + 1/2 + 1/3) / 3 = 5/18` → 0,28; 13,9% | 7/7 com resultado | Confirmar hipóteses negativas sobre autoria e identidade confirma limitações; S-M8 aguarda comparação efetiva com o produto pago |
+| O3 | `(4/3 + 4/3) / 2 = 4/3` → 1,33; 66,7% | 6/6 com resultado | Toque emulado favorável não elimina falhas nos aparelhos reais, dependência de cache/rede ou perda de controles em 360 px |
+| O4 | `(4/3 + 5/3) / 2 = 3/2` → 1,50; 75,0% | 6/6 com resultado | Fica no limite do atendido. F-M8 e F-M9 vêm de um participante, que já usava o Excalidraw; com F-M9 = 0 (T6 contada), O4 cairia para 58,3% (parcial). A F-M7 (nota 0) mostra que a substituição vale só para o básico |
+| O5 | `(5/3 + 4/3 + 2 + 2 + 1 + 0 + 2) / 7 = 10/7` → 1,43; 71,4% | 20/21 com resultado | CI-Q3 fica fora porque a CI-M8 não foi medida. Com a CI-Q3 só pela CI-M7, seriam 11/8 = 68,8%; com a CI-M8 como 0, 10,5/8 = 65,6%. Nos três casos, parcialmente atendido. Sem P03 na CI-M17 (9,9%, nota 1), o O5 iria a 75,0% (atendido). CI-M6, CI-M11, CI-M13, CI-M14 e CI-M18 são provisórias |
+| O6 | `(1/4 + 1) / 2 = 5/8` → 0,63; 31,3% | 5/5 com resultado | O peso igual das duas questões dá à tradução o mesmo peso de CI-Q9; isso segue o método e não elimina as barreiras do canvas |
+
+**Diferenças entre pontuação e interpretação.** F-Q4 tem média 1,67 (83,3%,
+atendida), embora a resposta e a hipótese descrevam migração limitada.
+Preserva-se o atendimento quantitativo previsto no roteiro: os 12 elementos
+foram preservados e há quatro caminhos de importação, mas isso não demonstra
+intercâmbio editável com draw.io/Miro nem decide O4. CI-Q5 tem média 2,00
+(100%, atendida com nota provisória), com refutação restrita à inconsistência
+prevista; a latência do feedback continua sem demonstração. S-Q3 tem média
+1,50 (75%, atendida) e hipótese apenas parcialmente confirmada, pois a
+rejeição de adulteração não elimina as duas divergências concorrentes.
+CI-Q6 tem média 1,00 (50%, parcial), preservando a nota 0 provisória da
+CI-M14 e a recuperação efetivamente observada. Nenhuma dessas diferenças
+autoriza alterar notas para ajustar a narrativa.
+
+**CI-M8 e hipóteses.** A única métrica sem valor é a CI-M8, que exige três
+sessões com a mesma pessoa; ela não é tratada como zero, e a CI-Q3 fica sem
+média, com confirmação parcial apenas do apoio documental. Com as sessões,
+F-Q3, CI-Q4 e CI-Q8 passam a confirmadas, CI-Q1 e CI-Q2 a parcialmente
+confirmadas, e CI-Q7 a refutada (erros mais frequentes que o previsto). F-Q3
+tem média parcial (66,7%) e hipótese confirmada porque a própria hipótese
+previa substituição só no básico. No total: **7 hipóteses confirmadas, 11
+parcialmente confirmadas e 2 refutadas**. Essa contagem não é percentual de
+atendimento GQM.
+
+## Relação com as decisões do propósito
+
+A Tabela 1 do [propósito](../fase_planejamento/proposito-partes-interessadas.md)
+liga cada decisão a objetivos e a um critério. Com os resultados atuais:
+
+| Decisão | Critério | Resultado |
+| --- | --- | --- |
+| Usar o link de colaboração gratuito para diagramas sensíveis | O1 e O2 atendidos e nenhuma métrica de confidencialidade com nota 0 | **Não recomendado.** O1 e O2 não são atendidos, e S-M1, S-M3 e S-M4 têm nota 0. A chave não vai ao servidor (S-M2), mas quem tiver o link entra sem senha e sem prazo |
+| Adotar como recurso pedagógico com alunos no celular ou com deficiência | O1, O3, O5 e O6 ao menos parcialmente atendidos | **Critério de adoção não atingido.** O3 e O5 são parciais, mas O1 e O6 não são atendidos. Para alunos sem deficiência, a interface agrada (SUS 82,9) e a primeira tarefa sai em menos de 1 minuto, mas iniciantes erram muito (CI-M17) e pedem ajuda (CI-M5). As barreiras com nota 0 viram restrições de uso: não usar com leitor de tela (CI-M24), atenção ao contraste (CI-M25) e ao zoom bloqueado (CI-M22) |
+| Migrar do draw.io ou do Miro | O4 atendido e fidelidade de 100% ao exportar e reimportar | **Recomendado para diagramas básicos.** O4 é atendido (75,0%) e a fidelidade é de 100% (F-M11). Quem vem do Lucidchart fez o diagrama-modelo em 71% do tempo (F-M8). Não migrar quem depende de tabelas, swimlanes ou camadas: o Excalidraw tem só 57,1% das funções do draw.io (F-M7) e não importa arquivos `.drawio` como diagrama editável |
+| Quais problemas corrigir primeiro | Cada nota 0 gera relato reprodutível; falhas de segurança seguem divulgação responsável | As 16 da tabela de [oportunidades de melhoria](#oportunidades-de-melhoria), começando pelas de Segurança; revisar as duas provisórias. A integração não publica relatos nem comunica terceiros |
+| Se a avaliação aplica corretamente SQuaRE e GQM | Critérios de correção da disciplina | As 20 questões e 51 métricas têm rastreabilidade; 50 métricas têm nota, a CI-M8 não foi medida e revisões metodológicas permanecem pendentes. A correção acadêmica cabe ao requisitante, sem inferir aprovação a partir das médias |
+
+## Relações entre as características
+
+**Segurança e Capacidade de interação.** O compartilhamento por link e o nome
+autodeclarado simplificam a entrada na sessão, mas S-M3/S-M9/S-M10 mostram
+limitações de autorização e identidade. Não foi medido o efeito de adicionar
+autenticação sobre o tempo de uso. O autosave evita perda nos dois cenários
+da CI-M16 e, ao mesmo tempo, a S-M4 mostra persistência local legível: a
+conveniência não demonstra confidencialidade. Alertas bloqueantes da S-M5
+ainda relacionam a rejeição de mensagens inválidas à interrupção da operação,
+conforme os achados preservados acima.
+
+**Flexibilidade e Capacidade de interação.** As 25 funções por toque emuladas
+(F-M4) e os atalhos (CI-M10) indicam caminhos de operação, mas não substituem
+acessibilidade por teclado ou leitor de tela (CI-M23/CI-M24). As falhas nos
+dispositivos reais (F-M2/F-M3), a perda de controles visíveis em 360 px (F-M6)
+e o contraste insuficiente (CI-M25) limitam a adoção pedagógica para públicos
+variados. A tradução (CI-M26) amplia cobertura linguística, sem compensar
+essas barreiras. A cobertura funcional de migração (F-M7) não mede produtividade:
+essa veio da F-M8 e da F-M9, em que a interface conhecida do perfil C se
+traduziu em tempo menor no Excalidraw. Os 23,3% de ações erradas dos iniciantes
+(CI-M17) convivem com um SUS alto (CI-M19): os erros foram corrigidos na hora,
+sem perda de trabalho, o que conversa com o desfazer e o autosave da CI-Q6.
+
+**Segurança e Flexibilidade.** A F-M5 demonstra desenho/edição offline após
+primeiro acesso, reduzindo a necessidade de conexão nessas operações; os
+dados locais continuam sujeitos à limitação da S-M4. Colaboração e IA
+dependem de rede, e a proteção do desenho na colaboração não se estende
+automaticamente ao conteúdo enviado ao backend de IA (observação da S-M1,
+fora da sua proporção). Não há medição que permita atribuir causalidade ou
+criar uma nota global entre as três características. As decisões combinam
+os objetivos conforme a Tabela 1, preservando os julgamentos separados.
 
 ## Gestão do grupo
 
@@ -64,14 +635,136 @@ atendida]`**. Métricas com 0 pontos e respectivas ações: `[Preencher]`.
 
 ## Pontos fortes
 
-* `[Descreva o ponto forte, a métrica e a evidência que o sustentam.]`
+Métricas com nota 2:
+
+* **Integridade da colaboração:** 221 de 221 mensagens adulteradas foram
+  rejeitadas ([S-M5](../resultados/seguranca/s-m5.md)), e a chave de
+  criptografia não é enviada ao servidor ([S-M2](../resultados/seguranca/s-m2.md)).
+* **Compatibilidade e toque:** sem falhas nos quatro navegadores testados
+  ([F-M1](../resultados/flexibilidade/f-m1.md)) e 25 de 25 funções operáveis só
+  com toque no celular e no tablet ([F-M4](../resultados/flexibilidade/f-m4.md)).
+* **Dados sem perda:** 12 de 12 elementos preservados ao salvar e reabrir em
+  `.excalidraw`, PNG e SVG com cena ([F-M11](../resultados/flexibilidade/f-m11.md)),
+  e quatro formatos de importação ([F-M12](../resultados/flexibilidade/f-m12.md)).
+  Recarregar ou reabrir a aba não perde a cena ([CI-M16](../resultados/capacidade-interacao/ci-m16.md)).
+* **Operação eficiente e consistente:** média de 2,5 ações nas tarefas
+  frequentes ([CI-M9](../resultados/capacidade-interacao/ci-m9.md)), atalhos para
+  as 17 funções frequentes ([CI-M10](../resultados/capacidade-interacao/ci-m10.md)),
+  nenhuma inconsistência em 11 casos ([CI-M12](../resultados/capacidade-interacao/ci-m12.md))
+  e retorno visual, com nota provisória e sem medição de latência, nas 13 ações testadas ([CI-M13](../resultados/capacidade-interacao/ci-m13.md)).
+  Os experientes levaram 0,41 do tempo dos iniciantes ([CI-M11](../resultados/capacidade-interacao/ci-m11.md), provisória).
+* **Primeiro contato:** todos reconheceram o propósito ([CI-M2](../resultados/capacidade-interacao/ci-m2.md)),
+  80,8% dos ícones foram identificados ([CI-M3](../resultados/capacidade-interacao/ci-m3.md))
+  e a primeira tarefa saiu em 0,6 min em média ([CI-M4](../resultados/capacidade-interacao/ci-m4.md)).
+* **Satisfação:** SUS médio de 82,9 ([CI-M19](../resultados/capacidade-interacao/ci-m19.md)),
+  satisfação visual de 4,22 ([CI-M20](../resultados/capacidade-interacao/ci-m20.md))
+  e 6 de 6 usariam de novo ([CI-M21](../resultados/capacidade-interacao/ci-m21.md)).
+* **Substituição no básico:** quem vem do Lucidchart reproduziu o diagrama em
+  71% do tempo ([F-M8](../resultados/flexibilidade/f-m8.md)) e concluiu as
+  duas tarefas ([F-M9](../resultados/flexibilidade/f-m9.md)).
 
 ## Oportunidades de melhoria
 
-* `[Descreva a oportunidade, sua prioridade, o impacto e a recomendação.]`
+Toda métrica com nota 0 vira oportunidade, mesmo quando a média da questão é
+maior ([seção 6 do roteiro](roteiro.md#6-criterios-de-julgamento)):
+
+| Métrica / evidência | Problema | Impacto | Recomendação |
+| --- | --- | --- | --- |
+| [S-M1](../resultados/seguranca/s-m1.md) | 1 de 6 tipos de evento da colaboração vai sem cifra (o nome no pedido de seguir) | Exposição do nome ao operador do servidor de sala; não demonstra leitura por terceiros sob HTTPS/WSS. | Enviar o pedido de seguir pelo canal cifrado ou mandar só o `socketId` |
+| [S-M3](../resultados/seguranca/s-m3.md) | Link de colaboração sem senha, expiração nem revogação | Quem possui o link e a chave pode entrar; dificulta limitar duração e retirar acesso. | Oferecer senha separada do link, expiração e revogação validadas pelo servidor |
+| [S-M4](../resultados/seguranca/s-m4.md) | Cena, arquivos e biblioteca ficam sem cifra no navegador | Conteúdo permanece legível a quem acesse o armazenamento do navegador; não prova acesso remoto indevido. | Avisar do salvamento local e permitir limpar ou não persistir; cifrar com chave do usuário num modo protegido |
+| [S-M7](../resultados/seguranca/s-m7.md) | Nenhuma das 7 ações tem autor registrado | Impede atribuir as sete ações observadas a um autor verificável. | Registrar ação, participante, horário e operação numa trilha persistente |
+| [S-M8](../resultados/seguranca/s-m8.md) | Não há histórico de versões, só desfazer e refazer | Dificulta investigar e restaurar alterações com autoria; comparação paga não concluída. | Guardar versões com data, autor e opção de restaurar |
+| [S-M10](../resultados/seguranca/s-m10.md) | Um participante assumiu o nome de outro sem bloqueio | Nomes iguais confundem a atribuição das ações; a identidade não é verificada. | Oferecer identidade autenticada; sem login, distinguir nomes repetidos por identificador visível, sem apresentá-lo como autenticação |
+| [S-M11](../resultados/seguranca/s-m11.md) | 5 vulnerabilidades altas nas dependências | Risco potencial nas versões instaladas; exploração e presença no bundle não demonstradas. | Atualizar `nanoid` e `socket.io-parser` e repetir a auditoria |
+| [S-M12](../resultados/seguranca/s-m12.md) | Advisory aplicável sem correção publicada | Permanece risco potencial na importação descrita no aviso, sujeito à revisão da análise estática. | Acompanhar a correção e verificar de novo a importação de cenas |
+| [F-M7](../resultados/flexibilidade/f-m7.md) | Só 24 de 42 funções do draw.io | Usuários vindos do draw.io perdem funções avançadas; impacto sobre produtividade ainda não medido. | Priorizar tabelas, swimlanes e importação de arquivos `.drawio` |
+| [CI-M5](../resultados/capacidade-interacao/ci-m5.md) | Só 5 de 8 tarefas de iniciantes concluídas sem ajuda (62,5%) | Na T5, iniciantes passaram do tempo, não concluíram ou perguntaram à facilitadora, e ninguém recorreu à ajuda da ferramenta. | Mostrar o nome da forma ao passar o mouse e no primeiro uso, e destacar a ajuda na tela de boas-vindas |
+| [CI-M14](../resultados/capacidade-interacao/ci-m14.md) (provisória) | Tema e zoom não entram no desfazer | Desfazer não restaura tema/zoom e pode atingir edição anterior; enquadramento metodológico provisório. | Deixar claro o que o histórico cobre e manter controles para restaurar tema e zoom |
+| [CI-M17](../resultados/capacidade-interacao/ci-m17.md) | 23,3% das ações dos iniciantes e do perfil C foram erradas | Retrabalho nas primeiras tarefas, concentrado em quem nunca usou a ferramenta (47,1% em P03); contagem de uma pessoa. | Analisar nas gravações os tipos de erro mais comuns e reforçar o retorno visual de seleção e de ferramenta ativa |
+| [CI-M18](../resultados/capacidade-interacao/ci-m18.md) (provisória) | Só 8 de 18 mensagens de erro explicam o problema e a saída | Orientação documental insuficiente para recuperar falhas; compreensão real não foi medida. | Incluir o motivo provável e uma ação (por exemplo, "Use PNG, JPEG ou SVG") |
+| [CI-M22](../resultados/capacidade-interacao/ci-m22.md) | 6 violações da WCAG 2.2 (A e AA) | Barreiras de zoom, nome e semântica dificultam navegação e uso assistivo nos estados testados. | Permitir zoom no `viewport`, nomear o botão do menu e corrigir papéis e rótulos ARIA |
+| [CI-M24](../resultados/capacidade-interacao/ci-m24.md) | O leitor de tela anuncia 1 de 9 elementos desenhados | A maior parte do desenho fica indisponível ao NVDA/Edge testado. | Expor os elementos numa estrutura acessível e anunciar seleção e mudanças |
+| [CI-M25](../resultados/capacidade-interacao/ci-m25.md) | 11 de 19 combinações de texto abaixo de 4,5:1 | Textos de apoio e atalhos podem ficar difíceis de ler, especialmente para baixa visão. | Escurecer os cinzas usados em texto até 4,5:1 e não usar `opacity` nos atalhos |
+
+São **16 oportunidades, uma por métrica com nota 0** (8 de Segurança,
+1 de Flexibilidade e 7 de Capacidade de interação); CI-M14 e CI-M18 são
+provisórias, sujeitas às revisões descritas. As páginas vinculadas na primeira
+coluna contêm o registro original, procedimento e evidência reproduzível.
+A CI-M8, não medida, não entra nesta lista. Os achados adicionais
+com notas 1 ou 2 permanecem em [Achados](#achados), sem alterar essa contagem.
+A prioridade inicial de Segurança é recomendação de triagem; as barreiras
+assistivas também restringem o uso, sem uma pontuação de prioridade inventada.
 
 ## Limitações
 
-`[Registre limitações de ambiente, tamanho da amostra, funcionalidades não
-acessíveis, dependência de serviços externos e qualquer condição que limite a
-validade dos resultados.]`
+* **Predomínio de instância local.** Os ensaios funcionais usaram a referência
+  `e7b5346` em instância local ou build de produção local. O servidor de
+  colaboração foi o `excalidraw-room` local, e a IA usou um servidor falso.
+  A resposta pública coletada em S-M13 é uma exceção, sem SHA implantado comprovado.
+* **Amostra de participantes.** Seis pessoas (três iniciantes, duas
+  experientes e uma vinda de outra ferramenta, nenhuma do perfil de
+  acessibilidade), em uma sessão cada. As médias de tempo e satisfação têm
+  baixo poder de generalização: CI-M11 compara dois experientes com dois
+  iniciantes, e F-M8/F-M9 vêm de um único participante, que marcou já usar o
+  Excalidraw. A CI-M8, que exige três sessões, não foi medida. As fichas
+  foram conferidas com as transcrições, não com o vídeo, e as ações erradas
+  foram contadas por uma pessoa.
+* **Emulação e automação.** Parte das métricas de Flexibilidade e de
+  acessibilidade foi coletada com Playwright no Chrome, e o celular e o tablet
+  da F-M4 foram emulados. Aparelhos reais aparecem só na F-M2 e na F-M3.
+* **Notas provisórias.** A CI-M6, a CI-M11, a CI-M13 e a CI-M14 têm nota
+  provisória nas próprias evidências, e a CI-M18 é uma classificação de uma
+  pessoa, em revisão cruzada na #77.
+* **Denominadores escolhidos pela equipe.** F-M7, F-M10, CI-M7 e CI-M10
+  dependem de listas definidas na coleta, registradas em cada evidência.
+* **Funções pagas e de rede.** O Excalidraw+ não foi avaliado, e as funções
+  que dependem de servidores oficiais (link compartilhável, IA, bibliotecas
+  públicas) foram testadas só no que é possível localmente.
+
+* **Métrica não medida não é nota zero.** São 50 métricas com resultado
+  (incluindo notas provisórias) e 1 sem valor/nota (CI-M8). O O5 é calculado
+  com as 7 questões que têm média; a sensibilidade está na conciliação. As
+  métricas das sessões vêm do PR #113, conferidas com as transcrições e
+  ainda não com o vídeo.
+* **Decisões metodológicas abertas.** Conservar S-M1 por tipo de evento,
+  distinguindo os 83,3% usados na nota dos 99,5% por volume; comparar o produto
+  pago em S-M8; decidir o denominador de F-M10; validar latência em CI-M13,
+  tema/zoom em CI-M14 e compreensão em CI-M18. CI-M22 usa regra por elemento;
+  CI-M23 tem quatro casos com conclusão incompleta. Cenários alternativos
+  registrados nas evidências não substituem valores ou notas nesta análise.
+* **Versão e ambiente não uniformes.** Nem toda coleta confirmou hash ou o
+  vínculo entre checkout e processo; S-M13 inclui resposta pública sem SHA
+  implantado comprovado. A descrição geral de instância local não se aplica
+  integralmente aos cabeçalhos. Os recortes não autorizam generalização a
+  produção, Excalidraw+, biblioteca, outros leitores ou versões futuras.
+* **Revisão documental.** CI-M26 possui revisão registrada por Luís Felipe
+  em 15/11/2026 e comparação integrada. O aviso da página individual foi
+  corrigido na revisão documental de 17/11/2026, sem divergência numérica ou
+  nova revisão da coleta. Integração documental não equivale à revisão
+  de todas as coletas. S-M12 conserva média de correção indisponível, nunca
+  zero dias; avisos técnicos não comprovam exploração.
+
+## Conferência da integração
+
+Foram confrontadas as 20 hipóteses literais e seus vínculos com o roteiro,
+as 51 entradas do índice (50 com resultado e 1 não medida), as 19 médias
+completas por questão e as seis médias por objetivo. As médias foram
+calculadas pelas frações completas, com pesos iguais por questão; as
+contribuições interpretativas de Renato foram incorporadas e qualificadas sem
+nova medição. As 16 notas zero têm problema, impacto, recomendação e
+rastreabilidade na tabela de melhorias.
+
+Na atualização de 22/11/2026, as notas de CI-M1 a CI-M6, CI-M11, CI-M17 e
+CI-M19 a CI-M21 foram copiadas das evidências de Zayra
+([PR #113](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/113)), sem recalcular nem trocar notas, e as da F-M8 e da F-M9
+vêm do [PR #110](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/110).
+Depois da revisão do PR #113, os valores foram atualizados (seis participantes
+e a regra da "elipse"); nenhuma nota mudou. Se alguma nota mudar na revisão, as médias
+de CI-Q1, CI-Q2, CI-Q4, CI-Q7, CI-Q8, F-Q3, O4 e O5 precisam ser refeitas.
+
+Continuam abertas as decisões metodológicas listadas em Limitações (CI-M13,
+CI-M14, CI-M18, denominador da F-M10, comparação do produto pago na S-M8) e a
+confirmação do perfil de P05. Os indicadores G-G1 a G-G8 continuam a cargo da
+sessão automatizada de gestão, fora das 51 métricas do produto. A integração
+não significa aprovação acadêmica ou conclusão das revisões humanas pendentes.
