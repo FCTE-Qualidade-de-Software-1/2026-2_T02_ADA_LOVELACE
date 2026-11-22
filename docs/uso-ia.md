@@ -51,8 +51,7 @@ aparecer entre aspas e com a referência correspondente.
 
 Na Entrega 2:
 
-* **Ferramenta:** Claude Code, com o modelo Claude Opus 5.5 (Anthropic), no
-  terminal.
+* **Ferramenta:** Claude Code, com o modelo Claude Opus 5.5 (Anthropic).
 * **Tarefa:** redação do plano de avaliação da Fase 3; coleta e registro das
   métricas F-M5, F-M6, F-M10, F-M11 e F-M12, incluindo os scripts de teste
   offline e de resoluções; cálculo e registro da F-M8 e da F-M9 a partir das
