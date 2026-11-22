@@ -141,7 +141,8 @@ A CI-M8 exigia a mesma tarefa (T4) em **três sessões** do mesmo participante, 
 - **Identificação por código:** P01, P02... por ordem de sessão. O repositório nunca recebe nomes, e-mails ou rostos.
 - **Gravação:** tela e áudio. Rosto **não** é gravado; a gravação só ocorre com autorização no TCLE. Nome do arquivo: `P01_S1_AAAA-MM-DD.mp4`.
 - **Onde ficam:** pasta compartilhada **privada** (Drive, OneDrive ou equivalente) criada para o grupo, com acesso apenas aos integrantes da equipe e à docente, quando solicitado. **Nada de gravação, TCLE assinado ou questionário com nome vai para o Git ou GitHub Pages.**
-- **No repositório entram:** protocolo, modelos em branco, e o CSV com os dados já resumidos por código (sem texto livre que possa identificar a pessoa).
+- **No repositório entram:** protocolo, modelos em branco, o CSV com os dados já resumidos por código e as fichas de observação e os questionários **anonimizados** (pasta `fichas/P_0X/`), para que as evidências possam ser conferidas.
+- **Anonimização das fichas (decisão da equipe, 2026-11-22):** antes do commit, a ficha e o questionário só identificam a pessoa pelo código. Ficam de fora nomes (do participante e de terceiros), e-mails, telefones, rosto, local, empresa, curso ou turma e qualquer detalhe que, sozinho ou combinado, permita reconhecer alguém. Falas citadas se limitam ao uso da ferramenta. Se houver dúvida, o trecho é resumido ou retirado.
 - Base legal e cuidados: pessoas maiores de 18 anos, consentimento livre e específico, coleta mínima (a LGPD, Lei 13.709/2018, é a referência).
 
 ## 8. Do dado à métrica
