@@ -62,7 +62,7 @@ Google Chrome 157, na F-M11.
 | axe DevTools, Lighthouse ou WAVE | Violações da WCAG 2.2 | CI-M22 |
 | Medidor de contraste | Razão de contraste nos modos claro e escuro | CI-M25 |
 | NVDA ou VoiceOver | Leitor de tela sobre a interface e o canvas | CI-M24 |
-| Cronômetro, ficha de observação, TCLE e questionários (SUS e Likert) | Sessões com participantes | CI-M1 a CI-M6, CI-M8, CI-M11, CI-M17, CI-M19 a CI-M21, F-M8, F-M9 |
+| Cronômetro, ficha de observação, TCLE e questionários (SUS e Likert) | Sessões com participantes | CI-M1 a CI-M6, CI-M11, CI-M17, CI-M19 a CI-M21, F-M8, F-M9 |
 
 ## 3. Método de coleta por métrica
 
@@ -117,7 +117,7 @@ análise, issues de medição e Kanban da equipe.*
 | CI-M5 | Participantes | Tarefas básicas concluídas sem ajuda externa ÷ tarefas propostas | Zayra Moraes | #75 |
 | CI-M6 | Participantes | Consultas à ajuda por participante durante as tarefas | Zayra Moraes | #75 |
 | CI-M7 | Código | Funções documentadas em `HelpDialog.tsx` ÷ funções disponíveis | Zayra Moraes | #68 |
-| CI-M8 | Participantes | Tempo da mesma tarefa na 1ª sessão ÷ tempo na 3ª sessão | Zayra Moraes | #75 |
+| CI-M8 | (retirada) | Retirada por falta de tempo: exigia três sessões com a mesma pessoa | Zayra Moraes | #75 |
 | CI-M9 | Navegador | Contar cliques para criar forma, mudar cor, agrupar e exportar em PNG | Luís Cunha | #69 |
 | CI-M10 | Código | Definir a lista de funções frequentes e marcar quais têm atalho | Zayra Moraes | #68 |
 | CI-M11 | Participantes | Tempo médio de experientes ÷ tempo médio de iniciantes | Zayra Moraes | #75 |
@@ -207,8 +207,10 @@ O andamento de cada issue é acompanhado no
   5 do roteiro. A [estimativa de custos](../gestao/estimativa-custos.md)
   considerou seis participantes com três sessões cada; o protocolo define a
   quantidade de participantes por perfil. A quantidade efetivamente atendida
-  é registrada nos resultados, porque a CI-M8 depende de três sessões com a
-  mesma pessoa.
+  é registrada nos resultados. Foram atendidas seis pessoas (três do perfil A,
+  duas do B e uma do C), com uma sessão cada: a CI-M8, que dependia de três
+  sessões com a mesma pessoa, foi retirada por falta de tempo, e o perfil D não
+  foi recrutado (a acessibilidade foi avaliada só com ferramentas).
 * **Denominadores:** os denominadores da F-M10, da CI-M7 e da CI-M10 são
   decididos em grupo na #77 e registrados na evidência de cada métrica.
 * **Pontuação:** a nota de cada métrica e as médias por questão e por

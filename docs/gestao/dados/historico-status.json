@@ -1,5 +1,5 @@
 {
- "coletado_em": "2026-11-16T18:39:05+00:00",
+ "coletado_em": "2026-11-22T23:27:03+00:00",
  "issues": [
   {
    "issue": 9,
@@ -311,7 +311,7 @@
    "estado": "OPEN",
    "motivo_fechamento": null,
    "prazo": "2026-11-15",
-   "status_atual": "Em andamento",
+   "status_atual": "Em revisão",
    "labels": [
     "documentation",
     "fase-4"
@@ -333,6 +333,11 @@
      "em": "2026-11-15T21:57:13Z",
      "de": "A fazer",
      "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-22T15:25:26Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
     }
    ]
   },
@@ -837,7 +842,7 @@
    "estado": "OPEN",
    "motivo_fechamento": null,
    "prazo": "2026-11-15",
-   "status_atual": "A fazer",
+   "status_atual": "Em revisão",
    "labels": [
     "documentation",
     "fase-4"
@@ -1606,16 +1611,16 @@
     "andrehsb"
    ],
    "criada_em": "2026-11-04T14:52:19Z",
-   "fechada_em": null,
-   "estado": "OPEN",
-   "motivo_fechamento": null,
+   "fechada_em": "2026-11-22T15:52:30Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
    "prazo": "2026-11-12",
-   "status_atual": "Em andamento",
+   "status_atual": "Concluído",
    "labels": [
     "fase-3",
     "medição"
    ],
-   "horas": null,
+   "horas": 2.5,
    "horas_comentadas": [],
    "eventos": [
     {
@@ -1627,6 +1632,16 @@
      "em": "2026-11-15T21:42:51Z",
      "de": "A fazer",
      "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-22T15:22:27Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-22T15:52:33Z",
+     "de": "Em revisão",
+     "para": "Concluído"
     }
    ]
   },
@@ -1984,11 +1999,11 @@
     "Zayra-Moraes"
    ],
    "criada_em": "2026-11-04T14:54:40Z",
-   "fechada_em": null,
-   "estado": "OPEN",
-   "motivo_fechamento": null,
+   "fechada_em": "2026-11-22T23:26:41Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
    "prazo": "2026-11-12",
-   "status_atual": "Em andamento",
+   "status_atual": "Concluído",
    "labels": [
     "fase-3",
     "medição"

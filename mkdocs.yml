@@ -98,19 +98,32 @@ nav:
           - F-M5 · Cobertura funcional offline: resultados/flexibilidade/f-m5.md
           - F-M6 · Resoluções sem perda de elementos: resultados/flexibilidade/f-m6.md
           - F-M7 · Inclusão funcional: resultados/flexibilidade/f-m7.md
+          - F-M8 · Razão de tempo de tarefa: resultados/flexibilidade/f-m8.md
+          - F-M9 · Conclusão de tarefas: resultados/flexibilidade/f-m9.md
           - F-M10 · Formatos de exportação: resultados/flexibilidade/f-m10.md
           - F-M11 · Fidelidade de migração: resultados/flexibilidade/f-m11.md
           - F-M12 · Formatos de importação: resultados/flexibilidade/f-m12.md
       - Capacidade de interação:
+          - CI-M1 · Tempo até identificar o propósito: resultados/capacidade-interacao/ci-m1.md
+          - CI-M2 · Reconhecimento correto: resultados/capacidade-interacao/ci-m2.md
+          - CI-M3 · Ícones autoexplicativos: resultados/capacidade-interacao/ci-m3.md
+          - CI-M4 · Tempo da primeira tarefa: resultados/capacidade-interacao/ci-m4.md
+          - CI-M5 · Conclusão sem ajuda: resultados/capacidade-interacao/ci-m5.md
+          - CI-M6 · Consultas à ajuda: resultados/capacidade-interacao/ci-m6.md
           - CI-M7 · Cobertura da ajuda interna: resultados/capacidade-interacao/ci-m7.md
           - CI-M9 · Ações por tarefa frequente: resultados/capacidade-interacao/ci-m9.md
           - CI-M10 · Cobertura de atalhos de teclado: resultados/capacidade-interacao/ci-m10.md
+          - CI-M11 · Experientes em relação a iniciantes: resultados/capacidade-interacao/ci-m11.md
           - CI-M12 · Inconsistências da interface: resultados/capacidade-interacao/ci-m12.md
           - CI-M13 · Ações com feedback visual imediato: resultados/capacidade-interacao/ci-m13.md
           - CI-M14 · Taxa de recuperabilidade: resultados/capacidade-interacao/ci-m14.md
           - CI-M15 · Ações destrutivas sem confirmação: resultados/capacidade-interacao/ci-m15.md
           - CI-M16 · Perda de dados ao fechar ou recarregar: resultados/capacidade-interacao/ci-m16.md
+          - CI-M17 · Taxa de erro do usuário: resultados/capacidade-interacao/ci-m17.md
           - CI-M18 · Mensagens de erro: resultados/capacidade-interacao/ci-m18.md
+          - CI-M19 · Escore SUS: resultados/capacidade-interacao/ci-m19.md
+          - CI-M20 · Satisfação visual: resultados/capacidade-interacao/ci-m20.md
+          - CI-M21 · Intenção de uso futuro: resultados/capacidade-interacao/ci-m21.md
           - CI-M22 · Violações da WCAG 2.2 (A e AA): resultados/capacidade-interacao/ci-m22.md
           - CI-M23 · Funções operáveis só pelo teclado: resultados/capacidade-interacao/ci-m23.md
           - CI-M24 · Elementos anunciados por leitor de tela: resultados/capacidade-interacao/ci-m24.md

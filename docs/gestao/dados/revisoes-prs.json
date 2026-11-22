@@ -1,5 +1,5 @@
 {
- "coletado_em": "2026-11-16T22:21:36+00:00",
+ "coletado_em": "2026-11-22T23:27:05+00:00",
  "prs": [
   {
    "numero": 1,
@@ -654,6 +654,36 @@
      "revisor": "ojplc",
      "estado": "APPROVED",
      "em": "2026-11-16T22:21:00Z"
+    }
+   ]
+  },
+  {
+   "numero": 110,
+   "titulo": "docs: adiciona as evidências da F-M8 (razão de tempo) e da F-M9 (conclusão de tarefas)",
+   "autor": "andrehsb",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-11-22T15:22:23Z",
+   "integrado_em": "2026-11-22T15:52:28Z",
+   "revisoes": [
+    {
+     "revisor": "ojplc",
+     "estado": "APPROVED",
+     "em": "2026-11-22T15:52:18Z"
+    }
+   ]
+  },
+  {
+   "numero": 113,
+   "titulo": "docs: resultados das métricas de entrevistas (CI-M1 a CI-M6, M11, M17, M19 a M21) e registro da CI-M8",
+   "autor": "Zayra-Moraes",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-11-22T18:14:11Z",
+   "integrado_em": "2026-11-22T23:26:40Z",
+   "revisoes": [
+    {
+     "revisor": "ojplc",
+     "estado": "APPROVED",
+     "em": "2026-11-22T23:26:31Z"
     }
    ]
   }

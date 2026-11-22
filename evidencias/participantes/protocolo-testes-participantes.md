@@ -21,7 +21,6 @@ Arquivos desta pasta:
 | CI-M4 | Minutos da primeira tarefa (retângulo + elipse + seta + rótulos) | T4 |
 | CI-M5 | Tarefas básicas concluídas sem ajuda externa ÷ propostas | T4, T5 |
 | CI-M6 | Consultas à ajuda por participante | T4, T5 |
-| CI-M8 | Tempo da T4 na 1ª sessão ÷ tempo na 3ª sessão | T4 repetida |
 | CI-M11 | Tempo médio de experientes ÷ tempo médio de iniciantes | T5 |
 | CI-M17 | Ações erradas ÷ total de ações | T4, T5 |
 | CI-M19 | Escore SUS | questionário |
@@ -106,21 +105,44 @@ Todos os participantes recebem as mesmas tarefas, com as mesmas palavras. Texto 
 Observações:
 
 - **Gabarito da T3:** listar, antes das sessões, os ícones realmente visíveis na barra no commit `e7b5346` e a função de cada um. Candidatos vistos no código: mão, seleção, retângulo, losango, elipse, seta, linha, desenho livre, texto, nota adesiva, imagem, borracha, moldura e laser. Conferir na tela e ajustar. Aceitar respostas equivalentes ("lápis" para desenho livre).
+
+  **Gabarito adotado (2026-11-22).** A lista de candidatos acima não foi conferida na tela antes das sessões. Por isso a equipe fixou o gabarito no que os dois participantes que acertaram 13 de 13 (P05 e P06) disseram, da esquerda para a direita. Os 13 ícones e as respostas aceitas são:
+
+  | # | Ícone | Função aceita |
+  | --: | --- | --- |
+  | 1 | Cadeado | travar a ferramenta escolhida, para desenhar vários elementos seguidos |
+  | 2 | Mão | mover a tela (rolar o canvas) |
+  | 3 | Seta de seleção | selecionar e mover elementos |
+  | 4 | Retângulo | desenhar retângulo ou quadrado |
+  | 5 | Losango | desenhar losango ("diamante" é aceito) |
+  | 6 | Elipse | desenhar círculo ou elipse |
+  | 7 | Seta | desenhar seta |
+  | 8 | Linha | desenhar linha |
+  | 9 | Desenho livre | desenhar à mão livre ("lápis" é aceito) |
+  | 10 | Texto | inserir texto |
+  | 11 | Nota adesiva | inserir nota adesiva ("post-it" é aceito) |
+  | 12 | Borracha | apagar elementos |
+  | 13 | Três pontos | mais opções (outras ferramentas) |
+
+  Limite: o gabarito vem das falas dos participantes e ainda não foi comparado com a imagem da barra usada na sessão. Respostas ambíguas (por exemplo, descrever a mão como "mexer nos desenhos") não contam como acerto.
 - **F-M8:** o participante do perfil C refaz o diagrama-modelo **na ferramenta anterior** (cronometrado) e no Excalidraw. Para evitar efeito de aprendizado, metade começa por cada ferramenta. Razão = tempo no Excalidraw ÷ tempo na anterior.
 - **Perfil B:** faz só T4 e T5 (T1 a T3 não se aplicam a quem já conhece a ferramenta).
 - **Perfil D:** T1 a T5 com a própria tecnologia assistiva; tempos reportados à parte.
 - **CI-M9** (cliques por tarefa frequente) é medida pela equipe, não pelos participantes.
 
-## 6. Sessões repetidas (CI-M8)
+## 6. Sessões repetidas (CI-M8, retirada)
 
-A CI-M8 exige a mesma tarefa (T4) em **três sessões** do mesmo participante, em dias diferentes, e só vale para o perfil A. Com a Entrega 2 em 18/11 e as medições a concluir em 16/11, três sessões por pessoa provavelmente não cabem. Por isso aplicaremos mais de uma sessão apenas se a pessoa estiver disponível.
+**Decisão da equipe (2026-11-22):** a CI-M8 foi retirada por falta de tempo, e cada participante fez uma única sessão (S1). Também não conseguimos recrutar pessoas do perfil D; a equipe decidiu não incluí-lo, e a acessibilidade foi avaliada só com ferramentas (CI-M22 a CI-M25). O texto original da seção segue abaixo, só como registro do plano.
+
+A CI-M8 exigia a mesma tarefa (T4) em **três sessões** do mesmo participante, em dias diferentes, e só vale para o perfil A. Com a Entrega 2 em 18/11 e as medições a concluir em 16/11, três sessões por pessoa provavelmente não cabem. Por isso aplicaremos mais de uma sessão apenas se a pessoa estiver disponível.
 
 ## 7. Registro, privacidade e acesso
 
 - **Identificação por código:** P01, P02... por ordem de sessão. O repositório nunca recebe nomes, e-mails ou rostos.
 - **Gravação:** tela e áudio. Rosto **não** é gravado; a gravação só ocorre com autorização no TCLE. Nome do arquivo: `P01_S1_AAAA-MM-DD.mp4`.
 - **Onde ficam:** pasta compartilhada **privada** (Drive, OneDrive ou equivalente) criada para o grupo, com acesso apenas aos integrantes da equipe e à docente, quando solicitado. **Nada de gravação, TCLE assinado ou questionário com nome vai para o Git ou GitHub Pages.**
-- **No repositório entram:** protocolo, modelos em branco, e o CSV com os dados já resumidos por código (sem texto livre que possa identificar a pessoa).
+- **No repositório entram:** protocolo, modelos em branco, o CSV com os dados já resumidos por código e as fichas de observação e os questionários **anonimizados** (pasta `fichas/P_0X/`), para que as evidências possam ser conferidas.
+- **Anonimização das fichas (decisão da equipe, 2026-11-22):** antes do commit, a ficha e o questionário só identificam a pessoa pelo código. Ficam de fora nomes (do participante e de terceiros), e-mails, telefones, rosto, local, empresa, curso ou turma e qualquer detalhe que, sozinho ou combinado, permita reconhecer alguém. Falas citadas se limitam ao uso da ferramenta. Se houver dúvida, o trecho é resumido ou retirado.
 - Base legal e cuidados: pessoas maiores de 18 anos, consentimento livre e específico, coleta mínima (a LGPD, Lei 13.709/2018, é a referência).
 
 ## 8. Do dado à métrica
@@ -133,7 +155,6 @@ A CI-M8 exige a mesma tarefa (T4) em **três sessões** do mesmo participante, e
 | CI-M4 | Média dos minutos; quem não concluiu entra com 8 min (o tempo-limite) e é contado à parte | `t4_minutos`, `t4_concluiu` |
 | CI-M5 | Tarefas (T4 e T5) concluídas sem ajuda ÷ tarefas propostas | `t4_sem_ajuda`, `t5_sem_ajuda` |
 | CI-M6 | Média de consultas por participante | `consultas_t4`, `consultas_t5` |
-| CI-M8 | `t4_minutos` (S1) ÷ `t4_minutos` (S3) | uma linha por sessão |
 | CI-M11 | Média T5 experientes ÷ média T5 iniciantes | `t5_minutos`, `perfil` |
 | CI-M17 | Ações erradas ÷ total de ações | `acoes_total`, `acoes_erradas` |
 | CI-M19 | Escore SUS médio (0 a 100) | `sus_1` a `sus_10` |

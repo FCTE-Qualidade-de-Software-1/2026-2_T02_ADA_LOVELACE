@@ -93,11 +93,13 @@ disponível para conferência e processamento.
 | Giovanna Felipe | 5 |
 | Luís Felipe Parreira Cunha | 3 |
 | renatoyx | 2 |
+| André Henrique Belarmino | 1 |
 | Renato Gameiro | 1 |
 | renatvg | 1 |
-| **Total** | **129** |
+| Zayra Moraes | 1 |
+| **Total** | **131** |
 
-*Última coleta: 2026-11-16T22:21:29+00:00, referência `main`.*
+*Última coleta: 2026-11-22T23:26:58+00:00, referência `main`.*
 <!-- END AUTO: membros-commits -->
 
 A atualização é executada a cada push na `main` e semanalmente pelo
