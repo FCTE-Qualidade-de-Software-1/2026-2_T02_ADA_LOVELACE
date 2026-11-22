@@ -18,7 +18,8 @@ Para cada métrica, copiar `evidencias/flexibilidade/template.md` para `F-Mxx_de
 | F-M3 | Coletada: 2 defeitos específicos, nota 1 | `F-M3/F-M3_defeitos-ambiente_2026-11-14.md` |
 | F-M4 | Coletada por emulação: 25 de 25 funções por toque no celular e no tablet (100%), nota 2 | `F-M4_cobertura-mobile.md` |
 | F-M7 | Coletada com o draw.io: 24 de 42 funções (57,1%), nota 0 | `F-M7_inclusao-funcional.md` |
-| F-M8, M9 | Exigem participantes: adiar | — |
+| F-M8 | Coletada na sessão do P05 (perfil C): 94 s no Excalidraw ÷ 132 s no Lucidchart = 0,71, nota 2 | `F-M8_razao-tempo-tarefa.md` |
+| F-M9 | Coletada na sessão do P05 (perfil C): 2 de 2 tarefas (100%), nota 2 | `F-M9_conclusao-tarefas.md` |
 
 ## Tarefas de código (sem navegador)
 
@@ -40,6 +41,6 @@ Para cada métrica, copiar `evidencias/flexibilidade/template.md` para `F-Mxx_de
 
 - [x] **F-M7:** feito com o draw.io (24 de 42 funções, 57,1%).
 
-## Adiadas (precisam de participantes e autorização)
+## Sessões com participantes
 
-F-M8 e F-M9. Antes: roteiro de tarefas único e autorização prévia, sem nomes reais nos registros.
+- [x] **F-M8 e F-M9:** feito com a sessão do P05 (perfil C) da #75, em 2026-11-15. Reproduziu o diagrama-modelo em 94 s no Excalidraw e 132 s no Lucidchart (razão 0,71) e concluiu as duas tarefas propostas (T4 e T5). Um único participante, que marcou no perfil já usar o Excalidraw regularmente: ver as limitações nos registros.
