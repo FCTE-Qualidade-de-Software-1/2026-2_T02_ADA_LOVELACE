@@ -10,7 +10,7 @@ a partir do histórico de **Status** do Kanban e do histórico de commits da
 mão.
 
 <!-- BEGIN AUTO: coleta -->
-*Dados do Project coletados em 22/11/2026 20:27 (horário de Brasília); 42 issues no milestone Entrega 2.*
+*Dados do Project coletados em 22/11/2026 20:34 (horário de Brasília); 42 issues no milestone Entrega 2.*
 <!-- END AUTO: coleta -->
 
 ## Escopo e regras de contagem
@@ -213,8 +213,8 @@ campo Horas e comentários das issues.*
 | Zayra Moraes | 1,0 | 6,0 | 0,7 | 7,7 |
 | **Total** | **2,7** | **44,6** | **8,7** | **56,0** |
 
-Issues concluídas com horas registradas: **31 de 32**.
-Sem horas no Project (preencher o campo **Horas** ou comentar "Horas: x" na issue): [#75](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/75).
+Issues concluídas com horas registradas: **31 de 33**.
+Sem horas no Project (preencher o campo **Horas** ou comentar "Horas: x" na issue): [#20](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/20), [#75](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/75).
 <!-- END AUTO: horas -->
 
 ## Esforço previsto × realizado
@@ -272,8 +272,8 @@ Fonte: pull requests e revisões do repositório.*
 | --- | ---: | ---: | ---: | :---: | ---: | ---: |
 | Entrega 1 | 12 | 0 | 0% | 0 | 5 | 13 |
 | Entrega 2, antes da regra (até 04/11) | 7 | 0 | 0% | 0 | 0 | 2 |
-| Entrega 2, depois da regra | 32 | 30 | 94% | 2 | 0 | 0 |
-| Entrega 2 (total) | 39 | 30 | 77% | 1 | 0 | 2 |
+| Entrega 2, depois da regra | 33 | 31 | 94% | 2 | 0 | 0 |
+| Entrega 2 (total) | 40 | 31 | 78% | 1 | 0 | 2 |
 
 Integrados sem aprovação depois da regra: [#87](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/87), [#103](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/103).
 <!-- END AUTO: revisao -->

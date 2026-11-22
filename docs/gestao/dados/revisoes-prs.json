@@ -1,5 +1,5 @@
 {
- "coletado_em": "2026-11-22T23:27:05+00:00",
+ "coletado_em": "2026-11-22T23:34:48+00:00",
  "prs": [
   {
    "numero": 1,
@@ -669,6 +669,21 @@
      "revisor": "ojplc",
      "estado": "APPROVED",
      "em": "2026-11-22T15:52:18Z"
+    }
+   ]
+  },
+  {
+   "numero": 111,
+   "titulo": "docs: resultados da análise (questões GQM, objetivos e decisões)",
+   "autor": "andrehsb",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-11-22T15:25:22Z",
+   "integrado_em": "2026-11-22T23:34:24Z",
+   "revisoes": [
+    {
+     "revisor": "ojplc",
+     "estado": "APPROVED",
+     "em": "2026-11-22T23:34:06Z"
     }
    ]
   },
