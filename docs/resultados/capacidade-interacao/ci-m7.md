@@ -1,22 +1,34 @@
 # CI-M7 · Cobertura da ajuda interna
 
 **Nota 1**: o diálogo de ajuda (aberto por `?`) documenta 46 das 74 funções
-com botão ou menu visível (62,2%). Cobre as ferramentas e as ações de edição,
-mas não tem entrada para abrir, salvar e exportar, nem para a maior parte das
-propriedades de estilo do painel.
+com controle visível (62,2%). Cobre as ferramentas, o zoom e o histórico, mas
+não as funções de arquivo nem boa parte do painel de estilo.
 
 ```mermaid
 flowchart LR
-    F["74 funções visíveis"] --> S["46 documentadas<br/>(62,2%)"]
-    F --> N["28 sem entrada<br/>na ajuda"]
+    F["74 funções<br/>com controle visível"] --> D["46 na ajuda<br/>(62,2%)"]
+    F --> N["28 fora da ajuda"]
 ```
 
-!!! note "Depende do denominador"
-    O recorte adotado é o das tarefas do grupo: ferramentas da barra e ações
-    com botão ou menu visível. Com a lista das 17 funções frequentes da CI-M10,
-    o valor seria 82,4% (nota 2). O diálogo é de atalhos, então funções sem
-    atalho tendem a ficar de fora. A coleta ainda não foi revisada por outro
-    integrante.
+| Onde fica a função | Funções | Na ajuda |
+| --- | ---: | ---: |
+| Barra de ferramentas | 21 | 16 |
+| Painel de propriedades | 35 | 19 |
+| Rodapé (zoom e histórico) | 5 | 5 |
+| Menu principal | 13 | 6 |
+| **Total** | **74** | **46** |
+
+!!! note "Denominador"
+    O total segue o roteiro ("total de funções disponíveis"), com o recorte
+    sugerido nas tarefas do grupo: ferramentas da barra e ações com botão ou
+    menu visível. Com as 17 funções frequentes da [CI-M10](ci-m10.md), o valor
+    seria 82,4% (nota 2). Funções sem atalho tendem a ficar fora desse
+    diálogo. A evidência diz que o recorte foi adotado após revisão, mas o
+    campo "Revisado por" permanece pendente; não se declara a revisão cruzada
+    concluída.
+
+A ajuda é uma lista de atalhos: não há tutorial guiado, e abrir, salvar e
+exportar não aparecem nela.
 
 Registro completo:
 [`CI-M7_cobertura-ajuda-interna.md`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M7_cobertura-ajuda-interna.md).

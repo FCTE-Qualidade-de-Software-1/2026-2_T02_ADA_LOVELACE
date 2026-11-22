@@ -1,29 +1,52 @@
 # F-M4 · Cobertura funcional em dispositivos móveis
 
-**Nota 2**: as 25 funções feitas com mouse no desktop também foram feitas só
-com toque, num celular (Pixel 7, 412 × 839) e num tablet (iPad, 810 × 1080)
-emulados no Chrome 157 via Playwright: 25 de 25 (100%) nos dois. No celular, o
-zoom passa pela pinça e a trava de ferramenta pelo menu de preferências, porque
-os botões delas não aparecem nessa largura (ver F-M6).
+**Nota 2**: as 25 funções feitas com mouse no desktop também foram feitas só com
+toque, no celular (Pixel 7 emulado) e no tablet (iPad emulado), 100% nos dois.
+A coleta usou Chrome 157 via Playwright.
+
+```mermaid
+flowchart LR
+    D["Desktop, mouse<br/>25 funções"] --> C["Celular, toque<br/>25 de 25"]
+    D --> T["Tablet, toque<br/>25 de 25"]
+```
 
 | Modo | Entrada | Funções | Resultado |
-| --- | --- | :-: | :-: |
-| Desktop (controle, 1366 × 768) | Mouse | 25 de 25 | 100% |
-| Celular emulado (Pixel 7) | Toque | 25 de 25 | 100% |
-| Tablet emulado (iPad) | Toque | 25 de 25 | 100% |
+| --- | --- | --- | --- |
+| Desktop (1366 × 768) | mouse | 25 de 25 | controle (denominador) |
+| Celular (412 × 839) | toque | 25 de 25 | **100%** |
+| Tablet (810 × 1080) | toque | 25 de 25 | **100%** |
 
-!!! note "Emulação e aparelhos reais"
-    O teste foi feito por emulação, não em aparelho real: não reproduz a
-    precisão do dedo, o teclado virtual nem o Safari do iPadOS. Nos aparelhos
-    reais da F-M2 (Android 10, iPadOS 27.2 e iOS 27.2.1), a trava de ferramenta
-    (tarefa 25) não foi encontrada e ficou como não disponível. Contando assim,
-    a F-M4 fica em 24 de 25 (96%), e a nota continua 2.
+No celular, o zoom e a trava de ferramenta não têm botão (ver a
+[F-M6](f-m6.md)), mas funcionam pela pinça e pelo menu de preferências.
+Contando só o mesmo botão do desktop, o celular ficaria com 23 de 25 (92%),
+ainda nota 2.
 
-!!! note "Sensibilidade"
-    Se só valesse o mesmo botão do desktop, o celular ficaria com 23 de 25
-    (92%), ainda nota 2. A lista de 25 funções foi escolhida pela equipe e deixa
-    de fora funções que dependem de servidor e atalhos de teclado.
+!!! note "Recorte"
+    A lista não inclui as funções que dependem de servidor nem atalhos e
+    modificadores de teclado (Shift+clique, Alt+arrastar). A coleta foi por
+    emulação no Chrome, não em aparelhos reais: não reproduz a precisão do
+    dedo, o teclado virtual nem o Safari do iPadOS. Nos aparelhos reais da
+    F-M2 (Android 10, iPadOS 27.2 e iOS 27.2.1), a trava de ferramenta
+    (tarefa 25) não foi encontrada e ficou como não disponível. Contando
+    assim, seriam 24 de 25 (96%), ainda nota 2; esse recorte não substitui
+    os 25 de 25 da emulação.
+
+## Evidências
+
+=== "Toque longo"
+
+    O toque longo abre o menu de contexto, que no desktop é o botão direito: o
+    estilo do retângulo foi copiado para o losango.
+
+    ![Estilo copiado pelo toque longo no celular](../../assets/resultados/flexibilidade/F-M4_toque-longo-celular_2026-11-13.png){ width="300" }
+
+=== "Biblioteca"
+
+    Elemento salvo na biblioteca e inserido de novo, só com toque.
+
+    ![Item da biblioteca reutilizado no celular](../../assets/resultados/flexibilidade/F-M4_biblioteca-celular_2026-11-13.png){ width="300" }
 
 Registro completo:
-[`F-M4_cobertura-mobile.md`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/flexibilidade/F-M4_cobertura-mobile.md)
-e [arquivos de apoio](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/tree/main/evidencias/flexibilidade/F-M4).
+[`F-M4_cobertura-mobile.md`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/flexibilidade/F-M4_cobertura-mobile.md).
+
+Arquivos de apoio: [arquivos de apoio](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/tree/main/evidencias/flexibilidade/F-M4).

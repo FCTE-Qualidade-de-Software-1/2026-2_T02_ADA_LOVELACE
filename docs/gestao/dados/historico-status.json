@@ -1,5 +1,5 @@
 {
- "coletado_em": "2026-11-22T15:52:52+00:00",
+ "coletado_em": "2026-11-22T23:34:47+00:00",
  "issues": [
   {
    "issue": 9,
@@ -307,11 +307,11 @@
     "renatoyx"
    ],
    "criada_em": "2026-10-19T13:43:00Z",
-   "fechada_em": null,
-   "estado": "OPEN",
-   "motivo_fechamento": null,
+   "fechada_em": "2026-11-22T23:34:25Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
    "prazo": "2026-11-15",
-   "status_atual": "Em revisão",
+   "status_atual": "Concluído",
    "labels": [
     "documentation",
     "fase-4"
@@ -842,7 +842,7 @@
    "estado": "OPEN",
    "motivo_fechamento": null,
    "prazo": "2026-11-15",
-   "status_atual": "A fazer",
+   "status_atual": "Em revisão",
    "labels": [
     "documentation",
     "fase-4"
@@ -1999,11 +1999,11 @@
     "Zayra-Moraes"
    ],
    "criada_em": "2026-11-04T14:54:40Z",
-   "fechada_em": null,
-   "estado": "OPEN",
-   "motivo_fechamento": null,
+   "fechada_em": "2026-11-22T23:26:41Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
    "prazo": "2026-11-12",
-   "status_atual": "Em andamento",
+   "status_atual": "Concluído",
    "labels": [
     "fase-3",
     "medição"

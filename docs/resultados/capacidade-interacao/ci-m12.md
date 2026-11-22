@@ -1,16 +1,39 @@
 # CI-M12 · Inconsistências da interface
 
-**Nota 2**: nenhuma inconsistência reproduzível em 11 casos comparados em dois
-contextos cada: 4 de seleção, 3 de snapping e 4 de edição de texto (por
-exemplo, forma com e sem texto, texto solto e dentro da forma). Os casos foram
-repetidos e gravados em vídeo.
+**Nota 2**: nenhuma inconsistência reproduzível em 11 casos que comparam o
+mesmo gesto em dois contextos, nas três áreas apontadas pela hipótese:
+seleção, snapping e edição de texto. Os casos foram repetidos e gravados em
+vídeo; os três vídeos estão incorporados no registro completo abaixo.
 
-!!! note "Diferenças não contadas"
-    Escape preservou a alteração do texto nos dois contextos, o que pode ser
-    uma questão de comportamento esperado, mas não é inconsistência entre
-    contextos. Texto solto e texto dentro da forma quebram linha de jeitos
-    diferentes porque os contêineres são diferentes, e isso foi tratado como
-    diferença de layout.
+```mermaid
+flowchart LR
+    C["11 casos comparados"] --> S["Seleção: 4"]
+    C --> N["Snapping: 3"]
+    C --> T["Edição de texto: 4"]
+    S --> R["0 inconsistências"]
+    N --> R
+    T --> R
+```
 
-Registro completo, com os vídeos:
-[`CI-M12_inconsistencias-interface.md`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/tree/main/evidencias/capacidade-interacao/CI-M12).
+| Área | Casos | Contextos comparados | Inconsistências |
+| --- | :---: | --- | :---: |
+| Seleção | I1 a I4 | forma sem texto × com texto (clique, Shift, área, sobreposição) | 0 |
+| Snapping | I5 a I7 | seta para forma sem texto × com texto; borda × centro; mover a forma | 0 |
+| Edição de texto | I8 a I11 | texto solto × dentro da forma (duplo clique, Enter, Escape, texto longo) | 0 |
+
+!!! note "Comportamentos registrados"
+    Em I10, o Escape preserva a edição nos dois contextos, o que pode
+    surpreender, mas é igual nos dois e por isso não conta. Em I11, o texto
+    solto e o texto dentro da forma quebram linha de jeitos diferentes, o que
+    foi tratado como diferença de layout.
+
+## Evidências
+
+Quadro com os 11 cenários, montado no próprio Excalidraw para a coleta:
+
+![Quadro dos cenários da CI-M12](../../assets/resultados/capacidade-interacao/CI-M12_cenarios_2026-11-14.png)
+
+Registro completo:
+[`CI-M12_inconsistencias-interface.md`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M12/CI-M12_inconsistencias-interface.md).
+
+Arquivos de apoio: [`CI-M12_inconsistencias-interface.md`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/tree/main/evidencias/capacidade-interacao/CI-M12).
