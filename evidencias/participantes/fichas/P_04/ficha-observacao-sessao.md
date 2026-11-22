@@ -21,7 +21,7 @@ Uma ficha por participante e sessão. **Não escrever nome**, apenas o código. 
 | T1 primeira impressão | 00:04:19 | 00:04:28 | 9 s | sim | sim | 0 | 0 | 0 |
 | T2 exploração (1 min) | 00:04:42 | 00:05:40 | 58 s | sim | sim | 0 | 15 | 0 |
 | T3 ícones | 00:06:17 | 00:07:00 | 43 s | acertos 7 (+1 parcial) / total 13 (conferir com o gabarito) | sim | 0 | 12 ícones citados | 0 |
-| T4 retângulo, elipse, seta | 00:07:13 | 00:07:50 | 0,6 min (~38 s) | sim | não (perguntou o que é elipse) | 1 | 7 | 2 |
+| T4 retângulo, elipse, seta | 00:07:13 | 00:07:50 | 0,6 min (~38 s) | sim | sim (dúvida sobre a elipse não conta como ajuda) | 0 | 7 | 2 |
 | T5 diagrama-modelo | 00:08:55 | 00:13:27 | 4,5 min (~272 s, só a reprodução) | parcial (reproduziu, não mudou a cor, não exportou PNG) | não (perguntou à facilitadora) | 1 | 30 | 6 |
 | T5 na ferramenta anterior (perfil C) | n/a | n/a | n/a | n/a | n/a | n/a | n/a | n/a |
 | T6 migração (perfil C) | n/a | n/a | n/a | n/a | n/a | n/a | n/a | n/a |

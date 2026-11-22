@@ -59,7 +59,7 @@ CI-M20 = média das notas de L1, L2 e L3 de todos os participantes (desconsidera
 
 ## Parte 4: Intenção de uso (CI-M21) e comentários
 
-1. Você usaria o Excalidraw novamente? ☐ Sim ☐ Não
+1. Você usaria o Excalidraw novamente? x Sim ☐ Não
 2. _(só perfil C)_ Você poderia substituir sua ferramenta atual pelo Excalidraw no seu trabalho? ☐ Sim ☐ Em parte ☐ Não. O que faltaria? ____
 3. O que foi mais difícil? ____
 4. O que você mais gostou? ____

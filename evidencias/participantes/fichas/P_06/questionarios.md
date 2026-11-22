@@ -49,7 +49,7 @@ Escala de 1 (**muito insatisfeito**) a 5 (**muito satisfeito**).
 
 | # | Item | 1 | 2 | 3 | 4 | 5 | Não vi |
 | --- | --- | :-: | :-: | :-: | :-: | :-: | :-: |
-| L1 | O estilo visual **desenhado à mão** dos diagramas | ☐ | ☐ | ☐ | ☐ | ☐ | x |
+| L1 | O estilo visual **desenhado à mão** dos diagramas | ☐ | ☐ | ☐ | ☐ | x | ☐ |
 | L2 | A **organização** da tela (barra de ferramentas, menus, painéis) | ☐ | ☐ | ☐ | x | ☐ | ☐ |
 | L3 | O **modo escuro** | ☐ | ☐ | x | ☐ | ☐ | ☐ |
 

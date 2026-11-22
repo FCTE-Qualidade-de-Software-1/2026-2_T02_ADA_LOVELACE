@@ -19,9 +19,9 @@ Uma ficha por participante e sessão. **Não escrever nome**, apenas o código. 
 | Tarefa | Início (hh:mm:ss) | Fim | Duração | Concluiu? | Sem ajuda? | Consultas à ajuda | Ações (total) | Ações erradas |
 | --- | --- | --- | --- | :-: | :-: | :-: | :-: | :-: |
 | T1 primeira impressão | ~00:05:52 | ~00:06:0x| poucos segundos  | sim | sim | 0 | 0 | 0 |
-| T2 exploração (1 min) | ~00:06:1x | ~00:07:2x | ~1 min  | sim | sim | 0 | contar no vídeo | contar no vídeo |
+| T2 exploração (1 min) | ~00:06:1x | ~00:07:2x | ~1 min  | sim | sim | 0 | 20 | 7 |
 | T3 ícones | ~00:07:5x  | ~00:08:55 | ~1 min  | acertos 11 (+1 ambígua) / total 13 | sim | 0 | 12 ícones citados | 0 |
-| T4 retângulo, elipse, seta | ~00:08:55 | ~00:10:2x  | ~1,5 min | a conferir no vídeo | não (perguntou sobre a elipse) | 1 | 8 | 1 |
+| T4 retângulo, elipse, seta | ~00:08:55 | ~00:10:2x  | ~1,5 min | sim (seguiu para a T5) | sim (dúvida sobre a elipse não conta como ajuda) | 0 | 8 | 1 |
 | T5 diagrama-modelo | ~00:10:3x (bloco 00:09:58) | entre 00:12:09 e 00:17:16  | entre ~2 e ~6,5 min (abaixo do limite de 8 min) | sim | sim | 0 | 38 | 3 |
 | T5 na ferramenta anterior (perfil C) | n/a | n/a | n/a | n/a | n/a | n/a | n/a | n/a |
 | T6 migração (perfil C) | n/a | n/a | n/a | n/a | n/a | n/a | n/a | n/a |
@@ -57,4 +57,4 @@ Transcrever o texto exibido e se o participante entendeu e soube agir: nenhuma m
 | --- | --- | --- |
 | Ficha conferida com a gravação | pendente (conferida só com a transcrição) | |
 | Ficha conferida com a transcrição | Zayra Moraes (com apoio do Claude) | 2026-11-16 |
-| Dados passados para o CSV | `registro-sessoes.csv` | 2026-11-16 |
+| Dados passados para o CSV | `registro-sessoes.csv` | 2026-11-22 |

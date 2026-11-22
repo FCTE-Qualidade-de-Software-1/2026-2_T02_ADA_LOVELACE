@@ -7,7 +7,7 @@ Uma ficha por participante e sessão. **Não escrever nome**, apenas o código. 
 | Código | P06 |
 | Sessão | S1 X  S2 ☐  S3 ☐ |
 | Perfil | A ☐ iniciante  B X experiente  C ☐ outra ferramenta (qual: ____)  D ☐ acessibilidade |
-| Data / hora | não consta na transcrição (a confirmar; sessão de ~19 min) |
+| Data / hora | 22/11, 14:00, sessão de ~19 min |
 | Facilitador / anotador | Zayra |
 | Excalidraw (commit e URL) | `e7b5346` |
 | Navegador e sistema | computador, Safari |
@@ -40,7 +40,7 @@ Uma ficha por participante e sessão. **Não escrever nome**, apenas o código. 
 | 00:06:28 a 00:07:09 | Disse que usa a ferramenta há "uns 4, 5 anos" e listou: diagramas, desenho livre, diagrama por código com IA, imagens e páginas web para brainstorming. | T2 |
 | 00:07:27 | Disse "eu ia colocar o ponteiro em cima, tá?"; a facilitadora respondeu que não podia. Não usou tooltip. | T3 |
 | 00:07:30 a 00:08:39 | Descreveu da esquerda para a direita: cadeado (travar a ferramenta, com explicação de como a seleção volta para a mão), mão (andar no canvas), seleção, retângulo/quadrado, losango, círculo, seta, linha, lápis (desenho livre), texto, post-it, borracha e os três pontinhos ("outras opções"). Depois citou o menu superior esquerdo (idioma, exportar). | T3 |
-| 00:09:20 a 00:09:31 | A facilitadora explicou "elipse é um círculo mais oval" sem que ele perguntasse ("já me perguntaram em algumas sessões"). Desvio do protocolo, tratado como ajuda. | T4 |
+| 00:09:20 a 00:09:31 | A facilitadora explicou "elipse é um círculo mais oval" sem que ele perguntasse ("já me perguntaram em algumas sessões"). Explicar o termo não conta como ajuda (decisão da equipe). | T4 |
 | 00:09:57 | A facilitadora disse "ótimo, deixa eu só anotar quantos passos você fez" e pediu para apagar e abrir o diagrama-modelo; ele abriu por volta de 00:10:30. | T4 |
 | 00:11:53 | A facilitadora disse algo como "tem um buraco na telha verde, tá vendo?" (trecho confuso). Conferir no vídeo se foi uma dica; se foi, a T5 deixa de ser "sem ajuda". | T5 |
 | 00:13:17 | Disse "pronto" e a facilitadora pediu as etapas extras: mudar a cor de fundo, ligar com outra seta e exportar PNG. | T5 |
