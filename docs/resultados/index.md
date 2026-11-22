@@ -73,4 +73,4 @@ do Excalidraw. Só as métricas já coletadas têm nota. Os critérios estão no
 
 ## Rastreabilidade da contribuição de Renato
 
-[Inventário das 26 métricas](inventario-renato-issue-20.md), com origem, integração, revisão e limitações. CI-M17 e CI-M19 a CI-M21 permanecem sem valor e sem nota; há fichas em branch de entrevistas aguardando revisão e consolidação. Notas provisórias não representam revisão concluída.
+[Inventário das 26 métricas](inventario-renato-issue-20.md), com origem, integração, revisão e limitações. As métricas das sessões com participantes (CI-M1 a CI-M6, CI-M11, CI-M17 e CI-M19 a CI-M21) têm nota nas evidências da branch `feat/entrevistas` e já entram na [análise](../analise/resultados.md); as linhas desta tabela são preenchidas quando essa branch for integrada. A CI-M8 não foi medida. Notas provisórias não representam revisão concluída.

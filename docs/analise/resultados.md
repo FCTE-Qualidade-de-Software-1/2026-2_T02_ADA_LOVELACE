@@ -4,14 +4,20 @@ Relatório integrado da issue #20, com as interpretações de Renato
 (`34ca062591887d5f7779b2d33d145b26a8de8edb`) e os cálculos e a síntese de André
 (`44302e5ee7d6805124bf5846d5628c09df2fcad1`), preservados no histórico Git.
 A integração de 17/11/2026 não realiza novas medições nem altera valores,
-notas ou denominadores publicados. Os critérios são os do [roteiro](roteiro.md).
+notas ou denominadores publicados. A atualização de 22/11/2026 incorpora a
+F-M8 e a F-M9 ([PR #110](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/110))
+e as métricas das sessões com participantes calculadas por Zayra na branch
+[`feat/entrevistas`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/tree/feat/entrevistas) (commit `859e745`),
+com os valores e as notas registrados nas evidências, e completa as respostas
+às questões e o julgamento de O4 e O5. Os critérios são os do [roteiro](roteiro.md).
 
 ## Resumo executivo
 
 O Excalidraw foi avaliado no commit `e7b5346`, entre 4 e 15 de novembro de
 2026, em seis objetivos ligados a três características da ISO/IEC 25010:2023:
 Segurança, Flexibilidade e Capacidade de interação. Das 51 métricas do
-roteiro, 37 têm nota; as outras 14 dependem das sessões com participantes.
+roteiro, 50 têm nota; a CI-M8 não foi medida, porque exige três sessões
+com a mesma pessoa e cada participante fez uma.
 
 Com os dados atuais:
 
@@ -26,7 +32,14 @@ Com os dados atuais:
 - **Acessibilidade não é atendida.** O6 (31,3%): o leitor de tela não
   anuncia o que está desenhado, e há violações da WCAG e textos com pouco
   contraste.
-- O4 e O5 dependem das métricas das sessões com participantes.
+- **Substituir outra ferramenta é viável no básico.** O4 (75,0%) é
+  atendido: o participante vindo do Lucidchart reproduziu o diagrama-modelo
+  em 71% do tempo e concluiu as tarefas (F-M8 e F-M9), mas faltam as funções
+  avançadas do draw.io (F-M7, nota 0).
+- **A interface é fácil de reconhecer e agrada, mas os iniciantes erram e
+  pedem ajuda.** O5 (71,4%) é parcialmente atendido: SUS médio de 82,0,
+  propósito reconhecido por todos e 80,8% dos ícones identificados, mas 28% das
+  ações dos iniciantes foram erradas e só 1 de 6 tarefas saiu sem ajuda.
 
 ## Configuração da avaliação
 
@@ -36,8 +49,8 @@ Com os dados atuais:
 | Data e duração da coleta | De 4 a 15 de novembro de 2026; sessões com participantes de 12 a 15 de novembro |
 | Navegadores e versões | Google Chrome 157 (também automatizado com Playwright), Microsoft Edge 157, Helium 157 (Chromium), Firefox 160, Safari 27.2 e Opera; NVDA 2026.3 com Edge para o leitor de tela |
 | Sistemas e dispositivos | Windows 10 e 11, macOS 27.2.1, Android 10, iOS 27.2.1 e iPadOS 27.2; celular e tablet também emulados no Chrome (Pixel 7 e iPad). Linux era previsto, mas não foi testado na F-M2; iOS e iPadOS foram contados separadamente |
-| Participantes e perfil | Perfil informado na síntese de André: 5 participantes, P01 a P05 (3 iniciantes, 1 experiente e 1 vindo do Lucidchart). Resultados individuais ainda não consolidados nesta base; a elegibilidade de P05 para F-M8/F-M9 depende de confirmação na [#66](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/66). Esses perfis não constituem notas de métricas |
-| Casos de teste executados | Inventário de 51 métricas do [roteiro](roteiro.md); 37 com resultado e evidência em `evidencias/`, e 14 sem consolidação. Nas sessões, o roteiro único de seis tarefas do [protocolo](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/participantes/protocolo-testes-participantes.md) |
+| Participantes e perfil | 5 participantes, uma sessão cada, de 12 a 15/11/2026, conduzidas por Zayra: P01, P03 e P04 iniciantes (perfil A), P02 experiente (B) e P05 vindo do Lucidchart (C); nenhum do perfil D (acessibilidade). Dados por código em `evidencias/participantes/registro-sessoes.csv` da branch [`feat/entrevistas`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/tree/feat/entrevistas). P05 marcou no questionário que já usou o Excalidraw "regularmente", o que está registrado como limitação na F-M8 e na F-M9 |
+| Casos de teste executados | Inventário de 51 métricas do [roteiro](roteiro.md); 50 com resultado e evidência em `evidencias/` e 1 não medida (CI-M8). Nas sessões, o roteiro único de seis tarefas do [protocolo](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/participantes/protocolo-testes-participantes.md) |
 
 ## Achados
 
@@ -61,7 +74,8 @@ Calcula-se com as frações completas e arredonda-se apenas a apresentação
 (médias com duas casas e percentuais com uma). Média ausente é indicada por
 **—**, sem imputar zero nem calcular média apenas das métricas disponíveis.
 Isso mantém integralmente os vínculos do roteiro; não cria regra de imputação.
-Há **13 questões com média completa e 7 sem média**. O julgamento da hipótese
+Há **19 questões com média completa e 1 sem média** (CI-Q3, porque a CI-M8
+não foi medida). O julgamento da hipótese
 é distinto do atendimento quantitativo: confirmar uma previsão negativa
 confirma uma limitação.
 
@@ -75,16 +89,16 @@ confirma uma limitação.
 | S-Q6 · Resistência | S-M11 (0), S-M12 (0), S-M13 (1) | 0,33 | 16,7% | Confirmada parcialmente, com ressalvas | Cinco avisos altos, um caso sem correção identificada e cabeçalhos incompletos. |
 | F-Q1 · Navegadores e sistemas | F-M1 (2), F-M2 (1), F-M3 (1) | 1,33 | 66,7% | Confirmada em parte | Os quatro navegadores passaram, mas 2 de 5 sistemas falharam (erro de clipboard no Firefox do Android e scroll travado no Safari do iPad): as diferenças ficaram nos dispositivos móveis, não no macOS |
 | F-Q2 · Dispositivos e condições de uso | F-M4 (2), F-M5 (1), F-M6 (1) | 1,33 | 66,7% | Confirmada em parte | Há barra própria para celular e o editor funciona offline, mas colaboração, IA, idioma e Mermaid dependem de rede, e em 360 px faltam os botões de zoom e de trava da ferramenta. A limitação no toque não apareceu nas 25 funções testadas |
-| F-Q3 · Substituir uma ferramenta equivalente | F-M7 (0), F-M8, F-M9 | — | — | Inconclusiva | F-M7: 24 de 42 funções do draw.io (57,1%), faltam as avançadas. F-M8 e F-M9 dependem das sessões com participantes |
+| F-Q3 · Substituir uma ferramenta equivalente | F-M7 (0), F-M8 (2), F-M9 (2) | 1,33 | 66,7% | Confirmada | O participante vindo do Lucidchart reproduziu o diagrama-modelo em 94 s contra 132 s (razão 0,71) e concluiu as duas tarefas, mas o Excalidraw tem só 24 de 42 funções do draw.io (57,1%) |
 | F-Q4 · Migração de dados | F-M10 (1), F-M11 (2), F-M12 (2) | 1,67 | 83,3% | Confirmada | O `.excalidraw` e as imagens com cena incorporada preservaram 12 de 12 elementos, mas faltam PDF e JPEG na exportação e nenhum formato de outra ferramenta é importado como diagrama editável |
-| CI-Q1 · Reconhecer a adequação | CI-M1 a CI-M3 | — | — | Inconclusiva | Dependem das sessões com participantes |
-| CI-Q2 · Aprender as funções básicas | CI-M4 a CI-M6 | — | — | Inconclusiva | Dependem das sessões com participantes |
-| CI-Q3 · Apoio ao aprendizado contínuo | CI-M7 (1), CI-M8 | — | — | Parcialmente confirmada quanto ao apoio documental | CI-M7: a ajuda documenta 46 de 74 funções (62,2%) e não tem tutorial guiado. CI-M8 depende das sessões |
-| CI-Q4 · Eficiência nas tarefas comuns | CI-M9 (2), CI-M10 (2), CI-M11 | — | — | Parcialmente confirmada quanto aos mecanismos | CI-M9: as tarefas frequentes pedem em média 2,5 ações. CI-M10: as 17 funções frequentes têm atalho, as ferramentas com uma tecla. CI-M11 depende das sessões |
+| CI-Q1 · Reconhecer a adequação | CI-M1 (1), CI-M2 (2), CI-M3 (2) | 1,67 | 83,3% | Confirmada parcialmente | Todos os iniciantes e o participante do perfil C descreveram corretamente o propósito, e 80,8% dos ícones foram identificados, mas a média foi de 18,7 s, acima dos "poucos segundos" previstos |
+| CI-Q2 · Aprender as funções básicas | CI-M4 (2), CI-M5 (0), CI-M6 (2, provisória) | 1,33 | 66,7% | Confirmada parcialmente | A primeira tarefa saiu em 0,6 min em média, mas só 1 de 6 tarefas foi concluída sem ajuda: as perguntas foram de vocabulário ("o que é elipse?") e ninguém abriu a ajuda |
+| CI-Q3 · Apoio ao aprendizado contínuo | CI-M7 (1), CI-M8 (não medida) | — | — | Parcialmente confirmada quanto ao apoio documental | CI-M7: a ajuda documenta 46 de 74 funções (62,2%) e não tem tutorial guiado. CI-M8 não foi medida (cada participante fez uma sessão) |
+| CI-Q4 · Eficiência nas tarefas comuns | CI-M9 (2), CI-M10 (2), CI-M11 (2, provisória) | 2,00 | 100% | Confirmada | Tarefas frequentes com 2,5 ações em média, atalho para as 17 funções frequentes, e a experiente levou 0,43 do tempo dos iniciantes na T5 (n = 1 experiente) |
 | CI-Q5 · Consistência e previsibilidade | CI-M12 (2), CI-M13 (2, provisória) | 2,00 | 100% | Refutada | A hipótese previa diferenças conforme o contexto, mas os 11 casos de seleção, snapping e texto se comportaram igual nos dois contextos (CI-M12), e as 13 ações deram retorno visual no ponto observado (CI-M13, sem medir latência). O resultado de consistência é melhor que o previsto |
 | CI-Q6 · Evitar e recuperar erros | CI-M14 (0, provisória), CI-M15 (1), CI-M16 (2) | 1,00 | 50,0% | Confirmada parcialmente; classificação provisória | Recuperação e autosave presentes, com abertura destrutiva e nota provisória em CI-M14. |
-| CI-Q7 · Frequência e clareza dos erros | CI-M17, CI-M18 | — | — | Inconclusiva; clareza documental limitada | CI-M17 ausente; CI-M18 mede orientação documental, não frequência de erros. |
-| CI-Q8 · Satisfação | CI-M19 a CI-M21 | — | — | Inconclusiva; sem confirmação ou refutação | Sem resultados consolidados de SUS, satisfação visual ou intenção de uso. |
+| CI-Q7 · Frequência e clareza dos erros | CI-M17 (0), CI-M18 (0, provisória) | 0,00 | 0,0% | Refutada | A hipótese previa poucos erros nas tarefas básicas, mas 40 de 143 ações dos iniciantes e do perfil C foram erradas (28,0%), e só 8 de 18 mensagens explicam o problema e a saída |
+| CI-Q8 · Satisfação | CI-M19 (2), CI-M20 (2), CI-M21 (2) | 2,00 | 100% | Confirmada | SUS médio de 82,0, acima de 68; satisfação visual de 4,27 (estilo desenhado à mão 4,6; modo escuro 3,4, com opiniões divididas); 4 de 4 usariam de novo |
 | CI-Q9 · Uso por pessoas com deficiência | CI-M22 (0), CI-M23 (1), CI-M24 (0), CI-M25 (0) | 0,25 | 12,5% | Confirmada parcialmente, com barreiras adicionais | Barreiras de teclado, leitor de tela e contraste; ver ressalvas da coleta. |
 | CI-Q10 · Adaptação a perfis de usuário | CI-M26 (1) | 1,00 | 50,0% | Confirmada parcialmente na dimensão linguística | 57 idiomas; cobertura de pt-BR de 92,5% usa todas as strings de referência. |
 
@@ -271,16 +285,16 @@ das coletas. As hipóteses são literais conforme o roteiro.
 | Métrica / evidência | Valor documentado | Nota documentada (0–2) |
 | --- | --- | --- |
 | [F-M7 · Inclusão funcional](../resultados/flexibilidade/f-m7.md) | 24 de 42 funções do draw.io (57,1%) | **0** |
-| F-M8 · Razão de tempo de tarefa | — | — |
-| F-M9 · Conclusão de tarefas por quem vem de outra ferramenta | — | — |
+| [F-M8 · Razão de tempo de tarefa](../resultados/flexibilidade/f-m8.md) | 94 s no Excalidraw ÷ 132 s no Lucidchart = 0,71 | **2** |
+| [F-M9 · Conclusão de tarefas por quem vem de outra ferramenta](../resultados/flexibilidade/f-m9.md) | 2 de 2 tarefas (100%) | **2** |
 
-**Resposta fundamentada:** A substituição funcional é limitada ao conjunto básico observado: a F-M7 mostra cobertura incompleta frente ao draw.io. Ainda não se pode responder se a substituição preserva produtividade ou se os usuários migrantes concluem as mesmas tarefas.
+**Resposta fundamentada:** Para as tarefas básicas de diagramação, sim. O participante que vem de outra ferramenta reproduziu o diagrama-modelo mais rápido no Excalidraw do que no Lucidchart, que já usa, e concluiu as duas tarefas propostas sem ação errada. Para quem depende de funções avançadas, não: o Excalidraw tem 24 das 42 funções do draw.io e não tem tabelas, swimlanes, camadas nem importação de arquivos de outras ferramentas.
 
-**Julgamento da hipótese:** **Inconclusiva** por insuficiência de evidências.
+**Julgamento da hipótese:** **Confirmada**.
 
-**Justificativa:** A parcela funcional da hipótese é compatível com a presença de funções básicas e ausência das avançadas. A previsão de tempo parecido depende da F-M8, e a conclusão por usuários migrantes depende da F-M9; ambas estão pendentes. Por isso a hipótese composta permanece inconclusiva, sem transformá-la em refutada apenas pela nota 0 da F-M7.
+**Justificativa:** As três métricas sustentam as duas partes da hipótese. F-M8 e F-M9 mostram que as tarefas básicas saem em tempo igual ou menor (razão 0,71) e são concluídas; a F-M7 mostra que as funções avançadas faltam. A média de 66,7% (parcial) reflete exatamente essa substituição limitada ao básico.
 
-**Limitações e métricas pendentes:** Pendentes: F-M8 e F-M9, sem valor nem nota, até confirmar a elegibilidade do perfil de P05 e validar as evidências na [#66](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/66). O roteiro prevê usuários vindos de draw.io/Miro; a síntese de perfil informa Lucidchart, o que exige confirmação, sem escolher julgamento alternativo de O4. A referência efetivamente examinada na F-M7 foi draw.io, não Miro. F-M7 mede existência de funções no recorte escolhido, não produtividade nem facilidade de uso; as leituras alternativas documentadas mantêm sua nota 0. Nenhuma nova sessão ou medição foi realizada.
+**Limitações e métricas pendentes:** Não há métrica pendente. F-M8 e F-M9 vêm de um único participante (P05), que marcou no questionário já usar o Excalidraw "regularmente", embora classificado no perfil C; isso favorece o Excalidraw. A ferramenta anterior foi o Lucidchart (o Miro estava bloqueado pelo limite do plano), enquanto a F-M7 usou o draw.io como referência. O Excalidraw veio primeiro na sessão, o que dá vantagem de aprendizado ao Lucidchart. A F-M9 não conta a T6 (migração), que é qualitativa; contada como não concluída, a taxa seria 66,7% (nota 0).
 
 #### F-Q4 — Os dados podem ser migrados para dentro e para fora do Excalidraw sem perdas?
 
@@ -312,17 +326,17 @@ das coletas. As hipóteses são literais conforme o roteiro.
 
 | Métrica / evidência | Valor documentado | Nota documentada (0–2) |
 | --- | --- | --- |
-| CI-M1 · Tempo até identificar o propósito | — | — |
-| CI-M2 · Taxa de reconhecimento correto | — | — |
-| CI-M3 · Ícones autoexplicativos | — | — |
+| [CI-M1 · Tempo até identificar o propósito](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M1_tempo-proposito.md) | média de 18,7 s (n = 3) | **1** |
+| [CI-M2 · Taxa de reconhecimento correto](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M2_reconhecimento-correto.md) | 4 de 4 (100%) | **2** |
+| [CI-M3 · Ícones autoexplicativos](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M3_icones-autoexplicativos.md) | 80,8% (42 de 52 ícones) | **2** |
 
-**Resposta fundamentada:** Não é possível determinar a rapidez ou a correção com que usuários reconhecem a finalidade da ferramenta: não há resultados consolidados das três métricas desta questão.
+**Resposta fundamentada:** Sim, com ressalva no tempo. Os quatro participantes dos perfis A e C descreveram corretamente para que serve a ferramenta e identificaram, em média, 80,8% dos ícones da barra. A resposta levou 18,7 s em média (21, 9 e 26 s), na faixa parcial.
 
-**Julgamento da hipótese:** **Inconclusiva** por insuficiência de evidências.
+**Julgamento da hipótese:** **Confirmada parcialmente**.
 
-**Justificativa:** A existência da tela de boas-vindas e de ícones não substitui o tempo, a descrição correta e o reconhecimento de ícones pelos participantes. Falta evidência para confirmar ou refutar a hipótese positiva.
+**Justificativa:** O reconhecimento correto e a leitura dos ícones confirmam que a tela deixa claro que é um quadro para desenhar. A previsão de "poucos segundos" não se sustenta na média: só um participante respondeu em até 10 s, e esse pode ter sido influenciado pela fala da facilitadora.
 
-**Limitações e métricas pendentes:** Pendentes: CI-M1, CI-M2 e CI-M3, todas sem valor e sem nota. Não foram inferidos segundos, taxas ou respostas de participantes a partir de capturas da interface. A autodescritividade observada em CI-M7 não substitui a identificação de ícones medida pela CI-M3.
+**Limitações e métricas pendentes:** Não há métrica pendente. P01 não tem tempo medido (transcrição sem marcação). A resposta de P03 na CI-M2 está quase inaudível; se for considerada errada, a taxa cai para 75% (nota 1). A CI-M3 está na fronteira: sem P01, 79,5% (nota 1). Amostra de quatro pessoas, uma sessão cada, conferida com as transcrições e não com o vídeo.
 
 #### CI-Q2 — Um usuário novo consegue aprender a usar as funções básicas sem treinamento?
 
@@ -332,17 +346,17 @@ das coletas. As hipóteses são literais conforme o roteiro.
 
 | Métrica / evidência | Valor documentado | Nota documentada (0–2) |
 | --- | --- | --- |
-| CI-M4 · Tempo da primeira tarefa | — | — |
-| CI-M5 · Conclusão sem ajuda | — | — |
-| CI-M6 · Consultas à ajuda | — | — |
+| [CI-M4 · Tempo da primeira tarefa](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M4_tempo-primeira-tarefa.md) | média de 0,6 min (n = 3) | **2** |
+| [CI-M5 · Conclusão sem ajuda](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M5_conclusao-sem-ajuda.md) | 1 de 6 tarefas (16,7%) | **0** |
+| [CI-M6 · Consultas à ajuda](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M6_consultas-ajuda.md) | média de 1,0 consulta | **2 provisória** |
 
-**Resposta fundamentada:** Não é possível concluir se iniciantes aprendem as funções básicas sem treinamento. O comportamento técnico do editor não demonstra o desempenho de um usuário novo.
+**Resposta fundamentada:** Em parte. A primeira tarefa (retângulo, elipse, seta e texto) foi concluída em menos de 1 minuto em média, e as consultas ficaram em uma por pessoa. Mas só 1 das 6 tarefas de iniciantes e do perfil C foi concluída sem nenhuma ajuda.
 
-**Julgamento da hipótese:** **Inconclusiva** por insuficiência de evidências.
+**Julgamento da hipótese:** **Confirmada parcialmente**.
 
-**Justificativa:** São necessários os registros de tempo da primeira tarefa, conclusão sem ajuda e consultas à ajuda. A semelhança com convenções de editores gráficos fundamenta a hipótese original, mas não é resultado de teste com participantes.
+**Justificativa:** O tempo baixo da T4 confirma que escolher a ferramenta e arrastar para desenhar é aprendido sem treinamento. A taxa de conclusão sem ajuda, porém, fica muito abaixo da meta. As perguntas foram sobre o enunciado ("o que é uma elipse?", "vai com as cores?"), não sobre onde fica um comando, e ninguém abriu o diálogo de ajuda do Excalidraw. Isso indica que a barreira foi mais de vocabulário do que da interface, mas a regra da métrica conta qualquer pergunta.
 
-**Limitações e métricas pendentes:** Pendentes: CI-M4, CI-M5 e CI-M6, sem valor nem nota. Não se usam tempos de automação ou de avaliadores como se fossem tempos de iniciantes; não há resultado de sessão consolidado empregado nesta análise.
+**Limitações e métricas pendentes:** Não há métrica pendente. A CI-M6 é provisória: falta conferir a T5 de P01 no vídeo; se houve consulta, a média passa de 1 e a nota vira 1. Na T4 de P03, a facilitadora ditou etapas, o que foi tratado como ajuda. P03 passou do limite de 8 min na T5. P01 não entra na média de tempo.
 
 #### CI-Q3 — A ferramenta oferece recursos que apoiam o aprendizado contínuo?
 
@@ -353,15 +367,15 @@ das coletas. As hipóteses são literais conforme o roteiro.
 | Métrica / evidência | Valor documentado | Nota documentada (0–2) |
 | --- | --- | --- |
 | [CI-M7 · Cobertura da ajuda interna](../resultados/capacidade-interacao/ci-m7.md) | 46 de 74 funções (62,2%) | **1** |
-| CI-M8 · Melhoria de desempenho entre sessões | — | — |
+| [CI-M8 · Melhoria de desempenho entre sessões](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M8_melhoria-entre-sessoes.md) | não medida (uma sessão por pessoa) | — |
 
 **Resposta fundamentada:** Há apoio documental parcial ao aprendizado: o diálogo de atalhos cobre 46 das 74 funções com controle visível, mas não cobre abrir, salvar, exportar e parte das propriedades; não há tutorial guiado no recorte documentado. A melhoria de desempenho ao longo de sessões ainda não foi demonstrada.
 
 **Julgamento da hipótese:** **Parcialmente confirmada** no recorte documentado.
 
-**Justificativa:** O recurso e a limitação previstos na hipótese estão documentados pela CI-M7. Isso permite confirmação parcial quanto ao apoio oferecido, mas não autoriza afirmar eficácia do aprendizado contínuo, pois CI-M8 está pendente. A nota da cobertura da ajuda não funciona como medida de ganho entre sessões.
+**Justificativa:** O recurso e a limitação previstos na hipótese estão documentados pela CI-M7. Isso permite confirmação parcial quanto ao apoio oferecido, mas não autoriza afirmar eficácia do aprendizado contínuo, pois a CI-M8 não foi medida. A nota da cobertura da ajuda não funciona como medida de ganho entre sessões. Nas sessões, nenhum participante abriu o diálogo de ajuda (CI-M6): as dúvidas foram levadas à facilitadora.
 
-**Limitações e métricas pendentes:** Pendente: CI-M8, sem valor nem nota. CI-M7 inspeciona o diálogo de ajuda e sua cobertura, não a clareza de toda a documentação, tooltips ou material externo. Conserva-se o denominador 74; o cenário com 17 funções é apenas sensibilidade. O campo de revisão da evidência está pendente.
+**Limitações e métricas pendentes:** CI-M8 não medida, sem valor nem nota: exige a mesma tarefa em três sessões do mesmo participante, e cada pessoa fez uma (o protocolo já previa que isso não caberia no prazo). Por isso a CI-Q3 fica sem média. CI-M7 inspeciona o diálogo de ajuda e sua cobertura, não a clareza de toda a documentação, tooltips ou material externo. Conserva-se o denominador 74; o cenário com 17 funções é apenas sensibilidade. O campo de revisão da evidência está pendente.
 
 #### CI-Q4 — As tarefas comuns podem ser realizadas de forma eficiente?
 
@@ -373,15 +387,15 @@ das coletas. As hipóteses são literais conforme o roteiro.
 | --- | --- | --- |
 | [CI-M9 · Ações por tarefa frequente](../resultados/capacidade-interacao/ci-m9.md) | média de 2,5 ações | **2** |
 | [CI-M10 · Cobertura de atalhos de teclado](../resultados/capacidade-interacao/ci-m10.md) | 17 de 17 funções frequentes (100%) | **2** |
-| CI-M11 · Tempo de experientes em relação a iniciantes | — | — |
+| [CI-M11 · Tempo de experientes em relação a iniciantes](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M11_experientes-vs-iniciantes.md) | razão de 0,43 (2,7 min ÷ 6,25 min) | **2 provisória** |
 
-**Resposta fundamentada:** As quatro tarefas frequentes exigiram poucas ações no percurso documentado, e as 17 funções selecionadas possuem atalhos no código. Esses mecanismos favorecem eficiência operacional, mas não demonstram que experientes sejam mais rápidos que iniciantes.
+**Resposta fundamentada:** Sim. As quatro tarefas frequentes pedem em média 2,5 ações, as 17 funções frequentes têm atalho, e a participante experiente reproduziu o diagrama-modelo em 2,7 min, contra 6,25 min em média dos iniciantes.
 
-**Julgamento da hipótese:** **Parcialmente confirmada** no recorte documentado.
+**Julgamento da hipótese:** **Confirmada**.
 
-**Justificativa:** Aproveitam-se os achados de André sobre CI-M9/CI-M10: 2,5 ações é o resultado coletado da CI-M9, distinto da média GQM das notas. A previsão sobre rapidez relativa exige a CI-M11; sem ela, o componente causal e a diferença de desempenho por experiência permanecem não verificados.
+**Justificativa:** Os mecanismos (poucas ações e atalhos de uma tecla) e o efeito previsto (experientes bem mais rápidos) foram observados. A razão de 0,43 fica abaixo de 0,5, a meta do nível 2. 2,5 ações é o resultado coletado da CI-M9, distinto da média GQM das notas.
 
-**Limitações e métricas pendentes:** Pendente: CI-M11, sem valor nem nota. CI-M9 cobre quatro tarefas, duas repetições cada, e exclui a preparação da cena. CI-M10 é inspeção de código, não validação de todos os atalhos no navegador; o de exportação abre apenas o diálogo e os de cor têm pré-condições. Não extrapolar a lista selecionada para todas as ações do editor.
+**Limitações e métricas pendentes:** Não há métrica pendente. A CI-M11 é provisória: compara uma experiente (P02) com dois iniciantes (P03, limitado a 8 min, e P04); com os 10,6 min reais de P03 a razão seria 0,36, e com o perfil C entre os iniciantes, 0,57 (nota 1). Não se mediu se a experiente usou atalhos. CI-M9 cobre quatro tarefas, duas repetições cada, e exclui a preparação da cena. CI-M10 é inspeção de código, não validação de todos os atalhos no navegador.
 
 #### CI-Q5 — A interface se comporta de forma consistente e previsível?
 
@@ -430,16 +444,16 @@ das coletas. As hipóteses são literais conforme o roteiro.
 
 | Métrica / evidência | Valor documentado | Nota documentada (0–2) |
 | --- | --- | --- |
-| CI-M17 · Taxa de erro do usuário | — | — |
+| [CI-M17 · Taxa de erro do usuário](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M17_taxa-erro-usuario.md) | 40 de 143 ações (28,0%) | **0** |
 | [CI-M18 · Mensagens de erro compreensíveis](../resultados/capacidade-interacao/ci-m18.md) | 8 de 18 mensagens (44%) — provisório | **0 provisória** |
 
-**Resposta fundamentada:** A frequência dos erros dos participantes e a ocorrência por perfil ou toque são desconhecidas. Quanto às mensagens, o registro documental provisório classificou apenas 8 de 18 como explicativas e acionáveis; isso indica apoio incompleto, sem medir compreensão real dos usuários.
+**Resposta fundamentada:** Os erros foram frequentes e as mensagens explicam pouco. Nas tarefas T4 e T5, 28,0% das ações dos iniciantes e do participante do perfil C foram erradas, com grande variação: 47,1% em P03, 21,6% em P04 e nenhuma em P05. Das 18 mensagens de erro do código, 8 explicam o problema e o que fazer.
 
-**Julgamento da hipótese:** **Inconclusiva** por insuficiência de evidências.
+**Julgamento da hipótese:** **Refutada**.
 
-**Justificativa:** Preserva-se a observação de Renato sobre a clareza parcial, mas a classificação única da hipótese é inconclusiva: a previsão literal trata de poucos erros, seleções e movimentos acidentais entre iniciantes/no toque, que dependem da CI-M17. A CI-M18 não mede frequência ou distribuição por perfil e não confirma essa previsão. Trata-se de qualificação da síntese anterior, sem descartar seus achados.
+**Justificativa:** A hipótese previa poucos erros nas tarefas básicas, restritos a seleções e movimentos acidentais. A taxa observada é quase três vezes o limite de 10%, e continua acima dele mesmo sem P03, o caso extremo (10,7%). A observação de Renato sobre a clareza parcial das mensagens se mantém pela CI-M18. O resultado é pior que o previsto, por isso a hipótese é refutada.
 
-**Limitações e métricas pendentes:** Pendente: CI-M17, sem valor nem nota. CI-M18 é classificação de uma pessoa, sem revisão ou validação de compreensão com participantes, restrita a `errors.*` em inglês. Os 44% e a nota 0 são provisórios; a sensibilidade documentada de 39% a 61% pode mudar a nota. Não se usam fichas não consolidadas como resultados revisados.
+**Limitações e métricas pendentes:** Não há métrica pendente. As contagens da CI-M17 vêm das fichas, contadas por uma pessoa; o protocolo pede dois avaliadores pela gravação. P01 não tem contagem. O toque não foi testado com participantes. A CI-M18 é classificação de uma pessoa, restrita a `errors.*` em inglês e sem validação de compreensão; a sensibilidade documentada de 39% a 61% pode mudar a nota.
 
 #### CI-Q8 — A interface é agradável e satisfatória para o usuário?
 
@@ -449,17 +463,17 @@ das coletas. As hipóteses são literais conforme o roteiro.
 
 | Métrica / evidência | Valor documentado | Nota documentada (0–2) |
 | --- | --- | --- |
-| CI-M19 · Escore SUS | — | — |
-| CI-M20 · Satisfação visual | — | — |
-| CI-M21 · Intenção de uso futuro | — | — |
+| [CI-M19 · Escore SUS](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M19_escore-sus.md) | média de 82,0 (47,5 a 97,5) | **2** |
+| [CI-M20 · Satisfação visual](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M20_satisfacao-visual.md) | média de 4,27 | **2** |
+| [CI-M21 · Intenção de uso futuro](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M21_intencao-de-uso.md) | 4 de 4 (100%); 80% no pior caso | **2** |
 
-**Resposta fundamentada:** Não é possível concluir se a interface é agradável, satisfatória ou se há intenção de uso futuro: SUS, satisfação visual e intenção ainda não têm resultados consolidados nesta base.
+**Resposta fundamentada:** Sim. O SUS médio foi 82,0, a satisfação visual 4,27 de 5 e todos os que responderam usariam o Excalidraw de novo. O estilo desenhado à mão (4,6) e a organização da tela (4,8) foram bem avaliados; o modo escuro (3,4) dividiu opiniões, de 1 a 5.
 
-**Julgamento da hipótese:** **Inconclusiva** por insuficiência de evidências.
+**Julgamento da hipótese:** **Confirmada**.
 
-**Justificativa:** Mantém-se a inconclusão de Renato. Estilo desenhado à mão e modo escuro são características da interface, não respostas de participantes. Não há base para testar a previsão de SUS acima de 68 ou preferência visual.
+**Justificativa:** O SUS passa de 68 com folga, e o estilo desenhado à mão agradou, como previsto. O modo escuro é a parte mais fraca da previsão, mas a média geral de satisfação visual continua acima de 4.
 
-**Limitações e métricas pendentes:** Pendentes: CI-M19, CI-M20 e CI-M21, sem valor e sem pontuação. É necessário consolidar e revisar os registros das sessões; não foram fabricados escores, médias Likert ou intenções de uso. Ausência de evidência não é evidência de insatisfação.
+**Limitações e métricas pendentes:** Não há métrica pendente. P03 teve SUS de 47,5, abaixo de 51, e foi a mesma participante com mais erros e 10,6 min na T5. Alguns itens do SUS de P01 a P04 não ficaram audíveis e foram mantidos os valores do formulário. A nota 1 de P01 no modo escuro veio de um "não" depois de vê-lo; sem ela, a média visual seria 4,5. P01 não respondeu à intenção de uso.
 
 ### Capacidade de interação · O6 — Acessibilidade e adequação a diferentes perfis de usuários
 
@@ -510,14 +524,15 @@ das coletas. As hipóteses são literais conforme o roteiro.
 | O1 — Proteção das informações e controle de acesso | 0,83 | 41,7% | Não atendido |
 | O2 — Identificação, responsabilização e riscos de segurança | 0,28 | 13,9% | Não atendido |
 | O3 — Adaptabilidade a diferentes ambientes e dispositivos | 1,33 | 66,7% | Parcialmente atendido |
-| O4 — Substituibilidade e migração de diagramas | — | — | Pendente de consolidação |
-| O5 — Compreensão, aprendizagem e operação da interface | — | — | Pendente de consolidação |
+| O4 — Substituibilidade e migração de diagramas | 1,50 | 75,0% | Atendido |
+| O5 — Compreensão, aprendizagem e operação da interface | 1,43 | 71,4% | Parcialmente atendido |
 | O6 — Acessibilidade e adequação a diferentes perfis | 0,63 | 31,3% | Não atendido |
 
 ### Conciliação dos julgamentos e memória de cálculo
 
 Os julgamentos preliminares de Renato e os quantitativos de André coincidem
-em O1, O2, O3 e O6. O4 e O5 continuam pendentes nas duas contribuições.
+em O1, O2, O3 e O6. O4 e O5 foram fechados na atualização de 22/11/2026, com
+a F-M8, a F-M9 e as métricas das sessões.
 Pela seção 6 do roteiro, a média do objetivo é a média das **questões**,
 não a média direta de todas as suas métricas. Com frações não arredondadas:
 
@@ -526,8 +541,8 @@ não a média direta de todas as suas métricas. Com frações não arredondadas
 | O1 | `(1 + 0 + 3/2) / 3 = 5/6` → 0,83; 41,7% | 6/6 com resultado | S-Q3 atinge 75%, mas as divergências de edição e as falhas de acesso/confidencialidade permanecem; não há certificação de segurança |
 | O2 | `(0 + 1/2 + 1/3) / 3 = 5/18` → 0,28; 13,9% | 7/7 com resultado | Confirmar hipóteses negativas sobre autoria e identidade confirma limitações; S-M8 aguarda comparação efetiva com o produto pago |
 | O3 | `(4/3 + 4/3) / 2 = 4/3` → 1,33; 66,7% | 6/6 com resultado | Toque emulado favorável não elimina falhas nos aparelhos reais, dependência de cache/rede ou perda de controles em 360 px |
-| O4 | `(F-Q3 + F-Q4) / 2`; F-Q4 = `5/3`, F-Q3 sem média | 4/6 com resultado | Faltam F-M8/F-M9; a fidelidade dentro do Excalidraw não prova substituição produtiva de outra ferramenta |
-| O5 | `(CI-Q1 + … + CI-Q8) / 8`; apenas CI-Q5 e CI-Q6 têm média completa | 9/21 com resultado | Faltam 12 métricas; mecanismos eficientes não demonstram aprendizagem, rapidez relativa ou satisfação; CI-M13/M14/M18 provisórias |
+| O4 | `(4/3 + 5/3) / 2 = 3/2` → 1,50; 75,0% | 6/6 com resultado | Fica no limite do atendido. F-M8 e F-M9 vêm de um participante, que já usava o Excalidraw; com F-M9 = 0 (T6 contada), O4 cairia para 58,3% (parcial). A F-M7 (nota 0) mostra que a substituição vale só para o básico |
+| O5 | `(5/3 + 4/3 + 2 + 2 + 1 + 0 + 2) / 7 = 10/7` → 1,43; 71,4% | 20/21 com resultado | CI-Q3 fica fora porque a CI-M8 não foi medida. Com a CI-Q3 só pela CI-M7, seriam 11/8 = 68,8%; com a CI-M8 como 0, 10,5/8 = 65,6%. Nos três casos, parcialmente atendido. CI-M6, CI-M11, CI-M13, CI-M14 e CI-M18 são provisórias |
 | O6 | `(1/4 + 1) / 2 = 5/8` → 0,63; 31,3% | 5/5 com resultado | O peso igual das duas questões dá à tradução o mesmo peso de CI-Q9; isso segue o método e não elimina as barreiras do canvas |
 
 **Diferenças entre pontuação e interpretação.** F-Q4 tem média 1,67 (83,3%,
@@ -543,15 +558,15 @@ CI-Q6 tem média 1,00 (50%, parcial), preservando a nota 0 provisória da
 CI-M14 e a recuperação efetivamente observada. Nenhuma dessas diferenças
 autoriza alterar notas para ajustar a narrativa.
 
-**Pendências e hipóteses.** As 14 métricas sem valor/nota são F-M8/F-M9,
-CI-M1 a CI-M6, CI-M8, CI-M11, CI-M17 e CI-M19 a CI-M21.
-F-Q3, CI-Q1, CI-Q2, CI-Q7 e CI-Q8 têm hipótese global **inconclusiva**;
-CI-Q3 e CI-Q4 têm confirmação parcial apenas dos componentes observados e
-continuam sem média. CI-Q7 substitui a classificação anterior de confirmação
-parcial na clareza por inconclusão da hipótese literal sobre frequência e
-perfil dos erros, preservando o achado documental da CI-M18. No total:
-**4 hipóteses confirmadas, 10 parcialmente confirmadas, 1 refutada e 5
-inconclusivas**. Essa contagem não é percentual de atendimento GQM.
+**CI-M8 e hipóteses.** A única métrica sem valor é a CI-M8, que exige três
+sessões com a mesma pessoa; ela não é tratada como zero, e a CI-Q3 fica sem
+média, com confirmação parcial apenas do apoio documental. Com as sessões,
+F-Q3, CI-Q4 e CI-Q8 passam a confirmadas, CI-Q1 e CI-Q2 a parcialmente
+confirmadas, e CI-Q7 a refutada (erros mais frequentes que o previsto). F-Q3
+tem média parcial (66,7%) e hipótese confirmada porque a própria hipótese
+previa substituição só no básico. No total: **7 hipóteses confirmadas, 11
+parcialmente confirmadas e 2 refutadas**. Essa contagem não é percentual de
+atendimento GQM.
 
 ## Relação com as decisões do propósito
 
@@ -561,10 +576,10 @@ liga cada decisão a objetivos e a um critério. Com os resultados atuais:
 | Decisão | Critério | Resultado |
 | --- | --- | --- |
 | Usar o link de colaboração gratuito para diagramas sensíveis | O1 e O2 atendidos e nenhuma métrica de confidencialidade com nota 0 | **Não recomendado.** O1 e O2 não são atendidos, e S-M1, S-M3 e S-M4 têm nota 0. A chave não vai ao servidor (S-M2), mas quem tiver o link entra sem senha e sem prazo |
-| Adotar como recurso pedagógico com alunos no celular ou com deficiência | O1, O3, O5 e O6 ao menos parcialmente atendidos | **Critério de adoção não atingido.** O3 é parcial, O1 e O6 não são atendidos e O5 segue pendente. As barreiras com nota 0 viram restrições de uso: não usar com leitor de tela (CI-M24), atenção ao contraste (CI-M25) e ao zoom bloqueado (CI-M22) |
-| Migrar do draw.io ou do Miro | O4 atendido e fidelidade de 100% ao exportar e reimportar | **Em aberto.** A fidelidade é de 100% (F-M11) e a migração de dados atende (F-Q4), mas o Excalidraw tem só 57,1% das funções do draw.io (F-M7), e o O4 depende da F-M8 e da F-M9 |
-| Quais problemas corrigir primeiro | Cada nota 0 gera relato reprodutível; falhas de segurança seguem divulgação responsável | As 14 da tabela de [oportunidades de melhoria](#oportunidades-de-melhoria), começando pelas de Segurança; revisar as duas provisórias. A integração não publica relatos nem comunica terceiros |
-| Se a avaliação aplica corretamente SQuaRE e GQM | Critérios de correção da disciplina | As 20 questões e 51 métricas têm rastreabilidade; 14 medidas e revisões metodológicas permanecem pendentes. A correção acadêmica cabe ao requisitante, sem inferir aprovação a partir das médias |
+| Adotar como recurso pedagógico com alunos no celular ou com deficiência | O1, O3, O5 e O6 ao menos parcialmente atendidos | **Critério de adoção não atingido.** O3 e O5 são parciais, mas O1 e O6 não são atendidos. Para alunos sem deficiência, a interface agrada (SUS 82,0) e a primeira tarefa sai em menos de 1 minuto, mas iniciantes erram muito (CI-M17) e pedem ajuda (CI-M5). As barreiras com nota 0 viram restrições de uso: não usar com leitor de tela (CI-M24), atenção ao contraste (CI-M25) e ao zoom bloqueado (CI-M22) |
+| Migrar do draw.io ou do Miro | O4 atendido e fidelidade de 100% ao exportar e reimportar | **Recomendado para diagramas básicos.** O4 é atendido (75,0%) e a fidelidade é de 100% (F-M11). Quem vem do Lucidchart fez o diagrama-modelo em 71% do tempo (F-M8). Não migrar quem depende de tabelas, swimlanes ou camadas: o Excalidraw tem só 57,1% das funções do draw.io (F-M7) e não importa arquivos `.drawio` como diagrama editável |
+| Quais problemas corrigir primeiro | Cada nota 0 gera relato reprodutível; falhas de segurança seguem divulgação responsável | As 16 da tabela de [oportunidades de melhoria](#oportunidades-de-melhoria), começando pelas de Segurança; revisar as duas provisórias. A integração não publica relatos nem comunica terceiros |
+| Se a avaliação aplica corretamente SQuaRE e GQM | Critérios de correção da disciplina | As 20 questões e 51 métricas têm rastreabilidade; 50 métricas têm nota, a CI-M8 não foi medida e revisões metodológicas permanecem pendentes. A correção acadêmica cabe ao requisitante, sem inferir aprovação a partir das médias |
 
 ## Relações entre as características
 
@@ -583,8 +598,11 @@ acessibilidade por teclado ou leitor de tela (CI-M23/CI-M24). As falhas nos
 dispositivos reais (F-M2/F-M3), a perda de controles visíveis em 360 px (F-M6)
 e o contraste insuficiente (CI-M25) limitam a adoção pedagógica para públicos
 variados. A tradução (CI-M26) amplia cobertura linguística, sem compensar
-essas barreiras. A cobertura funcional de migração (F-M7) tampouco demonstra
-produtividade, ainda dependente de F-M8/F-M9.
+essas barreiras. A cobertura funcional de migração (F-M7) não mede produtividade:
+essa veio da F-M8 e da F-M9, em que a interface conhecida do perfil C se
+traduziu em tempo menor no Excalidraw. Os 28% de ações erradas dos iniciantes
+(CI-M17) convivem com um SUS alto (CI-M19): os erros foram corrigidos na hora,
+sem perda de trabalho, o que conversa com o desfazer e o autosave da CI-Q6.
 
 **Segurança e Flexibilidade.** A F-M5 demonstra desenho/edição offline após
 primeiro acesso, reduzindo a necessidade de conexão nessas operações; os
@@ -634,6 +652,16 @@ Métricas com nota 2:
   as 17 funções frequentes ([CI-M10](../resultados/capacidade-interacao/ci-m10.md)),
   nenhuma inconsistência em 11 casos ([CI-M12](../resultados/capacidade-interacao/ci-m12.md))
   e retorno visual, com nota provisória e sem medição de latência, nas 13 ações testadas ([CI-M13](../resultados/capacidade-interacao/ci-m13.md)).
+  A experiente levou 0,43 do tempo dos iniciantes ([CI-M11](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M11_experientes-vs-iniciantes.md), provisória).
+* **Primeiro contato:** todos reconheceram o propósito ([CI-M2](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M2_reconhecimento-correto.md)),
+  80,8% dos ícones foram identificados ([CI-M3](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M3_icones-autoexplicativos.md))
+  e a primeira tarefa saiu em 0,6 min em média ([CI-M4](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M4_tempo-primeira-tarefa.md)).
+* **Satisfação:** SUS médio de 82,0 ([CI-M19](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M19_escore-sus.md)),
+  satisfação visual de 4,27 ([CI-M20](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M20_satisfacao-visual.md))
+  e 4 de 4 usariam de novo ([CI-M21](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M21_intencao-de-uso.md)).
+* **Substituição no básico:** quem vem do Lucidchart reproduziu o diagrama em
+  71% do tempo ([F-M8](../resultados/flexibilidade/f-m8.md)) e concluiu as
+  duas tarefas ([F-M9](../resultados/flexibilidade/f-m9.md)).
 
 ## Oportunidades de melhoria
 
@@ -651,17 +679,19 @@ maior ([seção 6 do roteiro](roteiro.md#6-criterios-de-julgamento)):
 | [S-M11](../resultados/seguranca/s-m11.md) | 5 vulnerabilidades altas nas dependências | Risco potencial nas versões instaladas; exploração e presença no bundle não demonstradas. | Atualizar `nanoid` e `socket.io-parser` e repetir a auditoria |
 | [S-M12](../resultados/seguranca/s-m12.md) | Advisory aplicável sem correção publicada | Permanece risco potencial na importação descrita no aviso, sujeito à revisão da análise estática. | Acompanhar a correção e verificar de novo a importação de cenas |
 | [F-M7](../resultados/flexibilidade/f-m7.md) | Só 24 de 42 funções do draw.io | Usuários vindos do draw.io perdem funções avançadas; impacto sobre produtividade ainda não medido. | Priorizar tabelas, swimlanes e importação de arquivos `.drawio` |
+| [CI-M5](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M5_conclusao-sem-ajuda.md) | Só 1 de 6 tarefas de iniciantes concluída sem ajuda | Iniciantes travam em termos do enunciado e não recorrem à ajuda da ferramenta; a regra conta qualquer pergunta. | Mostrar o nome da forma ao passar o mouse e no primeiro uso, e destacar a ajuda na tela de boas-vindas |
 | [CI-M14](../resultados/capacidade-interacao/ci-m14.md) (provisória) | Tema e zoom não entram no desfazer | Desfazer não restaura tema/zoom e pode atingir edição anterior; enquadramento metodológico provisório. | Deixar claro o que o histórico cobre e manter controles para restaurar tema e zoom |
+| [CI-M17](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M17_taxa-erro-usuario.md) | 28,0% das ações dos iniciantes e do perfil C foram erradas | Retrabalho nas primeiras tarefas, concentrado em quem nunca usou a ferramenta (47,1% em P03); contagem de uma pessoa. | Analisar nas gravações os tipos de erro mais comuns e reforçar o retorno visual de seleção e de ferramenta ativa |
 | [CI-M18](../resultados/capacidade-interacao/ci-m18.md) (provisória) | Só 8 de 18 mensagens de erro explicam o problema e a saída | Orientação documental insuficiente para recuperar falhas; compreensão real não foi medida. | Incluir o motivo provável e uma ação (por exemplo, "Use PNG, JPEG ou SVG") |
 | [CI-M22](../resultados/capacidade-interacao/ci-m22.md) | 6 violações da WCAG 2.2 (A e AA) | Barreiras de zoom, nome e semântica dificultam navegação e uso assistivo nos estados testados. | Permitir zoom no `viewport`, nomear o botão do menu e corrigir papéis e rótulos ARIA |
 | [CI-M24](../resultados/capacidade-interacao/ci-m24.md) | O leitor de tela anuncia 1 de 9 elementos desenhados | A maior parte do desenho fica indisponível ao NVDA/Edge testado. | Expor os elementos numa estrutura acessível e anunciar seleção e mudanças |
 | [CI-M25](../resultados/capacidade-interacao/ci-m25.md) | 11 de 19 combinações de texto abaixo de 4,5:1 | Textos de apoio e atalhos podem ficar difíceis de ler, especialmente para baixa visão. | Escurecer os cinzas usados em texto até 4,5:1 e não usar `opacity` nos atalhos |
 
-São **14 oportunidades, uma por métrica com nota 0** (8 de Segurança,
-1 de Flexibilidade e 5 de Capacidade de interação); CI-M14 e CI-M18 são
+São **16 oportunidades, uma por métrica com nota 0** (8 de Segurança,
+1 de Flexibilidade e 7 de Capacidade de interação); CI-M14 e CI-M18 são
 provisórias, sujeitas às revisões descritas. As páginas vinculadas na primeira
 coluna contêm o registro original, procedimento e evidência reproduzível.
-As 14 métricas sem resultado não entram nesta lista. Os achados adicionais
+A CI-M8, não medida, não entra nesta lista. Os achados adicionais
 com notas 1 ou 2 permanecem em [Achados](#achados), sem alterar essa contagem.
 A prioridade inicial de Segurança é recomendação de triagem; as barreiras
 assistivas também restringem o uso, sem uma pontuação de prioridade inventada.
@@ -674,27 +704,29 @@ assistivas também restringem o uso, sem uma pontuação de prioridade inventada
   A resposta pública coletada em S-M13 é uma exceção, sem SHA implantado comprovado.
 * **Amostra de participantes.** Cinco pessoas (três iniciantes, uma
   experiente e uma vinda de outra ferramenta, nenhuma do perfil de
-  acessibilidade), em uma sessão cada, conforme a síntese de André. Após
-  consolidação, médias de tempo e satisfação terão baixo poder de
-  generalização, e a CI-M8, que exige três sessões, fica
-  limitada.
+  acessibilidade), em uma sessão cada. As médias de tempo e satisfação têm
+  baixo poder de generalização: CI-M11 compara uma experiente com dois
+  iniciantes, e F-M8/F-M9 vêm de um único participante, que marcou já usar o
+  Excalidraw. A CI-M8, que exige três sessões, não foi medida. As fichas
+  foram conferidas com as transcrições, não com o vídeo, e as ações erradas
+  foram contadas por uma pessoa.
 * **Emulação e automação.** Parte das métricas de Flexibilidade e de
   acessibilidade foi coletada com Playwright no Chrome, e o celular e o tablet
   da F-M4 foram emulados. Aparelhos reais aparecem só na F-M2 e na F-M3.
-* **Notas provisórias.** A CI-M13 e a CI-M14 têm nota provisória nas próprias
-  evidências, e a CI-M18 é uma classificação de uma pessoa, em revisão cruzada
-  na #77.
+* **Notas provisórias.** A CI-M6, a CI-M11, a CI-M13 e a CI-M14 têm nota
+  provisória nas próprias evidências, e a CI-M18 é uma classificação de uma
+  pessoa, em revisão cruzada na #77.
 * **Denominadores escolhidos pela equipe.** F-M7, F-M10, CI-M7 e CI-M10
   dependem de listas definidas na coleta, registradas em cada evidência.
 * **Funções pagas e de rede.** O Excalidraw+ não foi avaliado, e as funções
   que dependem de servidores oficiais (link compartilhável, IA, bibliotecas
   públicas) foram testadas só no que é possível localmente.
 
-* **Pendências não são notas zero.** São 37 métricas com resultado (incluindo
-  notas provisórias) e 14 sem valor/nota. Não se concluem O4/O5 nem se calcula
-  média global com cobertura desigual. As fichas de outra branch ainda
-  exigem consolidação e revisão; CI-M8 exige três sessões, além da amostra
-  informada na configuração.
+* **Métrica não medida não é nota zero.** São 50 métricas com resultado
+  (incluindo notas provisórias) e 1 sem valor/nota (CI-M8). O O5 é calculado
+  com as 7 questões que têm média; a sensibilidade está na conciliação. As
+  métricas das sessões vêm da branch `feat/entrevistas`, ainda sem PR, e
+  dependem da revisão da coleta.
 * **Decisões metodológicas abertas.** Conservar S-M1 por tipo de evento,
   distinguindo os 83,3% usados na nota dos 99,5% por volume; comparar o produto
   pago em S-M8; decidir o denominador de F-M10; validar latência em CI-M13,
@@ -713,31 +745,27 @@ assistivas também restringem o uso, sem uma pontuação de prioridade inventada
   de todas as coletas. S-M12 conserva média de correção indisponível, nunca
   zero dias; avisos técnicos não comprovam exploração.
 
-## Conferência da integração e pendências antes do PR
+## Conferência da integração
 
 Foram confrontadas as 20 hipóteses literais e seus vínculos com o roteiro,
-as 51 entradas do índice (37 com resultado e 14 pendentes), as 13 médias
-completas por questão e as quatro médias completas por objetivo. As médias
-de André foram preservadas, com cálculo pelas frações completas e pesos
-iguais por questão; as contribuições interpretativas de Renato foram
-incorporadas e qualificadas sem nova medição. As 14 notas zero têm
-problema, impacto, recomendação e rastreabilidade na tabela de melhorias.
+as 51 entradas do índice (50 com resultado e 1 não medida), as 19 médias
+completas por questão e as seis médias por objetivo. As médias foram
+calculadas pelas frações completas, com pesos iguais por questão; as
+contribuições interpretativas de Renato foram incorporadas e qualificadas sem
+nova medição. As 16 notas zero têm problema, impacto, recomendação e
+rastreabilidade na tabela de melhorias.
 
-Na conferência de 17/11/2026, a branch
-[`feat/entrevistas`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/tree/feat/entrevistas),
-no commit `859e745`, contém fichas e rascunhos de métricas das sessões de
-Zayra, sem PR identificado para essa branch. Esses dados não foram integrados
-nem usados como resultados revisados neste relatório.
+Na atualização de 22/11/2026, as notas de CI-M1 a CI-M6, CI-M11, CI-M17 e
+CI-M19 a CI-M21 foram copiadas das evidências de Zayra na branch
+[`feat/entrevistas`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/tree/feat/entrevistas)
+(commit `859e745`), sem recalcular nem trocar notas, e as da F-M8 e da F-M9
+vêm do [PR #110](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/110).
+Os links dessas métricas apontam para a `main` e passam a funcionar quando
+essas branches forem integradas. Se alguma nota mudar na revisão, as médias
+de CI-Q1, CI-Q2, CI-Q4, CI-Q7, CI-Q8, F-Q3, O4 e O5 precisam ser refeitas.
 
-Antes do PR: Zayra deve disponibilizar as evidências das sessões para revisão;
-André deve concluir F-M8/F-M9 após confirmar a elegibilidade de P05 e validar
-as evidências na #66. A CI-M8 continua **não medida, sem valor e sem nota**:
-falta evidência comparável da primeira e da terceira sessão, exigida no
-roteiro. Sua ausência limita CI-Q3 e O5; não se imputa zero nem se altera a
-regra oficial de cálculo. Permanecem as decisões metodológicas e revisões
-listadas acima, incluindo CI-M14 e CI-M18.
-Os indicadores G-G1 a G-G8 continuam a cargo da sessão automatizada de gestão,
-fora das 51 métricas do produto. Os julgamentos desta versão valem para as
-notas publicadas; alterações futuras exigem atualizar os cálculos e suas
-ressalvas. A integração não significa aprovação acadêmica ou conclusão das
-revisões humanas pendentes.
+Continuam abertas as decisões metodológicas listadas em Limitações (CI-M13,
+CI-M14, CI-M18, denominador da F-M10, comparação do produto pago na S-M8) e a
+confirmação do perfil de P05. Os indicadores G-G1 a G-G8 continuam a cargo da
+sessão automatizada de gestão, fora das 51 métricas do produto. A integração
+não significa aprovação acadêmica ou conclusão das revisões humanas pendentes.
