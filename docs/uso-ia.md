@@ -49,6 +49,29 @@ aparecer entre aspas e com a referência correspondente.
   interessada com o material da equipe e com os objetivos O1 a O6, o que
   mostrou quais tinham sido inferidas pela ferramenta (comprador e operador).
 
+Na Entrega 2:
+
+* **Ferramenta:** Claude Code, com o modelo Claude Opus 5.5 (Anthropic), no
+  terminal.
+* **Tarefa:** redação do plano de avaliação da Fase 3; coleta e registro das
+  métricas F-M5, F-M6, F-M10, F-M11 e F-M12, incluindo os scripts de teste
+  offline e de resoluções; cálculo e registro da F-M8 e da F-M9 a partir das
+  fichas da sessão do perfil C; apoio na revisão de PRs da equipe; cálculo das
+  médias por questão e por objetivo e redação das respostas às questões GQM no
+  relatório de resultados (#20).
+* **Onde:** [plano de avaliação](fase_aplicacao/plano-avaliacao.md),
+  evidências `F-M5`, `F-M6`, `F-M8` a `F-M12` em `evidencias/flexibilidade/`,
+  `scripts/fm5_teste_offline.cjs`, `scripts/fm6_resolucoes.cjs`, páginas de
+  [resultados](resultados/index.md) dessas métricas e
+  [resultados da análise](analise/resultados.md).
+* **Quando:** de 4 a 22 nov. 2026.
+* **Como conferiu e ajustou:** repeti à mão no Chrome, com o modo offline do
+  DevTools, os casos da F-M5 que falharam no script; conferi os tempos da
+  F-M8 e as conclusões da F-M9 na ficha de observação e no CSV das sessões;
+  refiz as médias com as frações completas e conferi cada nota com o índice
+  de resultados. Decidi com o grupo os denominadores (#77) e registrei como
+  limitação o perfil do P05, que marcou já usar o Excalidraw.
+
 ### Giovanna Felipe
 
 * **Ferramenta:** Claude Code, com o modelo Claude Opus 5.5 (Anthropic), na
