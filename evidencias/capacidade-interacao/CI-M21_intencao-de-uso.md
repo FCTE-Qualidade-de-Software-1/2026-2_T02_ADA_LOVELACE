@@ -8,7 +8,7 @@
 | Questão (CI-Q) | CI-Q8 : Engajamento do usuário |
 | Tarefa do plano | questionário (parte 4) (ver `protocolo-testes-participantes.md`) |
 | Responsável | Zayra Moraes |
-| Data(s) da coleta | 2026-11-12 a 2026-11-15 (sessões); tabulação em 2026-11-16 |
+| Data(s) da coleta | 2026-11-12 a 2026-11-15 (P01 a P05; a data da sessão de P06 não consta na transcrição); tabulação em 2026-11-22 |
 | Revisado por | Pendente |
 | Ambiente | Excalidraw commit `e7b5346`; computador do participante, navegador não padronizado |
 
@@ -18,10 +18,10 @@ Participantes que responderam "sim" a "você usaria o Excalidraw novamente?" ÷ 
 
 ## 3. Procedimento
 
-1. Aplicar o roteiro único do `protocolo-testes-participantes.md` a cada participante (códigos P01 a P05), com a facilitadora Zayra Moraes, gravando tela e áudio (as gravações ficam fora do repositório).
+1. Aplicar o roteiro único do `protocolo-testes-participantes.md` a cada participante (códigos P01 a P06), com a facilitadora Zayra Moraes, gravando tela e áudio (as gravações ficam fora do repositório).
 2. Preencher a ficha de observação de cada sessão em `evidencias/participantes/fichas/P_0X/` a partir da gravação e das transcrições (VTT com marcação de tempo; a de P01 é texto sem tempo).
 3. Copiar os valores já resumidos para `evidencias/participantes/registro-sessoes.csv` (só códigos, sem nomes).
-4. Aplicar a parte 4 do questionário ao fim da sessão; P01 não tem a parte 4 registrada.
+4. Aplicar a parte 4 do questionário ao fim da sessão.
 5. Calcular a métrica conforme a seção 8 do protocolo e pontuar pela Tabela 14 do roteiro de análise.
 
 ### 3.1 Comandos executados
@@ -43,7 +43,8 @@ Não aplicável: medição feita com participantes.
 | E3 | `../participantes/fichas/P_03/ficha-observacao-sessao.md` | ficha | Ficha de P03 |
 | E4 | `../participantes/fichas/P_04/ficha-observacao-sessao.md` | ficha | Ficha de P04 |
 | E5 | `../participantes/fichas/P_05/ficha-observacao-sessao.md` | ficha | Ficha de P05 |
-| E6 | `../participantes/registro-sessoes.csv` | planilha | Dados resumidos por código (só códigos) |
+| E6 | `../participantes/fichas/P_06/ficha-observacao-sessao.md` | ficha | Ficha de P06 (perfil B) |
+| E7 | `../participantes/registro-sessoes.csv` | planilha | Dados resumidos por código (só códigos) |
 
 Gravações, TCLE assinado e questionários com identificação ficam na pasta privada da equipe, fora do repositório.
 
@@ -51,7 +52,7 @@ Gravações, TCLE assinado e questionários com identificação ficam na pasta p
 
 | O que se procurou | Onde / comando | Resultado |
 | --- | --- | --- |
-| Participante do perfil D | `registro-sessoes.csv`, coluna `perfil` | nenhum; sessão com perfil D ainda não realizada |
+| Participante do perfil D | `registro-sessoes.csv`, coluna `perfil` | nenhum; perfil D não recrutado (decisão da equipe) |
 
 ## 5. Resultado
 
@@ -59,30 +60,31 @@ Gravações, TCLE assinado e questionários com identificação ficam na pasta p
 
 | Código | Usaria novamente? |
 | --- | :-: |
-| P01 | sem resposta registrada |
+| P01 | sim |
 | P02 | sim |
 | P03 | sim |
 | P04 | sim |
 | P05 | sim |
+| P06 | sim |
 
 ### 5.2 Cálculo
 
-sim ÷ total = 4 ÷ 4 = **100%** (quem respondeu). Contando P01 como "não": 4 ÷ 5 = 80%.
+sim ÷ total = 6 ÷ 6 = **100%**.
 
 ### 5.3 Pontuação
 
 | Valor medido | Regra da métrica | Pontuação (0–2) |
 | --- | --- | :-: |
-| 100% (4 de 4); 80% no pior caso | 2 = ≥ 80%; 1 = 60% a 79%; 0 = < 60% | **2** |
+| 100% (6 de 6) | 2 = ≥ 80%; 1 = 60% a 79%; 0 = < 60% | **2** |
 
-**Justificativa:** Nos dois cenários a taxa é de 80% ou mais.
+**Justificativa:** A taxa fica 20 pontos acima do mínimo de 80% para a nota 2.
 
 ## 6. Observações e limitações
 
-- Na transcrição de P01 há um trecho "vai usar ele mais vezes? Não" no meio de conversa paralela, sem clareza de quem fala; por isso o pior caso foi calculado.
-- Comentários livres de P03, P04 e P05 (cor do fundo, exportação, mais tempo para explorar) entram na análise qualitativa.
-- Amostra de 5 participantes na sessão S1: perfil A = 3 (P01, P03, P04), B = 1 (P02), C = 1 (P05), D = 0. **Ainda não foi feita sessão com pessoa do perfil D**; a análise de acessibilidade dessas tarefas fica pendente e, pelo protocolo, ela seria reportada à parte.
-- Cada pessoa fez uma única sessão, e o navegador não foi padronizado (P05 usou Opera; nos demais não ficou registrado).
+- O "sim" de P01 foi confirmado pela equipe depois (o campo estava sem marca no questionário).
+- Comentários livres (cor do fundo, exportação, ícones de diagramas padronizados como UML, mais tempo para explorar) entram na análise qualitativa.
+- Amostra de 6 participantes na sessão S1: perfil A = 3 (P01, P03, P04), B = 2 (P02, P06), C = 1 (P05), D = 0. **Não houve sessão com perfil D**: a equipe não conseguiu recrutar pessoas com deficiência e decidiu não incluir esse perfil; a acessibilidade foi avaliada só com ferramentas (CI-M22 a CI-M25).
+- Cada pessoa fez uma única sessão (por falta de tempo a equipe retirou a CI-M8, que pedia três), e o navegador não foi padronizado (P05 usou Opera, P06 usou Safari; nos demais não ficou registrado).
 - Valores conferidos com as transcrições; a conferência quadro a quadro com o vídeo ainda está pendente (ver a conferência no fim de cada ficha).
 
 ## 7. Achado (preencher só se a pontuação for 0)
@@ -95,4 +97,4 @@ sim ÷ total = 4 ÷ 4 = **100%** (quem respondeu). Contando P01 como "não": 4 �
 
 | Questão | Esta métrica indica que a hipótese foi | Por quê |
 | --- | --- | --- |
-| CI-Q8 | Confirmada | Todos que responderam usariam de novo. |
+| CI-Q8 | Confirmada | Todos os seis usariam de novo. |

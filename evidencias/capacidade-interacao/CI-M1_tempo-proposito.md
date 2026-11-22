@@ -8,7 +8,7 @@
 | Questão (CI-Q) | CI-Q1 : Reconhecibilidade da adequação |
 | Tarefa do plano | T1 (primeira impressão) (ver `protocolo-testes-participantes.md`) |
 | Responsável | Zayra Moraes |
-| Data(s) da coleta | 2026-11-12 a 2026-11-15 (sessões); tabulação em 2026-11-16 |
+| Data(s) da coleta | 2026-11-12 a 2026-11-15 (P01 a P05; a data da sessão de P06 não consta na transcrição); tabulação em 2026-11-22 |
 | Revisado por | Pendente |
 | Ambiente | Excalidraw commit `e7b5346`; computador do participante, navegador não padronizado |
 
@@ -18,7 +18,7 @@ Segundos até o participante dizer, na tela inicial e sem mexer, para que serve 
 
 ## 3. Procedimento
 
-1. Aplicar o roteiro único do `protocolo-testes-participantes.md` a cada participante (códigos P01 a P05), com a facilitadora Zayra Moraes, gravando tela e áudio (as gravações ficam fora do repositório).
+1. Aplicar o roteiro único do `protocolo-testes-participantes.md` a cada participante (códigos P01 a P06), com a facilitadora Zayra Moraes, gravando tela e áudio (as gravações ficam fora do repositório).
 2. Preencher a ficha de observação de cada sessão em `evidencias/participantes/fichas/P_0X/` a partir da gravação e das transcrições (VTT com marcação de tempo; a de P01 é texto sem tempo).
 3. Copiar os valores já resumidos para `evidencias/participantes/registro-sessoes.csv` (só códigos, sem nomes).
 4. Mostrar a tela inicial sem deixar mexer e pedir: "assim que souber para que serve esta ferramenta, diga em voz alta"; anotar o tempo até a resposta (transcrição com marcação de tempo).
@@ -43,7 +43,8 @@ Não aplicável: medição feita com participantes.
 | E3 | `../participantes/fichas/P_03/ficha-observacao-sessao.md` | ficha | Ficha de P03 |
 | E4 | `../participantes/fichas/P_04/ficha-observacao-sessao.md` | ficha | Ficha de P04 |
 | E5 | `../participantes/fichas/P_05/ficha-observacao-sessao.md` | ficha | Ficha de P05 |
-| E6 | `../participantes/registro-sessoes.csv` | planilha | Dados resumidos por código (só códigos) |
+| E6 | `../participantes/fichas/P_06/ficha-observacao-sessao.md` | ficha | Ficha de P06 (perfil B) |
+| E7 | `../participantes/registro-sessoes.csv` | planilha | Dados resumidos por código (só códigos) |
 
 Gravações, TCLE assinado e questionários com identificação ficam na pasta privada da equipe, fora do repositório.
 
@@ -51,7 +52,7 @@ Gravações, TCLE assinado e questionários com identificação ficam na pasta p
 
 | O que se procurou | Onde / comando | Resultado |
 | --- | --- | --- |
-| Participante do perfil D | `registro-sessoes.csv`, coluna `perfil` | nenhum; sessão com perfil D ainda não realizada |
+| Participante do perfil D | `registro-sessoes.csv`, coluna `perfil` | nenhum; perfil D não recrutado (decisão da equipe) |
 
 ## 5. Resultado
 
@@ -64,6 +65,7 @@ Gravações, TCLE assinado e questionários com identificação ficam na pasta p
 | P04 | A | 9 | sim | pode ter sido influenciada: a facilitadora já tinha dito "diagramas" |
 | P05 | C | 26 | sim | |
 | P02 | B | (6) | sim | fora da média (perfil B) |
+| P06 | B | (12) | sim | fora da média (perfil B); a resposta longa citou desenhar após ~12 s |
 
 ### 5.2 Cálculo
 
@@ -80,9 +82,9 @@ média = (21 + 9 + 26) ÷ 3 = 56 ÷ 3 = **18,7 s** (n = 3; P01 sem tempo medido)
 ## 6. Observações e limitações
 
 - Se P04 sair da conta (pode ter sido influenciada), a média é 23,5 s; se P01 entrar com qualquer valor até 10 s, fica abaixo de 16,5 s. Nos dois casos a nota continua 1.
-- Perfil B (P02) não entra, porque o protocolo define só A, C e D para esta métrica; P02 aparece à parte quando útil.
-- Amostra de 5 participantes na sessão S1: perfil A = 3 (P01, P03, P04), B = 1 (P02), C = 1 (P05), D = 0. **Ainda não foi feita sessão com pessoa do perfil D**; a análise de acessibilidade dessas tarefas fica pendente e, pelo protocolo, ela seria reportada à parte.
-- Cada pessoa fez uma única sessão, e o navegador não foi padronizado (P05 usou Opera; nos demais não ficou registrado).
+- Perfil B (P02 e P06) não entra, porque o protocolo define só A, C e D para esta métrica; P02 e P06 aparecem à parte quando útil.
+- Amostra de 6 participantes na sessão S1: perfil A = 3 (P01, P03, P04), B = 2 (P02, P06), C = 1 (P05), D = 0. **Não houve sessão com perfil D**: a equipe não conseguiu recrutar pessoas com deficiência e decidiu não incluir esse perfil; a acessibilidade foi avaliada só com ferramentas (CI-M22 a CI-M25).
+- Cada pessoa fez uma única sessão (por falta de tempo a equipe retirou a CI-M8, que pedia três), e o navegador não foi padronizado (P05 usou Opera, P06 usou Safari; nos demais não ficou registrado).
 - Valores conferidos com as transcrições; a conferência quadro a quadro com o vídeo ainda está pendente (ver a conferência no fim de cada ficha).
 
 ## 7. Achado (preencher só se a pontuação for 0)

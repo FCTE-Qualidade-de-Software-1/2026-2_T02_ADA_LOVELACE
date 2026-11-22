@@ -8,7 +8,7 @@
 | Questão (CI-Q) | CI-Q1 : Reconhecibilidade da adequação |
 | Tarefa do plano | T3 (ícones sem tooltip) (ver `protocolo-testes-participantes.md`) |
 | Responsável | Zayra Moraes |
-| Data(s) da coleta | 2026-11-12 a 2026-11-15 (sessões); tabulação em 2026-11-16 |
+| Data(s) da coleta | 2026-11-12 a 2026-11-15 (P01 a P05; a data da sessão de P06 não consta na transcrição); tabulação em 2026-11-22 |
 | Revisado por | Pendente |
 | Ambiente | Excalidraw commit `e7b5346`; computador do participante, navegador não padronizado |
 
@@ -18,11 +18,11 @@
 
 ## 3. Procedimento
 
-1. Aplicar o roteiro único do `protocolo-testes-participantes.md` a cada participante (códigos P01 a P05), com a facilitadora Zayra Moraes, gravando tela e áudio (as gravações ficam fora do repositório).
+1. Aplicar o roteiro único do `protocolo-testes-participantes.md` a cada participante (códigos P01 a P06), com a facilitadora Zayra Moraes, gravando tela e áudio (as gravações ficam fora do repositório).
 2. Preencher a ficha de observação de cada sessão em `evidencias/participantes/fichas/P_0X/` a partir da gravação e das transcrições (VTT com marcação de tempo; a de P01 é texto sem tempo).
 3. Copiar os valores já resumidos para `evidencias/participantes/registro-sessoes.csv` (só códigos, sem nomes).
 4. Mostrar a imagem da barra sem tooltips e pedir que o participante diga o que cada ícone faz; conferir cada resposta com o gabarito (aceitando equivalentes, como "lápis" para desenho livre).
-5. Registrar acertos e total de ícones por participante. O total de 13 vem das fichas de P02 a P05; na ficha de P01 o total estava em branco e foi igualado a 13, pois a barra é a mesma.
+5. Registrar acertos e total de ícones por participante. O total de 13 e as respostas aceitas estão no gabarito do protocolo (seção T3); na ficha de P01 o total estava em branco e foi igualado a 13, pois a barra é a mesma.
 6. Calcular a métrica conforme a seção 8 do protocolo e pontuar pela Tabela 14 do roteiro de análise.
 
 ### 3.1 Comandos executados
@@ -44,7 +44,8 @@ Não aplicável: medição feita com participantes.
 | E3 | `../participantes/fichas/P_03/ficha-observacao-sessao.md` | ficha | Ficha de P03 |
 | E4 | `../participantes/fichas/P_04/ficha-observacao-sessao.md` | ficha | Ficha de P04 |
 | E5 | `../participantes/fichas/P_05/ficha-observacao-sessao.md` | ficha | Ficha de P05 |
-| E6 | `../participantes/registro-sessoes.csv` | planilha | Dados resumidos por código (só códigos) |
+| E6 | `../participantes/fichas/P_06/ficha-observacao-sessao.md` | ficha | Ficha de P06 (perfil B) |
+| E7 | `../participantes/registro-sessoes.csv` | planilha | Dados resumidos por código (só códigos) |
 
 Gravações, TCLE assinado e questionários com identificação ficam na pasta privada da equipe, fora do repositório.
 
@@ -52,8 +53,8 @@ Gravações, TCLE assinado e questionários com identificação ficam na pasta p
 
 | O que se procurou | Onde / comando | Resultado |
 | --- | --- | --- |
-| Participante do perfil D | `registro-sessoes.csv`, coluna `perfil` | nenhum; sessão com perfil D ainda não realizada |
-| Gabarito da T3 (ícones do commit `e7b5346`) | busca no repositório e em `protocolo-testes-participantes.md` | não encontrado; total de 13 vem das fichas |
+| Participante do perfil D | `registro-sessoes.csv`, coluna `perfil` | nenhum; perfil D não recrutado (decisão da equipe) |
+| Gabarito da T3 antes das sessões | busca no repositório e em `protocolo-testes-participantes.md` | não existia; fixado depois a partir de P05 e P06 (ver seção 6) |
 
 ## 5. Resultado
 
@@ -66,6 +67,7 @@ Gravações, TCLE assinado e questionários com identificação ficam na pasta p
 | P04 | A | 7 | 13 | 53,8% | mais uma resposta parcial não contada |
 | P05 | C | 13 | 13 | 100% | |
 | P02 | B | 12 | 13 | 92,3% | fora da média (perfil B) |
+| P06 | B | 13 | 13 | 100% | fora da média (perfil B) |
 
 ### 5.2 Cálculo
 
@@ -81,11 +83,11 @@ média = (84,6 + 84,6 + 53,8 + 100) ÷ 4 = **80,8%** (equivale a 42 ÷ 52 ícone
 
 ## 6. Observações e limitações
 
-- O resultado está na fronteira: sem P01 a média é 79,5% (nota 1); contando as respostas parciais de P01 e P04 sobe para 85% (nota 2). Convém fechar o critério do gabarito antes do relatório final.
-- O gabarito dos ícones visíveis no commit `e7b5346` não foi achado no repositório; o total de 13 vem das fichas.
-- Perfil B (P02) não entra, porque o protocolo define só A, C e D para esta métrica; P02 aparece à parte quando útil.
-- Amostra de 5 participantes na sessão S1: perfil A = 3 (P01, P03, P04), B = 1 (P02), C = 1 (P05), D = 0. **Ainda não foi feita sessão com pessoa do perfil D**; a análise de acessibilidade dessas tarefas fica pendente e, pelo protocolo, ela seria reportada à parte.
-- Cada pessoa fez uma única sessão, e o navegador não foi padronizado (P05 usou Opera; nos demais não ficou registrado).
+- O resultado está na fronteira: sem P01 a média é 79,5% (nota 1); contando as respostas parciais de P01 e P04 sobe para 83% (nota 2). O gabarito foi fixado depois das sessões, a partir de P05 e P06.
+- Gabarito fixado em 2026-11-22 no `protocolo-testes-participantes.md` (seção T3), a partir dos 13 ícones citados por P05 e P06, que acertaram 13 de 13. Ele ainda não foi comparado com a imagem da barra usada nas sessões.
+- Perfil B (P02 e P06) não entra, porque o protocolo define só A, C e D para esta métrica; P02 e P06 aparecem à parte quando útil.
+- Amostra de 6 participantes na sessão S1: perfil A = 3 (P01, P03, P04), B = 2 (P02, P06), C = 1 (P05), D = 0. **Não houve sessão com perfil D**: a equipe não conseguiu recrutar pessoas com deficiência e decidiu não incluir esse perfil; a acessibilidade foi avaliada só com ferramentas (CI-M22 a CI-M25).
+- Cada pessoa fez uma única sessão (por falta de tempo a equipe retirou a CI-M8, que pedia três), e o navegador não foi padronizado (P05 usou Opera, P06 usou Safari; nos demais não ficou registrado).
 - Valores conferidos com as transcrições; a conferência quadro a quadro com o vídeo ainda está pendente (ver a conferência no fim de cada ficha).
 
 ## 7. Achado (preencher só se a pontuação for 0)

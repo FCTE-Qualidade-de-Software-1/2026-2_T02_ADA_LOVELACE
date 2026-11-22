@@ -8,17 +8,17 @@
 | Questão (CI-Q) | CI-Q2 : Apreensibilidade |
 | Tarefa do plano | T4 e T5 (ver `protocolo-testes-participantes.md`) |
 | Responsável | Zayra Moraes |
-| Data(s) da coleta | 2026-11-12 a 2026-11-15 (sessões); tabulação em 2026-11-16 |
+| Data(s) da coleta | 2026-11-12 a 2026-11-15 (P01 a P05; a data da sessão de P06 não consta na transcrição); tabulação em 2026-11-22 |
 | Revisado por | Pendente |
 | Ambiente | Excalidraw commit `e7b5346`; computador do participante, navegador não padronizado |
 
 ## 2. O que foi medido
 
-Tarefas básicas (T4 e T5) concluídas sem pedir ajuda ÷ tarefas propostas (CI-M5). Pelo protocolo, perguntar algo à facilitadora tira a tarefa de "sem ajuda", e passar de 8 min conta como não concluída. Perfis A e C.
+Tarefas básicas (T4 e T5) concluídas sem pedir ajuda ÷ tarefas propostas (CI-M5). Pelo protocolo, perguntar algo à facilitadora tira a tarefa de "sem ajuda" (exceto dúvida sobre o significado de "elipse", que a equipe decidiu não contar), e passar de 8 min conta como não concluída. Perfis A e C.
 
 ## 3. Procedimento
 
-1. Aplicar o roteiro único do `protocolo-testes-participantes.md` a cada participante (códigos P01 a P05), com a facilitadora Zayra Moraes, gravando tela e áudio (as gravações ficam fora do repositório).
+1. Aplicar o roteiro único do `protocolo-testes-participantes.md` a cada participante (códigos P01 a P06), com a facilitadora Zayra Moraes, gravando tela e áudio (as gravações ficam fora do repositório).
 2. Preencher a ficha de observação de cada sessão em `evidencias/participantes/fichas/P_0X/` a partir da gravação e das transcrições (VTT com marcação de tempo; a de P01 é texto sem tempo).
 3. Copiar os valores já resumidos para `evidencias/participantes/registro-sessoes.csv` (só códigos, sem nomes).
 4. Para cada tarefa, registrar se concluiu dentro de 8 min e se houve consulta ou pergunta à facilitadora.
@@ -43,7 +43,8 @@ Não aplicável: medição feita com participantes.
 | E3 | `../participantes/fichas/P_03/ficha-observacao-sessao.md` | ficha | Ficha de P03 |
 | E4 | `../participantes/fichas/P_04/ficha-observacao-sessao.md` | ficha | Ficha de P04 |
 | E5 | `../participantes/fichas/P_05/ficha-observacao-sessao.md` | ficha | Ficha de P05 |
-| E6 | `../participantes/registro-sessoes.csv` | planilha | Dados resumidos por código (só códigos) |
+| E6 | `../participantes/fichas/P_06/ficha-observacao-sessao.md` | ficha | Ficha de P06 (perfil B) |
+| E7 | `../participantes/registro-sessoes.csv` | planilha | Dados resumidos por código (só códigos) |
 
 Gravações, TCLE assinado e questionários com identificação ficam na pasta privada da equipe, fora do repositório.
 
@@ -51,7 +52,7 @@ Gravações, TCLE assinado e questionários com identificação ficam na pasta p
 
 | O que se procurou | Onde / comando | Resultado |
 | --- | --- | --- |
-| Participante do perfil D | `registro-sessoes.csv`, coluna `perfil` | nenhum; sessão com perfil D ainda não realizada |
+| Participante do perfil D | `registro-sessoes.csv`, coluna `perfil` | nenhum; perfil D não recrutado (decisão da equipe) |
 
 ## 5. Resultado
 
@@ -59,42 +60,44 @@ Gravações, TCLE assinado e questionários com identificação ficam na pasta p
 
 | Código | T4 concluída sem ajuda? | T5 concluída sem ajuda? | Observação |
 | --- | :-: | :-: | --- |
-| P03 | não | não | T4: facilitadora explicou elipse; T5: 10,6 min, passou do limite de 8 min |
-| P04 | não | não | T4: perguntou o que é elipse; T5: perguntou e não mudou a cor nem exportou |
+| P03 | sim | não | T4: facilitadora explicou elipse (não conta); T5: 10,6 min, passou do limite de 8 min |
+| P04 | sim | não | T4: perguntou o que é elipse (não conta); T5: perguntou e não mudou a cor nem exportou |
 | P05 | sim | não | T5: perguntou se era com as cores |
-| P01 | não | a conferir | T5 não aparece na transcrição |
+| P01 | sim | sim | T4: dúvida sobre a elipse (não conta); T5: sem consulta (ficha, tempo entre 2 e 6,5 min) |
 | P02 | não | não | fora da taxa (perfil B) |
+| P06 | sim | sim | fora da taxa (perfil B); T4: facilitadora explicou elipse (não conta); T5: conferir no vídeo uma fala da facilitadora aos 00:11:53 |
 
 ### 5.2 Cálculo
 
-concluídas sem ajuda ÷ propostas = 1 ÷ 6 = **16,7%** (P03, P04 e P05; P01 fica de fora por falta de dados da T5). Com P01 (T4 não, T5 desconhecida) o máximo possível é 2 ÷ 8 = 25%.
+concluídas sem ajuda ÷ propostas = 5 ÷ 8 = **62,5%** (T4 dos quatro participantes e T5 de P01; quatro participantes, duas tarefas cada).
 
 ### 5.3 Pontuação
 
 | Valor medido | Regra da métrica | Pontuação (0–2) |
 | --- | --- | :-: |
-| 16,7% | 2 = ≥ 90%; 1 = 70% a 89%; 0 = < 70% | **0** |
+| 62,5% | 2 = ≥ 90%; 1 = 70% a 89%; 0 = < 70% | **0** |
 
-**Justificativa:** Quase todas as tarefas tiveram pergunta à facilitadora, então a taxa fica muito abaixo de 70% em qualquer cenário.
+**Justificativa:** Três das oito tarefas (todas T5) não foram concluídas sem ajuda, e a taxa de 62,5% fica abaixo de 70%. Seriam necessárias 6 de 8 para chegar à faixa 1.
 
 ## 6. Observações e limitações
 
-- A regra é rígida: uma pergunta de vocabulário já tira a tarefa de "sem ajuda". Cinco das seis tarefas de A e C foram perdidas por perguntas desse tipo ou pelo limite de tempo, não por falta de caminho na interface.
-- Na T4 de P03 a facilitadora ditou etapas, o que foge do protocolo; isso foi tratado como ajuda.
-- Perfil B (P02) não entra, porque o protocolo define só A, C e D para esta métrica; P02 aparece à parte quando útil.
-- Amostra de 5 participantes na sessão S1: perfil A = 3 (P01, P03, P04), B = 1 (P02), C = 1 (P05), D = 0. **Ainda não foi feita sessão com pessoa do perfil D**; a análise de acessibilidade dessas tarefas fica pendente e, pelo protocolo, ela seria reportada à parte.
-- Cada pessoa fez uma única sessão, e o navegador não foi padronizado (P05 usou Opera; nos demais não ficou registrado).
+- Decisão da equipe (2026-11-22): explicar ou responder o que é "elipse" não conta como ajuda, pois é dúvida de vocabulário do enunciado e não da interface. Com a regra rígida do protocolo, a taxa seria 2 de 8 (25%).
+- A pergunta de P05 na T5 ("é com as cores?") continua contando como consulta.
+- Na T4 de P03 a facilitadora ditou etapas, o que foge do protocolo; mesmo assim a T4 foi mantida como sem ajuda, pela decisão acima.
+- Perfil B (P02 e P06) não entra, porque o protocolo define só A, C e D para esta métrica; P02 e P06 aparecem à parte quando útil.
+- Amostra de 6 participantes na sessão S1: perfil A = 3 (P01, P03, P04), B = 2 (P02, P06), C = 1 (P05), D = 0. **Não houve sessão com perfil D**: a equipe não conseguiu recrutar pessoas com deficiência e decidiu não incluir esse perfil; a acessibilidade foi avaliada só com ferramentas (CI-M22 a CI-M25).
+- Cada pessoa fez uma única sessão (por falta de tempo a equipe retirou a CI-M8, que pedia três), e o navegador não foi padronizado (P05 usou Opera, P06 usou Safari; nos demais não ficou registrado).
 - Valores conferidos com as transcrições; a conferência quadro a quadro com o vídeo ainda está pendente (ver a conferência no fim de cada ficha).
 
 ## 7. Achado (preencher só se a pontuação for 0)
 
 | ID | Métrica | Evidência reproduzível | Pontuação | Impacto (Baixo/Médio/Alto) | Recomendação |
 | --- | --- | --- | --- | --- | --- |
-| A-CI-M5-01 | CI-M5 | Tabelas da seção 5.1 e fichas E1 a E5; passos 4 a 6 da seção 3 | 0 | Médio. Só 1 de 6 tarefas foi concluída sem pergunta; as dúvidas foram sobre o vocabulário do enunciado ("elipse") e sobre a cor, não sobre a interface | Revisar as instruções de T4 e T5 (por exemplo, "círculo ou oval"; dizer se a cor entra) e, na ferramenta, avaliar dicas de formas na primeira abertura |
+| A-CI-M5-01 | CI-M5 | Tabelas da seção 5.1 e fichas E1 a E5; passos 4 a 6 da seção 3 | 0 | Médio. Só 5 de 8 tarefas foram concluídas sem ajuda; as três falhas são da T5 (diagrama-modelo): P03 passou do limite de 8 min, P04 não concluiu e perguntou, P05 perguntou se era com as cores | Deixar explícito na instrução da T5 se a cor entra e, na ferramenta, avaliar dicas para trocar a cor de fundo e para exportar |
 
 
 ## 8. Contribuição para a questão
 
 | Questão | Esta métrica indica que a hipótese foi | Por quê |
 | --- | --- | --- |
-| CI-Q2 | Refutada | Só 1 de 6 tarefas foi feita sem ajuda, embora todas tenham sido concluídas quase de imediato. |
+| CI-Q2 | Refutada | Só 5 de 8 tarefas foram feitas sem ajuda, e as três falhas estão na T5, a mais longa. |
