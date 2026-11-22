@@ -34,8 +34,8 @@ do Excalidraw. Só as métricas já coletadas têm nota. Os critérios estão no
 | [F-M5 · Cobertura funcional offline](flexibilidade/f-m5.md) | 16 de 23 funções sem rede (69,6%) | **1** |
 | [F-M6 · Resoluções sem perda de elementos](flexibilidade/f-m6.md) | 3 de 4 resoluções | **1** |
 | [F-M7 · Inclusão funcional](flexibilidade/f-m7.md) | 24 de 42 funções do draw.io (57,1%) | **0** |
-| F-M8 · Razão de tempo de tarefa | — | — |
-| F-M9 · Conclusão de tarefas por quem vem de outra ferramenta | — | — |
+| [F-M8 · Razão de tempo de tarefa](flexibilidade/f-m8.md) | 0,71 (94 s no Excalidraw, 132 s no Lucidchart) | **2** |
+| [F-M9 · Conclusão de tarefas por quem vem de outra ferramenta](flexibilidade/f-m9.md) | 2 de 2 tarefas (100%) | **2** |
 | [F-M10 · Cobertura de formatos de exportação](flexibilidade/f-m10.md) | 60% | **1** |
 | [F-M11 · Fidelidade de migração](flexibilidade/f-m11.md) | 100% (12 de 12 elementos) | **2** |
 | [F-M12 · Formatos de importação aceitos](flexibilidade/f-m12.md) | 4 formatos | **2** |
