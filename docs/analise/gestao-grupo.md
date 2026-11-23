@@ -101,7 +101,7 @@ disponível para conferência e processamento.
 | Integrante identificado | Commits não-merge |
 | --- | ---: |
 | João Pedro Lopes da Cruz | 37 |
-| giovannafg | 18 |
+| giovannafg | 19 |
 | Luis Felipe | 18 |
 | Renato Araújo Gameiro | 17 |
 | andrehsb | 14 |
@@ -113,9 +113,9 @@ disponível para conferência e processamento.
 | Renato Gameiro | 1 |
 | renatvg | 1 |
 | Zayra Moraes | 1 |
-| **Total** | **134** |
+| **Total** | **135** |
 
-*Última coleta: 2026-11-23T00:43:39+00:00, referência `main`.*
+*Última coleta: 2026-11-23T13:15:05+00:00, referência `main`.*
 <!-- END AUTO: membros-commits -->
 
 A atualização é executada a cada push na `main` e semanalmente pelo

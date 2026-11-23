@@ -10,7 +10,7 @@ a partir do histórico de **Status** do Kanban e do histórico de commits da
 mão.
 
 <!-- BEGIN AUTO: coleta -->
-*Dados do Project coletados em 22/11/2026 21:43 (horário de Brasília); 42 issues no milestone Entrega 2.*
+*Dados do Project coletados em 23/11/2026 10:15 (horário de Brasília); 42 issues no milestone Entrega 2.*
 <!-- END AUTO: coleta -->
 
 ## Escopo e regras de contagem
@@ -51,7 +51,7 @@ da Entrega 2. Fonte: histórico de Status dos dois quadros.*
 | Entrega | Issues concluídas | Passaram por Em andamento | Passaram por Em revisão |
 | --- | ---: | ---: | ---: |
 | Entrega 1 | 17 | 1 (6%) | 1 (6%) |
-| Entrega 2 | 31 | 26 (84%) | 27 (87%) |
+| Entrega 2 | 35 | 28 (80%) | 31 (89%) |
 <!-- END AUTO: comparacao -->
 
 ## Lead Time e Cycle Time
@@ -77,10 +77,13 @@ Status do Kanban.*
 <!-- BEGIN AUTO: lead-cycle -->
 | Issue | Título | Concluída em | Lead Time (dias) | Cycle Time (dias) |
 | --- | --- | :---: | ---: | ---: |
+| [#20](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/20) | Resultados da análise | 22/11 | 34,4 | 7,1 |
 | [#33](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/33) | Declarações de uso de IA | 13/11 | 17,6 | N/A |
 | [#35](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/35) | Plano de avaliação (Fase 3) | 13/11 | 17,6 | 1,8 |
 | [#36](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/36) | Ambiente de teste e instância local do Excalidraw | 09/11 | 14,0 | 0,2 |
 | [#37](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/37) | Roteiro de tarefas, participantes e consentimento | 12/11 | 16,5 | 1,0 |
+| [#38](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/38) | Oportunidade de melhoria e ação executada | 22/11 | 27,0 | N/A |
+| [#39](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/39) | Ameaças à validade e conclusão | 22/11 | 27,0 | N/A |
 | [#40](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/40) | Gestão PSM/CID na Entrega 2 | 15/11 | 20,1 | 1,1 |
 | [#41](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/41) | Revisão obrigatória na main | 04/11 | 8,7 | 0,0 |
 | [#49](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/49) | CI-M18 e M26 | 04/11 | 0,0 | N/A |
@@ -106,10 +109,11 @@ Status do Kanban.*
 | [#72](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/72) | CI-M22 e CI-M25 violações da WCAG 2.2 e contraste | 13/11 | 9,1 | 0,1 |
 | [#73](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/73) | CI-M23 funções operáveis sem mouse | 13/11 | 9,0 | 0,5 |
 | [#74](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/74) | CI-M24 elementos anunciados por leitor de tela | 14/11 | 10,4 | 0,2 |
+| [#75](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/75) | Sessões com participantes: CI-M1 a CI-M6, CI-M8, CI-M11, CI-M17 e CI-M19 a CI-M21 | 22/11 | 18,4 | 11,4 |
 | [#76](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/76) | Gráficos de gestão da Entrega 2 | 15/11 | 11,2 | 0,9 |
 | [#82](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/82) | Páginas de resultado de S-M9, S-M13, F-M10, F-M12, CI-M18 e CI-M26 | 09/11 | 0,1 | N/A |
 
-**Mediana:** Lead Time de **9,0 dias** (31 issues) e Cycle Time de **0,9 dias** (26 issues; 5 sem passagem por *Em andamento* ficam como N/A).
+**Mediana:** Lead Time de **9,0 dias** (35 issues) e Cycle Time de **0,9 dias** (28 issues; 7 sem passagem por *Em andamento* ficam como N/A).
 <!-- END AUTO: lead-cycle -->
 
 ## Fluxo acumulado
@@ -273,8 +277,8 @@ Fonte: pull requests e revisões do repositório.*
 | --- | ---: | ---: | ---: | :---: | ---: | ---: |
 | Entrega 1 | 12 | 0 | 0% | 0 | 5 | 13 |
 | Entrega 2, antes da regra (até 04/11) | 7 | 0 | 0% | 0 | 0 | 2 |
-| Entrega 2, depois da regra | 35 | 33 | 94% | 2 | 1 | 0 |
-| Entrega 2 (total) | 42 | 33 | 79% | 1 | 1 | 2 |
+| Entrega 2, depois da regra | 36 | 34 | 94% | 2 | 1 | 0 |
+| Entrega 2 (total) | 43 | 34 | 79% | 1 | 1 | 2 |
 
 Integrados sem aprovação depois da regra: [#87](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/87), [#103](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/103).
 <!-- END AUTO: revisao -->
