@@ -1,5 +1,5 @@
 {
- "coletado_em": "2026-11-22T23:34:48+00:00",
+ "coletado_em": "2026-11-23T00:07:35+00:00",
  "prs": [
   {
    "numero": 1,
@@ -684,6 +684,21 @@
      "revisor": "ojplc",
      "estado": "APPROVED",
      "em": "2026-11-22T23:34:06Z"
+    }
+   ]
+  },
+  {
+   "numero": 112,
+   "titulo": "docs: adiciona as ameaças à validade e a conclusão (GitPage e artigo)",
+   "autor": "ojplc",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-11-22T16:15:57Z",
+   "integrado_em": "2026-11-23T00:07:11Z",
+   "revisoes": [
+    {
+     "revisor": "andrehsb",
+     "estado": "APPROVED",
+     "em": "2026-11-23T00:04:48Z"
     }
    ]
   },

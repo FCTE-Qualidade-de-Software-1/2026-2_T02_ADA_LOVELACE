@@ -36,6 +36,9 @@ versão, os ambientes e as funcionalidades efetivamente analisados.
   entrega, revisão, rastreabilidade e calendário;
 - [Resultados](docs/analise/resultados.md): evidências, pontuações, achados e
   recomendações;
+- [Ameaças à validade e conclusão](docs/analise/ameacas-conclusao.md):
+  ameaças de construção, interna, externa e de conclusão, síntese e trabalhos
+  futuros;
 - [Referências](docs/referencias.md): normas e fontes consultadas.
 
 ## Membros do Grupo
