@@ -57,14 +57,20 @@ Na Entrega 2:
   offline e de resoluções; cálculo e registro da F-M8 e da F-M9 a partir das
   fichas da sessão do perfil C; apoio na revisão de PRs da equipe; cálculo das
   médias por questão e por objetivo e redação das respostas às questões GQM no
-  relatório de resultados (#20).
+  relatório de resultados (#20); ação de melhoria de contraste e
+  acessibilidade no código do Excalidraw, com medição antes e depois (#38).
 * **Onde:** [plano de avaliação](fase_aplicacao/plano-avaliacao.md),
   evidências `F-M5`, `F-M6`, `F-M8` a `F-M12` em `evidencias/flexibilidade/`,
   `scripts/fm5_teste_offline.cjs`, `scripts/fm6_resolucoes.cjs`, páginas de
   [resultados](resultados/index.md) dessas métricas e
-  [resultados da análise](analise/resultados.md).
+  [resultados da análise](analise/resultados.md),
+  [ação de melhoria](analise/melhoria.md), `evidencias/melhoria/`, arquivos
+  de estilo e componentes alterados em `aplicacao/` e seção de melhoria do
+  artigo (`main.tex`).
 * **Quando:** de 4 a 22 nov. 2026.
-* **Como conferiu e ajustou:** repeti à mão no Chrome, com o modo offline do
+* **Como conferiu e ajustou:** na ação de melhoria, conferi que a medição do
+  build original reproduzia os valores da coleta de 13/11 antes de comparar,
+  repeti a medição depois da mudança e olhei as telas nos dois modos; repeti à mão no Chrome, com o modo offline do
   DevTools, os casos da F-M5 que falharam no script; conferi os tempos da
   F-M8 e as conclusões da F-M9 na ficha de observação e no CSV das sessões;
   refiz as médias com as frações completas e conferi cada nota com o índice

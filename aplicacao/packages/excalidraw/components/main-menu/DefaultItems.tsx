@@ -386,14 +386,14 @@ export const Socials = () => {
       <DropdownMenuItemLink
         icon={XBrandIcon}
         href="https://x.com/excalidraw"
-        aria-label="X"
+        aria-label={`${t("labels.followUs")} (X)`}
       >
         {t("labels.followUs")}
       </DropdownMenuItemLink>
       <DropdownMenuItemLink
         icon={DiscordIcon}
         href="https://discord.gg/UexuTaE"
-        aria-label="Discord"
+        aria-label={t("labels.discordChat")}
       >
         {t("labels.discordChat")}
       </DropdownMenuItemLink>

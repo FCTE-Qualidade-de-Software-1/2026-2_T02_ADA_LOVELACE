@@ -277,7 +277,9 @@ export const actionResetZoom = register({
         <IconButton
           type="button"
           className="reset-zoom-button zoom-button"
-          aria-label={t("buttons.resetZoom")}
+          aria-label={`${(zoomValue * 100).toFixed(0)}% · ${t(
+            "buttons.resetZoom",
+          )}`}
           onClick={() => {
             updateData(null);
           }}

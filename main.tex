@@ -1199,9 +1199,31 @@ das tabelas GQM.
 % Discutir as relações com base nos resultados, indicando as evidências, as
 % limitações e os casos em que os dados não permitem estabelecer relações.
 \subsection{Oportunidades de melhoria e ação executada}
-% Identificar oportunidades de melhoria a partir das métricas. Executar pelo
-% menos uma ação (protótipo de alta fidelidade, modificação de código, templates
-% técnicos ou proposta de processo) e justificá-la com evidências.
+\label{sec:melhoria}
+
+Cada uma das 16 métricas com pontuação 0 gerou uma oportunidade de melhoria, com problema, impacto e recomendação. Elas foram priorizadas pelo impacto no propósito, pelo esforço da correção e pela possibilidade de medir o efeito com o mesmo método da coleta. A prioridade mais alta ficou com o contraste (CI-M25) e as violações da WCAG (CI-M22): o O6 é o objetivo mais fraco de Capacidade de interação (31,3\%) e impede o uso pedagógico, os textos apagados são justamente os que orientam quem está começando, e a correção exige pouco código. As oportunidades de Segurança, do leitor de tela (CI-M24) e as que dependem de novas sessões com participantes exigem mudanças maiores ou não podem ser medidas no prazo.
+
+A ação executada foi uma modificação de código na cópia do Excalidraw do repositório, a partir do commit \texttt{e7b5346}. Os textos de apoio, as letras de atalho, a dica de navegação, os atalhos do menu e o botão do Excalidraw+ passaram a usar tons do próprio tema com pelo menos 4,5:1; o \texttt{<meta name="viewport">} deixou de bloquear o zoom do navegador; e o botão do menu, o botão de zoom e dois links do menu ganharam nomes acessíveis que contêm o texto visível. O build de produção foi medido antes e depois das mudanças com o mesmo script da coleta (axe-core e Lighthouse), no mesmo ambiente. O ``antes'' reproduziu exatamente os valores de 13/11 (Tabela~\ref{tab:melhoria}).
+
+\begin{table}[htbp]
+\centering
+\caption{Efeito da ação de melhoria nas métricas de acessibilidade}
+\label{tab:melhoria}
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Métrica} & \textbf{Antes} & \textbf{Depois} & \textbf{Nota antes} & \textbf{Nota depois} \\
+\midrule
+CI-M25 · contraste $\geq$ 4,5:1 & 8/19 (42,1\%) & 16/16 (100\%) & 0 & 2 \\
+CI-M22 · violações A e AA & 6 & 2 & 0 & 1 \\
+Lighthouse (acessibilidade) & 87/100 & 100/100 & -- & -- \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\footnotesize Fonte: elaboração própria, a partir de \texttt{evidencias/melhoria/}.
+\end{table}
+
+Com as duas notas novas, a CI-Q9 passaria de 0,25 para 1,00 e o O6 de 31,3\% para 50,0\% (parcialmente atendido). As notas oficiais continuam as do commit avaliado, pois o ``depois'' mede uma cópia modificada. Continuam a nota 0 da CI-M24, que mantém o uso com leitor de tela não recomendado, e duas violações (o gatilho do seletor de fonte e o papel do menu principal), que exigem mudar a estrutura dos componentes. O zoom liberado não foi testado em aparelho real, e a mudança visual não foi avaliada com usuários.
 \subsection{Gestão do projeto (PSM/CID)}
 % Repetir as medidas da Tabela tab:psm, com as horas registradas, e avaliar o
 % efeito das decisões de gestão da Entrega 1.

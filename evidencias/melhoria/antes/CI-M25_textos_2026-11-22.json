@@ -1,0 +1,1862 @@
+[
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "Your drawings are saved in your browser'",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-center__heading"
+  },
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "Open",
+    "cor": "#999999",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "Ctrl+O",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__shortcut"
+  },
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "Help",
+    "cor": "#999999",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "?",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__shortcut"
+  },
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "Live collaboration...",
+    "cor": "#999999",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "Sign up",
+    "cor": "#999999",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "To move canvas, hold",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "HintViewer"
+  },
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "Scroll wheel",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "HintViewer"
+  },
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "Space",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "HintViewer"
+  },
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "V",
+    "cor": "#030064",
+    "fundo": "#e0dfff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "R",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "D",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "O",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "A",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "L",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "P",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "T",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "N",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "E",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "Try Excalidraw+",
+    "cor": "#6965db",
+    "fundo": "#f0efff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "plus-banner__title"
+  },
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "14-day free trial",
+    "cor": "#8b88e0",
+    "fundo": "#f0efff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "plus-banner__subtitle"
+  },
+  {
+    "modo": "claro",
+    "estado": "inicial",
+    "texto": "100",
+    "cor": "#1b1b1f",
+    "fundo": "#ececf4",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon_type_button"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "Stroke",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "selected-shape-actions"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "Background",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "selected-shape-actions"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "Stroke width",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "selected-shape-actions"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "Stroke style",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "selected-shape-actions"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "Sloppiness",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "selected-shape-actions"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "Edges",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "selected-shape-actions"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "Font family",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "selected-shape-actions"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "Font size",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "selected-shape-actions"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "Text align",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "selected-shape-actions"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "Opacity",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "control-label"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "100",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "value-bubble"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "0",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "zero-label"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "Layers",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "selected-shape-actions"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "V",
+    "cor": "#030064",
+    "fundo": "#e0dfff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "R",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "D",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "O",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "A",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "L",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "P",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "T",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "N",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "E",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "Try Excalidraw+",
+    "cor": "#6965db",
+    "fundo": "#f0efff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "plus-banner__title"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "14-day free trial",
+    "cor": "#8b88e0",
+    "fundo": "#f0efff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "plus-banner__subtitle"
+  },
+  {
+    "modo": "claro",
+    "estado": "selecao",
+    "texto": "100",
+    "cor": "#1b1b1f",
+    "fundo": "#ececf4",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon_type_button"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Your drawings are saved in your browser'",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-center__heading"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Open",
+    "cor": "#999999",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Ctrl+O",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__shortcut"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Help",
+    "cor": "#999999",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "?",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__shortcut"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Live collaboration...",
+    "cor": "#999999",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Sign up",
+    "cor": "#999999",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Open",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Ctrl+O",
+    "cor": "#8d8d8f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__shortcut"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Save to...",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Export image...",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Ctrl+Shift+E",
+    "cor": "#8d8d8f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__shortcut"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Live collaboration...",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Command palette",
+    "cor": "#6965db",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Ctrl+/",
+    "cor": "#b4b2ed",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__shortcut"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Find on canvas",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Ctrl+F",
+    "cor": "#8d8d8f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__shortcut"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Help",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "?",
+    "cor": "#8d8d8f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__shortcut"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Reset the canvas",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Excalidraw+",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "GitHub",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Follow us",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Discord chat",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Sign up",
+    "cor": "#6965db",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Preferences",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Theme",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Canvas background",
+    "cor": "#1b1b1f",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "Island"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "To move canvas, hold",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "HintViewer"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Scroll wheel",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "HintViewer"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Space",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "HintViewer"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "V",
+    "cor": "#030064",
+    "fundo": "#e0dfff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "R",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "D",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "O",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "A",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "L",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "P",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "T",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "N",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "E",
+    "cor": "#b8b8b8",
+    "fundo": "#ffffff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "Try Excalidraw+",
+    "cor": "#6965db",
+    "fundo": "#f0efff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "plus-banner__title"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "14-day free trial",
+    "cor": "#8b88e0",
+    "fundo": "#f0efff",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "plus-banner__subtitle"
+  },
+  {
+    "modo": "claro",
+    "estado": "menu",
+    "texto": "100",
+    "cor": "#1b1b1f",
+    "fundo": "#ececf4",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon_type_button"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "Your drawings are saved in your browser'",
+    "cor": "#7a7a7a",
+    "fundo": "#121212",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-center__heading"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "Open",
+    "cor": "#7a7a7a",
+    "fundo": "#121212",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "Ctrl+O",
+    "cor": "#7a7a7a",
+    "fundo": "#121212",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__shortcut"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "Help",
+    "cor": "#7a7a7a",
+    "fundo": "#121212",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "?",
+    "cor": "#7a7a7a",
+    "fundo": "#121212",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__shortcut"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "Live collaboration...",
+    "cor": "#7a7a7a",
+    "fundo": "#121212",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "Sign up",
+    "cor": "#7a7a7a",
+    "fundo": "#121212",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "To move canvas, hold",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "HintViewer"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "Scroll wheel",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "HintViewer"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "Space",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "HintViewer"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "V",
+    "cor": "#e0dfff",
+    "fundo": "#403e6a",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "R",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "D",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "O",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "A",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "L",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "P",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "T",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "N",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "E",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "Try Excalidraw+",
+    "cor": "#a8a5ff",
+    "fundo": "#2b2a40",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "plus-banner__title"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "14-day free trial",
+    "cor": "#8f8cc4",
+    "fundo": "#2b2a40",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "plus-banner__subtitle"
+  },
+  {
+    "modo": "escuro",
+    "estado": "inicial",
+    "texto": "100",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon_type_button"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "Stroke",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "selected-shape-actions"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "Background",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "selected-shape-actions"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "Stroke width",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "selected-shape-actions"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "Stroke style",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "selected-shape-actions"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "Sloppiness",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "selected-shape-actions"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "Edges",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "selected-shape-actions"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "Font family",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "selected-shape-actions"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "Font size",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "selected-shape-actions"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "Text align",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "selected-shape-actions"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "Opacity",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "control-label"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "100",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "value-bubble"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "0",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "zero-label"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "Layers",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "selected-shape-actions"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "V",
+    "cor": "#e0dfff",
+    "fundo": "#403e6a",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "R",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "D",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "O",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "A",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "L",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "P",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "T",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "N",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "E",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "Try Excalidraw+",
+    "cor": "#a8a5ff",
+    "fundo": "#2b2a40",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "plus-banner__title"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "14-day free trial",
+    "cor": "#8f8cc4",
+    "fundo": "#2b2a40",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "plus-banner__subtitle"
+  },
+  {
+    "modo": "escuro",
+    "estado": "selecao",
+    "texto": "100",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon_type_button"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Your drawings are saved in your browser'",
+    "cor": "#7a7a7a",
+    "fundo": "#121212",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-center__heading"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Open",
+    "cor": "#7a7a7a",
+    "fundo": "#121212",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Ctrl+O",
+    "cor": "#7a7a7a",
+    "fundo": "#121212",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__shortcut"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Help",
+    "cor": "#7a7a7a",
+    "fundo": "#121212",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "?",
+    "cor": "#7a7a7a",
+    "fundo": "#121212",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__shortcut"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Live collaboration...",
+    "cor": "#7a7a7a",
+    "fundo": "#121212",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Sign up",
+    "cor": "#7a7a7a",
+    "fundo": "#121212",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "welcome-screen-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Open",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Ctrl+O",
+    "cor": "#838389",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__shortcut"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Save to...",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Export image...",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Ctrl+Shift+E",
+    "cor": "#838389",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__shortcut"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Live collaboration...",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Command palette",
+    "cor": "#a8a5ff",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Ctrl+/",
+    "cor": "#666494",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__shortcut"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Find on canvas",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Ctrl+F",
+    "cor": "#838389",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__shortcut"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Help",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "?",
+    "cor": "#838389",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__shortcut"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Reset the canvas",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Excalidraw+",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "GitHub",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Follow us",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Discord chat",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Sign up",
+    "cor": "#a8a5ff",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Preferences",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Theme",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "dropdown-menu-item__text"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Canvas background",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "Island"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "To move canvas, hold",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "HintViewer"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Scroll wheel",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "HintViewer"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Space",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "HintViewer"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "V",
+    "cor": "#e0dfff",
+    "fundo": "#403e6a",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "R",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "D",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "O",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "A",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "L",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "P",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "T",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "N",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "E",
+    "cor": "#7a7a7a",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon__keybinding"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "Try Excalidraw+",
+    "cor": "#a8a5ff",
+    "fundo": "#2b2a40",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "plus-banner__title"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "14-day free trial",
+    "cor": "#8f8cc4",
+    "fundo": "#2b2a40",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "plus-banner__subtitle"
+  },
+  {
+    "modo": "escuro",
+    "estado": "menu",
+    "texto": "100",
+    "cor": "#e3e3e8",
+    "fundo": "#232329",
+    "grande": false,
+    "fundoComImagem": false,
+    "onde": "ToolIcon_type_button"
+  }
+]
