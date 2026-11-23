@@ -1,5 +1,5 @@
 {
- "coletado_em": "2026-11-23T00:07:34+00:00",
+ "coletado_em": "2026-11-23T00:43:44+00:00",
  "issues": [
   {
    "issue": 9,
@@ -807,16 +807,21 @@
     "renatoyx"
    ],
    "criada_em": "2026-10-26T23:41:15Z",
-   "fechada_em": null,
-   "estado": "OPEN",
-   "motivo_fechamento": null,
+   "fechada_em": "2026-11-23T00:43:22Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
    "prazo": "2026-11-15",
-   "status_atual": "A fazer",
+   "status_atual": "Concluído",
    "labels": [
     "fase-4"
    ],
    "horas": null,
-   "horas_comentadas": [],
+   "horas_comentadas": [
+    {
+     "autor": "andrehsb",
+     "horas": 2.5
+    }
+   ],
    "eventos": [
     {
      "em": "2026-10-26T23:41:20Z",
