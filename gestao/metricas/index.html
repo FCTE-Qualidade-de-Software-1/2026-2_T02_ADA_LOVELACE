@@ -2923,9 +2923,10 @@ da equipe e ao processo iterativo utilizado. Os resultados devem ser
 interpretados em conjunto e no contexto de cada ciclo; nenhuma métrica isolada
 representa produtividade ou qualidade por completo.</p>
 <ul>
-<li><strong>Kanban:</strong> <a href="https://github.com/users/giovannafg/projects/1">Kanban – Ada Lovelace</a> (Entrega 2 em diante; o
-  <a href="https://github.com/orgs/FCTE-Qualidade-de-Software-1/projects/19">Project #19</a> guarda a Entrega 1, veja a
-  <a href="../../analise/gestao-grupo/#processo-de-trabalho-e-fonte-dos-dados">decisão de mudança do quadro</a>)</li>
+<li><strong>Kanban:</strong> <a href="https://github.com/orgs/FCTE-Qualidade-de-Software-1/projects/19">Kanban – Ada Lovelace</a>
+  (Project #19 da organização; de 06/11 a 23/11/2026 o quadro em uso foi um
+  <a href="https://github.com/users/giovannafg/projects/1">Project de usuário</a>, hoje fechado; veja as
+  <a href="../../analise/gestao-grupo/#processo-de-trabalho-e-fonte-dos-dados">decisões de mudança do quadro</a>)</li>
 <li><strong>Issues:</strong> <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues?q=is%3Aissue">lista de issues do repositório</a></li>
 </ul>
 <h2 id="fluxo-de-trabalho-e-fonte-dos-dados">Fluxo de trabalho e fonte dos dados<a class="headerlink" href="#fluxo-de-trabalho-e-fonte-dos-dados" title="Permanent link">&para;</a></h2>
@@ -3073,9 +3074,9 @@ ajustes no fluxo e no planejamento, e não para ranquear integrantes.</p>
 executa a cada push na <code>main</code> e semanalmente. Cada execução recoleta os dados,
 sem intervalo mínimo entre coletas, e só cria commit quando eles mudam. O
 script consulta o histórico de alterações de <strong>Status</strong> dos dois quadros do
-grupo, o Project #19 da organização (Entrega 1) e o Project de usuário
-(Entrega 2 em diante), incluindo as datas em que cada issue entrou em <strong>Em andamento</strong>, <strong>Em
-revisão</strong> e <strong>Concluído</strong>. Assim, a equipe continua
+grupo, o Project #19 da organização (até 06/11 e depois de 23/11/2026) e o
+Project de usuário (de 06/11 a 23/11/2026), incluindo as datas em que cada
+issue entrou em <strong>Em andamento</strong>, <strong>Em revisão</strong> e <strong>Concluído</strong>. Assim, a equipe continua
 movendo os cartões manualmente; não é necessário aplicar labels de estado.</p>
 <p>O resultado é salvo em
 <a href="../dados/lead-cycle-time.csv">lead-cycle-time.csv</a>. Cada linha representa uma
@@ -3084,18 +3085,21 @@ Lead Time em dias, Cycle Time em dias e número de retornos de <strong>Em revis�
 para <strong>Em andamento</strong>. Se uma issue foi reaberta e concluída novamente, os
 tempos usam a conclusão mais recente e o início mais recente que a precede.
 O CSV é uma fotografia atualizada a cada execução, não um histórico de cópias
-por iteração. Na migração entre os quadros, os cartões foram recriados com o
-Status que já tinham, o que gerou eventos de Status com a data da cópia; o
-script descarta os eventos do quadro novo anteriores a 06/11/2026 05:47 UTC
-para que essas mudanças não sejam contadas como início ou conclusão. Pelo
-mesmo motivo, os eventos do Project #19 posteriores a esse horário também são
-descartados.</p>
+por iteração. Nas migrações entre os quadros, os cartões foram recriados ou
+atualizados com o Status que já tinham, o que gerou eventos de Status com a
+data da cópia. Para que essas mudanças não sejam contadas como início ou
+conclusão, cada quadro só conta os eventos do período em que era o quadro em
+uso: o Project #19 até 06/11/2026 05:47 UTC e a partir de 23/11/2026 13:01
+UTC, e o Project de usuário entre esses dois horários. A timeline de cada
+issue é lida diretamente da issue, porque, aninhada na consulta do quadro, a
+API do GitHub devolvia eventos faltando.</p>
 <p>A leitura dos quadros usa o secret <code>KANBAN_TOKEN</code> do repositório, um token
-clássico da dona do Project de usuário com os escopos <code>public_repo</code> e <code>project</code>. O
+clássico da Giovanna com os escopos <code>public_repo</code> e <code>project</code>. O
 mesmo secret é usado pelo workflow
 <a href="https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/.github/workflows/adicionar-ao-kanban.yml">Adicionar issue ao Kanban</a>,
-que adiciona ao quadro as issues abertas no repositório, porque o auto-add de
-um Project de usuário não aceita repositórios da organização. Quando o token
+que adiciona ao #19 as issues abertas no repositório. Ele foi criado quando o
+quadro era um Project de usuário, cujo auto-add não aceita repositórios da
+organização, e hoje reforça o auto-add do #19. Quando o token
 expirar, basta gerar outro com os mesmos escopos e atualizar o secret. Sem ele,
 os dois workflows emitem um aviso e as demais métricas continuam sendo
 coletadas.</p>
@@ -3240,7 +3244,7 @@ a tabela acima.</p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Equipe Ada Lovelace · Qualidade de Software 1 · 2026.2 · Versão E1 + 0184416 · Atualizado em 22/11/2026
+      Equipe Ada Lovelace · Qualidade de Software 1 · 2026.2 · Versão E1 + 5ef55c3 · Atualizado em 23/11/2026
     </div>
   
   

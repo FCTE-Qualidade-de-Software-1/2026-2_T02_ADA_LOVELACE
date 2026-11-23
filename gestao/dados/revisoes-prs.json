@@ -1,5 +1,5 @@
 {
- "coletado_em": "2026-11-23T00:43:46+00:00",
+ "coletado_em": "2026-11-23T13:15:33+00:00",
  "prs": [
   {
    "numero": 1,
@@ -729,6 +729,21 @@
      "revisor": "ojplc",
      "estado": "APPROVED",
      "em": "2026-11-23T00:43:13Z"
+    }
+   ]
+  },
+  {
+   "numero": 115,
+   "titulo": "chore: volta o Kanban para o Project #19 da organização",
+   "autor": "giovannafg",
+   "integrado_por": "andrehsb",
+   "criado_em": "2026-11-23T13:11:43Z",
+   "integrado_em": "2026-11-23T13:14:45Z",
+   "revisoes": [
+    {
+     "revisor": "andrehsb",
+     "estado": "APPROVED",
+     "em": "2026-11-23T13:14:37Z"
     }
    ]
   }

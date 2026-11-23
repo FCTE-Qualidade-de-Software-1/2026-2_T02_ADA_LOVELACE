@@ -1,5 +1,5 @@
 {
- "coletado_em": "2026-11-23T00:43:44+00:00",
+ "coletado_em": "2026-11-23T13:15:31+00:00",
  "issues": [
   {
    "issue": 9,
@@ -338,6 +338,11 @@
      "em": "2026-11-22T15:25:26Z",
      "de": "Em andamento",
      "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-22T23:34:29Z",
+     "de": "Em revisão",
+     "para": "Concluído"
     }
    ]
   },
@@ -832,6 +837,16 @@
      "em": "2026-11-04T17:08:29Z",
      "de": "Backlog",
      "para": "A fazer"
+    },
+    {
+     "em": "2026-11-23T00:13:21Z",
+     "de": "A fazer",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-23T00:43:25Z",
+     "de": "Em revisão",
+     "para": "Concluído"
     }
    ]
   },
@@ -864,6 +879,16 @@
      "em": "2026-11-04T17:08:43Z",
      "de": "Backlog",
      "para": "A fazer"
+    },
+    {
+     "em": "2026-11-22T16:16:00Z",
+     "de": "A fazer",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-23T00:07:16Z",
+     "de": "Em revisão",
+     "para": "Concluído"
     }
    ]
   },
@@ -2025,6 +2050,16 @@
      "em": "2026-11-11T14:51:56Z",
      "de": "A fazer",
      "para": "Em andamento"
+    },
+    {
+     "em": "2026-11-22T18:15:47Z",
+     "de": "Em andamento",
+     "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-22T23:26:44Z",
+     "de": "Em revisão",
+     "para": "Concluído"
     }
    ]
   },
