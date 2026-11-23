@@ -1,5 +1,5 @@
 {
- "coletado_em": "2026-11-23T00:07:35+00:00",
+ "coletado_em": "2026-11-23T00:43:46+00:00",
  "prs": [
   {
    "numero": 1,
@@ -714,6 +714,21 @@
      "revisor": "ojplc",
      "estado": "APPROVED",
      "em": "2026-11-22T23:26:31Z"
+    }
+   ]
+  },
+  {
+   "numero": 114,
+   "titulo": "feat: ação de melhoria de contraste e acessibilidade (CI-M25 e CI-M22)",
+   "autor": "andrehsb",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-11-23T00:12:48Z",
+   "integrado_em": "2026-11-23T00:43:21Z",
+   "revisoes": [
+    {
+     "revisor": "ojplc",
+     "estado": "APPROVED",
+     "em": "2026-11-23T00:43:13Z"
     }
    ]
   }
