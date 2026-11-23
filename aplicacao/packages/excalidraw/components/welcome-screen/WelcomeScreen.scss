@@ -9,7 +9,7 @@
   .welcome-screen-decor {
     pointer-events: none;
 
-    color: var(--color-gray-70);
+    color: var(--color-gray-40);
 
     a {
       --color: var(--color-primary);
@@ -21,7 +21,7 @@
 
   &.theme--dark {
     .welcome-screen-decor {
-      color: var(--color-gray-50);
+      color: var(--color-gray-60);
     }
   }
 
@@ -164,7 +164,7 @@
 
     pointer-events: var(--ui-pointerEvents);
 
-    color: var(--color-gray-80);
+    color: var(--color-gray-50);
     font-size: 0.875rem;
 
     width: 100%;
@@ -198,7 +198,7 @@
 
     &__shortcut {
       margin-left: auto;
-      color: var(--color-gray-70);
+      color: var(--color-gray-40);
       font-size: 0.75rem;
     }
   }
@@ -227,10 +227,10 @@
 
   &.theme--dark {
     .welcome-screen-menu-item {
-      color: var(--color-gray-40);
+      color: var(--color-gray-60);
 
       &__shortcut {
-        color: var(--color-gray-50);
+        color: var(--color-gray-60);
       }
     }
 

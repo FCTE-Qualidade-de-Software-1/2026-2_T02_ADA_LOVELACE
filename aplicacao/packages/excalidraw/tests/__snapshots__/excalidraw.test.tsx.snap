@@ -527,7 +527,7 @@ exports[`<Excalidraw/> > Test UIOptions prop > Test canvasActions > should rende
         </div>
       </a>
       <a
-        aria-label="Follow us (X)"
+        aria-label="X"
         class="radix-menu-item dropdown-menu-item dropdown-menu-item-base"
         data-orientation="vertical"
         data-radix-collection-item=""
@@ -536,7 +536,7 @@ exports[`<Excalidraw/> > Test UIOptions prop > Test canvasActions > should rende
         role="menuitem"
         tabindex="-1"
         target="_blank"
-        title="Follow us (X)"
+        title="X"
       >
         <div
           class="dropdown-menu-item__icon"
@@ -581,7 +581,7 @@ exports[`<Excalidraw/> > Test UIOptions prop > Test canvasActions > should rende
         </div>
       </a>
       <a
-        aria-label="Discord chat"
+        aria-label="Discord"
         class="radix-menu-item dropdown-menu-item dropdown-menu-item-base"
         data-orientation="vertical"
         data-radix-collection-item=""
@@ -590,7 +590,7 @@ exports[`<Excalidraw/> > Test UIOptions prop > Test canvasActions > should rende
         role="menuitem"
         tabindex="-1"
         target="_blank"
-        title="Discord chat"
+        title="Discord"
       >
         <div
           class="dropdown-menu-item__icon"

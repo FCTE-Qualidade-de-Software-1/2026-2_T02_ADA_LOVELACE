@@ -167,7 +167,7 @@
 
       &__shortcut {
         margin-inline-start: auto;
-        color: var(--keybinding-color);
+        opacity: 0.5;
 
         &--orphaned {
           text-align: right;
