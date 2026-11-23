@@ -9,14 +9,14 @@
 | Issue | #38 |
 | Métricas alvo | CI-M25 (contraste mínimo de 4,5:1) e CI-M22 (violações da WCAG 2.2, A e AA) |
 | Questão e objetivo | CI-Q9 · O6 (acessibilidade) |
-| Tipo de ação | Modificação de código no Excalidraw (`aplicacao/`, commit-base `e7b5346`) |
+| Tipo de ação | Modificação de código no Excalidraw (commit-base `e7b5346`), na branch `melhoria/acessibilidade-38` |
 | Responsável | André Henrique |
 | Data | 2026-11-22 (antes e depois medidos no mesmo dia, no mesmo ambiente) |
 | Ambiente | Build de produção (`yarn build:app:docker`) servido em `http://localhost:5000`; Google Chrome estável em modo headless via Playwright, janela 1366 × 768, interface em inglês; Linux |
 
 ## 2. O que foi alterado
 
-O diff completo está em `melhoria-acessibilidade.patch` (aplica-se sobre `e7b5346` com `git apply`).
+O código modificado está na branch `melhoria/acessibilidade-38`, e não na `main`, que mantém `aplicacao/` como foi avaliado. O diff completo está em `melhoria-acessibilidade.patch`; para reproduzir o "depois" a partir da `main`, rode na raiz do repositório `git apply evidencias/melhoria/melhoria-acessibilidade.patch`.
 
 | # | Arquivo | Mudança | Métrica |
 | --- | --- | --- | --- |

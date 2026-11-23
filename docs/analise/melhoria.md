@@ -26,8 +26,11 @@ mesmo script e no mesmo ambiente, para comparar antes e depois.
 
 ## Ação executada: contraste e acessibilidade da interface
 
-**Tipo:** modificação de código no Excalidraw (cópia em `aplicacao/`, a partir
-do commit `e7b5346`).
+**Tipo:** modificação de código no Excalidraw, a partir do commit `e7b5346`,
+na branch
+[`melhoria/acessibilidade-38`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/tree/melhoria/acessibilidade-38).
+A `main` mantém `aplicacao/` como foi avaliado, para que as coletas possam ser
+refeitas sobre a mesma versão.
 
 **O que mudou** (registro completo e diff na
 [evidência](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/melhoria/acao-melhoria-acessibilidade.md)):

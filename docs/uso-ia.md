@@ -64,8 +64,8 @@ Na Entrega 2:
   `scripts/fm5_teste_offline.cjs`, `scripts/fm6_resolucoes.cjs`, páginas de
   [resultados](resultados/index.md) dessas métricas e
   [resultados da análise](analise/resultados.md),
-  [ação de melhoria](analise/melhoria.md), `evidencias/melhoria/`, arquivos
-  de estilo e componentes alterados em `aplicacao/` e seção de melhoria do
+  [ação de melhoria](analise/melhoria.md), `evidencias/melhoria/`, código
+  alterado na branch `melhoria/acessibilidade-38` e seção de melhoria do
   artigo (`main.tex`).
 * **Quando:** de 4 a 22 nov. 2026.
 * **Como conferiu e ajustou:** na ação de melhoria, conferi que a medição do
