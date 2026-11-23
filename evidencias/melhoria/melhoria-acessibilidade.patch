@@ -1,0 +1,201 @@
+diff --git a/aplicacao/excalidraw-app/index.html b/aplicacao/excalidraw-app/index.html
+index 1c29d72..eaed9d7 100644
+--- a/aplicacao/excalidraw-app/index.html
++++ b/aplicacao/excalidraw-app/index.html
+@@ -5,7 +5,7 @@
+     <title>Excalidraw Whiteboard</title>
+     <meta
+       name="viewport"
+-      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover, shrink-to-fit=no"
++      content="width=device-width, initial-scale=1, viewport-fit=cover, shrink-to-fit=no"
+     />
+     <meta name="referrer" content="origin" />
+     <meta name="mobile-web-app-capable" content="yes" />
+diff --git a/aplicacao/excalidraw-app/index.scss b/aplicacao/excalidraw-app/index.scss
+index 5c603ad..8ecc088 100644
+--- a/aplicacao/excalidraw-app/index.scss
++++ b/aplicacao/excalidraw-app/index.scss
+@@ -90,7 +90,7 @@
+   --plus-banner-bg: #f0efff;
+   --plus-banner-bg-hover: var(--color-primary-light);
+   --plus-banner-border: var(--color-primary-light-darker);
+-  --plus-banner-subtitle: #8b88e0;
++  --plus-banner-subtitle: var(--color-primary-darker);
+ 
+   display: flex;
+   align-items: center;
+@@ -100,7 +100,7 @@
+   border: 1px solid var(--plus-banner-border);
+   border-radius: var(--border-radius-lg);
+   background-color: var(--plus-banner-bg);
+-  color: var(--color-primary) !important;
++  color: var(--color-primary-darkest) !important;
+   text-decoration: none !important;
+   font-family: var(--ui-font);
+   box-sizing: border-box;
+@@ -153,6 +153,6 @@
+   .plus-banner {
+     --plus-banner-bg: #2b2a40;
+     --plus-banner-border: #4f4d6f;
+-    --plus-banner-subtitle: #8f8cc4;
++    --plus-banner-subtitle: var(--color-primary);
+   }
+ }
+diff --git a/aplicacao/packages/excalidraw/actions/actionCanvas.tsx b/aplicacao/packages/excalidraw/actions/actionCanvas.tsx
+index d8babe8..222e4d5 100644
+--- a/aplicacao/packages/excalidraw/actions/actionCanvas.tsx
++++ b/aplicacao/packages/excalidraw/actions/actionCanvas.tsx
+@@ -277,7 +277,9 @@ export const actionResetZoom = register({
+         <IconButton
+           type="button"
+           className="reset-zoom-button zoom-button"
+-          aria-label={t("buttons.resetZoom")}
++          aria-label={`${(zoomValue * 100).toFixed(0)}% · ${t(
++            "buttons.resetZoom",
++          )}`}
+           onClick={() => {
+             updateData(null);
+           }}
+diff --git a/aplicacao/packages/excalidraw/components/HintViewer.scss b/aplicacao/packages/excalidraw/components/HintViewer.scss
+index b363fe1..ddc3563 100644
+--- a/aplicacao/packages/excalidraw/components/HintViewer.scss
++++ b/aplicacao/packages/excalidraw/components/HintViewer.scss
+@@ -17,7 +17,7 @@ $wide-viewport-width: 1000px;
+     width: 100%;
+     margin-top: 0.5rem;
+     text-align: center;
+-    color: var(--color-gray-40);
++    color: var(--color-gray-70);
+     font-size: 0.75rem;
+ 
+     @include isMobile {
+@@ -42,7 +42,7 @@ $wide-viewport-width: 1000px;
+ 
+   &.theme--dark {
+     .HintViewer {
+-      color: var(--color-gray-60);
++      color: var(--color-gray-50);
+       kbd {
+         border-color: var(--color-gray-60);
+       }
+diff --git a/aplicacao/packages/excalidraw/components/dropdownMenu/DropdownMenu.scss b/aplicacao/packages/excalidraw/components/dropdownMenu/DropdownMenu.scss
+index 4636350..c98b242 100644
+--- a/aplicacao/packages/excalidraw/components/dropdownMenu/DropdownMenu.scss
++++ b/aplicacao/packages/excalidraw/components/dropdownMenu/DropdownMenu.scss
+@@ -167,7 +167,7 @@
+ 
+       &__shortcut {
+         margin-inline-start: auto;
+-        opacity: 0.5;
++        color: var(--keybinding-color);
+ 
+         &--orphaned {
+           text-align: right;
+diff --git a/aplicacao/packages/excalidraw/components/main-menu/DefaultItems.tsx b/aplicacao/packages/excalidraw/components/main-menu/DefaultItems.tsx
+index 6869ad1..2dd7ff5 100644
+--- a/aplicacao/packages/excalidraw/components/main-menu/DefaultItems.tsx
++++ b/aplicacao/packages/excalidraw/components/main-menu/DefaultItems.tsx
+@@ -386,14 +386,14 @@ export const Socials = () => {
+       <DropdownMenuItemLink
+         icon={XBrandIcon}
+         href="https://x.com/excalidraw"
+-        aria-label="X"
++        aria-label={`${t("labels.followUs")} (X)`}
+       >
+         {t("labels.followUs")}
+       </DropdownMenuItemLink>
+       <DropdownMenuItemLink
+         icon={DiscordIcon}
+         href="https://discord.gg/UexuTaE"
+-        aria-label="Discord"
++        aria-label={t("labels.discordChat")}
+       >
+         {t("labels.discordChat")}
+       </DropdownMenuItemLink>
+diff --git a/aplicacao/packages/excalidraw/components/main-menu/MainMenu.tsx b/aplicacao/packages/excalidraw/components/main-menu/MainMenu.tsx
+index fa41fee..9514e63 100644
+--- a/aplicacao/packages/excalidraw/components/main-menu/MainMenu.tsx
++++ b/aplicacao/packages/excalidraw/components/main-menu/MainMenu.tsx
+@@ -50,6 +50,7 @@ const MainMenu = Object.assign(
+               }}
+               data-testid="main-menu-trigger"
+               className="main-menu-trigger"
++              aria-label={t("buttons.menu")}
+             >
+               {HamburgerMenuIcon}
+             </DropdownMenu.Trigger>
+diff --git a/aplicacao/packages/excalidraw/components/welcome-screen/WelcomeScreen.scss b/aplicacao/packages/excalidraw/components/welcome-screen/WelcomeScreen.scss
+index d3c64c5..99d2dd2 100644
+--- a/aplicacao/packages/excalidraw/components/welcome-screen/WelcomeScreen.scss
++++ b/aplicacao/packages/excalidraw/components/welcome-screen/WelcomeScreen.scss
+@@ -9,7 +9,7 @@
+   .welcome-screen-decor {
+     pointer-events: none;
+ 
+-    color: var(--color-gray-40);
++    color: var(--color-gray-70);
+ 
+     a {
+       --color: var(--color-primary);
+@@ -21,7 +21,7 @@
+ 
+   &.theme--dark {
+     .welcome-screen-decor {
+-      color: var(--color-gray-60);
++      color: var(--color-gray-50);
+     }
+   }
+ 
+@@ -164,7 +164,7 @@
+ 
+     pointer-events: var(--ui-pointerEvents);
+ 
+-    color: var(--color-gray-50);
++    color: var(--color-gray-80);
+     font-size: 0.875rem;
+ 
+     width: 100%;
+@@ -198,7 +198,7 @@
+ 
+     &__shortcut {
+       margin-left: auto;
+-      color: var(--color-gray-40);
++      color: var(--color-gray-70);
+       font-size: 0.75rem;
+     }
+   }
+@@ -227,10 +227,10 @@
+ 
+   &.theme--dark {
+     .welcome-screen-menu-item {
+-      color: var(--color-gray-60);
++      color: var(--color-gray-40);
+ 
+       &__shortcut {
+-        color: var(--color-gray-60);
++        color: var(--color-gray-50);
+       }
+     }
+ 
+diff --git a/aplicacao/packages/excalidraw/css/theme.scss b/aplicacao/packages/excalidraw/css/theme.scss
+index 08a88cc..1c97cd2 100644
+--- a/aplicacao/packages/excalidraw/css/theme.scss
++++ b/aplicacao/packages/excalidraw/css/theme.scss
+@@ -23,7 +23,7 @@
+   --input-label-color: #{$color-gray-7};
+   --island-bg-color: #ffffff;
+   --island-bg-color-alt: #fff;
+-  --keybinding-color: var(--color-gray-40);
++  --keybinding-color: var(--color-gray-70);
+   --link-color: #{$color-blue-7};
+   --link-color-hover: #{$color-blue-8};
+   --link-color-active: #{$color-blue-2};
+@@ -202,7 +202,7 @@
+     --input-label-color: #{$color-gray-2};
+     --island-bg-color: #232329;
+     --island-bg-color-alt: hsl(240, 12%, 12%);
+-    --keybinding-color: var(--color-gray-60);
++    --keybinding-color: var(--color-gray-50);
+     --link-color: #{$color-blue-4};
+     --overlay-bg-color: rgba(12, 12, 14, 0.65);
+     --popup-secondary-bg-color: #222;
