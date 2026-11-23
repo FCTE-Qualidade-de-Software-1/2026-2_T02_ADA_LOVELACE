@@ -14,9 +14,10 @@ da equipe e ao processo iterativo utilizado. Os resultados devem ser
 interpretados em conjunto e no contexto de cada ciclo; nenhuma métrica isolada
 representa produtividade ou qualidade por completo.
 
-* **Kanban:** [Kanban – Ada Lovelace](https://github.com/users/giovannafg/projects/1) (Entrega 2 em diante; o
-  [Project #19](https://github.com/orgs/FCTE-Qualidade-de-Software-1/projects/19) guarda a Entrega 1, veja a
-  [decisão de mudança do quadro](../analise/gestao-grupo.md#processo-de-trabalho-e-fonte-dos-dados))
+* **Kanban:** [Kanban – Ada Lovelace](https://github.com/orgs/FCTE-Qualidade-de-Software-1/projects/19)
+  (Project #19 da organização; de 06/11 a 23/11/2026 o quadro em uso foi um
+  [Project de usuário](https://github.com/users/giovannafg/projects/1), hoje fechado; veja as
+  [decisões de mudança do quadro](../analise/gestao-grupo.md#processo-de-trabalho-e-fonte-dos-dados))
 * **Issues:** [lista de issues do repositório](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues?q=is%3Aissue)
 
 ## Fluxo de trabalho e fonte dos dados
@@ -125,9 +126,9 @@ O workflow [Atualizar métricas de gestão](https://github.com/FCTE-Qualidade-de
 executa a cada push na `main` e semanalmente. Cada execução recoleta os dados,
 sem intervalo mínimo entre coletas, e só cria commit quando eles mudam. O
 script consulta o histórico de alterações de **Status** dos dois quadros do
-grupo, o Project #19 da organização (Entrega 1) e o Project de usuário
-(Entrega 2 em diante), incluindo as datas em que cada issue entrou em **Em andamento**, **Em
-revisão** e **Concluído**. Assim, a equipe continua
+grupo, o Project #19 da organização (até 06/11 e depois de 23/11/2026) e o
+Project de usuário (de 06/11 a 23/11/2026), incluindo as datas em que cada
+issue entrou em **Em andamento**, **Em revisão** e **Concluído**. Assim, a equipe continua
 movendo os cartões manualmente; não é necessário aplicar labels de estado.
 
 O resultado é salvo em
@@ -137,19 +138,22 @@ Lead Time em dias, Cycle Time em dias e número de retornos de **Em revisão**
 para **Em andamento**. Se uma issue foi reaberta e concluída novamente, os
 tempos usam a conclusão mais recente e o início mais recente que a precede.
 O CSV é uma fotografia atualizada a cada execução, não um histórico de cópias
-por iteração. Na migração entre os quadros, os cartões foram recriados com o
-Status que já tinham, o que gerou eventos de Status com a data da cópia; o
-script descarta os eventos do quadro novo anteriores a 06/11/2026 05:47 UTC
-para que essas mudanças não sejam contadas como início ou conclusão. Pelo
-mesmo motivo, os eventos do Project #19 posteriores a esse horário também são
-descartados.
+por iteração. Nas migrações entre os quadros, os cartões foram recriados ou
+atualizados com o Status que já tinham, o que gerou eventos de Status com a
+data da cópia. Para que essas mudanças não sejam contadas como início ou
+conclusão, cada quadro só conta os eventos do período em que era o quadro em
+uso: o Project #19 até 06/11/2026 05:47 UTC e a partir de 23/11/2026 13:01
+UTC, e o Project de usuário entre esses dois horários. A timeline de cada
+issue é lida diretamente da issue, porque, aninhada na consulta do quadro, a
+API do GitHub devolvia eventos faltando.
 
 A leitura dos quadros usa o secret `KANBAN_TOKEN` do repositório, um token
-clássico da dona do Project de usuário com os escopos `public_repo` e `project`. O
+clássico da Giovanna com os escopos `public_repo` e `project`. O
 mesmo secret é usado pelo workflow
 [Adicionar issue ao Kanban](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/.github/workflows/adicionar-ao-kanban.yml),
-que adiciona ao quadro as issues abertas no repositório, porque o auto-add de
-um Project de usuário não aceita repositórios da organização. Quando o token
+que adiciona ao #19 as issues abertas no repositório. Ele foi criado quando o
+quadro era um Project de usuário, cujo auto-add não aceita repositórios da
+organização, e hoje reforça o auto-add do #19. Quando o token
 expirar, basta gerar outro com os mesmos escopos e atualizar o secret. Sem ele,
 os dois workflows emitem um aviso e as demais métricas continuam sendo
 coletadas.
