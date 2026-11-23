@@ -1,5 +1,5 @@
 {
- "coletado_em": "2026-11-22T23:34:47+00:00",
+ "coletado_em": "2026-11-23T00:07:34+00:00",
  "issues": [
   {
    "issue": 9,
@@ -838,16 +838,16 @@
     "ojplc"
    ],
    "criada_em": "2026-10-26T23:41:21Z",
-   "fechada_em": null,
-   "estado": "OPEN",
-   "motivo_fechamento": null,
+   "fechada_em": "2026-11-23T00:07:13Z",
+   "estado": "CLOSED",
+   "motivo_fechamento": "COMPLETED",
    "prazo": "2026-11-15",
-   "status_atual": "Em revisão",
+   "status_atual": "Concluído",
    "labels": [
     "documentation",
     "fase-4"
    ],
-   "horas": null,
+   "horas": 0.53,
    "horas_comentadas": [],
    "eventos": [
     {
