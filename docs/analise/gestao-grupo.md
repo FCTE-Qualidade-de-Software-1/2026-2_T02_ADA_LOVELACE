@@ -22,7 +22,7 @@ configuração da coleta.
 ## Processo de trabalho e fonte dos dados
 
 O grupo organiza as atividades em um fluxo Kanban no
-[GitHub Projects](https://github.com/users/giovannafg/projects/1).
+[GitHub Projects](https://github.com/orgs/FCTE-Qualidade-de-Software-1/projects/19).
 As tarefas são registradas como issues e percorrem os estados **Backlog**,
 **A fazer**, **Em andamento**, **Em revisão** e **Concluído**. A
 [lista de issues do repositório](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues)
@@ -53,6 +53,22 @@ diferenças entre o que foi planejado e o que foi concluído.
     O #19 deixou de ser atualizado e permanece como registro da Entrega 1. A
     coleta de Lead Time e Cycle Time lê os dois quadros e ignora os eventos
     gerados pela própria migração.
+
+!!! note "Decisão de gestão: volta do quadro para a organização (23/11/2026)"
+    A professora orientou que o quadro deve ficar na organização, e todos os
+    integrantes passaram a ter acesso ao Project #19. Por isso, o quadro voltou
+    a ser o [Project #19 da organização](https://github.com/orgs/FCTE-Qualidade-de-Software-1/projects/19).
+    As issues da Entrega 2 já estavam no #19, adicionadas pelo auto-add da
+    organização; o script
+    [`copiar_kanban_para_organizacao.py`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/scripts/copiar_kanban_para_organizacao.py)
+    copiou do [Project de usuário](https://github.com/users/giovannafg/projects/1)
+    os campos Status, Prazo e Horas (32 issues receberam as Horas e uma, a #43,
+    o Status). Um campo vazio no quadro de usuário não apagou o valor do #19.
+    A data das mudanças de Status não pode ser copiada, porque o GitHub
+    registra o evento com o horário da cópia. Por isso o Project de usuário
+    foi fechado, mas não apagado: a coleta continua lendo dele o histórico de
+    06/11 a 23/11 (13:01 UTC) e, do #19, o histórico até 06/11 e depois de
+    23/11, o que deixa de fora os eventos gerados pelas duas cópias.
 
 !!! warning "Interpretação responsável"
     Quantidade de commits, linhas alteradas e tempo online são sinais de

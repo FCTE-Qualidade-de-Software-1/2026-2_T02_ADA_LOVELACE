@@ -47,9 +47,15 @@ CICLOS = [
 ]
 INICIO, FIM = CICLOS[0][1], CICLOS[-1][2]
 
-# Troca do quadro: Project #19 da organização -> Project de usuário, para que
-# todos os integrantes pudessem mover os cartões (ver gestao-grupo.md).
-MIGRACAO = datetime(2026, 11, 6, 5, 47, tzinfo=timezone.utc).astimezone(BRT)
+# Trocas do quadro (ver gestao-grupo.md): em 06/11 do Project #19 da
+# organização para um Project de usuário, para que todos os integrantes
+# pudessem mover os cartões; em 23/11 de volta ao #19, quando a organização
+# deu acesso a todos. Cada troca vira uma linha no fluxo acumulado quando cai
+# dentro do período do gráfico.
+TROCAS_QUADRO = [
+    (datetime(2026, 11, 6, 5, 47, tzinfo=timezone.utc).astimezone(BRT), "quadro de usuário"),
+    (datetime(2026, 11, 23, 13, 1, tzinfo=timezone.utc).astimezone(BRT), "volta ao #19"),
+]
 
 # Regra de revisão obrigatória na main (#41, concluída em 04/11/2026).
 REGRA_REVISAO = datetime(2026, 11, 4, 17, 9, tzinfo=timezone.utc).astimezone(BRT)
@@ -299,10 +305,11 @@ def fluxo_acumulado(issues: list[dict], hoje: date) -> str:
     for nome, comeco, _ in CICLOS[1:]:
         eixo.axvline(comeco, color="#555", linestyle=":", linewidth=1)
         eixo.text(comeco, eixo.get_ylim()[1] * 0.98, f" {nome}", va="top", fontsize=8, color="#555")
-    troca = MIGRACAO.date()
-    if INICIO <= troca <= ultimo:
-        eixo.axvline(troca, color="#222", linestyle="--", linewidth=1)
-        eixo.text(troca, eixo.get_ylim()[1] * 0.90, " novo quadro", va="top", fontsize=8, color="#222")
+    for momento, rotulo in TROCAS_QUADRO:
+        troca = momento.date()
+        if INICIO <= troca <= ultimo:
+            eixo.axvline(troca, color="#222", linestyle="--", linewidth=1)
+            eixo.text(troca, eixo.get_ylim()[1] * 0.90, f" {rotulo}", va="top", fontsize=8, color="#222")
     eixo.set_xlim(dias_serie[0], dias_serie[-1])
     eixo.set_ylabel("issues")
     eixo.set_title("Fluxo acumulado das issues da Entrega 2 (Status no fim de cada dia)", fontsize=10)

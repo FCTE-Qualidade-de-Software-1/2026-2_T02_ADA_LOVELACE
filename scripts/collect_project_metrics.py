@@ -14,21 +14,26 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 API_URL = "https://api.github.com/graphql"
-# O quadro foi copiado em 06/11/2026 do Project #19 da organização para um
-# Project de usuário, porque os integrantes não têm acesso à organização. O #19
-# guarda o histórico da Entrega 1 e o novo concentra a Entrega 2; os dois são
-# lidos. Os eventos de Status gerados no novo durante a migração (cartões
-# recriados com o Status e o Prazo copiados) são descartados por "since", e
-# o que acontecer no #19 depois da migração é descartado por "until".
-MIGRATED_AT = os.environ.get("PROJECT_SINCE", "2026-11-06T05:47:00Z")
+# O quadro trocou de lugar duas vezes:
+# * 06/11/2026: do Project #19 da organização para um Project de usuário,
+#   porque os integrantes não tinham acesso à organização;
+# * 23/11/2026: de volta para o #19, depois que a organização deu acesso a
+#   todos (cópia feita por scripts/copiar_kanban_para_organizacao.py).
+# Cada quadro só conta os eventos de Status das janelas em que era o quadro
+# ativo. Assim, os eventos gerados pelas próprias cópias (cartões recriados
+# ou atualizados com o Status que já tinham) ficam fora: os do quadro de
+# usuário antes de 06/11 05:47 UTC e os do #19 entre 06/11 e 23/11 13:01 UTC.
+TO_USER_BOARD = "2026-11-06T05:47:00Z"
+BACK_TO_ORG = "2026-11-23T13:01:00Z"
+# A ordem importa: o último quadro lido prevalece para Prazo, Status e Horas
+# atuais, por isso o #19, que é o quadro em uso, vem por último.
 PROJECTS = [
-    {"kind": "organization", "owner": "FCTE-Qualidade-de-Software-1", "number": 19, "since": None, "until": MIGRATED_AT},
+    {"kind": "user", "owner": "giovannafg", "number": 1, "windows": [(TO_USER_BOARD, BACK_TO_ORG)]},
     {
-        "kind": os.environ.get("PROJECT_OWNER_KIND", "user"),
-        "owner": os.environ.get("PROJECT_OWNER", "giovannafg"),
-        "number": int(os.environ.get("PROJECT_NUMBER", "1")),
-        "since": MIGRATED_AT,
-        "until": None,
+        "kind": "organization",
+        "owner": "FCTE-Qualidade-de-Software-1",
+        "number": 19,
+        "windows": [(None, TO_USER_BOARD), (BACK_TO_ORG, None)],
     },
 ]
 REPOSITORY = os.environ.get("GITHUB_REPOSITORY", "")
@@ -82,14 +87,6 @@ query($owner: String!, $number: Int!, $after: String) {
               assignees(first: 10) { nodes { login } }
               labels(first: 20) { nodes { name } }
               comments(last: 100) { nodes { author { login } body } }
-              timelineItems(first: 100, itemTypes: [PROJECT_V2_ITEM_STATUS_CHANGED_EVENT]) {
-                nodes {
-                  ... on ProjectV2ItemStatusChangedEvent {
-                    createdAt previousStatus status project { id }
-                  }
-                }
-                pageInfo { hasNextPage endCursor }
-              }
             }
           }
         }
@@ -176,7 +173,7 @@ def main() -> int:
         raise RuntimeError("GITHUB_REPOSITORY não está definido; execute pelo GitHub Actions.")
 
     issues: dict[str, dict] = {}
-    window_by_project: dict[str, tuple[datetime | None, datetime | None]] = {}
+    windows_by_project: dict[str, list[tuple[datetime | None, datetime | None]]] = {}
     for source in PROJECTS:
         query = PROJECT_QUERY % source["kind"]
         label = f"Project #{source['number']} de {source['owner']}"
@@ -187,16 +184,17 @@ def main() -> int:
             project = owner and owner.get("projectV2")
             if not project:
                 raise RuntimeError(f"Não encontrei o {label}.")
-            window_by_project[project["id"]] = tuple(
-                parse_date(source[key]) if source[key] else None for key in ("since", "until")
-            )
+            windows_by_project[project["id"]] = [
+                tuple(parse_date(limit) if limit else None for limit in window)
+                for window in source["windows"]
+            ]
             connection = project["items"]
             for item in connection["nodes"]:
                 issue = item.get("content")
                 if not issue or not issue.get("number"):
                     continue
                 if issue["id"] in issues:
-                    # O quadro novo é lido depois e prevalece para Prazo e Status atual.
+                    # O quadro em uso é lido por último e prevalece para Prazo, Status e Horas atuais.
                     if (item.get("prazo") or {}).get("date"):
                         issues[issue["id"]]["prazo"] = item["prazo"]["date"]
                     if (item.get("status") or {}).get("name"):
@@ -207,13 +205,17 @@ def main() -> int:
                 if issue["repository"]["nameWithOwner"].casefold() != REPOSITORY.casefold():
                     continue
                 # A timeline da issue traz eventos de todos os Projects;
-                # o filtro por Project é aplicado depois de ler os dois.
-                events = issue["timelineItems"]["nodes"]
-                page = issue["timelineItems"]["pageInfo"]
-                while page["hasNextPage"]:
-                    timeline = graphql(token, TIMELINE_QUERY, {"id": issue["id"], "after": page["endCursor"]})["node"]["timelineItems"]
+                # o filtro por Project é aplicado depois de ler os quadros.
+                # Ela é lida direto da issue: aninhada na consulta do quadro,
+                # a API devolvia eventos faltando (ex.: #38 sem as mudanças
+                # de 23/11/2026).
+                events, cursor_events = [], None
+                while True:
+                    timeline = graphql(token, TIMELINE_QUERY, {"id": issue["id"], "after": cursor_events})["node"]["timelineItems"]
                     events.extend(timeline["nodes"])
-                    page = timeline["pageInfo"]
+                    if not timeline["pageInfo"]["hasNextPage"]:
+                        break
+                    cursor_events = timeline["pageInfo"]["endCursor"]
                 issues[issue["id"]] = {
                     **issue,
                     "events": events,
@@ -229,11 +231,11 @@ def main() -> int:
 
     def counts(event: dict) -> bool:
         project_id = (event.get("project") or {}).get("id")
-        if project_id not in window_by_project:
-            return False
-        since, until = window_by_project[project_id]
         moment = parse_date(event["createdAt"])
-        return (since is None or moment >= since) and (until is None or moment < until)
+        return any(
+            (since is None or moment >= since) and (until is None or moment < until)
+            for since, until in windows_by_project.get(project_id, [])
+        )
 
     for issue in issues.values():
         issue["events"] = sorted(filter(counts, issue["events"]), key=lambda event: event["createdAt"])

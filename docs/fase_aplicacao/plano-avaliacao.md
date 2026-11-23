@@ -190,7 +190,7 @@ vão do início das coletas ao prazo do Kanban. Fonte: elaboração própria a
 partir do Kanban da equipe.*
 
 O andamento de cada issue é acompanhado no
-[Kanban da equipe](https://github.com/users/giovannafg/projects/1) e nas
+[Kanban da equipe](https://github.com/orgs/FCTE-Qualidade-de-Software-1/projects/19) e nas
 [métricas de desenvolvimento](../gestao/metricas.md).
 
 ## 5. Consistência com a Fase 2

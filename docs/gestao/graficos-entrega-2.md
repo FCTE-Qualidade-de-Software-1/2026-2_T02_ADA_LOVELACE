@@ -25,7 +25,8 @@ mão.
   segundo é mais curto porque termina na data da entrega.
 * **Fonte do Status:** os eventos de mudança de Status do Project #19 até a
   migração do quadro (06/11/2026 05:47 UTC) e do Project de usuário depois
-  dela, como descrito em
+  dela; o quadro voltou ao #19 só em 23/11, depois do fim da Entrega 2, como
+  descrito em
   [coleta automática de Lead Time e Cycle Time](metricas.md#coleta-automatica-de-lead-time-e-cycle-time).
   O histórico completo fica em
   [`historico-status.json`](dados/historico-status.json).
