@@ -1,5 +1,5 @@
 {
- "coletado_em": "2026-11-24T16:37:10+00:00",
+ "coletado_em": "2026-11-24T21:34:54+00:00",
  "issues": [
   {
    "issue": 9,
@@ -1014,6 +1014,11 @@
      "em": "2026-11-24T02:20:55Z",
      "de": "Em andamento",
      "para": "Em revisão"
+    },
+    {
+     "em": "2026-11-24T16:36:32Z",
+     "de": "Em revisão",
+     "para": "Concluído"
     }
    ]
   },
