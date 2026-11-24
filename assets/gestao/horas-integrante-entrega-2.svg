@@ -299,8 +299,8 @@ z
    </g>
    <g id="patch_11">
     <path d="M 108.647863 84.876231 
-L 329.898045 84.876231 
-L 329.898045 107.121748 
+L 336.668246 84.876231 
+L 336.668246 107.121748 
 L 108.647863 107.121748 
 z
 " clip-path="url(#p95cc3e0619)" style="fill: #6965db"/>
@@ -346,10 +346,10 @@ z
 " clip-path="url(#p95cc3e0619)" style="fill: #3f9e6e"/>
    </g>
    <g id="patch_17">
-    <path d="M 329.898045 84.876231 
-L 352.555652 84.876231 
-L 352.555652 107.121748 
-L 329.898045 107.121748 
+    <path d="M 336.668246 84.876231 
+L 359.325854 84.876231 
+L 359.325854 107.121748 
+L 336.668246 107.121748 
 z
 " clip-path="url(#p95cc3e0619)" style="fill: #3f9e6e"/>
    </g>
@@ -394,7 +394,7 @@ L 481.374531 198.606437
     <text style="font-size: 8px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="424.861403" y="70.270218" transform="rotate(-0 424.861403 70.270218)"> 12,3</text>
    </g>
    <g id="text_18">
-    <text style="font-size: 8px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="352.555652" y="98.077114" transform="rotate(-0 352.555652 98.077114)"> 9,7</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="359.325854" y="98.077114" transform="rotate(-0 359.325854 98.077114)"> 9,9</text>
    </g>
    <g id="text_19">
     <text style="font-size: 8px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="306.518283" y="125.884011" transform="rotate(-0 306.518283 125.884011)"> 8,0</text>
