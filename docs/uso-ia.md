@@ -194,3 +194,19 @@ Na Entrega 2:
 * **Onde:** Definição dos objetivos de medição.
 * **Quando:** Após a pesquisa inicial e o estudo das normas e dos conceitos relacionados à avaliação da qualidade de software.
 * **Como conferiu e ajustou:** A ferramenta foi utilizada de forma complementar ao estudo inicial, auxiliando na organização das informações, no refinamento da escrita científica e na identificação de novas fontes bibliográficas. As sugestões foram analisadas criticamente e ajustadas ao contexto do Excalidraw, considerando a ISO/IEC 25010:2023, o método GQM e o modelo de qualidade definido pela equipe. As referências sugeridas foram utilizadas como ponto de partida para aprofundamento da pesquisa, mediante conferência de sua pertinência e adequação ao trabalho.
+
+Na Entrega 2:
+
+* **Ferramenta:** Claude (Anthropic), modelo Claude Sonnet 5.5
+* **Tarefa:** apoio nas métricas de capacidade de interação. Exploração do
+  repositório e do roteiro para entender como as evidências são coletadas;
+  coleta no código-fonte e primeira versão das evidências da CI-M26 (idiomas e
+  tradução), CI-M18 (mensagens de erro), CI-M10 (atalhos), modelo do CSV e o diagrama-modelo em `.excalidraw`).
+* **Quando:** de 4 a 15 nov. 2026
+* **Como conferiu e ajustou:** tratei as evidências como rascunho e todas
+  passaram pela revisão de outro integrante. A revisão da CI-M7 mostrou que o
+  denominador inicial (as 17 funções frequentes da CI-M10) não seguia o
+  recorte definido pelo grupo, então adotei ferramentas da barra e ações
+  visíveis (74 funções), o que mudou a nota de 2 para 1; as contagens foram
+  refeitas por script no código e a lista completa ficou registrada na
+  evidência. 
