@@ -1,5 +1,7 @@
 # Evidência CI-M14 : Taxa de recuperabilidade
 
+> **Decisão do grupo (23/11/2026, discussão interna com a concordância de todos; [registro](../../decisoes-grupo_2026-11-23.md)):** a nota 0/2 passa a ser definitiva. A ressalva que a tornava provisória fica como limitação: tema e zoom ficam no denominador, como no protocolo; sem eles, 11/11 = 100% (nota 2) é sensibilidade. O registro abaixo é o original.
+
 > Coleta automatizada concluída pelo Codex. **Validação manual de Renato e revisão de outro integrante pendentes.** Issue [#70](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/70). Não houve push, PR ou merge.
 
 ## 1. Identificação

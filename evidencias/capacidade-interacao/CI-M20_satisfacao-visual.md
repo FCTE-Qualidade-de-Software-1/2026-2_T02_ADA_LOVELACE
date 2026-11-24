@@ -22,7 +22,7 @@ Média das notas Likert de 1 a 5 para o estilo desenhado à mão (L1), a organiz
 2. Preencher a ficha de observação de cada sessão em `evidencias/participantes/fichas/P_0X/` a partir da gravação e das transcrições (VTT com marcação de tempo; a de P01 é texto sem tempo).
 3. Copiar os valores já resumidos para `evidencias/participantes/registro-sessoes.csv` (só códigos, sem nomes).
 4. Mostrar o modo escuro por cerca de 20 s antes da L3 para quem não o usou; aplicar L1 a L3.
-5. Calcular a métrica conforme a seção 8 do protocolo e pontuar pela Tabela 14 do roteiro de análise.
+5. Calcular a métrica conforme a seção 8 do protocolo e pontuar pela Tabela 13 do roteiro de análise.
 
 ### 3.1 Comandos executados
 

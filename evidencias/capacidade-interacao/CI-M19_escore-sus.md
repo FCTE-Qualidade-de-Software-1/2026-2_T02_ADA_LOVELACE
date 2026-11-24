@@ -22,7 +22,7 @@ Escore da System Usability Scale, de 0 a 100, aplicado aos seis participantes (C
 2. Preencher a ficha de observação de cada sessão em `evidencias/participantes/fichas/P_0X/` a partir da gravação e das transcrições (VTT com marcação de tempo; a de P01 é texto sem tempo).
 3. Copiar os valores já resumidos para `evidencias/participantes/registro-sessoes.csv` (só códigos, sem nomes).
 4. Aplicar os dez itens do SUS em escala de 1 a 5 depois das tarefas e calcular o escore de cada pessoa.
-5. Calcular a métrica conforme a seção 8 do protocolo e pontuar pela Tabela 14 do roteiro de análise.
+5. Calcular a métrica conforme a seção 8 do protocolo e pontuar pela Tabela 13 do roteiro de análise.
 
 ### 3.1 Comandos executados
 

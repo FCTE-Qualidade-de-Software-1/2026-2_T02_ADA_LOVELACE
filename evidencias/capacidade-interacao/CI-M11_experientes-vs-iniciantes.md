@@ -1,5 +1,7 @@
 # Evidência CI-M11 : Tempo de experientes em relação ao de iniciantes
 
+> **Decisão do grupo (23/11/2026, discussão interna com a concordância de todos; [registro](../decisoes-grupo_2026-11-23.md)):** a nota 2/2 passa a ser definitiva. A ressalva que a tornava provisória fica como limitação: a amostra é pequena; com P01 ou P05 entre os iniciantes, a razão iria a 0,53 ou 0,54 (nota 1). O registro abaixo é o original.
+
 ## 1. Identificação
 
 | Campo | Valor |
@@ -22,7 +24,7 @@ Tempo médio da T5 de experientes (B) ÷ tempo médio de iniciantes (A), contand
 2. Preencher a ficha de observação de cada sessão em `evidencias/participantes/fichas/P_0X/` a partir da gravação e das transcrições (VTT com marcação de tempo; a de P01 é texto sem tempo).
 3. Copiar os valores já resumidos para `evidencias/participantes/registro-sessoes.csv` (só códigos, sem nomes).
 4. Cronometrar a reprodução do diagrama na T5 (sem as etapas extras de cor, grupo e PNG) e separar as pessoas por perfil.
-5. Calcular a métrica conforme a seção 8 do protocolo e pontuar pela Tabela 14 do roteiro de análise.
+5. Calcular a métrica conforme a seção 8 do protocolo e pontuar pela Tabela 13 do roteiro de análise.
 
 ### 3.1 Comandos executados
 
@@ -75,7 +77,7 @@ experientes = (2,7 + 2,4) ÷ 2 = 2,55 min; iniciantes = (8,0 + 4,5) ÷ 2 = 6,25 
 
 | Valor medido | Regra da métrica | Pontuação (0–2) |
 | --- | --- | :-: |
-| 0,41 | 2 = ≤ 0,5; 1 = > 0,5 e ≤ 0,8; 0 = > 0,8 | **2** (provisória) |
+| 0,41 | 2 = ≤ 0,5; 1 = > 0,5 e ≤ 0,8; 0 = > 0,8 | **2** |
 
 **Justificativa:** Os experientes levaram menos da metade do tempo dos iniciantes, mas a conta usa duas pessoas experientes e duas iniciantes.
 

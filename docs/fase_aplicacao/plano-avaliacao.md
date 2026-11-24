@@ -24,9 +24,9 @@ de cada coleta fica registrado na evidência da métrica.
 
 | Ambiente | Uso | Referência |
 | --- | --- | --- |
-| Instância local do Excalidraw (`http://localhost:3001`) com servidor de colaboração `excalidraw-room` (commit `03ff435`) e projeto Firebase de teste do grupo | Obrigatória para os testes que adulteram dados ou exigem controle do servidor (S-M5 e S-M6, conforme a seção 5 do roteiro); usada também na S-M1, na S-M2 e em testes funcionais | [Ambiente de teste e instância local](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/ambiente/ambiente-local.md) (#36) |
+| Instância local do Excalidraw (`http://localhost:3001`) com servidor de colaboração `excalidraw-room` (commit `03ff435`) e projeto Firebase de teste do grupo | Obrigatória para os testes que adulteram dados ou exigem controle do servidor (S-M5 e S-M6, conforme a seção 2 do roteiro); usada também na S-M1, na S-M2 e em testes funcionais | [Ambiente de teste e instância local](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/ambiente/ambiente-local.md) (#36) |
 | Build de produção local | F-M5, porque o *service worker* que permite o uso offline só existe nesse build | #64 |
-| excalidraw.com | Cabeçalhos HTTP da versão pública (S-M13) e testes que não alteram dados de terceiros | Seção 5 do roteiro |
+| excalidraw.com | Cabeçalhos HTTP da versão pública (S-M13) e testes que não alteram dados de terceiros | Seção 2 do roteiro |
 | Ferramenta anterior (draw.io ou Miro) | Comparação funcional (F-M7) e tarefas do perfil que vem de outra ferramenta (F-M8 e F-M9) | #65 e #66 |
 
 Nas sessões com participantes, todos usam a mesma instância, o mesmo
@@ -78,7 +78,7 @@ As métricas são coletadas de quatro formas:
 
 A Tabela 1 resume a instrução de cada métrica, a partir das *issues* de
 medição. Fórmula, meta e faixas de pontuação estão nas tabelas da
-[seção 4 do roteiro](../analise/roteiro.md#4-estrategia-gqm).
+[seção 1 do roteiro](../analise/roteiro.md#1-estrategia-gqm).
 
 *Tabela 1. Método, responsável e issue de cada métrica. Fonte: roteiro da
 análise, issues de medição e Kanban da equipe.*
@@ -117,7 +117,7 @@ análise, issues de medição e Kanban da equipe.*
 | CI-M5 | Participantes | Tarefas básicas concluídas sem ajuda externa ÷ tarefas propostas | Zayra Moraes | #75 |
 | CI-M6 | Participantes | Consultas à ajuda por participante durante as tarefas | Zayra Moraes | #75 |
 | CI-M7 | Código | Funções documentadas em `HelpDialog.tsx` ÷ funções disponíveis | Zayra Moraes | #68 |
-| CI-M8 | (retirada) | Retirada por falta de tempo: exigia três sessões com a mesma pessoa | Zayra Moraes | #75 |
+| CI-M8 | (não medida) | Não medida por falta de tempo: exigia três sessões com a mesma pessoa | Zayra Moraes | #75 |
 | CI-M9 | Navegador | Contar cliques para criar forma, mudar cor, agrupar e exportar em PNG | Luís Cunha | #69 |
 | CI-M10 | Código | Definir a lista de funções frequentes e marcar quais têm atalho | Zayra Moraes | #68 |
 | CI-M11 | Participantes | Tempo médio de experientes ÷ tempo médio de iniciantes | Zayra Moraes | #75 |
@@ -201,7 +201,7 @@ O andamento de cada issue é acompanhado no
   diretamente as faixas de pontuação do roteiro.
 * **Ambiente exigido pelo roteiro:** os testes que adulteram dados ou
   sobrecarregam o serviço (S-M5 e S-M6) são feitos na instância local, e não
-  no excalidraw.com, como determina a seção 5 do roteiro.
+  no excalidraw.com, como determina a seção 2 do roteiro.
 * **Participantes:** as métricas que dependem de pessoas usam o protocolo da
   #37, com autorização prévia e registros sem nomes reais, como exige a seção
   5 do roteiro. A [estimativa de custos](../gestao/estimativa-custos.md)
@@ -209,12 +209,12 @@ O andamento de cada issue é acompanhado no
   quantidade de participantes por perfil. A quantidade efetivamente atendida
   é registrada nos resultados. Foram atendidas seis pessoas (três do perfil A,
   duas do B e uma do C), com uma sessão cada: a CI-M8, que dependia de três
-  sessões com a mesma pessoa, foi retirada por falta de tempo, e o perfil D não
+  sessões com a mesma pessoa, não foi medida por falta de tempo, e o perfil D não
   foi recrutado (a acessibilidade foi avaliada só com ferramentas).
 * **Denominadores:** os denominadores da F-M10, da CI-M7 e da CI-M10 são
   decididos em grupo na #77 e registrados na evidência de cada métrica.
 * **Pontuação:** a nota de cada métrica e as médias por questão e por
-  objetivo seguem a seção 6 do roteiro, e os valores coletados são publicados
+  objetivo seguem a seção 3 do roteiro, e os valores coletados são publicados
   em [Resultados](../resultados/index.md).
 
 ## 6. Registro das evidências

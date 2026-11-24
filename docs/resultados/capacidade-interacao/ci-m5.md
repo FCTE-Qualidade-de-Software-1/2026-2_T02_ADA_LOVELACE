@@ -10,7 +10,7 @@
 | P05 | sim | não |
 
 !!! note "Limitações"
-    Por decisão da equipe, dúvida sobre o significado de "elipse" não conta como ajuda (com a regra rígida seriam 2 de 8, 25%). Na T5, P03 passou do limite de 8 min, P04 não concluiu e perguntou, e P05 perguntou se era com as cores. Achado A-CI-M5-01 no registro completo. Seis pessoas (A = 3, B = 2, C = 1, D = 0), uma sessão cada, sem pessoa do perfil D (não recrutada). Valores conferidos com as transcrições; a conferência com o vídeo e a revisão por outro integrante estão pendentes.
+    Por decisão da equipe, dúvida sobre o significado de "elipse" não conta como ajuda (com a regra rígida seriam 2 de 8, 25%). Na T5, P03 passou do limite de 8 min, P04 não concluiu e perguntou, e P05 perguntou se era com as cores. Achado A-CI-M5-01 no registro completo. Seis pessoas (A = 3, B = 2, C = 1, D = 0), uma sessão cada, sem pessoa do perfil D (não recrutada). Valores conferidos com as transcrições e revisados no PR #113; falta a conferência com o vídeo.
 
 Registro completo:
 [`CI-M5_conclusao-sem-ajuda.md`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M5_conclusao-sem-ajuda.md).

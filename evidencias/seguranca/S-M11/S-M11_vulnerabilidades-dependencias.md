@@ -17,7 +17,7 @@
 
 Contagem de avisos de vulnerabilidades conhecidas em dependências da aplicação web gratuita. A auditoria usou o grafo do monorepo resolvido a partir do `yarn.lock` v1 original. Para pontuar a S-M11, o recorte é o das dependências ligadas ao cliente web por meio dos manifestos e do código do app e do editor. A análise também registra o grafo declarado e a consulta completa do monorepo.
 
-A seção 2 do [roteiro GQM](../../../docs/analise/roteiro.md#2-produto-contexto-e-escopo) define o objeto como a aplicação web colaborativa e inclui seu uso no navegador. Como O2/S-Q6 pergunta pela resistência dessa aplicação, a pontuação usa as dependências ligadas ao cliente web no commit fixado. A consulta completa é a base para verificar a cobertura do levantamento, e a contagem do grafo declarado mostra o efeito das exclusões. Os dois recortes complementares estão na seção 5.1.
+O [escopo da avaliação](../../../docs/index.md#escopo) define o objeto como a aplicação web colaborativa e inclui seu uso no navegador. Como O2/S-Q6 pergunta pela resistência dessa aplicação, a pontuação usa as dependências ligadas ao cliente web no commit fixado. A consulta completa é a base para verificar a cobertura do levantamento, e a contagem do grafo declarado mostra o efeito das exclusões. Os dois recortes complementares estão na seção 5.1.
 
 ## 3. Procedimento
 

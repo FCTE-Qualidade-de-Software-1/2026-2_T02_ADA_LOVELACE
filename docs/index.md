@@ -11,41 +11,71 @@
 
 ## Introdução
 
-Este site documenta a avaliação da qualidade do **Excalidraw**, uma aplicação
-web de quadro branco colaborativo para criação de diagramas, esboços e
-wireframes. O trabalho é realizado pela equipe **Ada Lovelace**, na disciplina
-de Qualidade de Software.
+Este site documenta a avaliação da qualidade do **Excalidraw**, um quadro
+branco colaborativo para diagramas, esboços e wireframes, feita pela equipe
+**Ada Lovelace** na disciplina de Qualidade de Software 1. A avaliação segue a
+[ISO/IEC 25010:2023](https://www.iso.org/standard/78176.html), que chama de
+**Flexibilidade** e **Capacidade de interação** o que as edições anteriores
+chamavam de Portabilidade e Usabilidade.
 
-O Excalidraw foi escolhido por combinar edição visual, colaboração em tempo
-real, compartilhamento de diagramas e recursos de inteligência artificial. A
-avaliação concentra-se nas características mais relevantes para esse contexto:
-**flexibilidade (portabilidade), segurança e capacidade de interação
-(usabilidade)**, conforme a
-[ISO/IEC 25010:2023](https://www.iso.org/standard/78176.html). Na edição de
-2023, a norma utiliza **Flexibilidade** e **Capacidade de interação** como os
-nomes oficiais correspondentes a Portabilidade e Usabilidade.
+O estudo combina medições objetivas, inspeção técnica e sessões com
+participantes, no commit `e7b5346`. Os resultados valem para a versão, os
+ambientes e as funções avaliados, e não são uma certificação do produto.
 
-O estudo adota uma abordagem mista, combinando medições objetivas, inspeção
-técnica e observação da experiência de uso. Os resultados devem ser
-interpretados somente para a versão, os ambientes e as funcionalidades
-efetivamente avaliados; eles não constituem uma certificação integral do
-produto.
+## Características avaliadas
 
-### Projeto avaliado
+<div class="grid cards" markdown>
 
-* **Nome:** Excalidraw
-* **Aplicação:** [excalidraw.com](https://excalidraw.com)
-* **Repositório:** [github.com/excalidraw/excalidraw](https://github.com/excalidraw/excalidraw)
-* **Tipo de produto:** aplicação web de quadro branco colaborativo, de código
-  aberto (licença MIT), instalável como PWA e também distribuída como
-  biblioteca React no npm.
-* **Descrição:** quadro branco colaborativo para criação, edição, exportação e
-  compartilhamento de diagramas, com interação por mouse, teclado e toque.
+-   :material-shield-lock-outline:{ .lg .middle } **Segurança**
+
+    ---
+
+    Os diagramas podem conter dados pessoais e circulam por links, salas
+    colaborativas, armazenamento local e IA. A análise considera os
+    princípios da **LGPD**, sem certificar conformidade legal.
+
+    O1 41,7% e O2 13,9%: **não atendidos**.
+    [Notas](resultados/index.md#seguranca)
+
+-   :material-devices:{ .lg .middle } **Flexibilidade**
+
+    ---
+
+    Funcionar em navegadores, sistemas, resoluções e celulares com toque, e
+    migrar diagramas sem perder conteúdo.
+
+    O3 66,7%: **parcial**. O4 75,0%: **atendido**.
+    [Notas](resultados/index.md#flexibilidade)
+
+-   :material-gesture-tap:{ .lg .middle } **Capacidade de interação**
+
+    ---
+
+    Iniciantes aprenderem, experientes trabalharem rápido e pessoas com
+    deficiência operarem por teclado ou leitor de tela.
+
+    O5 71,4%: **parcial**. O6 31,3%: **não atendido**.
+    [Notas](resultados/index.md#capacidade-de-interacao)
+
+</div>
+
+A justificativa da escolha está na [priorização](priorizacao.md), e o que os
+resultados significam para cada decisão, na
+[conclusão](analise/ameacas-conclusao.md#conclusao).
+
+## Projeto avaliado
+
+| Item | Descrição |
+| --- | --- |
+| Aplicação | [excalidraw.com](https://excalidraw.com) |
+| Repositório | [github.com/excalidraw/excalidraw](https://github.com/excalidraw/excalidraw) |
+| Tipo | Aplicação web de código aberto (MIT), instalável como PWA e distribuída como biblioteca React no npm |
+| Uso | Criar, editar, exportar e compartilhar diagramas com mouse, teclado e toque |
 
 O Diagrama 1 resume a estrutura do produto. O editor roda inteiro no
-navegador e depende de serviços externos apenas para colaboração, links
-compartilháveis e IA. Por isso a avaliação consegue observar o que sai do
-navegador, mas não o que acontece nos servidores.
+navegador e depende de serviços externos só para colaboração, links
+compartilháveis e IA. Por isso a avaliação observa o que sai do navegador, mas
+não o que acontece nos servidores.
 
 ```mermaid
 flowchart LR
@@ -74,41 +104,17 @@ flowchart LR
 *Diagrama 1. Módulos do Excalidraw e serviços externos. Fonte: elaboração
 própria a partir do repositório do Excalidraw.*
 
-### Características e escopo do projeto
+### Escopo
 
-* **Características avaliadas:** flexibilidade (portabilidade), segurança e
-  capacidade de interação (usabilidade), conforme a adaptação da
-  [ISO/IEC 25010:2023](https://www.iso.org/standard/78176.html).
-* **Justificativa das características:** segurança é essencial porque os
-  diagramas podem conter informações pessoais, acadêmicas ou profissionais e
-  circulam por meio de links, sessões colaborativas, armazenamento local e,
-  em alguns recursos, serviços externos de inteligência artificial. A análise
-  considera a importância de aplicar os princípios da **Lei Geral de Proteção
-  de Dados (LGPD)**, especialmente finalidade, necessidade, transparência,
-  segurança e prevenção, além de verificar controle de acesso, proteção das
-  comunicações, integridade do conteúdo, autenticidade dos participantes e
-  rastreabilidade das ações. Isso reduz o risco de exposição, alteração ou
-  uso indevido de dados e ajuda a preservar os direitos dos titulares, sem
-  presumir que a avaliação, por si só, certifique conformidade legal.
-  Flexibilidade é relevante porque a aplicação precisa funcionar em
-  diferentes navegadores, sistemas operacionais, resoluções e dispositivos,
-  inclusive celulares e interfaces sensíveis ao toque, além de permitir a
-  migração de diagramas sem perda significativa de conteúdo ou produtividade.
-  Capacidade de interação é necessária para que iniciantes aprendam a
-  ferramenta, usuários experientes trabalhem com eficiência e pessoas com
-  diferentes capacidades consigam operar o sistema, inclusive por teclado ou
-  com tecnologia assistiva, com feedback compreensível e proteção contra a
-  perda acidental de trabalho.
-* **Escopo:** criação e edição de formas, textos, setas e wireframes;
-  interação por mouse, teclado e toque; compartilhamento e colaboração por
-  links; exportação e importação de diagramas; recursos de inteligência
-  artificial; armazenamento local, autenticação observável e proteção das
-  comunicações; e execução em ambientes selecionados.
-* **Fora do escopo:** auditoria completa da infraestrutura de produção,
-  certificação criptográfica formal, teste de penetração invasivo e avaliação
-  exaustiva de todas as funcionalidades do produto.
+* **Dentro:** formas, textos, setas e wireframes; mouse, teclado e toque;
+  colaboração e compartilhamento por links; exportação e importação; IA;
+  armazenamento local, autenticação observável e proteção das comunicações;
+  ambientes selecionados.
+* **Fora:** auditoria da infraestrutura de produção, certificação
+  criptográfica, teste de penetração invasivo e avaliação exaustiva de todas
+  as funções.
 
-### Integrantes
+## Integrantes
 
 | Nome | GitHub |
 | --- | --- |
@@ -121,26 +127,50 @@ própria a partir do repositório do Excalidraw.*
 
 ## Organização da documentação
 
-* **[Metodologia](metodologia.md):** apresenta a caracterização da avaliação,
-  a fundamentação normativa, a abordagem GQM e as etapas adotadas para
-  conduzir as medições e interpretar os resultados.
-* Fase 1: [propósito e partes interessadas](fase_planejamento/proposito-partes-interessadas.md),
-  com as decisões que a avaliação apoia e quem as toma;
-  [modelo de qualidade](fase_planejamento/modelo-qualidade.md), com a adaptação
-  da ISO/IEC 25010:2023 ao Excalidraw, e [ODS](fase_planejamento/ods.md), com as metas e
-  os indicadores relacionados à avaliação.
-* [Roteiro da análise](analise/roteiro.md): propósito, escopo, método, objetivos
-  GQM, questões, métricas e critérios de julgamento.
-* [Gestão do grupo](analise/gestao-grupo.md): métricas automatizáveis de
-  participação, entrega, revisão, rastreabilidade e calendário.
-* [Resultados](analise/resultados.md): evidências coletadas, pontuações,
-  achados, pontos fortes e recomendações.
-* [Métricas de desenvolvimento](gestao/metricas.md): kanban, fluxo de
-  trabalho, situação das tarefas e contribuições de cada integrante.
-* [Estimativa de custos](gestao/estimativa-custos.md): método, esforço por
-  pacote e custo por fase do trabalho de avaliação.
-* [Referências](referencias.md): normas, métodos, ferramentas e documentação
-  consultados.
-* [Uso de IA](uso-ia.md): declaração de cada integrante sobre as ferramentas
-  de inteligência artificial usadas, para quê e como o resultado foi
-  conferido.
+<div class="grid cards" markdown>
+
+-   **[Metodologia](metodologia.md)**
+
+    Caracterização da pesquisa, normas, GQM e
+    [priorização das qualidades](priorizacao.md).
+
+-   **Fase de Planejamento**
+
+    [Propósito e partes interessadas](fase_planejamento/proposito-partes-interessadas.md),
+    [modelo de qualidade](fase_planejamento/modelo-qualidade.md),
+    [ODS](fase_planejamento/ods.md) e
+    [objetivos GQM](fase_planejamento/objetivos-qualidade.md).
+
+-   **Análise**
+
+    [Roteiro](analise/roteiro.md) com questões, métricas e critérios;
+    [análise dos resultados](analise/resultados.md);
+    [melhoria executada](analise/melhoria.md); e
+    [ameaças e conclusão](analise/ameacas-conclusao.md).
+
+-   **Fase de Aplicação**
+
+    [Versão analisada](fase_aplicacao/index.md) e
+    [plano de avaliação](fase_aplicacao/plano-avaliacao.md): como, com quê e
+    quando cada métrica foi coletada.
+
+-   **[Resultados](resultados/index.md)**
+
+    Valor, nota e evidência de cada uma das 51 métricas.
+
+-   **Gestão**
+
+    [Métricas de desenvolvimento](gestao/metricas.md),
+    [gráficos da Entrega 2](gestao/graficos-entrega-2.md),
+    [cronograma](gestao/cronograma.md) e
+    [estimativa de custos](gestao/estimativa-custos.md).
+
+-   **[Referências](referencias.md)**
+
+    Normas, métodos, ferramentas e documentação consultados.
+
+-   **[Uso de IA](uso-ia.md)**
+
+    O que cada integrante usou, para quê e como conferiu o resultado.
+
+</div>

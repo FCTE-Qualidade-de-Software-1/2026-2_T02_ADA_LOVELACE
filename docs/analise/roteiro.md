@@ -1,75 +1,13 @@
 # Roteiro da análise
 
-## 1. Propósito e partes interessadas
+O roteiro desdobra a avaliação do Excalidraw em **segurança, flexibilidade e
+capacidade de interação**, conforme a ISO/IEC 25010:2023, no
+[escopo da avaliação](../index.md#escopo). O propósito, as partes interessadas e o
+modelo adaptado estão na Fase de Planejamento:
+[propósito e partes interessadas](../fase_planejamento/proposito-partes-interessadas.md) e
+[modelo de qualidade](../fase_planejamento/modelo-qualidade.md).
 
-O propósito é identificar o nível de atendimento e as oportunidades de
-melhoria do Excalidraw em **segurança, flexibilidade e capacidade de
-interação**. Os
-resultados apoiarão recomendações para usuários, instituições de ensino e
-mantenedores do Excalidraw, além de fornecerem evidências para o artigo científico da
-equipe.
-
-A Tabela 4 resume as principais partes interessadas e o que cada uma precisa
-da avaliação.
-
-*Tabela 4. Partes interessadas e necessidades na avaliação. Fonte: elaboração
-própria.*
-
-| Parte interessada | Necessidade na avaliação |
-| --- | --- |
-| Usuário que cria e compartilha diagramas potencialmente sensíveis | Colaborar por link e gerar diagramas por IA sem expor o conteúdo a terceiros |
-| Usuário iniciante e usuário experiente | Desenhar sem treinamento (iniciante) e trabalhar rápido com atalhos (experiente) |
-| Usuário com necessidades de acessibilidade | Operar o canvas só pelo teclado, com leitor de tela e contraste adequado |
-| Usuário que acessa apenas pelo celular | Usar o Excalidraw, inclusive a geração por IA, em navegador móvel e com conexão instável |
-| Usuário que migra de outra ferramenta | Levar diagramas do draw.io ou do Miro e continuar trabalhando sem perda |
-| Docente ou instituição que adota a ferramenta | Escolher um quadro branco gratuito, acessível e seguro para uso em aula |
-| Mantenedores do Excalidraw | Saber quais vulnerabilidades, incompatibilidades e barreiras de uso existem |
-| Operador da instância pública (excalidraw.com) | Que o serviço não seja afetado por testes de terceiros |
-
-O requisitante, as decisões que a avaliação apoia e o critério de sucesso e a
-influência de cada parte interessada estão em
-[Propósito e partes interessadas](../fase_planejamento/proposito-partes-interessadas.md),
-assim como o motivo de o integrador que usa o Excalidraw como biblioteca não
-fazer parte da avaliação.
-
-## 2. Produto, contexto e escopo
-
-O produto é uma aplicação web de quadro branco colaborativo. O escopo inclui:
-
-* criação e edição de formas, textos, setas e wireframes;
-* interação com o canvas por mouse, teclado e toque;
-* compartilhamento e colaboração por links;
-* exportação e importação de diagramas;
-* criação de diagramas com apoio de inteligência artificial;
-* armazenamento local, autenticação observável e proteção das comunicações;
-* execução em navegadores, sistemas operacionais, resoluções e dispositivos
-  selecionados.
-
-Ficam fora do escopo a auditoria completa da infraestrutura de produção, a
-certificação criptográfica formal, o teste de penetração invasivo e a
-avaliação exaustiva de todas as funcionalidades do produto. Essa delimitação
-evita generalizar resultados obtidos em uma aplicação pública e em condições
-de teste controladas.
-
-## 3. Modelo de qualidade
-
-O modelo adotado é a ISO/IEC 25010:2023, adaptado ao contexto colaborativo do
-Excalidraw. Foram priorizadas, conforme a terminologia da edição de 2023:
-
-* **Segurança:** confidencialidade, integridade, responsabilização,
-  autenticidade e resistência;
-* **Flexibilidade:** adaptabilidade e substituibilidade;
-* **Capacidade de interação:** reconhecibilidade da adequação,
-  apreensibilidade, operabilidade, proteção contra erros, engajamento do
-  usuário, autodescritividade, inclusividade e assistência ao usuário.
-
-Segurança foi priorizada pelo compartilhamento de informações e pela
-colaboração em tempo real; flexibilidade, pelo uso predominante em dispositivos
-móveis e pela variedade de navegadores; e capacidade de interação, pela
-necessidade de desenhar com rapidez, aprender a interface e colaborar sem
-perder dados.
-
-## 4. Estratégia GQM
+## 1. Estratégia GQM
 
 A medição segue o método **Goal-Question-Metric (GQM)**:
 
@@ -123,7 +61,7 @@ refutam a hipótese.
 
 Em cada objetivo, a primeira tabela liga as questões às subcaracterísticas,
 às métricas e às hipóteses. A segunda descreve como cada métrica é medida e os limites dos
-níveis de pontuação definidos na [seção 6](#6-criterios-de-julgamento).
+níveis de pontuação definidos na [seção 3](#3-criterios-de-julgamento).
 
 ### Segurança
 
@@ -179,10 +117,10 @@ elaboração própria.*
 
 Analisar armazenamento, compartilhamento e colaboração em tempo real para
 identificar fragilidades na confidencialidade e integridade dos diagramas, do
-ponto de vista de usuários que criam e compartilham conteúdo. As Tabelas 5 e 6
+ponto de vista de usuários que criam e compartilham conteúdo. As Tabelas 4 e 5
 apresentam, respectivamente, as questões e as métricas do O1.
 
-*Tabela 5. Questões e hipóteses do objetivo O1. Fonte: elaboração própria.*
+*Tabela 4. Questões e hipóteses do objetivo O1. Fonte: elaboração própria.*
 
 | Questão | Subcaracterística | Métricas | Hipótese |
 | --- | --- | --- | --- |
@@ -190,7 +128,7 @@ apresentam, respectivamente, as questões e as métricas do O1.
 | **S-Q2.** É possível controlar quem acessa um desenho compartilhado? | Confidencialidade | S-M3 e S-M4 | Não: na versão gratuita, quem tem o link acessa o desenho, sem senha, expiração ou revogação, e a cena fica sem criptografia no `localStorage` |
 | **S-Q3.** O sistema impede alteração ou corrupção não autorizada dos dados? | Integridade | S-M5 e S-M6 | Sim: o AES-GCM é autenticado, então um payload adulterado falha ao ser decifrado, e a reconciliação por versão dos elementos deve evitar inconsistências na edição simultânea |
 
-*Tabela 6. Métricas e níveis de pontuação do objetivo O1. Fonte: elaboração
+*Tabela 5. Métricas e níveis de pontuação do objetivo O1. Fonte: elaboração
 própria.*
 
 | Métrica | Como medir | Satisfatório (2) | Parcial (1) | Insatisfatório (0) |
@@ -199,17 +137,17 @@ própria.*
 | **S-M2.** A chave de criptografia é enviada ao servidor? | Sim/Não, verificando se o fragmento `#` do link aparece nas requisições | Não | Não se aplica | Sim |
 | **S-M3.** Mecanismos de controle de acesso | Escala de 0 a 3, um ponto por mecanismo: senha, expiração ou revogação do link | 2 ou 3 mecanismos | 1 mecanismo | Nenhum mecanismo |
 | **S-M4.** Dados persistidos localmente sem criptografia | Sim/Não, inspecionando o localStorage e o IndexedDB | Não | Não se aplica | Sim |
-| **S-M5.** Taxa de detecção de adulteração | Adulterações rejeitadas ÷ adulterações injetadas no texto cifrado, em testes que manipulam os payloads, executados em uma instância local do Excalidraw (ver [seção 5](#5-execucao-e-fontes-de-evidencia)) | 100% | ≥ 90% e < 100% | < 90% |
+| **S-M5.** Taxa de detecção de adulteração | Adulterações rejeitadas ÷ adulterações injetadas no texto cifrado, em testes que manipulam os payloads, executados em uma instância local do Excalidraw (ver [seção 2](#2-execucao-e-fontes-de-evidencia)) | 100% | ≥ 90% e < 100% | < 90% |
 | **S-M6.** Inconsistências entre participantes após N edições simultâneas | Contagem, em teste de concorrência | 0 | 1 a 2 | ≥ 3 |
 
 #### O2 — Identificação, responsabilização e riscos de segurança
 
 Analisar identificação de participantes, registros de ações, dependências e
 configurações técnicas para identificar limitações de autenticidade,
-responsabilização e resistência a ataques. As Tabelas 7 e 8 apresentam,
+responsabilização e resistência a ataques. As Tabelas 6 e 7 apresentam,
 respectivamente, as questões e as métricas do O2.
 
-*Tabela 7. Questões e hipóteses do objetivo O2. Fonte: elaboração própria.*
+*Tabela 6. Questões e hipóteses do objetivo O2. Fonte: elaboração própria.*
 
 | Questão | Subcaracterística | Métricas | Hipótese |
 | --- | --- | --- | --- |
@@ -217,7 +155,7 @@ respectivamente, as questões e as métricas do O2.
 | **S-Q5.** O sistema confirma a identidade de quem participa da sessão? | Autenticidade | S-M9 e S-M10 | Não: o participante só informa um nome, sem login, e qualquer pessoa pode usar o nome de outra |
 | **S-Q6.** A aplicação resiste a ataques e vulnerabilidades conhecidas? | Resistência | S-M11 a S-M13 | Parcialmente: o projeto é mantido ativamente e deve ter poucas vulnerabilidades críticas, mas a configuração de hospedagem do repositório não define CSP, o que deve baixar a nota dos cabeçalhos |
 
-*Tabela 8. Métricas e níveis de pontuação do objetivo O2. Fonte: elaboração
+*Tabela 7. Métricas e níveis de pontuação do objetivo O2. Fonte: elaboração
 própria.*
 
 | Métrica | Como medir | Satisfatório (2) | Parcial (1) | Insatisfatório (0) |
@@ -278,17 +216,17 @@ Fonte: elaboração própria.*
 
 Analisar a execução em diferentes ambientes, do ponto de vista de usuários que
 acessam a aplicação em diferentes dispositivos e plataformas, em especial
-quem acessa apenas pelo celular. As Tabelas 9 e 10 apresentam, respectivamente,
+quem acessa apenas pelo celular. As Tabelas 8 e 9 apresentam, respectivamente,
 as questões e as métricas do O3.
 
-*Tabela 9. Questões e hipóteses do objetivo O3. Fonte: elaboração própria.*
+*Tabela 8. Questões e hipóteses do objetivo O3. Fonte: elaboração própria.*
 
 | Questão | Subcaracterística | Métricas | Hipótese |
 | --- | --- | --- | --- |
 | **F-Q1.** O Excalidraw funciona de forma consistente em diferentes navegadores e sistemas operacionais? | Adaptabilidade | F-M1 a F-M3 | Sim, com pequenas diferenças: é uma aplicação web que roda inteira no navegador, mas fontes e atalhos de teclado podem variar no macOS e no Safari |
 | **F-Q2.** A aplicação se adapta a diferentes dispositivos e condições de uso? | Adaptabilidade | F-M4 a F-M6 | Parcialmente: há barra de ferramentas própria para celular e uso offline como PWA, mas colaboração e IA dependem de conexão, e funções ligadas a atalhos devem ser limitadas no toque |
 
-*Tabela 10. Métricas e níveis de pontuação do objetivo O3. Fonte: elaboração
+*Tabela 9. Métricas e níveis de pontuação do objetivo O3. Fonte: elaboração
 própria.*
 
 | Métrica | Como medir | Satisfatório (2) | Parcial (1) | Insatisfatório (0) |
@@ -304,16 +242,16 @@ própria.*
 
 Analisar a substituição de ferramentas equivalentes e a migração de dados, do
 ponto de vista de usuários que migram de outra ferramenta de diagramação. As
-Tabelas 11 e 12 apresentam, respectivamente, as questões e as métricas do O4.
+Tabelas 10 e 11 apresentam, respectivamente, as questões e as métricas do O4.
 
-*Tabela 11. Questões e hipóteses do objetivo O4. Fonte: elaboração própria.*
+*Tabela 10. Questões e hipóteses do objetivo O4. Fonte: elaboração própria.*
 
 | Questão | Subcaracterística | Métricas | Hipótese |
 | --- | --- | --- | --- |
 | **F-Q3.** O Excalidraw pode substituir uma ferramenta equivalente (por exemplo, draw.io ou Miro) sem perda de funcionalidade e produtividade? | Substituibilidade | F-M7 a F-M9 | Parcialmente: deve cobrir as tarefas básicas de diagramação em tempo parecido, mas não todas as funções de ferramentas mais completas como o draw.io e o Miro |
 | **F-Q4.** Os dados podem ser migrados para dentro e para fora do Excalidraw sem perdas? | Substituibilidade | F-M10 a F-M12 | Parcialmente: o formato `.excalidraw` é um JSON aberto e deve preservar tudo ao exportar e reimportar, mas não há importação direta de arquivos do draw.io nem do Miro |
 
-*Tabela 12. Métricas e níveis de pontuação do objetivo O4. Fonte: elaboração
+*Tabela 11. Métricas e níveis de pontuação do objetivo O4. Fonte: elaboração
 própria.*
 
 | Métrica | Como medir | Satisfatório (2) | Parcial (1) | Insatisfatório (0) |
@@ -389,9 +327,9 @@ observada pelas métricas CI-M3 e CI-M7. Fonte: elaboração própria.*
 
 Analisar a interface de criação e edição para identificar dificuldades de
 compreensão, aprendizagem, operação, recuperação de erros e engajamento. As
-Tabelas 13 e 14 apresentam, respectivamente, as questões e as métricas do O5.
+Tabelas 12 e 13 apresentam, respectivamente, as questões e as métricas do O5.
 
-*Tabela 13. Questões e hipóteses do objetivo O5. Fonte: elaboração própria.*
+*Tabela 12. Questões e hipóteses do objetivo O5. Fonte: elaboração própria.*
 
 | Questão | Subcaracterística | Métricas | Hipótese |
 | --- | --- | --- | --- |
@@ -413,7 +351,7 @@ Tabelas 13 e 14 apresentam, respectivamente, as questões e as métricas do O5.
     verificam se as funções são compreensíveis sem consulta externa, conforme
     o [modelo de qualidade](../fase_planejamento/modelo-qualidade.md#capacidade-de-interacao).
 
-*Tabela 14. Métricas e níveis de pontuação do objetivo O5. Fonte: elaboração
+*Tabela 13. Métricas e níveis de pontuação do objetivo O5. Fonte: elaboração
 própria.*
 
 | Métrica | Como medir | Satisfatório (2) | Parcial (1) | Insatisfatório (0) |
@@ -444,9 +382,9 @@ própria.*
 
 Analisar os mecanismos de navegação, interação e apresentação das informações
 para identificar barreiras de inclusividade e de assistência ao usuário. As
-Tabelas 15 e 16 apresentam, respectivamente, as questões e as métricas do O6.
+Tabelas 14 e 15 apresentam, respectivamente, as questões e as métricas do O6.
 
-*Tabela 15. Questões e hipóteses do objetivo O6. Fonte: elaboração própria.*
+*Tabela 14. Questões e hipóteses do objetivo O6. Fonte: elaboração própria.*
 
 | Questão | Subcaracterística | Métricas | Hipótese |
 | --- | --- | --- | --- |
@@ -459,7 +397,7 @@ Tabelas 15 e 16 apresentam, respectivamente, as questões e as métricas do O6.
     [modelo de qualidade](../fase_planejamento/modelo-qualidade.md#capacidade-de-interacao),
     que associa o contraste adequado à assistência ao usuário.
 
-*Tabela 16. Métricas e níveis de pontuação do objetivo O6. Fonte: elaboração
+*Tabela 15. Métricas e níveis de pontuação do objetivo O6. Fonte: elaboração
 própria.*
 
 | Métrica | Como medir | Satisfatório (2) | Parcial (1) | Insatisfatório (0) |
@@ -470,7 +408,7 @@ própria.*
 | **CI-M25.** Contraste mínimo de 4,5:1 | Sim/Não por tela, nos modos claro e escuro; resultado = combinações que atendem ÷ combinações testadas | 100% das combinações | ≥ 80% e < 100% | < 80% |
 | **CI-M26.** Idiomas e tradução para o português | Número de idiomas disponíveis e proporção da interface traduzida para o português (strings traduzidas ÷ total de strings) | ≥ 95% das strings | 70% a 94% | < 70% ou sem português |
 
-## 5. Execução e fontes de evidência
+## 2. Execução e fontes de evidência
 
 1. Fixar a versão avaliada, os navegadores, sistemas operacionais, resoluções
    e dispositivos.
@@ -488,12 +426,12 @@ própria.*
 Entrevistas ou testes com participantes exigem autorização prévia. Os registros
 não devem conter nomes reais ou dados pessoais desnecessários.
 
-## 6. Critérios de julgamento
+## 3. Critérios de julgamento
 
 Cada métrica recebe uma pontuação de 0 a 2, com o significado de cada nível
-descrito na Tabela 17.
+descrito na Tabela 16.
 
-*Tabela 17. Níveis de pontuação das métricas. Fonte: elaboração própria.*
+*Tabela 16. Níveis de pontuação das métricas. Fonte: elaboração própria.*
 
 | Nível | Significado |
 | --- | --- |
@@ -501,8 +439,8 @@ descrito na Tabela 17.
 | **1 — Parcial** | O valor fica abaixo da meta, mas ainda indica atendimento limitado |
 | **0 — Insatisfatório** | O atributo não é atendido |
 
-Os limites de cada nível, para as 51 métricas, estão nas Tabelas 6, 8, 10,
-12, 14 e 16, na [seção 4](#4-estrategia-gqm). Quando a definição da métrica já traz uma
+Os limites de cada nível, para as 51 métricas, estão nas Tabelas 5, 7, 9,
+11, 13 e 15, na [seção 1](#1-estrategia-gqm). Quando a definição da métrica já traz uma
 meta, como 100% de mensagens cifradas, taxa de recuperabilidade de 100%, razão
 de tempo de tarefa menor ou igual a 1 ou escore SUS maior ou igual a 68, essa
 meta é o limite do nível 2. As métricas de resposta Sim/Não têm apenas os
@@ -513,9 +451,9 @@ A pontuação de uma questão é a média simples das pontuações de suas métr
 e a de um objetivo é a média simples das pontuações de suas questões. Assim,
 todas as métricas de uma questão e todas as questões de um objetivo têm o mesmo
 peso. A média é convertida em percentual do máximo de 2 pontos
-(`média / 2 × 100`) e interpretada conforme a Tabela 18.
+(`média / 2 × 100`) e interpretada conforme a Tabela 17.
 
-*Tabela 18. Interpretação do percentual de atendimento. Fonte: elaboração
+*Tabela 17. Interpretação do percentual de atendimento. Fonte: elaboração
 própria.*
 
 | Percentual | Interpretação |
@@ -530,7 +468,7 @@ demais métricas da mesma questão. O julgamento vale apenas para as
 funcionalidades, os ambientes e as condições efetivamente examinados, conforme
 o [registro e análise dos resultados](../metodologia.md#registro-e-analise-dos-resultados).
 
-## 7. Gestão e rastreabilidade
+## 4. Gestão e rastreabilidade
 
 As contribuições devem ser realizadas no Git, com commits identificáveis,
 revisões e vínculo entre mudanças e evidências. A gestão do projeto usará
@@ -540,7 +478,6 @@ alterações de escopo e resultados deve permanecer no repositório.
 
 As métricas operacionais de participação, entrega, revisão, rastreabilidade e
 calendário são definidas na página de
-[Métricas de gestão do grupo](gestao-grupo.md). Elas complementam, mas não
-substituem, as métricas de qualidade do Excalidraw. A sessão automatizada de
-membros e atividades deve alimentar o contrato de dados dessa página e
-preservar o denominador, a janela e a fonte de cada valor.
+[Métricas de desenvolvimento](../gestao/metricas.md). Elas complementam, mas
+não substituem, as métricas de qualidade do Excalidraw e preservam o
+denominador, a janela e a fonte de cada valor.

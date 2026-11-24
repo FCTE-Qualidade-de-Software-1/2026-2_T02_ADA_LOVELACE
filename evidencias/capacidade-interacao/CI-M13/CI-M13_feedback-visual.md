@@ -1,5 +1,7 @@
 # Evidência CI-M13 : Ações com feedback visual imediato
 
+> **Decisão do grupo (23/11/2026, discussão interna com a concordância de todos; [registro](../../decisoes-grupo_2026-11-23.md)):** a nota 2/2 passa a ser definitiva. A ressalva que a tornava provisória fica como limitação: o critério adotado é o retorno presente no ponto de observação, como no roteiro; a latência não foi medida. O registro abaixo é o original.
+
 > Coleta automatizada concluída pelo Codex. **Validação manual de Renato e revisão de outro integrante pendentes.** Issue [#70](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/70). Não houve push, PR ou merge.
 
 ## 1. Identificação

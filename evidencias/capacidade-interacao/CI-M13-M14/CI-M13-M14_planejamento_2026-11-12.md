@@ -2,7 +2,7 @@
 
 Responsável: Renato Araújo Gameiro. Execução automatizada: Codex. Validação humana: pendente.
 
-Fontes: issue #70 integral e sem comentários, template oficial, roteiro GQM (Tabela 14), plano `tarefas-capacidade-interacao.md`, evidências CI-M18/CI-M26. Consultados PRs abertos #87–#92 e #94: nenhum altera os diretórios desta coleta. A lista do plano é exemplificativa; não existe denominador previamente fechado para M13/M14.
+Fontes: issue #70 integral e sem comentários, template oficial, roteiro GQM (Tabela 13), plano `tarefas-capacidade-interacao.md`, evidências CI-M18/CI-M26. Consultados PRs abertos #87–#92 e #94: nenhum altera os diretórios desta coleta. A lista do plano é exemplificativa; não existe denominador previamente fechado para M13/M14.
 
 ## Protocolo fixado antes da execução
 

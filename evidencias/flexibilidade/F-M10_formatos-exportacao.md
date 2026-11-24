@@ -1,6 +1,6 @@
 # Evidência F-M10 : Cobertura de formatos de exportação
 
-> Status: **coleta de código** (feito com apoio do Claude, ver `docs/uso-ia.md`). O denominador deve ser decidido em grupo.
+> Status: **coleta de código** (feito com apoio do Claude, ver `docs/uso-ia.md`). Denominador de 5 formatos aprovado pelo grupo em 23/11/2026 ([registro](../decisoes-grupo_2026-11-23.md)).
 
 ## 1. Identificação
 
@@ -90,7 +90,7 @@ Se o denominador for só os três formatos citados na métrica (JSON, SVG e PNG)
 
 ## 6. Observações e limitações
 
-- O denominador (PNG, SVG, JSON, PDF e JPEG) foi escolhido nesta coleta. **Decidir em grupo** e registrar a lista; com denominador 3 a nota seria 2.
+- O denominador (PNG, SVG, JSON, PDF e JPEG) foi escolhido nesta coleta. Aprovado pelo grupo em 23/11/2026; com denominador 3 a nota seria 2.
 - A lista de formatos do draw.io e do Miro não foi conferida na documentação deles nesta coleta. Conferir antes de entregar.
 - Mede-se a existência da exportação no código, não a qualidade do arquivo gerado. A preservação dos elementos é a F-M11.
 - Os arquivos citados foram comparados com o commit `e7b5346` do Excalidraw pelo hash do arquivo (`gh api .../contents/<arquivo>?ref=e7b5346` × `git hash-object`): todos idênticos.

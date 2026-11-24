@@ -1,8 +1,8 @@
 # Cronograma
 
 Esta página reúne o calendário da avaliação. Ela cobre a categoria
-**calendário** do PSM citada na seção 7 do
-[roteiro da análise](../analise/roteiro.md#7-gestao-e-rastreabilidade): as
+**calendário** do PSM citada na seção 4 do
+[roteiro da análise](../analise/roteiro.md#4-gestao-e-rastreabilidade): as
 datas fixadas pela disciplina e, para cada marco, o que a equipe precisa
 entregar. O andamento das tarefas dentro de cada período é acompanhado nas
 [métricas de desenvolvimento](metricas.md).

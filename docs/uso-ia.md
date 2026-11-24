@@ -119,6 +119,34 @@ Na Entrega 2:
   assistência ao usuário, seguindo o modelo de qualidade. Conferi as métricas
   transpostas com o documento de definição e a geração do site sem erros.
 
+Na Entrega 2:
+
+* **Ferramenta:** Claude Code, com o modelo Claude Opus 5.5 (Anthropic), na
+  extensão do VS Code.
+* **Tarefa:** revisão geral da GitPage para encontrar páginas repetidas,
+  desatualizadas e inconsistentes, e correção das que eu escolhi: remoção das
+  páginas sem conteúdo próprio, união das páginas de gestão, resumo do início
+  do roteiro, transferência das oportunidades de melhoria e das limitações
+  para as páginas próprias, atualização do estado de revisão das métricas,
+  padronização de nomes, coluna de faixas do roteiro nos resultados,
+  fechamento das notas provisórias e nova página inicial. Também
+  conferência dos valores de gestão no site publicado e das execuções dos
+  workflows.
+* **Onde:** [página inicial](index.md), [roteiro da análise](analise/roteiro.md),
+  [análise dos resultados](analise/resultados.md),
+  [melhoria](analise/melhoria.md),
+  [ameaças e conclusão](analise/ameacas-conclusao.md),
+  [métricas de desenvolvimento](gestao/metricas.md), páginas de
+  [resultados por métrica](resultados/index.md), `mkdocs.yml`, o script e o
+  workflow de métricas de gestão e esta página.
+* **Quando:** 23 nov. 2026.
+* **Como conferiu e ajustou:** os problemas encontrados foram apresentados
+  antes de qualquer alteração, e decidi o que mudar e o que manter, como o PDF
+  da retrospectiva. O estado de revisão foi conferido nos PRs do GitHub, e as
+  notas das 51 métricas foram comparadas entre o índice, a análise e as
+  páginas individuais. O site foi gerado sem erros nem avisos e com todos os
+  links internos válidos.
+
 ### Luís Cunha
 
 * **Ferramenta:** OpenCode, DeepSeek V4.1 Flash & MiniCPM V4.7 35B A3B - Local.

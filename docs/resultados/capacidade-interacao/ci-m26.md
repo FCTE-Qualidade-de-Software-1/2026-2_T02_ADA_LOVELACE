@@ -51,10 +51,9 @@ Registro completo:
 | Item | Registro |
 | --- | --- |
 | Objetivo e questão GQM | O6 · CI-Q10 ([roteiro](../../analise/roteiro.md)) |
-| Versão de referência | Excalidraw [`e7b534668a60add7f725531f3c9abf32508c7b4e`](https://github.com/excalidraw/excalidraw/commit/e7b534668a60add7f725531f3c9abf32508c7b4e); ressalvas de correspondência abaixo |
 | Valor medido | 57 idiomas; 594 de 642 strings (92,5%) |
 | Pontuação | **1/2** |
-| Origem | [PR #50](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/50), integrado na main |
+| Origem | [PR #50](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/50), aprovado por outro integrante e integrado na main |
 
 **Procedimento resumido:** Contagem de idiomas e comparação das chaves não vazias de pt-BR com todas as strings de en.json.
 
@@ -62,7 +61,7 @@ Registro completo:
 
 **Limitações e revisão integrada:** O [PR #107](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/107) foi integrado na main no commit `460d7e4`. O registro original agora identifica revisão por Luís Felipe em 15/11/2026. A reavaliação mantém 57 idiomas, 594/642 strings e nota 1, sem divergência substantiva. Conforme a comparação integrada, `a8800f8` é o snapshot do grupo, e não outra versão do Excalidraw: os arquivos de idiomas não mudaram desde a incorporação em `07efd32`, documentada como `e7b5346`. Essa rastreabilidade não é uma nova verificação por hash nesta integração. A amostra qualitativa de 20 chaves não substitui a avaliação de todas as traduções nem de todos os perfis.
 
-**Evidência original:** [CI-M26_idiomas-traducao-pt-BR.md](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/c9ac9610b92474af82cc9ad3e67dc53bfa3490d4/evidencias/capacidade-interacao/CI-M26_idiomas-traducao-pt-BR.md), com dados, procedimento completo e arquivos de apoio. Esta página consolida a coleta existente; não registra nova medição ou aprovação humana.
+**Evidência original:** [CI-M26_idiomas-traducao-pt-BR.md](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/c9ac9610b92474af82cc9ad3e67dc53bfa3490d4/evidencias/capacidade-interacao/CI-M26_idiomas-traducao-pt-BR.md), com dados, procedimento completo e arquivos de apoio. Esta página consolida a coleta existente, sem nova medição.
 
 Revisão independente:
 [`CI-M26_comparacao.md`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M26_comparacao.md).

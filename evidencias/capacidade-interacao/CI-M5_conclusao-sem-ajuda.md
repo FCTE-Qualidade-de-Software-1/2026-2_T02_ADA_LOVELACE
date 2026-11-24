@@ -22,7 +22,7 @@ Tarefas básicas (T4 e T5) concluídas sem pedir ajuda ÷ tarefas propostas (CI-
 2. Preencher a ficha de observação de cada sessão em `evidencias/participantes/fichas/P_0X/` a partir da gravação e das transcrições (VTT com marcação de tempo; a de P01 é texto sem tempo).
 3. Copiar os valores já resumidos para `evidencias/participantes/registro-sessoes.csv` (só códigos, sem nomes).
 4. Para cada tarefa, registrar se concluiu dentro de 8 min e se houve consulta ou pergunta à facilitadora.
-5. Calcular a métrica conforme a seção 8 do protocolo e pontuar pela Tabela 14 do roteiro de análise.
+5. Calcular a métrica conforme a seção 8 do protocolo e pontuar pela Tabela 13 do roteiro de análise.
 
 ### 3.1 Comandos executados
 

@@ -7,7 +7,7 @@
 | Métrica | S-M3 — Mecanismos de controle de acesso |
 | Objetivo | O1 — Proteção das informações e controle de acesso |
 | Questão (S-Q) | S-Q2 — É possível controlar quem acessa um desenho compartilhado? Confidencialidade |
-| Tarefa do plano | [Issue #56](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/56); definição na Tabela 6 do [roteiro GQM](../../../docs/analise/roteiro.md) |
+| Tarefa do plano | [Issue #56](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/56); definição na Tabela 5 do [roteiro GQM](../../../docs/analise/roteiro.md) |
 | Responsável | Renato Araújo Gameiro (`renatoyx`), coleta assistida por agente |
 | Data(s) da coleta | 2026-11-12; preparação a partir de 11:46, observação da interface entre 11:53 e 11:56, UTC−03:00 |
 | Revisado por | Pendente de revisão por outro integrante |

@@ -42,6 +42,10 @@ extra_css:
 markdown_extensions:
   - admonition
   - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - tables
   - toc:
       permalink: true
@@ -63,35 +67,29 @@ nav:
       - Modelo de qualidade: fase_planejamento/modelo-qualidade.md
       - ODS: fase_planejamento/ods.md
       - Objetivos de qualidade: fase_planejamento/objetivos-qualidade.md
-  - Análise:
-      - Roteiro da análise: analise/roteiro.md
-      - Gestão do grupo: analise/gestao-grupo.md
-      - Resultados: analise/resultados.md
-      - Oportunidades de melhoria e ação executada: analise/melhoria.md
-      - Ameaças à validade e conclusão: analise/ameacas-conclusao.md
+  - Roteiro da análise: analise/roteiro.md
   - Fase de Aplicação:
       - Visão geral: fase_aplicacao/index.md
       - Plano de avaliação: fase_aplicacao/plano-avaliacao.md
-      - Segurança: fase_aplicacao/seguranca.md
-      - Flexibilidade: fase_aplicacao/flexibilidade.md
-      - Capacidade de interação: fase_aplicacao/capacidade-interacao.md
   - Resultados:
-      - Visão geral: resultados/index.md
-      - Inventário de Renato (issue 20): resultados/inventario-renato-issue-20.md
+      - Visão geral do resultado das métricas: resultados/index.md
+      - Análise dos resultados: analise/resultados.md
+      - Oportunidades de melhoria e ação executada: analise/melhoria.md
+      - Ameaças à validade e conclusão: analise/ameacas-conclusao.md
       - Segurança:
-          - S-M1 · Mensagens cifradas: resultados/seguranca/s-m1.md
+          - S-M1 · Mensagens de colaboração cifradas: resultados/seguranca/s-m1.md
           - S-M2 · Chave enviada ao servidor: resultados/seguranca/s-m2.md
           - S-M3 · Mecanismos de controle de acesso: resultados/seguranca/s-m3.md
           - S-M4 · Dados persistidos localmente sem criptografia: resultados/seguranca/s-m4.md
-          - S-M5 · Detecção de adulteração: resultados/seguranca/s-m5.md
-          - S-M6 · Edição simultânea: resultados/seguranca/s-m6.md
+          - S-M5 · Taxa de detecção de adulteração: resultados/seguranca/s-m5.md
+          - S-M6 · Inconsistências após edições simultâneas: resultados/seguranca/s-m6.md
           - S-M7 · Completude da trilha de auditoria: resultados/seguranca/s-m7.md
           - S-M8 · Histórico de versões com autoria: resultados/seguranca/s-m8.md
           - S-M9 · Suficiência da autenticação: resultados/seguranca/s-m9.md
           - S-M10 · Passar-se por outro participante: resultados/seguranca/s-m10.md
           - S-M11 · Vulnerabilidades altas ou críticas nas dependências: resultados/seguranca/s-m11.md
           - S-M12 · Advisories, CVEs e tempo de correção: resultados/seguranca/s-m12.md
-          - S-M13 · Cabeçalhos HTTP: resultados/seguranca/s-m13.md
+          - S-M13 · Cabeçalhos de segurança HTTP: resultados/seguranca/s-m13.md
       - Flexibilidade:
           - F-M1 · Compatibilidade de navegadores: resultados/flexibilidade/f-m1.md
           - F-M2 · Compatibilidade de sistemas operacionais: resultados/flexibilidade/f-m2.md
@@ -101,13 +99,13 @@ nav:
           - F-M6 · Resoluções sem perda de elementos: resultados/flexibilidade/f-m6.md
           - F-M7 · Inclusão funcional: resultados/flexibilidade/f-m7.md
           - F-M8 · Razão de tempo de tarefa: resultados/flexibilidade/f-m8.md
-          - F-M9 · Conclusão de tarefas: resultados/flexibilidade/f-m9.md
-          - F-M10 · Formatos de exportação: resultados/flexibilidade/f-m10.md
+          - F-M9 · Conclusão de tarefas por quem vem de outra ferramenta: resultados/flexibilidade/f-m9.md
+          - F-M10 · Cobertura de formatos de exportação: resultados/flexibilidade/f-m10.md
           - F-M11 · Fidelidade de migração: resultados/flexibilidade/f-m11.md
-          - F-M12 · Formatos de importação: resultados/flexibilidade/f-m12.md
+          - F-M12 · Formatos de importação aceitos: resultados/flexibilidade/f-m12.md
       - Capacidade de interação:
           - CI-M1 · Tempo até identificar o propósito: resultados/capacidade-interacao/ci-m1.md
-          - CI-M2 · Reconhecimento correto: resultados/capacidade-interacao/ci-m2.md
+          - CI-M2 · Taxa de reconhecimento correto: resultados/capacidade-interacao/ci-m2.md
           - CI-M3 · Ícones autoexplicativos: resultados/capacidade-interacao/ci-m3.md
           - CI-M4 · Tempo da primeira tarefa: resultados/capacidade-interacao/ci-m4.md
           - CI-M5 · Conclusão sem ajuda: resultados/capacidade-interacao/ci-m5.md
@@ -115,14 +113,14 @@ nav:
           - CI-M7 · Cobertura da ajuda interna: resultados/capacidade-interacao/ci-m7.md
           - CI-M9 · Ações por tarefa frequente: resultados/capacidade-interacao/ci-m9.md
           - CI-M10 · Cobertura de atalhos de teclado: resultados/capacidade-interacao/ci-m10.md
-          - CI-M11 · Experientes em relação a iniciantes: resultados/capacidade-interacao/ci-m11.md
+          - CI-M11 · Tempo de experientes em relação a iniciantes: resultados/capacidade-interacao/ci-m11.md
           - CI-M12 · Inconsistências da interface: resultados/capacidade-interacao/ci-m12.md
           - CI-M13 · Ações com feedback visual imediato: resultados/capacidade-interacao/ci-m13.md
           - CI-M14 · Taxa de recuperabilidade: resultados/capacidade-interacao/ci-m14.md
           - CI-M15 · Ações destrutivas sem confirmação: resultados/capacidade-interacao/ci-m15.md
           - CI-M16 · Perda de dados ao fechar ou recarregar: resultados/capacidade-interacao/ci-m16.md
           - CI-M17 · Taxa de erro do usuário: resultados/capacidade-interacao/ci-m17.md
-          - CI-M18 · Mensagens de erro: resultados/capacidade-interacao/ci-m18.md
+          - CI-M18 · Mensagens de erro compreensíveis: resultados/capacidade-interacao/ci-m18.md
           - CI-M19 · Escore SUS: resultados/capacidade-interacao/ci-m19.md
           - CI-M20 · Satisfação visual: resultados/capacidade-interacao/ci-m20.md
           - CI-M21 · Intenção de uso futuro: resultados/capacidade-interacao/ci-m21.md
@@ -130,7 +128,7 @@ nav:
           - CI-M23 · Funções operáveis só pelo teclado: resultados/capacidade-interacao/ci-m23.md
           - CI-M24 · Elementos anunciados por leitor de tela: resultados/capacidade-interacao/ci-m24.md
           - CI-M25 · Contraste mínimo de 4,5:1: resultados/capacidade-interacao/ci-m25.md
-          - CI-M26 · Tradução para o português: resultados/capacidade-interacao/ci-m26.md
+          - CI-M26 · Idiomas e tradução para o português: resultados/capacidade-interacao/ci-m26.md
   - Gestão:
       - Métricas de desenvolvimento: gestao/metricas.md
       - Gráficos da Entrega 2: gestao/graficos-entrega-2.md

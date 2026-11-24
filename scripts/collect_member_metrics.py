@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 OUTPUT = Path("docs/gestao/dados/membros-commits.csv")
-PAGE = Path("docs/analise/gestao-grupo.md")
+PAGE = Path("docs/gestao/metricas.md")
 
 
 def collect_counts(ref: str) -> list[tuple[str, str, int]]:

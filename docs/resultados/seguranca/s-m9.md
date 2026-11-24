@@ -71,15 +71,14 @@ Registro completo:
 | Item | Registro |
 | --- | --- |
 | Objetivo e questão GQM | O2 · S-Q5 ([roteiro](../../analise/roteiro.md)) |
-| Versão de referência | Excalidraw [`e7b534668a60add7f725531f3c9abf32508c7b4e`](https://github.com/excalidraw/excalidraw/commit/e7b534668a60add7f725531f3c9abf32508c7b4e); ressalvas de correspondência abaixo |
 | Valor medido | Nome autodeclarado |
 | Pontuação | **1/2** |
-| Origem | [PR #51](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/51), integrado na main |
+| Origem | [PR #51](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/51), aprovado por outro integrante e integrado na main |
 
 **Procedimento resumido:** Leitura do cliente de colaboração, persistência do nome e buscas por login e credenciais.
 
 **Resultado e justificativa:** O nível observado é nome autodeclarado, correspondente a 1; não há identidade verificada no recorte do cliente.
 
-**Limitações:** A captura pública é ilustrativa e não fixa a versão implantada. Correspondência do snapshot com o upstream baseada na documentação e linhas; revisão cruzada não preenchida.
+**Limitações:** A captura pública é ilustrativa e não fixa a versão implantada. Correspondência do snapshot com o upstream baseada na documentação e linhas.
 
-**Evidência original:** [S-M9_suficiencia-autenticacao.md](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/c9ac9610b92474af82cc9ad3e67dc53bfa3490d4/evidencias/seguranca/S-M9/S-M9_suficiencia-autenticacao.md), com dados, procedimento completo e arquivos de apoio. Esta página consolida a coleta existente; não registra nova medição ou aprovação humana.
+**Evidência original:** [S-M9_suficiencia-autenticacao.md](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/c9ac9610b92474af82cc9ad3e67dc53bfa3490d4/evidencias/seguranca/S-M9/S-M9_suficiencia-autenticacao.md), com dados, procedimento completo e arquivos de apoio. Esta página consolida a coleta existente, sem nova medição.
