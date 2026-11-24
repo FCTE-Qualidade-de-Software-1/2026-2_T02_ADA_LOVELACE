@@ -9,7 +9,7 @@ a partir do histórico de **Status** do Kanban e do histórico de commits da
 mão.
 
 <!-- BEGIN AUTO: coleta -->
-*Dados do Project coletados em 24/11/2026 13:37 (horário de Brasília); 42 issues no milestone Entrega 2.*
+*Dados do Project coletados em 24/11/2026 18:34 (horário de Brasília); 42 issues no milestone Entrega 2.*
 <!-- END AUTO: coleta -->
 
 ## Escopo e regras de contagem
@@ -50,7 +50,7 @@ da Entrega 2. Fonte: histórico de Status dos dois quadros.*
 | Entrega | Issues concluídas | Passaram por Em andamento | Passaram por Em revisão |
 | --- | ---: | ---: | ---: |
 | Entrega 1 | 17 | 1 (6%) | 1 (6%) |
-| Entrega 2 | 36 | 28 (78%) | 31 (86%) |
+| Entrega 2 | 37 | 29 (78%) | 32 (86%) |
 <!-- END AUTO: comparacao -->
 
 ## Lead Time e Cycle Time
@@ -85,6 +85,7 @@ Status do Kanban.*
 | [#39](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/39) | Ameaças à validade e conclusão | 22/11 | 27,0 | N/A |
 | [#40](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/40) | Gestão PSM/CID na Entrega 2 | 15/11 | 20,1 | 1,1 |
 | [#41](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/41) | Revisão obrigatória na main | 04/11 | 8,7 | 0,0 |
+| [#42](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/42) | Artigo da Entrega 2 (Fases 3 e 4) | 24/11 | 28,7 | 8,1 |
 | [#49](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/49) | CI-M18 e M26 | 04/11 | 0,0 | N/A |
 | [#52](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/52) | S-M9 suficiência da autenticação | 04/11 | 0,0 | N/A |
 | [#53](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/53) | S-M13 cabeçalhos de segurança HTTP | 04/11 | 0,0 | N/A |
@@ -113,7 +114,7 @@ Status do Kanban.*
 | [#77](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/77) | Revisão cruzada das métricas e decisões de denominador | 23/11 | 19,4 | N/A |
 | [#82](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/82) | Páginas de resultado de S-M9, S-M13, F-M10, F-M12, CI-M18 e CI-M26 | 09/11 | 0,1 | N/A |
 
-**Mediana:** Lead Time de **9,1 dias** (36 issues) e Cycle Time de **0,9 dias** (28 issues; 8 sem passagem por *Em andamento* ficam como N/A).
+**Mediana:** Lead Time de **9,1 dias** (37 issues) e Cycle Time de **1,0 dias** (29 issues; 8 sem passagem por *Em andamento* ficam como N/A).
 <!-- END AUTO: lead-cycle -->
 
 ## Fluxo acumulado
@@ -277,8 +278,8 @@ Fonte: pull requests e revisões do repositório.*
 | --- | ---: | ---: | ---: | :---: | ---: | ---: |
 | Entrega 1 | 12 | 0 | 0% | 0 | 5 | 13 |
 | Entrega 2, antes da regra (até 04/11) | 7 | 0 | 0% | 0 | 0 | 2 |
-| Entrega 2, depois da regra | 37 | 35 | 95% | 2 | 1 | 0 |
-| Entrega 2 (total) | 44 | 35 | 80% | 1 | 1 | 2 |
+| Entrega 2, depois da regra | 38 | 36 | 95% | 2 | 1 | 0 |
+| Entrega 2 (total) | 45 | 36 | 80% | 1 | 1 | 2 |
 
 Integrados sem aprovação depois da regra: [#87](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/87), [#103](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/pull/103).
 <!-- END AUTO: revisao -->

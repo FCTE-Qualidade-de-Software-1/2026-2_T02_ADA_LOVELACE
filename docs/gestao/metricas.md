@@ -295,12 +295,12 @@ marcadores automáticos não deve ser editado à mão.
 | André Henrique Belarmino | 3 |
 | Luís Felipe Parreira Cunha | 3 |
 | renatoyx | 2 |
+| Zayra Moraes | 2 |
 | Renato Gameiro | 1 |
 | renatvg | 1 |
-| Zayra Moraes | 1 |
-| **Total** | **136** |
+| **Total** | **137** |
 
-*Última coleta: 2026-11-24T16:36:45+00:00, referência `main`.*
+*Última coleta: 2026-11-24T21:34:32+00:00, referência `main`.*
 <!-- END AUTO: membros-commits -->
 
 O valor é uma evidência auxiliar de **G-I1**, não uma medida de esforço,

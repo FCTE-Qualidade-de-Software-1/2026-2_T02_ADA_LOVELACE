@@ -183,16 +183,16 @@ z
    <g id="patch_5">
     <path d="M 135.60095 209.694437 
 L 208.707902 209.694437 
-L 208.707902 76.414437 
-L 135.60095 76.414437 
+L 208.707902 75.385248 
+L 135.60095 75.385248 
 z
 " clip-path="url(#pf9c52566a6)" style="fill: #6965db"/>
    </g>
    <g id="patch_6">
     <path d="M 344.477956 209.694437 
 L 417.584908 209.694437 
-L 417.584908 62.134437 
-L 344.477956 62.134437 
+L 417.584908 61.491194 
+L 344.477956 61.491194 
 z
 " clip-path="url(#pf9c52566a6)" style="fill: #6965db"/>
    </g>
@@ -213,10 +213,10 @@ L 435.339453 209.694437
     <text style="font-size: 8px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="307.92448" y="197.692562" transform="rotate(-0 307.92448 197.692562)">1/17</text>
    </g>
    <g id="text_12">
-    <text style="font-size: 8px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="172.154426" y="74.492562" transform="rotate(-0 172.154426 74.492562)">28/36</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="172.154426" y="73.463373" transform="rotate(-0 172.154426 73.463373)">29/37</text>
    </g>
    <g id="text_13">
-    <text style="font-size: 8px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="381.031432" y="60.212562" transform="rotate(-0 381.031432 60.212562)">31/36</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="381.031432" y="59.569319" transform="rotate(-0 381.031432 59.569319)">32/37</text>
    </g>
    <g id="text_14">
     <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="240.039453" y="15.198437" transform="rotate(-0 240.039453 15.198437)">Issues concluídas com cada etapa registrada no quadro</text>
@@ -242,7 +242,7 @@ z
 " style="fill: #6965db"/>
     </g>
     <g id="text_16">
-     <text style="font-size: 8px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="74.339453" y="47.117812" transform="rotate(-0 74.339453 47.117812)">Entrega 2 (36 issues concluídas)</text>
+     <text style="font-size: 8px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="74.339453" y="47.117812" transform="rotate(-0 74.339453 47.117812)">Entrega 2 (37 issues concluídas)</text>
     </g>
    </g>
   </g>

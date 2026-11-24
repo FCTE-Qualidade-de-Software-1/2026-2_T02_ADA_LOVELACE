@@ -1,5 +1,5 @@
 {
- "coletado_em": "2026-11-24T16:37:11+00:00",
+ "coletado_em": "2026-11-24T21:34:56+00:00",
  "prs": [
   {
    "numero": 1,
@@ -759,6 +759,21 @@
      "revisor": "cunha-luiss",
      "estado": "APPROVED",
      "em": "2026-11-24T16:36:00Z"
+    }
+   ]
+  },
+  {
+   "numero": 117,
+   "titulo": "docs: complementa a declaração de uso de IA da Zayra (métricas de capacidade de interação)",
+   "autor": "Zayra-Moraes",
+   "integrado_por": "ojplc",
+   "criado_em": "2026-11-24T21:01:25Z",
+   "integrado_em": "2026-11-24T21:34:08Z",
+   "revisoes": [
+    {
+     "revisor": "ojplc",
+     "estado": "APPROVED",
+     "em": "2026-11-24T21:33:59Z"
     }
    ]
   }
