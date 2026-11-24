@@ -1,9 +1,40 @@
 # Oportunidades de melhoria e ação executada
 
-As 16 métricas com nota 0 estão na tabela de
-[oportunidades de melhoria](resultados.md#oportunidades-de-melhoria) dos
-resultados. Esta página prioriza essas oportunidades, explica qual foi
-executada e mostra o efeito medido.
+Esta página lista as oportunidades de melhoria das métricas com nota 0,
+prioriza essas oportunidades, explica qual foi executada e mostra o efeito
+medido.
+
+## Oportunidades de melhoria
+
+Toda métrica com nota 0 vira oportunidade, mesmo quando a média da questão é
+maior ([seção 3 do roteiro](roteiro.md#3-criterios-de-julgamento)):
+
+| Métrica / evidência | Problema | Impacto | Recomendação |
+| --- | --- | --- | --- |
+| [S-M1](../resultados/seguranca/s-m1.md) | 1 de 6 tipos de evento da colaboração vai sem cifra (o nome no pedido de seguir) | Exposição do nome ao operador do servidor de sala; não demonstra leitura por terceiros sob HTTPS/WSS. | Enviar o pedido de seguir pelo canal cifrado ou mandar só o `socketId` |
+| [S-M3](../resultados/seguranca/s-m3.md) | Link de colaboração sem senha, expiração nem revogação | Quem possui o link e a chave pode entrar; dificulta limitar duração e retirar acesso. | Oferecer senha separada do link, expiração e revogação validadas pelo servidor |
+| [S-M4](../resultados/seguranca/s-m4.md) | Cena, arquivos e biblioteca ficam sem cifra no navegador | Conteúdo permanece legível a quem acesse o armazenamento do navegador; não prova acesso remoto indevido. | Avisar do salvamento local e permitir limpar ou não persistir; cifrar com chave do usuário num modo protegido |
+| [S-M7](../resultados/seguranca/s-m7.md) | Nenhuma das 7 ações tem autor registrado | Impede atribuir as sete ações observadas a um autor verificável. | Registrar ação, participante, horário e operação numa trilha persistente |
+| [S-M8](../resultados/seguranca/s-m8.md) | Não há histórico de versões, só desfazer e refazer | Dificulta investigar e restaurar alterações com autoria; comparação paga não concluída. | Guardar versões com data, autor e opção de restaurar |
+| [S-M10](../resultados/seguranca/s-m10.md) | Um participante assumiu o nome de outro sem bloqueio | Nomes iguais confundem a atribuição das ações; a identidade não é verificada. | Oferecer identidade autenticada; sem login, distinguir nomes repetidos por identificador visível, sem apresentá-lo como autenticação |
+| [S-M11](../resultados/seguranca/s-m11.md) | 5 vulnerabilidades altas nas dependências | Risco potencial nas versões instaladas; exploração e presença no bundle não demonstradas. | Atualizar `nanoid` e `socket.io-parser` e repetir a auditoria |
+| [S-M12](../resultados/seguranca/s-m12.md) | Advisory aplicável sem correção publicada | Permanece risco potencial na importação descrita no aviso, sujeito à revisão da análise estática. | Acompanhar a correção e verificar de novo a importação de cenas |
+| [F-M7](../resultados/flexibilidade/f-m7.md) | Só 24 de 42 funções do draw.io | Usuários vindos do draw.io perdem funções avançadas; impacto sobre produtividade ainda não medido. | Priorizar tabelas, swimlanes e importação de arquivos `.drawio` |
+| [CI-M5](../resultados/capacidade-interacao/ci-m5.md) | Só 5 de 8 tarefas de iniciantes concluídas sem ajuda (62,5%) | Na T5, iniciantes passaram do tempo, não concluíram ou perguntaram à facilitadora, e ninguém recorreu à ajuda da ferramenta. | Mostrar o nome da forma ao passar o mouse e no primeiro uso, e destacar a ajuda na tela de boas-vindas |
+| [CI-M14](../resultados/capacidade-interacao/ci-m14.md) | Tema e zoom não entram no desfazer | Desfazer não restaura tema/zoom e pode atingir edição anterior. | Deixar claro o que o histórico cobre e manter controles para restaurar tema e zoom |
+| [CI-M17](../resultados/capacidade-interacao/ci-m17.md) | 23,3% das ações dos iniciantes e do perfil C foram erradas | Retrabalho nas primeiras tarefas, concentrado em quem nunca usou a ferramenta (47,1% em P03); contagem de uma pessoa. | Analisar nas gravações os tipos de erro mais comuns e reforçar o retorno visual de seleção e de ferramenta ativa |
+| [CI-M18](../resultados/capacidade-interacao/ci-m18.md) | Só 8 de 18 mensagens de erro explicam o problema e a saída | Orientação documental insuficiente para recuperar falhas; compreensão real não foi medida. | Incluir o motivo provável e uma ação (por exemplo, "Use PNG, JPEG ou SVG") |
+| [CI-M22](../resultados/capacidade-interacao/ci-m22.md) | 6 violações da WCAG 2.2 (A e AA) | Barreiras de zoom, nome e semântica dificultam navegação e uso assistivo nos estados testados. | Permitir zoom no `viewport`, nomear o botão do menu e corrigir papéis e rótulos ARIA |
+| [CI-M24](../resultados/capacidade-interacao/ci-m24.md) | O leitor de tela anuncia 1 de 9 elementos desenhados | A maior parte do desenho fica indisponível ao NVDA/Edge testado. | Expor os elementos numa estrutura acessível e anunciar seleção e mudanças |
+| [CI-M25](../resultados/capacidade-interacao/ci-m25.md) | 11 de 19 combinações de texto abaixo de 4,5:1 | Textos de apoio e atalhos podem ficar difíceis de ler, especialmente para baixa visão. | Escurecer os cinzas usados em texto até 4,5:1 e não usar `opacity` nos atalhos |
+
+São **16 oportunidades, uma por métrica com nota 0** (8 de Segurança,
+1 de Flexibilidade e 7 de Capacidade de interação). As páginas vinculadas na primeira
+coluna contêm o registro original, procedimento e evidência reproduzível.
+A CI-M8, não medida, não entra nesta lista. Os achados adicionais
+com notas 1 ou 2 permanecem em [Achados](resultados.md#achados), sem alterar essa contagem.
+A prioridade inicial de Segurança é recomendação de triagem; as barreiras
+assistivas também restringem o uso, sem uma pontuação de prioridade inventada.
 
 ## Priorização
 

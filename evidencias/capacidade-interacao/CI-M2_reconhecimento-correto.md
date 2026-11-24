@@ -22,7 +22,7 @@ Participantes que, após 1 minuto de exploração livre, descrevem corretamente 
 2. Preencher a ficha de observação de cada sessão em `evidencias/participantes/fichas/P_0X/` a partir da gravação e das transcrições (VTT com marcação de tempo; a de P01 é texto sem tempo).
 3. Copiar os valores já resumidos para `evidencias/participantes/registro-sessoes.csv` (só códigos, sem nomes).
 4. Pedir "explore por 1 minuto como quiser" e, ao fim, "em uma frase, o que esta ferramenta faz?"; marcar se a resposta menciona desenhar, esboçar, diagramar ou quadro branco.
-5. Calcular a métrica conforme a seção 8 do protocolo e pontuar pela Tabela 14 do roteiro de análise.
+5. Calcular a métrica conforme a seção 8 do protocolo e pontuar pela Tabela 13 do roteiro de análise.
 
 ### 3.1 Comandos executados
 

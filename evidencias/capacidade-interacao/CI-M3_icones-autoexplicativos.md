@@ -23,7 +23,7 @@
 3. Copiar os valores já resumidos para `evidencias/participantes/registro-sessoes.csv` (só códigos, sem nomes).
 4. Mostrar a imagem da barra sem tooltips e pedir que o participante diga o que cada ícone faz; conferir cada resposta com o gabarito (aceitando equivalentes, como "lápis" para desenho livre).
 5. Registrar acertos e total de ícones por participante. O total de 13 e as respostas aceitas estão no gabarito do protocolo (seção T3); na ficha de P01 o total estava em branco e foi igualado a 13, pois a barra é a mesma.
-6. Calcular a métrica conforme a seção 8 do protocolo e pontuar pela Tabela 14 do roteiro de análise.
+6. Calcular a métrica conforme a seção 8 do protocolo e pontuar pela Tabela 13 do roteiro de análise.
 
 ### 3.1 Comandos executados
 

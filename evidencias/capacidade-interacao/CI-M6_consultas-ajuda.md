@@ -1,5 +1,7 @@
 # Evidência CI-M6 : Consultas à ajuda
 
+> **Decisão do grupo (23/11/2026, discussão interna com a concordância de todos; [registro](../decisoes-grupo_2026-11-23.md)):** a nota 2/2 passa a ser definitiva. A ressalva que a tornava provisória fica como limitação: a conferência da T5 de P01 no vídeo não muda a nota: com uma consulta a mais, 0,75; contando as dúvidas sobre "elipse", 1,0. O registro abaixo é o original.
+
 ## 1. Identificação
 
 | Campo | Valor |
@@ -22,7 +24,7 @@ Número de consultas por participante durante T4 e T5 (CI-M6): diálogo de ajuda
 2. Preencher a ficha de observação de cada sessão em `evidencias/participantes/fichas/P_0X/` a partir da gravação e das transcrições (VTT com marcação de tempo; a de P01 é texto sem tempo).
 3. Copiar os valores já resumidos para `evidencias/participantes/registro-sessoes.csv` (só códigos, sem nomes).
 4. Contar cada consulta ou pergunta à facilitadora durante T4 e T5 (tooltips passados sem intenção não contam).
-5. Calcular a métrica conforme a seção 8 do protocolo e pontuar pela Tabela 14 do roteiro de análise.
+5. Calcular a métrica conforme a seção 8 do protocolo e pontuar pela Tabela 13 do roteiro de análise.
 
 ### 3.1 Comandos executados
 
@@ -75,7 +77,7 @@ média = (0 + 0 + 1 + 1) ÷ 4 = **0,5 consulta** por participante (n = 4: P01, P
 
 | Valor medido | Regra da métrica | Pontuação (0–2) |
 | --- | --- | :-: |
-| 0,5 consulta | 2 = ≤ 1; 1 = 2 a 3; 0 = ≥ 4 | **2** (provisória) |
+| 0,5 consulta | 2 = ≤ 1; 1 = 2 a 3; 0 = ≥ 4 | **2** |
 
 **Justificativa:** A média de 0,5 fica na faixa 2; seriam necessárias mais 3 consultas somadas (média acima de 1) para cair na faixa 1.
 

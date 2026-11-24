@@ -32,8 +32,8 @@ versão, os ambientes e as funcionalidades efetivamente analisados.
 - [Página inicial](docs/index.md): visão geral do estudo e integrantes;
 - [Roteiro da análise](docs/analise/roteiro.md): método, escopo, GQM,
   métricas e critérios de julgamento;
-- [Gestão do grupo](docs/analise/gestao-grupo.md): métricas de participação,
-  entrega, revisão, rastreabilidade e calendário;
+- [Métricas de desenvolvimento](docs/gestao/metricas.md): Kanban, fluxo e
+  métricas de participação, entrega, revisão e rastreabilidade;
 - [Resultados](docs/analise/resultados.md): evidências, pontuações, achados e
   recomendações;
 - [Ameaças à validade e conclusão](docs/analise/ameacas-conclusao.md):

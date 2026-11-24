@@ -1,6 +1,6 @@
 # CI-M13 · Ações com feedback visual imediato
 
-**Nota 2 (provisória)**: as 13 ações testadas deram o retorno visual esperado (100%):
+**Nota 2**: as 13 ações testadas deram o retorno visual esperado (100%):
 alças de seleção, mudança de posição, tamanho, cor ou texto, moldura de grupo,
 tema e escala. Cada ação foi conferida por captura antes e depois e pelo
 estado do aplicativo, numa coleta automatizada com Playwright.
@@ -18,10 +18,9 @@ flowchart LR
 
 !!! note "Imediato"
     A coleta confirmou a mudança visual em cada ação, mas não mediu a latência.
-    A evidência registra a nota 2 como provisória quanto ao requisito de o
-    feedback ser imediato. O retorno estava presente no ponto de observação,
-    mas não se mediu quando apareceu; o critério operacional temporal ainda
-    depende da equipe. Validação manual e revisão cruzada pendentes.
+    A equipe adotou como critério o retorno presente no ponto de observação,
+    como no roteiro (ações com feedback ÷ ações testadas); quanto tempo ele
+    leva para aparecer fica como limitação.
 
 ## Evidências
 

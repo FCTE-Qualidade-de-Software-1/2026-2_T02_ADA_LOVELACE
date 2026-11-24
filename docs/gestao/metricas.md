@@ -17,7 +17,7 @@ representa produtividade ou qualidade por completo.
 * **Kanban:** [Kanban – Ada Lovelace](https://github.com/orgs/FCTE-Qualidade-de-Software-1/projects/19)
   (Project #19 da organização; de 06/11 a 23/11/2026 o quadro em uso foi um
   [Project de usuário](https://github.com/users/giovannafg/projects/1), hoje fechado; veja as
-  [decisões de mudança do quadro](../analise/gestao-grupo.md#processo-de-trabalho-e-fonte-dos-dados))
+  [decisões de mudança do quadro](#mudancas-do-quadro))
 * **Issues:** [lista de issues do repositório](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues?q=is%3Aissue)
 
 ## Fluxo de trabalho e fonte dos dados
@@ -52,6 +52,44 @@ As *labels* indicam fase e tipo de trabalho:
 | `documentation` | Redação e revisão da documentação |
 | `gitpages` | Estrutura e publicação do GitPages |
 | `medição` | Execução e análise das medições |
+
+### Mudanças do quadro
+
+!!! note "Decisão de gestão: mudança do quadro (06/11/2026)"
+    Até a Entrega 1, o quadro era o [Project #19 da organização](https://github.com/orgs/FCTE-Qualidade-de-Software-1/projects/19).
+    Como os integrantes não fazem parte da organização e o grupo não tem
+    permissão para adicioná-los, eles não conseguiam mover os cartões, e o
+    registro de Status dependia de uma única pessoa. Para a Entrega 2, o
+    quadro foi copiado para um [Project de usuário](https://github.com/users/giovannafg/projects/1), com os
+    mesmos campos (Status, Prazo e Horas), visualizações e automações, e os
+    integrantes foram convidados como colaboradores. As issues abertas e as
+    concluídas na Entrega 2 foram levadas com o Status e o Prazo que tinham.
+    O #19 deixou de ser atualizado e permanece como registro da Entrega 1. A
+    coleta de Lead Time e Cycle Time lê os dois quadros e ignora os eventos
+    gerados pela própria migração.
+
+!!! note "Decisão de gestão: volta do quadro para a organização (23/11/2026)"
+    A professora orientou que o quadro deve ficar na organização, e todos os
+    integrantes passaram a ter acesso ao Project #19. Por isso, o quadro voltou
+    a ser o [Project #19 da organização](https://github.com/orgs/FCTE-Qualidade-de-Software-1/projects/19).
+    As issues da Entrega 2 já estavam no #19, adicionadas pelo auto-add da
+    organização; o script
+    [`copiar_kanban_para_organizacao.py`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/scripts/copiar_kanban_para_organizacao.py)
+    copiou do [Project de usuário](https://github.com/users/giovannafg/projects/1)
+    os campos Status, Prazo e Horas (32 issues receberam as Horas e uma, a #43,
+    o Status). Um campo vazio no quadro de usuário não apagou o valor do #19.
+    A data das mudanças de Status não pode ser copiada, porque o GitHub
+    registra o evento com o horário da cópia. Por isso o Project de usuário
+    foi fechado, mas não apagado: a coleta continua lendo dele o histórico de
+    06/11 a 23/11 (13:01 UTC) e, do #19, o histórico até 06/11 e depois de
+    23/11, o que deixa de fora os eventos gerados pelas duas cópias.
+
+!!! warning "Interpretação responsável"
+    Quantidade de commits, linhas alteradas e tempo online são sinais de
+    atividade, não medidas de produtividade individual. A interpretação deve
+    combinar entrega, revisão, rastreabilidade e contexto, sem criar ranking
+    entre integrantes. Trabalho documentado fora do Git deve ser registrado
+    manualmente para não penalizar uma atividade legítima.
 
 ## Métricas selecionadas
 
@@ -110,6 +148,64 @@ deve ser interpretada com cautela. A equipe já observou que o número de
 commits não representa diretamente esforço ou complexidade; por isso, commits
 não serão usados como medida de velocidade.
 
+## Indicadores de participação e entrega
+
+Complementam as métricas acima para acompanhar se o grupo distribui o
+trabalho, mantém o calendário, produz evidências rastreáveis e revisa as
+entregas. Avaliam a execução do trabalho da equipe, e não a qualidade do
+Excalidraw: não alteram a pontuação das 51 métricas do
+[roteiro da análise](../analise/roteiro.md). Commits de merge e de bots ficam
+fora dos indicadores individuais, e um denominador zero dá `N/A`, não 0% nem
+100%.
+
+### Métricas individuais
+
+Servem para identificar lacunas de participação e necessidade de apoio, sempre
+com o denominador, o período e a fonte.
+
+| ID | Métrica e fórmula | Fonte mínima | Referência para acompanhamento |
+| --- | --- | --- | --- |
+| **G-I1** | Dias ativos: dias distintos com commit, PR, revisão ou comentário ÷ dias úteis do período | GitHub Events/Commits/PRs | Todos os integrantes têm atividade em pelo menos 50% dos ciclos |
+| **G-I2** | Cobertura de entrega: entregas atribuídas concluídas ÷ entregas atribuídas | Issues e PRs vinculados ao integrante | ≥ 80% |
+| **G-I3** | Participação em revisão: PRs de outros integrantes revisados ÷ PRs elegíveis de outros integrantes | Reviews de PR | ≥ 1 revisão por PR elegível, distribuída entre o grupo |
+| **G-I4** | Rastreabilidade: entregas com vínculo para issue e evidência ÷ entregas concluídas | PR/issue, links em `docs/analise` | ≥ 90% |
+| **G-I5** | Taxa de retrabalho: PRs reabertos ou devolvidos por mudança necessária ÷ PRs concluídos | Histórico de PR e revisões | ≤ 30%; investigar, não punir |
+| **G-I6** | Responsabilidade por evidência: evidências aceitas com responsável identificado ÷ evidências publicadas | Resultados e histórico Git | 100% |
+
+Para G-I2, “entrega” deve ser definida antes da coleta (por exemplo, uma
+issue fechada ou um PR aceito), e tarefas compartilhadas devem aceitar mais de
+um responsável. G-I5 não deve ser usado isoladamente: revisões rigorosas e
+mudanças de escopo podem aumentar o valor sem indicar falha individual.
+
+### Métricas do grupo
+
+| ID | Métrica e fórmula | Fonte mínima | Atendido | Parcial | Não atendido |
+| --- | --- | --- | ---: | ---: | ---: |
+| **G-G1** | Cobertura de participação: integrantes com atividade válida no ciclo ÷ integrantes ativos | GitHub e cadastro do grupo | 100% | 67%–99% | < 67% |
+| **G-G2** | Equilíbrio de entregas: 1 − (maior participação individual − menor participação individual) | Entregas concluídas por integrante | ≥ 0,60 | 0,40–0,59 | < 0,40 |
+| **G-G3** | Cumprimento do plano: entregas concluídas no prazo ÷ entregas planejadas para o período | Issues com marcos/prazos | ≥ 80% | 60%–79% | < 60% |
+| **G-G4** | Tempo mediano de ciclo: mediana de abertura até fechamento de issue/PR | Histórico de issues/PRs | ≤ 7 dias | 8–14 dias | > 14 dias |
+| **G-G5** | Revisão efetiva: PRs com revisão de outro integrante antes do merge ÷ PRs mesclados | Reviews e merges | ≥ 90% | 70%–89% | < 70% |
+| **G-G6** | Rastreabilidade do estudo: métricas de produto com resultado, data, ambiente e evidência ÷ métricas executadas | `resultados.md` e evidências | ≥ 90% | 70%–89% | < 70% |
+| **G-G7** | Saúde do backlog: issues vencidas abertas ÷ issues abertas com prazo | Issues e marcos | ≤ 10% | 11%–25% | > 25% |
+| **G-G8** | Continuidade: ciclos consecutivos sem atividade do grupo | Histórico por ciclo | 0 | 1 | ≥ 2 |
+
+O equilíbrio G-G2 é um alerta de distribuição, não uma meta de igualdade
+aritmética; diferenças justificadas por papéis, especialização ou período
+devem aparecer no registro de decisões.
+
+Cada métrica do grupo recebe 2 pontos em “Atendido”, 1 em “Parcial” e 0 em
+“Não atendido”. A média vira percentual por `média / 2 × 100`, com os mesmos
+limites da avaliação do produto: 75% ou mais, gestão atendida (manter o
+processo); de 50% a 74%, parcialmente atendida (criar ação, responsável e
+prazo no backlog); abaixo de 50%, não atendida (replanejar o ciclo e revisar
+riscos). Toda métrica com 0 pontos gera uma ação ou uma justificativa
+registrada.
+
+Ao final de cada ciclo, o registro de gestão traz a janela analisada, os
+valores e as pontuações, as divergências entre o GitHub e o trabalho relatado,
+as ações corretivas com responsável e prazo e as decisões de escopo, ambiente
+ou prioridade que afetaram os números, sem dados pessoais desnecessários.
 
 ## Coleta e interpretação
 
@@ -178,31 +274,40 @@ velocidade por ciclo.
 
 ## Contribuições no repositório
 
-Commits na branch `main` até **04/11/2026**, sem contar commits de *merge*
-ou de bots. Identidades com o mesmo e-mail foram agrupadas por integrante.
-Esse dado é mantido como informação descritiva de atividade no repositório;
-não é uma métrica de esforço, qualidade, velocidade ou contribuição
-individual, pois commits variam em tamanho e complexidade.
+Commits não-merge na `main`, coletados automaticamente por
+[`collect_member_metrics.py`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/scripts/collect_member_metrics.py)
+a cada push na `main` e semanalmente, pelo
+[workflow de métricas de gestão](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/.github/workflows/metricas-gestao.yml).
+Commits de merge e do `github-actions[bot]` ficam de fora. O resultado também
+fica em [`membros-commits.csv`](dados/membros-commits.csv). O trecho entre os
+marcadores automáticos não deve ser editado à mão.
 
-| Integrante | Commits |
-| --- | :---: |
-| Luís Cunha | 14 |
-| João Pedro Lopes | 11 |
-| Giovanna Felipe | 8 |
-| Renato Araújo | 8 |
-| Zayra Moraes | 6 |
-| André Henrique | 4 |
-| **Total** | **51** |
+<!-- BEGIN AUTO: membros-commits -->
+| Integrante identificado | Commits não-merge |
+| --- | ---: |
+| João Pedro Lopes da Cruz | 37 |
+| giovannafg | 19 |
+| Luis Felipe | 18 |
+| Renato Araújo Gameiro | 17 |
+| andrehsb | 14 |
+| Zayra-Moraes | 14 |
+| Giovanna Felipe | 5 |
+| André Henrique Belarmino | 3 |
+| Luís Felipe Parreira Cunha | 3 |
+| renatoyx | 2 |
+| Renato Gameiro | 1 |
+| renatvg | 1 |
+| Zayra Moraes | 1 |
+| **Total** | **135** |
 
-Além desses, foram integrados 20 *pull requests* por meio de commits de
-*merge*.
+*Última coleta: 2026-11-23T13:15:05+00:00, referência `main`.*
+<!-- END AUTO: membros-commits -->
 
-Para atualizar a tabela, execute na raiz do repositório:
+O valor é uma evidência auxiliar de **G-I1**, não uma medida de esforço,
+qualidade ou velocidade, e não vira nota individual. Autores com mais de uma
+identidade no Git aparecem separados na tabela e devem ser associados ao mesmo
+integrante na interpretação. Para reproduzir a coleta localmente:
 
 ```bash
-git fetch origin main
-git log --no-merges --format="%ae" origin/main | sort | uniq -c | sort -nr
+python scripts/collect_member_metrics.py
 ```
-
-Agrupe os e-mails por integrante e desconsidere contas de bots ao consolidar
-a tabela acima.

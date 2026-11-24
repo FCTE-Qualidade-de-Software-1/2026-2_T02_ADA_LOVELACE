@@ -2,7 +2,7 @@
 
 O5 — Compreensão, aprendizagem e operação da interface; CI-Q6 — O sistema evita e permite recuperar erros do usuário? Responsável: Renato Araújo Gameiro. Execução: Codex; conferência manual pendente.
 
-Fontes consultadas: issue #71 integral, roteiro GQM (Tabela 14), template e plano de capacidade de interação. Procedimentos de S-M4 (PR #92) e CI-M13/CI-M14 (PR #96) consultados como referência; seus dados não são resultados desta coleta. PRs abertos consultados (#87–#92, #94–#97): nenhum referente a CI-M15/CI-M16. Base `origin/main`: `da62b70ff0237079ab774dd1ab3e0e16edd77fe0`; main local igual à remota; árvore inicial limpa. Branch própria criada da base, sem integrar branches pendentes.
+Fontes consultadas: issue #71 integral, roteiro GQM (Tabela 13), template e plano de capacidade de interação. Procedimentos de S-M4 (PR #92) e CI-M13/CI-M14 (PR #96) consultados como referência; seus dados não são resultados desta coleta. PRs abertos consultados (#87–#92, #94–#97): nenhum referente a CI-M15/CI-M16. Base `origin/main`: `da62b70ff0237079ab774dd1ab3e0e16edd77fe0`; main local igual à remota; árvore inicial limpa. Branch própria criada da base, sem integrar branches pendentes.
 
 ## CI-M15: escopo e regra de classificação
 

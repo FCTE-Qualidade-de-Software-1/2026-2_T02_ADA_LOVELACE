@@ -18,13 +18,15 @@ alterações durante o trabalho.
     pública podem refletir uma versão posterior; quando isso ocorrer, será
     registrado na página da característica correspondente.
 
-## Páginas desta fase
+## Resultados por característica
 
-| Página | Característica | Objetivos |
+| Característica | Objetivos | Notas das métricas |
 | --- | --- | --- |
-| [Segurança](seguranca.md) | Segurança | O1 e O2 |
-| [Flexibilidade](flexibilidade.md) | Flexibilidade | O3 e O4 |
-| [Capacidade de interação](capacidade-interacao.md) | Capacidade de interação | O5 e O6 |
+| Segurança | O1 e O2 | [Resultados · Segurança](../resultados/index.md#seguranca) |
+| Flexibilidade | O3 e O4 | [Resultados · Flexibilidade](../resultados/index.md#flexibilidade) |
+| Capacidade de interação | O5 e O6 | [Resultados · Capacidade de interação](../resultados/index.md#capacidade-de-interacao) |
 
+O plano de coleta está no [plano de avaliação](plano-avaliacao.md), e a
+análise por questão e objetivo, nos [resultados da análise](../analise/resultados.md).
 Os objetivos, as questões e as métricas seguem os
 [objetivos de medição GQM](../fase_planejamento/objetivos-qualidade.md).

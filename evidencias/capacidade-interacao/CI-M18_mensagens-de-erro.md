@@ -1,5 +1,7 @@
 # Evidência CI-M18 : Mensagens de erro compreensíveis
 
+> **Decisão do grupo (23/11/2026, discussão interna com a concordância de todos; [registro](../decisoes-grupo_2026-11-23.md)):** a nota 0/2 passa a ser definitiva. A ressalva que a tornava provisória fica como limitação: a classificação é de uma avaliadora, sem a reclassificação independente prevista na #77; a sensibilidade vai de 39% a 61%, e a partir de 50% a nota seria 1. O registro abaixo é o original.
+
 > Status: **rascunho provisório**. A classificação "entende e sabe como agir" é um julgamento; precisa ser revisada por outro integrante (ideal: dois avaliadores e comparar).
 
 ## 1. Identificação

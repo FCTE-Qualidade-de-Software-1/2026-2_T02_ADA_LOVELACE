@@ -8,7 +8,7 @@ Para cada métrica, copiar `evidencias/flexibilidade/template.md` para `F-Mxx_de
 
 | Métrica | Situação | Arquivo |
 | --- | --- | --- |
-| F-M10 | Coletada: 60%, nota 1; falta decidir o denominador com o grupo | `F-M10_formatos-exportacao.md` |
+| F-M10 | Coletada: 60%, nota 1; denominador aprovado pelo grupo em 23/11/2026 | `F-M10_formatos-exportacao.md` |
 | F-M12 | Coletada: 4 formatos, nota 2 | `F-M12_formatos-importacao.md` |
 | F-M5 | Coletada: 16 de 23 funções sem rede (69,6%), nota 1 | `F-M5_cobertura-offline.md` |
 | F-M6 | Coletada: 3 de 4 resoluções (360 px perde os botões de zoom e trava), nota 1 | `F-M6_resolucoes.md` |

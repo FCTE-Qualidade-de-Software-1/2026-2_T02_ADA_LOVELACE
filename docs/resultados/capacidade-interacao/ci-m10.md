@@ -22,7 +22,7 @@ flowchart LR
     verificados no código, não em navegador. O universo mais amplo inclui
     101 ações de `ActionName`. Ctrl+Shift+E só abre o diálogo de exportação;
     S e G exigem elemento selecionado ou ferramenta ativa que aceite a
-    propriedade. A revisão por outro integrante permanece pendente.
+    propriedade.
 
 Registro completo:
 [`CI-M10_cobertura-atalhos.md`](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/capacidade-interacao/CI-M10_cobertura-atalhos.md).

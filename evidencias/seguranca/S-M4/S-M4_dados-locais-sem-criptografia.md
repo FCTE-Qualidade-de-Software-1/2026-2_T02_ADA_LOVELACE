@@ -13,7 +13,7 @@
 | Métrica | S-M4 — Dados persistidos localmente sem criptografia |
 | Objetivo | O1 — Proteção das informações e controle de acesso |
 | Questão (S-Q) | S-Q2 — É possível controlar quem acessa um desenho compartilhado? Confidencialidade |
-| Tarefa do plano | [Issue #57](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/57); Tabela 6 do [roteiro GQM](../../../docs/analise/roteiro.md) |
+| Tarefa do plano | [Issue #57](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/issues/57); Tabela 5 do [roteiro GQM](../../../docs/analise/roteiro.md) |
 | Responsável | Renato Araújo Gameiro (`renatoyx`), coleta assistida por agente |
 | Data(s) da coleta | 2026-11-12; coleta final entre 14:30:37 e 14:31:21, America/Sao_Paulo (UTC−03:00) |
 | Revisado por | Pendente de revisão por outro integrante |

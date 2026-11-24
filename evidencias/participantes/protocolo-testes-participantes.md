@@ -163,5 +163,5 @@ A CI-M8 exigia a mesma tarefa (T4) em **três sessões** do mesmo participante, 
 | F-M8 | Média de `t5_minutos_excalidraw` ÷ `t5_minutos_anterior` (perfil C) | idem |
 | F-M9 | Tarefas concluídas ÷ propostas (perfil C) | `t4_concluiu`, `t5_concluiu` |
 
-Pontuação segue os limites da Tabela 14 do roteiro de análise. Reportar também **n**, mínimo, máximo e média; e quais regras do protocolo foram aplicadas.
+Pontuação segue os limites da Tabela 13 do roteiro de análise. Reportar também **n**, mínimo, máximo e média; e quais regras do protocolo foram aplicadas.
 

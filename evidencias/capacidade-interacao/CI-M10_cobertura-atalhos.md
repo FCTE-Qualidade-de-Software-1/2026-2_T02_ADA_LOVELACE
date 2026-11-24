@@ -1,5 +1,7 @@
 # Evidência CI-M10 : Cobertura de atalhos de teclado
 
+> **Decisão do grupo (23/11/2026):** denominador aprovado em discussão interna, com a concordância de todos ([registro](../decisoes-grupo_2026-11-23.md)).
+
 ## 1. Identificação
 
 | Campo | Valor |

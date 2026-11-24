@@ -125,7 +125,7 @@ podem não ser evidenciadas pelos testes gerais de interação.
 ## 4. Matriz de rastreabilidade dos objetivos GQM
 
 A matriz abaixo indica quais questões e métricas do
-[roteiro da análise](../analise/roteiro.md#4-estrategia-gqm) respondem a cada
+[roteiro da análise](../analise/roteiro.md#1-estrategia-gqm) respondem a cada
 objetivo. Cada questão pertence a um único objetivo, e cada métrica, a uma
 única questão.
 

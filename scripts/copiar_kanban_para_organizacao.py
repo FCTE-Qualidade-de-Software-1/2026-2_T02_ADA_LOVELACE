@@ -2,7 +2,7 @@
 """Copia Status, Prazo e Horas do Project de usuário para o Project #19 da organização.
 
 Usado uma vez, em 23/11/2026, na volta do Kanban para a organização (ver
-docs/analise/gestao-grupo.md). Por padrão só mostra o que mudaria; grava
+docs/gestao/metricas.md). Por padrão só mostra o que mudaria; grava
 apenas com --aplicar.
 
 Regras:

@@ -47,7 +47,7 @@ CICLOS = [
 ]
 INICIO, FIM = CICLOS[0][1], CICLOS[-1][2]
 
-# Trocas do quadro (ver gestao-grupo.md): em 06/11 do Project #19 da
+# Trocas do quadro (ver docs/gestao/metricas.md): em 06/11 do Project #19 da
 # organização para um Project de usuário, para que todos os integrantes
 # pudessem mover os cartões; em 23/11 de volta ao #19, quando a organização
 # deu acesso a todos. Cada troca vira uma linha no fluxo acumulado quando cai

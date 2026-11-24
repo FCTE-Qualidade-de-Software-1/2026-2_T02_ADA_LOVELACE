@@ -1,8 +1,7 @@
 # Gráficos de gestão da Entrega 2
 
 Esta página aplica à Entrega 2 as medidas definidas nas
-[métricas de desenvolvimento](metricas.md) e nos
-[indicadores de fluxo da gestão do grupo](../analise/gestao-grupo.md#indicadores-de-fluxo).
+[métricas de desenvolvimento](metricas.md).
 Os gráficos e as tabelas são gerados pelo
 [workflow de métricas de gestão](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/.github/workflows/metricas-gestao.yml)
 a partir do histórico de **Status** do Kanban e do histórico de commits da
@@ -38,7 +37,7 @@ pessoa conseguia mover os cartões. Na prática, as issues iam direto para
 **Concluído** e as etapas intermediárias não ficavam registradas, o que
 impedia medir o Cycle Time. Em 06/11/2026 o quadro passou para um Project de
 usuário, com todos os integrantes como colaboradores
-([decisão de gestão](../analise/gestao-grupo.md#processo-de-trabalho-e-fonte-dos-dados)).
+([decisão de gestão](metricas.md#mudancas-do-quadro)).
 O gráfico compara, nas duas entregas, quantas issues concluídas tiveram as
 etapas **Em andamento** e **Em revisão** registradas no quadro.
 
@@ -258,7 +257,7 @@ Custo de referência do realizado: **R$ 476,56** (59,0 p-h × R$ 8,08/p-h), cont
 
 ## Revisão efetiva dos pull requests
 
-Métrica **G-G5** da [gestão do grupo](../analise/gestao-grupo.md#metricas-do-grupo):
+Métrica **G-G5** da [gestão do grupo](metricas.md#metricas-do-grupo):
 pull requests integrados com aprovação (*Approve*) de outro integrante antes
 do merge ÷ pull requests integrados. Comentários e revisões de bots não
 contam. O período da Entrega 2 é dividido pela regra de revisão obrigatória

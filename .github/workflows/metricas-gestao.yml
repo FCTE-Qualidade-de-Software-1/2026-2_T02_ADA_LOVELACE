@@ -84,7 +84,7 @@ jobs:
 
       - name: Salvar métricas na main
         run: |
-          git add docs/gestao/dados/membros-commits.csv docs/analise/gestao-grupo.md \
+          git add docs/gestao/dados/membros-commits.csv docs/gestao/metricas.md \
             docs/gestao/dados/lead-cycle-time.csv \
             docs/gestao/dados/custos-calculados.json docs/gestao/estimativa-custos.md \
             docs/gestao/dados/historico-status.json docs/gestao/graficos-entrega-2.md \

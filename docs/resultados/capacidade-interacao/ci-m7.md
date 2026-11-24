@@ -23,9 +23,8 @@ flowchart LR
     sugerido nas tarefas do grupo: ferramentas da barra e ações com botão ou
     menu visível. Com as 17 funções frequentes da [CI-M10](ci-m10.md), o valor
     seria 82,4% (nota 2). Funções sem atalho tendem a ficar fora desse
-    diálogo. A evidência diz que o recorte foi adotado após revisão, mas o
-    campo "Revisado por" permanece pendente; não se declara a revisão cruzada
-    concluída.
+    diálogo. O recorte foi aprovado pelo grupo em 23/11/2026
+    ([registro](https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/blob/main/evidencias/decisoes-grupo_2026-11-23.md)).
 
 A ajuda é uma lista de atalhos: não há tutorial guiado, e abrir, salvar e
 exportar não aparecem nela.

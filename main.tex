@@ -1,50 +1,18 @@
 %% =====================================================================
 %%  ARTIGO: Avaliação da qualidade do Excalidraw (ISO/IEC 25010:2023)
-%%  Template IEEE (IEEEtran) para o Overleaf
-%%  v2: alinhado ao enunciado FGA0315 (v1.0, 05/10/2026) e à rubrica da Fase 2
-%%  v3: conteúdo transposto da GitPage (seis objetivos, terminologia de 2023)
-%%  v4 (26/10/2026): atualizado com a branch main do repositório (após o
-%%      merge do PR #25): metodologia, PSM/CID (métricas de desenvolvimento,
-%%      gestão do grupo, cronograma e estimativa de custos), uso de IA e
-%%      contribuições
+%%  Template IEEE (IEEEtran). Compilador: pdfLaTeX.
+%%  Versão final (Fases 1 a 4), correspondente à release \release do
+%%  repositório. A versão da Entrega 1 está na release E1.
 %% =====================================================================
-%%  COMO USAR
-%%   1. Overleaf > New Project > Blank Project > cole este arquivo em main.tex
-%%   2. Compilador: pdfLaTeX (padrão). A classe IEEEtran já vem no Overleaf.
-%%   3. Tudo em vermelho "[TODO: ...]" é pendência. Para esconder os TODOs
-%%      na versão final, troque \rascunhotrue por \rascunhofalse abaixo.
-%%   4. Seções da Entrega 2 (Fases 3 e 4) ficam escondidas. Para exibir,
-%%      troque \entregafinalfalse por \entregafinaltrue.
-%%
 %%  REGRAS QUE AFETAM ESTE ARQUIVO
-%%   - Máximo de 15 páginas no PDF, INCLUINDO referências e apêndices.
-%%     Só a Tabela de contribuição (Apêndice A) fica fora da contagem.
-%%     Artigo acima do limite é rejeitado: confira o total a cada commit.
-%%   - Preservar a formatação do modelo (não alterar margens, fontes nem
-%%     espaçamentos globais).
-%%   - Link do repositório e versão (release) no corpo do artigo.
-%%   - Entrega em PDF no Moodle.
-%%
-%%  CHECKLIST DA ENTREGA 1 (26/10)
-%%   [ ] Introdução, Referencial teórico, Metodologia de desenvolvimento
-%%   [ ] Fase 1: propósito, stakeholders, tipo de produto + diagrama,
-%%       modelo de qualidade + diagrama, priorização (método explícito),
-%%       escopo/profundidade, ODS
-%%   [ ] Fase 2 (GQM): objetivos (template), questões (não podem ser só a
-%%       métrica em forma de pergunta), hipóteses para TODAS as questões,
-%%       métricas com definição/cálculo/fonte/coleta/critério, níveis de
-%%       pontuação para TODAS as métricas, gráfico GQM com TODOS os
-%%       objetivos e os três níveis identificados
-%%   [ ] Consistência Fase 1 <-> Fase 2 explícita e justificada
-%%   [ ] Toda figura/tabela: legenda, fonte e chamada no texto
-%%   [ ] Declaração de IA: ferramenta + tarefa + uma frase de como conferiu
-%%   [ ] Link do repositório e release E1 citados no artigo
-%%   [ ] GitPage atualizada (seção "Fase 1/2", versão e data no rodapé,
-%%       alt-text, links)
-%%   [ ] Tabela de contribuição (Apêndice A) com esforço em %, somando 100%
-%%   [ ] Sem emojis/ícones de IA; sem jargão fora do escopo
-%%   [ ] Entrevistas (se houver): gravação com consentimento, SEM nome real,
-%%       condições de acesso e proteção da identificação definidas
+%%   - Máximo de 15 páginas no PDF, incluindo referências. Só a Tabela de
+%%     contribuição (Apêndice A) fica fora da contagem.
+%%   - Preservar a formatação do modelo (margens, fontes, espaçamentos).
+%%   - Link do repositório e identificação da versão (release) no corpo.
+%%   - Valores e notas vêm de docs/analise/resultados.md e
+%%     docs/resultados/.
+%%   - O artigo trata só da avaliação (planejamento, execução e resultados);
+%%     não incluir gestão do grupo (PSM, Kanban, horas, revisões de PR).
 %% =====================================================================
 
 \documentclass[conference]{IEEEtran}
@@ -70,33 +38,26 @@
 \usepackage{balance}
 \usepackage[hidelinks]{hyperref}
 
-% ---------- Chaves de controle ----------
-\newif\ifrascunho      \rascunhotrue
-\newif\ifentregafinal  \entregafinalfalse
+% ---------- Identificação da versão entregue ----------
+\newcommand{\release}{E2}
+\newcommand{\repourl}{\url{https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE}}
+\newcommand{\releaseurl}{\url{https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/releases/tag/E2}}
+\newcommand{\gitpageurl}{\url{https://fcte-qualidade-de-software-1.github.io/2026-2_T02_ADA_LOVELACE/}}
 
 % ---------- Macros auxiliares ----------
-\newcommand{\TODO}[1]{\ifrascunho\textcolor{red}{\textbf{[TODO: #1]}}\fi}
-
-% Espaço reservado para figuras (troque por \includegraphics depois)
-\newcommand{\figplaceholder}[2]{%
-  \fbox{\parbox[c][#1][c]{0.9\linewidth}{\centering\TODO{#2}}}}
-
 % Coluna de tabela com quebra de linha
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
-% Linhas das tabelas GQM (5 colunas: ID, métrica e como medir, níveis 2/1/0)
-%   \gqmO{objetivo}
-%   \gqmQ{ID}{subcaracterística}{questão}{hipótese}
-%   \gqmM{ID}{métrica e como medir}{nível 2}{nível 1}{nível 0}
-\newcommand{\gqmO}[1]{\midrule
-  \multicolumn{5}{@{}l@{}}{\textbf{#1}}\\}
-\newcommand{\gqmQ}[4]{\midrule
-  \multicolumn{5}{@{}L{17.5cm}@{}}{\textbf{#1} [#2] #3\ \textit{Hipótese:} #4}\\[1pt]}
-\newcommand{\gqmM}[5]{#1 & #2 & #3 & #4 & #5\\}
-\newcommand{\gqmhead}{\toprule
-  \textbf{ID} & \textbf{Métrica (definição, cálculo, fonte e coleta)} &
-  \textbf{Nível 2 (satisfatório)} & \textbf{Nível 1 (parcial)} &
-  \textbf{Nível 0 (insatisfatório)}\\}
+% Tabelas de métricas e resultados (5 colunas)
+%   \rQ{ID}{subcaracterística}{questão}
+%   \rM{ID}{métrica}{níveis 2/1/0}{valor medido}{nota}
+\newcommand{\rQ}[3]{\midrule
+  \multicolumn{5}{@{}L{16.8cm}@{}}{\textbf{#1} [#2] #3}\\[1pt]}
+\newcommand{\rM}[5]{#1 & #2 & #3 & #4 & #5\\}
+\newcommand{\rhead}{\toprule
+  \textbf{ID} & \textbf{Métrica (definição e fonte)} &
+  \textbf{Níveis 2 / 1 / 0} & \textbf{Valor medido} & \textbf{Nota}\\}
+\newcommand{\prov}{\textsuperscript{p}}
 
 % Coluna do gráfico GQM: questão, caixa de métricas e ligação ao objetivo
 %   \gqmcol{nome}{x}{rótulo Q}{métricas}{nó do objetivo}
@@ -121,11 +82,9 @@
 \node[lvl] at (-0.55,-1.25) {Objetivo\\(conceitual)};
 \node[lvl] at (-0.55,-2.27) {Questão\\(operacional)};
 \node[lvl] at (-0.55,-3.20) {Métrica\\(quantitativo)};
-% Características
 \node[car, anchor=north, text width=5.3cm] (cS) at (2.30,0) {Segurança};
 \node[car, anchor=north, text width=3.5cm] (cF) at (7.25,0) {Flexibilidade};
 \node[car, anchor=north, text width=9.0cm] (cC) at (14.04,0) {Capacidade de interação};
-% Objetivos
 \node[goal, anchor=north, text width=2.5cm] (o1) at (0.92,-0.75) {O1: Proteção das informações e controle de acesso};
 \node[goal, anchor=north, text width=2.5cm] (o2) at (3.68,-0.75) {O2: Identificação, responsabilização e riscos};
 \node[goal, anchor=north, text width=1.6cm] (o3) at (6.33,-0.75) {O3: Ambientes e dispositivos};
@@ -134,19 +93,16 @@
 \node[goal, anchor=north, text width=1.6cm] (o6) at (17.72,-0.75) {O6: Acessibilidade e perfis};
 \foreach \ch/\ob in {cS/o1, cS/o2, cF/o3, cF/o4, cC/o5, cC/o6}
   \draw (\ch.south) -- ++(0,-0.12) -| (\ob.north);
-% Segurança
 \gqmcol{s1}{0}{S-Q1}{S-M1\\S-M2}{o1}
 \gqmcol{s2}{0.92}{S-Q2}{S-M3\\S-M4}{o1}
 \gqmcol{s3}{1.84}{S-Q3}{S-M5\\S-M6}{o1}
 \gqmcol{s4}{2.76}{S-Q4}{S-M7\\S-M8}{o2}
 \gqmcol{s5}{3.68}{S-Q5}{S-M9\\S-M10}{o2}
 \gqmcol{s6}{4.60}{S-Q6}{S-M11\\S-M12\\S-M13}{o2}
-% Flexibilidade
 \gqmcol{f1}{5.87}{F-Q1}{F-M1\\F-M2\\F-M3}{o3}
 \gqmcol{f2}{6.79}{F-Q2}{F-M4\\F-M5\\F-M6}{o3}
 \gqmcol{f3}{7.71}{F-Q3}{F-M7\\F-M8\\F-M9}{o4}
 \gqmcol{f4}{8.63}{F-Q4}{F-M10\\F-M11\\F-M12}{o4}
-% Capacidade de interação
 \gqmcol{c1}{9.90}{CI-Q1}{CI-M1\\CI-M2\\CI-M3}{o5}
 \gqmcol{c2}{10.82}{CI-Q2}{CI-M4\\CI-M5\\CI-M6}{o5}
 \gqmcol{c3}{11.74}{CI-Q3}{CI-M7\\CI-M8}{o5}
@@ -198,34 +154,33 @@ Universidade de Brasília (UnB)\\
 }
 
 \maketitle
-% TODO: conferir os e-mails dos autores (André e Renato estão com e-mail pessoal)
 
 % ---------- Resumo ----------
 \begin{abstract}
 Ferramentas de quadro branco colaborativo são usadas no ensino e no trabalho
 para criar diagramas que podem conter informação sensível e que circulam por
-links, sessões em tempo real e serviços externos. Este artigo apresenta o
-planejamento da avaliação da qualidade do Excalidraw, aplicação web de código
-aberto que combina colaboração em tempo real e criptografia de ponta a ponta.
-A avaliação segue o processo da família SQuaRE e adota o modelo de qualidade
-de produto da ISO/IEC 25010:2023, adaptado ao produto e às partes
-interessadas, com três características: Segurança, Flexibilidade e Capacidade
-de interação. A Fase~1 define o propósito, as partes interessadas e as
-decisões que a avaliação apoia, o modelo de qualidade adaptado, o escopo e a
-relação com os ODS 4, 9 e 10. A Fase~2 especifica a medição com a abordagem
-\textit{Goal-Question-Metric} (GQM): seis objetivos, 20 questões com
-hipóteses e 51 métricas com níveis de pontuação e critérios de julgamento. A
-gestão do projeto é acompanhada com medidas do PSM adaptadas ao
-desenvolvimento iterativo contínuo (CID), com quadro Kanban, métricas de
-gestão do grupo e estimativa de custos da avaliação. O planejamento mostra como
-a necessidade de cada parte interessada se converte em métricas rastreáveis. A
-execução das medições e a análise
-dos resultados serão apresentadas na segunda entrega.
+links e sessões em tempo real. Este artigo avalia a qualidade do Excalidraw,
+aplicação web de código aberto com colaboração cifrada de ponta a ponta,
+segundo o processo da família SQuaRE e o modelo de qualidade da
+ISO/IEC 25010:2023, em três características: Segurança, Flexibilidade e
+Capacidade de interação. A medição foi especificada com a abordagem
+\textit{Goal-Question-Metric} (GQM), com 6 objetivos, 20 questões com
+hipóteses e 51 métricas pontuadas de 0 a 2, e executada no \textit{commit}
+\texttt{e7b5346} por inspeção de código, testes em instância local, ensaios
+em navegadores e aparelhos e sessões com seis participantes. Das 51 métricas,
+50 foram medidas. Os objetivos de Segurança não foram atendidos (41,7\% e
+13,9\%): o desenho é cifrado, mas o link não tem controle de acesso e as
+ações não têm autoria. Flexibilidade foi parcial em ambientes (66,7\%) e
+atendida na migração (75,0\%). Em Capacidade de interação, a interface agrada
+(SUS 82,9), mas iniciantes erram com frequência (71,4\%, parcial) e o
+\textit{canvas} é praticamente inacessível ao leitor de tela (31,3\%). Uma
+ação de melhoria de contraste levou as combinações adequadas de 42\% para
+100\%.
 \end{abstract}
 
 \begin{IEEEkeywords}
 qualidade de software, ISO/IEC 25010, SQuaRE, GQM, segurança, flexibilidade,
-capacidade de interação, Excalidraw
+capacidade de interação, acessibilidade, Excalidraw
 \end{IEEEkeywords}
 
 %% =====================================================================
@@ -236,41 +191,41 @@ capacidade de interação, Excalidraw
 
 Quadros brancos digitais tornaram-se comuns no ensino e no trabalho para criar
 diagramas, esboços e \textit{wireframes}. Esses diagramas podem conter
-informação sensível, como a arquitetura de um sistema ou o planejamento
-interno de uma equipe, e circulam por links compartilhados, sessões
-colaborativas em tempo real e, em alguns recursos, serviços externos de
+informação sensível, como a arquitetura de um sistema, e circulam por links
+compartilhados, sessões colaborativas e, em alguns recursos, serviços de
 inteligência artificial (IA). Nesse contexto, a qualidade não se limita às
 funções de desenho: importa se o conteúdo está protegido, se a ferramenta
 funciona nos dispositivos que as pessoas de fato usam e se qualquer pessoa
 consegue operá-la.
 
-O Excalidraw foi escolhido por combinar edição visual, colaboração em tempo
-real, compartilhamento de diagramas e recursos de IA. A colaboração usa
-criptografia de ponta a ponta, o que o torna adequado para avaliar segurança
-em um contexto de compartilhamento de diagramas. Além disso, é um projeto de
-código aberto~\cite{excalidraw}, o que permite inspecionar suas dependências e
-os avisos de segurança publicados.
+O Excalidraw~\cite{excalidraw} é gratuito, de código aberto, dispensa cadastro
+e compartilha diagramas por link com criptografia de ponta a ponta. Essa
+facilidade gera três dúvidas para quem pensa em adotá-lo, que são o problema
+deste trabalho: (i) é seguro compartilhar por ele um diagrama sensível?
+(ii) ele funciona para quem só tem o celular e permite migrar diagramas sem
+perdas? (iii) iniciantes e pessoas que dependem do teclado ou de leitor de
+tela conseguem usá-lo sem treinamento?
 
-Este trabalho avalia o Excalidraw quanto a três características da
-ISO/IEC 25010:2023~\cite{iso25010}: Segurança, Flexibilidade e Capacidade de
-interação, nomes que a edição de 2023 adota para o que antes se chamava
-Portabilidade e Usabilidade. Os objetivos específicos são verificar (i) se é
-seguro compartilhar pelo Excalidraw um diagrama com informação sensível;
-(ii) se ele funciona para quem acessa apenas pelo celular e se permite migrar
-diagramas sem perdas; e (iii) se iniciantes e pessoas que dependem do teclado
-ou de leitor de tela conseguem usá-lo sem treinamento.
+O objetivo é avaliar o Excalidraw quanto a três características da
+ISO/IEC 25010:2023~\cite{iso25010}, Segurança, Flexibilidade e Capacidade de
+interação, para fornecer a cada parte interessada evidências que apoiem uma
+decisão concreta: usar ou não o link gratuito para diagramas sensíveis, adotar
+a ferramenta em aula, migrar de outra ferramenta e priorizar correções. As
+contribuições são uma avaliação reprodutível, com 51 métricas ligadas a
+evidências versionadas, o julgamento de cada objetivo, 16 oportunidades de
+melhoria e uma ação de melhoria executada e medida.
 
-A contribuição desta primeira entrega é o planejamento da avaliação, que liga
-cada parte interessada a objetivos, questões e métricas rastreáveis. A
-Seção~\ref{sec:ref} apresenta o referencial teórico; a Seção~\ref{sec:met}, a
-metodologia; a Seção~\ref{sec:fase1}, a definição da avaliação (Fase~1); e a
-Seção~\ref{sec:fase2}, o planejamento da medição com GQM (Fase~2).
+A Seção~\ref{sec:ref} apresenta o referencial teórico; a
+Seção~\ref{sec:met}, a metodologia de desenvolvimento do projeto, com as
+Fases~1 a 3 da avaliação; a Seção~\ref{sec:res}, os resultados da Fase~4, a
+ação de melhoria e as ameaças à validade; e a
+Seção~\ref{sec:conclusao}, a conclusão.
 
-O repositório da equipe, com a documentação publicada como GitPage, está
-disponível em
-\url{https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE}.
-Esta versão do artigo corresponde à \textit{release} E1 do repositório
-(\url{https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE/releases/tag/E1}).
+{\raggedright
+O repositório da equipe, com as evidências, os \textit{scripts} e a
+documentação, está em \repourl, e a GitPage, em \gitpageurl. Esta versão do
+artigo corresponde à \textit{release} \release{} do repositório:
+\releaseurl.\par}
 
 %% =====================================================================
 %%  II. REFERENCIAL TEÓRICO
@@ -279,359 +234,124 @@ Esta versão do artigo corresponde à \textit{release} E1 do repositório
 \label{sec:ref}
 
 \subsection{Qualidade de produto e a família SQuaRE}
-A família ISO/IEC 25000, denominada \textit{Systems and software Quality
-Requirements and Evaluation} (SQuaRE), reúne normas para especificação de
-requisitos, medição e avaliação da qualidade de produtos de
-software~\cite{iso25000}. O modelo de qualidade de produto é definido na
-ISO/IEC 25010~\cite{iso25010}, a medição na ISO/IEC 25023~\cite{iso25023} e o
-processo de avaliação na ISO/IEC 25040~\cite{iso25040}. Neste trabalho, a
-ISO/IEC 25010 fornece as características e subcaracterísticas que formam o
-foco de cada objetivo de medição; a ISO/IEC 25023 serve de referência para as
-medidas candidatas; e a ISO/IEC 25040 define os papéis (requisitante,
-avaliador e demais partes interessadas) e as etapas que estruturam as fases
-do trabalho.
+A família ISO/IEC 25000 (SQuaRE) reúne normas para especificação, medição e
+avaliação da qualidade de produtos de software~\cite{iso25000}. O modelo de
+qualidade de produto é definido na ISO/IEC 25010~\cite{iso25010}, a medição
+na ISO/IEC 25023~\cite{iso25023} e o processo de avaliação na
+ISO/IEC 25040~\cite{iso25040}. Neste trabalho, a ISO/IEC 25010 fornece as
+características e subcaracterísticas que formam o foco de cada objetivo; a
+ISO/IEC 25023 serve de referência para as medidas candidatas; e a
+ISO/IEC 25040 define os papéis (requisitante, avaliador e demais partes
+interessadas) e as etapas que estruturam as fases do trabalho.
 
-\subsection{Características avaliadas}
-A edição de 2023 da ISO/IEC 25010 organiza a qualidade do produto em nove
-características. Em relação à edição de 2011, renomeou Usabilidade para
-Capacidade de interação (\textit{interaction capability}) e Portabilidade para
-Flexibilidade (\textit{flexibility}), incluiu a característica Proteção
-(\textit{safety}) e reorganizou subcaracterísticas~\cite{iso25010}. Como a
-norma não tem tradução oficial em português, os nomes usados aqui são
-traduções livres da equipe, e o artigo adota a terminologia de 2023.
-
-A \textit{Segurança} trata da proteção de informações e dados para que cada
-pessoa ou sistema tenha apenas o acesso adequado à sua autorização, e da
-defesa contra ataques. Reúne confidencialidade, integridade, não repúdio,
-responsabilização, autenticidade e resistência, esta incluída em 2023. A
-\textit{Flexibilidade} trata da capacidade de o produto ser adaptado a
-mudanças de requisitos, contextos de uso e ambiente, com adaptabilidade,
-escalabilidade (incluída em 2023), instalabilidade e substituibilidade. A
-\textit{Capacidade de interação} trata da interação de usuários especificados
-com o produto para concluir tarefas em diferentes contextos de uso, com
-reconhecibilidade da adequação, apreensibilidade, operabilidade, proteção
-contra erros do usuário, engajamento do usuário (que substituiu a estética da
-interface), inclusividade e assistência ao usuário (que dividiram a antiga
-acessibilidade) e autodescritividade (incluída em 2023). As subcaracterísticas
-mantidas e as excluídas são justificadas na Seção~\ref{sec:modelo}.
+A edição de 2023 da ISO/IEC 25010 organiza a qualidade em nove
+características. Em relação à de 2011, renomeou Usabilidade para Capacidade
+de interação e Portabilidade para Flexibilidade, incluiu Proteção
+(\textit{safety}) e reorganizou subcaracterísticas~\cite{iso25010}; como não
+há tradução oficial, os nomes usados aqui são traduções livres. A
+\textit{Segurança} trata da proteção de informações e dados e da defesa
+contra ataques, com confidencialidade, integridade, não repúdio,
+responsabilização, autenticidade e resistência. A \textit{Flexibilidade}
+trata da adaptação a mudanças de requisitos, contextos de uso e ambiente, com
+adaptabilidade, escalabilidade, instalabilidade e substituibilidade. A
+\textit{Capacidade de interação} trata da interação de usuários
+especificados com o produto, com reconhecibilidade da adequação,
+apreensibilidade, operabilidade, proteção contra erros do usuário,
+engajamento do usuário, inclusividade, assistência ao usuário e
+autodescritividade.
 
 \subsection{Goal-Question-Metric (GQM)}
-O GQM organiza a medição de forma hierárquica: objetivos (nível conceitual),
-questões (nível operacional) e métricas (nível quantitativo)~\cite{basili94}.
-Cada objetivo é descrito por cinco elementos: o objeto analisado, o propósito,
-o foco de qualidade (com respeito a), o ponto de vista e o contexto. Do
-objetivo derivam questões que caracterizam o objeto em relação ao foco de
-qualidade e, de cada questão, métricas que fornecem os dados para respondê-la,
-de modo que toda métrica tenha uma finalidade declarada.
+O GQM organiza a medição em três níveis: objetivos (conceitual), questões
+(operacional) e métricas (quantitativo)~\cite{basili94}. Cada objetivo é
+descrito pelo objeto analisado, propósito, foco de qualidade, ponto de vista
+e contexto; dele derivam questões que caracterizam o objeto em relação ao
+foco e, de cada questão, métricas que fornecem os dados para respondê-la, de
+modo que toda métrica tenha uma finalidade declarada.
 
 \subsection{Estudo de caso de referência}
-\label{sec:caso}
-Calabrese et al.~\cite{calabrese17} aplicaram o GQM à característica Segurança
-da ISO/IEC 25010 e seguiram o processo da ISO/IEC 25040 para avaliar três
-aplicações web. Para cada subcaracterística, definiram perguntas de verdadeiro
-ou falso (33 no total, como uso de HTTPS, dados cifrados, histórico de ações e
-verificação em dois passos), combinaram as respostas em critérios pontuados e
-calcularam a métrica como a razão entre os pontos obtidos e o máximo possível,
-julgada em quatro faixas, de inaceitável (abaixo de 40\%) a excede os
-requisitos (a partir de 90\%). Os resultados variaram muito entre as
-subcaracterísticas de um mesmo sistema: um deles obteve 88\% em
-confidencialidade e 0\% em autenticidade.
+Calabrese et al.~\cite{calabrese17} aplicaram o GQM à característica
+Segurança da ISO/IEC 25010, seguindo a ISO/IEC 25040, para avaliar três
+aplicações web. Definiram 33 perguntas de verdadeiro ou falso (como uso de
+HTTPS, dados cifrados e verificação em dois passos), combinaram-nas em
+critérios pontuados e julgaram a razão entre pontos obtidos e máximos em
+faixas, de inaceitável (abaixo de 40\%) a excede os requisitos (a partir de
+90\%). Os resultados variaram muito entre subcaracterísticas de um mesmo
+sistema: um deles obteve 88\% em confidencialidade e 0\% em autenticidade.
+Este trabalho segue três decisões do estudo: métricas Sim/Não e proporções
+simples, julgamento por faixas percentuais e análise separada de cada
+subcaracterística, sem nota única. Afasta-se dele ao obter as respostas por
+inspeção e testes da própria equipe, e não por questionários aos
+desenvolvedores, e ao estender o GQM a Flexibilidade e Capacidade de
+interação.
 
-O estudo foi escolhido porque avalia aplicações web com o mesmo par de
-métodos adotado aqui, GQM e ISO/IEC 25010, na característica que recebeu a
-maior prioridade nesta avaliação (Tabela~\ref{tab:prior}). Este trabalho segue
-três decisões do estudo: métricas de resposta Sim/Não e proporções simples,
-julgamento por faixas percentuais e análise separada de cada
-subcaracterística, em vez de uma nota única. E se afasta dele em dois pontos:
-as respostas não vêm de questionários respondidos pelos desenvolvedores, mas
-de inspeção e testes feitos pela própria equipe (DevTools, \texttt{npm audit}
-e cabeçalhos HTTP); e a avaliação usa a edição de 2023 da norma, que inclui a
-resistência, e estende o GQM a Flexibilidade e Capacidade de interação.
-
-\subsection{PSM/CID}
-O \textit{Practical Software and Systems Measurement} (PSM) orienta a medição
-para a gestão de projetos~\cite{mcgarry02}: o \textit{Measurement Framework}
-organiza a medição em torno de necessidades de informação e de indicadores
-úteis para a tomada de decisão. O PSM não impõe um conjunto único de métricas;
-cada projeto seleciona e adapta as suas. Neste trabalho, as medidas foram
-adaptadas ao contexto de \textit{Continuous Iterative Development} (CID), com
-ciclos de duas semanas, e cobrem três categorias: desempenho dos processos,
-calendário e progresso, e recursos e custos (Seção~\ref{sec:psm}).
+\subsection{Ameaças à validade}
+Wohlin et al.~\cite{wohlin12} classificam as ameaças à validade de estudos
+empíricos em construção (se a medida representa o atributo), interna (se
+outro fator explica o resultado), externa (até onde o resultado se
+generaliza) e de conclusão (se os dados sustentam a conclusão). Essa
+classificação organiza a discussão da Seção~\ref{sec:ameacas}.
 
 %% =====================================================================
 %%  III. METODOLOGIA
 %% =====================================================================
-\section{Metodologia}
+\section{Metodologia de Desenvolvimento do Projeto}
 \label{sec:met}
 
-Este trabalho caracteriza-se como uma pesquisa aplicada, de abordagem mista,
-quantitativa e qualitativa, conduzida por meio de um estudo de caso da aplicação
-web Excalidraw. A avaliação tem como objetivo analisar a qualidade do software a
-partir das características de Segurança, Flexibilidade e Capacidade de
-interação, considerando o contexto de utilização da ferramenta e as
-necessidades de seus usuários. A metodologia fundamenta-se na família
-SQuaRE~\cite{iso25000}, com o modelo de qualidade da
-ISO/IEC 25010:2023~\cite{iso25010}.
+Trata-se de uma pesquisa aplicada, de abordagem mista, conduzida como estudo
+de caso do Excalidraw. A abordagem quantitativa produz proporções,
+contagens, tempos e escalas; a qualitativa interpreta observações, inspeções
+e falas dos participantes. O processo segue a ISO/IEC 25040~\cite{iso25040}
+em quatro fases: (1)~definição da avaliação, (2)~especificação da medição com
+GQM, (3)~plano de avaliação e (4)~execução e análise dos resultados.
 
-\subsection{Abordagem de avaliação}
-A avaliação concentra-se na versão pública do Excalidraw, disponível em
-\url{https://excalidraw.com}, considerando funcionalidades relacionadas à criação
-e manipulação de diagramas, ao compartilhamento de informações e à interação do
-usuário com a aplicação. Testes que adulteram dados ou que poderiam afetar o
-serviço são executados em uma instância local do Excalidraw, e não em
-excalidraw.com.
-
-A abordagem quantitativa será empregada na obtenção de medidas objetivas, como
-proporções, quantidades, tempos e taxas relacionadas às características
-avaliadas. A abordagem qualitativa complementará essa análise por meio de
-observações sobre o comportamento da aplicação, inspeções técnicas e
-interpretação das evidências coletadas.
-
-\subsection{Estratégia de medição}
-Para estruturar o processo de medição, será utilizada a abordagem GQM
-\cite{basili94}: objetivos associados às características selecionadas são
-desdobrados em questões e métricas, o que evita a coleta de dados sem
-finalidade claramente definida.
-
-\subsection{Processo de avaliação}
-O processo, alinhado ao processo de avaliação da família
-SQuaRE~\cite{iso25040}, é organizado em quatro etapas:
-\begin{enumerate}
-\item \textbf{Definição da avaliação:} identificação do propósito, das
-partes interessadas, das características de qualidade e do escopo do produto
-avaliado (Seção~\ref{sec:fase1}).
-\item \textbf{Especificação das medições:} definição dos objetivos,
-questões, métricas, hipóteses e critérios de julgamento, com base no modelo
-de qualidade adotado e na abordagem GQM (Seção~\ref{sec:fase2}).
-\item \textbf{Execução das medições:} aplicação das métricas selecionadas por
-meio de testes, observações e inspeções técnicas, de acordo com as
-particularidades de cada característica de qualidade.
-\item \textbf{Análise dos resultados:} organização e interpretação dos dados
-coletados, considerando os critérios de julgamento estabelecidos, as
-limitações das medições e os objetivos definidos.
-\end{enumerate}
-A organização dessas etapas busca garantir consistência entre o planejamento,
-a execução e a interpretação dos resultados, além de favorecer a
-rastreabilidade das atividades realizadas. As duas primeiras etapas compõem
-esta entrega; a execução e a análise serão apresentadas na Entrega~2.
-
-\subsection{Gestão do projeto com PSM/CID}
-\label{sec:psm}
-A gestão da execução é acompanhada separadamente da avaliação do produto: as
-medidas desta seção avaliam o trabalho da equipe e não alteram a pontuação das
-51 métricas do Excalidraw. Cada atividade é registrada como \textit{issue},
-classificada por fase e tipo de trabalho por meio de \textit{labels}
-(\texttt{fase-1} a \texttt{fase-4}, \texttt{documentation}, \texttt{gitpages},
-\texttt{medição} e \texttt{gestão}) e acompanhada em um quadro Kanban no GitHub Projects, com
-os estados Backlog, A fazer, Em andamento, Em revisão e Concluído. Esse fluxo
-torna visível o trabalho em andamento e permite identificar acúmulo em
-revisão e diferenças entre o planejado e o concluído.
-
-As medidas foram selecionadas e adaptadas a partir do PSM~\cite{mcgarry02}.
-Em \textit{desempenho dos processos}, a equipe acompanha o \textit{Lead Time}
-(da criação da \textit{issue} à conclusão), o \textit{Cycle Time} (da entrada
-em Em andamento à conclusão) e o fluxo cumulativo por estado, além de
-métricas de gestão do grupo, como a revisão efetiva (\textit{pull requests}
-revisados por outro integrante antes do \textit{merge}). Em
-\textit{calendário e progresso}, acompanha o planejado versus realizado
-(\textit{issues} concluídas sobre comprometidas em cada ciclo), a velocidade
-(\textit{issues} concluídas por ciclo) e os marcos do calendário da
-disciplina. Em \textit{recursos e custos}, acompanha a participação dos
-integrantes e uma estimativa de esforço e custo da avaliação. As métricas de
-gestão do grupo usam a mesma escala de 0 a 2 pontos e os mesmos limites de
-julgamento da avaliação do produto (Seção~\ref{sec:fase2}), e toda métrica
-com 0 ponto deve gerar uma ação registrada. A quantidade de \textit{commits} é
-tratada como sinal de atividade, e não como medida de produtividade
-individual.
-
-A coleta é automatizada: a cada \textit{push} na \texttt{main} e
-semanalmente, um \textit{workflow} conta os \textit{commits} não-\textit{merge}
-por integrante, extrai do histórico do quadro as mudanças de estado e as horas
-registradas, lê as revisões dos \textit{pull requests} e regera os gráficos
-de gestão publicados na GitPage. A estimativa de
-custos decompõe o trabalho por atividades~\cite{gao20}, com três cenários de
-esforço (otimista, base e pessimista) e uma taxa de referência acadêmica de
-R\$~8,08 por pessoa-hora, obtida da bolsa de iniciação científica de
-R\$~700,00 para 20 horas semanais~\cite{cnpq25}; os valores calculados não são
-pagamentos. A Tabela~\ref{tab:psm} compara os valores medidos na
-Entrega~1 e na Entrega~2.
-
-\begin{table*}[!t]
-\caption{Medidas de gestão do projeto (PSM/CID) na Entrega 1 e na Entrega 2. Fonte: histórico do repositório, quadro Kanban, \textit{pull requests} e estimativa de custos, coletados em 26/10/2026 (Entrega 1) e 15/11/2026 (Entrega 2).}
-\label{tab:psm}
-\centering
-\scriptsize
-\setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}L{1.8cm} L{4.6cm} L{5.6cm} L{5.0cm}@{}}
-\toprule
-\textbf{Categoria} & \textbf{Entrega 1 e decisão} & \textbf{Entrega 2} & \textbf{Efeito da decisão}\\
-\midrule
-Desempenho dos processos & Revisão efetiva: nenhum dos 12 \textit{pull requests} teve aprovação de outro integrante antes do \textit{merge} (0 ponto); 5 integrados pelo próprio autor. Quadro na organização: só uma pessoa movia os cartões, e 1 de 17 \textit{issues} concluídas registrou Em andamento. Decisão: revisão obrigatória na \texttt{main} e quadro em que todos movem os cartões & Revisão efetiva de 26 de 35 \textit{pull requests} (74\%, 1 ponto); depois da regra de revisão obrigatória (04/11), 26 de 28 (93\%), sem \textit{commits} diretos na \texttt{main}. Com o novo quadro (06/11), 24 de 29 \textit{issues} concluídas registraram Em andamento. \textit{Lead Time} mediano de 9,0 dias (29 \textit{issues}) e \textit{Cycle Time} mediano de 0,7 dia (24 \textit{issues}) & Decisões efetivas: a revisão passou de 0\% para 93\% e o \textit{Cycle Time} passou a ser mensurável. O \textit{Cycle Time} curto indica que o cartão vai para Em andamento só perto do \textit{pull request}, o que subestima a execução\\
-Calendário e progresso & \textit{Issues} registradas depois do trabalho feito, sem responsável, sem prazo e sem \textit{milestone}; planejado versus realizado e saúde do \textit{backlog} N/A. Decisão: \textit{milestone}, responsável e prazo nas \textit{issues} da Entrega~2 & 42 \textit{issues} no \textit{milestone} da Entrega~2: 38 com responsável e 34 com prazo (sem eles ficam as três \textit{issues}-mãe das características e as registradas depois do trabalho feito). Planejado versus concluído: 2 de 6 no ciclo 1 (27/10 a 09/11, 33\%) e 18 de 27 no ciclo 2 até 15/11 (67\%). Saúde do \textit{backlog}: 3 de 10 \textit{issues} abertas com prazo estão vencidas (30\%, 0 ponto) & O planejamento passou a ser medido, mas a execução concentrou-se no ciclo 2: as medições começaram depois de 09/11, e as sessões com participantes (CI-M1 a CI-M6 e F-M8/F-M9) seguem atrasadas, o que exige replanejamento até a entrega\\
-Recursos e custos & 32 \textit{commits} não-\textit{merge}, com os seis integrantes ativos; esforço só estimado (213 p-h no cenário base), sem horas reais. Decisão: registrar as horas por integrante e por fase & 83 \textit{commits} não-\textit{merge}, com os seis integrantes ativos. 35,5 p-h registradas no Project, em 22 de 29 \textit{issues} concluídas, contra 150 p-h previstas para os pacotes da Entrega~2 (cenário base), ou R\$~286,44 contra R\$~1.212,00 & As horas passaram a ser registradas, mas o realizado é um piso: faltam horas em 7 \textit{issues} concluídas e nas atividades ainda abertas. Mesmo assim, as medições automatizadas custaram bem menos que o previsto, e a diferença se concentra nas sessões com participantes e na análise\\
-\bottomrule
-\end{tabular}
-\end{table*}
-
-Parte das decisões foi executada logo após a coleta, ainda em 26/10: a equipe
-criou os \textit{milestones} da Entrega~1 e da Entrega~2, fechou a
-\textit{issue} do roteiro, registrou como \textit{issues} já concluídas as
-tarefas da Entrega~1 feitas sem \textit{issue}, cada uma ligada ao seu
-\textit{pull request} ou \textit{commit}, e detalhou as \textit{issues} da
-Entrega~2 com as métricas a coletar. A atribuição de responsáveis e a
-proteção da \texttt{main} foram feitas no início da Fase~3 (04/11), e o
-quadro foi copiado para um \textit{Project} em que todos os integrantes movem
-os cartões (06/11). Na Entrega~2, as mesmas medidas foram repetidas com as
-horas registradas e a série do quadro, e os gráficos estão na GitPage, em
-Gestão.
-
-\subsection{Registro, rastreabilidade e repositório}
-O repositório Git da disciplina
-(\url{https://github.com/FCTE-Qualidade-de-Software-1/2026-2_T02_ADA_LOVELACE})
-concentra a documentação, os dados de gestão e os \textit{scripts} de coleta
-e cálculo. As contribuições são feitas por \textit{commits} identificáveis,
-com revisões e vínculo entre mudanças e evidências, e o registro de decisões,
-alterações de escopo e resultados permanece no repositório. Cada resultado de
-medição será armazenado com a métrica, a data, o ambiente e o responsável,
-permitindo verificar a origem dos resultados apresentados. Cada parte do
-trabalho é desenvolvida em um ramo próprio (por exemplo,
-\texttt{feat/metodologia} e \texttt{feat/estimativa-custos}), com mensagens
-de \textit{commit} prefixadas por \texttt{feat}, \texttt{fix} ou
-\texttt{docs}, e integrada à \texttt{main} por \textit{pull request}. A
-GitPage é gerada com MkDocs, organizada em pastas por assunto
-(\texttt{docs/fase1}, \texttt{docs/analise} e \texttt{docs/gestao}) e
-publicada pelo ramo \texttt{gh-pages}. A interpretação dos resultados
-consiste em comparar os valores obtidos com os critérios de julgamento de cada
-métrica.
-
-\subsection{Aspectos éticos e proteção de dados}
-Entrevistas e testes com participantes exigem autorização prévia e só serão
-gravados com o consentimento dos participantes, identificados apenas por
-códigos (P01, P02, \ldots), sem nome real. Os registros não devem conter
-nomes reais nem dados pessoais desnecessários, e os relatórios de gestão não
-publicam horários detalhados, informações de autenticação ou avaliações
-subjetivas sem evidência. O número e o perfil dos participantes, a forma de
-registro do consentimento e as condições de acesso às gravações serão
-definidos antes da execução das medições.
-
-\subsection{Limitações}
-\label{sec:limit}
-Por se tratar da avaliação de uma aplicação web pública, os resultados ficam
-restritos às funcionalidades, ambientes e condições efetivamente examinados, não
-representando uma certificação integral da qualidade ou da segurança do
-software.
-
-%% =====================================================================
-%%  IV. FASE 1 — DEFINIÇÃO DA AVALIAÇÃO
-%% =====================================================================
-\section{Fase 1: Definição da Avaliação}
+\subsection{Fase 1: definição da avaliação}
 \label{sec:fase1}
 
-\subsection{Propósito da avaliação e uso pretendido}
-O Excalidraw é gratuito, de código aberto e dispensa cadastro: qualquer pessoa
-cria um diagrama e o compartilha por link em poucos segundos. Essa facilidade
-gera três dúvidas para quem pensa em adotá-lo. A primeira é se é seguro
-compartilhar por ele um diagrama sensível, já que a colaboração e a geração
-por IA fazem o conteúdo sair do navegador e a versão gratuita não tem login
-nem controle de permissões. A segunda é se ele funciona para quem só tem o
-celular: no Brasil, 60\% dos usuários de Internet acessam a rede apenas pelo
-celular, proporção que chega a 86\% nas classes DE~\cite{nicbr25}; também
-importa se os diagramas podem ser trazidos de outra ferramenta e levados
-embora sem perdas. A terceira é se qualquer pessoa consegue usá-lo sem
-treinamento, inclusive quem depende do teclado ou de leitor de tela, já que o
-desenho é feito em um elemento \textit{canvas}, pouco acessível a tecnologias
-assistivas.
+\textbf{Propósito.} Verificar até que ponto o Excalidraw atende às três
+necessidades da Seção~\ref{sec:intro} e apontar onde falha. O resultado
+esperado não é uma nota única, mas evidências para decisões das partes
+interessadas (Tabela~\ref{tab:stakeholders}); a equipe fornece as evidências
+e o critério, sem tomar as decisões. Seguindo a ISO/IEC 25040, o requisitante
+é a docente da disciplina, que define o processo e os prazos; o avaliador é a
+equipe, cujo critério é ter cada resultado ligado a uma métrica, com data,
+ambiente e evidência no repositório. As necessidades que orientam
+\textit{o que} medir vêm das partes interessadas; as exigências do
+requisitante definem \textit{como} medir. O desenvolvedor que incorpora o
+pacote \textit{npm} em outro sistema ficou fora do escopo.
 
-O propósito da avaliação é verificar até que ponto o Excalidraw atende a essas
-necessidades e apontar onde ele falha. O resultado esperado não é uma nota
-única, mas evidências que permitam a cada parte interessada tomar uma decisão
-concreta (Tabela~\ref{tab:stakeholders}): usar ou não o link gratuito para
-diagramas sensíveis, adotar a ferramenta em turmas com alunos que usam celular
-ou têm deficiência, migrar de outra ferramenta e priorizar correções. Os
-resultados serão publicados neste artigo, na GitPage da equipe e em um resumo
-de recomendações por parte interessada; a equipe não toma essas decisões,
-fornece as evidências e o critério.
-
-\subsection{Requisitante e partes interessadas}
-Seguindo a ISO/IEC 25040~\cite{iso25040}, a avaliação distingue requisitante,
-avaliador e demais partes interessadas. O requisitante é o docente da
-disciplina, que define o processo (fases, GQM e ISO/IEC 25010:2023), os prazos
-e o formato de entrega; seu critério de sucesso é uma avaliação que siga o
-processo SQuaRE e em que todo objetivo tenha questões, toda questão tenha
-hipótese e métricas e toda métrica tenha critério de julgamento. O avaliador
-é a equipe, cujo critério é ter cada resultado ligado a uma métrica, com data,
-ambiente e evidência no repositório, com a contribuição de cada integrante
-rastreável pelo Git e o andamento acompanhado pelo PSM. O requisitante não é
-dono do produto avaliado: as necessidades que orientam \textit{o que} medir
-vêm das demais partes interessadas (Tabela~\ref{tab:stakeholders}), e as
-exigências do requisitante definem \textit{como} a avaliação é conduzida (usar
-a edição de 2023 da norma, escolher de duas a quatro características, ligar o
-trabalho a ODS, registrar tudo pelo Git, gravar entrevistas com autorização e
-não publicar nomes reais de participantes). O desenvolvedor que incorpora o
-pacote \textit{npm} em outro sistema não foi incluído, porque está fora do
-escopo do usuário médio, e os resultados não valem para o uso como
-biblioteca.
-
-\begin{table*}[!t]
-\caption{Partes interessadas, critérios de sucesso, decisões apoiadas e influência na avaliação. Fonte: elaboração própria.}
+\begin{table}[!t]
+\caption{Partes interessadas, necessidades, decisões apoiadas e objetivos ligados. Fonte: elaboração própria.}
 \label{tab:stakeholders}
 \centering
 \scriptsize
-\setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}L{2.4cm} L{4.5cm} L{5.0cm} L{4.6cm}@{}}
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}L{2.0cm} L{5.15cm} L{1.0cm}@{}}
 \toprule
-\textbf{Parte interessada (papel)} & \textbf{Necessidade e critério de sucesso} & \textbf{Decisão apoiada e critério de decisão} & \textbf{Influência na avaliação}\\
+\textbf{Parte interessada} & \textbf{Necessidade e decisão apoiada} & \textbf{Obj.}\\
 \midrule
-Usuário que compartilha diagramas sensíveis (usuário) & Colaborar por link e gerar diagramas por IA sem expor o conteúdo; sucesso: conteúdo cifrado no tráfego e no armazenamento, chave fora do servidor e meios de controlar o acesso & Usar o link gratuito para diagramas sensíveis ou recorrer a uma alternativa (Excalidraw+, instância própria); recomendado só se O1 e O2 forem atendidos e nenhuma métrica de confidencialidade tiver pontuação 0 & Motivou a seleção de Segurança; ponto de vista de O1 e O2; pôs o compartilhamento e a IA no escopo; motiva a comparação com o Excalidraw+\\
-Usuário iniciante e experiente (usuário) & Desenhar sem treinamento e trabalhar rápido com atalhos; sucesso: conclui as tarefas básicas sem ajuda e usa atalhos nas frequentes & Subsidia a decisão de adoção do docente & Ponto de vista de O5; recrutamento dos dois perfis com o mesmo roteiro de tarefas\\
-Usuário com necessidades de acessibilidade (usuário) & Operar o canvas só pelo teclado, com leitor de tela e contraste adequado; sucesso: executa as tarefas sem mouse e ouve os elementos anunciados & Subsidia a decisão de adoção do docente & Ponto de vista de O6; pôs o uso pelo teclado no escopo; levou à inclusão de inclusividade e assistência ao usuário\\
-Usuário que acessa só pelo celular (usuário) & Usar o Excalidraw, inclusive a IA, em navegador móvel e com conexão instável; sucesso: as funções do desktop também funcionam por toque e em telas pequenas & Subsidia a decisão de adoção do docente & Principal motivo para selecionar Flexibilidade; ponto de vista de O3; base da ligação com os ODS 9 e 10\\
-Usuário que migra de outra ferramenta (usuário) & Levar diagramas do draw.io ou do Miro sem perda; sucesso: mesmas tarefas em tempo igual ou menor e exportação e reimportação sem perder elementos & Migrar para o Excalidraw; recomendado se O4 for atendido e a fidelidade ao exportar e reimportar for de 100\% & Ponto de vista de O4; importação e exportação tratadas em substituibilidade\\
-Docente ou instituição que adota a ferramenta (adquirente) & Quadro branco gratuito, acessível e seguro para aulas; sucesso: funciona nos dispositivos dos alunos e não expõe seus dados & Adotar como recurso pedagógico; recomendado se O1, O3, O5 e O6 forem ao menos parcialmente atendidos, e barreiras com pontuação 0 viram restrições de uso explícitas & Une as decisões de O1, O3, O5 e O6; base da ligação com as metas 4.4 e 4.a\\
-Mantenedores do Excalidraw (desenvolvedor e fornecedor) & Saber quais vulnerabilidades, incompatibilidades e barreiras existem; sucesso: relatos reprodutíveis ligados a uma versão do código & Quais problemas corrigir primeiro; cada métrica com pontuação 0 vira um relato, e falhas de segurança seguem o canal de divulgação responsável & Ponto de vista de O2 (resistência); recebe os relatos de todos os objetivos; exige fixar a versão do repositório analisada\\
-Operador de excalidraw.com (operador) & Que o serviço não seja afetado por testes de terceiros; sucesso: nenhum teste de carga ou de ataque contra a instância pública & --- & Excluiu a escalabilidade; testes de adulteração feitos em instância local\\
+Quem compartilha diagramas sensíveis & Colaborar e gerar diagramas por IA sem expor o conteúdo; decide se usa o link gratuito & O1, O2\\
+Usuários iniciantes e experientes & Desenhar sem treinamento e trabalhar rápido com atalhos & O5\\
+Usuários com necessidades de acessibilidade & Operar só pelo teclado, com leitor de tela e contraste adequado & O6\\
+Quem acessa só pelo celular & Usar em navegador móvel e com conexão instável & O3\\
+Quem migra de outra ferramenta & Levar diagramas do draw.io ou do Miro sem perda; decide se migra & O4\\
+Docente ou instituição (adquirente) & Ferramenta gratuita, acessível e segura; decide se adota em aula & O1, O3, O5, O6\\
+Mantenedores do Excalidraw & Saber o que corrigir primeiro; recebem um relato por métrica com nota 0 & Todos\\
+Operador de excalidraw.com & Não ter o serviço afetado; testes de adulteração só em instância local & ---\\
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{table}
 
-\subsection{Tipo de produto e descrição estruturada}
-O Excalidraw é uma aplicação web de código aberto, distribuída sob a licença MIT,
-que funciona como um quadro branco virtual para criar diagramas, esboços e
-\textit{wireframes} em um canvas infinito, com aparência de desenho à
-mão~\cite{excalidraw}. Quanto ao tipo, trata-se de um software de aplicação
-(editor gráfico colaborativo) entregue como serviço web público, acessado pelo
-navegador e instalável como PWA, e também como componente reutilizável (pacote
-\textit{npm}) que outros sistemas podem incorporar~\cite{excalidraw}. A versão
-avaliada é a hospedada em \url{https://excalidraw.com}, que o próprio projeto
-apresenta como uma demonstração do que pode ser construído com o editor, e que
-reúne colaboração em tempo real e criptografia de ponta a ponta~\cite{excalidraw}.
-
-Na criptografia de ponta a ponta, a chave é gerada no navegador, o conteúdo é
-cifrado antes do envio ao servidor e a chave é anexada ao link compartilhado
-após o caractere \texttt{\#}, parte da URL que o navegador não transmite ao
-servidor~\cite{excalidrawe2ee}. A Tabela~\ref{tab:modulos} organiza o produto em
-módulos, interfaces e dependências, e indica as métricas relacionadas a cada um.
-
-\begin{table*}[!t]
-\caption{Módulos, interfaces e dependências do Excalidraw e métricas relacionadas. Fonte: elaboração própria a partir de \cite{excalidraw,excalidrawe2ee}.}
-\label{tab:modulos}
-\centering
-\scriptsize
-\setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}L{3.0cm} L{6.4cm} L{4.6cm} L{3.0cm}@{}}
-\toprule
-\textbf{Módulo} & \textbf{Função} & \textbf{Interfaces e dependências} & \textbf{Métricas}\\
-\midrule
-Editor de canvas (cliente) & Criação e edição de formas, setas e textos; atalhos de teclado; desfazer e refazer; bibliotecas de formas; modo escuro; interface em vários idiomas & Navegador; React; pacotes \texttt{element}, \texttt{math}, \texttt{common} e \texttt{utils} & O5 e O6 (CI-M1 a CI-M26); O3 (F-M1 a F-M6)\\
-Importação e exportação & Exportar para PNG, SVG e área de transferência; salvar em arquivo \texttt{.excalidraw} (JSON, formato aberto); importar arquivos e código Mermaid & Arquivos JSON, SVG e PNG & O4 (F-M10 a F-M12)\\
-Compartilhamento e colaboração em tempo real & Link com a chave no fragmento da URL; envio do conteúdo cifrado; servidor de colaboração que retransmite as operações entre os participantes & Web Cryptography API; servidor de colaboração (Socket.IO); Firebase e json.excalidraw.com (salas e links) & O1 (S-M1 a S-M6); O2 (S-M7 a S-M10)\\
-Armazenamento local & Cena e preferências mantidas pelo navegador & \texttt{localStorage} e \texttt{IndexedDB} & O1 (S-M4); O5 (CI-M16)\\
-Criação de diagramas com IA & Geração de diagrama a partir de descrição em texto, com resultado editável no canvas & Serviço externo de IA & Escopo (Tabela~\ref{tab:escopo})\\
-Código-fonte e pacote \textit{npm} \texttt{@excalidraw/\allowbreak excalidraw} & Componente React para incorporar o editor em outros sistemas; dependências e configuração de hospedagem do repositório & React e \texttt{react-dom}; dependências \textit{npm} & O2 (S-M11 a S-M13)\\
-Excalidraw+ & Versão paga, considerada apenas por comparação (histórico de versões) & Serviço comercial & O2 (S-M8)\\
-\bottomrule
-\end{tabular}
-\end{table*}
+\textbf{Produto.} O Excalidraw é um editor gráfico colaborativo distribuído
+sob a licença MIT, entregue como serviço web, instalável como PWA e
+reutilizável como pacote \textit{npm}~\cite{excalidraw}. Na colaboração, a
+chave é gerada no navegador, o conteúdo é cifrado antes do envio e a chave
+vai no fragmento \texttt{\#} do link, que o navegador não transmite ao
+servidor~\cite{excalidrawe2ee}. A Figura~\ref{fig:arquitetura} mostra o
+contexto: o editor roda no navegador e depende de serviços externos para
+colaboração, links e IA. Isso permite observar pelo navegador o tráfego e o
+armazenamento local, e pelo código aberto as dependências e a configuração,
+mas não a infraestrutura de produção nem o Excalidraw+, que ficam fora do
+alcance da avaliação.
 
 \begin{figure}[!t]
 \centering
@@ -663,54 +383,53 @@ Excalidraw+ & Versão paga, considerada apenas por comparação (histórico de v
 \label{fig:arquitetura}
 \end{figure}
 
-A Figura~\ref{fig:arquitetura} apresenta o contexto e a arquitetura do produto.
-O editor roda inteiro no navegador e depende de serviços externos apenas para
-colaboração, links compartilháveis e IA. Essa arquitetura define o que dá e o
-que não dá para medir agora. Como a criptografia ocorre no cliente, é possível
-observar a partir do navegador o tráfego de colaboração e o armazenamento local
-(S-M1 a S-M4), e o código aberto permite analisar as dependências, os avisos
-de segurança publicados e a configuração de hospedagem (S-M11 a S-M13). Em
-contrapartida, não é possível inspecionar a infraestrutura de produção que
-hospeda o servidor de colaboração e o armazenamento das cenas (configuração,
-retenção e registros) nem as funcionalidades exclusivas do Excalidraw+.
-Conclusões sobre esses pontos ficam fora do alcance desta avaliação.
+\textbf{Modelo de qualidade e priorização.} A priorização aplicou uma matriz
+impacto $\times$ risco às nove características
+(Tabela~\ref{tab:prior}). O impacto (I, de 1 a 5) mede a consequência de uma
+falha para as partes interessadas, de nenhuma afetada (1) a dano
+irreversível ou decisão inviabilizada (5); o risco (R, de 1 a 5) mede a
+probabilidade de falha antes da medição, de nenhum sinal (1) a falha
+conhecida (5). Foram selecionadas as características com I $\times$ R de
+pelo menos 10 e mensuráveis no prazo: Segurança (20), Capacidade de
+interação (16) e Flexibilidade (12). A ordem definiu a sequência das
+medições e dos relatos aos mantenedores, sem alterar o julgamento, que é
+feito por objetivo.
 
-\subsection{Modelo de qualidade}
-\label{sec:modelo}
-O modelo parte da ISO/IEC 25010:2023 e foi adaptado a três elementos definidos
-nesta fase: o contexto do produto (aplicação web pública, gratuita, sem conta,
-com colaboração por link e criptografia de ponta a ponta), o escopo e as
-partes interessadas. A Figura~\ref{fig:modelo} apresenta as características e
-subcaracterísticas mantidas, as excluídas e o objetivo de medição ligado a
-cada uma.
+\begin{table}[!t]
+\caption{Matriz impacto $\times$ risco das características da ISO/IEC 25010:2023; selecionadas em negrito. Fonte: elaboração própria.}
+\label{tab:prior}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}L{1.8cm} c c c L{4.5cm}@{}}
+\toprule
+\textbf{Caract.} & \textbf{I} & \textbf{R} & \textbf{I$\times$R} & \textbf{Justificativa}\\
+\midrule
+\textbf{Segurança} & 5 & 4 & \textbf{20} & Vazamento é irreversível; sem login, chave no link e texto enviado à IA\\
+\textbf{Capac. de interação} & 4 & 4 & \textbf{16} & Exclui quem depende do teclado ou de leitor de tela; \textit{canvas} pouco acessível\\
+\textbf{Flexibilidade} & 4 & 3 & \textbf{12} & 60\% dos usuários de Internet só usam o celular~\cite{nicbr25}; toque e migração não garantidos\\
+Confiabilidade & 3 & 2 & 6 & Exige monitoramento prolongado\\
+Eficiência de desempenho & 2 & 2 & 4 & Depende do equipamento e da rede\\
+Compatibilidade & 2 & 2 & 4 & Troca de arquivos coberta por substituibilidade\\
+Manutenibilidade & 2 & 2 & 4 & Exige análise estática extensa\\
+Adequação funcional & 3 & 1 & 3 & Funções de desenho maduras\\
+Proteção (\textit{safety}) & 1 & 1 & 1 & Sem risco físico ou ambiental\\
+\bottomrule
+\end{tabular}
+\end{table}
 
-Em Segurança, confidencialidade e integridade (O1) respondem ao tráfego do
-conteúdo na sessão colaborativa, ao armazenamento no navegador e à edição
-simultânea; responsabilização e autenticidade (O2), à ausência de login, que
-permite que alguém se passe por outra pessoa; e resistência (O2), ao código
-aberto, que permite verificar dependências vulneráveis e cabeçalhos HTTP. O não
-repúdio foi excluído porque a versão gratuita não tem contas nem assinatura
-das ações, e a rastreabilidade observável já é coberta pela responsabilização.
-Em Flexibilidade, a adaptabilidade (O3) responde ao acesso por diferentes
-navegadores, sistemas e dispositivos, inclusive por toque e sem conexão, e a
-substituibilidade (O4), à migração de diagramas de outras ferramentas. A
-importação e a exportação poderiam ser enquadradas em interoperabilidade, mas
-foram tratadas em substituibilidade porque o interesse da parte interessada é
-migrar o trabalho, e não trocar dados continuamente. A instalabilidade foi
-excluída porque o uso é direto no navegador e a instalação como PWA é
-opcional, e a escalabilidade, porque exigiria testes de carga na
-infraestrutura pública. Em Capacidade de interação, todas as
-subcaracterísticas foram mantidas: as seis ligadas a O5 respondem a
-iniciantes e experientes, e inclusividade e assistência ao usuário (O6), a
-quem opera só pelo teclado ou com leitor de tela, ponto crítico em uma
-interface desenhada em \textit{canvas}.
-
-As demais características ficaram de fora: adequação funcional, porque as
-funções de desenho são maduras; eficiência de desempenho, que dependeria do
-equipamento e da rede de cada avaliador; compatibilidade, tratada em
-substituibilidade; confiabilidade e manutenibilidade, que exigiriam
-monitoramento prolongado e análise estática extensa; e proteção, porque a
-aplicação não controla equipamentos que possam causar dano físico.
+O modelo adaptado (Figura~\ref{fig:modelo}) mantém, em Segurança,
+confidencialidade e integridade (O1) e responsabilização, autenticidade e
+resistência (O2); exclui o não repúdio, porque a versão gratuita não tem
+contas nem assinatura de ações. Em Flexibilidade, mantém adaptabilidade (O3)
+e substituibilidade (O4), na qual se tratou a importação e a exportação,
+porque o interesse é migrar o trabalho; exclui instalabilidade (uso direto no
+navegador) e escalabilidade (exigiria testes de carga na infraestrutura
+pública). Em Capacidade de interação, mantém as oito subcaracterísticas: seis
+em O5 e inclusividade e assistência ao usuário em O6. As características
+competem entre si: entrar só com o link facilita o uso, mas impede o
+controle de acesso; o uso offline favorece a adaptabilidade, mas mantém a
+cena sem cifra no navegador. A avaliação mede os dois lados.
 
 \begin{figure}[!t]
 \centering
@@ -725,19 +444,16 @@ aplicação não controla equipamentos que possam causar dano físico.
 \node[car] (cf) at (2.8,0) {Flexibilidade};
 \node[car] (cc) at (5.6,0) {Capacidade de interação};
 \foreach \ch in {cs,cf,cc} \draw (m.south) -- ++(0,-0.1) -| (\ch.north);
-% Segurança
 \node[sub, below=3pt of cs] (s1) {Confidencialidade (O1)};
 \node[sub, below=1pt of s1] (s2) {Integridade (O1)};
 \node[sub, below=1pt of s2] (s3) {Responsabilização (O2)};
 \node[sub, below=1pt of s3] (s4) {Autenticidade (O2)};
 \node[sub, below=1pt of s4] (s5) {Resistência (O2)};
 \node[exc, below=1pt of s5] (s6) {Não repúdio};
-% Flexibilidade
 \node[sub, below=3pt of cf] (f1) {Adaptabilidade (O3)};
 \node[sub, below=1pt of f1] (f2) {Substituibilidade (O4)};
 \node[exc, below=1pt of f2] (f3) {Instalabilidade};
 \node[exc, below=1pt of f3] (f4) {Escalabilidade};
-% Capacidade de interação
 \node[sub, below=3pt of cc] (c1) {Reconhecibilidade da adequação (O5)};
 \node[sub, below=1pt of c1] (c2) {Apreensibilidade (O5)};
 \node[sub, below=1pt of c2] (c3) {Operabilidade (O5)};
@@ -746,137 +462,43 @@ aplicação não controla equipamentos que possam causar dano físico.
 \node[sub, below=1pt of c5] (c6) {Autodescritividade (O5)};
 \node[sub, below=1pt of c6] (c7) {Inclusividade (O6)};
 \node[sub, below=1pt of c7] (c8) {Assistência ao usuário (O6)};
-% Características não selecionadas
 \path (c8.south) ++(0,-0.15) coordinate (b);
 \node[exc, text width=8.1cm, align=center, anchor=north] at (b -| cf) {Não selecionadas: adequação funcional, eficiência de desempenho, compatibilidade, confiabilidade, manutenibilidade e proteção (\textit{safety})};
 \end{tikzpicture}}
-\caption{Modelo de qualidade adaptado: subcaracterísticas mantidas, com o objetivo de medição ligado a cada uma, e excluídas (tracejadas). Fonte: adaptado de \cite{iso25010}.}
+\caption{Modelo de qualidade adaptado: subcaracterísticas mantidas, com o objetivo ligado a cada uma, e excluídas (tracejadas). Fonte: adaptado de \cite{iso25010}.}
 \label{fig:modelo}
 \end{figure}
 
-\subsection{Seleção e priorização de características}
-% O enunciado pede 3 a 4 características, com a norma SQuaRE indicada e a
-% seleção justificada pelo produto e pelos objetivos. Confira a rubrica da
-% Fase 1 no Moodle se houver restrição específica sobre a usabilidade.
-Foram selecionadas três características do modelo de qualidade da
-ISO/IEC 25010~\cite{iso25010}; as medidas candidatas consideram a
-ISO/IEC 25023~\cite{iso25023}. A Segurança é essencial porque os diagramas
-podem conter informações pessoais, acadêmicas ou profissionais e circulam por
-links, sessões colaborativas, armazenamento local e serviços de IA, o que
-remete também aos princípios da LGPD~\cite{lgpd}, como finalidade, necessidade,
-segurança e prevenção, sem que a avaliação certifique conformidade legal. A
-Flexibilidade é relevante porque a aplicação precisa funcionar em diferentes
-navegadores, sistemas, resoluções e dispositivos, inclusive celulares, e
-permitir migrar diagramas sem perda significativa de conteúdo. A Capacidade de
-interação é necessária para que iniciantes aprendam a ferramenta, experientes
-trabalhem com eficiência e pessoas com diferentes capacidades operem o sistema
-por teclado ou tecnologia assistiva.
+\textbf{Escopo e profundidade.} O escopo reúne a criação e edição de
+diagramas por mouse, teclado e toque, o compartilhamento e a colaboração por
+link, o armazenamento local, a importação e a exportação e o acesso ao
+recurso de IA. Ficam fora a qualidade dos diagramas gerados por IA, a
+auditoria da infraestrutura de produção, testes invasivos contra o serviço
+público, o Excalidraw+ (exceto a comparação do histórico de versões), a
+auto-hospedagem e o uso como biblioteca. A profundidade combina inspeção de
+código, testes funcionais em caixa-preta, inspeção do cliente com as
+ferramentas do navegador e testes com usuários.
 
-A priorização usou uma matriz impacto $\times$ risco aplicada às nove
-características da norma (Tabela~\ref{tab:prior}). O \textbf{impacto} (I, de
-1 a 5) mede a consequência de uma falha para as partes interessadas da
-Tabela~\ref{tab:stakeholders}: 1, nenhuma parte é afetada; 3, limita parte das
-funções; 5, dano irreversível ou que inviabiliza uma decisão da
-Tabela~\ref{tab:stakeholders}. O \textbf{risco} (R, de 1 a 5) mede a
-probabilidade de falha antes da medição: 1, nenhum sinal; 3, a função existe,
-mas há condições não cobertas; 5, falha conhecida.
-A prioridade é o produto I $\times$ R. Uma característica foi selecionada
-quando a prioridade é de pelo menos 10 e quando pode ser medida no escopo e no
-prazo da disciplina, critério que representa o esforço.
+\textbf{ODS.} Um ODS foi considerado pertinente quando uma característica
+avaliada interfere no que a meta pretende alcançar~\cite{odsbr,unsd}
+(Tabela~\ref{tab:ods}). A avaliação não altera os indicadores, medidos em
+escala nacional; verifica se o software favorece ou dificulta a meta para
+quem o usa. Na meta 4.4, a gratuidade só reduz a barreira se o usuário
+aprender sozinho (O5); na 4.a, um quadro usado em aula só é adaptado se for
+operável pelo teclado e com leitor de tela (O6); na 9.c, a cobertura móvel só
+vira acesso se o software funcionar no celular (O3) e não prender os
+diagramas (O4); na 10.2, o acesso só pelo celular chega a 86\% nas classes
+DE, contra 18\% na classe A~\cite{nicbr25}. A Segurança se liga à proteção de
+dados pessoais da LGPD~\cite{lgpd}, sem que a avaliação certifique
+conformidade legal.
 
 \begin{table}[!t]
-\caption{Matriz impacto $\times$ risco das características da ISO/IEC 25010:2023; selecionadas em negrito. Fonte: elaboração própria.}
-\label{tab:prior}
-\centering
-\scriptsize
-\setlength{\tabcolsep}{2.5pt}
-\begin{tabular}{@{}L{1.8cm} c c c c L{3.9cm}@{}}
-\toprule
-\textbf{Caract.} & \textbf{I} & \textbf{R} & \textbf{I$\times$R} & \textbf{Med.} & \textbf{Justificativa}\\
-\midrule
-\textbf{Segurança} & 5 & 4 & \textbf{20} & Sim & I: vazamento é irreversível e veta o link gratuito (O1, O2); R: sem login, chave no link e texto enviado à IA\\
-\textbf{Capac. de interação} & 4 & 4 & \textbf{16} & Sim & I: exclui quem depende do teclado ou de leitor de tela (O5, O6); R: canvas pouco acessível a tecnologias assistivas\\
-\textbf{Flexibilidade} & 4 & 3 & \textbf{12} & Sim & I: exclui quem só tem celular, 60\% dos usuários~\cite{nicbr25} (O3, O4); R: aceita toque, mas tela pequena, rede instável e migração não são garantidas\\
-Confiabilidade & 3 & 2 & 6 & Não & Exige monitoramento prolongado do serviço\\
-Eficiência de desempenho & 2 & 2 & 4 & Não & Depende do equipamento e da rede\\
-Compatibilidade & 2 & 2 & 4 & Sim & Troca de arquivos coberta por substituibilidade\\
-Manutenibilidade & 2 & 2 & 4 & Não & Exige análise estática extensa\\
-Adequação funcional & 3 & 1 & 3 & Sim & Funções de desenho maduras\\
-Proteção (\textit{safety}) & 1 & 1 & 1 & --- & Sem risco físico ou ambiental\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-A ordem resultante, Segurança (20), Capacidade de interação (16) e
-Flexibilidade (12), define a sequência de execução das medições na Fase~3 e a
-ordem em que as métricas com pontuação 0 são relatadas aos mantenedores, o que
-responde à decisão sobre quais problemas corrigir primeiro
-(Tabela~\ref{tab:stakeholders}). A prioridade não altera o julgamento: cada
-objetivo é julgado separadamente, porque cada decisão depende de objetivos
-específicos, e não de uma nota única.
-
-As características também competem entre si. A ausência de cadastro facilita
-o compartilhamento, mas impede o controle de acesso e a confirmação de
-identidade (S-Q2 e S-Q5). O uso sem conexão favorece a adaptabilidade (F-M5),
-mas mantém a cena no navegador sem criptografia (S-M4). E o estilo desenhado
-no canvas favorece o engajamento (CI-Q8), mas não é anunciado por leitores de
-tela (CI-Q9). A avaliação mede os dois lados de cada conflito, para que as
-partes interessadas decidam com base nas evidências.
-
-\subsection{Escopo, profundidade e objetos de avaliação}
-O escopo reúne três áreas do produto: a criação de diagramas com IA, a seção de
-compartilhamento e colaboração, e o uso do canvas pelo teclado. Em todas, a
-avaliação considera apenas as características priorizadas, e a
-Tabela~\ref{tab:escopo} delimita o que fica dentro e fora, com o motivo de
-cada corte.
-
-\begin{table*}[!t]
-\caption{Escopo da avaliação. Fonte: elaboração própria.}
-\label{tab:escopo}
-\centering
-\scriptsize
-\setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}L{3.0cm} L{6.0cm} L{7.8cm}@{}}
-\toprule
-\textbf{Área} & \textbf{Dentro do escopo} & \textbf{Fora do escopo e motivo}\\
-\midrule
-Criação de diagramas com IA & Acesso ao recurso na versão pública, inclusive no celular, e edição do diagrama gerado & Qualidade e correção dos diagramas gerados (adequação funcional não foi priorizada); tratamento dos dados enviados ao serviço de IA, por não haver métrica prevista\\
-Compartilhamento e colaboração via link & Tráfego de colaboração, link compartilhado, armazenamento local, controle de acesso, identificação dos participantes, dependências e cabeçalhos HTTP da versão pública & Auditoria da infraestrutura de produção, certificação criptográfica formal e teste de penetração invasivo, por não serem autorizados; testes de adulteração só em instância local, para não afetar o serviço público\\
-Uso do canvas pelo teclado & Operação de funções frequentes sem mouse, atalhos de teclado, uso com leitor de tela e contraste & Dispositivos de entrada específicos (por exemplo, mesas digitalizadoras), por não haver métrica prevista\\
-Produto como um todo & Versão web pública em \url{https://excalidraw.com}, com interação por mouse, teclado e toque, em diferentes navegadores, sistemas operacionais, resoluções e dispositivos, com importação e exportação de formatos & Funcionalidades pagas do Excalidraw+ (exceto a comparação do histórico de versões), auto-hospedagem, aplicativos nativos, uso do pacote \textit{npm} em sistemas de terceiros e as características não selecionadas da ISO/IEC 25010\\
-\bottomrule
-\end{tabular}
-\end{table*}
-
-Quanto à profundidade, a avaliação combina quatro formas de investigação. A primeira são os
-testes funcionais em caixa-preta na interface pública, em diferentes navegadores,
-sistemas e dispositivos. A segunda é a inspeção técnica no lado do cliente, com as
-ferramentas do navegador e um \textit{proxy} sobre o tráfego da própria equipe. A
-terceira é a análise das dependências e dos avisos de segurança do repositório
-público, além dos cabeçalhos HTTP. A quarta são os testes com usuários, iniciantes
-e experientes, com um roteiro de tarefas único para todos e número de
-participantes definido na Fase~3.
-
-Os resultados valem para a versão pública acessada durante a coleta, cuja data
-e \textit{commit} serão registrados na Fase~3, para os ambientes de teste
-definidos nessa fase e para os participantes recrutados. Eles não podem ser generalizados para
-instalações próprias nem para a infraestrutura de produção, conforme a
-Seção~\ref{sec:limit}.
-
-\subsection{ODS, metas e indicadores relacionados}
-Um ODS foi considerado pertinente quando uma característica avaliada interfere
-diretamente no que a meta pretende alcançar~\cite{odsbr,unsd}. A avaliação não
-altera os indicadores, medidos em escala nacional ou global; ela verifica se o
-software favorece ou dificulta o avanço da meta para quem o usa
-(Tabela~\ref{tab:ods}).
-
-\begin{table}[!t]
-\caption{ODS relacionados ao trabalho. Fonte: elaboração própria a partir de \cite{odsbr,unsd}.}
+\caption{ODS, metas e indicadores relacionados. Fonte: elaboração própria a partir de \cite{odsbr,unsd}.}
 \label{tab:ods}
 \centering
 \scriptsize
-\setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}L{1.4cm} L{2.6cm} L{2.6cm} L{1.0cm}@{}}
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}L{1.4cm} L{2.75cm} L{2.75cm} L{0.85cm}@{}}
 \toprule
 \textbf{ODS} & \textbf{Meta} & \textbf{Indicador} & \textbf{Obj.}\\
 \midrule
@@ -888,457 +510,669 @@ software favorece ou dificulta o avanço da meta para quem o usa
 \end{tabular}
 \end{table}
 
-Na meta 4.4, diagramar é uma habilidade técnica pouco difundida (só 17\% dos
-usuários de Internet criaram uma apresentação de slides~\cite{nicbr25}), e a
-gratuidade do Excalidraw só reduz essa barreira se o usuário aprender a
-ferramenta sozinho (O5). Na meta 4.a, um quadro branco usado em aula só é
-adaptado a alunos com deficiência se for operável pelo teclado e com leitor de
-tela (O6). Na meta 9.c, a cobertura móvel só vira acesso efetivo se o software
-funcionar no celular (O3) e não prender os diagramas a um fornecedor (O4). Na
-meta 10.2, cujo indicador mede renda, o vínculo está na meta: o acesso só pelo
-celular chega a 86\% nas classes DE, contra 18\% na classe A~\cite{nicbr25}, e
-uma interface inacessível exclui pessoas com deficiência (O3 e O6). As metas
-16.10 e 8.2 foram descartadas porque seus indicadores não têm relação com o
-software, e a Segurança é tratada pela proteção de dados pessoais, em linha
-com a LGPD~\cite{lgpd}.
-
-%% =====================================================================
-%%  V. FASE 2 — PLANEJAMENTO DA MEDIÇÃO (GQM)
-%% =====================================================================
-\section{Fase 2: Planejamento da Medição (GQM)}
+\subsection{Fase 2: especificação da medição com GQM}
 \label{sec:fase2}
 
-A medição segue a abordagem GQM~\cite{basili94}, em três níveis. No nível
-conceitual, cada objetivo declara o que se quer saber e para quem; no
-operacional, as questões detalham como o atributo de qualidade será
-interrogado; no quantitativo, as métricas fornecem os dados que respondem a
-cada questão. A hierarquia reúne 6 objetivos, 20 questões e 51 métricas: em
-Segurança, 2 objetivos, 6 questões e 13 métricas; em Flexibilidade, 2, 4 e 12;
-e em Capacidade de interação, 2, 10 e 26. Questões e métricas são
-identificadas pela característica a que pertencem: S para Segurança, F para
-Flexibilidade e CI para Capacidade de interação. As
-Tabelas~\ref{tab:gqmseg}, \ref{tab:gqmflex}, \ref{tab:gqmci1}
-e~\ref{tab:gqmci2} reúnem questões, hipóteses, métricas e níveis de
-pontuação, e a Figura~\ref{fig:gqm} representa a hierarquia.
-
-\subsection{Objetivos de medição}
-Os objetivos seguem o template do GQM, com cinco elementos: objeto analisado,
-propósito, foco de qualidade, ponto de vista e contexto
-(Tabela~\ref{tab:objetivos}). O objeto geral é a versão pública do Excalidraw
-(\url{https://excalidraw.com}), e cada objetivo se dirige a mecanismos
-específicos do produto. Foram definidos dois objetivos por característica,
-separando aspectos que pedem perspectivas e procedimentos distintos: em
-Segurança, a proteção das informações (O1) e a identificação,
-responsabilização e exposição a riscos (O2); em Flexibilidade, a
-adaptabilidade a ambientes (O3) e a substituibilidade (O4); em Capacidade de
-interação, a experiência geral de uso (O5) e a acessibilidade (O6), que exige
-procedimentos próprios, como navegação só pelo teclado e uso de leitor de
-tela. A quantidade de objetivos é uma decisão metodológica da equipe, e não
-uma determinação da norma.
+Foram definidos dois objetivos por característica
+(Tabela~\ref{tab:objetivos}), separando aspectos que pedem perspectivas e
+procedimentos distintos. Cada objetivo foi desdobrado em questões que cobrem
+as subcaracterísticas de seu foco, e cada questão recebeu uma hipótese, isto
+é, a resposta esperada antes da medição e o motivo, baseado no código e na
+documentação. A hierarquia reúne 6 objetivos, 20 questões e 51 métricas
+(Figura~\ref{fig:gqm}): em Segurança, 2, 6 e 13; em Flexibilidade, 2, 4 e
+12; e em Capacidade de interação, 2, 10 e 26. As questões interrogam o
+atributo, e não a métrica, e cada uma é observada por uma a quatro métricas.
+Cada métrica produz um único valor (contagem, proporção, Sim/Não, tempo ou
+escala), obtido por instrumentos descritos na definição, como
+DevTools~\cite{devtools}, \texttt{npm audit}~\cite{npmaudit},
+securityheaders.com~\cite{secheaders}, axe~\cite{axe},
+Lighthouse~\cite{lighthouse}, NVDA~\cite{nvda} e o questionário
+SUS~\cite{brooke96}. As Tabelas~\ref{tab:rseg} a~\ref{tab:rci2} trazem a
+definição, os níveis e o resultado de cada métrica, e a
+Tabela~\ref{tab:questoes}, as hipóteses.
 
 \begin{table*}[!t]
-\caption{Objetivos de medição (nível conceitual). Fonte: elaboração própria.}
+\caption{Objetivos de medição (nível conceitual do GQM). Fonte: elaboração própria.}
 \label{tab:objetivos}
 \centering
 \scriptsize
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}L{2.2cm} L{2.8cm} L{3.0cm} L{3.0cm} L{2.6cm} L{2.6cm}@{}}
+\begin{tabular}{@{}L{2.4cm} L{2.9cm} L{2.9cm} L{3.4cm} L{2.4cm} L{2.6cm}@{}}
 \toprule
 \textbf{Objetivo} & \textbf{Analisar} & \textbf{Com o propósito de} & \textbf{Com respeito à} & \textbf{Do ponto de vista} & \textbf{No contexto de}\\
 \midrule
 O1: Proteção das informações e controle de acesso & armazenamento, compartilhamento e colaboração & identificar fragilidades na proteção dos diagramas & confidencialidade e integridade & de quem compartilha diagramas sensíveis & sessões colaborativas por link\\
-O2: Identificação, responsabilização e riscos de segurança & identificação dos participantes, registro de ações e dependências & identificar falhas de identificação, rastreabilidade e vulnerabilidades & responsabilização, autenticidade e resistência & dos participantes e dos mantenedores & sessões por link e código-fonte da versão avaliada\\
-O3: Adaptabilidade a ambientes e dispositivos & criação e edição de diagramas & identificar limitações de compatibilidade & adaptabilidade & de quem acessa por diferentes dispositivos & navegadores, sistemas, dispositivos e resoluções selecionados\\
-O4: Substituibilidade e migração de diagramas & importação e exportação de diagramas & verificar se substitui ferramentas equivalentes sem perdas & substituibilidade & de quem migra de outra ferramenta & comparação com draw.io e Miro\\
-O5: Compreensão, aprendizagem e operação da interface & a interface de criação e edição & identificar dificuldades de uso e de recuperação de erros & reconhecibilidade da adequação, apreensibilidade, operabilidade, proteção contra erros, engajamento e autodescritividade & de usuários iniciantes e experientes & primeiro contato e tarefas de edição\\
-O6: Acessibilidade e adequação a diferentes perfis & navegação, interação e apresentação das informações & identificar barreiras de acessibilidade & inclusividade e assistência ao usuário & de quem tem necessidades de acessibilidade & uso só pelo teclado e com leitor de tela\\
+O2: Identificação, responsabilização e riscos & identificação dos participantes, registro de ações e dependências & identificar falhas de identificação, rastreabilidade e vulnerabilidades & responsabilização, autenticidade e resistência & dos participantes e dos mantenedores & sessões por link e código-fonte da versão avaliada\\
+O3: Adaptabilidade a ambientes e dispositivos & criação e edição de diagramas & identificar limitações de compatibilidade & adaptabilidade & de quem acessa por diferentes dispositivos & navegadores, sistemas, dispositivos e resoluções\\
+O4: Substituibilidade e migração & importação e exportação de diagramas & verificar se substitui ferramentas equivalentes sem perdas & substituibilidade & de quem migra de outra ferramenta & comparação com draw.io e Miro\\
+O5: Compreensão, aprendizagem e operação & a interface de criação e edição & identificar dificuldades de uso e de recuperação de erros & reconhecibilidade, apreensibilidade, operabilidade, proteção contra erros, engajamento e autodescritividade & de usuários iniciantes e experientes & primeiro contato e tarefas de edição\\
+O6: Acessibilidade e perfis & navegação, interação e apresentação & identificar barreiras de acessibilidade & inclusividade e assistência ao usuário & de quem tem necessidades de acessibilidade & uso só pelo teclado e com leitor de tela\\
 \bottomrule
 \end{tabular}
 \end{table*}
 
-\subsection{Consistência entre as Fases 1 e 2}
-A Tabela~\ref{tab:consist} mostra como cada objetivo deriva de uma
-característica priorizada e de uma parte interessada da Fase~1. O foco de
-qualidade de cada objetivo reúne exatamente as subcaracterísticas mantidas no
-modelo adaptado (Figura~\ref{fig:modelo}), e o ponto de vista é a parte
-interessada cuja necessidade motivou essas subcaracterísticas. O docente que
-adota a ferramenta usa as evidências de O1, O3, O5 e O6, e os mantenedores
-recebem os relatos das métricas com pontuação 0 de todos os objetivos. Os
-cortes da Fase~1 também se refletem aqui: nenhuma métrica mede não repúdio,
-instalabilidade ou escalabilidade, e as métricas que adulteram dados são
-coletadas em instância local, como exige o operador.
+\begin{figure*}[!t]
+\centering
+\gqmfigtikz
+\caption{Hierarquia GQM completa, com os três níveis identificados. Fonte: elaboração própria.}
+\label{fig:gqm}
+\end{figure*}
+
+\textbf{Níveis de pontuação e critérios de julgamento.} Cada métrica recebe
+de 0 a 2 pontos: 2 (satisfatório) quando atinge a meta, 1 (parcial) quando
+fica abaixo dela com atendimento limitado e 0 (insatisfatório) quando o
+atributo não é atendido; métricas Sim/Não têm só os níveis 2 e 0. Quando a
+métrica já trazia uma meta, como 100\% de mensagens cifradas ou SUS de pelo
+menos 68~\cite{bangor08}, ela é o limite do nível 2; as demais faixas são
+referências definidas para esta avaliação, a exemplo de~\cite{calabrese17}.
+A pontuação de uma questão é a média de suas métricas, e a de um objetivo, a
+média de suas questões, ambas com pesos iguais. A média é convertida em
+percentual do máximo de 2 pontos: 75\% ou mais, \textit{atendido}; de 50\% a
+74\%, \textit{parcialmente atendido}; abaixo de 50\%, \textit{não atendido}.
+Toda métrica com 0 ponto é registrada como oportunidade de melhoria,
+qualquer que seja a média, e uma métrica não medida não vira zero.
+
+A Tabela~\ref{tab:consist} mostra a consistência entre as fases: o foco de
+cada objetivo reúne exatamente as subcaracterísticas mantidas no modelo
+(Figura~\ref{fig:modelo}), o ponto de vista é a parte interessada que as
+motivou (Tabela~\ref{tab:stakeholders}) e nenhuma métrica mede o que a
+Fase~1 excluiu. Os cortes também se refletem no ambiente: as métricas que
+adulteram dados são coletadas em instância local, como exige o operador.
 
 \begin{table}[!t]
 \caption{Rastreabilidade Fase 1 $\rightarrow$ Fase 2. Fonte: elaboração própria.}
 \label{tab:consist}
 \centering
 \scriptsize
-\setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}L{2.7cm} L{2.6cm} c L{1.5cm}@{}}
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}L{2.7cm} L{2.7cm} c L{1.5cm}@{}}
 \toprule
 \textbf{Parte interessada} & \textbf{Subcaracterísticas} & \textbf{Obj.} & \textbf{Questões}\\
 \midrule
-Usuário que compartilha diagramas sensíveis & Confidencialidade e integridade & O1 & S-Q1 a S-Q3\\
-Participantes de sessões colaborativas e mantenedores & Responsabilização, autenticidade e resistência & O2 & S-Q4 a S-Q6\\
-Usuário que acessa só pelo celular & Adaptabilidade & O3 & F-Q1 e F-Q2\\
-Usuário que migra de outra ferramenta & Substituibilidade & O4 & F-Q3 e F-Q4\\
-Usuário iniciante e experiente & As seis gerais de interação & O5 & CI-Q1 a CI-Q8\\
-Usuário com necessidades de acessibilidade & Inclusividade e assistência ao usuário & O6 & CI-Q9 e CI-Q10\\
+Quem compartilha diagramas sensíveis & Confidencialidade e integridade & O1 & S-Q1 a S-Q3\\
+Participantes de sessões e mantenedores & Responsabilização, autenticidade e resistência & O2 & S-Q4 a S-Q6\\
+Quem acessa só pelo celular & Adaptabilidade & O3 & F-Q1 e F-Q2\\
+Quem migra de outra ferramenta & Substituibilidade & O4 & F-Q3 e F-Q4\\
+Usuários iniciantes e experientes & As seis gerais de interação & O5 & CI-Q1 a CI-Q8\\
+Usuários com necessidades de acessibilidade & Inclusividade e assistência ao usuário & O6 & CI-Q9 e CI-Q10\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\subsection{Questões}
-Cada objetivo foi desdobrado em questões que cobrem as subcaracterísticas de
-seu foco de qualidade, indicadas entre colchetes nas tabelas GQM, e cada
-questão pertence a um único objetivo. As questões interrogam o atributo de
-qualidade, e não a métrica: S-Q2, por exemplo, pergunta se é possível
-controlar quem acessa um desenho, e suas métricas verificam os mecanismos de
-controle e os dados deixados no navegador. A única subcaracterística sem
-questão própria é a autodescritividade, observada pelas métricas CI-M3 (ícones
-identificados sem \textit{tooltip}) e CI-M7 (cobertura da ajuda interna).
+\subsection{Fase 3: plano de avaliação}
+\label{sec:fase3}
 
-\subsection{Hipóteses}
-Cada questão tem uma hipótese, registrada nas tabelas GQM: a resposta que a
-equipe espera antes da medição e o motivo dessa expectativa, baseado no
-código-fonte e na documentação do Excalidraw. As métricas da questão confirmam
-ou refutam a hipótese. Em síntese, a equipe espera conteúdo protegido no
-tráfego e contra adulteração, mas sem controle de acesso, rastreabilidade nem
-verificação de identidade; funcionamento nos ambientes testados, com
-limitações no toque e sem conexão; e uma interface fácil de aprender, mas cujos
-elementos desenhados no canvas não são anunciados por leitores de tela.
+\textbf{Versão e período.} A avaliação foi fixada no \textit{commit}
+\texttt{e7b5346} do Excalidraw, para que os resultados sejam reproduzíveis
+mesmo com a evolução do projeto. As coletas ocorreram de 4 a 22 de novembro
+de 2026.
 
-\subsection{Métricas}
-As métricas foram selecionadas para responder diretamente às questões: cada
-questão é observada por uma a quatro métricas, e nenhuma métrica fica sem
-questão associada. Cada métrica produz um único valor (uma contagem, uma
-proporção, uma resposta Sim/Não ou uma escala curta), o que as mantém simples.
-Elas dependem de instrumentos e procedimentos descritos na própria definição,
-como DevTools~\cite{devtools}, \texttt{npm audit}~\cite{npmaudit},
-securityheaders.com~\cite{secheaders}, axe DevTools~\cite{axe},
-Lighthouse~\cite{lighthouse} e o questionário SUS~\cite{brooke96}, e não da
-opinião de quem mede, o que as torna objetivas; as métricas de percepção, como
-o SUS e a escala Likert, usam instrumentos padronizados. Cada métrica se liga
-ao atributo perguntado, o que sustenta sua validade. As métricas que dependem
-de participantes, como tempos, taxas de conclusão, SUS e escala Likert, exigem
-um roteiro de tarefas único para todos, para que os valores sejam comparáveis.
+\textbf{Ambientes.} Os testes que adulteram dados ou exigem controle do
+servidor (S-M5 e S-M6) e a maior parte dos testes funcionais rodaram numa
+instância local, com o servidor de colaboração \texttt{excalidraw-room}
+local, um projeto Firebase de teste e um servidor de IA simulado, e não em
+excalidraw.com, como exige o operador. O uso offline (F-M5) e a ação de
+melhoria usaram o \textit{build} de produção servido localmente, porque o
+\textit{service worker} só existe nele. A versão pública foi usada só nos
+cabeçalhos HTTP (S-M13). Os ensaios cobriram Chrome 157, Edge 157, Firefox
+160, Safari 27.2 e Helium 157 (Chromium); Windows 10 e 11, macOS 27.2.1,
+Android 10, iOS 27.2.1 e iPadOS 27.2; celular e \textit{tablet} emulados
+(Pixel~7 e iPad); e as larguras de 360, 768, 1366 e 2560~px.
 
-\subsection{Níveis de pontuação e critérios de julgamento}
-Cada métrica recebe uma pontuação de 0 a 2. O nível 2 (satisfatório) corresponde ao valor que atinge a meta ou ao comportamento esperado. O nível 1 (parcial) corresponde a um valor abaixo da meta que ainda indica atendimento limitado. O nível 0 (insatisfatório) indica que o atributo não é atendido. As tabelas GQM estabelecem o limite de cada nível para as 51 métricas. Quando o enunciado da métrica já trazia uma meta, como 100\% de mensagens cifradas, taxa de recuperabilidade de 100\%, razão de tempo de tarefa menor ou igual a 1 ou escore SUS maior ou igual a 68~\cite{bangor08}, essa meta é o limite do nível 2. As métricas de resposta Sim/Não têm apenas os níveis 2 e 0. As demais faixas são valores de referência definidos para esta avaliação, a exemplo das faixas percentuais de Calabrese et al.~\cite{calabrese17}.
+\textbf{Métodos.} Cada métrica tem método e responsável definidos no
+plano, e cada método produz o valor na unidade da métrica, o que permite
+aplicar as faixas da Fase~2 (Tabela~\ref{tab:metodos}). Os testes
+repetíveis foram automatizados com Playwright, e os \textit{scripts} estão no
+repositório.
 
-A pontuação de uma questão é a média simples das pontuações de suas métricas, e a de um objetivo é a média simples das pontuações de suas questões, de modo que todas as métricas de uma questão e todas as questões de um objetivo têm o mesmo peso. A média é convertida em percentual do máximo de 2 pontos e interpretada da seguinte forma: 75\% ou mais, atendido; de 50\% a 74\%, parcialmente atendido; abaixo de 50\%, não atendido. Independentemente da média, toda métrica com pontuação 0 é registrada como ponto de melhoria, para que um resultado ruim não fique escondido pelas demais métricas da mesma questão. O julgamento vale apenas para as funcionalidades, os ambientes e as condições efetivamente examinados, conforme a Seção~\ref{sec:limit}.
-
-\begin{table*}[!tp]
-\caption{GQM de Segurança (O1 e O2). Fonte: elaboração própria.}
-\label{tab:gqmseg}
+\begin{table}[!t]
+\caption{Formas de coleta, recursos e métricas. Fonte: plano de avaliação da equipe.}
+\label{tab:metodos}
 \centering
 \scriptsize
-\setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{0.92}
-\begin{tabular}{@{}L{1.0cm} L{9.8cm} L{2.0cm} L{2.0cm} L{2.0cm}@{}}
-\gqmhead
-\gqmO{O1: Proteção das informações e controle de acesso}
-\gqmQ{S-Q1}{Confidencialidade}{Os dados do desenho trafegam e ficam armazenados de forma protegida contra acesso não autorizado?}{Sim: o código cifra as mensagens da colaboração com AES-GCM no navegador, e a chave fica no fragmento \texttt{\#} do link, que o navegador não envia ao servidor.}
-\gqmM{S-M1}{Proporção de mensagens de colaboração criptografadas = mensagens cifradas / mensagens capturadas, via DevTools~\cite{devtools} ou \textit{proxy} (Burp~\cite{burp} ou ZAP~\cite{zap}). Meta: 100\%}{100\%}{$\geq$\,90\% e $<$\,100\%}{$<$\,90\%}
-\gqmM{S-M2}{A chave de criptografia é enviada ao servidor? Sim/Não, verificando se o fragmento \texttt{\#} aparece nas requisições}{Não}{---}{Sim}
-\gqmQ{S-Q2}{Confidencialidade}{É possível controlar quem acessa um desenho compartilhado?}{Não: na versão gratuita, quem tem o link acessa o desenho, sem senha, expiração ou revogação, e a cena fica sem criptografia no \texttt{localStorage}.}
-\gqmM{S-M3}{Mecanismos de controle de acesso: escala de 0 a 3, um ponto por mecanismo (senha, expiração ou revogação do link)}{2 ou 3 mecanismos}{1 mecanismo}{Nenhum}
-\gqmM{S-M4}{Dados persistidos localmente sem criptografia? Sim/Não, inspecionando \texttt{localStorage} e \texttt{IndexedDB}}{Não}{---}{Sim}
-\gqmQ{S-Q3}{Integridade}{O sistema impede alteração ou corrupção não autorizada dos dados?}{Sim: o AES-GCM é autenticado, então um \textit{payload} adulterado falha ao ser decifrado, e a reconciliação por versão dos elementos deve evitar inconsistências na edição simultânea.}
-\gqmM{S-M5}{Taxa de detecção de adulteração = adulterações rejeitadas / adulterações injetadas no texto cifrado, manipulando \textit{payloads} em instância local}{100\%}{$\geq$\,90\% e $<$\,100\%}{$<$\,90\%}
-\gqmM{S-M6}{Inconsistências entre participantes após N edições simultâneas (contagem, em teste de concorrência)}{0}{1 a 2}{$\geq$\,3}
-\gqmO{O2: Identificação, responsabilização e riscos de segurança}
-\gqmQ{S-Q4}{Responsabilização}{As ações dos usuários são rastreáveis?}{Não: a versão gratuita não guarda histórico de versões nem registra o autor de cada alteração.}
-\gqmM{S-M7}{Completude da trilha de auditoria = ações registradas com autor identificado / ações executadas}{$\geq$\,90\%}{50\% a 89\%}{$<$\,50\%}
-\gqmM{S-M8}{Histórico de versões com autoria, comparando a versão gratuita com o Excalidraw+}{Sim, na versão gratuita}{Só no Excalidraw+}{Não existe}
-\gqmQ{S-Q5}{Autenticidade}{O sistema confirma a identidade de quem participa da sessão?}{Não: o participante só informa um nome, sem login, e qualquer pessoa pode usar o nome de outra.}
-\gqmM{S-M9}{Suficiência do mecanismo de autenticação: escala de 0 a 3 (nenhum, nome autodeclarado, login, login + MFA)}{Login ou login + MFA}{Nome autodeclarado}{Nenhum}
-\gqmM{S-M10}{Um participante pode se passar por outro alterando o nome exibido? Sim/Não}{Não}{---}{Sim}
-\gqmQ{S-Q6}{Resistência}{A aplicação resiste a ataques e vulnerabilidades conhecidas?}{Parcialmente: o projeto é mantido ativamente e deve ter poucas vulnerabilidades críticas, mas a configuração de hospedagem do repositório não define CSP, o que deve baixar a nota dos cabeçalhos.}
-\gqmM{S-M11}{Vulnerabilidades altas ou críticas nas dependências, via \texttt{npm audit}~\cite{npmaudit} no repositório (contagem)}{0}{1 a 3, nenhuma crítica}{Qualquer crítica ou $\geq$\,4}
-\gqmM{S-M12}{\textit{Security advisories} e CVEs publicados~\cite{ghadvisory} e tempo médio de correção (dias)}{$\leq$\,30 dias ou sem \textit{advisories}}{31 a 90 dias}{$>$\,90 dias ou sem correção}
-\gqmM{S-M13}{Nota dos cabeçalhos de segurança HTTP (CSP, HSTS, X-Frame-Options) via securityheaders.com~\cite{secheaders}}{A ou A+}{B ou C}{D, E ou F}
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}L{1.45cm} L{3.6cm} L{3.1cm}@{}}
+\toprule
+\textbf{Forma} & \textbf{Recursos} & \textbf{Métricas}\\
+\midrule
+Código (9) & Leitura do código no \textit{commit} fixado, \texttt{git grep}, GitHub Advisory Database~\cite{ghadvisory} & S-M9, S-M12, F-M7, F-M10, F-M12, CI-M7, CI-M10, CI-M18, CI-M26\\
+Navegador (23) & Instância local, DevTools, Playwright, aparelhos reais e emulados & S-M1 a S-M8, S-M10, F-M1 a F-M6, F-M11, CI-M9, CI-M12 a CI-M16, CI-M23\\
+Ferramenta (5) & \texttt{npm audit}, securityheaders.com, axe-core, Lighthouse, NVDA 2026.3 com Edge & S-M11, S-M13, CI-M22, CI-M24, CI-M25\\
+Participantes (14) & Roteiro de seis tarefas, cronômetro, ficha de observação, SUS e escala Likert & CI-M1 a CI-M6, CI-M8, CI-M11, CI-M17, CI-M19 a CI-M21, F-M8, F-M9\\
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{table}
 
-\begin{table*}[!tp]
-\caption{GQM de Flexibilidade (O3 e O4). Fonte: elaboração própria.}
-\label{tab:gqmflex}
+\textbf{Sessões com participantes.} Um protocolo único define quatro
+perfis: iniciantes (A), experientes (B), quem vem de outra ferramenta (C) e
+pessoas com necessidades de acessibilidade (D); e seis tarefas: T1, dizer
+para que serve a ferramenta ao ver a tela inicial; T2, explorar por um minuto
+e descrevê-la; T3, nomear os ícones da barra sem \textit{tooltips}; T4,
+desenhar um retângulo e uma elipse ligados por uma seta e rotulados; T5,
+reproduzir um diagrama-modelo de seis elementos, mudar uma cor, agrupar e
+exportar em PNG; e T6, migrar um diagrama da ferramenta anterior (só
+perfil~C). Todos usaram a mesma instância, o tema claro e o canvas vazio;
+T4 e T5 tinham limite de 8~min. Cada participante assinou um termo de
+consentimento, a gravação de tela e áudio só ocorreu com autorização, sem
+rosto, e os registros públicos usam apenas códigos (P01 a P06); gravações e
+termos ficam em pasta privada, fora do repositório, com a LGPD como
+referência~\cite{lgpd}.
+
+\textbf{Cronograma e registro.} O plano fixou um prazo para cada atividade
+da avaliação (Figura~\ref{fig:cronograma}): primeiro o plano, o ambiente
+local e o protocolo das sessões; depois as medições sem participantes e as
+sessões, em paralelo; e, por fim, a análise dos resultados. Cada evidência
+segue um modelo com valor, nota, data, ambiente, versão, responsável e
+arquivos de apoio, registra também as buscas sem resultado e é conferida por
+um segundo avaliador antes de ser usada.
+
+\begin{figure}[!t]
 \centering
-\scriptsize
-\setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{0.92}
-\begin{tabular}{@{}L{1.0cm} L{9.8cm} L{2.0cm} L{2.0cm} L{2.0cm}@{}}
-\gqmhead
-\gqmO{O3: Adaptabilidade a diferentes ambientes e dispositivos}
-\gqmQ{F-Q1}{Adaptabilidade}{O Excalidraw funciona de forma consistente em diferentes navegadores e sistemas operacionais?}{Sim, com pequenas diferenças: roda inteiro no navegador, mas fontes e atalhos de teclado podem variar no macOS e no Safari.}
-\gqmM{F-M1}{Taxa de compatibilidade de navegadores = navegadores sem falhas nas tarefas de teste / navegadores testados (Chrome, Firefox, Edge e Safari). Meta: 75\%}{$\geq$\,75\%}{50\% a 74\%}{$<$\,50\%}
-\gqmM{F-M2}{Taxa de compatibilidade de sistemas = sistemas sem falhas / sistemas testados (Windows, Linux, macOS, Android e iOS)}{$\geq$\,80\%}{60\% a 79\%}{$<$\,60\%}
-\gqmM{F-M3}{Defeitos específicos de ambiente: renderização do canvas, fontes e atalhos de teclado (contagem)}{0}{1 a 3}{$\geq$\,4}
-\gqmQ{F-Q2}{Adaptabilidade}{A aplicação se adapta a diferentes dispositivos e condições de uso?}{Parcialmente: há barra de ferramentas própria para celular e uso offline como PWA, mas colaboração e IA dependem de conexão, e funções ligadas a atalhos devem ser limitadas no toque.}
-\gqmM{F-M4}{Cobertura funcional em dispositivos móveis = funções operáveis por toque ou caneta / funções operáveis com mouse no desktop}{$\geq$\,90\%}{70\% a 89\%}{$<$\,70\%}
-\gqmM{F-M5}{Cobertura funcional offline = funções que funcionam sem conexão / funções testadas, simulando o modo offline via DevTools~\cite{devtools}}{$\geq$\,80\%}{50\% a 79\%}{$<$\,50\%}
-\gqmM{F-M6}{Resoluções suportadas sem perda de elementos da interface: Sim/Não para 360, 768, 1366 e 2560 px}{4 de 4}{3 de 4}{$\leq$\,2 de 4}
-\gqmO{O4: Substituibilidade e migração de diagramas}
-\gqmQ{F-Q3}{Substituibilidade}{O Excalidraw pode substituir uma ferramenta equivalente (por exemplo, draw.io ou Miro) sem perda de funcionalidade e produtividade?}{Parcialmente: deve cobrir as tarefas básicas de diagramação em tempo parecido, mas não todas as funções de ferramentas mais completas.}
-\gqmM{F-M7}{Inclusão funcional = funções da ferramenta anterior presentes no Excalidraw / total de funções da ferramenta anterior}{$\geq$\,90\%}{70\% a 89\%}{$<$\,70\%}
-\gqmM{F-M8}{Razão de tempo de tarefa = tempo no Excalidraw / tempo na ferramenta anterior, para a mesma tarefa. Meta: $\leq$\,1}{$\leq$\,1,0}{$>$\,1,0 e $\leq$\,1,5}{$>$\,1,5}
-\gqmM{F-M9}{Taxa de conclusão de tarefas por usuários vindos da ferramenta anterior = tarefas concluídas / tarefas propostas}{$\geq$\,90\%}{70\% a 89\%}{$<$\,70\%}
-\gqmQ{F-Q4}{Substituibilidade}{Os dados podem ser migrados para dentro e para fora do Excalidraw sem perdas?}{Parcialmente: o formato \texttt{.excalidraw} é um JSON aberto e deve preservar tudo ao exportar e reimportar, mas não há importação direta de arquivos do draw.io nem do Miro.}
-\gqmM{F-M10}{Cobertura de formatos de exportação = formatos abertos suportados (JSON, SVG e PNG) / formatos relevantes considerados}{$\geq$\,80\%}{50\% a 79\%}{$<$\,50\%}
-\gqmM{F-M11}{Fidelidade de migração = elementos preservados (formas, textos, setas e cores) após exportar e reimportar / total de elementos. Meta: 100\% no \textit{round-trip} \texttt{.excalidraw}}{100\%}{90\% a 99\%}{$<$\,90\%}
-\gqmM{F-M12}{Formatos de importação aceitos (\texttt{.excalidraw}, \texttt{.excalidrawlib}, Mermaid e imagens), em contagem}{$\geq$\,3 formatos}{2 formatos}{$\leq$\,1 formato}
-\bottomrule
-\end{tabular}
-\end{table*}
-
-\begin{table*}[!tp]
-\caption{GQM de Capacidade de interação, parte 1 (O5). Fonte: elaboração própria.}
-\label{tab:gqmci1}
-\centering
-\scriptsize
-\setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{0.92}
-\begin{tabular}{@{}L{1.0cm} L{9.8cm} L{2.0cm} L{2.0cm} L{2.0cm}@{}}
-\gqmhead
-\gqmO{O5: Compreensão, aprendizagem e operação da interface}
-\gqmQ{CI-Q1}{Reconhecibilidade da adequação}{O usuário consegue reconhecer rapidamente se o Excalidraw atende à sua necessidade?}{Sim: a tela de boas-vindas e a barra de ferramentas à vista deixam claro, em poucos segundos, que é um quadro branco para desenhar.}
-\gqmM{CI-M1}{Tempo até o participante identificar o propósito da ferramenta na tela inicial (s)}{$\leq$\,10 s}{11 a 30 s}{$>$\,30 s}
-\gqmM{CI-M2}{Taxa de reconhecimento correto = participantes que descrevem corretamente o que a ferramenta faz após 1 min de uso / total. Meta: $\geq$\,90\%}{$\geq$\,90\%}{70\% a 89\%}{$<$\,70\%}
-\gqmM{CI-M3}{Ícones autoexplicativos = ícones da barra identificados corretamente sem \textit{tooltip} / total de ícones (autodescritividade)}{$\geq$\,80\%}{50\% a 79\%}{$<$\,50\%}
-\gqmQ{CI-Q2}{Apreensibilidade}{Um usuário novo consegue aprender a usar as funções básicas sem treinamento?}{Sim: as funções básicas seguem as convenções de editores gráficos (escolher a ferramenta e arrastar para desenhar).}
-\gqmM{CI-M4}{Tempo para concluir, sem ajuda, a primeira tarefa: desenhar um retângulo, ligá-lo com uma seta a uma elipse e rotulá-los (min)}{$\leq$\,3 min}{$>$\,3 e $\leq$\,5 min}{$>$\,5 min ou não concluiu}
-\gqmM{CI-M5}{Taxa de conclusão sem ajuda = tarefas básicas concluídas sem consultar ajuda externa / tarefas propostas. Meta: $\geq$\,90\%}{$\geq$\,90\%}{70\% a 89\%}{$<$\,70\%}
-\gqmM{CI-M6}{Consultas à ajuda por participante durante as tarefas (diálogo ``?'', \textit{tooltips} ou busca externa)}{$\leq$\,1}{2 a 3}{$\geq$\,4}
-\gqmQ{CI-Q3}{Apreensibilidade}{A ferramenta oferece recursos que apoiam o aprendizado contínuo?}{Parcialmente: há diálogo de ajuda com os atalhos e dicas na tela, mas não há tutorial guiado.}
-\gqmM{CI-M7}{Cobertura da ajuda interna = funções documentadas no diálogo de ajuda e de atalhos / funções disponíveis (autodescritividade)}{$\geq$\,80\%}{50\% a 79\%}{$<$\,50\%}
-\gqmM{CI-M8}{Melhoria entre sessões = tempo da tarefa na primeira sessão / tempo da mesma tarefa na terceira sessão (valor acima de 1 indica aprendizado)}{$\geq$\,1,3}{$>$\,1,0 e $<$\,1,3}{$\leq$\,1,0}
-\gqmQ{CI-Q4}{Operabilidade}{As tarefas comuns podem ser realizadas de forma eficiente?}{Sim: as ferramentas têm atalho de uma tecla (por exemplo, R ou 2 para retângulo), o que deve tornar os usuários experientes bem mais rápidos.}
-\gqmM{CI-M9}{Média de cliques ou ações para criar forma, mudar cor, agrupar e exportar em PNG}{$\leq$\,3}{4 a 5}{$\geq$\,6}
-\gqmM{CI-M10}{Cobertura de atalhos de teclado = funções frequentes com atalho / funções frequentes}{$\geq$\,80\%}{50\% a 79\%}{$<$\,50\%}
-\gqmM{CI-M11}{Tempo médio por tarefa de usuários experientes / tempo médio de iniciantes}{$\leq$\,0,5}{$>$\,0,5 e $\leq$\,0,8}{$>$\,0,8}
-\gqmQ{CI-Q5}{Operabilidade}{A interface se comporta de forma consistente e previsível?}{Parcialmente: a interface é simples e dá retorno visual imediato, mas seleção, \textit{snapping} e edição de texto em formas podem mudar conforme o contexto.}
-\gqmM{CI-M12}{Inconsistências: casos em que a mesma ação tem comportamentos diferentes, como seleção, \textit{snapping} e edição de texto (contagem)}{0}{1 a 2}{$\geq$\,3}
-\gqmM{CI-M13}{Ações com feedback visual imediato / ações testadas. Meta: 100\%}{100\%}{90\% a 99\%}{$<$\,90\%}
-\bottomrule
-\end{tabular}
-\end{table*}
-
-\begin{table*}[!tp]
-\caption{GQM de Capacidade de interação, parte 2 (O5 e O6). Fonte: elaboração própria.}
-\label{tab:gqmci2}
-\centering
-\scriptsize
-\setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{0.92}
-\begin{tabular}{@{}L{1.0cm} L{9.8cm} L{2.0cm} L{2.0cm} L{2.0cm}@{}}
-\gqmhead
-\gqmO{O5: Compreensão, aprendizagem e operação da interface (continuação)}
-\gqmQ{CI-Q6}{Proteção contra erros do usuário}{O sistema evita e permite recuperar erros do usuário?}{Sim: há desfazer e refazer, a cena é salva automaticamente no navegador e limpar o canvas pede confirmação.}
-\gqmM{CI-M14}{Taxa de recuperabilidade = ações revertíveis por desfazer e refazer / ações testadas. Meta: 100\%}{100\%}{90\% a 99\%}{$<$\,90\%}
-\gqmM{CI-M15}{Ações destrutivas sem confirmação, como limpar o canvas ou sobrescrever o arquivo ao abrir outro (contagem)}{0}{1 a 2}{$\geq$\,3}
-\gqmM{CI-M16}{Perda de dados ao fechar a aba ou recarregar sem salvar? Sim/Não, verificando o salvamento automático local}{Não}{---}{Sim}
-\gqmQ{CI-Q7}{Proteção contra erros do usuário}{Os erros cometidos são frequentes e fáceis de entender?}{Parcialmente: os erros devem ser poucos nas tarefas básicas, mas seleções e movimentos acidentais devem aparecer entre iniciantes e no toque.}
-\gqmM{CI-M17}{Taxa de erro = ações erradas (forma errada, elemento movido sem querer) / ações nas sessões observadas}{$\leq$\,5\%}{$>$\,5\% e $\leq$\,10\%}{$>$\,10\%}
-\gqmM{CI-M18}{Mensagens de erro que o usuário entende e sabe como agir / mensagens exibidas}{$\geq$\,80\%}{50\% a 79\%}{$<$\,50\%}
-\gqmQ{CI-Q8}{Engajamento do usuário}{A interface é agradável e satisfatória para o usuário?}{Sim: o estilo desenhado à mão e o modo escuro tendem a agradar, e o SUS deve ficar acima da média de 68.}
-\gqmM{CI-M19}{Escore SUS~\cite{brooke96}, de 0 a 100. Meta: $\geq$\,68~\cite{bangor08}}{$\geq$\,68}{51 a 67}{$<$\,51}
-\gqmM{CI-M20}{Satisfação visual: nota média em escala Likert de 1 a 5 (estilo desenhado à mão, organização e modo escuro)}{$\geq$\,4,0}{3,0 a 3,9}{$<$\,3,0}
-\gqmM{CI-M21}{Intenção de uso futuro = participantes que usariam a ferramenta novamente / total}{$\geq$\,80\%}{60\% a 79\%}{$<$\,60\%}
-\gqmO{O6: Acessibilidade e adequação a diferentes perfis de usuários}
-\gqmQ{CI-Q9}{Assistência ao usuário}{Pessoas com deficiência conseguem usar o Excalidraw?}{Parcialmente: menus e barra de ferramentas devem ser operáveis pelo teclado, mas os elementos desenhados no canvas não devem ser anunciados por leitores de tela.}
-\gqmM{CI-M22}{Violações da WCAG 2.2~\cite{wcag22}, níveis A e AA, detectadas via axe DevTools~\cite{axe}, Lighthouse~\cite{lighthouse} ou WAVE~\cite{wave} (contagem)}{0}{1 a 5}{$\geq$\,6}
-\gqmM{CI-M23}{Funções operáveis sem mouse / funções testadas}{$\geq$\,90\%}{60\% a 89\%}{$<$\,60\%}
-\gqmM{CI-M24}{Elementos do desenho anunciados pelo NVDA~\cite{nvda} ou VoiceOver~\cite{voiceover} / total de elementos (ponto crítico, pois o desenho é feito em \textit{canvas})}{$\geq$\,80\%}{40\% a 79\%}{$<$\,40\%}
-\gqmM{CI-M25}{Contraste mínimo de 4,5:1: combinações que atendem / combinações testadas, por tela, nos modos claro e escuro}{100\%}{$\geq$\,80\% e $<$\,100\%}{$<$\,80\%}
-\gqmQ{CI-Q10}{Inclusividade}{A ferramenta se adapta a diferentes perfis de usuário?}{Sim: a interface é traduzida para dezenas de idiomas, e o arquivo de traduções do repositório indica 96\% das \textit{strings} em português do Brasil.}
-\gqmM{CI-M26}{Idiomas disponíveis e proporção da interface traduzida para o português = \textit{strings} traduzidas / total de \textit{strings}}{$\geq$\,95\%}{70\% a 94\%}{$<$\,70\% ou sem português}
-\bottomrule
-\end{tabular}
-\end{table*}
-
-\subsection{Representação gráfica da hierarquia GQM}
-A Figura~\ref{fig:gqm} apresenta a hierarquia completa, lida de cima para
-baixo: características, seis objetivos (nível conceitual), 20 questões (nível
-operacional) e 51 métricas (nível quantitativo), identificadas pelos códigos
-das tabelas GQM.
-
-\begin{figure*}[!t]
-\centering
-\gqmfigtikz
-\caption{Hierarquia GQM completa da avaliação do Excalidraw, com os três níveis identificados. Fonte: elaboração própria.}
-\label{fig:gqm}
-\end{figure*}
+\resizebox{\columnwidth}{!}{%
+\begin{tikzpicture}[font=\scriptsize, x=4.5mm, y=4.2mm]
+% eixo: dia 0 = 04/11; dia 11 = 15/11
+\foreach \d/\lab in {0/04, 3/07, 5/09, 8/12, 11/15}{
+  \draw[gray!50] (\d,0.6) -- (\d,-7.6);
+  \node[below] at (\d,-7.6) {\lab/11};}
+% \y / rótulo / início / fim (prazo do plano)
+\foreach \y/\lab/\ps/\pe in {
+  0/{Plano de avaliação}/0/5,
+  1/{Ambiente local}/0/5,
+  2/{Protocolo de sessões}/0/3,
+  3/{Medições de Segurança}/0/8,
+  4/{Medições de Flexibilidade}/0/8,
+  5/{Medições de Capac. de interação}/0/8,
+  6/{Sessões com participantes}/3/8,
+  7/{Análise dos resultados}/8/11}{
+  \node[anchor=east] at (-0.4,-\y) {\lab};
+  \fill[gray!55] (\ps,-\y-0.3) rectangle (\pe,-\y+0.3);}
+\end{tikzpicture}}
+\caption{Cronograma da Fase 3: prazo de cada atividade da avaliação. Fonte: plano de avaliação.}
+\label{fig:cronograma}
+\end{figure}
 
 %% =====================================================================
-%%  SEÇÕES DA ENTREGA 2 (escondidas na Entrega 1)
+%%  IV. RESULTADOS
 %% =====================================================================
-\ifentregafinal
-\section{Fase 3: Plano de Avaliação}
-\subsection{Método e instruções de coleta}
-% Passos para obter cada medida, de forma repetível e reprodutível.
-\subsection{Recursos e ambiente}
-% Hardware, software, versões de navegadores, sistemas e dispositivos,
-% massa de dados e conhecimento exigido dos avaliadores e usuários.
-\subsection{Cronograma}
-% Atividades distribuídas até a Fase 4.
-\subsection{Consistência entre as Fases 2 e 3}
-% Mostrar que métodos e recursos são coerentes com as métricas, os níveis de
-% pontuação e os critérios de julgamento da Fase 2.
+\section{Resultados}
+\label{sec:res}
 
-\section{Fase 4: Resultados da Avaliação}
-\subsection{Obtenção das medidas}
-% Dados coletados, com evidências rastreáveis no repositório.
-\subsection{Análise e respostas às questões GQM}
-% Comparar cada métrica com seus níveis de pontuação e responder a todas as
-% questões e objetivos, com gráficos e tabelas.
-\subsection{Julgamento e coerência com o propósito}
-% Relacionar o julgamento ao propósito e às decisões definidas na Fase 1.
+Das 51 métricas, 50 têm valor e nota, com evidência em
+\texttt{evidencias/} e página na GitPage. A CI-M8 não foi medida, porque
+exige três sessões com a mesma pessoa e cada participante fez uma; ela não
+foi tratada como zero, e a CI-Q3 ficou sem média. Seis pessoas participaram
+das sessões, conduzidas entre 12 e 22/11: três iniciantes (P01, P03 e P04),
+dois experientes (P02 e P06) e um vindo do Lucidchart (P05); ninguém do
+perfil~D foi recrutado, e a acessibilidade foi avaliada só com ferramentas.
+
+\subsection{Resultados das métricas e respostas às questões}
+
+As Tabelas~\ref{tab:rseg}, \ref{tab:rflex}, \ref{tab:rci1} e~\ref{tab:rci2}
+trazem o valor e a nota de cada métrica, e a Tabela~\ref{tab:questoes}, a
+média de cada questão e o julgamento de sua hipótese. Das 20 hipóteses, 7
+foram confirmadas, 11 parcialmente confirmadas e 2 refutadas; confirmar uma
+hipótese negativa, como a ausência de controle de acesso, confirma uma
+limitação, e não o atendimento.
+
+\begin{table*}[!t]
+\caption{Métricas de Segurança (O1 e O2): definição, níveis, valor medido e nota. Fonte: evidências S-M1 a S-M13 no repositório.}
+\label{tab:rseg}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.95}
+\begin{tabular}{@{}L{0.95cm} L{6.9cm} L{4.0cm} L{4.3cm} c@{}}
+\rhead
+\rQ{S-Q1}{Confidencialidade}{Os dados do desenho trafegam e ficam armazenados de forma protegida contra acesso não autorizado?}
+\rM{S-M1}{Mensagens de colaboração cifradas $\div$ capturadas, via DevTools}{100\% / $\geq$\,90\% / $<$\,90\%}{5 de 6 tipos de evento (83,3\%); nome do pedido de seguir em claro}{0}
+\rM{S-M2}{A chave (fragmento \texttt{\#}) é enviada ao servidor? Sim/Não}{Não / --- / Sim}{Não (0 ocorrências)}{2}
+\rQ{S-Q2}{Confidencialidade}{É possível controlar quem acessa um desenho compartilhado?}
+\rM{S-M3}{Mecanismos de controle de acesso (senha, expiração, revogação)}{2 ou 3 / 1 / nenhum}{0 de 3}{0}
+\rM{S-M4}{Dados persistidos sem cifra no \texttt{localStorage} ou \texttt{IndexedDB}? Sim/Não}{Não / --- / Sim}{Sim: cena, arquivos e biblioteca legíveis}{0}
+\rQ{S-Q3}{Integridade}{O sistema impede alteração ou corrupção não autorizada dos dados?}
+\rM{S-M5}{Adulterações rejeitadas $\div$ injetadas no texto cifrado (instância local)}{100\% / $\geq$\,90\% / $<$\,90\%}{221 de 221 (100\%)}{2}
+\rM{S-M6}{Inconsistências entre participantes após edições simultâneas}{0 / 1 a 2 / $\geq$\,3}{2 em 8 rodadas}{1}
+\rQ{S-Q4}{Responsabilização}{As ações dos usuários são rastreáveis?}
+\rM{S-M7}{Ações registradas com autor identificado $\div$ ações executadas}{$\geq$\,90\% / 50--89\% / $<$\,50\%}{0 de 7 (0\%)}{0}
+\rM{S-M8}{Histórico de versões com autoria (gratuito e Excalidraw+)}{no gratuito / só no pago / não existe}{Não encontrado no gratuito; pago não comparado}{0}
+\rQ{S-Q5}{Autenticidade}{O sistema confirma a identidade de quem participa da sessão?}
+\rM{S-M9}{Autenticação: nenhuma, nome autodeclarado, login ou login com MFA}{login / nome / nenhuma}{Nome autodeclarado}{1}
+\rM{S-M10}{Um participante pode se passar por outro trocando o nome? Sim/Não}{Não / --- / Sim}{Sim (aceito sem alerta)}{0}
+\rQ{S-Q6}{Resistência}{A aplicação resiste a ataques e vulnerabilidades conhecidas?}
+\rM{S-M11}{Vulnerabilidades altas ou críticas nas dependências (\texttt{npm audit})}{0 / 1--3, sem crítica / crítica ou $\geq$\,4}{5 altas, nenhuma crítica (recorte web)}{0}
+\rM{S-M12}{\textit{Advisories} e CVEs~\cite{ghadvisory} e tempo médio de correção}{$\leq$\,30 d / 31--90 d / $>$\,90 d ou sem correção}{1 aviso aplicável sem correção}{0}
+\rM{S-M13}{Nota dos cabeçalhos HTTP de segurança (securityheaders.com)}{A ou A+ / B ou C / D a F}{C (3 de 6 cabeçalhos; sem CSP)}{1}
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[!t]
+\caption{Métricas de Flexibilidade (O3 e O4): definição, níveis, valor medido e nota. Fonte: evidências F-M1 a F-M12 no repositório.}
+\label{tab:rflex}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.95}
+\begin{tabular}{@{}L{0.95cm} L{6.9cm} L{4.0cm} L{4.3cm} c@{}}
+\rhead
+\rQ{F-Q1}{Adaptabilidade}{O Excalidraw funciona de forma consistente em diferentes navegadores e sistemas operacionais?}
+\rM{F-M1}{Navegadores sem falha nas tarefas $\div$ testados (Chrome, Firefox, Edge e Safari)}{$\geq$\,75\% / 50--74\% / $<$\,50\%}{4 de 4 (100\%)}{2}
+\rM{F-M2}{Sistemas sem falha $\div$ testados (Windows, macOS, Android, iOS, iPadOS)}{$\geq$\,80\% / 60--79\% / $<$\,60\%}{3 de 5 (60\%)}{1}
+\rM{F-M3}{Defeitos específicos de ambiente (renderização, fontes, atalhos)}{0 / 1 a 3 / $\geq$\,4}{2 (área de transferência no Android; rolagem no iPadOS)}{1}
+\rQ{F-Q2}{Adaptabilidade}{A aplicação se adapta a diferentes dispositivos e condições de uso?}
+\rM{F-M4}{Funções operáveis por toque $\div$ operáveis com mouse}{$\geq$\,90\% / 70--89\% / $<$\,70\%}{25 de 25 (100\%; emulado)}{2}
+\rM{F-M5}{Funções que funcionam sem conexão $\div$ testadas}{$\geq$\,80\% / 50--79\% / $<$\,50\%}{16 de 23 (69,6\%)}{1}
+\rM{F-M6}{Larguras sem perda de elementos (360, 768, 1366 e 2560 px)}{4 / 3 / $\leq$\,2}{3 de 4 (em 360 px somem zoom e trava)}{1}
+\rQ{F-Q3}{Substituibilidade}{O Excalidraw pode substituir uma ferramenta equivalente sem perda de funcionalidade e produtividade?}
+\rM{F-M7}{Funções da ferramenta anterior presentes $\div$ total}{$\geq$\,90\% / 70--89\% / $<$\,70\%}{24 de 42 do draw.io (57,1\%)}{0}
+\rM{F-M8}{Tempo da tarefa no Excalidraw $\div$ na ferramenta anterior}{$\leq$\,1,0 / $\leq$\,1,5 / $>$\,1,5}{94 s $\div$ 132 s no Lucidchart = 0,71}{2}
+\rM{F-M9}{Tarefas concluídas $\div$ propostas, por quem vem de outra ferramenta}{$\geq$\,90\% / 70--89\% / $<$\,70\%}{2 de 2 (100\%; n = 1)}{2}
+\rQ{F-Q4}{Substituibilidade}{Os dados podem ser migrados para dentro e para fora do Excalidraw sem perdas?}
+\rM{F-M10}{Formatos abertos de exportação $\div$ formatos relevantes}{$\geq$\,80\% / 50--79\% / $<$\,50\%}{3 de 5 (60\%; sem PDF e JPEG)}{1}
+\rM{F-M11}{Elementos preservados após exportar e reimportar $\div$ total}{100\% / 90--99\% / $<$\,90\%}{12 de 12 (100\%)}{2}
+\rM{F-M12}{Formatos de importação aceitos}{$\geq$\,3 / 2 / $\leq$\,1}{4}{2}
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[!t]
+\caption{Métricas de Capacidade de interação, parte 1 (O5). Fonte: evidências e sessões com participantes no repositório.}
+\label{tab:rci1}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.95}
+\begin{tabular}{@{}L{0.95cm} L{6.9cm} L{4.0cm} L{4.3cm} c@{}}
+\rhead
+\rQ{CI-Q1}{Reconhecibilidade da adequação}{O usuário reconhece rapidamente se o Excalidraw atende à sua necessidade?}
+\rM{CI-M1}{Tempo até identificar o propósito na tela inicial (T1)}{$\leq$\,10 s / 11--30 s / $>$\,30 s}{18,7 s (n = 3)}{1}
+\rM{CI-M2}{Participantes que descrevem corretamente a ferramenta $\div$ total (T2)}{$\geq$\,90\% / 70--89\% / $<$\,70\%}{4 de 4 (100\%)}{2}
+\rM{CI-M3}{Ícones identificados sem \textit{tooltip} $\div$ total (autodescritividade, T3)}{$\geq$\,80\% / 50--79\% / $<$\,50\%}{42 de 52 (80,8\%)}{2}
+\rQ{CI-Q2}{Apreensibilidade}{Um usuário novo consegue aprender a usar as funções básicas sem treinamento?}
+\rM{CI-M4}{Tempo para concluir a primeira tarefa sem ajuda (T4)}{$\leq$\,3 min / $\leq$\,5 min / $>$\,5 min}{0,6 min (n = 3)}{2}
+\rM{CI-M5}{Tarefas concluídas sem ajuda $\div$ propostas (T4 e T5)}{$\geq$\,90\% / 70--89\% / $<$\,70\%}{5 de 8 (62,5\%)}{0}
+\rM{CI-M6}{Consultas à ajuda por participante}{$\leq$\,1 / 2 a 3 / $\geq$\,4}{0,5}{2}
+\rQ{CI-Q3}{Apreensibilidade}{A ferramenta oferece recursos que apoiam o aprendizado contínuo?}
+\rM{CI-M7}{Funções documentadas no diálogo de ajuda $\div$ disponíveis (autodescritividade)}{$\geq$\,80\% / 50--79\% / $<$\,50\%}{46 de 74 (62,2\%)}{1}
+\rM{CI-M8}{Tempo da tarefa na 1.ª sessão $\div$ na 3.ª sessão}{$\geq$\,1,3 / $>$\,1,0 / $\leq$\,1,0}{Não medida (uma sessão por pessoa)}{---}
+\rQ{CI-Q4}{Operabilidade}{As tarefas comuns podem ser realizadas de forma eficiente?}
+\rM{CI-M9}{Média de ações para criar forma, mudar cor, agrupar e exportar}{$\leq$\,3 / 4 a 5 / $\geq$\,6}{2,5}{2}
+\rM{CI-M10}{Funções frequentes com atalho de teclado $\div$ funções frequentes}{$\geq$\,80\% / 50--79\% / $<$\,50\%}{17 de 17 (100\%)}{2}
+\rM{CI-M11}{Tempo médio de experientes $\div$ de iniciantes (T5)}{$\leq$\,0,5 / $\leq$\,0,8 / $>$\,0,8}{2,55 $\div$ 6,25 min = 0,41}{2}
+\rQ{CI-Q5}{Operabilidade}{A interface se comporta de forma consistente e previsível?}
+\rM{CI-M12}{Casos em que a mesma ação se comporta diferente (seleção, \textit{snapping}, texto)}{0 / 1 a 2 / $\geq$\,3}{0 em 11 casos}{2}
+\rM{CI-M13}{Ações com retorno visual imediato $\div$ ações testadas}{100\% / 90--99\% / $<$\,90\%}{13 de 13 (sem medir latência)}{2}
+\rQ{CI-Q6}{Proteção contra erros}{O sistema evita e permite recuperar erros do usuário?}
+\rM{CI-M14}{Ações revertíveis por desfazer e refazer $\div$ ações testadas}{100\% / 90--99\% / $<$\,90\%}{11 de 13 (84,6\%; tema e zoom)}{0}
+\rM{CI-M15}{Ações destrutivas sem confirmação}{0 / 1 a 2 / $\geq$\,3}{1 de 4 tipos (abrir arquivo)}{1}
+\rM{CI-M16}{Perda de dados ao fechar a aba ou recarregar? Sim/Não}{Não / --- / Sim}{Não (2 cenários)}{2}
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[!t]
+\caption{Métricas de Capacidade de interação, parte 2 (O5 e O6). Fonte: evidências e sessões com participantes no repositório.}
+\label{tab:rci2}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.95}
+\begin{tabular}{@{}L{0.95cm} L{6.9cm} L{4.0cm} L{4.3cm} c@{}}
+\rhead
+\rQ{CI-Q7}{Proteção contra erros}{Os erros cometidos são frequentes e fáceis de entender?}
+\rM{CI-M17}{Ações erradas $\div$ ações nas sessões (T4 e T5)}{$\leq$\,5\% / $\leq$\,10\% / $>$\,10\%}{44 de 189 (23,3\%)}{0}
+\rM{CI-M18}{Mensagens de erro que explicam o problema e a ação $\div$ mensagens}{$\geq$\,80\% / 50--79\% / $<$\,50\%}{8 de 18 (44\%)}{0}
+\rQ{CI-Q8}{Engajamento do usuário}{A interface é agradável e satisfatória para o usuário?}
+\rM{CI-M19}{Escore SUS~\cite{brooke96}, de 0 a 100}{$\geq$\,68 / 51--67 / $<$\,51}{82,9 (de 47,5 a 97,5)}{2}
+\rM{CI-M20}{Satisfação visual, média Likert de 1 a 5}{$\geq$\,4,0 / 3,0--3,9 / $<$\,3,0}{4,22}{2}
+\rM{CI-M21}{Participantes que usariam a ferramenta novamente $\div$ total}{$\geq$\,80\% / 60--79\% / $<$\,60\%}{6 de 6 (100\%)}{2}
+\rQ{CI-Q9}{Assistência ao usuário}{Pessoas com deficiência conseguem usar o Excalidraw?}
+\rM{CI-M22}{Violações da WCAG 2.2~\cite{wcag22} A e AA (axe e Lighthouse)}{0 / 1 a 5 / $\geq$\,6}{6}{0}
+\rM{CI-M23}{Funções operáveis sem mouse $\div$ funções testadas}{$\geq$\,90\% / 60--89\% / $<$\,60\%}{18 de 28 (64,3\%)}{1}
+\rM{CI-M24}{Elementos do desenho anunciados pelo leitor de tela $\div$ total}{$\geq$\,80\% / 40--79\% / $<$\,40\%}{1 de 9 (11,1\%; NVDA e Edge)}{0}
+\rM{CI-M25}{Combinações com contraste $\geq$\,4,5:1 (WCAG 2.2, 1.4.3~\cite{wcag22}) $\div$ testadas}{100\% / $\geq$\,80\% / $<$\,80\%}{8 de 19 (42,1\%)}{0}
+\rQ{CI-Q10}{Inclusividade}{A ferramenta se adapta a diferentes perfis de usuário?}
+\rM{CI-M26}{\textit{Strings} traduzidas para o português do Brasil $\div$ total}{$\geq$\,95\% / 70--94\% / $<$\,70\%}{594 de 642 (92,5\%); 57 idiomas}{1}
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[!t]
+\caption{Respostas às 20 questões GQM: média em percentual do máximo (A: atendida; P: parcial; N: não atendida), hipótese e julgamento. Fonte: relatório de resultados da equipe.}
+\label{tab:questoes}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.95}
+\begin{tabular}{@{}L{0.95cm} L{1.15cm} L{4.9cm} L{1.5cm} L{7.9cm}@{}}
+\toprule
+\textbf{Questão} & \textbf{Média} & \textbf{Hipótese} & \textbf{Julgamento} & \textbf{Resposta com base nas métricas}\\
+\midrule
+S-Q1 & 50,0\% P & Sim: AES-GCM no navegador e chave no fragmento \texttt{\#} & Parcial & Desenho cifrado e chave fora do servidor, mas um tipo de evento leva o nome em claro\\
+S-Q2 & 0,0\% N & Não: sem senha, expiração nem revogação; cena sem cifra & Confirmada & Quem tem o link entra; encerrar a sessão do criador não invalida o link; cena legível no navegador\\
+S-Q3 & 75,0\% A & Sim: cifra autenticada e reconciliação por versão & Parcial & Toda adulteração foi rejeitada, mas 2 de 8 rodadas concorrentes divergiram, uma delas por 2 min\\
+S-Q4 & 0,0\% N & Não: sem histórico nem autor das alterações & Confirmada & Nenhuma ação com autor verificável; desfazer e presença não formam trilha auditável\\
+S-Q5 & 25,0\% N & Não: só um nome, sem login & Confirmada & Duas conexões distintas passaram a aparecer com o mesmo nome, sem alerta\\
+S-Q6 & 16,7\% N & Parcial: poucas críticas, mas sem CSP & Parcial & Nenhuma crítica, mas cinco altas, um aviso sem correção e cabeçalhos incompletos\\
+\midrule
+F-Q1 & 66,7\% P & Sim, com diferenças no macOS e no Safari & Parcial & Navegadores no macOS sem falha; as falhas surgiram nos aparelhos móveis, não no macOS\\
+F-Q2 & 66,7\% P & Parcial: rede para colaboração e IA e limites no toque & Parcial & Toque sem limitação nas 25 funções; colaboração, IA, idioma e Mermaid dependem de rede\\
+F-Q3 & 66,7\% P & Parcial: o básico em tempo parecido, não o avançado & Confirmada & Diagrama-modelo em 71\% do tempo, mas faltam tabelas, \textit{swimlanes} e camadas\\
+F-Q4 & 83,3\% A & Parcial: \texttt{.excalidraw} preserva tudo; sem importar draw.io ou Miro & Confirmada & 100\% de fidelidade no formato próprio; nenhum formato de outra ferramenta vira diagrama editável\\
+\midrule
+CI-Q1 & 83,3\% A & Sim, em poucos segundos & Parcial & Todos reconheceram o propósito, mas só um respondeu em até 10 s\\
+CI-Q2 & 66,7\% P & Sim: convenções de editores gráficos & Parcial & A T4 saiu em menos de 1 min, mas as três falhas foram na T5; ninguém abriu a ajuda\\
+CI-Q3 & --- & Parcial: ajuda e dicas, sem tutorial & Parcial & Ajuda sem abrir, salvar e exportar e sem tutorial; o aprendizado entre sessões não foi medido\\
+CI-Q4 & 100\% A & Sim: atalhos de uma tecla aceleram experientes & Confirmada & Poucas ações, atalhos para todas as funções frequentes e experientes bem mais rápidos\\
+CI-Q5 & 100\% A & Parcial: seleção e texto variam com o contexto & Refutada & Nenhuma inconsistência nos casos testados: melhor que o previsto\\
+CI-Q6 & 50,0\% P & Sim: desfazer, autosave e confirmação ao limpar & Parcial & Recuperação e autosave presentes, mas abrir outro arquivo substitui a cena sem aviso\\
+CI-Q7 & 0,0\% N & Parcial: poucos erros, alguns acidentais & Refutada & Erros mais de duas vezes acima do limite (47,1\% em P03) e mensagens pouco explicativas\\
+CI-Q8 & 100\% A & Sim: estilo agrada e SUS acima de 68 & Confirmada & Estilo desenhado à mão com 4,7; o modo escuro dividiu opiniões (3,3)\\
+CI-Q9 & 12,5\% N & Parcial: menus pelo teclado, \textit{canvas} não anunciado & Parcial & O \textit{canvas} é lido só como ``Tela de desenho''; o teclado também falha em parte dos menus\\
+CI-Q10 & 50,0\% P & Sim: dezenas de idiomas e 96\% em pt-BR & Parcial & Os 96\% contam só as chaves do arquivo pt-BR; sobre todas as \textit{strings}, 92,5\%\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\textbf{Segurança.} A colaboração protege o conteúdo contra leitura e
+adulteração: as 221 mensagens adulteradas foram rejeitadas sem alterar a
+cena, e a chave não apareceu no tráfego. Mas não controla quem entra nem
+registra quem faz o quê: encerrar a participação do criador não invalidou o
+link, e duas conexões distintas passaram a aparecer como o mesmo
+participante. A coleta revelou ainda achados que não mudam notas: uma
+mensagem válida reenviada é aceita, porque a cifra não usa contador; cada
+mensagem inválida abre um alerta bloqueante, e quem souber só o
+identificador da sala pode inundar a sessão (21 mensagens geraram 21
+alertas); e, depois de um empate de versão, a edição de outro participante
+pode ser descartada em silêncio, o que persistiu por 2 min numa das rodadas.
+
+\textbf{Flexibilidade.} O editor funcionou nos quatro navegadores, nas 25
+funções por toque e, sem rede, no núcleo de desenho e edição; o formato
+próprio e as imagens PNG e SVG com a cena incorporada preservaram os 12
+elementos e os 34 atributos comparados. Os problemas apareceram nos
+aparelhos reais (erro de área de transferência no Firefox do Android e
+rolagem travada no Safari do iPadOS), na largura de 360~px, em que somem os
+botões de zoom e de trava, e nas funções avançadas: faltam tabelas,
+\textit{swimlanes}, camadas e importação de arquivos \texttt{.drawio}. O
+participante vindo do Lucidchart reproduziu o diagrama-modelo em 94~s,
+contra 132~s na ferramenta que já usava.
+
+\textbf{Capacidade de interação.} O primeiro contato é bom: todos
+reconheceram o propósito, a primeira tarefa levou 0,6~min e as tarefas
+frequentes pedem 2,5 ações. Mas os iniciantes erraram 44 de 189 ações, com
+grande variação (47,1\% em P03, 21,6\% em P04, 8,7\% em P01 e nenhuma em
+P05), e as três tarefas não concluídas sem ajuda foram na T5; ninguém abriu
+o diálogo de ajuda, e as dúvidas foram levadas à facilitadora. Na
+acessibilidade, o NVDA lê o \textit{canvas} só como ``Tela de desenho'' e
+anuncia apenas o nome do \textit{frame}, único elemento em HTML; seleção e
+mudanças feitas pelo teclado não produzem fala.
+
+\subsection{Julgamento dos objetivos e decisões}
+\label{sec:julgamento}
+
+A Figura~\ref{fig:objetivos} mostra o percentual de cada objetivo. O1
+(41,7\%), O2 (13,9\%) e O6 (31,3\%) não foram atendidos; O3 (66,7\%) e O5
+(71,4\%) foram parcialmente atendidos; e O4 (75,0\%), atendido, no limite. O
+O5 foi calculado com as sete questões que têm média; com a CI-Q3 só pela
+CI-M7 seria 68,8\%, e com a CI-M8 como zero, 65,6\%, parcial nos três casos.
+A Tabela~\ref{tab:decisoes} aplica os critérios definidos na Fase~1.
+
+\begin{figure}[!t]
+\centering
+\begin{tikzpicture}[font=\scriptsize, x=0.5mm, y=5.2mm]
+\draw (0,0.6) -- (0,-5.6);
+\draw[dashed] (50,0.6) -- (50,-5.6) node[below] {50\%};
+\draw[dashed] (75,0.6) -- (75,-5.6) node[below] {75\%};
+\foreach \y/\lab/\v/\t/\cor in {
+  0/{O1 Proteção e acesso}/41.7/{41,7}/gray!25,
+  1/{O2 Autoria e riscos}/13.9/{13,9}/gray!25,
+  2/{O3 Ambientes}/66.7/{66,7}/gray!55,
+  3/{O4 Migração}/75.0/{75,0}/gray!85,
+  4/{O5 Uso e aprendizagem}/71.4/{71,4}/gray!55,
+  5/{O6 Acessibilidade}/31.3/{31,3}/gray!25}{
+  \fill[\cor] (0,-\y-0.35) rectangle (\v,-\y+0.35);
+  \draw (0,-\y-0.35) rectangle (\v,-\y+0.35);
+  \node[anchor=east] at (-1,-\y) {\lab};
+  \node[anchor=west, fill=white, inner sep=1pt] at (\v+1,-\y) {\t\%};}
+\node[anchor=west] at (0,-6.6) {\tikz\fill[gray!25] (0,0) rectangle (2mm,2mm); não atendido \quad \tikz\fill[gray!55] (0,0) rectangle (2mm,2mm); parcial \quad \tikz\fill[gray!85] (0,0) rectangle (2mm,2mm); atendido};
+\end{tikzpicture}
+\caption{Percentual do máximo por objetivo, com os limites de 50\% e 75\%. Fonte: relatório de resultados da equipe.}
+\label{fig:objetivos}
+\end{figure}
+
+\begin{table}[!t]
+\caption{Decisões das partes interessadas, critérios da Fase 1 e resultado. Fonte: elaboração própria.}
+\label{tab:decisoes}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}L{1.55cm} L{2.2cm} L{4.4cm}@{}}
+\toprule
+\textbf{Decisão} & \textbf{Critério} & \textbf{Resultado}\\
+\midrule
+Usar o link gratuito para diagramas sensíveis & O1 e O2 atendidos e nenhuma nota 0 em confidencialidade & \textbf{Não recomendado}: O1 e O2 não atendidos; S-M1, S-M3 e S-M4 com nota 0\\
+Adotar em aula com alunos no celular ou com deficiência & O1, O3, O5 e O6 ao menos parciais & \textbf{Critério não atingido}: O1 e O6 não atendidos. Restrições: não usar com leitor de tela (CI-M24), atenção ao contraste (CI-M25) e ao zoom bloqueado (CI-M22)\\
+Migrar do draw.io ou do Miro & O4 atendido e fidelidade de 100\% & \textbf{Recomendado para diagramas básicos}; não para quem depende de tabelas, \textit{swimlanes} ou camadas (F-M7)\\
+O que corrigir primeiro & Um relato por nota 0 & 16 oportunidades (Seção~\ref{sec:melhoria}), começando por Segurança\\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \subsection{Relações entre as características}
-% Discutir as relações com base nos resultados, indicando as evidências, as
-% limitações e os casos em que os dados não permitem estabelecer relações.
+Entre Segurança e Capacidade de interação, entrar só com o link e um nome
+autodeclarado é o que torna a ferramenta fácil, e é o que impede controlar
+quem entra e verificar quem é quem (S-M3, S-M9 e S-M10). Entre Flexibilidade
+e Segurança, o salvamento automático e o modo offline evitam perder trabalho
+(CI-M16 e F-M5), mas deixam a cena legível no navegador (S-M4). Dentro de
+Capacidade de interação, o SUS é alto (82,9) mesmo com 23,3\% de ações
+erradas, porque os erros foram desfeitos na hora, sem perda de trabalho, o
+que conversa com o desfazer e o autosave da CI-Q6. Entre Flexibilidade e
+acessibilidade, o toque (F-M4) e os atalhos (CI-M10) não substituem a
+operação por leitor de tela (CI-M24), e a tradução (CI-M26) não compensa as
+barreiras do \textit{canvas}. Os dados não permitem afirmar causalidade nem
+compor uma nota global: não se mediu, por exemplo, quanto um login atrasaria
+o uso.
+
 \subsection{Oportunidades de melhoria e ação executada}
 \label{sec:melhoria}
 
-Cada uma das 16 métricas com pontuação 0 gerou uma oportunidade de melhoria, com problema, impacto e recomendação. Elas foram priorizadas pelo impacto no propósito, pelo esforço da correção e pela possibilidade de medir o efeito com o mesmo método da coleta. A prioridade mais alta ficou com o contraste (CI-M25) e as violações da WCAG (CI-M22): o O6 é o objetivo mais fraco de Capacidade de interação (31,3\%) e impede o uso pedagógico, os textos apagados são justamente os que orientam quem está começando, e a correção exige pouco código. As oportunidades de Segurança, do leitor de tela (CI-M24) e as que dependem de novas sessões com participantes exigem mudanças maiores ou não podem ser medidas no prazo.
+Cada uma das 16 métricas com nota 0 gerou uma oportunidade, com problema,
+impacto e recomendação (Tabela~\ref{tab:oport}): 8 em Segurança, 1 em
+Flexibilidade e 7 em Capacidade de interação. Elas foram priorizadas pelo
+impacto no propósito, pelo esforço e pela possibilidade de medir o efeito
+com o mesmo método da coleta.
 
-A ação executada foi uma modificação de código no Excalidraw, a partir do commit \texttt{e7b5346}, guardada numa branch própria (\texttt{melhoria/acessibilidade-38}) para que a cópia avaliada continue intacta. Os textos de apoio, as letras de atalho, a dica de navegação, os atalhos do menu e o botão do Excalidraw+ passaram a usar tons do próprio tema com pelo menos 4,5:1; o \texttt{<meta name="viewport">} deixou de bloquear o zoom do navegador; e o botão do menu, o botão de zoom e dois links do menu ganharam nomes acessíveis que contêm o texto visível. O build de produção foi medido antes e depois das mudanças com o mesmo script da coleta (axe-core e Lighthouse), no mesmo ambiente. O ``antes'' reproduziu exatamente os valores de 13/11 (Tabela~\ref{tab:melhoria}).
-
-\begin{table}[htbp]
+\begin{table*}[!t]
+\caption{Oportunidades de melhoria: uma por métrica com nota 0, com a prioridade atribuída (1 é a mais alta). Fonte: relatório de resultados e página de melhoria da equipe.}
+\label{tab:oport}
 \centering
-\caption{Efeito da ação de melhoria nas métricas de acessibilidade}
-\label{tab:melhoria}
-\small
-\begin{tabular}{@{}lcccc@{}}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.95}
+\begin{tabular}{@{}L{1.15cm} c L{6.3cm} L{8.3cm}@{}}
 \toprule
-\textbf{Métrica} & \textbf{Antes} & \textbf{Depois} & \textbf{Nota antes} & \textbf{Nota depois} \\
+\textbf{Métrica} & \textbf{Prior.} & \textbf{Problema} & \textbf{Recomendação}\\
 \midrule
-CI-M25 · contraste $\geq$ 4,5:1 & 8/19 (42,1\%) & 16/16 (100\%) & 0 & 2 \\
-CI-M22 · violações A e AA & 6 & 2 & 0 & 1 \\
-Lighthouse (acessibilidade) & 87/100 & 100/100 & -- & -- \\
+CI-M25 & 1 & 11 de 19 combinações de texto abaixo de 4,5:1 & Escurecer os cinzas usados em texto e não usar \texttt{opacity} nos atalhos (executada)\\
+CI-M22 & 1 & 6 violações da WCAG 2.2 (zoom bloqueado, nomes e papéis) & Permitir zoom no \texttt{viewport}, nomear o botão do menu e corrigir papéis e rótulos ARIA (executada em parte)\\
+CI-M18 & 2 & Só 8 de 18 mensagens de erro explicam o problema e a saída & Incluir o motivo provável e uma ação, como ``Use PNG, JPEG ou SVG''\\
+CI-M24 & 3 & O leitor de tela anuncia 1 de 9 elementos desenhados & Expor os elementos numa estrutura acessível paralela ao \textit{canvas} e anunciar seleção e mudanças numa região \texttt{aria-live}\\
+S-M1 & 4 & 1 de 6 tipos de evento vai sem cifra (o nome no pedido de seguir) & Enviar o pedido de seguir pelo canal cifrado ou mandar só o identificador do \textit{socket}\\
+S-M3 & 4 & Link de colaboração sem senha, expiração nem revogação & Oferecer senha separada do link, expiração e revogação validadas pelo servidor\\
+S-M4 & 4 & Cena, arquivos e biblioteca sem cifra no navegador & Avisar do salvamento local, permitir não persistir e cifrar com chave do usuário num modo protegido\\
+S-M7 & 4 & Nenhuma das 7 ações tem autor registrado & Registrar ação, participante, horário e operação numa trilha persistente\\
+S-M8 & 4 & Não há histórico de versões, só desfazer e refazer & Guardar versões com data, autor e opção de restaurar\\
+S-M10 & 4 & Um participante assumiu o nome de outro sem bloqueio & Oferecer identidade autenticada ou distinguir nomes repetidos por um identificador visível\\
+S-M11 & 5 & 5 vulnerabilidades altas nas dependências & Atualizar \texttt{nanoid} e \texttt{socket.io-parser} e repetir a auditoria\\
+S-M12 & 5 & \textit{Advisory} aplicável sem correção publicada & Acompanhar a correção e verificar de novo a importação de cenas\\
+F-M7 & 6 & Só 24 de 42 funções do draw.io & Priorizar tabelas, \textit{swimlanes} e importação de arquivos \texttt{.drawio}\\
+CI-M5 & 6 & Só 5 de 8 tarefas de iniciantes concluídas sem ajuda & Mostrar o nome da forma no primeiro uso e destacar a ajuda na tela de boas-vindas\\
+CI-M14 & 6 & Tema e zoom não entram no desfazer & Deixar claro o que o histórico cobre e manter controles para restaurar tema e zoom\\
+CI-M17 & 6 & 23,3\% das ações dos iniciantes foram erradas & Analisar nas gravações os erros mais comuns e reforçar o retorno de seleção e de ferramenta ativa\\
 \bottomrule
 \end{tabular}
-\par\smallskip
-\footnotesize Fonte: elaboração própria, a partir de \texttt{evidencias/melhoria/}.
+\end{table*} A prioridade mais alta ficou com o contraste
+(CI-M25) e as violações da WCAG 2.2 (CI-M22): O6 é o objetivo mais fraco de
+Capacidade de interação e bloqueia o uso pedagógico, os textos apagados são
+os que orientam quem está começando, e a correção é barata. As
+oportunidades de Segurança e a do leitor de tela exigem mudanças no servidor
+ou na arquitetura, e as que dependem de participantes não poderiam ser
+medidas no prazo.
+
+A ação foi uma modificação de código no Excalidraw, a partir do
+\textit{commit} avaliado, na \textit{branch} \texttt{melhoria/acessibilidade-38}, para que a cópia avaliada continue intacta. Os textos de apoio,
+as letras de atalho, a dica de navegação, os atalhos do menu e o botão do
+Excalidraw+ passaram a usar tons do próprio tema com pelo menos 4,5:1; o
+\texttt{meta viewport} deixou de bloquear o zoom; e o botão do menu, o de
+zoom e dois links ganharam nomes acessíveis. O \textit{build} de produção
+foi medido antes e depois com o mesmo \textit{script} da coleta (axe-core e
+Lighthouse), no mesmo ambiente, e o ``antes'' reproduziu os valores de 13/11
+(Tabela~\ref{tab:melhoria} e Figura~\ref{fig:melhoria}).
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.49\columnwidth]{docs/assets/melhoria/contraste-antes-claro.png}\hfill
+\includegraphics[width=0.49\columnwidth]{docs/assets/melhoria/contraste-depois-claro.png}\\[2pt]
+\includegraphics[width=0.49\columnwidth]{docs/assets/melhoria/contraste-antes-escuro.png}\hfill
+\includegraphics[width=0.49\columnwidth]{docs/assets/melhoria/contraste-depois-escuro.png}
+\caption{Tela inicial antes (esquerda) e depois (direita) da correção de contraste, nos modos claro e escuro: a dica de navegação, os atalhos e os textos de boas-vindas ficam legíveis. Fonte: \textit{script} de acessibilidade da equipe, 22/11/2026.}
+\label{fig:melhoria}
+\end{figure}
+
+\begin{table}[!t]
+\caption{Efeito da ação de melhoria nas métricas de acessibilidade. Os 186 textos medidos são os mesmos; depois da correção, algumas cores passaram a coincidir, e os pares distintos de texto e fundo caíram de 19 para 16. Fonte: \texttt{evidencias/melhoria/} no repositório.}
+\label{tab:melhoria}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}L{2.3cm} c c c c@{}}
+\toprule
+\textbf{Métrica} & \textbf{Antes} & \textbf{Depois} & \textbf{Nota antes} & \textbf{Nota depois}\\
+\midrule
+CI-M25, contraste $\geq$\,4,5:1 & 8/19 (42,1\%) & 16/16 (100\%) & 0 & 2\\
+CI-M22, violações A e AA & 6 & 2 & 0 & 1\\
+Lighthouse, acessibilidade & 87/100 & 100/100 & --- & ---\\
+\bottomrule
+\end{tabular}
 \end{table}
 
-Com as duas notas novas, a CI-Q9 passaria de 0,25 para 1,00 e o O6 de 31,3\% para 50,0\% (parcialmente atendido). As notas oficiais continuam as do commit avaliado, pois o ``depois'' mede uma cópia modificada. Continuam a nota 0 da CI-M24, que mantém o uso com leitor de tela não recomendado, e duas violações (o gatilho do seletor de fonte e o papel do menu principal), que exigem mudar a estrutura dos componentes. O zoom liberado não foi testado em aparelho real, e a mudança visual não foi avaliada com usuários.
-\subsection{Gestão do projeto (PSM/CID)}
-% Repetir as medidas da Tabela tab:psm, com as horas registradas, e avaliar o
-% efeito das decisões de gestão da Entrega 1.
+Com as duas notas novas, a CI-Q9 passaria de 0,25 para 1,00 e o O6 de
+31,3\% para 50,0\% (parcialmente atendido). As notas oficiais continuam as
+do \textit{commit} avaliado, porque o ``depois'' mede uma cópia modificada.
+Continuam a nota 0 da CI-M24, que mantém o uso com leitor de tela não
+recomendado, e duas violações que exigem mudar a estrutura dos componentes.
+O zoom liberado não foi testado em aparelho real, e a mudança visual não foi
+avaliada com usuários.
 
-\section{Ameaças à Validade}
+\subsection{Ameaças à validade}
 \label{sec:ameacas}
-As ameaças seguem os quatro tipos de Wohlin et al.~\cite{wohlin12}. Para cada
-um, indica-se o que foi feito para reduzi-las e quanto elas podem mudar o
-resultado.
 
 \textbf{Construção.} Algumas métricas medem uma aproximação do atributo: a
 CI-M18 classifica o texto das mensagens no código, sem medir se o usuário o
-entende; e a CI-M13 observa o retorno visual, sem medir a latência. Duas
+entende, e a CI-M13 observa o retorno visual, sem medir a latência. Duas
 regras foram fixadas depois das sessões: a dúvida sobre o termo ``elipse''
-não conta como ajuda na CI-M5 e na CI-M6, e o gabarito da T3 (CI-M3) veio dos
-dois participantes que acertaram os 13 ícones, conferido com a barra no
-código. Pela regra rígida, a CI-M5 cairia de 62,5\% para 25\%, sem mudar a
-nota; a CI-M3 (80,8\%) fica no limite da nota 2. Os
-denominadores da F-M7, F-M10, CI-M7, CI-M10, S-M1 e S-M6 foram escolhidos por
-quem mediu, registrados em cada evidência e levados ao grupo. Com 3 formatos
-na F-M10, o O4 iria a 83,3\%; com o modelo automatizado na S-M6, o O1 cairia a
-33,3\%, sem mudar os julgamentos. A CI-M8, que exige três sessões com a mesma
-pessoa, não foi medida nem tratada como zero; o O5 fica parcial em todos os
-cenários (de 65,6\% a 71,4\%).
+não conta como ajuda (CI-M5 e CI-M6), e o gabarito da T3 (CI-M3) veio dos dois
+participantes que acertaram os 13 ícones, conferido com a barra no código.
+Pela regra rígida, a CI-M5 cairia de 62,5\% para 25\%, sem mudar a nota; a
+CI-M3 (80,8\%) fica no limite da nota 2. Os denominadores da F-M7, F-M10,
+CI-M7, CI-M10, S-M1 e S-M6 foram escolhidos por quem mediu e registrados nas
+evidências, e os da F-M10, CI-M7 e CI-M10 foram aprovados pelo grupo: com 3
+formatos na F-M10, o O4 iria a 83,3\%;
+com o modelo automatizado na S-M6, o O1 cairia a 33,3\%, sem mudar os
+julgamentos.
 
 \textbf{Interna.} Na F-M8, o Excalidraw veio primeiro, o que favorece a
 ferramenta anterior, e ainda assim a razão foi 0,71. O único participante do
-perfil C marcou no questionário que já usava o Excalidraw, o que favorece a
-ferramenta avaliada; se ele não valer para o perfil, F-M8 e F-M9 ficam sem
-valor. Cada coleta teve um avaliador, e as ações erradas foram contadas por
-uma pessoa, pela transcrição; o protocolo previa dois avaliadores pela
-gravação. A taxa de 23,3\% da CI-M17 depende sobretudo de P03; sem esse
-participante, cairia a 9,9\% (nota 1). Para reduzir essa ameaça, cada evidência foi revisada por outro
-integrante, e a CI-M26 e a CI-M18 foram reavaliadas de forma independente. O
-uso de IA está declarado, com a forma de conferência de cada integrante.
+perfil~C marcou que já usava o Excalidraw, o que favorece a ferramenta
+avaliada; se ele não valer para o perfil, F-M8 e F-M9 ficam sem valor. Cada
+coleta teve um avaliador, e as ações erradas foram contadas por uma pessoa,
+pela transcrição, enquanto o protocolo previa dois avaliadores pela gravação;
+sem P03, a CI-M17 cairia de 23,3\% para 9,9\% (nota 1). Para reduzir essas
+ameaças, cada evidência foi conferida por um segundo avaliador, e a CI-M26 foi
+reavaliada de forma independente; a reavaliação prevista para a CI-M18 não foi
+feita.
 
-\textbf{Externa.} Os resultados valem para o commit \texttt{e7b5346} em
-instância local, com servidor de colaboração local e IA simulada, sem o
-Excalidraw+. O celular e o tablet da F-M4 foram emulados; aparelhos reais
-entraram só na F-M2 e na F-M3, que mostraram falhas no Android e no iPadOS, e
-o Linux não foi testado. As sessões tiveram seis participantes, com uma
-sessão cada, no próprio computador e navegador, e nenhum com deficiência; a
-acessibilidade foi avaliada só com ferramentas. A ferramenta anterior foi o Lucidchart, enquanto a F-M7 usou o
-draw.io.
+\textbf{Externa.} Os resultados valem para o \textit{commit} \texttt{e7b5346}
+em instância local, com servidor de colaboração local e IA simulada, sem o
+Excalidraw+. O celular e o \textit{tablet} da F-M4 foram emulados; aparelhos
+reais entraram só na F-M2 e na F-M3, e o Linux não foi testado. As sessões
+tiveram seis participantes, uma sessão cada, nenhum com deficiência, e a
+ferramenta anterior foi o Lucidchart, enquanto a F-M7 usou o draw.io.
 
 \textbf{Conclusão.} As amostras são pequenas (n = 1 na F-M8 e na F-M9; dois
-experientes contra dois iniciantes na CI-M11), e os resultados são descritivos,
-sem teste estatístico. O O4 fica no limite exato de 75\%, e o O5 perto dele.
-Só dois cenários alternativos mudam um julgamento: se a migração (T6)
-contasse na F-M9, o O4 cairia a 58,3\% (parcial); sem P03 na CI-M17, o O5
-subiria a 75,0\% (atendido). As médias dão o mesmo peso a cada questão, conforme o
-método fixado antes da coleta.
+experientes contra dois iniciantes na CI-M11), e os resultados são
+descritivos, sem teste estatístico. O O4 fica no limite exato de 75\%, e o
+O5 perto dele. Só dois cenários alternativos mudam um julgamento: se a
+migração (T6) contasse na F-M9, o O4 cairia a 58,3\% (parcial); sem P03 na
+CI-M17, o O5 subiria a 75,0\% (atendido).
 
+%% =====================================================================
+%%  V. CONCLUSÃO
+%% =====================================================================
 \section{Conclusão}
 \label{sec:conclusao}
-No commit avaliado, o Excalidraw protege o conteúdo da colaboração, mas não
-controla quem entra nem registra quem fez cada alteração (O1 41,7\% e O2
-13,9\%, não atendidos). Funciona em navegadores, no toque e offline (O3
-66,7\%, parcial) e substitui outra ferramenta para diagramas básicos (O4
-75,0\%, atendido). A interface agrada e é fácil de reconhecer, mas iniciantes
-erram e pedem ajuda (O5 71,4\%, parcial), e o canvas é praticamente
-inacessível ao leitor de tela (O6 31,3\%, não atendido). Para as decisões do
-propósito, o link gratuito não é recomendado para diagramas sensíveis, o uso
-pedagógico com alunos no celular ou com deficiência não atinge o critério, e a
-migração do draw.io ou do Miro é recomendada só para diagramas básicos. Esses
-julgamentos valem para o commit, o ambiente e os participantes avaliados
-(Seção~\ref{sec:ameacas}).
+No \textit{commit} avaliado, o Excalidraw protege o conteúdo da colaboração,
+mas não controla quem entra nem registra quem fez cada alteração (O1 e O2
+não atendidos). Funciona em navegadores, no toque e offline, com falhas em
+aparelhos móveis reais (O3 parcial), e substitui outra ferramenta para
+diagramas básicos (O4 atendido). A interface agrada e é fácil de reconhecer,
+mas iniciantes erram e pedem ajuda (O5 parcial), e o \textit{canvas} é
+praticamente inacessível ao leitor de tela (O6 não atendido). Para as
+decisões do propósito, o link gratuito não é recomendado para diagramas
+sensíveis, o uso pedagógico com alunos no celular ou com deficiência não
+atinge o critério, e a migração é recomendada só para diagramas básicos.
+Esses julgamentos valem para o \textit{commit}, o ambiente e os
+participantes avaliados.
 
-As contribuições são uma avaliação reprodutível, com 51 métricas GQM ligadas
-a evidências, commit e regra de pontuação; scripts reutilizáveis de teste
-offline, resoluções, toque e acessibilidade; um protocolo de sessões com
-registro anônimo; e 16 oportunidades de melhoria, uma por métrica com nota 0.
-Como trabalhos futuros, propõe-se medir a CI-M8 com três sessões por pessoa,
-ampliar a amostra com pessoas com deficiência e vindas do draw.io ou do Miro,
+A experiência mostrou que o GQM com hipóteses explícitas ajuda a separar o
+que a equipe esperava do que foi observado: duas hipóteses foram refutadas,
+uma para melhor e outra para pior. Também mostrou que a regra de registrar
+toda nota 0 evita que médias escondam problemas, como a CI-M24 dentro de
+uma questão com outras métricas melhores. As contribuições são uma avaliação
+reprodutível, com 51 métricas ligadas a evidências e ao \textit{commit};
+\textit{scripts} reutilizáveis de teste offline, resoluções, toque e
+acessibilidade; um protocolo de sessões com registro anônimo; 16
+oportunidades de melhoria; e uma ação executada e medida. Como trabalhos
+futuros, propõe-se medir a CI-M8 com três sessões por pessoa, ampliar a
+amostra com pessoas com deficiência e vindas do draw.io ou do Miro,
 alternar a ordem das ferramentas na F-M8, testar em aparelhos reais e no
-Linux, avaliar o Excalidraw+, fechar as notas provisórias, conferir as sessões
-no vídeo com dois avaliadores e repetir a avaliação em uma versão mais nova.
-\fi
-
-% O \clearpage antes das referências garante que todas as tabelas e figuras
-% saiam antes delas.
+Linux, avaliar o Excalidraw+, conferir as sessões pelo vídeo com dois
+avaliadores, medir a latência na CI-M13 e a compreensão das mensagens na
+CI-M18, propor a correção de acessibilidade ao projeto e
+repetir a avaliação numa versão mais nova.
 
 %% =====================================================================
 %%  DECLARAÇÃO DE USO DE IA
 %% =====================================================================
 \section*{Declaração de Uso de Inteligência Artificial}
-A Tabela~\ref{tab:ia} declara as ferramentas de IA utilizadas, a tarefa, o momento de uso e a conferência feita pela equipe.
-\begin{table*}[!t]
+A Tabela~\ref{tab:ia} resume as ferramentas de IA usadas, a tarefa e a
+conferência feita por cada integrante; o registro completo está na página
+Uso de IA da GitPage.
+
+\begin{table}[!h]
 \centering
 \scriptsize
-\caption{Uso de ferramentas de IA. Fonte: elaboração própria.}
+\caption{Uso de ferramentas de IA. Fonte: declarações dos integrantes na GitPage.}
 \label{tab:ia}
-\setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}L{2.9cm} L{6.0cm} L{1.7cm} L{6.6cm}@{}}
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}L{1.7cm} L{3.2cm} L{3.4cm}@{}}
 \toprule
-\textbf{Ferramenta} & \textbf{Tarefa} & \textbf{Quando} & \textbf{Conferência}\\
+\textbf{Ferramenta (integrante)} & \textbf{Tarefa} & \textbf{Conferência}\\
 \midrule
-Claude (Anthropic) & Geração do modelo LaTeX deste artigo & Out/2026 & Conferiu as seções do modelo com o enunciado e a rubrica da disciplina\\
-Claude Code, Claude Opus 5.5 (André) & Primeira versão da página de propósito e partes interessadas & 18/10/2026 & Comparou o texto com os critérios da entrega e com o material da equipe; corrigiu legendas, termos e ligações aos objetivos\\
-Claude Code, Claude Opus 5.5 (João Pedro) & Comparação entre o documento de definição e a GitPage; transposição de questões, métricas e níveis & 18/10/2026 & Decidiu cada divergência antes da alteração e conferiu as métricas com o documento de definição\\
-Claude Code, Claude Opus 5.5 (João Pedro) & Transposição da GitPage para este artigo e levantamento das medidas PSM no histórico Git & 18 e 19/10/2026 & Comparou o artigo com a GitPage seção por seção e conferiu as medidas PSM no \texttt{git log}\\
-ChatGPT, OpenAI (Zayra) & Refinamento dos objetivos GQM e busca de referências & Out/2026 & Ajustou as sugestões à ISO/IEC 25010:2023 e ao GQM e conferiu a pertinência das referências\\
-Claude Code, Claude Opus 5.5 (Giovanna) & Atualização do artigo a partir da GitPage: redação da gestão com PSM/CID, revisão da metodologia, encurtamento dos objetivos e busca do estudo de caso de referência & 26/10/2026 & Comparou cada trecho com a página correspondente da GitPage e leu o estudo de caso antes de citá-lo\\
-OpenCode, DeepSeek V4.1 Flash & MiniCPM V4.7 35B A3B - Local (Luís) & Orientação na estruturação inicial da GitPage e do artigo em LaTeX; apoio nas métricas, nos commits e nos pull requests, com execução assistida de algumas métricas & Out--Nov/2026 & Revisou e adaptou as sugestões, conferiu as métricas nos registros e fiscalizou a execução da CI-M23 antes de registrar o resultado\\
+Claude Code, Claude Opus 5.5 (André; out. e nov.) & Página de propósito; plano de avaliação; coleta da F-M5, F-M6 e F-M8 a F-M12 e \textit{scripts}; médias e respostas às questões; ação de melhoria & Conferiu a página com os critérios da entrega; repetiu à mão os casos que falharam no \textit{script}; refez as médias com as frações completas; confirmou que o ``antes'' reproduzia a coleta\\
+Claude Code, Claude Opus 5.5 (Giovanna; out. e nov.) & Formatação e diagramas da GitPage; atualização do artigo da Entrega~1; coleta da F-M4 e da F-M7 e \textit{script} de toque & Conferiu páginas e artigo com o material da equipe; definiu o escopo de cada coleta e conferiu os resultados nos relatórios e capturas de tela\\
+Claude Code, Claude Opus 5.5 (João Pedro; out. e nov.) & Comparação do documento de definição com a GitPage; transposição do GQM; transposição da GitPage e das evidências para o artigo nas duas entregas & Decidiu cada divergência antes da alteração; comparou o artigo com a GitPage e as evidências, seção por seção\\
+OpenCode, DeepSeek V4.1 Flash e MiniCPM V4.7 (Luís; out. e nov.) & Estrutura inicial da GitPage e do artigo; apoio nas métricas; análise das gravações da F-M1 a F-M3 & Revisou as sugestões; fiscalizou a execução assistida da CI-M23; conferiu cada vídeo, captura e versão e refez as contagens\\
+Codex/ChatGPT, OpenAI (Renato; out.) & Escrita e revisão de textos; pesquisa de conceitos e referências para a metodologia & Conferiu as pesquisas com as fontes utilizadas no trabalho\\
+ChatGPT, OpenAI (Zayra; out.) & Refinamento dos objetivos GQM e busca de referências & Ajustou as sugestões à ISO/IEC 25010:2023 e ao GQM e conferiu a pertinência das referências\\
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{table}
 
 %% =====================================================================
-%%  REFERÊNCIAS (em página própria)
+%%  REFERÊNCIAS
 %% =====================================================================
-\clearpage
-\raggedbottom % evita espaços esticados entre as referências
 \begin{thebibliography}{00}
-\balance % equilibra as duas colunas da página de referências
 \bibitem{iso25000} ISO/IEC, ``ISO/IEC 25000:2014 --- Systems and software
 engineering --- Systems and software Quality Requirements and Evaluation
 (SQuaRE) --- Guide to SQuaRE,'' Geneva, 2014.
@@ -1359,9 +1193,9 @@ engineering --- SQuaRE --- Quality evaluation framework,'' Geneva, 2024.
 Question Metric approach,'' in \textit{Encyclopedia of Software Engineering},
 J. J. Marciniak, Ed. New York, NY, USA: Wiley, 1994, pp. 528--532.
 
-\bibitem{mcgarry02} J. McGarry \textit{et al.}, \textit{Practical Software
-Measurement: Objective Information for Decision Makers}. Boston, MA, USA:
-Addison-Wesley, 2002.
+\bibitem{wohlin12} C. Wohlin, P. Runeson, M. H\"{o}st, M. C. Ohlsson,
+B. Regnell, and A. Wessl\'{e}n, \textit{Experimentation in Software
+Engineering}. Berlin: Springer, 2012.
 
 \bibitem{excalidraw} Excalidraw, ``Excalidraw,'' GitHub repository.
 [Online]. Available: \url{https://github.com/excalidraw/excalidraw}.
@@ -1371,6 +1205,14 @@ Acesso em: 17 out. 2026.
 Excalidraw Blog, 21 mar. 2020.
 [Online]. Available: \url{https://plus.excalidraw.com/blog/end-to-end-encryption}.
 Acesso em: 19 out. 2026.
+
+\bibitem{calabrese17} J. Calabrese, R. Muñoz, A. Pasini, S. Esponda,
+M. Boracchia, and P. Pesado, ``Asistente para la evaluación de
+características de calidad de producto de software propuestas por ISO/IEC
+25010 basado en métricas definidas usando el enfoque GQM,'' in \textit{Proc.
+XXIII Congreso Argentino de Ciencias de la Computación (CACIC)}, La Plata,
+Argentina, 2017, pp. 660--671. [Online]. Available:
+\url{http://sedici.unlp.edu.ar/handle/10915/63778}. Acesso em: 26 out. 2026.
 
 \bibitem{nicbr25} NIC.br, ``Pesquisa sobre o uso das tecnologias de
 informação e comunicação nos domicílios brasileiros: TIC Domicílios 2024 ---
@@ -1408,12 +1250,6 @@ Interact.}, vol. 24, no. 6, pp. 574--594, 2008.
 \bibitem{devtools} Google, ``Chrome DevTools.'' [Online]. Available:
 \url{https://developer.chrome.com/docs/devtools}. Acesso em: 18 out. 2026.
 
-\bibitem{burp} PortSwigger, ``Burp Suite.'' [Online]. Available:
-\url{https://portswigger.net/burp}. Acesso em: 18 out. 2026.
-
-\bibitem{zap} ZAP, ``Zed Attack Proxy (ZAP).'' [Online]. Available:
-\url{https://www.zaproxy.org/}. Acesso em: 18 out. 2026.
-
 \bibitem{npmaudit} npm, ``npm audit.'' [Online]. Available:
 \url{https://docs.npmjs.com/cli/commands/npm-audit}. Acesso em: 18 out. 2026.
 
@@ -1430,67 +1266,36 @@ Available: \url{https://github.com/advisories}. Acesso em: 18 out. 2026.
 \url{https://developer.chrome.com/docs/lighthouse/overview}. Acesso em:
 18 out. 2026.
 
-\bibitem{wave} WebAIM, ``WAVE Web Accessibility Evaluation Tools.'' [Online].
-Available: \url{https://wave.webaim.org/}. Acesso em: 18 out. 2026.
-
 \bibitem{nvda} NV Access, ``NVDA: NonVisual Desktop Access.'' [Online].
 Available: \url{https://www.nvaccess.org/}. Acesso em: 18 out. 2026.
-
-\bibitem{voiceover} Apple, ``VoiceOver User Guide.'' [Online]. Available:
-\url{https://support.apple.com/guide/voiceover/welcome/mac}. Acesso em:
-18 out. 2026.
-
-\bibitem{calabrese17} J. Calabrese, R. Muñoz, A. Pasini, S. Esponda,
-M. Boracchia, and P. Pesado, ``Asistente para la evaluación de
-características de calidad de producto de software propuestas por ISO/IEC
-25010 basado en métricas definidas usando el enfoque GQM,'' in \textit{Proc.
-XXIII Congreso Argentino de Ciencias de la Computación (CACIC)}, La Plata,
-Argentina, 2017, pp. 660--671. [Online]. Available:
-\url{http://sedici.unlp.edu.ar/handle/10915/63778}. Acesso em: 26 out. 2026.
-
-\bibitem{gao20} U.S. Government Accountability Office, ``Cost Estimating and
-Assessment Guide: Best Practices for Developing and Managing Program Costs,''
-GAO-20-195G, Washington, DC, USA, 2020. [Online]. Available:
-\url{https://www.gao.gov/products/gao-20-195g}. Acesso em: 25 out. 2026.
-
-\bibitem{cnpq25} CNPq, ``Tabela de Valores de Bolsas no País,'' 2025.
-[Online]. Available:
-\url{https://www.gov.br/cnpq/pt-br/acesso-a-informacao/bolsas-e-auxilios/copy_of_modalidades/tabela-de-valores-no-pais}.
-Acesso em: 25 out. 2026.
-\ifentregafinal
-\bibitem{wohlin12} C. Wohlin, P. Runeson, M. H\"{o}st, M. C. Ohlsson,
-B. Regnell, and A. Wessl\'{e}n, \textit{Experimentation in Software
-Engineering}. Berlin: Springer, 2012.
-\fi
 \end{thebibliography}
 
 %% =====================================================================
-%%  APÊNDICES (o Apêndice A não conta no limite de páginas)
+%%  APÊNDICE (não conta no limite de páginas)
 %% =====================================================================
 \clearpage
-\nobalance % o equilíbrio vale só para a página de referências
 \appendices
 
 \section{Tabela de Contribuição dos Integrantes}
 \label{app:contrib}
-A Tabela~\ref{tab:contrib} apresenta a contribuição de cada integrante.
-% Este apêndice não conta no limite de páginas. Os links de rastreabilidade
-% ficam no corpo do texto (o enunciado exige o link do repositório no artigo).
+A Tabela~\ref{tab:contrib} apresenta a contribuição de cada integrante nas
+duas entregas; o registro das atividades de cada um está no repositório.
 \begin{table}[H]
-\caption{Contribuição por integrante. Fonte: histórico do repositório.}
+\caption{Contribuição por integrante. Fonte: plano de avaliação e histórico do repositório.}
 \label{tab:contrib}
 \centering
-\footnotesize
-\begin{tabular}{@{}L{1.3cm} L{2.5cm} L{2.4cm} c@{}}
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}L{1.15cm} L{1.7cm} L{4.5cm} c@{}}
 \toprule
-\textbf{Matrícula} & \textbf{Nome} & \textbf{Responsabilidade} & \textbf{\%}\\
+\textbf{Matrícula} & \textbf{Nome} & \textbf{Responsabilidades} & \textbf{\%}\\
 \midrule
-241025149 & André Henrique de Souza Belarmino & Propósito e partes interessadas; cronograma & $16{,}\overline{6}$\\
-241038998 & Giovanna Felipe Guimarães & Modelo de qualidade e ODS; métricas de desenvolvimento; atualização do artigo & $16{,}\overline{6}$\\
-241011170 & João Pedro Lopes da Cruz & Questões e métricas GQM; priorização; primeira versão do artigo & $16{,}\overline{6}$\\
-241011401 & Luís Felipe Parreira Cunha & GitPage, ferramenta e escopo; métricas de gestão do grupo & $16{,}\overline{6}$\\
-242042215 & Renato Araújo Gameiro & Metodologia; estimativa de custos & $16{,}\overline{6}$\\
-242015989 & Zayra Batista Moraes & Objetivos de medição; métricas PSM/CID & $16{,}\overline{6}$\\
+241025149 & André Henrique de Souza Belarmino & Propósito e partes interessadas; cronograma; plano de avaliação (Fase~3); F-M5, F-M6 e F-M8 a F-M12; médias e respostas às questões; ação de melhoria & $16{,}\overline{6}$\\
+241038998 & Giovanna Felipe Guimarães & Modelo de qualidade e ODS; F-M4, F-M7, CI-M22 e CI-M25; atualização do artigo da Entrega~1 & $16{,}\overline{6}$\\
+241011170 & João Pedro Lopes da Cruz & Questões e métricas GQM; priorização; S-M1, S-M2, S-M5, S-M6, S-M9, S-M13 e CI-M24; artigo & $16{,}\overline{6}$\\
+241011401 & Luís Felipe Parreira Cunha & GitPage; S-M7, S-M8, S-M10, F-M1 a F-M3, CI-M9, CI-M12 e CI-M23 & $16{,}\overline{6}$\\
+242042215 & Renato Araújo Gameiro & Metodologia; S-M3, S-M4, S-M9 e S-M11 a S-M13; CI-M13 a CI-M16; interpretação das questões & $16{,}\overline{6}$\\
+242015989 & Zayra Batista Moraes & Objetivos de medição; protocolo e sessões com participantes (CI-M1 a CI-M6, CI-M11, CI-M17, CI-M19 a CI-M21); CI-M7, CI-M10, CI-M18 e CI-M26 & $16{,}\overline{6}$\\
 \midrule
 \textbf{Total} & & & 100\\
 \bottomrule
