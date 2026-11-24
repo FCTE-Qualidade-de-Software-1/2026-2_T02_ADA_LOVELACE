@@ -1,5 +1,5 @@
 {
- "coletado_em": "2026-11-23T13:15:33+00:00",
+ "coletado_em": "2026-11-24T16:37:11+00:00",
  "prs": [
   {
    "numero": 1,
@@ -744,6 +744,21 @@
      "revisor": "andrehsb",
      "estado": "APPROVED",
      "em": "2026-11-23T13:14:37Z"
+    }
+   ]
+  },
+  {
+   "numero": 116,
+   "titulo": "docs: revisa a GitPage e o artigo para a entrega final",
+   "autor": "andrehsb",
+   "integrado_por": "cunha-luiss",
+   "criado_em": "2026-11-24T02:20:50Z",
+   "integrado_em": "2026-11-24T16:36:26Z",
+   "revisoes": [
+    {
+     "revisor": "cunha-luiss",
+     "estado": "APPROVED",
+     "em": "2026-11-24T16:36:00Z"
     }
    ]
   }

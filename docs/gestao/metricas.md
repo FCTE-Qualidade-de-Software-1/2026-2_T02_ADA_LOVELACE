@@ -285,7 +285,7 @@ marcadores automáticos não deve ser editado à mão.
 <!-- BEGIN AUTO: membros-commits -->
 | Integrante identificado | Commits não-merge |
 | --- | ---: |
-| João Pedro Lopes da Cruz | 37 |
+| João Pedro Lopes da Cruz | 38 |
 | giovannafg | 19 |
 | Luis Felipe | 18 |
 | Renato Araújo Gameiro | 17 |
@@ -298,9 +298,9 @@ marcadores automáticos não deve ser editado à mão.
 | Renato Gameiro | 1 |
 | renatvg | 1 |
 | Zayra Moraes | 1 |
-| **Total** | **135** |
+| **Total** | **136** |
 
-*Última coleta: 2026-11-23T13:15:05+00:00, referência `main`.*
+*Última coleta: 2026-11-24T16:36:45+00:00, referência `main`.*
 <!-- END AUTO: membros-commits -->
 
 O valor é uma evidência auxiliar de **G-I1**, não uma medida de esforço,
