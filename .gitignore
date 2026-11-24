@@ -52,3 +52,12 @@ evidencias/participantes/privado/
 
 # Dependências do script da CI-M24 (Guidepup)
 scripts/node_modules/
+
+# Artefatos gerados pelo LaTeX
+/main.aux
+/main.fdb_latexmk
+/main.fls
+/main.log
+/main.out
+/main.pdf
+/main.synctex.gz
